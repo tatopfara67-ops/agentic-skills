@@ -1,0 +1,3 @@
+scheme,host,port,path_rule,methods,notes
+https,*.target.id,443,/api/*,GET POST,contoh baris — hapus dan ganti dengan scope program asli; no PUT/PATCH/DELETE saat fase konfirmasi
+https,staging.target.id,443,/*,GET,contoh baris — unloved asset jadi hunting ground utama

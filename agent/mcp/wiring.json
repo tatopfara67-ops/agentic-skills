@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "kali-bridge": {
+      "transport": "rest-tunnel",
+      "auth_header": "X-Bridge-Token",
+      "token_source": "pesan operator sesi ini saja — di memori, never in files",
+      "endpoints": ["/api/health", "/api/run_command", "/api/nmap", "/api/http_request", "/api/nuclei", "/api/gobuster", "/api/js_recon", "/api/surface_diff", "/api/findings_add", "/api/execute_tactical_skill", "/sse"],
+      "note": "URL tunnel TryCloudflare rotasi tiap restart bridge — selalu ambil URL terbaru dari pesan operator, jangan pernah hardcode"
+    },
+    "acb": {
+      "command": "/home/z/my-project/bin/acb-mcp",
+      "args_pattern": ["serve", "--graph", "<repo-target>.acb", "--name", "<nama>"],
+      "tools": ["symbol_lookup", "impact_analysis", "list_units", "graph_stats"],
+      "compile": "/home/z/my-project/bin/acb compile <repo> -o <repo-target>.acb"
+    },
+    "github": {
+      "command": "/home/z/my-project/bin/github-mcp-server",
+      "args": ["stdio"],
+      "env": "GITHUB_PERSONAL_ACCESS_TOKEN dari /home/z/my-project/mcp/.env (chmod 600)",
+      "tools_for_intel": ["get_file_contents", "list_commits", "search_code", "search_repositories"],
+      "use_for": ["patch archaeology", "silent-patch mining", "changelog intel"]
+    }
+  },
+  "hard_rules": [
+    "Setiap panggilan yang menyentuh target WAJIB lewat scope gate dulu (L1)",
+    "Semua token: dari pesan operator sesi ini, di memori saja, rotate bila pernah nempel di chat",
+    "Auto-capture artefak untuk setiap request yang dikirim (L5)"
+  ]
+}

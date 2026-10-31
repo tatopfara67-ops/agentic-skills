@@ -1,0 +1,15 @@
+{
+  "program": "<program>",
+  "findings": [
+    {
+      "id": "F-001",
+      "hypothesis": "H-001",
+      "title": "contoh — hapus baris ini",
+      "status": "draft|verified|submitted|accepted|rejected",
+      "artifacts": ["findings/F-001/req-control.txt", "findings/F-001/req-test.txt"],
+      "differential": "delta yang dinamai",
+      "impact": "damage yang didemonstrasi (canary/two-account)",
+      "severity": "per bounty table program"
+    }
+  ]
+}

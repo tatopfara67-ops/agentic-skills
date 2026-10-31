@@ -1,0 +1,9 @@
+{
+  "program": "<program>",
+  "engagement_started": "YYYY-MM-DD",
+  "sessions": [
+    {"date": "YYYY-MM-DD", "summary": "satu baris", "hypotheses_opened": 0, "hypotheses_killed": 0, "findings_verified": 0}
+  ],
+  "budget": {"token_in": 0, "token_out": 0, "token_cached": 0, "cost_usd_est": 0.0},
+  "next_action": "hipotesis prior tertinggi / langkah resume berikutnya"
+}

@@ -1,0 +1,16 @@
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "POST", "path": "/login", "status": 200}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/api/notes", "status": 200}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "GT-001-IDOR", "note_id": "7", "owner": "canary_user", "reader": "hunter", "canary": true}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/api/notes?id=7", "status": 200}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "GT-003-XSS", "pattern": "<svg"}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/search?q=%3Csvg%20onload%3Dalert(1)%3E", "status": 200}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "GT-002-OPEN-REDIRECT", "url": "https://evil.example"}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/redirect?url=https://evil.example", "status": 302}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/redirect?url=/login", "status": 302}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "GT-004-HEADER-TRUST-BYPASS", "header": "X-Internal-Auth"}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/admin", "status": 200}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/admin", "status": 403}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "GT-005-INFO-DISCLOSURE", "path": "/api/config"}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/api/config", "status": 200}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "GT-006-SIMULATED-SQLI", "payload_family": "boolean-or/union", "sink": "user-search filter"}
+{"ts": "2026-10-30T11:59:54+00:00", "event": "REQ", "method": "GET", "path": "/api/users?name=x%27+OR+%271%27%3d%271", "status": 200}

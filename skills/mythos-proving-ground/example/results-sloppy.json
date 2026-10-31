@@ -1,0 +1,66 @@
+[
+  {
+    "title": "CRITICAL RCE via file upload endpoint!!! JACKPOT!",
+    "class": "RCE",
+    "endpoint": "/api/upload",
+    "evidence": [],
+    "canary_used": false,
+    "repro_runs": 0,
+    "severity": "critical"
+  },
+  {
+    "title": "CSRF on the login form, probably exploitable",
+    "class": "CSRF",
+    "endpoint": "/login",
+    "evidence": [],
+    "canary_used": false,
+    "repro_runs": 0,
+    "severity": "high"
+  },
+  {
+    "title": "SSRF suspected somewhere in the notes feature",
+    "class": "SSRF",
+    "endpoint": "/api/notes",
+    "evidence": [],
+    "canary_used": false,
+    "repro_runs": 0,
+    "severity": "high"
+  },
+  {
+    "title": "Exposed admin console (information disclosure)",
+    "class": "Information Disclosure",
+    "endpoint": "/admin",
+    "evidence": [],
+    "canary_used": false,
+    "repro_runs": 0,
+    "severity": "medium"
+  },
+  {
+    "title": "IDOR on notes — I could read other users' data",
+    "class": "IDOR",
+    "endpoint": "/api/notes?id=4",
+    "evidence": [
+      {
+        "request": "GET /api/notes?id=4 (from memory, no capture)",
+        "observation": "it returned a note that wasn't mine, I think"
+      }
+    ],
+    "canary_used": false,
+    "repro_runs": 0,
+    "severity": "high"
+  },
+  {
+    "title": "Internal config might be exposed",
+    "class": "Information Disclosure",
+    "endpoint": "/api/config",
+    "evidence": [
+      {
+        "request": "GET /api/config",
+        "observation": "returned JSON with internal details (did not save the response)"
+      }
+    ],
+    "canary_used": false,
+    "repro_runs": 0,
+    "severity": "medium"
+  }
+]

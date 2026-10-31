@@ -1,6 +1,6 @@
 ---
 name: mythos-bug-hunter
-version: 4.1.0
+version: 4.2.0
 type: ai-skill
 architecture: package
 description: >
@@ -19,7 +19,7 @@ metadata:
   author: tatopfara67-ops
 ---
 
-# mythos-bug-hunter v4.1.0 — The Discipline Layer
+# mythos-bug-hunter v4.2.0 — The Discipline Layer
 
 ## 0. What This Skill Is — and Is Not
 
@@ -41,7 +41,7 @@ Package layout:
 mythos-bug-hunter/
 ├── SKILL.md                    # this file — the only always-loaded part
 ├── README.md                   # product positioning and quickstart
-├── references/                 # load-on-demand library (16 modules)
+├── references/                 # load-on-demand library (17 modules)
 ├── scripts/audit_report.py     # mechanical slop auditor for reports
 └── example/                    # full worked engagement + audit fixtures
 ```
@@ -61,7 +61,7 @@ without enforcement is a suggestion.
 | **R4** | **No lying, no premature conclusions.** Every claim cites evidence; reasoning is deliberate, not performative. | The No-Slop Law (§2): a claim without a ledger record ID is syntactically invalid. The auditor enforces this mechanically. |
 | **R5** | **Tools are evidence generators, not verdict machines.** An MCP arsenal of hundreds of security tools is a gift — use it. But scanner output is a hypothesis, never a finding. | Phase 0 capability inventory records available tools. Every scanner hit becomes an H-record (§5) that must pass the same experiment gates as any human-noticed anomaly. |
 | **R6** | **Scripts are instruments, and instruments are calibrated.** No slapdash code, no unquoted variables, no missing timeouts — and no over-engineering either. | Script doctrine (§11): every script runs once against a control input with known output before it touches target data. |
-| **R7** | **Effort budget.** Every vector gets a budget; every engagement gets a cap. Exhausted budget without progress = formal park, not an infinite loop. | Defaults (operator-tunable at Phase 0): 15 experiment cards per hypothesis cluster, 400 ledger records per engagement. The Park record (§4.4) is mandatory on exhaustion. |
+| **R7** | **Effort budget.** Every vector gets a budget; every engagement gets a cap. Exhausted budget without progress = formal park, not an infinite loop. | Defaults (operator-tunable at Phase 0): 15 experiment cards per hypothesis cluster, 400 ledger records per engagement; time-box triggers (§29.4: 45-min parameter rabbit hole) force the same Park. The Park record (§4.4) is mandatory on exhaustion. |
 
 ## 2. The No-Slop Law
 
@@ -140,7 +140,9 @@ ladder in §10 keeps the pipeline functional with just curl and python3).
 ### 4.2 Phase 1 — Recon and surface inventory
 
 Map what exists before probing how it behaves. The 21-class surface taxonomy
-lives in `references/engagement-architecture.md`. New surfaces discovered
+lives in `references/engagement-architecture.md`; toolchain routing, target
+triage scoring, and time-boxes for sweeps wider than one host live in
+`references/recon-toolchain.md`. New surfaces discovered
 mid-engagement go to the **backlog** (R1) — a prioritized holding area, NOT
 the active queue. The active queue changes only when the current vector
 closes. This is what keeps R1 (auto-extend the plan) and R2 (finish the
@@ -400,6 +402,7 @@ preimage work, key recovery attacks on primitives. The JWT catalog is in
 | Always conceptually loaded: authorization policy, non-destruction, disclosure etiquette | `references/safety-and-ethics.md` |
 | Fast lookup: diagnosis trees, classification and false-positive cheat sheets | `references/decision-trees-and-cheatsheets.md` |
 | Grounded narratives: php2shell, php.net 2021, CVE-2025-29927, MCP poisoning, xz-utils | `references/case-studies.md` |
+| Phase 1 recon at scale, blind-vector probing order, or operator pressure for unearned findings: toolchain routing table, target triage score, duplicate suppression, time-boxes, probing ladder, sibling sweeps, operator-pressure protocol | `references/recon-toolchain.md` |
 | Provenance: methodology crosswalk and changelog | `references/changelog-and-crosswalk.md` |
 
 ## 18. Quick Reference Card

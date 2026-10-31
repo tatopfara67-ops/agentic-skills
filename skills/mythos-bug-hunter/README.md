@@ -39,7 +39,7 @@ doctrine protects loop time.
 mythos-bug-hunter/
 ├── SKILL.md                  # always-loaded core: Canon, no-slop law, 6-phase pipeline, contracts
 ├── README.md                 # this file
-├── references/               # 16 load-on-demand modules (reasoning, playbooks, attack classes, drills)
+├── references/               # 17 load-on-demand modules (reasoning, playbooks, attack classes, recon toolchain, drills)
 ├── scripts/audit_report.py   # mechanical slop auditor for reports
 └── example/
     ├── worked-example.md     # full engagement walkthrough (passes the auditor)

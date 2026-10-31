@@ -1,6 +1,6 @@
 # Reference — Case Studies
 
-> Part of **mythos-bug-hunter v4.1.0** (package architecture).
+> Part of **mythos-bug-hunter v4.2.0** (package architecture).
 > **Load when:** Grounded narratives: php2shell (CVE-2026-109618/109619), php.net 2021, Next.js CVE-2025-29927, MCP tool poisoning, xz-utils.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

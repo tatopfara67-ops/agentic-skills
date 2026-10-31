@@ -1,6 +1,6 @@
 # Reference — Changelog And Crosswalk
 
-> Part of **mythos-bug-hunter v4.1.0** (package architecture).
+> Part of **mythos-bug-hunter v4.2.0** (package architecture).
 > **Load when:** Provenance: methodology crosswalk and changelog.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
@@ -33,6 +33,26 @@
 ## E. Changelog
 
 ```
+v4.2.0 (2026-10)
+  - New module §29 (references/recon-toolchain.md): recon toolchain routing
+    (17 jobs, order + rationale + ledger landing per row), target triage
+    score (8 countable signals ordering the R1 backlog), duplicate
+    suppression (fingerprint-tuple dedup key; one finding for N hosts),
+    time-boxes as Park triggers (5/20/45-min clocks extending R7), probing
+    ladder for blind vectors (error → differential-content → time → OOB,
+    ordered by cost and jitter-immunity), sibling sweep (CONFIRMED →
+    20-minute bounded variant hunt via naming/version/controller seams),
+    operator-pressure protocol (quota is not evidence; bounded negatives).
+  - SKILL.md: R7 enforcement extended with time-box triggers; §4.2 and §17
+    route to the new module; reference library 16 → 17 modules.
+  - Housekeeping: frontmatter license/author fields; placeholder-marker
+    fix in the §17 routing table.
+
+v4.1.0 (2026-10)
+  - Package architecture: monolith split into SKILL.md core + 16
+    load-on-demand reference modules + scripts + example fixtures;
+    progressive disclosure per module headers.
+
 v4.0.0 (2026-10)
   - Reasoning core: Formal Logic Core (modus ponens/tollens exploit and
     falsification chains, fallacy-to-false-positive mapping,

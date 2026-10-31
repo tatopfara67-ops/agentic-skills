@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-mythos-bug-hunter v4.1.0 — Report Auditor
+mythos-bug-hunter v4.2.0 — Report Auditor
 =========================================
 
 Mechanical slop detector for vulnerability reports produced under this skill.

@@ -26,6 +26,12 @@ Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 | [xss-playbook](skills/xss-playbook/) | 1.0.0 | Phase-3 organ: sink-context analysis, marker proofs, CSP treated as recorded fact. |
 | [cloud-config-auditor](skills/cloud-config-auditor/) | 1.0.0 | Phase-1/3 organ: CORS matrix, anonymous storage (bounded), takeover checks. |
 | [adversary-tracker](skills/adversary-tracker/) | 1.0.0 | Incident-branch organ: the Shimomura Binary Brain — event-triggered adversary hunts on assets you are authorized to defend. Four binary registers, halving loop, two-channel confirmation, audited handoff; distilled from the 1994–95 hunt that ended in Raleigh. |
+| [scan-economist](skills/scan-economist/) | 1.0.0 | Craft-lineage organ (the Fyodor lineage): scan economy — cost hierarchy (liveness before depth), speed/stealth/reliability triangle, states as recorded inferences with retransmission, empirical priors over exhaustive sweeps, adaptive pacing. Distilled from Phrack 51's "The Art of Port Scanning" (1997, read in full) and Nmap Network Scanning. |
+| [module-smith](skills/module-smith/) | 1.0.0 | Craft-lineage organ (the HD Moore lineage): exploitation as composition — hypotheses as rankable reusable modules, access and impact proofs as separate artifacts, exposure as a measurement with a denominator. Distilled from the Metasploit module architecture and Project Sonar. |
+| [pipeline-smith](skills/pipeline-smith/) | 1.0.0 | Craft-lineage organ (the Tomnomnom lineage): Unix recon pipelines — passive sources before active probes, dedupe before paying, cheap liveness, pattern knowledge as versioned data, diff against siblings to decide. Distilled from assetfinder/httprobe/gf/meg/gron. |
+| [feedback-fuzzer](skills/feedback-fuzzer/) | 1.0.0 | Craft-lineage organ (the lcamtuf lineage): feedback-guided search — coarse state maps, bucketed novelty, deterministic before chaotic, curated corpora, tarpit rejection, minimization before diagnosis, saturation as the stopping rule. Distilled from AFL's design document (read in full). |
+| [template-scanner](skills/template-scanner/) | 1.0.0 | Craft-lineage organ (the ProjectDiscovery lineage — Sandeep Singh, Rishiraj Sharma, Marco Rivoli, Nizamul Rana): detection knowledge as declarative templates — matchers pre-registered, engine and packs evolve separately, campaigns cite their template set. |
+| [packet-orchestrator](skills/packet-orchestrator/) | 1.0.0 | Craft-lineage organ (the Searle + Mantis lineage): manual first, then layer-by-layer translation into structured, state-backed automation; packet differentials show their bytes. Justin Searle (InGuardians, SamuraiWTF/STFU) + the Mantis framework (PhonePe); attribution corrected on record. |
 
 ## Prompts
 
@@ -35,13 +41,13 @@ Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
 ## Arsenal — the execution hand
 
-[**arsenal/**](arsenal/) — the mythos-arsenal MCP server (FastMCP, `arsenal/server.py`): **25 scope-gated tools** that execute the 14 bundles above (the skill-mythos charter + 13 organs) under one authorization registry ([scope.csv](scope.csv) — deny-by-default, every row cites an auth artifact) and one append-only evidence ledger (R-NNN records). Tool groups: charter (`mythos_charter` — the skill-mythos activation payload), loader (progressive skill disclosure), governance (`scope_check`/`auth_status`), evidence (`ledger_*`), passive + active probes, dossier cartography, the **Binary Brain** engine (`sbb_declare`/`sbb_decide`/`sbb_apply` — the incident branch), the report pair (`cvss3_score`/`vrt_classify` — spec-exact CVSS 3.1 scoring and Bugcrowd VRT classification against the shipped official taxonomy, with the HackerOne crosswalk), and `arsenal_route` (CLI allowlist + flag blacklist for Kali-style tools).
+[**arsenal/**](arsenal/) — the mythos-arsenal MCP server (FastMCP, `arsenal/server.py`): **26 scope-gated tools** that execute the 20 bundles above (the skill-mythos charter + 13 phase organs + 6 craft-lineage organs) under one authorization registry ([scope.csv](scope.csv) — deny-by-default, every row cites an auth artifact) and one append-only evidence ledger (R-NNN records). Tool groups: charter (`mythos_charter` + `mythos_lineages` — the activation payload and the assimilated-lineage registry with corrections on record), loader (progressive skill disclosure), governance (`scope_check`/`auth_status`), evidence (`ledger_*`), passive + active probes, dossier cartography, the **Binary Brain** engine (`sbb_declare`/`sbb_decide`/`sbb_apply` — the incident branch), the report pair (`cvss3_score`/`vrt_classify` — spec-exact CVSS 3.1 scoring and Bugcrowd VRT classification against the shipped official taxonomy, with the HackerOne crosswalk), and `arsenal_route` (CLI allowlist + flag blacklist for Kali-style tools).
 
 ```bash
 pip install -r requirements.txt                 # mcp>=1.2.0
-python3 arsenal/server.py --selftest            # lists all 25 tools
-python3 -m unittest discover -s arsenal/tests   # 75 tests
-python3 scripts/validate_skill.py --all         # 18 bundles PASS
+python3 arsenal/server.py --selftest            # lists all 26 tools
+python3 -m unittest discover -s arsenal/tests   # 78 tests
+python3 scripts/validate_skill.py --all         # 24 bundles PASS
 ```
 
 Ships with a PASS/FAIL report gate ([auditor/](auditor/)), two self-owned labs ([lab/target_app.py](lab/target_app.py) and [lab/christmas_lab.py](lab/christmas_lab.py) — a synthetic Binary Brain hunt), and audited worked examples ([examples/](examples/): a 548-record engagement and a closed adversary hunt). Wire it via [agent/mcp/wiring.json](agent/mcp/wiring.json) (`mythos-arsenal` entry) and keep [CLAUDE.md](CLAUDE.md) at the workspace root — MCP serves the tools, the contract makes the agent use them in discipline.

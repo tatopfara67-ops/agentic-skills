@@ -1,0 +1,98 @@
+---
+name: injection-lab
+version: 1.0.0
+type: ai-skill
+architecture: package
+description: Phase-3 injection organ — differential oracles only: every injection class (SQL/NoSQL/command/template/LDAP) tested as baseline vs treatment vs control with a stated falsifier; timing oracles honor repetition floors; sqlmap runs only as a differential oracle via governed routing. Use when the operator asks to test SQLi or NoSQLi, command or template injection, build a boolean/error/timing/out-of-band oracle, or run sqlmap within discipline ("tes SQLi", "injection", "blind boolean", "time-based", "template injection", "SSTI", "command injection", "differential oracle").
+category: security/offensive-web
+license: MIT
+metadata:
+  author: tatopfara67-ops
+  requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
+---
+
+# injection-lab v1.0.0 — Oracles, Not Payload Sprays
+
+## 0. What This Skill Is — and Is Not
+
+* **Is**: the Phase-3 organ that proves or refutes injection hypotheses
+  with differentials: an oracle is a measurement channel whose delta only
+  the postulated mechanism can explain, and whose control request kills
+  every rival explanation.
+* **Is not**: a payload list with ambition. Payload dictionaries without
+  a pre-registered mechanism are noise generators that burn scope goodwill.
+
+## 1. Inherited Contracts
+
+Plugs into **Phase 3** of the mythos-bug-hunter spine. Inherits the
+hypothesis grammar (§5 — mechanism, prior, falsifier BEFORE the payload),
+experiment contract (§6 — baseline/treatment/control/n_runs/delta),
+reproduction floors (deterministic: 3 identical deltas; timing: repetition
+until stable, never single-shot), closure vocabulary (§7), and canary
+doctrine (§8 — extraction proofs use self-injected markers, bounded).
+
+## 2. Oracle Classes
+
+The full catalog — boolean, error-signature, timing, out-of-band, and
+per-injection-class grammar — is in `references/oracles.md`. Summary:
+
+| Oracle | Channel | Falsifier shape |
+| --- | --- | --- |
+| Boolean differential | response differs ONLY on truth-value of the injected expression | control expression flips the delta away |
+| Error signature | specific error family appears only for the injected syntax | malformed-but-non-injected input produces generic errors |
+| Timing | delay correlates with injected arithmetic | equivalent non-injected delay absent; clock-skew control request run interleaved |
+| Out-of-band | self-owned interaction host receives a canary callback | no callback for the control payload |
+
+## 3. Procedure — Numbered Actions
+
+1. Entry: hypotheses already pre-registered from Phase 2 (surface +
+   parameter + suspected sink). Injection work without a pre-registered
+   mechanism is refused here, not merely discouraged.
+2. Build the baseline: the parameter's happy-path request, recorded.
+3. Choose the WEAKEST oracle that can close the hypothesis (error before
+   boolean before timing before out-of-band — weakest channel first
+   keeps request counts low and evidence strong).
+4. Craft treatment + control per `references/oracles.md`; record the
+   falsifier in the hypothesis BEFORE sending.
+5. Run the differential; measure the delta; repeat to the floor.
+6. Timing oracles: interleave a clock-skew control (identical request,
+   no injected delay) and subtract observed baseline latency; report the
+   delta with its spread, never a single lucky slow response.
+7. `sqlmap` — only as a differential oracle through
+   `arsenal_route(program, "sqlmap", url, "--batch --risk=1 --level=1
+   --technique=BE")`: banner/version confirmation is its ceiling here.
+   Dump modes are flag-blacklisted in the router itself; the spine's
+   doctrine (scanner output is a hypothesis) applies to its output too.
+8. Extraction (Phase 4, only after CONFIRMED): bounded, canary-first —
+   extract the self-injected marker (e.g. a known string via
+   string-concat functions) before ANY schema curiosity, one bounded step,
+   then stop and synthesize.
+9. Exit gate: every hypothesis closed with its oracle class, floor, delta,
+   and control cited; no closure without its control record.
+
+## 4. Hard Rules (mechanically enforced)
+
+1. **Falsifier precedes payload.** Ledger order is auditable.
+2. **Control mandatory.** The auditor counts control records per
+   experiment card; their absence fails the report.
+3. **Floors honored.** Timing closures without repetition data fail.
+4. **sqlmap is an oracle, not a harvester.** The router's flag blacklist
+   is the enforcement; there is no override flag.
+5. **Bounded extraction.** One canary-marker extraction before any
+   database content; reports that narrate unbounded dumps fail the audit
+   and the ethics gate simultaneously.
+
+## 5. Tool Routing
+
+| When | Tool |
+| --- | --- |
+| All manual differentials | `http_probe` (EXPERIMENT/CONTROL tags) |
+| Governed sqlmap oracle | `arsenal_route` |
+| Out-of-band canary host | operator-provided interaction host; callbacks observed by the operator, recorded as CANARY records |
+| Recording hypotheses/closures | `ledger_append` |
+
+## 6. Reference Library (load on demand)
+
+| Load when… | Module |
+| --- | --- |
+| Choosing/crafting an oracle for a class | `references/oracles.md` |

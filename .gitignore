@@ -1,0 +1,4 @@
+# mythos-arsenal runtime state — engagement evidence & artifacts stay local
+/engagements/
+__pycache__/
+*.pyc

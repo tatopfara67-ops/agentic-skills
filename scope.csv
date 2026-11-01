@@ -1,0 +1,11 @@
+# mythos-arsenal scope registry — THE authorization gate (R0 / L1)
+# Format: target,class,auth_artifact,issued,expires,operator,notes
+#   target       : domain | *.domain | IP | CIDR | host:port | url-prefix
+#   class        : in_scope | recon_only | denied
+#   auth_artifact: MUST be non-empty — the artifact that authorizes testing
+#                  (bug-bounty program URL, signed engagement letter, lab declaration)
+#   issued/expires: ISO date; empty expires = no expiry
+# Deny-by-default: any target without a matching row is REFUSED.
+# This file is operator-writable only. The MCP server never writes to it.
+127.0.0.1,in_scope,self-owned lab declaration (lab/target_app.py),2026-11-01,,operator,mythos-lab demo target
+localhost,in_scope,self-owned lab declaration (lab/target_app.py),2026-11-01,,operator,alias of 127.0.0.1

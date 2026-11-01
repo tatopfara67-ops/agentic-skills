@@ -1,0 +1,207 @@
+{
+ "case": "christmas-lab",
+ "trigger": "03:14 auth log: 6 failed + 1 successful debug-console login from 10.10.4.23 (in-lab, unassigned in inventory)",
+ "opened": "2026-11-01T12:55:21Z",
+ "hypotheses": [
+  {
+   "id": "H-001",
+   "label": "authorized or benign activity — the null hypothesis (ops automation, a colleague, a sensor artifact)",
+   "status": "ELIMINATED",
+   "killed_by": "T-002"
+  },
+  {
+   "id": "H-002",
+   "label": "colleague running an overnight build experiment from the office LAN",
+   "status": "ELIMINATED",
+   "killed_by": "T-002"
+  },
+  {
+   "id": "H-003",
+   "label": "decommissioned build runner still powered on with stale credentials",
+   "status": "ELIMINATED",
+   "killed_by": "T-003"
+  },
+  {
+   "id": "H-004",
+   "label": "compromised container in the build cluster",
+   "status": "CONFIRMED",
+   "killed_by": null
+  },
+  {
+   "id": "H-005",
+   "label": "compromised office workstation",
+   "status": "ELIMINATED",
+   "killed_by": "T-001"
+  },
+  {
+   "id": "H-006",
+   "label": "remote party using leaked VPN credentials",
+   "status": "ELIMINATED",
+   "killed_by": "T-001"
+  },
+  {
+   "id": "H-007",
+   "label": "log pipeline artifact — source IP rewritten by the aggregator",
+   "status": "ELIMINATED",
+   "killed_by": "T-001"
+  },
+  {
+   "id": "H-008",
+   "label": "attacker bridged onto the office WLAN",
+   "status": "ELIMINATED",
+   "killed_by": "T-001"
+  }
+ ],
+ "tests": [
+  {
+   "id": "T-001",
+   "label": "netflow history: source talked to build control plane in the last 7 days",
+   "channel": "netflow",
+   "tip_off": false,
+   "kills_one": [
+    "H-005",
+    "H-006",
+    "H-007",
+    "H-008"
+   ],
+   "kills_zero": [
+    "H-001",
+    "H-002",
+    "H-003",
+    "H-004"
+   ],
+   "status": "RUN",
+   "outcome": 1,
+   "observed_killed": [
+    "H-005",
+    "H-006",
+    "H-007",
+    "H-008"
+   ],
+   "prereg": true
+  },
+  {
+   "id": "T-002",
+   "label": "DHCP lease origin: cluster bridge, not the office router",
+   "channel": "netflow",
+   "tip_off": false,
+   "kills_one": [
+    "H-001",
+    "H-002",
+    "H-005",
+    "H-006",
+    "H-007",
+    "H-008"
+   ],
+   "kills_zero": [
+    "H-003",
+    "H-004"
+   ],
+   "status": "RUN",
+   "outcome": 1,
+   "observed_killed": [
+    "H-001",
+    "H-002"
+   ],
+   "prereg": true
+  },
+  {
+   "id": "T-003",
+   "label": "lease client-id carries container veth MAC prefix (02:xx)",
+   "channel": "host-audit",
+   "tip_off": false,
+   "kills_one": [
+    "H-003",
+    "H-005",
+    "H-008"
+   ],
+   "kills_zero": [
+    "H-004",
+    "H-002"
+   ],
+   "status": "RUN",
+   "outcome": 1,
+   "observed_killed": [
+    "H-003"
+   ],
+   "prereg": true
+  },
+  {
+   "id": "T-004",
+   "label": "credential tripwire: disable the debug-console credential, watch for re-auth",
+   "channel": "identity",
+   "tip_off": true,
+   "kills_one": [
+    "H-001",
+    "H-002",
+    "H-003",
+    "H-007"
+   ],
+   "kills_zero": [
+    "H-004",
+    "H-005",
+    "H-006",
+    "H-008"
+   ],
+   "status": "PENDING",
+   "outcome": null,
+   "observed_killed": []
+  }
+ ],
+ "log": [
+  {
+   "event": "declare",
+   "hypotheses": 8,
+   "tests": 4
+  },
+  {
+   "event": "decide",
+   "test": "T-001",
+   "bits": 1.0
+  },
+  {
+   "event": "refuse",
+   "test": "T-004",
+   "reason": "tip-off gated"
+  },
+  {
+   "event": "apply",
+   "test": "T-001",
+   "killed": [
+    "H-005",
+    "H-006",
+    "H-007",
+    "H-008"
+   ]
+  },
+  {
+   "event": "decide",
+   "test": "T-002",
+   "bits": 1.0
+  },
+  {
+   "event": "apply",
+   "test": "T-002",
+   "killed": [
+    "H-001",
+    "H-002"
+   ]
+  },
+  {
+   "event": "decide",
+   "test": "T-003",
+   "bits": 1.0
+  },
+  {
+   "event": "confirm",
+   "hyp": "H-004",
+   "channels": [
+    "host-audit",
+    "netflow"
+   ]
+  }
+ ],
+ "last_bits": 1.0,
+ "mode": "closed",
+ "initial_hypotheses": 8
+}

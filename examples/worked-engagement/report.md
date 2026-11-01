@@ -27,6 +27,12 @@ Authorization: self-owned lab declaration, scope.csv row 127.0.0.1 (AUTH R-001).
 - prior: 70% — debug remnants frequently lose their gate (base rate from public advisory patterns)
 - falsifier: /api/v0/debug answering 401 exactly like the console endpoints
 - Closure: CONFIRMED (E-001: R-542 R-545 R-548; closure R-550)
+- severity: low (records R-542, R-521) — diagnostic banner exposure on a self-owned lab surface; the program-context call, see the vrt line
+- impact-chain: unauthenticated read of the lab debug banner (treatment R-542); bounded to one response read, no further enumeration (records R-542, R-521)
+- canary attestation: engagement touched only the self-owned mythos-lab and self-injected markers; no real-user data involved (AUTH R-001)
+- cvss: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N = 5.3 (band: medium; C:L — internal diagnostic state readable without auth; records R-542, R-521)
+- vrt: server_security_misconfiguration.exposed_portal.non_admin_portal [P3] — exposed non-admin debug portal, read-only diagnostic banner; VRT baseline P3 with the program context (self-owned lab, non-sensitive content) arguing a P4 submission call (records R-542, R-521)
+- reproduction: E-001 — unauthenticated GET /api/v0/debug (n_runs 3; baseline R-541, treatment R-542/R-545/R-548, control R-543)
 
 ### E-001 — unauthenticated differential probe
 
@@ -39,10 +45,7 @@ Authorization: self-owned lab declaration, scope.csv row 127.0.0.1 (AUTH R-001).
 
 ## Impact
 
-- impact-chain: unauthenticated read of the lab debug banner (treatment R-542); bounded to one response read, no further enumeration (records R-542, R-521)
-
-- severity: low (records R-542, R-521) — diagnostic banner exposure on a self-owned lab surface
-
+- severity summary: low (records R-542, R-521) — diagnostic banner exposure on a self-owned lab surface; technical severity and VRT baseline live in the H-001 block (cvss 5.3, VRT P3)
 - canary attestation: engagement touched only the self-owned mythos-lab and self-injected markers; no real-user data involved (AUTH R-001)
 
 ## Leads

@@ -7,12 +7,16 @@ can.
 
 ## Session startup (any session that touches security work)
 
-1. Call `list_skills()` — metadata only. Do not `get_skill` everything;
+1. Call `mythos_charter()` — the skill-mythos activation payload:
+   twelve charter articles, the bundle map with install status, the
+   quality gates. The charter loads BEFORE the skill list; it is the
+   routing contract the rest of this file details.
+2. Call `list_skills()` — metadata only. Do not `get_skill` everything;
    progressive disclosure is the cost model (name+description first,
    bodies on demand, references when the phase needs them).
-2. At engagement start, load the spine (mythos-bug-hunter) and its conduct
+3. At engagement start, load the spine (mythos-bug-hunter) and its conduct
    module. The organs below plug into its phases; they do not replace it.
-3. Pick organs by phase, never by curiosity.
+4. Pick organs by phase, never by curiosity.
 
 ## Phase routing
 
@@ -24,7 +28,7 @@ can.
 | 2 Hypotheses | spine grammar; auth-boundary-mapper builds the matrix | `ledger_append` (EXPERIMENT pre-registrations) |
 | 3 Testing | injection-lab, ssrf-playbook, xss-playbook, business-logic-hunter, oauth-flow-auditor, cloud-config-auditor | `http_probe`, `arsenal_route` |
 | 4 Impact | spine canary ladder | `ledger_append` (CANARY) |
-| 5 Audit | — | `ledger_merge`, write report from records, run `auditor/audit_report.py` until exit 0 |
+| 5 Audit | — | `ledger_merge`, write report from records, `cvss3_score` + `vrt_classify` for every CONFIRMED finding, run `auditor/audit_report.py` until exit 0 |
 | Incident (any phase) | adversary-tracker — the Binary Brain | `sbb_declare`, `sbb_decide`, `sbb_apply` |
 
 ## Incident branch (event-triggered, any phase)
@@ -77,5 +81,10 @@ remainder with a resume note — do not silently re-run with a raised cap.
 
 1. `ledger_merge(program)` — fold the append log.
 2. Write the report ONLY from `ledger_read` outputs.
-3. `python3 auditor/audit_report.py <report.md>` — exit 0 or it does not
+3. Classify every CONFIRMED finding: `cvss3_score` on the vector you
+   will write (write exactly what it returns — the auditor recomputes
+   it), `vrt_classify` for the Bugcrowd VRT dotted id + P-rating and
+   the HackerOne crosswalk. Both lines cite the same records as the
+   finding. Incident handoffs (`Risk:` ratings) are exempt.
+4. `python3 auditor/audit_report.py <report.md>` — exit 0 or it does not
    ship. Fix the work behind the report, not the auditor.

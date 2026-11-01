@@ -19,7 +19,7 @@ A 03:14 debug-console login anomaly from an unassigned in-lab address opened a B
 ## Hypotheses
 
 ### H-004 compromised container in the build cluster
-Severity: high — an unauthorized actor holds valid debug-console credentials and operates from a cluster container — R-009
+Risk: high — an unauthorized actor holds valid debug-console credentials and operates from a cluster container — R-009
 - Closure: CONFIRMED — R-008, R-009
 - Channels: netflow (R-004, R-006) + host-audit (R-008)
 - impact-chain: stale DHCP lease on the cluster bridge → 6-fail-then-success login against the debug console (R-001) → authenticated debug-console access from 10.10.4.23, netflow- and host-audit-confirmed (R-004, R-008)

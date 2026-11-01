@@ -226,7 +226,7 @@ def _write_handoff(final: dict) -> None:
     add("## Hypotheses")
     add("")
     add("### %s %s" % (survivor["id"], survivor["label"]))
-    add("Severity: high — an unauthorized actor holds valid debug-console "
+    add("Risk: high — an unauthorized actor holds valid debug-console "
         "credentials and operates from a cluster container — %s"
         % rids["confirm"])
     add("- Closure: CONFIRMED — %s, %s" % (rids["apply3"], rids["confirm"]))

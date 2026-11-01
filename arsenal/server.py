@@ -19,6 +19,11 @@ Tool groups:
   brain      sbb_declare, sbb_decide, sbb_apply            (adversary-tracker
              organ: the Shimomura Binary Brain — event-triggered hunts on
              assets you are authorized to defend)
+  charter    mythos_charter                                 (skill-mythos
+             master module: articles, bundle map, quality gates)
+  report     cvss3_score, vrt_classify                      (triage-grade
+             classification: CVSS 3.1 base score, Bugcrowd VRT + P-rating
+             + HackerOne crosswalk, from the shipped official taxonomy)
   arsenal    arsenal_route                                 (L4 CLI routing)
 """
 from __future__ import annotations
@@ -38,6 +43,7 @@ from arsenal import ledger, paths, sbb as _sbb  # noqa: E402
 from arsenal.tools import arsenal_route as _route  # noqa: E402
 from arsenal.tools import dossier as _dossier  # noqa: E402
 from arsenal.tools import jsrecon as _jsrecon  # noqa: E402
+from arsenal.tools import mythos as _mythos  # noqa: E402
 from arsenal.tools import passive as _passive  # noqa: E402
 from arsenal.tools import probe as _probe  # noqa: E402
 
@@ -310,6 +316,51 @@ def arsenal_route(program: str, tool: str, target: str, args: str = "") -> dict:
     nmap/nuclei/sqlmap...). Allowlist + flag blacklist + scope gate + ledger.
     sqlmap runs only as a differential oracle (--batch mandatory)."""
     return _route.arsenal_route(_norm_program(program), tool, target, args)
+
+
+# ---------------------------------------------------------------- charter
+
+@mcp.tool()
+def mythos_charter() -> dict:
+    """The Skill Mythos activation payload, in one call.
+
+    Twelve charter articles, the bundle map with per-skill install status,
+    and the quality gates every report must pass (differential triad,
+    reproducibility, CVSS 3.1 + Bugcrowd VRT classification). Call at
+    session start — before list_skills — or whenever the operator says
+    'activate Skill Mythos' / 'aktifkan Skill Mythos'."""
+    return _mythos.mythos_charter()
+
+
+# ---------------------------------------------------------------- report
+
+@mcp.tool()
+def cvss3_score(vector: str) -> dict:
+    """Spec-exact CVSS v3.1 base score from a base vector.
+
+    Feed the vector that describes the OBSERVED attack path (AV/AC/PR/UI/
+    S/C/I/A). Returns score, severity band, ISS / Impact / Exploitability,
+    parsed metrics, and the canonical vector. Same arithmetic the report
+    auditor uses to recheck the cvss: line — write what this returns."""
+    return _mythos.cvss3_score(vector)
+
+
+@mcp.tool()
+def vrt_classify(finding_class: str, authenticated: bool = False,
+                 user_interaction: bool = False, scope_changed: bool = False,
+                 internal: bool = False, sensitive: bool = True,
+                 admin: bool = False, self_only: bool = False) -> dict:
+    """Classify a finding class into Bugcrowd VRT (P1-P5) + HackerOne
+    severity + a CVSS 3.1 template for the observed context.
+
+    Pass the flags you OBSERVED: authenticated, user_interaction,
+    scope_changed, internal, sensitive, admin, self_only. Resolution runs
+    against the shipped official taxonomy (skills/skill-mythos/references/
+    vrt-taxonomy.json); the live bugcrowd.com/vrt stays the submission-time
+    authority."""
+    return _mythos.vrt_classify(finding_class, authenticated,
+                                user_interaction, scope_changed, internal,
+                                sensitive, admin, self_only)
 
 
 def _selftest() -> int:

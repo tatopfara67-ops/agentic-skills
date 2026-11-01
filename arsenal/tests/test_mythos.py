@@ -109,12 +109,20 @@ class TestMythosCharter(unittest.TestCase):
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 14)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 20)
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
+        self.assertEqual(sorted(tiers["5-craft"]), [
+            "feedback-fuzzer", "module-smith", "packet-orchestrator",
+            "pipeline-smith", "scan-economist", "template-scanner"])
         for tier, skills in tiers.items():
             for name, installed in skills.items():
                 self.assertTrue(installed, "%s missing in tier %s"
                                 % (name, tier))
+
+    def test_reporting_tools_routing(self):
+        self.assertIn("cvss3_score", self.charter["reporting_tools"])
+        self.assertIn("vrt_classify", self.charter["reporting_tools"])
+        self.assertIn("mythos_lineages", self.charter["reporting_tools"])
 
     def test_quality_gates_name_the_instruments(self):
         gates = " ".join(self.charter["quality_gates"])
@@ -122,9 +130,39 @@ class TestMythosCharter(unittest.TestCase):
                       "HackerOne", "reproduction", "impact-chain"):
             self.assertIn(token, gates)
 
-    def test_reporting_tools_routing(self):
-        self.assertIn("cvss3_score", self.charter["reporting_tools"])
-        self.assertIn("vrt_classify", self.charter["reporting_tools"])
+
+class TestMythosLineages(unittest.TestCase):
+    def test_registry_lists_seven_lineages_all_installed(self):
+        registry = _mythos.mythos_lineages()
+        self.assertEqual(registry["count"], 7)
+        by_organ = {e["organ"]: e for e in registry["lineages"]}
+        for organ in ("adversary-tracker", "scan-economist", "module-smith",
+                      "pipeline-smith", "feedback-fuzzer",
+                      "template-scanner", "packet-orchestrator"):
+            self.assertIn(organ, by_organ)
+            self.assertTrue(by_organ[organ]["installed"], organ)
+            for field in ("figure", "distillation", "sources"):
+                self.assertTrue(by_organ[organ][field], "%s lacks %s"
+                                % (organ, field))
+
+    def test_lineage_figures_are_the_verified_names(self):
+        registry = _mythos.mythos_lineages()
+        joined = " ".join(e["figure"] for e in registry["lineages"])
+        for name in ("Shimomura", "Gordon Lyon", "HD Moore", "Tom Hudson",
+                     "Zalewski", "Sandeep Singh", "Nizamul Rana",
+                     "Justin Searle", "PhonePe"):
+            self.assertIn(name, joined, name)
+        # the unverified attribution from the operator brief stays out
+        self.assertNotIn("Skappen", joined)
+
+    def test_attribution_corrections_are_on_record(self):
+        registry = _mythos.mythos_lineages()
+        corrections = {e["organ"]: e["correction"] for e in
+                       registry["lineages"]}
+        self.assertIsNone(corrections["scan-economist"])
+        self.assertIn("Nizamul Rana", corrections["template-scanner"])
+        self.assertIn("PhonePe", corrections["packet-orchestrator"])
+        self.assertIn("Skappen", corrections["packet-orchestrator"])
 
 
 # --------------------------------------------------------- vrt_classify

@@ -86,11 +86,19 @@ metadata:
 | 3 | xss-playbook | sink contexts, marker proofs, CSP as fact |
 | 3 | cloud-config-auditor | CORS matrix, anonymous storage (bounded), takeovers |
 | 4 incident | adversary-tracker | the Shimomura Binary Brain — event-triggered hunts on assets you defend |
+| 5 craft | scan-economist | the Fyodor lineage: scan economy — cost hierarchy, technique triangle, states as inferences, priors over exhaustiveness, adaptive pacing |
+| 5 | module-smith | the HD Moore lineage: hypotheses as rankable reusable modules; access and impact proofs separate; exposure as measurement |
+| 5 | pipeline-smith | the Tomnomnom lineage: Unix recon pipelines — passive first, dedupe before probes, pattern packs as data, diff to decide |
+| 5 | feedback-fuzzer | the lcamtuf lineage: feedback-guided search — state maps, bucketed novelty, curated corpora, minimization, saturation as the stop rule |
+| 5 | template-scanner | the ProjectDiscovery lineage: detection as declarative templates — matchers pre-registered, packs versioned, campaigns cite their set |
+| 5 | packet-orchestrator | the Searle + Mantis lineage: manual first, then layer-by-layer translation into state-backed automation; packet differentials show their bytes |
 
-Execution hand: the **arsenal** MCP server (25 scope-gated tools),
+Execution hand: the **arsenal** MCP server (26 scope-gated tools),
 the **auditor** report gate, two self-owned **labs**, and audited
 **examples**. Full map with load-when triggers lives in
-references/bundle-map.md — the atlas.
+references/bundle-map.md — the atlas. The craft tier's figures,
+distillations, and attribution corrections are enumerated by the
+`mythos_lineages` tool — the doctrine's compliance artifact.
 
 ## 3. Autonomy Protocol (short form)
 
@@ -135,11 +143,13 @@ references/vrt-mapping.md — in that order of depth.
 
 1. `mythos_charter()` — articles, bundle map with install status,
    quality gates (this file, distilled).
-2. `list_skills()` — metadata only; progressive disclosure is the cost
+2. `mythos_lineages()` — the assimilated-lineage registry: figures,
+   distillations, consulted sources, corrections on record.
+3. `list_skills()` — metadata only; progressive disclosure is the cost
    model.
-3. Load the spine (mythos-bug-hunter) and its conduct module.
-4. Pick organs by phase via the autonomy protocol.
-5. At report time: `cvss3_score` → `vrt_classify` → write the block →
+4. Load the spine (mythos-bug-hunter) and its conduct module.
+5. Pick organs by phase via the autonomy protocol.
+6. At report time: `cvss3_score` → `vrt_classify` → write the block →
    audit until exit 0.
 
 Wiring, selftest, validation, and the first-session bootstrap are in

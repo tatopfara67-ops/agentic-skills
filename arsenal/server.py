@@ -19,8 +19,9 @@ Tool groups:
   brain      sbb_declare, sbb_decide, sbb_apply            (adversary-tracker
              organ: the Shimomura Binary Brain — event-triggered hunts on
              assets you are authorized to defend)
-  charter    mythos_charter                                 (skill-mythos
-             master module: articles, bundle map, quality gates)
+  charter    mythos_charter, mythos_lineages                 (skill-mythos
+             master module: articles, bundle map, quality gates; the
+             assimilated-lineage registry with corrections on record)
   report     cvss3_score, vrt_classify                      (triage-grade
              classification: CVSS 3.1 base score, Bugcrowd VRT + P-rating
              + HackerOne crosswalk, from the shipped official taxonomy)
@@ -330,6 +331,20 @@ def mythos_charter() -> dict:
     session start — before list_skills — or whenever the operator says
     'activate Skill Mythos' / 'aktifkan Skill Mythos'."""
     return _mythos.mythos_charter()
+
+
+@mcp.tool()
+def mythos_lineages() -> dict:
+    """The assimilated-lineage registry (doctrine A3, verbatim).
+
+    Every organ distilled from a named public figure or team — Shimomura
+    (Binary Brain), Fyodor (scan economy), HD Moore (module composition),
+    Tomnomnom (Unix pipelines), lcamtuf (feedback search), ProjectDiscovery
+    (template scanning), Searle + Mantis/PhonePe (manual-to-orchestrated
+    automation) — with what was distilled, which sources were actually
+    consulted, and attribution corrections kept on record. The registry IS
+    the legitimate-assimilation compliance artifact."""
+    return _mythos.mythos_lineages()
 
 
 # ---------------------------------------------------------------- report

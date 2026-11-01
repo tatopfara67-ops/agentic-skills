@@ -59,18 +59,29 @@ Every assimilated lineage is attributed in the organ that carries it.
 * No uncredited borrowing between organs either: internal lineage
   moves get recorded like everything else.
 
-## 5. The current lineage
+## 5. The current lineages (seven, on record)
 
 | Figure | Organ | What was distilled |
 | --- | --- | --- |
 | Tsutomu Shimomura (with the FBI, 1994–95 pursuit of Kevin Mitnick; co-author with John Markoff of *Takedown*) | adversary-tracker + arsenal/sbb.py | the Binary Brain: freeze before change, null hypothesis always in the space, halving tests by expected information, tip-off gating (observe, never warn), two-channel confirmation, handoff instead of retaliation |
+| Gordon Lyon (Fyodor) — Nmap | scan-economist | scan economy: cost hierarchy (liveness before depth), speed/stealth/reliability triangle, states as recorded inferences with retransmission, empirical priors over exhaustive sweeps, adaptive pacing |
+| HD Moore — Metasploit Framework; Project Sonar | module-smith | exploitation as composition: access and impact proofs as separate artifacts, modules carry rank/references, frameworks compound, exposure is a measurement with a denominator |
+| Tom Hudson (Tomnomnom) — assetfinder/httprobe/gf/meg/gron | pipeline-smith | the Unix recon pipeline: one tool one job, passive before active, dedupe before probing, pattern knowledge as versioned data, diff against siblings |
+| Michal Zalewski (lcamtuf) — AFL | feedback-fuzzer | feedback-guided search: coarse state maps, bucketed novelty, deterministic before chaotic, curated corpora, tarpit rejection, minimization, saturation as the stop rule |
+| ProjectDiscovery — Sandeep Singh, Rishiraj Sharma, Marco Rivoli, Nizamul Rana | template-scanner | detection knowledge as declarative templates: matchers pre-registered, engine and packs evolve separately, campaigns cite their template set |
+| Justin Searle (InGuardians; SamuraiWTF/STFU) + Mantis (PhonePe) + the Scapy lineage credited | packet-orchestrator | manual first, then layer-by-layer translation into structured, state-backed automation; packet differentials show their bytes |
 
-Sources for that lineage: the adversary-tracker organ's
-`references/history-1995.md` (public record: the Christmas 1994
-compromise of Shimomura's systems, the cellular ESN/MIN clone trail,
-the telco-assisted monitoring, the drive-test RF direction finding
-that localized the actor in Raleigh, February 1995 — and the 1996
-SYN-flood defense patch he published).
+Every entry carries its consulted sources in the organ's
+references/sources.md, and the `mythos_lineages()` tool enumerates the
+registry — including the attribution corrections kept on record (the
+operator brief's "Tim Skappen" could not be verified; Mantis is the
+PhonePe project, and that organ is built on the two verified lineages
+with the correction stated). Sources for the Shimomura lineage:
+the adversary-tracker organ's `references/history-1995.md` (public
+record: the Christmas 1994 compromise of Shimomura's systems, the
+cellular ESN/MIN clone trail, the telco-assisted monitoring, the
+drive-test RF direction finding that localized the actor in Raleigh,
+February 1995 — and the 1996 SYN-flood defense patch he published).
 
 ## 6. Proposing the next lineage
 

@@ -40,7 +40,114 @@ TIERS = {
     "3-deep-technical": ["injection-lab", "ssrf-playbook", "xss-playbook",
                          "cloud-config-auditor"],
     "4-incident": ["adversary-tracker"],
+    "5-craft": ["scan-economist", "module-smith", "pipeline-smith",
+                "feedback-fuzzer", "template-scanner",
+                "packet-orchestrator"],
 }
+
+# The assimilated lineage registry (doctrine A3: attributed, verified,
+# no fabrication). Each entry: organ, the figure/team, the distillation,
+# and where the sources live. The correction flag keeps the record honest
+# where the operator's brief needed it.
+LINEAGES = [
+    {
+        "organ": "adversary-tracker",
+        "figure": "Tsutomu Shimomura (with the FBI, 1994-95; co-author "
+                  "with John Markoff of Takedown)",
+        "distillation": "the Binary Brain: freeze before change, null "
+                        "hypothesis always in the space, halving tests by "
+                        "expected information, tip-off gating, two-channel "
+                        "confirmation, handoff instead of retaliation",
+        "sources": "skills/adversary-tracker/references/history-1995.md",
+        "correction": None,
+    },
+    {
+        "organ": "scan-economist",
+        "figure": "Gordon Lyon (Fyodor) — Nmap",
+        "distillation": "scan economy: cost hierarchy (liveness before "
+                        "depth), speed/stealth/reliability triangle, states "
+                        "as recorded inferences with retransmission, "
+                        "empirical priors over exhaustive sweeps, adaptive "
+                        "pacing",
+        "sources": "Phrack 51, The Art of Port Scanning (1997), read in "
+                   "full; Nmap Network Scanning (2009), free online "
+                   "edition; skills/scan-economist/references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "module-smith",
+        "figure": "HD Moore — Metasploit Framework; Project Sonar",
+        "distillation": "exploitation as composition: access proof and "
+                        "impact proof as separate artifacts; modules carry "
+                        "rank/references; frameworks compound; exposure is "
+                        "a measurement with a denominator",
+        "sources": "rapid7/metasploit-framework module tree (stager "
+                   "modules read directly); hdm.io Sonar decks; "
+                   "skills/module-smith/references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "pipeline-smith",
+        "figure": "Tom Hudson (Tomnomnom) — assetfinder/httprobe/gf/meg/"
+                  "gron",
+        "distillation": "the Unix recon pipeline: one tool one job, "
+                        "stdout as contract; passive before active; dedupe "
+                        "before probing; cheap liveness; pattern knowledge "
+                        "as versioned data; diff against siblings to decide",
+        "sources": "github.com/tomnomnom tool repos; Ekoparty 2024 "
+                   "'Confessions of a Toolmaker'; Bishop Fox AMA; "
+                   "skills/pipeline-smith/references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "feedback-fuzzer",
+        "figure": "Michal Zalewski (lcamtuf) — AFL, Google security "
+                  "engineering",
+        "distillation": "feedback-guided search: coarse state maps and "
+                        "bucketed novelty, deterministic before chaotic, "
+                        "curated corpora, non-greedy exploration, tarpit "
+                        "rejection, minimize before diagnosing, saturation "
+                        "as the stopping rule",
+        "sources": "lcamtuf.coredump.cx/afl/technical_details.txt, read in "
+                   "full; google/AFL README; "
+                   "skills/feedback-fuzzer/references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "template-scanner",
+        "figure": "ProjectDiscovery — Sandeep Singh, Rishiraj Sharma, "
+                  "Marco Rivoli, Nizamul Rana (subfinder, nuclei)",
+        "distillation": "detection knowledge as declarative templates: "
+                        "matchers pre-registered, engine and packs evolve "
+                        "separately, one grammar across protocols, severity "
+                        "as taxonomy metadata, campaigns cite their template "
+                        "set",
+        "sources": "projectdiscovery.io docs + blog; the nuclei repo; "
+                   "Bishop Fox's founding account; "
+                   "skills/template-scanner/references/sources.md",
+        "correction": "operator brief said 'Nizam & Team' — verified as "
+                      "Nizamul Rana among four documented co-founders; "
+                      "all four credited",
+    },
+    {
+        "organ": "packet-orchestrator",
+        "figure": "Justin Searle (InGuardians; SamuraiWTF/STFU) + the "
+                  "Mantis framework (PhonePe) + the Scapy lineage credited",
+        "distillation": "manual first, then translate layer by layer into "
+                        "structured, state-backed automation; the manual "
+                        "path stays re-runnable; packet differentials show "
+                        "their bytes; state lives in records, not private "
+                        "variables",
+        "sources": "PhonePe/mantis docs; BlackHat US 2013 SamuraiSTFU "
+                   "training page (NESCOR methodology); SANS profile; "
+                   "skills/packet-orchestrator/references/sources.md",
+        "correction": "operator brief attributed Mantis to 'Justin Searle & "
+                      "Tim Skappen' — no security practitioner named Tim "
+                      "Skappen could be verified; Mantis is the PhonePe "
+                      "project (Apache-2.0). Organ built on the two "
+                      "verified lineages, correction kept on record",
+    },
+]
 
 ARTICLES = [
     "A1 identity — Skill Mythos is the master activation module of an "
@@ -94,6 +201,8 @@ REPORTING_TOOLS = {
     "cvss3_score": "spec-exact CVSS v3.1 base score from a vector",
     "vrt_classify": "finding-class -> Bugcrowd VRT + P-rating + H1 "
                     "severity + CVSS template",
+    "mythos_lineages": "the assimilated-lineage registry: organ, figure, "
+                       "distillation, sources, corrections on record",
     "auditor/audit_report.py": "PASS/FAIL gate — exit 0 or the report "
                                "does not ship",
 }
@@ -130,7 +239,29 @@ def mythos_charter() -> dict:
         "other_installed": others,
         "quality_gates": QUALITY_GATES,
         "reporting_tools": REPORTING_TOOLS,
+        "lineage_registry_tool": "mythos_lineages",
         "charter_reference": "skills/skill-mythos/SKILL.md",
+    }
+
+
+def mythos_lineages() -> dict:
+    """The assimilated-lineage registry (doctrine A3, verbatim).
+
+    Every organ built from a named public figure or team, what was
+    distilled from them, which sources were actually consulted, and any
+    attribution corrections kept on record. Assimilation is legitimate
+    only when it is documented exactly like this — the registry IS the
+    compliance artifact."""
+    installed = set(_installed_skills())
+    entries = []
+    for entry in LINEAGES:
+        out = dict(entry)
+        out["installed"] = entry["organ"] in installed
+        entries.append(out)
+    return {
+        "count": len(entries),
+        "doctrine": "skills/skill-mythos/references/assimilation-doctrine.md",
+        "lineages": entries,
     }
 
 

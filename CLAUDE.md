@@ -11,23 +11,27 @@ can.
    twelve charter articles, the bundle map with install status, the
    quality gates. The charter loads BEFORE the skill list; it is the
    routing contract the rest of this file details.
-2. Call `list_skills()` — metadata only. Do not `get_skill` everything;
+2. Call `mythos_lineages()` — the assimilated-lineage registry
+   (figures, distillations, sources, corrections on record) when the
+   work will lean on a craft organ or the operator asks who a distill
+   came from.
+3. Call `list_skills()` — metadata only. Do not `get_skill` everything;
    progressive disclosure is the cost model (name+description first,
    bodies on demand, references when the phase needs them).
-3. At engagement start, load the spine (mythos-bug-hunter) and its conduct
+4. At engagement start, load the spine (mythos-bug-hunter) and its conduct
    module. The organs below plug into its phases; they do not replace it.
-4. Pick organs by phase, never by curiosity.
+5. Pick organs by phase, never by curiosity.
 
 ## Phase routing
 
 | Phase | Organ(s) | Key tools |
 | --- | --- | --- |
 | 0 Scoping | — | `auth_status`, `scope_check`, `ledger_append` (AUTH record) |
-| 1 Recon | surface-cartographer (drives), subdomain-hunter, content-discovery, js-recon, api-surface-mapper | `dns_resolve`, `http_probe`, `content_discover`, `js_analyze`, `api_introspect`, `ct_subdomains` |
+| 1 Recon | surface-cartographer (drives), subdomain-hunter, content-discovery, js-recon, api-surface-mapper; craft layer: scan-economist prices every sweep, pipeline-smith shapes the stages | `dns_resolve`, `http_probe`, `content_discover`, `js_analyze`, `api_introspect`, `ct_subdomains` |
 | 1 Cartography | surface-cartographer | `dossier_add`, `dossier_render` |
-| 2 Hypotheses | spine grammar; auth-boundary-mapper builds the matrix | `ledger_append` (EXPERIMENT pre-registrations) |
-| 3 Testing | injection-lab, ssrf-playbook, xss-playbook, business-logic-hunter, oauth-flow-auditor, cloud-config-auditor | `http_probe`, `arsenal_route` |
-| 4 Impact | spine canary ladder | `ledger_append` (CANARY) |
+| 2 Hypotheses | spine grammar; auth-boundary-mapper builds the matrix; craft layer: module-smith writes the cards, packet-orchestrator translates manual traces | `ledger_append` (EXPERIMENT pre-registrations) |
+| 3 Testing | injection-lab, ssrf-playbook, xss-playbook, business-logic-hunter, oauth-flow-auditor, cloud-config-auditor; craft layer: feedback-fuzzer governs search loops, template-scanner the reusable checks | `http_probe`, `arsenal_route` |
+| 4 Impact | spine canary ladder (module-smith: access and impact proofs separate) | `ledger_append` (CANARY) |
 | 5 Audit | — | `ledger_merge`, write report from records, `cvss3_score` + `vrt_classify` for every CONFIRMED finding, run `auditor/audit_report.py` until exit 0 |
 | Incident (any phase) | adversary-tracker — the Binary Brain | `sbb_declare`, `sbb_decide`, `sbb_apply` |
 

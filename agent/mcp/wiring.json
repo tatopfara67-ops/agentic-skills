@@ -24,9 +24,9 @@
       "command": "python3",
       "args_pattern": ["<repo-checkout>/arsenal/server.py"],
       "env_optional": ["MYTHOS_ARSENAL_ROOT", "MYTHOS_ARSENAL_SCOPE", "MYTHOS_ARSENAL_ENGAGEMENTS", "MYTHOS_ARSENAL_SKILLS"],
-      "tools": ["auth_status", "scope_check", "ledger_append/read/summary/merge", "ct_subdomains", "dns_resolve", "http_probe", "content_discover", "api_introspect", "js_analyze", "dossier_add/render/summary", "sbb_declare", "sbb_decide", "sbb_apply", "arsenal_route", "list_skill/get_skill/get_skill_reference"],
-      "use_for": ["organ-skill execution Phases 1-3 (13 skills)", "incident branch: Binary Brain adversary hunts"],
-      "note": "22 tools, semua scope-gated R0; CLAUDE.md di root workspace = agent contract-nya; engagements/ adalah runtime state (sudah di-gitignore)"
+      "tools": ["mythos_charter", "auth_status", "scope_check", "ledger_append/read/summary/merge", "ct_subdomains", "dns_resolve", "http_probe", "content_discover", "api_introspect", "js_analyze", "dossier_add/render/summary", "sbb_declare", "sbb_decide", "sbb_apply", "cvss3_score", "vrt_classify", "arsenal_route", "list_skill/get_skill/get_skill_reference"],
+      "use_for": ["activation: mythos_charter (skill-mythos charter + bundle map + gates)", "organ-skill execution Phases 1-3 (13 organs)", "incident branch: Binary Brain adversary hunts", "report classification: CVSS 3.1 + Bugcrowd VRT/HackerOne sebelum audit"],
+      "note": "25 tools; setiap tool yang menyentuh target selalu scope-gated R0 (tool klasifikasi murni tidak menyentuh target); CLAUDE.md di root workspace = agent contract-nya; engagements/ adalah runtime state (sudah di-gitignore)"
     }
   },
   "hard_rules": [

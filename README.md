@@ -8,6 +8,7 @@ Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
 | Skill | Version | What it does |
 |---|---|---|
+| [skill-mythos](skills/skill-mythos/) | 1.0.0 | Master activation module for the Skill Mythos bundle — the charter every other skill converges on. Twelve articles (extreme-expertise identity, research-grounded synthesis, legitimate assimilation of public methodologies, stability-first autonomy, quality over bounty), the tiered bundle map, the autonomy protocol for self-selecting organs by phase and event, and the triage-grade quality gates: zero false positives (differential triad), fully reproducible findings, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk (official taxonomy shipped, Apache-2.0). |
 | [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.3.0 | Discipline layer for authorized security research, bug bounty, and pentest work on web apps, APIs, and AI-powered surfaces. Enforces evidence-cited claims, pre-registered falsifiable hypotheses, reproducible PoCs, canary-based impact proof. Ships 19 reference modules — reasoning engine, attack classes, recon toolchain with target triage, researcher conduct, phase playbook — plus a PASS/FAIL report auditor. |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source-code audit engine, companion to mythos-bug-hunter. Doctrine: *static analysis proposes, the runtime disposes* — no finding ships without a differential oracle. Calibrated by rediscovering CVE-2024-33663 and CVE-2024-33664 from the version diff alone. |
 | [mythos-proving-ground](skills/mythos-proving-ground/) | 1.0.0 | Ground-truth benchmark harness for AI security agents. Deploys an instrumented vulnerable lab on localhost, watches what the agent actually does via server-side trigger events, and scores claimed findings against a seeded manifest: coverage, precision, hallucination rate, harm events, evidence discipline, efficiency. |
@@ -34,13 +35,13 @@ Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
 ## Arsenal — the execution hand
 
-[**arsenal/**](arsenal/) — the mythos-arsenal MCP server (FastMCP, `arsenal/server.py`): **22 scope-gated tools** that execute the 13 organ skills above under one authorization registry ([scope.csv](scope.csv) — deny-by-default, every row cites an auth artifact) and one append-only evidence ledger (R-NNN records). Tool groups: loader (progressive skill disclosure), governance (`scope_check`/`auth_status`), evidence (`ledger_*`), passive + active probes, dossier cartography, the **Binary Brain** engine (`sbb_declare`/`sbb_decide`/`sbb_apply` — the incident branch), and `arsenal_route` (CLI allowlist + flag blacklist for Kali-style tools).
+[**arsenal/**](arsenal/) — the mythos-arsenal MCP server (FastMCP, `arsenal/server.py`): **25 scope-gated tools** that execute the 14 bundles above (the skill-mythos charter + 13 organs) under one authorization registry ([scope.csv](scope.csv) — deny-by-default, every row cites an auth artifact) and one append-only evidence ledger (R-NNN records). Tool groups: charter (`mythos_charter` — the skill-mythos activation payload), loader (progressive skill disclosure), governance (`scope_check`/`auth_status`), evidence (`ledger_*`), passive + active probes, dossier cartography, the **Binary Brain** engine (`sbb_declare`/`sbb_decide`/`sbb_apply` — the incident branch), the report pair (`cvss3_score`/`vrt_classify` — spec-exact CVSS 3.1 scoring and Bugcrowd VRT classification against the shipped official taxonomy, with the HackerOne crosswalk), and `arsenal_route` (CLI allowlist + flag blacklist for Kali-style tools).
 
 ```bash
 pip install -r requirements.txt                 # mcp>=1.2.0
-python3 arsenal/server.py --selftest            # lists all 22 tools
-python3 -m unittest discover -s arsenal/tests   # 48 tests
-python3 scripts/validate_skill.py --all         # 17 bundles PASS
+python3 arsenal/server.py --selftest            # lists all 25 tools
+python3 -m unittest discover -s arsenal/tests   # 75 tests
+python3 scripts/validate_skill.py --all         # 18 bundles PASS
 ```
 
 Ships with a PASS/FAIL report gate ([auditor/](auditor/)), two self-owned labs ([lab/target_app.py](lab/target_app.py) and [lab/christmas_lab.py](lab/christmas_lab.py) — a synthetic Binary Brain hunt), and audited worked examples ([examples/](examples/): a 548-record engagement and a closed adversary hunt). Wire it via [agent/mcp/wiring.json](agent/mcp/wiring.json) (`mythos-arsenal` entry) and keep [CLAUDE.md](CLAUDE.md) at the workspace root — MCP serves the tools, the contract makes the agent use them in discipline.

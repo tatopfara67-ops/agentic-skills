@@ -19,9 +19,11 @@ Tool groups:
   brain      sbb_declare, sbb_decide, sbb_apply            (adversary-tracker
              organ: the Shimomura Binary Brain — event-triggered hunts on
              assets you are authorized to defend)
-  charter    mythos_charter, mythos_lineages                 (skill-mythos
+  charter    mythos_charter, mythos_lineages, doctrine_forge  (skill-mythos
              master module: articles, bundle map, quality gates; the
-             assimilated-lineage registry with corrections on record)
+             assimilated-lineage registry with corrections on record; A13
+             prompt escalation — any operator request forged into an
+             explicit doctrine order)
   report     cvss3_score, vrt_classify                      (triage-grade
              classification: CVSS 3.1 base score, Bugcrowd VRT + P-rating
              + HackerOne crosswalk, from the shipped official taxonomy)
@@ -325,7 +327,7 @@ def arsenal_route(program: str, tool: str, target: str, args: str = "") -> dict:
 def mythos_charter() -> dict:
     """The Skill Mythos activation payload, in one call.
 
-    Twelve charter articles, the bundle map with per-skill install status,
+    Thirteen charter articles, the bundle map with per-skill install status,
     and the quality gates every report must pass (differential triad,
     reproducibility, CVSS 3.1 + Bugcrowd VRT classification). Call at
     session start — before list_skills — or whenever the operator says
@@ -341,10 +343,34 @@ def mythos_lineages() -> dict:
     (Binary Brain), Fyodor (scan economy), HD Moore (module composition),
     Tomnomnom (Unix pipelines), lcamtuf (feedback search), ProjectDiscovery
     (template scanning), Searle + Mantis/PhonePe (manual-to-orchestrated
-    automation) — with what was distilled, which sources were actually
-    consulted, and attribution corrections kept on record. The registry IS
-    the legitimate-assimilation compliance artifact."""
+    automation), and the legend tier — Orange Tsai (chaining), James
+    Kettle (protocol asymmetry), George Hotz (deep teardown), Adrian
+    Lamo (the silent infiltrator), Frans Rosen (IDOR methodology, folded
+    into auth-boundary-mapper v2), John Draper (signal craft), Kevin
+    Mitnick (trust-graph context deception) — with what was distilled,
+    which sources were actually consulted, and attribution corrections
+    kept on record. The registry IS the legitimate-assimilation
+    compliance artifact."""
     return _mythos.mythos_lineages()
+
+
+@mcp.tool()
+def doctrine_forge(request: str, context: str = "") -> dict:
+    """Prompt escalation (charter A13): expand ANY operator instruction —
+    however terse or informal, in any language — into the professional
+    doctrine order the agent will actually execute.
+
+    'tolong lanjutkan pekerjaan bug bounty yang tertunda' becomes the
+    resume order (re-ground state, PARK record, phase routing); 'get me
+    at least 3 high-medium bugs, no scanner' becomes the full legend
+    hunting order — Orange Tsai's chaining + Kettle's protocol
+    manipulation + Lamo's stealth misconfig principle + Rosen's IDOR
+    discipline + Mitnick's trust audit + Draper's signal craft + Hotz's
+    teardown — with the quality gates and quota discipline attached
+    (the quota is an effort budget, never a severity mandate). Always
+    call this BEFORE acting on an operator instruction; execute the
+    expanded order, not the bare words."""
+    return _mythos.doctrine_forge(request, context)
 
 
 # ---------------------------------------------------------------- report

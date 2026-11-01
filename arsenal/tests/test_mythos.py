@@ -1,11 +1,12 @@
-"""skill-mythos tests — charter, CVSS engine, VRT classifier, report gates.
+"""skill-mythos tests — charter, doctrine forge, CVSS engine, VRT classifier.
 
-Covers: the twelve-article activation payload, spec-exact CVSS 3.1 base
-scoring (including the FIRST published example scores), VRT classification
-against the shipped official taxonomy (variant selection, HackerOne
-crosswalk, template shaping), and the hardened auditor gates (cvss
-recomputation, vrt validation, reproduction reference, incident-handoff
-exemption).
+Covers: the thirteen-article activation payload, the doctrine_forge
+prompt-escalation engine (intent grammar, severity/quota extraction,
+persona mixes, determinism), spec-exact CVSS 3.1 base scoring (including
+the FIRST published example scores), VRT classification against the
+shipped official taxonomy (variant selection, HackerOne crosswalk,
+template shaping), and the hardened auditor gates (cvss recomputation,
+vrt validation, reproduction reference, incident-handoff exemption).
 """
 import importlib.util
 import os
@@ -101,19 +102,28 @@ class TestMythosCharter(unittest.TestCase):
     def setUp(self):
         self.charter = _mythos.mythos_charter()
 
-    def test_twelve_articles(self):
-        self.assertEqual(len(self.charter["articles"]), 12)
+    def test_thirteen_articles(self):
+        self.assertEqual(len(self.charter["articles"]), 13)
         for article in self.charter["articles"]:
             self.assertRegex(article, r"^A\d+ ")
         self.assertIn("CVSS 3.1", "".join(self.charter["articles"]))
+        self.assertTrue(self.charter["articles"][-1].startswith("A13"))
+
+    def test_charter_carries_prompt_escalation(self):
+        escalation = self.charter["prompt_escalation"]
+        self.assertEqual(escalation["tool"], "doctrine_forge")
+        self.assertIn("A13", escalation["rule"])
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 20)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 26)
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
         self.assertEqual(sorted(tiers["5-craft"]), [
             "feedback-fuzzer", "module-smith", "packet-orchestrator",
             "pipeline-smith", "scan-economist", "template-scanner"])
+        self.assertEqual(sorted(tiers["6-legend"]), [
+            "chain-architect", "deep-teardown", "desync-hunter",
+            "ghost-crawler", "signal-smith", "trust-graph-hunter"])
         for tier, skills in tiers.items():
             for name, installed in skills.items():
                 self.assertTrue(installed, "%s missing in tier %s"
@@ -132,13 +142,16 @@ class TestMythosCharter(unittest.TestCase):
 
 
 class TestMythosLineages(unittest.TestCase):
-    def test_registry_lists_seven_lineages_all_installed(self):
+    def test_registry_lists_fourteen_lineages_all_installed(self):
         registry = _mythos.mythos_lineages()
-        self.assertEqual(registry["count"], 7)
+        self.assertEqual(registry["count"], 14)
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         for organ in ("adversary-tracker", "scan-economist", "module-smith",
                       "pipeline-smith", "feedback-fuzzer",
-                      "template-scanner", "packet-orchestrator"):
+                      "template-scanner", "packet-orchestrator",
+                      "chain-architect", "desync-hunter", "deep-teardown",
+                      "ghost-crawler", "auth-boundary-mapper",
+                      "signal-smith", "trust-graph-hunter"):
             self.assertIn(organ, by_organ)
             self.assertTrue(by_organ[organ]["installed"], organ)
             for field in ("figure", "distillation", "sources"):
@@ -150,10 +163,13 @@ class TestMythosLineages(unittest.TestCase):
         joined = " ".join(e["figure"] for e in registry["lineages"])
         for name in ("Shimomura", "Gordon Lyon", "HD Moore", "Tom Hudson",
                      "Zalewski", "Sandeep Singh", "Nizamul Rana",
-                     "Justin Searle", "PhonePe"):
+                     "Justin Searle", "PhonePe", "Orange Tsai",
+                     "James Kettle", "George Hotz", "Adrian Lamo",
+                     "Frans Rosen", "John Draper", "Kevin Mitnick"):
             self.assertIn(name, joined, name)
-        # the unverified attribution from the operator brief stays out
+        # the unverified attributions from the operator brief stay out
         self.assertNotIn("Skappen", joined)
+        self.assertNotIn("Franz Rosen", joined)  # misspelling stays out
 
     def test_attribution_corrections_are_on_record(self):
         registry = _mythos.mythos_lineages()
@@ -163,6 +179,9 @@ class TestMythosLineages(unittest.TestCase):
         self.assertIn("Nizamul Rana", corrections["template-scanner"])
         self.assertIn("PhonePe", corrections["packet-orchestrator"])
         self.assertIn("Skappen", corrections["packet-orchestrator"])
+        self.assertIn("Frans Rosen", corrections["auth-boundary-mapper"])
+        self.assertIn("unauthorized", corrections["ghost-crawler"])
+        self.assertIn("translation", corrections["trust-graph-hunter"])
 
 
 # --------------------------------------------------------- vrt_classify

@@ -1,9 +1,9 @@
 ---
 name: skill-mythos
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the twelve charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty), the tiered bundle map, the autonomy protocol for self-selecting organs by phase and event, and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates").
+description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the thirteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, and A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick), the autonomy protocol for self-selecting organs by phase and event, and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
 category: security/governance
 license: MIT
 metadata:
@@ -11,20 +11,21 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.0.0 — The Master Charter
+# skill-mythos v1.1.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
 * **Is**: the activation module for the bundle. When Skill Mythos is
   installed and the agent is turned loose on authorized work, THIS file is
   the first routing layer: it states what the bundle is, how organs are
-  selected and combined autonomously, and the quality standard every
-  finding must clear before it ships. One call — `mythos_charter()` —
-  returns the distilled version.
+  selected and combined autonomously, how ANY operator instruction —
+  however terse — becomes an explicit doctrine order (A13), and the
+  quality standard every finding must clear before it ships. One call —
+  `mythos_charter()` — returns the distilled version.
 * **Is not**: a hunting technique. It performs zero probes. The organs do
   the work; the charter defines the frame they work inside.
 
-## 1. The Charter — Twelve Articles
+## 1. The Charter — Thirteen Articles
 
 1. **Identity.** Skill Mythos is an extreme-expertise bundle for
    pentest, bug bounty, and security research — not general-purpose
@@ -66,6 +67,13 @@ metadata:
 12. **Philosophy per organ.** Each organ carries its methodology's
     essence and documents its lineage; the charter is the convergence
     point, not a replacement for any organ.
+13. **Prompt escalation.** Every operator instruction — however terse,
+    informal, or sleepy — is expanded through `doctrine_forge` into an
+    explicit doctrine order (persona mix, phase plan, tools, gates)
+    before any organ acts. The agent executes the expanded order, never
+    the bare words; the original request rides along verbatim into the
+    plan note. A quota order is an effort budget, never a severity
+    mandate — escalation never relaxes discipline.
 
 ## 2. The Bundle at a Glance
 
@@ -92,16 +100,32 @@ metadata:
 | 5 | feedback-fuzzer | the lcamtuf lineage: feedback-guided search — state maps, bucketed novelty, curated corpora, minimization, saturation as the stop rule |
 | 5 | template-scanner | the ProjectDiscovery lineage: detection as declarative templates — matchers pre-registered, packs versioned, campaigns cite their set |
 | 5 | packet-orchestrator | the Searle + Mantis lineage: manual first, then layer-by-layer translation into state-backed automation; packet differentials show their bytes |
+| 6 legend | chain-architect | the Orange Tsai lineage (Tier S): the compound kill chain — low-severity primitives composed into critical impact, every link proven by its own differential |
+| 6 | desync-hunter | the James Kettle lineage (Tier S): protocol & specification asymmetry — parser-seam ambiguities, one per request, bytes as evidence |
+| 6 | deep-teardown | the George Hotz lineage (Tier S): dismantle client artifacts to primitives — local data flow before network flow |
+| 6 | ghost-crawler | the Adrian Lamo lineage (Tier A): enter without knocking — passive-index misconfig hunting, one probe per candidate, main app untouched |
+| 6 | signal-smith | the John Draper lineage (Tier B): input grammar and precision signal craft — one forged variation, never a spray, never an alarm |
+| 6 | trust-graph-hunter | the Kevin Mitnick lineage (Tier B, systems edition): the trust graph — forgeable context and inherited privilege, operator-owned ends only |
 
-Execution hand: the **arsenal** MCP server (26 scope-gated tools),
-the **auditor** report gate, two self-owned **labs**, and audited
-**examples**. Full map with load-when triggers lives in
-references/bundle-map.md — the atlas. The craft tier's figures,
-distillations, and attribution corrections are enumerated by the
-`mythos_lineages` tool — the doctrine's compliance artifact.
+v2 upgrade on record: **auth-boundary-mapper** (tier 2) folds in the
+**Frans Rosen** lineage (Tier A) — identifier construction, every
+parameter position, 2nd-order IDOR, tenant slices, full response diffs
+(the organ's idor-field-guide module).
+
+Execution hand: the **arsenal** MCP server (27 scope-gated tools,
+incl. `doctrine_forge` for A13), the **auditor** report gate, two
+self-owned **labs**, and audited **examples**. Full map with load-when
+triggers lives in references/bundle-map.md — the atlas. The craft and
+legend tiers' figures, distillations, and attribution corrections are
+enumerated by the `mythos_lineages` tool — the doctrine's compliance
+artifact.
 
 ## 3. Autonomy Protocol (short form)
 
+0. **Escalate the operator's words first (A13).** Whatever the operator
+   just said — "lanjutkan pekerjaan yang tertunda", "get me 3
+   high-medium bugs" — pass it through `doctrine_forge` and work the
+   expanded order; the bare words are never the whole instruction.
 1. **Assess state** — phase, authorization posture (`auth_status`),
    environment (what is reachable), target architecture dynamics
    (monolith/API/AI surface), effort budget.
@@ -148,8 +172,10 @@ references/vrt-mapping.md — in that order of depth.
 3. `list_skills()` — metadata only; progressive disclosure is the cost
    model.
 4. Load the spine (mythos-bug-hunter) and its conduct module.
-5. Pick organs by phase via the autonomy protocol.
-6. At report time: `cvss3_score` → `vrt_classify` → write the block →
+5. `doctrine_forge(operator_request)` on EVERY operator instruction
+   before acting on it (A13) — the expanded order is what executes.
+6. Pick organs by phase via the autonomy protocol.
+7. At report time: `cvss3_score` → `vrt_classify` → write the block →
    audit until exit 0.
 
 Wiring, selftest, validation, and the first-session bootstrap are in
@@ -171,6 +197,7 @@ references/activation.md — the install runbook.
 | --- | --- |
 | Mapping the full bundle, organ load-when triggers | references/bundle-map.md |
 | Selecting/combining organs autonomously | references/autonomy-protocol.md |
+| Expanding an operator request / extending the intent grammar | references/doctrine-forge.md |
 | Writing or auditing a finding block | references/quality-gates.md |
 | Classifying against Bugcrowd VRT / HackerOne | references/vrt-mapping.md |
 | Constructing or scoring a CVSS 3.1 vector | references/cvss-guide.md |

@@ -1,12 +1,20 @@
-"""skill-mythos backends — the charter, and the classifier pair (CVSS + VRT).
+"""skill-mythos backends — the charter, the prompt-escalation forge, and
+the classifier pair (CVSS + VRT).
 
-Three tools, one doctrine: a finding that leaves this arsenal must be
+Four tools, one doctrine: a finding that leaves this arsenal must be
 triage-grade — zero false positive (differential triad), fully reproducible
 (n_runs), and precisely classified (CVSS 3.1 vector + recomputed base score,
-Bugcrowd VRT category with P-rating, HackerOne severity crosswalk).
+Bugcrowd VRT category with P-rating, HackerOne severity crosswalk) — and an
+operator instruction, however terse, becomes an explicit doctrine order
+before any organ acts.
 
-  mythos_charter()      the activation payload: twelve articles, the bundle
-                        map with install status, the quality gates
+  mythos_charter()      the activation payload: thirteen articles, the
+                        bundle map with install status, the quality gates
+  doctrine_forge(...)   prompt escalation (A13): any operator request,
+                        in any language, expanded deterministically into
+                        the professional doctrine order — persona mix,
+                        phase plan, tools, gates — that the agent then
+                        executes
   cvss3_score(vector)   spec-exact CVSS v3.1 base score (arsenal/cvss.py)
   vrt_classify(class)   finding-class -> VRT category/variant + P-rating +
                         HackerOne severity + a CVSS template, resolved against
@@ -20,6 +28,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 
 from .. import cvss as _cvss
 from .. import paths
@@ -27,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.0.0"
+MODULE_VERSION = "1.1.0"
 
 SPINE = "mythos-bug-hunter"
 
@@ -43,6 +52,8 @@ TIERS = {
     "5-craft": ["scan-economist", "module-smith", "pipeline-smith",
                 "feedback-fuzzer", "template-scanner",
                 "packet-orchestrator"],
+    "6-legend": ["chain-architect", "desync-hunter", "deep-teardown",
+                 "ghost-crawler", "signal-smith", "trust-graph-hunter"],
 }
 
 # The assimilated lineage registry (doctrine A3: attributed, verified,
@@ -147,6 +158,129 @@ LINEAGES = [
                       "project (Apache-2.0). Organ built on the two "
                       "verified lineages, correction kept on record",
     },
+    {
+        "organ": "chain-architect",
+        "figure": "Orange Tsai (DEVCORE) — Tier S, the Logic Architect",
+        "distillation": "the compound kill chain: no single giant bug — "
+                        "map the component architecture, hunt the seams, "
+                        "treat low/informational findings as chainable "
+                        "primitives, and compose 3-4 of them into one "
+                        "critical impact with every link proven by its "
+                        "own differential (the ProxyLogon pattern)",
+        "sources": "DEVCORE 'ProxyLogon' writeup (2021); 'A New Era of "
+                   "SSRF' (DEF CON 28); 'Confusion Attacks' (Apache); "
+                   "HEXACON 2023 'A 3-Year Tale'; "
+                   "skills/chain-architect/references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "desync-hunter",
+        "figure": "James Kettle (albinowax, PortSwigger Web Security "
+                  "Research) — Tier S, the Logic Architect",
+        "distillation": "protocol & specification asymmetry: the spec is a "
+                        "hypothesis — map the parsing chain, craft one "
+                        "ambiguity per request (CL/TE, header-name, "
+                        "absolute-form, H2 classes), confirm by "
+                        "response-class differential with exact bytes as "
+                        "artifacts; timing is a lead, never a proof",
+        "sources": "'HTTP Desync Attacks' (Black Hat US 2019) + the "
+                   "PortSwigger research series; 'Browser-Powered Desync' "
+                   "(2022); 'HTTP/2: The Sequel Is Always Worse' (Black "
+                   "Hat US 2021); Web Security Academy smuggling modules; "
+                   "skills/desync-hunter/references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "deep-teardown",
+        "figure": "George Hotz (geohot) — Tier S, the Reverse Engineer",
+        "distillation": "dismantle to primitives: the shipped artifact is "
+                        "the honest spec — one acquisition, then local "
+                        "dissection down the teardown ladder (JS/APK/"
+                        "binary), mapping local data handling of tokens, "
+                        "keys, and PII before network flow; client logic "
+                        "is a hypothesis until the server differential "
+                        "confirms",
+        "sources": "public record of the 2007 iPhone SIM unlock, the "
+                   "PS3 reverse-engineering era (2010-11) and blackra1n "
+                   "(2009); skills/deep-teardown/references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "ghost-crawler",
+        "figure": "Adrian Lamo (1981-2018) — Tier A, the Silent "
+                  "Infiltrator",
+        "distillation": "enter without knocking: the guarded main app is "
+                        "the last thing you touch — passive public indexes "
+                        "first (CT logs, dork grammar, archives), hunting "
+                        "forgotten side doors and misconfigurations; one "
+                        "bounded verification probe per candidate; "
+                        "exposures reported, not looted (authorized "
+                        "translation of the method shape, kept on record)",
+        "sources": "United States v. Lamo (DOJ, 2003); Wired 'The "
+                   "Homeless Hacker v. The New York Times' (2004); "
+                   "obituary coverage (2018); "
+                   "skills/ghost-crawler/references/sources.md",
+        "correction": "Lamo's entries were unauthorized — this organ "
+                      "distills the method shape (where forgotten exposure "
+                      "lives, attribution discipline) into an R0-bounded "
+                      "authorized posture; the distance is deliberate and "
+                      "documented in the organ's sources.md",
+    },
+    {
+        "organ": "auth-boundary-mapper",
+        "figure": "Frans Rosen (Detectify co-founder; top-ranked bug "
+                  "bounty hunter) — Tier A, folded into the organ at v2.0.0",
+        "distillation": "IDOR as methodology: analyze identifier "
+                        "construction before any swap; swap in every "
+                        "parameter position; hunt 2nd-order references "
+                        "across features; diff full response bodies, not "
+                        "status codes; in multi-tenant SaaS the tenant "
+                        "context is a matrix dimension",
+        "sources": "'Attacking Modern Web Technologies' talk material; "
+                   "2nd-order IDOR keynote material (Intigriti Bug Bytes "
+                   "#55 coverage); the public IDOR writeup series; "
+                   "skills/auth-boundary-mapper/references/"
+                   "idor-field-guide.md",
+        "correction": "operator brief spelled the name 'Franz Rosen' — "
+                      "verified spelling is Frans Rosen; organ and "
+                      "registry carry the verified spelling",
+    },
+    {
+        "organ": "signal-smith",
+        "figure": "John Draper (Captain Crunch) — Tier B, the Signal "
+                  "Manipulator",
+        "distillation": "one precise tone: learn the validator's expected "
+                        "grammar (type, length, charset, encoding, "
+                        "frequency), map the double-parse seams, then forge "
+                        "ONE minimal variation that passes the filter while "
+                        "the deeper parser reads different bytes — two "
+                        "variations per seam, then park; never trip the "
+                        "alarm",
+        "sources": "the 1971-72 blue-box public record (2600 Hz in-band "
+                   "signaling); Ron Rosenbaum, 'Secrets of the Little Blue "
+                   "Box', Esquire (1971); "
+                   "skills/signal-smith/references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "trust-graph-hunter",
+        "figure": "Kevin Mitnick (1963-2023, author of The Art of "
+                  "Deception) — Tier B, translated to systems",
+        "distillation": "context deception, systems edition: enumerate the "
+                        "trust edges (what each boundary trusts — IPs, "
+                        "Referer, internal headers, webhook signatures, "
+                        "server-to-server tokens), draw the trust graph, "
+                        "then pre-register deception hypotheses and prove "
+                        "inherited privilege with differentials on "
+                        "operator-owned ends; no human-target deception",
+        "sources": "The Art of Deception (2002); The Art of Intrusion "
+                   "(2005); obituary coverage (2023); "
+                   "skills/trust-graph-hunter/references/sources.md",
+        "correction": "the systems translation is labeled as this "
+                      "bundle's own contribution, not Mitnick's practice — "
+                      "no human-target social engineering is contained or "
+                      "used anywhere in the organ",
+    },
 ]
 
 ARTICLES = [
@@ -182,6 +316,11 @@ ARTICLES = [
     "A12 philosophy per organ — each organ carries its methodology's "
     "essence and documents its lineage; the charter is the convergence "
     "point.",
+    "A13 prompt escalation — every operator instruction, however terse "
+    "or informal, is expanded through doctrine_forge into an explicit "
+    "doctrine order (persona mix, phase plan, tools, gates) before any "
+    "organ acts; the agent executes the expanded order, never the bare "
+    "words — deterministic, and the original request rides along verbatim.",
 ]
 
 QUALITY_GATES = [
@@ -219,7 +358,7 @@ def _installed_skills() -> list[str]:
 def mythos_charter() -> dict:
     """The Skill Mythos activation payload, in one call.
 
-    Returns the twelve charter articles, the bundle map with per-skill
+    Returns the thirteen charter articles, the bundle map with per-skill
     install status, the quality gates every report must pass, and the
     reporting-stage tool routing. Call this at session start (or whenever
     the operator says 'activate Skill Mythos') before list_skills."""
@@ -239,6 +378,12 @@ def mythos_charter() -> dict:
         "other_installed": others,
         "quality_gates": QUALITY_GATES,
         "reporting_tools": REPORTING_TOOLS,
+        "prompt_escalation": {
+            "tool": "doctrine_forge",
+            "rule": "every operator instruction, however terse, is expanded "
+                    "into an explicit doctrine order before any organ acts "
+                    "(A13); the original words ride along verbatim",
+        },
         "lineage_registry_tool": "mythos_lineages",
         "charter_reference": "skills/skill-mythos/SKILL.md",
     }
@@ -263,6 +408,459 @@ def mythos_lineages() -> dict:
         "doctrine": "skills/skill-mythos/references/assimilation-doctrine.md",
         "lineages": entries,
     }
+
+
+# --------------------------------------------- prompt escalation (A13)
+#
+# doctrine_forge — the operator's terse instruction becomes an explicit
+# doctrine order before any organ acts. Deterministic by A4: the same
+# request produces the same order, character for character.
+
+LEGEND_REGISTRY = [
+    {
+        "key": "orange-tsai",
+        "legend": "Orange Tsai (Tier S — the Logic Architect)",
+        "organ": "chain-architect",
+        "contribution": "adopt the chaining mindset — hunt the small, "
+                        "chainable gaps and design the compound kill chain "
+                        "that composes 3-4 low-severity links into one "
+                        "critical impact",
+    },
+    {
+        "key": "james-kettle",
+        "legend": "James Kettle (Tier S — the Logic Architect)",
+        "organ": "desync-hunter",
+        "contribution": "treat the specification as a hypothesis — manipulate "
+                        "HTTP headers and protocol framing manually at the "
+                        "parser seams, one ambiguity per request, bytes as "
+                        "evidence",
+    },
+    {
+        "key": "george-hotz",
+        "legend": "George Hotz (Tier S — the Reverse Engineer)",
+        "organ": "deep-teardown",
+        "contribution": "dismantle the client artifact to primitives — read "
+                        "the actual code, map local data handling before "
+                        "network flow",
+    },
+    {
+        "key": "adrian-lamo",
+        "legend": "Adrian Lamo (Tier A — the Silent Infiltrator)",
+        "organ": "ghost-crawler",
+        "contribution": "enter without knocking — only passively-exposed "
+                        "architecture misconfigurations and forgotten side "
+                        "doors, one bounded probe per candidate, the guarded "
+                        "main application untouched",
+    },
+    {
+        "key": "frans-rosen",
+        "legend": "Frans Rosen (Tier A — the Silent Infiltrator)",
+        "organ": "auth-boundary-mapper",
+        "contribution": "IDOR as methodology — identifier construction "
+                        "before any swap, every parameter position, "
+                        "2nd-order flows, cloud tenant slices, full response "
+                        "diffs",
+    },
+    {
+        "key": "john-draper",
+        "legend": "John Draper (Tier B — the Signal Manipulator)",
+        "organ": "signal-smith",
+        "contribution": "one precise forged variation beats a thousand noisy "
+                        "ones — calibrate the validator's grammar and "
+                        "frequency, then the minimal byte edit; never trip "
+                        "the alarm",
+    },
+    {
+        "key": "kevin-mitnick",
+        "legend": "Kevin Mitnick (Tier B — the Context Deceiver)",
+        "organ": "trust-graph-hunter",
+        "contribution": "map the trust relationships between systems and "
+                        "audit every trust edge for forgeable context — "
+                        "inherited privilege proven on operator-owned ends",
+    },
+]
+
+# (intent, keywords) — scored by distinct keyword hits; ties broken by
+# list order. Keywords cover English and the operator's Indonesian
+# phrasings, matching the charter's activation triggers.
+_INTENT_GRAMMAR = [
+    ("continue_pending", (
+        "lanjutkan", "lanjut", "tersambung", "continue", "resume",
+        "pending", "tertunda", "sambungkan")),
+    ("incident_response", (
+        "adversary", "incident", "intrusion", "compromis", "serangan",
+        "dibobol", "anomalous", "breach")),
+    ("classify_report", (
+        "cvss", "vrt", "classify", "klasifikasi", "rating", "laporan",
+        "report", "audit", "severity assessment")),
+    ("bug_quota", (
+        "bug", "temuan", "finding", "vulnerabilit", "celah", "dapatkan",
+        "hunt", "carikan", "cari bug", "get me", "minimum", "minimal",
+        "at least", "target")),
+    ("surface_recon", (
+        "recon", "enumerat", "subdomain", "mapping", "peta", "asset",
+        "surface", "perimeter", "inventory")),
+]
+
+_SEVERITY_RE = re.compile(r"\b(critical|high|medium|low)\b", re.IGNORECASE)
+_QUOTA_RE = re.compile(
+    r"(?:minimal|minimum|at least|sedikitnya|sekurang|target)\s+(\d+)"
+    r"|(\d+)\s*(?:bug|temuan|finding|vulnerabilit|celah)",
+    re.IGNORECASE)
+
+
+def _detect_intent(request: str) -> str:
+    """Scored keyword match, deterministic; 'default' when nothing hits."""
+    lowered = request.lower()
+    best, best_hits = "default", 0
+    for intent, keywords in _INTENT_GRAMMAR:
+        hits = sum(1 for kw in keywords if kw in lowered)
+        if hits > best_hits:
+            best, best_hits = intent, hits
+    return best
+
+
+def _extract_severity(request: str) -> list[str]:
+    found = []
+    for match in _SEVERITY_RE.findall(request):
+        token = match.lower()
+        if token not in found:
+            found.append(token)
+    return found
+
+
+def _extract_quota(request: str):
+    match = _QUOTA_RE.search(request)
+    if not match:
+        return None
+    return int(match.group(1) or match.group(2))
+
+
+def _personas(keys: list[str]) -> list[dict]:
+    by_key = {p["key"]: p for p in LEGEND_REGISTRY}
+    return [dict(by_key[k]) for k in keys if k in by_key]
+
+
+def _forge_bug_quota(request: str, severity: list[str],
+                     quota: int | None) -> dict:
+    severity_goal = "-".join(severity) if severity else "unspecified"
+    quota_line = ("at least %d" % quota) if quota else "unspecified count"
+    prompt = (
+        "PROFESSIONAL ORDER (auto-forged from the operator's request):\n\n"
+        "Hunt the authorized targets WITHOUT scanners, under the embedded "
+        "Skill Mythos methods, with a severity goal of %s and a quota of "
+        "%s.\n\n"
+        "1. Posture first: auth_status() — R0 scope and the authorization "
+        "artifact decide which targets are touchable this session; a refusal "
+        "is a ledgered audit fact, not an obstacle.\n"
+        "2. Stealth principle (Adrian Lamo): enter without knocking — "
+        "passive public indexes first (CT logs, dork grammar, archives), "
+        "hunting forgotten side doors and exposed architecture "
+        "misconfigurations; ONE bounded verification probe per candidate; "
+        "the guarded main application stays untouched while side doors "
+        "remain unexplored.\n"
+        "3. Chaining mindset (Orange Tsai): map the component architecture "
+        "and hunt the seams; treat every informational/low finding as a "
+        "chainable primitive — design the compound kill chain that composes "
+        "3-4 small gaps into one critical impact, each link proven by its "
+        "own differential triad.\n"
+        "4. Protocol asymmetry (James Kettle): treat the specification as a "
+        "hypothesis — where documentation says the system works way A, "
+        "craft the manual way-B input at the parser seams (header and "
+        "protocol manipulation, one ambiguity per request) and prove the "
+        "disagreement with exact bytes in artifacts.\n"
+        "5. Authorization discipline (Frans Rosen): every object reference "
+        "gets identifier-construction analysis BEFORE any swap; swap in "
+        "every parameter position; sweep 2nd-order flows and cloud tenant "
+        "slices; diff full response bodies, never just status codes.\n"
+        "6. Trust audit (Kevin Mitnick, systems edition): draw the trust "
+        "graph between components; pre-register a deception hypothesis per "
+        "trust edge; prove inherited privilege on operator-owned ends only.\n"
+        "7. Signal craft (John Draper) when a validator blocks honest "
+        "payloads: calibrate the filter's expected grammar and frequency, "
+        "then ONE precise minimal variation per seam — never a spray, "
+        "never an alarm.\n"
+        "8. Client teardown (George Hotz) where artifacts are in scope: one "
+        "acquisition, local dissection to primitives, local data flow "
+        "mapped before network flow.\n\n"
+        "Quota discipline (A7/A8): the quota is an EFFORT BUDGET, not a "
+        "severity mandate. Every CONFIRMED finding still clears the "
+        "differential triad (baseline/treatment/control), n_runs >= 2, "
+        "cvss3_score + vrt_classify on every report line, and "
+        "auditor/audit_report.py exit 0. If the evidence supports fewer or "
+        "milder findings than the quota, the report says exactly that, with "
+        "the state that produced it — severity inflation to satisfy a quota "
+        "is the one unforgivable failure. State the exit numbers (R6)."
+        % (severity_goal, quota_line))
+    return {
+        "detected_intent": "bug_quota",
+        "severity_goal": severity_goal,
+        "quota": quota,
+        "persona_mix": _personas(["adrian-lamo", "orange-tsai",
+                                  "james-kettle", "frans-rosen",
+                                  "kevin-mitnick", "john-draper",
+                                  "george-hotz"]),
+        "phase_plan": [
+            "auth_status — R0 posture",
+            "Phase 1 passive-first (ghost-crawler posture drives)",
+            "Phase 2 matrix + architecture + trust graph + chain design",
+            "Phase 3 differentials with craft/legend overlays",
+            "Phase 4 bounded impact proofs (canary ladder)",
+            "Phase 5 classification + audit until exit 0",
+        ],
+        "tools": ["auth_status", "ct_subdomains", "dns_resolve",
+                  "http_probe", "js_analyze", "api_introspect",
+                  "content_discover", "dossier_add", "ledger_append",
+                  "cvss3_score", "vrt_classify",
+                  "auditor/audit_report.py"],
+        "doctrine_prompt": prompt,
+    }
+
+
+def _forge_continue(request: str) -> dict:
+    prompt = (
+        "PROFESSIONAL ORDER (auto-forged from the operator's request):\n\n"
+        "Continue the pending authorized engagement from its recorded "
+        "state — resume, never restart.\n\n"
+        "1. Re-ground: auth_status() (is the R0 posture unchanged?), then "
+        "ledger_summary() and ledger_read() on the newest PARK record — "
+        "the resume note states the phase, the parked remainder, and the "
+        "next action that was declared.\n"
+        "2. dossier_summary() for the surface state; reconcile against the "
+        "priority queue and the backlog.\n"
+        "3. Resume at the parked phase with its organ routing (charter "
+        "phase table): recon organs if recon was parked; the "
+        "authorization matrix if Phase 2 was parked; payload organs with "
+        "the craft and legend overlays if Phase 3 was parked; "
+        "classification tools if Phase 5 was parked.\n"
+        "4. Effort discipline (scan-economist): re-price the parked "
+        "remainder before executing; if the budget is spent, say so with "
+        "numbers instead of grinding.\n"
+        "5. Quality gates unchanged: differential triad on every new claim, "
+        "n_runs >= 2, CVSS 3.1 + VRT on every CONFIRMED line, auditor "
+        "exit 0 before shipping.\n"
+        "6. State the exit numbers (R6): surfaces, hypotheses, closures by "
+        "state, records appended this session.")
+    return {
+        "detected_intent": "continue_pending",
+        "severity_goal": "-",
+        "quota": None,
+        "persona_mix": _personas(["orange-tsai", "adrian-lamo",
+                                  "frans-rosen"]),
+        "phase_plan": [
+            "auth_status + ledger PARK recovery",
+            "dossier reconciliation",
+            "resume at the parked phase (organ routing)",
+            "exit numbers at the boundary",
+        ],
+        "tools": ["auth_status", "ledger_summary", "ledger_read",
+                  "dossier_summary", "http_probe", "ledger_append",
+                  "cvss3_score", "vrt_classify"],
+        "doctrine_prompt": prompt,
+    }
+
+
+def _forge_surface_recon(request: str) -> dict:
+    prompt = (
+        "PROFESSIONAL ORDER (auto-forged from the operator's request):\n\n"
+        "Map the authorized target's surface — passive first, "
+        "evidence-cited, alarm-free.\n\n"
+        "1. auth_status() — the R0 posture and which classes of source are "
+        "permitted this engagement.\n"
+        "2. Passive superset (subdomain-hunter, pipeline-smith-shaped "
+        "stages, scan-economist pricing): ct_subdomains + dns_resolve; "
+        "wildcard verdicts; dangling delegations flagged as takeover "
+        "pairs.\n"
+        "3. Stealth layer (Adrian Lamo): dork grammar and public-archive "
+        "sweep for forgotten side doors — one query per misconfiguration "
+        "class; every candidate into the dossier backlog, nothing probed "
+        "yet.\n"
+        "4. Bounded verification: exactly ONE http_probe per candidate; "
+        "confirmed exposures classified and reported; the main "
+        "application stays untouched.\n"
+        "5. Surface registration (surface-cartographer): dossier_add for "
+        "every live surface with probe-record citations; dossier_render "
+        "at exit with the numbers (hosts, surfaces, classes, probes "
+        "spent).\n"
+        "6. JS and spec inventory where in scope: js_analyze per bundle "
+        "(one fetch), api_introspect for spec surfaces — extraction is "
+        "hypothesis until probed (R5).")
+    return {
+        "detected_intent": "surface_recon",
+        "severity_goal": "-",
+        "quota": None,
+        "persona_mix": _personas(["adrian-lamo", "george-hotz"]),
+        "phase_plan": [
+            "auth_status — posture and permitted sources",
+            "passive superset + takeover pairs",
+            "dork/archive sweep -> backlog",
+            "one-probe verification per candidate",
+            "dossier registration + render with numbers",
+        ],
+        "tools": ["auth_status", "ct_subdomains", "dns_resolve",
+                  "http_probe", "js_analyze", "api_introspect",
+                  "dossier_add", "dossier_render", "ledger_append"],
+        "doctrine_prompt": prompt,
+    }
+
+
+def _forge_classify(request: str) -> dict:
+    prompt = (
+        "PROFESSIONAL ORDER (auto-forged from the operator's request):\n\n"
+        "Classify and gate the findings for the triage desk.\n\n"
+        "1. For every CONFIRMED finding: cvss3_score() on the vector of "
+        "the OBSERVED attack path — write exactly what it returns; the "
+        "auditor recomputes it and a mismatch fails the report.\n"
+        "2. vrt_classify() with the observed context flags — Bugcrowd VRT "
+        "dotted id + P-rating + the HackerOne crosswalk; divergences "
+        "between the three severity layers (technical, taxonomy, "
+        "program-context) are stated and argued, never silently merged.\n"
+        "3. Reproduction: every finding block cites its differential triad "
+        "records (baseline/treatment/control) and carries replayable "
+        "steps with n_runs >= 2 or attempts + success_rate.\n"
+        "4. ledger_merge(program) before writing; the report is written "
+        "ONLY from ledger_read outputs — no claim without its R-NNN.\n"
+        "5. auditor/audit_report.py <report> — exit 0 or it does not "
+        "ship; fix the work behind the report, not the auditor.")
+    return {
+        "detected_intent": "classify_report",
+        "severity_goal": "-",
+        "quota": None,
+        "persona_mix": [],
+        "phase_plan": [
+            "cvss3_score per CONFIRMED finding",
+            "vrt_classify per CONFIRMED finding",
+            "triad + reproduction lines per block",
+            "ledger_merge + write from records",
+            "auditor until exit 0",
+        ],
+        "tools": ["cvss3_score", "vrt_classify", "ledger_merge",
+                  "ledger_read", "auditor/audit_report.py"],
+        "doctrine_prompt": prompt,
+    }
+
+
+def _forge_incident(request: str) -> dict:
+    prompt = (
+        "PROFESSIONAL ORDER (auto-forged from the operator's request):\n\n"
+        "An adversary signal fired on assets this engagement is authorized "
+        "to defend — pause the phase loop and engage the Binary Brain "
+        "(adversary-tracker, the Shimomura lineage):\n\n"
+        "1. Freeze before change: capture the current state before ANY "
+        "response action; baseline the affected asset.\n"
+        "2. sbb_declare() with the observed trigger; the null hypothesis "
+        "(authorized/benign activity) is auto-inserted — never add your "
+        "own.\n"
+        "3. sbb_decide() / sbb_apply() loop: pre-registered halving tests, "
+        "one bit, one record; tip-off actions stay gated while passive "
+        "eliminators remain; no CONFIRMED on a single channel (Rule T).\n"
+        "4. Identity and the last mile belong to the client's IR or law "
+        "enforcement — the hunt ends in the audited handoff pack, never "
+        "in retaliation.\n"
+        "5. Then the phase loop resumes where it paused.")
+    return {
+        "detected_intent": "incident_response",
+        "severity_goal": "-",
+        "quota": None,
+        "persona_mix": [],
+        "phase_plan": [
+            "freeze + baseline (no change first)",
+            "sbb_declare with the observed trigger",
+            "decide/apply loop to convergence",
+            "audited handoff pack",
+            "resume the paused phase loop",
+        ],
+        "tools": ["sbb_declare", "sbb_decide", "sbb_apply",
+                  "ledger_append", "ledger_merge"],
+        "doctrine_prompt": prompt,
+    }
+
+
+def _forge_default(request: str) -> dict:
+    prompt = (
+        "PROFESSIONAL ORDER (auto-forged from the operator's request):\n\n"
+        "Execute the operator's request under the full Skill Mythos "
+        "discipline.\n\n"
+        "1. mythos_charter() — the routing contract; auth_status() — the "
+        "R0 posture; both before any tool that touches a target.\n"
+        "2. Interpret the request into the phase loop: recon and mapping "
+        "organs for surface questions; the authorization matrix for access "
+        "questions; payload organs with the craft layer for technical "
+        "questions; classification tools at report time.\n"
+        "3. Legend overlays by situation: tight scope or a WAF-hostile "
+        "target -> the stealth principle (ghost-crawler); low-severity "
+        "findings accumulating -> chain design (chain-architect); parser "
+        "seams in scope -> protocol asymmetry (desync-hunter); client "
+        "artifacts in scope -> teardown (deep-teardown); validators "
+        "blocking honest payloads -> signal craft (signal-smith); "
+        "inter-system trust questions -> the trust-graph audit "
+        "(trust-graph-hunter); object-reference questions -> the Rosen "
+        "IDOR discipline (auth-boundary-mapper v2).\n"
+        "4. Every claim cites records; every CONFIRMED finding clears the "
+        "differential triad, n_runs >= 2, CVSS 3.1 + VRT, auditor exit 0.\n"
+        "5. State the exit numbers (R6): surfaces, hypotheses, closures by "
+        "state, records appended.")
+    return {
+        "detected_intent": "default",
+        "severity_goal": "-",
+        "quota": None,
+        "persona_mix": _personas(["orange-tsai", "adrian-lamo",
+                                  "frans-rosen", "kevin-mitnick"]),
+        "phase_plan": [
+            "mythos_charter + auth_status",
+            "phase interpretation of the request",
+            "organ + legend-overlay selection",
+            "gated execution with records",
+            "exit numbers",
+        ],
+        "tools": ["mythos_charter", "auth_status", "list_skills",
+                  "http_probe", "ledger_append", "cvss3_score",
+                  "vrt_classify"],
+        "doctrine_prompt": prompt,
+    }
+
+
+def doctrine_forge(request: str, context: str = "") -> dict:
+    """Prompt escalation (charter A13): the operator's instruction,
+    however terse or informal, expanded deterministically into the
+    professional doctrine order the agent will actually execute.
+
+    Feed it ANY operator request — one line of Indonesian, a sleepy
+    'tolong lanjutkan pekerjaan bug bounty yang tertunda', a quota
+    order like 'get me at least 3 high-medium bugs'. It returns the
+    detected intent, the severity/quota goals it could extract, the
+    persona mix (which legend lineages apply), the phase plan, the
+    tools, and the full doctrine prompt — which always carries the
+    quality gates, because escalation never relaxes discipline.
+    Pure function: the same request forges the same order, character
+    for character (A4)."""
+    request = (request or "").strip()
+    context = (context or "").strip()
+    severity = _extract_severity(request)
+    quota = _extract_quota(request)
+    intent = _detect_intent(request)
+    if intent == "bug_quota":
+        forged = _forge_bug_quota(request, severity, quota)
+    elif intent == "continue_pending":
+        forged = _forge_continue(request)
+    elif intent == "surface_recon":
+        forged = _forge_surface_recon(request)
+    elif intent == "classify_report":
+        forged = _forge_classify(request)
+    elif intent == "incident_response":
+        forged = _forge_incident(request)
+    else:
+        forged = _forge_default(request)
+    forged.update({
+        "operator_request": request,
+        "context": context,
+        "gates": QUALITY_GATES,
+        "escalation_rule":
+            "execute the expanded order, not the bare words; the original "
+            "request rides along verbatim and lands in the plan note",
+        "deterministic": True,
+    })
+    return forged
 
 
 # ---------------------------------------------------------------- CVSS tool

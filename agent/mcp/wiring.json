@@ -4,29 +4,96 @@
       "transport": "rest-tunnel",
       "auth_header": "X-Bridge-Token",
       "token_source": "pesan operator sesi ini saja — di memori, never in files",
-      "endpoints": ["/api/health", "/api/run_command", "/api/nmap", "/api/http_request", "/api/nuclei", "/api/gobuster", "/api/js_recon", "/api/surface_diff", "/api/findings_add", "/api/execute_tactical_skill", "/sse"],
+      "endpoints": [
+        "/api/health",
+        "/api/run_command",
+        "/api/nmap",
+        "/api/http_request",
+        "/api/nuclei",
+        "/api/gobuster",
+        "/api/js_recon",
+        "/api/surface_diff",
+        "/api/findings_add",
+        "/api/execute_tactical_skill",
+        "/sse"
+      ],
       "note": "URL tunnel TryCloudflare rotasi tiap restart bridge — selalu ambil URL terbaru dari pesan operator, jangan pernah hardcode"
     },
     "acb": {
       "command": "/home/z/my-project/bin/acb-mcp",
-      "args_pattern": ["serve", "--graph", "<repo-target>.acb", "--name", "<nama>"],
-      "tools": ["symbol_lookup", "impact_analysis", "list_units", "graph_stats"],
+      "args_pattern": [
+        "serve",
+        "--graph",
+        "<repo-target>.acb",
+        "--name",
+        "<nama>"
+      ],
+      "tools": [
+        "symbol_lookup",
+        "impact_analysis",
+        "list_units",
+        "graph_stats"
+      ],
       "compile": "/home/z/my-project/bin/acb compile <repo> -o <repo-target>.acb"
     },
     "github": {
       "command": "/home/z/my-project/bin/github-mcp-server",
-      "args": ["stdio"],
+      "args": [
+        "stdio"
+      ],
       "env": "GITHUB_PERSONAL_ACCESS_TOKEN dari /home/z/my-project/mcp/.env (chmod 600)",
-      "tools_for_intel": ["get_file_contents", "list_commits", "search_code", "search_repositories"],
-      "use_for": ["patch archaeology", "silent-patch mining", "changelog intel"]
+      "tools_for_intel": [
+        "get_file_contents",
+        "list_commits",
+        "search_code",
+        "search_repositories"
+      ],
+      "use_for": [
+        "patch archaeology",
+        "silent-patch mining",
+        "changelog intel"
+      ]
     },
     "mythos-arsenal": {
       "command": "python3",
-      "args_pattern": ["<repo-checkout>/arsenal/server.py"],
-      "env_optional": ["MYTHOS_ARSENAL_ROOT", "MYTHOS_ARSENAL_SCOPE", "MYTHOS_ARSENAL_ENGAGEMENTS", "MYTHOS_ARSENAL_SKILLS"],
-      "tools": ["mythos_charter", "mythos_lineages", "auth_status", "scope_check", "ledger_append/read/summary/merge", "ct_subdomains", "dns_resolve", "http_probe", "content_discover", "api_introspect", "js_analyze", "dossier_add/render/summary", "sbb_declare", "sbb_decide", "sbb_apply", "cvss3_score", "vrt_classify", "arsenal_route", "list_skill/get_skill/get_skill_reference"],
-      "use_for": ["activation: mythos_charter (charter + bundle map + gates) dan mythos_lineages (registry lineage + koreksi atribusi)", "organ-skill execution Phases 1-3 (13 organ fase + 6 organ craft-lineage: scan-economist, module-smith, pipeline-smith, feedback-fuzzer, template-scanner, packet-orchestrator)", "incident branch: Binary Brain adversary hunts", "report classification: CVSS 3.1 + Bugcrowd VRT/HackerOne sebelum audit"],
-      "note": "26 tools; setiap tool yang menyentuh target selalu scope-gated R0 (tool klasifikasi murni tidak menyentuh target); CLAUDE.md di root workspace = agent contract-nya; engagements/ adalah runtime state (sudah di-gitignore)"
+      "args_pattern": [
+        "<repo-checkout>/arsenal/server.py"
+      ],
+      "env_optional": [
+        "MYTHOS_ARSENAL_ROOT",
+        "MYTHOS_ARSENAL_SCOPE",
+        "MYTHOS_ARSENAL_ENGAGEMENTS",
+        "MYTHOS_ARSENAL_SKILLS"
+      ],
+      "tools": [
+        "mythos_charter",
+        "mythos_lineages",
+        "doctrine_forge",
+        "auth_status",
+        "scope_check",
+        "ledger_append/read/summary/merge",
+        "ct_subdomains",
+        "dns_resolve",
+        "http_probe",
+        "content_discover",
+        "api_introspect",
+        "js_analyze",
+        "dossier_add/render/summary",
+        "sbb_declare",
+        "sbb_decide",
+        "sbb_apply",
+        "cvss3_score",
+        "vrt_classify",
+        "arsenal_route",
+        "list_skill/get_skill/get_skill_reference"
+      ],
+      "use_for": [
+        "activation: mythos_charter (charter 13 artikel + bundle map + gates), mythos_lineages (registry 14 lineage + koreksi atribusi), dan doctrine_forge (A13 prompt escalation — instruksi operator sekali baris apapun di-expand jadi doctrine order lengkap sebelum organ manapun jalan)",
+        "organ-skill execution Phases 1-3 (13 organ fase + 6 organ craft-lineage + 6 organ legend-tier: chain-architect/Orange Tsai, desync-hunter/James Kettle, deep-teardown/George Hotz, ghost-crawler/Adrian Lamo, signal-smith/John Draper, trust-graph-hunter/Kevin Mitnick; lineage Frans Rosen difold ke auth-boundary-mapper v2)",
+        "incident branch: Binary Brain adversary hunts",
+        "report classification: CVSS 3.1 + Bugcrowd VRT/HackerOne sebelum audit"
+      ],
+      "note": "27 tools; setiap tool yang menyentuh target selalu scope-gated R0 (tool klasifikasi murni tidak menyentuh target); A13: doctrine_forge jalan SEBELUM setiap instruksi operator; CLAUDE.md di root workspace = agent contract-nya; engagements/ adalah runtime state (sudah di-gitignore)"
     }
   },
   "hard_rules": [

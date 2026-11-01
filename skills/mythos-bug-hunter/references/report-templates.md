@@ -1,6 +1,6 @@
 # Reference — Report Templates
 
-> Part of **mythos-bug-hunter v4.2.0** (package architecture).
+> Part of **mythos-bug-hunter v4.3.0** (package architecture).
 > **Load when:** Phase 5: candidate-record and engagement-state JSON schemas, full report templates.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

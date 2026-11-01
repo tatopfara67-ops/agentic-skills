@@ -20,6 +20,14 @@ The reference library engineers coverage, the warzone drills engineer
 variance, the evidence gates engineer the oracle, and lazy-senior script
 doctrine protects loop time.
 
+Three layers make the agent an actual researcher rather than a scanner
+wrapper: the **Canon** (what must always hold), the **researcher conduct
+contract** (§34 — how the agent behaves: the moment loop on every
+observation, situation cards for the 403/500/certainty/stuck moments, the
+communication discipline) and the **phase playbook** (§35 — the execution
+manual from recon to report: entry conditions, numbered actions, methods,
+decision rules, exit gates, and failure modes for every phase).
+
 ## The Canon (eight rules)
 
 | # | Rule |
@@ -39,7 +47,7 @@ doctrine protects loop time.
 mythos-bug-hunter/
 ├── SKILL.md                  # always-loaded core: Canon, no-slop law, 6-phase pipeline, contracts
 ├── README.md                 # this file
-├── references/               # 17 load-on-demand modules (reasoning, playbooks, attack classes, recon toolchain, drills)
+├── references/               # 19 load-on-demand modules (conduct, phase playbook, reasoning, attack classes, recon toolchain, drills)
 ├── scripts/audit_report.py   # mechanical slop auditor for reports
 └── example/
     ├── worked-example.md     # full engagement walkthrough (passes the auditor)
@@ -53,7 +61,9 @@ mythos-bug-hunter/
 2. **Authorize**: give the agent a scope — a bug-bounty program page, an
    engagement letter, or a self-owned lab. Phase 0 records it as `AUTH`.
 3. **Engage**: the agent runs scoping → recon → pre-registered hypotheses →
-   differential experiments → canary impact proof → self-audit.
+   differential experiments → canary impact proof → self-audit, following
+   the phase playbook action by action and the conduct contract at every
+   observation.
 4. **Ship only audited reports**:
 
 ```bash

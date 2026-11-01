@@ -1,6 +1,6 @@
 ---
 name: mythos-bug-hunter
-version: 4.2.0
+version: 4.3.0
 type: ai-skill
 architecture: package
 description: >
@@ -9,17 +9,19 @@ description: >
   skill whenever the operator wants to hunt vulnerabilities on an authorized
   target, validate or refute a vulnerability hypothesis, analyze a suspicious
   HTTP response or status code, triage a finding, map an attack surface, or
-  draft a vulnerability report. Enforces evidence-cited claims, pre-registered
-  falsifiable hypotheses, reproducible PoCs, canary-based impact proof, and
-  zero AI slop. Operates only under explicit authorization; every claim in a
-  report must cite a ledger record.
+  draft a vulnerability report. Teaches the agent to behave as a security
+  researcher (moment loop, situation cards, communication contract) and ships
+  a phase-by-phase execution playbook from recon to report. Enforces
+  evidence-cited claims, pre-registered falsifiable hypotheses, reproducible
+  PoCs, canary-based impact proof, and zero AI slop. Operates only under
+  explicit authorization; every claim in a report must cite a ledger record.
 category: security/offensive-web
 license: MIT
 metadata:
   author: tatopfara67-ops
 ---
 
-# mythos-bug-hunter v4.2.0 — The Discipline Layer
+# mythos-bug-hunter v4.3.0 — The Discipline Layer
 
 ## 0. What This Skill Is — and Is Not
 
@@ -41,10 +43,17 @@ Package layout:
 mythos-bug-hunter/
 ├── SKILL.md                    # this file — the only always-loaded part
 ├── README.md                   # product positioning and quickstart
-├── references/                 # load-on-demand library (17 modules)
+├── references/                 # load-on-demand library (19 modules)
 ├── scripts/audit_report.py     # mechanical slop auditor for reports
 └── example/                    # full worked engagement + audit fixtures
 ```
+
+Two modules carry the operational spine: `references/phase-playbook.md` (§35 —
+the execution manual: entry conditions, numbered actions, methods, decision
+rules, exit gates, failure modes, per phase) and `references/researcher-conduct.md`
+(§34 — the behavioral contract: how the agent acts as a security researcher,
+not just what it checks). Load the playbook at engagement start in Mode F/E;
+load the conduct module at engagement start, period.
 
 ## 1. The Canon — Eight Rules (non-negotiable)
 
@@ -128,6 +137,12 @@ Storage discipline (context-window rule):
 | **3. Testing** | Experiment cards per §6: baseline, treatment, control, delta, `n_runs` | Every hypothesis reaches Closure (§7) or a Park record exists | "Looks vulnerable" — this string does not exist in the vocabulary |
 | **4. Impact synthesis** | PoC package + impact chain + canary proof per §8 | Every CONFIRMED hypothesis has an impact chain citing records; report claims all cite records | Severity without a demonstrated impact chain |
 | **5. Self-audit** | Auditor run over the report draft; all green | `scripts/audit_report.py` exits 0 | Shipping a report the auditor rejected |
+
+This table is the contract layer. The execution layer — for each phase, its
+entry conditions, numbered actions with methods and commands, routing
+decisions, and failure modes — is `references/phase-playbook.md` (§35). The
+behavioral layer — how the agent conducts itself as a researcher while doing
+any of this — is `references/researcher-conduct.md` (§34).
 
 ### 4.1 Phase 0 — Scoping
 
@@ -403,6 +418,8 @@ preimage work, key recovery attacks on primitives. The JWT catalog is in
 | Fast lookup: diagnosis trees, classification and false-positive cheat sheets | `references/decision-trees-and-cheatsheets.md` |
 | Grounded narratives: php2shell, php.net 2021, CVE-2025-29927, MCP poisoning, xz-utils | `references/case-studies.md` |
 | Phase 1 recon at scale, blind-vector probing order, or operator pressure for unearned findings: toolchain routing table, target triage score, duplicate suppression, time-boxes, probing ladder, sibling sweeps, operator-pressure protocol | `references/recon-toolchain.md` |
+| Engagement start (Mode F/E), or standing inside a phase needing its action sequence: entry conditions, numbered actions, methods, decisions, exit gates, failure modes, worked timeline | `references/phase-playbook.md` |
+| Engagement start, or any moment of conduct doubt — how to react to an anomaly, a 403, certainty, boredom, or operator pressure; what to say and when | `references/researcher-conduct.md` |
 | Provenance: methodology crosswalk and changelog | `references/changelog-and-crosswalk.md` |
 
 ## 18. Quick Reference Card
@@ -421,4 +438,7 @@ floor 3 runs (deterministic) · 20 attempts + stability (stochastic)
 Closure: CONFIRMED / FALSIFIED / INCONCLUSIVE — nothing else
 canary in, canary out, zero real data
 creativity proposes; evidence disposes
+
+how to act  → researcher-conduct.md §34 (moment loop, situation cards)
+what to run → phase-playbook.md §35 (phase-by-phase actions + methods)
 ```

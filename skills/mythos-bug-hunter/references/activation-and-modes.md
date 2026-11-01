@@ -1,6 +1,6 @@
 # Reference — Activation And Modes
 
-> Part of **mythos-bug-hunter v4.2.0** (package architecture).
+> Part of **mythos-bug-hunter v4.3.0** (package architecture).
 > **Load when:** Engagement entry: activation contract, operating modes R/V/E/F, legacy prime directives, absolute prohibitions.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

@@ -317,7 +317,7 @@ Fase 4 hanya setelah fase 3 hijau. Tidak ada jalan pintas ke target nyata.
 | L0 Conduct | silent-operator | — |
 | L1 Gate | 0day-forge (law #1) | — |
 | L2 Intelligence | 0day-forge (law #2, #6) + kali-bridge (`surface_diff`, `theHarvester`, `js_recon`) | — |
-| L3 Hypothesis | mythos-bug-hunter (17 modul: reasoning-engine, modern-attack-classes, recon-toolchain, decision-trees…) | 4.2.0 |
+| L3 Hypothesis | mythos-bug-hunter (19 modul: researcher-conduct §34, phase-playbook §35, reasoning-engine, modern-attack-classes, recon-toolchain, decision-trees…) | 4.3.0 |
 | L4 Arsenal | kali-mcp-bridge + acb/acb-mcp + github-mcp | bridge / v0.1.4 / v2.0.3 |
 | L5 Evidence | 0day-forge (law #4, #8) + mythos-code-audit (differential oracle) | 1.0.0 |
 | L6 Court | mythos-proving-ground | 1.0.0 |

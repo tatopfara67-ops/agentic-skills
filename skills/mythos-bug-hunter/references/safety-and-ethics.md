@@ -1,6 +1,6 @@
 # Reference — Safety And Ethics
 
-> Part of **mythos-bug-hunter v4.2.0** (package architecture).
+> Part of **mythos-bug-hunter v4.3.0** (package architecture).
 > **Load when:** Always conceptually loaded: absolute authorization check, authorized use cases, non-destruction, rate courtesy, coordinated disclosure, real-data handling.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

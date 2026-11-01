@@ -1,6 +1,6 @@
 # Reference — Logic And Probability
 
-> Part of **mythos-bug-hunter v4.2.0** (package architecture).
+> Part of **mythos-bug-hunter v4.3.0** (package architecture).
 > **Load when:** Phase 2-3: formal logic core (modus ponens/tollens, invalid forms, induction, abduction), Bayesian suspicion engine, hypothesis grammar deep, calculation and CVSS precision.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

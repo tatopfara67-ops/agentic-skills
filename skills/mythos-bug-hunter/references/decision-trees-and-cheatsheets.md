@@ -1,6 +1,6 @@
 # Reference — Decision Trees And Cheatsheets
 
-> Part of **mythos-bug-hunter v4.2.0** (package architecture).
+> Part of **mythos-bug-hunter v4.3.0** (package architecture).
 > **Load when:** Fast lookup: non-2xx diagnosis tree, authorization differential tree, race/cache/prompt-injection trees, verdict flow, classification and false-positive cheat sheets.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

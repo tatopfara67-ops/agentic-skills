@@ -1,6 +1,6 @@
 # Reference — Reasoning Engine
 
-> Part of **mythos-bug-hunter v4.2.0** (package architecture).
+> Part of **mythos-bug-hunter v4.3.0** (package architecture).
 > **Load when:** Phase 3-4 deep-dives: validation-loop state machine, verdict system and calibration ladder, evidence chain spec, differential testing matrix.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

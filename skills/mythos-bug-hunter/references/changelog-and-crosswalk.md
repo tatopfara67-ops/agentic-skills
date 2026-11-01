@@ -1,6 +1,6 @@
 # Reference — Changelog And Crosswalk
 
-> Part of **mythos-bug-hunter v4.2.0** (package architecture).
+> Part of **mythos-bug-hunter v4.3.0** (package architecture).
 > **Load when:** Provenance: methodology crosswalk and changelog.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
@@ -25,6 +25,7 @@
 | §25 supply chain | A03, A08 | — | LLM03, ASI04 | — |
 | §19/§28 reporting discipline | A09 | API7 | — | REP-* |
 | §9-§10 reasoning core (logic, suspicion engine) | — (methodology) | — | — | applies to all categories |
+| §34 researcher conduct / §35 phase playbook | — (methodology: behavior + execution sequence) | — | — | applies to all categories |
 | §13 self-repair / §31 mistake-learning | — (methodology) | — | — | — |
 | §32 ruthless-mind hypothesis generation | feeds A01/A03/A05 discovery | feeds API1/API5 discovery | feeds LLM01 chains | — |
 
@@ -33,6 +34,48 @@
 ## E. Changelog
 
 ```
+v4.3.0 (2026-11)
+  - New module §34 (references/researcher-conduct.md): the behavioral layer —
+    how the agent acts as a security researcher while doing anything else in
+    this package. Identity contrast table (scanner wrapper vs researcher,
+    each row ledger-auditable); the 4-step moment loop (record → classify →
+    explain → queue, ≤60 s per observation) with the expectation-line rule
+    (no stated expectation = the request was noise, not an experiment) and
+    the chase rule (curiosity never hijacks the queue); 12 numbered conduct
+    situation cards S1–S12 (anomaly, 403/401, archived 404, 405, 500/stack
+    trace, scanner hit, certainty, stuck, operator pressure, "is it secure",
+    out-of-scope discovery, unknown tech); the communication contract (5
+    message shapes only, blocking-question format, refusal format, the
+    honest-unknown format); the researcher's clock (time allocation
+    5/25/10/40/10/10 with no idle time); 7 mechanical habits (whole-response
+    reading, foreign-ID following, hot disproven list, sibling checks,
+    hypothesis-before-payload, 10-minute resume ritual, same-day anomaly
+    closure); the 8-entry behavioral failure gallery (wrapper, moth,
+    gambler, novelist, people-pleaser, goldfish, one-shot wonder,
+    control-skiper) with ledger tells and countermeasures.
+  - New module §35 (references/phase-playbook.md): the execution manual —
+    the phase framework from recon to report, action by action. Six fixed
+    parts per phase (objective / entry / actions / decisions / exit gate /
+    failure modes); §16.1 machine mapped onto the SKILL.md §4 phase numbers.
+    Phase 0: 6 numbered actions incl. the six-probe fact-table baseline and
+    the shell capability-inventory loop. Phase 1: 9 cost-ordered recon
+    stages (passive-first) with commands and ledger landings. Phase 2: the
+    5-source hypothesis drill — surface-class × attack-class matrix over
+    all 21 inventory categories, the 7 assumption families (role, ownership,
+    state, ordering, uniqueness, idempotency, price integrity), anomaly
+    abduction, scanner conversion, sibling seeds. Phase 3: the 10-step
+    experiment loop with the outcome routing table (reproduced / not
+    reproduced / no delta / partial). Phase 4: canary round-trip design,
+    bounded reach, weakest-verified-link impact chains. Phase 5: gate →
+    ledger draft → auditor → ship → mistake ledger → calibration audit →
+    close ritual. §35.7: compact two-day illustrative engagement timeline.
+  - SKILL.md: v4.3.0; description extended (conduct contract + phase
+    playbook); package layout 17 → 19 modules with the operational-spine
+    note; §4 gains the contract/execution/behavior routing paragraph; §17
+    index gains the two module rows; §18 quick card gains the two routing
+    lines (how to act → §34; what to run → §35).
+  - All reference module headers bumped to v4.3.0.
+
 v4.2.0 (2026-10)
   - New module §29 (references/recon-toolchain.md): recon toolchain routing
     (17 jobs, order + rationale + ledger landing per row), target triage

@@ -1,9 +1,9 @@
 ---
 name: mirror-hunter
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier S — The Logic Architects) built from the Simon Willison lineage — mirror doctrine for hunting LLM/agent surfaces: the only target class that runs the same engine as the hunter. Inverts glm-self-model's failure geometry into attack surface (positional decay becomes edge-loaded imperatives, salience capture becomes loud-token craft, sycophancy becomes authority forgery, the ending gradient becomes pre-seeded closure), while the mirror-hazard rule forbids projecting the hunter's own obedience boundary onto the target. Gates every engagement on the program's AI eligibility table BEFORE the first payload (a jailbreak is content; injection with impact is a finding), runs stochastic evidence as rates over N runs, and lands CONFIRMED only on the deterministic wrapper (tool handler, renderer, sink) the model feeds. Use when the target embeds an LLM, chatbot, copilot, RAG, or MCP/agent tooling, when the operator asks for AI-surface hunting ("uji prompt injection target ini sampai exfiltrasi", "burukan celah AI-nya", "indirect injection", "test the chatbot for bounty", "AI surface hunting", "modelnya bisa diperintah apa", "hunting LLM targets", "mcp server-nya aman ga").
+description: Legend-tier organ (Tier S — The Logic Architects) built from the Simon Willison lineage — mirror doctrine for hunting LLM/agent surfaces: the only target class that runs the same engine as the hunter. Inverts glm-self-model's failure geometry into attack surface (positional decay becomes edge-loaded imperatives, salience capture becomes loud-token craft, sycophancy becomes authority forgery, the ending gradient becomes pre-seeded closure), while the mirror-hazard rule forbids projecting the hunter's own obedience boundary onto the target. Gates every engagement on the program's AI eligibility table BEFORE the first payload (a jailbreak is content; injection with impact is a finding), runs stochastic evidence as rates over N runs, and lands CONFIRMED only on the determinisSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Willison-era form's floors (injection demonstrated as screenshot anecdotes, craft circulated as folklore prompt lists, defenses graded by vibes, landmark datasets admired more than run, engine and wrapper unpinned in claims) shipped as protocol M1–M5: the eligibility gate with three clauses and routing-out, the craft differential testing one failure axis at a time with break rates, the guard evaluation with control columns and stacked-defense rows, the exfil ceiling capped at demonstrated classes, and the pin + dataset rule that runs the public prior before custom claims. Use when the target embeds an LLM, chatbot, copilot, RAG, or MCP/agent tooling, when the operator asks for AI-surface hunting ("uji prompt injection target ini sampai exfiltrasi", "burukan celah AI-nya", "indirect injection", "test the chatbot for bounty", "AI surface hunting", "modelnya bisa diperintah apa", "hunting LLM targets", "mcp server-nya aman ga").
 category: security/legend-lineage
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+; glm-self-model v1.0+ (the mirror needs the engine manual); the spine's AI surface map (ai-and-supply-chain module, section 24)
 ---
 
-# mirror-hunter v1.0.0 — Hunt the Mirror
+# mirror-hunter v1.1.0 — Hunt the Mirror
 
 ## 0. What This Skill Is — and Is Not
 
@@ -112,6 +112,25 @@ and the documentation record. The verification record is
 | E4/E8 ending gradient + answered-feeling | premature closure is exploitable: an agent that wants to finish accepts a forged completion signal — pre-seed the ending |
 | T5 nothing persists in the weights | persistence must be written to EXTERNAL stores (agent memory, RAG corpus, saved context) — that is where cross-session findings live |
 
+## 3.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published mirror-hunt form where it was mechanically weak —
+"I got the model to say X" with no n_runs and no control prompt, working
+injections circulating as bundled folklore (nobody knows which dimension
+did the work), "this system prompt seems to help" with a handful of tries,
+datasets cited as landmarks and rarely executed, "GPT/Claude is
+vulnerable" without build, temperature, or wrapper — and ships the
+executable replacement: **M1** the eligibility gate (engine-present AND
+attacker-input-reaches-model AND output-reaches-sink; else route OUT),
+**M2** the craft differential (positional / salience / sycophancy / ending
+axes tested one at a time, n ≥ 5, break RATE vs control; dead classes
+recorded as data), **M3** the guard evaluation (no-defense column as the
+honest denominator; stacked defenses get their own rows), **M4** the exfil
+ceiling (demonstrated-on-operator-owned only; beyond = chain candidate),
+**M5** the pin + dataset rule (engine + build + temperature + wrapper on
+every claim; landmark corpora executed as calibration battery first).
+
 ## 4. Procedure — Numbered Actions
 
 1. **Eligibility gate first.** Read the program's AI rules; write the
@@ -193,3 +212,4 @@ and the documentation record. The verification record is
 | Choosing craft by channel / inversion entries in depth | `references/injection-craft.md` |
 | Building the eligibility table / evidence protocol / finding-block format | `references/eligibility-and-evidence.md` |
 | Verifying the Willison lineage and the research-wave sources | `references/sources.md` |
+| Grading the published form, running the eligibility gate and craft differential | `references/method-upgrade.md` |

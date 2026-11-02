@@ -34,7 +34,7 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.8.0 | The fifteen articles, the tiered bundle map, the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.9.0 | The fifteen articles, the tiered bundle map, the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.0.0 | The engine's own manual — model-class failure geometry and four compensation gates, written to the engine, not the operator. |
 | Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.5.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 19 reference modules + a PASS/FAIL report auditor. |
 | Organs | 29 hunting skills (tiers 1–6 below) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays. |
@@ -89,7 +89,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | Skill | Version | What it does |
 |---|---|---|
 | [skill-mythos](skills/skill-mythos/) | 1.6.0 | Master charter — fifteen articles (A13 escalation, A14 WWH registers, A15 war logic), bundle map, autonomy + execution + war doctrines, quality gates. |
-| [glm-self-model](skills/glm-self-model/) | 1.0.0 | The engine layer — five truths, failure geometry E1–E8, compensation gates G1–G4. |
+| [glm-self-model](skills/glm-self-model/) | 1.1.0 | The engine layer — five truths, failure geometry E1–E8, compensation gates G1–G4; the engine grades its own manual (M1–M5). |
 | [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.5.0 | The spine — R0–R7 canon, ledger, hypothesis grammar, closure gates, mission horizon. |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit — static analysis proposes, the runtime disposes. Calibrated by rediscovering CVE-2024-33663/33664. |
 | [mythos-proving-ground](skills/mythos-proving-ground/) | 1.0.0 | Ground-truth benchmark — instrumented lab, server-side triggers, scores coverage/precision/hallucination/harm. |
@@ -100,8 +100,8 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | Skill | Version | What it does |
 |---|---|---|
 | [surface-cartographer](skills/surface-cartographer/) | 1.0.0 | The attack-surface dossier — asset graph, 21-class taxonomy, priority queue. |
-| [subdomain-hunter](skills/subdomain-hunter/) | 2.0.0 | Passive-first enumeration, wildcard verdicts, takeover signatures (EdOverflow lineage). |
-| [content-discovery](skills/content-discovery/) | 2.0.0 | Calibrated content walks, 404-baseline controls, backup/config triage (Miessler lineage). |
+| [subdomain-hunter](skills/subdomain-hunter/) | 2.1.0 | Passive-first enumeration, wildcard verdicts, takeover signatures (EdOverflow lineage); the dangling differential. |
+| [content-discovery](skills/content-discovery/) | 2.1.0 | Calibrated content walks, 404-baseline controls, backup/config triage (Miessler lineage); the yield ledger with a marginal gate. |
 | [js-recon](skills/js-recon/) | 1.0.0 | JS bundle analysis — endpoints, commented routes, sourcemaps, masked secrets. |
 | [api-surface-mapper](skills/api-surface-mapper/) | 1.0.0 | API spec discovery, version diffs, undocumented endpoints. |
 
@@ -109,9 +109,9 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [auth-boundary-mapper](skills/auth-boundary-mapper/) | 2.1.0 | Role×resource matrix, IDOR/BOLA differentials (Frans Rosen lineage: identifier construction, 2nd-order IDOR). |
-| [oauth-flow-auditor](skills/oauth-flow-auditor/) | 2.1.0 | OAuth/OIDC checks with falsifiers (Aaron Parecki lineage, RFC 9700 vocabulary). |
-| [business-logic-hunter](skills/business-logic-hunter/) | 2.1.0 | Workflow abuse, races with rate floors, parameter tampering (Soroush Dalili reshaping lineage). |
+| [auth-boundary-mapper](skills/auth-boundary-mapper/) | 2.2.0 | Role×resource matrix, IDOR/BOLA differentials (Frans Rosen lineage: identifier construction, 2nd-order IDOR); the identifier census. |
+| [oauth-flow-auditor](skills/oauth-flow-auditor/) | 2.2.0 | OAuth/OIDC checks with falsifiers (Aaron Parecki lineage, RFC 9700 vocabulary); the exactness and state differentials. |
+| [business-logic-hunter](skills/business-logic-hunter/) | 2.2.0 | Workflow abuse, races with rate floors, parameter tampering (Soroush Dalili reshaping lineage); the rule-class bypass matrix. |
 
 ### Tier 3 — Deep Technical (7)
 
@@ -120,7 +120,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | [injection-lab](skills/injection-lab/) | 1.3.0 | Injection differential oracles — sqlmap runs as oracle only (`--batch` mandatory); oracle census before any battery. |
 | [ssrf-playbook](skills/ssrf-playbook/) | 1.3.0 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder. |
 | [xss-playbook](skills/xss-playbook/) | 2.3.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage); the mutation differential. |
-| [cloud-config-auditor](skills/cloud-config-auditor/) | 2.1.0 | CORS matrix, anonymous storage, takeover checks — checks-as-code (Prowler/de la Fuente lineage). |
+| [cloud-config-auditor](skills/cloud-config-auditor/) | 2.2.0 | CORS matrix, anonymous storage, takeover checks — checks-as-code (Prowler/de la Fuente lineage); the delta protocol with regression rows. |
 | [mobile-hunter](skills/mobile-hunter/) | 1.1.0 | Mobile teardown — the shipped APK/IPA is a confession read before the device is touched (Charlie Miller lineage); coverage-gated harnesses. |
 | [cache-playbook](skills/cache-playbook/) | 1.2.0 | Web cache deception & poisoning — the cache as a second silent parser (Omer Gil + Kettle corpus); the cache-key baseline matrix. |
 | [prototype-playbook](skills/prototype-playbook/) | 1.2.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage); the merge-surface inventory. |
@@ -135,12 +135,12 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [scan-economist](skills/scan-economist/) | 1.0.0 | Scan economy — liveness before depth, priors over exhaustive sweeps (Fyodor lineage). |
-| [module-smith](skills/module-smith/) | 1.0.0 | Hypotheses as rankable reusable modules; access and impact proofs kept separate (HD Moore lineage). |
-| [pipeline-smith](skills/pipeline-smith/) | 1.0.0 | Unix recon pipelines — passive first, dedupe before paying (Tomnomnom lineage). |
-| [feedback-fuzzer](skills/feedback-fuzzer/) | 1.0.0 | Feedback-guided search — bucketed novelty, minimization before diagnosis (lcamtuf lineage). |
-| [template-scanner](skills/template-scanner/) | 1.0.0 | Detection as declarative templates — matchers pre-registered (ProjectDiscovery lineage). |
-| [packet-orchestrator](skills/packet-orchestrator/) | 1.0.0 | Manual first, then layer-by-layer state-backed automation; packet differentials show their bytes (Searle + Mantis lineage). |
+| [scan-economist](skills/scan-economist/) | 1.1.0 | Scan economy — liveness before depth, priors over exhaustive sweeps (Fyodor lineage); the budget table and footprint ledger. |
+| [module-smith](skills/module-smith/) | 1.1.0 | Hypotheses as rankable reusable modules; access and impact proofs kept separate (HD Moore lineage); measured reliability and rank arithmetic. |
+| [pipeline-smith](skills/pipeline-smith/) | 1.1.0 | Unix recon pipelines — passive first, dedupe before paying (Tomnomnom lineage); versioned pipeline records with collapse ledgers. |
+| [feedback-fuzzer](skills/feedback-fuzzer/) | 1.1.0 | Feedback-guided search — bucketed novelty, minimization before diagnosis (lcamtuf lineage); the state-map schema and novelty gate. |
+| [template-scanner](skills/template-scanner/) | 1.1.0 | Detection as declarative templates — matchers pre-registered (ProjectDiscovery lineage); the review gate and re-rating ladder. |
+| [packet-orchestrator](skills/packet-orchestrator/) | 1.1.0 | Manual first, then layer-by-layer state-backed automation; packet differentials show their bytes (Searle + Mantis lineage); translation tables and state gates. |
 
 ### Tier 6 — Legend Tier (7)
 
@@ -148,11 +148,11 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 |---|---|---|
 | [chain-architect](skills/chain-architect/) | 1.1.0 | Compound kill chains — low findings composed into one critical impact (Orange Tsai lineage); the chain tree with evidenced prunes. |
 | [desync-hunter](skills/desync-hunter/) | 1.3.0 | Protocol asymmetry — one ambiguity per request, response-class differentials, exact bytes as artifacts (James Kettle lineage); the CHAINMAP method. |
-| [deep-teardown](skills/deep-teardown/) | 1.0.0 | Dismantle client artifacts to primitives — local dissection before any network flow (George Hotz lineage). |
-| [ghost-crawler](skills/ghost-crawler/) | 1.0.0 | Passive-index misconfig hunting — one bounded probe per candidate (Adrian Lamo lineage). |
-| [mirror-hunter](skills/mirror-hunter/) | 1.0.0 | Hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter (Simon Willison lineage). |
-| [signal-smith](skills/signal-smith/) | 1.0.0 | Input grammar and precision signals — one minimal variation per seam, never trip the alarm (John Draper lineage). |
-| [trust-graph-hunter](skills/trust-graph-hunter/) | 1.0.0 | The trust graph between components — inherited privilege proven on operator-owned ends (Kevin Mitnick lineage). |
+| [deep-teardown](skills/deep-teardown/) | 1.1.0 | Dismantle client artifacts to primitives — local dissection before any network flow (George Hotz lineage); the gated ladder and symbol-trust table. |
+| [ghost-crawler](skills/ghost-crawler/) | 1.1.0 | Passive-index misconfig hunting — one bounded probe per candidate (Adrian Lamo lineage); the index protocol and trace ledger. |
+| [mirror-hunter](skills/mirror-hunter/) | 1.1.0 | Hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter (Simon Willison lineage); the craft differential and guard evaluation. |
+| [signal-smith](skills/signal-smith/) | 1.1.0 | Input grammar and precision signals — one minimal variation per seam, never trip the alarm (John Draper lineage); the calibration table and blind in-band differential. |
+| [trust-graph-hunter](skills/trust-graph-hunter/) | 1.1.0 | The trust graph between components — inherited privilege proven on operator-owned ends (Kevin Mitnick lineage); the edge protocol and context differential. |
 
 ### Prompts
 

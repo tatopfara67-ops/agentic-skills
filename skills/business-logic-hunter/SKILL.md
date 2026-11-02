@@ -1,9 +1,9 @@
 ---
 name: business-logic-hunter
-version: 2.1.0
+version: 2.2.0
 type: ai-skill
 architecture: package
-description: Phase-2/3 business-logic organ, upgraded (v2) with the Soroush Dalili lineage — workflow-sequence abuse (skip/replay/reorder), race conditions with the spine's stochastic reproduction floors, limit/price/coupon arithmetic testing, plus bypass craft: HTTP-reshaping grammar against business guards, parser differentials at guard/executor seams, intended-behavior inversion, and comparison functions as testable units, all hypothesis-first with self-owned test accounts. Use when the operator asks to test business logic, abuse workflows, race two requests, probe negative quantities or price arithmetic, hunt coupon/voucher reuse, or reshape around a blocked admin path ("logika bisnis", "race condition", "negative quantity", "price manipulation", "coupon abuse", "workflow bypass", "integer overflow", "bypass", "filter bypass", "parser differential").
+description: Phase-2/3 business-logic organ, upgraded (v2) with the Soroush Dalili lineage — workflow-sequence abuse (skip/replay/reorder), race conditions with the spine's stochastic reproduction floors, limit/price/coupon arithmetic testing, plus bypass craft: HTTP-reshaping grammar against business guards, parser differentials at guard/executor seams, intended-behavior inversion, and comparison functions as testableSince v2.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the published Dalili-era form's floors (bypass grammars as curated lists without rule-class preconditions, single-bug narratives with generalization implicit, the defeated parser hop unnamed, one-shot demos without repeatability, bypass conflated with impact) shipped as protocol M1–M5: the rule-class bypass matrix with corpus-pinned first probes, the three-condition reshaping differential with a placebo control, chain-map linkage naming the enforcing hop, the repeatability floor with a stability window, and the route-opened impact ceiling. Use when the operator asks to test business logic, abuse workflows, race two requests, probe negative quantities or price arithmetic, hunt coupon/voucher reuse, or reshape around a blocked admin path ("logika bisnis", "race condition", "negative quantity", "price manipulation", "coupon abuse", "workflow bypass", "integer overflow", "bypass", "filter bypass", "parser differential").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned test accounts and self-owned orders
 ---
 
-# business-logic-hunter v2.1.0 — The App's Rules, Tested As Rules
+# business-logic-hunter v2.2.0 — The App's Rules, Tested As Rules
 
 ## 0. What This Skill Is — and Is Not
 
@@ -82,6 +82,27 @@ because "the UI doesn't allow that". W3 strikes exactly there —
 the API's rules are the weakness the polished frontend guards; W5
 reminds that a 50-cent logic bug is a primitive worth chaining.
 
+## 2.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published reshaping craft where it was mechanically weak —
+trick enumerations without the rule classes that select them, each
+bypass a single concrete WAF story, "the WAF missed it" with the parser
+chain unnamed, demos fired once, "bypassed" graded as if access
+followed — and ships the executable replacement: **M1** the bypass
+matrix (observed rule class → trick family → corpus-pinned first
+probe; unknown rule class = REFUSED until the chain map names the
+enforcer), **M2** the reshaping differential (baseline blocked /
+treatment reshaped / control placebo-reshaping that should NOT pass;
+control passing too = permissive-intermediary reclass), **M3** the
+chain-map linkage (desync-hunter CHAINMAP discipline; every confirmed
+bypass cites the defeated hop with version evidence; unattributed =
+re-map first), **M4** the repeatability rule (n ≥ 5 more across ≥ 10
+min; stable vs environment-conditional recorded with conditions),
+**M5** the impact ceiling (route-opened is the deliverable; impact
+cites the auth-boundary differential cell — bypass never grades as
+access).
+
 ## 3. Procedure — Numbered Actions
 
 1. Map each in-scope workflow end-to-end with operator test accounts:
@@ -137,3 +158,4 @@ reminds that a 50-cent logic bug is a primitive worth chaining.
 | Any race hypothesis | `references/races.md` |
 | A guard blocked a treatment / seam or comparison questions | `references/bypass-craft.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
+| Grading the published form, running the reshaping differential, citing the defeated hop | `references/method-upgrade.md` |

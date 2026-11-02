@@ -1,9 +1,9 @@
 ---
 name: signal-smith
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier B — The Human & Signal Manipulators) built from the John Draper (Captain Crunch) lineage — input grammar and precision signal craft. Before any payload is sent, it calibrates the validator's expected grammar (type, length, charset, encoding, frequency/rate), maps every double-parse seam where frontend normalization and backend interpretation can diverge, then crafts ONE or TWO minimally-modified byte/encoding variations that the filter accepts while the deeper parser reads differently — precision over volume, never triggering the alarm. Use when a WAF or validator blocks honest payloads, when hunting encoding/canonicalization bypasses, when tuning request frequency to stay under rate filters, or when the operator asks for manual evasion with minimal requests ("bypass validasi", "WAF blocks my payload", "encoding trick", "byte-level manipulation", "satu variasi presisi", "avoid triggering the alarm").
+description: Legend-tier organ (Tier B — The Human & Signal Manipulators) built from the John Draper (Captain Crunch) lineage — input grammar and precision signal craft. Before any payload is sent, it calibrates the validator's expected grammar (type, length, charset, encoding, frequency/rate), maps every double-parse seam where frontend normalization and backend interpretation can diverge, then crafts ONE or TWO minimally-modified byte/encoding variations that the filter accepts while the deeper parser reads diffeSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Draper-era form's floors (the craft transmitted as legend with the method inseparable from dead trunks, grammar calibration by ear, indistinguishability asserted never tested, precision without a tolerance envelope, in-band and out-of-band blurred in retellings) shipped as protocol M1–M5: the measured calibration table with verbatim rejection classes, the double-parse seam map with pair-probes, the in-band differential with a blind judge, the precision budget with edge-tested margins, and the escalation gate to the backend observable. Use when a WAF or validator blocks honest payloads, when hunting encoding/canonicalization bypasses, when tuning request frequency to stay under rate filters, or when the operator asks for manual evasion with minimal requests ("bypass validasi", "WAF blocks my payload", "encoding trick", "byte-level manipulation", "satu variasi presisi", "avoid triggering the alarm").
 category: security/legend-lineage
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an in-scope target with a validation/WAF layer under study
 ---
 
-# signal-smith v1.0.0 — One Precise Tone
+# signal-smith v1.1.0 — One Precise Tone
 
 ## 0. What This Skill Is — and Is Not
 
@@ -80,6 +80,25 @@ content. The verification record is `references/sources.md`.
    variations do not split the parsers, the seam goes to the
    backlog — volume is not the next move, honesty about the seam
    is.
+
+## 3.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published signal-craft form where it was mechanically weak —
+the 2600 Hz story kept while the protocol (calibrate the grammar, forge
+within it) was lost, calibration living as practiced perception, "it
+worked" conflating accepted with indistinguishable, the famous number
+quoted without tolerances, retellings blurring which layer checks what —
+and ships the executable replacement: **M1** the calibration table
+(type/length/charset/encoding/rate measured from ≥ 3 benign observations;
+rejection classes recorded VERBATIM), **M2** the seam map (NFC/NFD,
+encoding, duplicate-parameter, length-boundary pair-probes; each seam a
+CONTROL the forge cites), **M3** the in-band differential (legitimate vs
+forged, n ≥ 5 interleaved, blind judge; identical classes ≥ 4/5 =
+indistinguishable; accepted-with-tells is its own finding class), **M4**
+the precision budget (operating point + tolerances, margins probed at
+edges; cliffs recorded as intelligence), **M5** the escalation gate
+(in-band acceptance opens the backend differential, never the conclusion).
 
 ## 4. Procedure — Numbered Actions
 
@@ -149,3 +168,4 @@ content. The verification record is `references/sources.md`.
 | --- | --- |
 | Building the input ladder / choosing the minimal variation | `references/encoding-grammar.md` |
 | Verifying the Draper lineage and sources | `references/sources.md` |
+| Grading the published form, calibrating grammar, testing indistinguishability blind | `references/method-upgrade.md` |

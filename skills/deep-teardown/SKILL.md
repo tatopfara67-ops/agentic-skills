@@ -1,9 +1,9 @@
 ---
 name: deep-teardown
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier S — the Logic Architects) built from the George Hotz (geohot) lineage — dismantle-to-primitives reverse engineering. Acquires the client artifact once (JS bundle, mobile APK/IPA, desktop binary, firmware image within scope), then dissects it LOCALLY down its teardown ladder (deobfuscation, sourcemaps, dex-to-source, strings/symbols) to reconstruct business logic and map how the app handles tokens, keys, and PII on-device BEFORE anything is sent to the server; every server-relevant discovery becomes a bounded hypothesis, never a blind guess. Use when the operator wants the app taken apart rather than probed, when hunting hidden feature flags, admin-gated code shipped in clients, hardcoded internal endpoints, or client-side secret storage ("bongkar aplikasi", "decompile APK", "reverse engineer the client", "teardown", "analisa biner", "read the minified JS logic").
+description: Legend-tier organ (Tier S — the Logic Architects) built from the George Hotz (geohot) lineage — dismantle-to-primitives reverse engineering. Acquires the client artifact once (JS bundle, mobile APK/IPA, desktop binary, firmware image within scope), then dissects it LOCALLY down its teardown ladder (deobfuscation, sourcemaps, dex-to-source, strings/symbols) to reconstruct business logic and map how the app handles tokens, keys, and PII on-device BEFORE anything is sent to the server; every server-relevant dSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Hotz-era form's floors (teardowns as unrecorded streams, the where-to-look ladder in pattern memory, symbols trusted unbounded, artifact version pinning an afterthought, read-it-all heroics without coverage accounting) shipped as protocol M1–M5: the artifact pin as the claim's scope contract, the gated ladder with per-rung outputs, the symbol-trust table with three grades, the static-proposes-dynamic-disposes cross-check, and the budget + coverage row that bounds every negative claim. Use when the operator wants the app taken apart rather than probed, when hunting hidden feature flags, admin-gated code shipped in clients, hardcoded internal endpoints, or client-side secret storage ("bongkar aplikasi", "decompile APK", "reverse engineer the client", "teardown", "analisa biner", "read the minified JS logic").
 category: security/legend-lineage
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; artifacts acquired within program scope (store-published app, public bundle, in-scope download)
 ---
 
-# deep-teardown v1.0.0 — Dismantle To Primitives
+# deep-teardown v1.1.0 — Dismantle To Primitives
 
 ## 0. What This Skill Is — and Is Not
 
@@ -74,6 +74,25 @@ The verification record is `references/sources.md`.
    check, an admin flag, a debug stub in the client says the server
    MIGHT also trust it — the finding is only CONFIRMED by the
    server's own differential response.
+
+## 3.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published teardown form where it was mechanically weak — the
+method performed live with only the highlight reel surviving, "look at the
+strings around the crypto init" as the taught move, stripped and lying
+symbols flowing into conclusions, "this was on iOS x" as a passing remark,
+hours of reading felt as coverage — and ships the executable replacement:
+**M1** the artifact pin (exact build + hash; every finding cites it),
+**M2** the gated ladder (unpack → deobfuscate → symbols → strings →
+structure; each rung's declared output must exist to descend; SKIPPED
+requires a reason), **M3** the symbol-trust table (V-verified /
+P-provisional / U-untrusted; severity on a P-grade symbol = hypothesis,
+not a finding), **M4** the cross-check (static claim as prediction;
+dynamic probe on operator-owned accounts, n ≥ 3, ≥ 2/3 to confirm;
+mismatch corrects the map — the teardown's own error becomes data), **M5**
+the budget + coverage row ("nothing else found" valid only at 100%
+coverage, else bounded to the examined set).
 
 ## 4. Procedure — Numbered Actions
 
@@ -143,3 +162,4 @@ The verification record is `references/sources.md`.
 | --- | --- |
 | Choosing the teardown path per artifact type | `references/teardown-ladder.md` |
 | Verifying the Hotz lineage and sources | `references/sources.md` |
+| Grading the published form, pinning artifacts, grading symbols, bounding coverage | `references/method-upgrade.md` |

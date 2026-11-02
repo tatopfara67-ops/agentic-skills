@@ -1,9 +1,9 @@
 ---
 name: content-discovery
-version: 2.0.0
+version: 2.1.0
 type: ai-skill
 architecture: package
-description: Phase-1 content discovery organ, upgraded (v2) with the Daniel Miessler (SecLists) lineage — calibrated, rate-courteous wordlist walks that report baseline deviations only, backup/config artifact hunting with differential triage, plus corpus science: family-based list selection, evidence-derived composition, extension derivation from the observed stack, per-base recalibration, and a hard scope wall around authentication-surface lists. Use when the operator asks to find hidden paths, hunt backup or config files, brute directories politely, or triage discovered files ("cari path tersembunyi", "backup hunting", "wordlist", "directory brute", "file discovery", "cari .env", "seclists", "wordlist choice").
+description: Phase-1 content discovery organ, upgraded (v2) with the Daniel Miessler (SecLists) lineage — calibrated, rate-courteous wordlist walks that report baseline deviations only, backup/config artifact hunting with differential triage, plus corpus science: family-based list selection, evidence-derived composition, extension derivation from the observed stack, per-base recalibration,Since v2.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the SecLists-era practice's floors (list choice as taste, dictionaries sprayed uncalibrated to the target's naming grammar, yield never accounted per list class, freshness unstamped on living repo artifacts, interesting-by-glance triage) shipped as protocol M1–M5: the question→list-class binding table, grammar calibration harvested from known 200-class paths, the yield ledger with a marginal-exhaustion gate, the as-of stamp rule, and the extension×status×size triage table. Use when the operator asks to find hidden paths, hunt backup or config files, brute directories politely, or triage discovered files ("cari path tersembunyi", "backup hunting", "wordlist", "directory brute", "file discovery", "cari .env", "seclists", "wordlist choice").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# content-discovery v2.0.0 — Calibrate, Then Walk
+# content-discovery v2.1.0 — Calibrate, Then Walk
 
 ## 0. What This Skill Is — and Is Not
 
@@ -63,6 +63,25 @@ target's actual behavior on three random junk paths; a finding is a
 DEVIATION from that measured baseline — status deviation, or (under
 soft-404) a size outlier. `references/wordlists.md` documents the ladder;
 the calibration mechanics are enforced inside the tool.
+
+## 3.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published discovery practice where it was mechanically
+weak — WHICH list for WHICH question as folk knowledge, common.txt
+sprayed against a grammar nobody harvested, no hit-rate or marginal
+yield per list class, local list checkouts drifting unstamped for
+months, found paths triaged by an operator's glance — and ships the
+executable replacement: **M1** the binding table (questions bind list
+CLASSES; "it's common" is refused), **M2** grammar calibration
+(delimiter class, digits, extensions, locale harvested from KNOWN
+paths; path-tied derivatives outperform generic lists by
+construction), **M3** the yield ledger (hit-rate AND marginal yield
+per list; marginal 0 = exhausted-for-this-target, same-class stacking
+refused), **M4** the as-of rule (yield claims cite the stamp; > 90-day
+pulls re-fetch before supporting coverage claims), **M5** the triage
+table (extension × status × size buckets route every find; the
+discount row for drama files; glance-triage refused).
 
 ## 4. Procedure — Numbered Actions
 
@@ -117,3 +136,4 @@ the calibration mechanics are enforced inside the tool.
 | Triage of a specific finding class | `references/patterns.md` |
 | Composing a list beyond rung 0 / family & scope questions | `references/corpus-science.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
+| Grading the published practice, binding questions to classes, holding the marginal gate | `references/method-upgrade.md` |

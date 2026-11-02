@@ -1,9 +1,9 @@
 ---
 name: oauth-flow-auditor
-version: 2.1.0
+version: 2.2.0
 type: ai-skill
 architecture: package
-description: Phase-2/3 OAuth/OIDC flow organ, upgraded (v2) with the Aaron Parecki lineage — a check catalog (redirect_uri exact-match matrix at BOTH endpoints, state presence/validation/binding, PKCE downgrade, code reuse, token audience, implicit flow) where every check is a pre-registered hypothesis with its own falsifier, run as differentials against operator-owned IdP test apps, with severity vocabulary mapped to the RFC 9700 BCP. Use when the operator asks to audit an OAuth flow, test redirect_uri validation, check state/PKCE handling, probe code or token reuse, or review an OIDC client configuration ("tes oauth", "redirect_uri", "PKCE", "state missing", "code reuse", "token audience", "OIDC audit", "oauth 2.1", "mix-up").
+description: Phase-2/3 OAuth/OIDC flow organ, upgraded (v2) with the Aaron Parecki lineage — a check catalog (redirect_uri exact-match matrix at BOTH endpoints, state presence/validation/binding, PKCE downgrade, code reuse, token audience, implicit flow) where every check is a pre-registered hypothesis with its own falsifier, run as differentials against operator-owned IdP testSince v2.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the published checklist craft's floors (presence rules without differential tests, endpoints audited singly while the classes live in sequences, state presence conflated with validation, spec layers blurred in prose, token lifecycle as unmeasured afterthought) shipped as protocol M1–M5: the flow pin with spec-layer evidence, the redirect byte-class exactness differential, the forged/replayed/absent state test, the PKCE downgrade probe with the wrong-verifier control, and the lifecycle ceiling measured on operator-owned grants. Use when the operator asks to audit an OAuth flow, test redirect_uri validation, check state/PKCE handling, probe code or token reuse, or review an OIDC client configuration ("tes oauth", "redirect_uri", "PKCE", "state missing", "code reuse", "token audience", "OIDC audit", "oauth 2.1", "mix-up").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned OAuth test app pair
 ---
 
-# oauth-flow-auditor v2.1.0 — Flows Are State Machines; Test The Transitions
+# oauth-flow-auditor v2.2.0 — Flows Are State Machines; Test The Transitions
 
 ## 0. What This Skill Is — and Is Not
 
@@ -92,6 +92,27 @@ that the spec never named (custom parameters crossing redirect
 boundaries). W4 pairs them; W6 governs the report — the triage desk
 reads state machines, not essays.
 
+## 3.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published OAuth craft where it was mechanically weak —
+"validate redirect_uri exactly" as a rule instead of a byte-class
+differential, endpoints audited alone while code-interception and
+downgrade live in the SEQUENCE, "state present" treated as "state
+validated", 2.0/2.1/OIDC layers mixed unpinned, scope deltas and
+rotation never measured — and ships the executable replacement:
+**M1** the flow pin (provider, spec layer with behavioral evidence,
+endpoint set, operator-registered client), **M2** the exactness
+differential (exact/case/path-append/suffix/param variant classes,
+n ≥ 3; acceptance class AND code-landing observed; all-rejected =
+guard CONFIRMED as data), **M3** the state test (legitimate vs forged
+vs replayed, n ≥ 5; forged-accepted = never-validated, replay-only =
+single-use broken), **M4** the PKCE downgrade probe (S256/plain/absent
+× wrong-verifier control; downgrade graded from the grant PAIR),
+**M5** the lifecycle ceiling (granted-vs-requested scope delta read
+from the operator's own token; claims capped at operator-owned
+evidence).
+
 ## 4. Procedure — Numbered Actions
 
 1. Record the happy path: authorize request → redirect → callback → token
@@ -142,3 +163,4 @@ reads state machines, not essays.
 | Selecting and running checks | `references/checks.md` |
 | redirect_uri matrix, state triple, PKCE downgrade, BCP vocabulary, error-path instruments | `references/flow-craft.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
+| Grading the published craft, pinning the flow, running exactness and state differentials | `references/method-upgrade.md` |

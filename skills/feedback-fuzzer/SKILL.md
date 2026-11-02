@@ -1,9 +1,9 @@
 ---
 name: feedback-fuzzer
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from Michal Zalewski (lcamtuf), creator of AFL — the feedback-guided search mindset. Blind mutation is noise; the map of observed states turns a search into a guided one. Every probe outcome updates a coarse state map (bucketed novelty detection, not fine-grained diffs); the corpus of inputs that reached new states is curated small (culling by cost); deterministic mutations come before random ones; exploration is preserved with probabilities instead of greedy pursuit; tar pits that buy 1% coverage at 100x cost are rejected; and every candidate finding is minimized before it is diagnosed. Use when hunting through input/state spaces with an oracle loop, when deciding to stop (saturation), when triaging a noisy signal, or when a probe campaign needs a stopping rule ("keep fuzzing or stop", "is this new behavior", "minimize the PoC", "saturation", "noise in responses").
+description: Craft-lineage organ distilled from Michal Zalewski (lcamtuf), creator of AFL — the feedback-guided search mindset. Blind mutation is noise; the map of observed states turns a search into a guided one. Every probe outcome updates a coarse state map (bucketed novelty detection, not fine-grained diffs); the corpus of inputs that reached new states is curated small (culling by cost); deterministic mutations come before random ones; exploration is preserved with probabilities instead of greedy pursuit; tar pits that buy 1% coverage at 100x cost are rejected; and eSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the lcamtuf art's floors (a map instantiated only for binary coverage, culling thresholds as folklore, crash-vs-hang classified by eyes, determinism assumed and never measured, the state-map-to-hypothesis loop left unwritten) shipped as protocol M1–M5: the bucketed state-map schema for service targets, the corpus budget with eviction rules, the novelty gate with slice arithmetic, the classification table with a rerun floor, and the map-reading rule that converts stable novelty into falsifiable hypotheses. Use when hunting through input/state spaces with an oracle loop, when deciding to stop (saturation), when triaging a noisy signal, or when a probe campaign needs a stopping rule ("keep fuzzing or stop", "is this new behavior", "minimize the PoC", "saturation", "noise in responses").
 category: security/craft-lineage
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# feedback-fuzzer v1.0.0 — The lcamtuf Lineage
+# feedback-fuzzer v1.1.0 — The lcamtuf Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -69,6 +69,25 @@ practice." Sources: references/sources.md — the verification record
    parameters, shortest payload, smallest response delta that still
    shows the effect.
 
+## 2.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published feedback-search art where it was mechanically weak —
+the map shipped only in binary-coverage form (service targets inherit
+nothing), corpus culling tuned inside the tool as folklore, anomalies
+triaged by expert eyes, replay stability asserted by demo, the
+map-as-evidence half of the method left as personal skill — and ships the
+executable replacement: **M1** the state-map schema (bucketed response
+signature: status-class, log2 length bucket, first-line class, header-set
+class, body-shape class — declared before the run), **M2** the corpus
+budget (cap + eviction rule on record; occupancy reported per slice),
+**M3** the novelty gate (two consecutive slices < 0.5% yield = exhausted;
+re-seed or stop ON RECORD), **M4** the classification table + rerun floor
+(NOVELTY-STABLE / JITTER / CRASH-CLASS / HANG-CLASS; n ≥ 3 rerun, ≥ 2/3 to
+hold), **M5** the map-reading rule (one hypothesis per stable novelty,
+mutation-diff as the candidate cause, falsifier stated before
+diagnosis).
+
 ## 3. Procedure — Numbered Actions
 
 1. Define the state signature for the loop: which coarse features
@@ -122,3 +141,4 @@ practice." Sources: references/sources.md — the verification record
 | Designing the loop's state map and stopping rule | references/mindset.md |
 | Running a feedback loop end to end | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
+| Grading the published method, declaring buckets, holding the novelty gate | references/method-upgrade.md |

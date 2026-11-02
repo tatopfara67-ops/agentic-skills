@@ -1,9 +1,9 @@
 ---
 name: auth-boundary-mapper
-version: 2.1.0
+version: 2.2.0
 type: ai-skill
 architecture: package
-description: Phase-2/3 access-control organ, upgraded (v2) with the Frans Rosen lineage — builds the role-by-resource authorization matrix from evidence, then runs systematic IDOR/BOLA differentials (baseline own-object, treatment cross-object, control nonexistent-object) with two operator-provided test accounts; v2 adds the IDOR field-guide layer — identifier-construction analysis before any swap, swap testing across ALL parameter positions, 2nd-order IDOR sweeps, full response-body diffing, cloud multi-tenant boundary emphasis, and non-obvious verb coverage (PATCH, bulk, export tokens). Use when the operator asks to test IDOR or BOLA, map who can access what, probe horizontal/vertical privilege boundaries, audit access control on an API, or audit cloud multi-tenant isolation ("tes IDOR", "BOLA", "akses kontrol", "privilege boundary", "role matrix", "broken access control", "2nd-order IDOR", "tenant isolation").
+description: Phase-2/3 access-control organ, upgraded (v2) with the Frans Rosen lineage — builds the role-by-resource authorization matrix from evidence, then runs systematic IDOR/BOLA differentials (baseline own-object, treatment cross-object, control nonexistent-object) with two operator-provided test accounts; v2 adds the IDOR field-guide layer — identifier-construction analysis before any swap, swap testing across ALL parameter positions, 2nd-order IDOR sweeps, full response-body diffing, cloud multi-tenant boundary emphasis, Since v2.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the published Rosen-era form's floors (one-finding narratives with the mapping protocol implicit, identifier intuition instead of a census, response-diff asserted without buckets or n, the access matrix never assembled as data, second-order travel narrated as eureka) shipped as protocol M1–M5: the identifier census with measured predictability, the pre-registered role×resource access matrix, the three-condition boundary differential (own/other/nonexistent ids, marker-checked), the second-order marker round-trip map, and the operator-owned-pair impact ceiling. Use when the operator asks to test IDOR or BOLA, map who can access what, probe horizontal/vertical privilege boundaries, audit access control on an API, or audit cloud multi-tenant isolation ("tes IDOR", "BOLA", "akses kontrol", "privilege boundary", "role matrix", "broken access control", "2nd-order IDOR", "tenant isolation").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; two operator-owned test accounts
 ---
 
-# auth-boundary-mapper v2.1.0 — The Matrix Before The Hunt
+# auth-boundary-mapper v2.2.0 — The Matrix Before The Hunt
 
 ## 0. What This Skill Is — and Is Not
 
@@ -101,6 +101,25 @@ swept because the UUIDs looked unguessable. W3 is why this organ
 exists: old versions and forgotten mobile-era routes are the
 neglected seam the queue must rank first.
 
+## 3.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published boundary-hunt form where it was mechanically weak —
+each IDOR a bug story with the surface procedure implicit, "look for GUIDs"
+as the taught move, "compare the responses" with no bucket rule or n,
+no role×resource grid ever pre-registered, ids-travel-server-side
+discovered as eureka per bug — and ships the executable replacement:
+**M1** the identifier census (every id class + construction grammar +
+predictability measured from operator-minted ids, n ≥ 10), **M2** the
+access matrix (roles × resources × actions pre-registered as EXPECTED
+access; coverage reported against it), **M3** the boundary differential
+(baseline own-id / treatment other-account-id / control nonexistent-id,
+n ≥ 5 interleaved; confirm = behaves-real AND marker present AND baseline
+stable; treatment = control = CLOSED cell on record), **M4** the
+second-order map (marker round-trip closes a row; shape-inference parks
+as hypothesis), **M5** the impact ceiling (operator-owned pair evidence;
+generalizations need the matrix cells that prove them).
+
 ## 4. Procedure — Numbered Actions
 
 1. Build the matrix skeleton from the api-surface-mapper inventory:
@@ -172,3 +191,4 @@ neglected seam the queue must rank first.
 | --- | --- |
 | Building the matrix / verdict grammar | `references/matrix.md` |
 | Identifier classes / swap positions / 2nd-order flows / tenant slices (the Rosen field guide) | `references/idor-field-guide.md` |
+| Grading the published form, censusing identifiers, running the boundary differential | `references/method-upgrade.md` |

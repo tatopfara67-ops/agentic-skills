@@ -1,9 +1,9 @@
 ---
 name: cloud-config-auditor
-version: 2.1.0
+version: 2.2.0
 type: ai-skill
 architecture: package
-description: Phase-1/3 cloud-and-config organ, upgraded (v2) with the Toni de la Fuente (Prowler) lineage — CORS origin-differential matrix, anonymous-access checks on object storage (bounded to one listing page), dangling-DNS takeover verification, and header/hygiene facts, plus checks-as-code discipline: stable check IDs with versions, CIS benchmark citation for severity words, drift re-verification in the engagement window, and posture families over magic scores. Use when the operator asks to audit CORS, check S3/GCS bucket anonymous access, verify a subdomain takeover candidate, or review security headers and TLS hygiene ("tes CORS", "bucket anonymous", "S3 misconfig", "takeover check", "security headers", "origin differential", "CIS", "posture", "check version").
+description: Phase-1/3 cloud-and-config organ, upgraded (v2) with the Toni de la Fuente (Prowler) lineage — CORS origin-differential matrix, anonymous-access checks on object storage (bounded to one listing page), dangling-DNS takeover verification, and header/hygiene facts, plus checks-as-code discipline: stable check IDs with versions, CIS benchmark citation for severity words, drift re-verification in theSince v2.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the checks-as-code practice's floors (checks run as received with their logic trusted like a compiler, benchmark mappings cited as authority and never re-derived, severity as vendor label, re-runs compared to nothing, one snapshot sold as posture) shipped as protocol M1–M5: the check review gate with quarantine rows, the benchmark spot-rederivation with divergence classes, the severity re-rate ladder with both columns in every output, the delta protocol whose regression row is the headline, and the posture-trend ceiling with a mandatory unmeasured list. Use when the operator asks to audit CORS, check S3/GCS bucket anonymous access, verify a subdomain takeover candidate, or review security headers and TLS hygiene ("tes CORS", "bucket anonymous", "S3 misconfig", "takeover check", "security headers", "origin differential", "CIS", "posture", "check version").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# cloud-config-auditor v2.1.0 — Misconfiguration Is A Differential Too
+# cloud-config-auditor v2.2.0 — Misconfiguration Is A Differential Too
 
 ## 0. What This Skill Is — and Is Not
 
@@ -89,6 +89,26 @@ left behind by an infrastructure migration nobody re-audited. W2:
 the bounded proof reads ONE page of keys and stops; a full bucket
 dump is looting, not evidence.
 
+## 2.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published posture practice where it was mechanically weak —
+the check set trusted rather than audited (findings as the TOOL's
+opinion), the CIS column cited without re-derivation (silent partial-
+coverage and over-claim), severity riding vendor labels, every run a
+fresh report diffed against nothing, one snapshot quoted as "the
+posture" — and ships the executable replacement: **M1** the check
+review gate (100% of report-riding checks + 10% random; a check that
+cannot state its falsifier is quarantined as tool-opinion), **M2** the
+rederivation protocol (≥ 5 mappings per run re-derived against the
+benchmark text with sources; ≥ 2-of-5 wrong = full mapping audit),
+**M3** the re-rate ladder (both columns in the output; exposure and
+compensating-control evidence decides), **M4** the delta protocol
+(same check-set hash only; the REGRESSION row — a fix that did not
+hold — is the headline deliverable), **M5** the posture ceiling
+(window + scope + trend counts; the unmeasured list is mandatory and
+claims never leak past it).
+
 ## 3. Procedure — Numbered Actions
 
 1. Entry: AUTH record present; target in scope.
@@ -147,3 +167,4 @@ dump is looting, not evidence.
 | Verifying a takeover candidate | `references/takeover-checks.md` |
 | Check IDs, benchmark mapping, drift re-verification, posture families | `references/checks-as-code.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
+| Grading the published practice, auditing checks, re-deriving mappings, computing deltas | `references/method-upgrade.md` |

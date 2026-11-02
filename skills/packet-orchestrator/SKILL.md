@@ -1,9 +1,9 @@
 ---
 name: packet-orchestrator
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ built from two verified lineages — Justin Searle's manual-to-structured craft (SamuraiWTF/STFU distributions, NESCOR-methodology ICS testing, protocol dissection teaching) and the Mantis framework (PhonePe) school of workflow orchestration (state-backed pipelines, scanner base classes, schedulers, alerting), with Scapy's layered packet-crafting as the underlying tool lineage. Doctrine: automate only what you have first done manually and understood; translate the manual trace into a structured, state-backed automation one layer at a time; every automation stage keeps the manual path re-runnable beside it; packet-level work means crafting the exact bytes and observing the exact response, never spraying and summarizing. Use when converting manual test logic into repeatable automation, when orchestrating multi-stage workflows with persistent state, when doing raw-protocol differentials, or when an automation must stay debuggable ("automate this manual check", "workflow with state", "packet-level differential", "wire this into the pipeline", "why did the automation diverge").
+description: Craft-lineage organ built from two verified lineages — Justin Searle's manual-to-structured craft (SamuraiWTF/STFU distributions, NESCOR-methodology ICS testing, protocol dissection teaching) and the Mantis framework (PhonePe) school of workflow orchestration (state-backed pipelines, scanner base classes, schedulers, alerting), with Scapy's layered packet-crafting as the underlying tool lineage. Doctrine: automate only what you have first done manually and understood; translate the manual trace into a structured, state-backed automation one layer at a time; every automation stage keeps the manual path re-runnable beside it; packet-level work means crafting the exact bytes and obSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the three source lineages' floors (manual craft as performed wizardry with the intent→fields translation unwritten, orchestration demonstrated without mechanical abort gates, packet libraries invoked without send discipline, dissection told as single-shot narration with implicit expectations) shipped as protocol M1–M5: the translation table with enumerated response classes, the state gates that can stop a pipeline, the send rule with its burst ban and per-send ledger, the dissection differential with a written expectation table, and the orchestrator record that makes runs re-walkable. Use when converting manual test logic into repeatable automation, when orchestrating multi-stage workflows with persistent state, when doing raw-protocol differentials, or when an automation must stay debuggable ("automate this manual check", "workflow with state", "packet-level differential", "wire this into the pipeline", "why did the automation diverge").
 category: security/craft-lineage
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# packet-orchestrator v1.0.0 — The Searle + Mantis Lineage
+# packet-orchestrator v1.1.0 — The Searle + Mantis Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -72,6 +72,25 @@ Two verified lineages, honestly labeled:
    precise response, observe the precise delta. A packet differential
    that cannot show its bytes is a summary, not a proof.
 
+## 2.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the three source lineages where they were mechanically weak —
+craft performed live with the translation in the demonstrator's hands,
+pipelines that cannot state when they stop, `sr1()` loops without count,
+rate, or response classing, one weird capture read by one observer against
+an expectation nobody wrote down — and ships the executable replacement:
+**M1** the translation table (intent → flags/fields/count/rate/response-
+classes BEFORE any packet; no response-classes cell = refused probe),
+**M2** the state gates (baseline-quiet, error-rate < 5%, state-token
+checks; a stage entered without its gate record voids the run), **M3** the
+send rule (count + rate floor 1/2 s + timeout 2 × RTT; burst ban on the
+5-tuple; stateful sequences walked one reply at a time), **M4** the
+dissection differential (per-layer expectation table; anomaly class
+reproduces ≥ 2/3 with a compliant control in-window), **M5** the
+orchestrator record (gates, sends, pcaps, verdicts, resume cursor — the
+record IS the method).
+
 ## 3. Procedure — Numbered Actions
 
 1. Walk the logic manually; record every request/response pair and
@@ -124,3 +143,4 @@ Two verified lineages, honestly labeled:
 | Translating manual logic into modules | references/mindset.md |
 | Orchestrating workflows with state | references/playbook.md |
 | Lineage verification, incl. the Mantis attribution correction | references/sources.md |
+| Grading the source lineages, translating intent, holding the gates | references/method-upgrade.md |

@@ -1,9 +1,9 @@
 ---
 name: template-scanner
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from the ProjectDiscovery team (Sandeep Singh, Rishiraj Sharma, Marco Rivoli, Nizamul Rana — creators of subfinder and nuclei) — detection knowledge as declarative, versioned templates. A template is a pre-registered experiment: matchers (status/word/regex/DSL conditions) written before the run; severity and metadata baked in; engine and template packs evolve separately so the community compounds; multi-protocol reach (HTTP, raw TCP, DNS) keeps one language across surfaces; and a whole campaign is reproducible by citing the template set it ran. Use when turning a repeatable check into a reusable artifact, when running scan campaigns that must be reproducible, when aligning detection packs with VRT classes, or when sharing a detection with others ("make this a template", "rerun last week's scan", "template pack", "same check everywhere", "reproducible campaign").
+description: Craft-lineage organ distilled from the ProjectDiscovery team (Sandeep Singh, Rishiraj Sharma, Marco Rivoli, Nizamul Rana — creators of subfinder and nuclei) — detection knowledge as declarative, versioned templates. A template is a pre-registered experiment: matchers (status/word/regex/DSL conditions) written before the run; severity and metadata baked in; engine and template packs evolve separately so the community compounds; multi-protocol reach (HTTP, raw TCP, DNS) keeps one language across surfaces; and a whole Since v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the template-scanning practice's floors (matchers run as received without review, severity baked into YAML for a generic universe, engine×pack drift untracked, noise classes narrated as findings, hits reported without the bytes the matcher saw) shipped as protocol M1–M5: the pre-run review gate that converts templates into pre-registered experiments, the severity re-rating ladder with both columns in every output, the RUN-PIN version matrix, the noise filter table with visible counts, and the hit record with evidence blocks and confidence-class version pins. Use when turning a repeatable check into a reusable artifact, when running scan campaigns that must be reproducible, when aligning detection packs with VRT classes, or when sharing a detection with others ("make this a template", "rerun last week's scan", "template pack", "same check everywhere", "reproducible campaign").
 category: security/craft-lineage
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# template-scanner v1.0.0 — The ProjectDiscovery Lineage
+# template-scanner v1.1.0 — The ProjectDiscovery Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -60,6 +60,24 @@ language. Sources: references/sources.md — the verification record
 6. **Campaigns cite their template set.** A scan campaign is only
    reproducible if the template set is named: which ids, which
    version. "We ran our checks" is not a campaign record.
+
+## 2.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published template practice where it was mechanically weak —
+`nuclei -t ~/nuclei-templates` as the workflow (the authors of the pack
+pre-registered your hypotheses against a target they never saw),
+`severity: critical` riding verbatim into every report, matcher DSL drift
+across unrecorded version pairs, self-signed-cert classes filling finding
+rows, hits without evidence — and ships the executable replacement:
+**M1** the review gate (no-falsifier matchers REJECTED; survivors convert
+to T-EXP records), **M2** the severity re-rating ladder (template label →
+target-relative class; both columns in the output; label-only reports
+refused), **M3** the RUN-PIN matrix (engine + pack hash cited per hit;
+changed pin = new run, never merged), **M4** the noise table (TLS/banner
+/header classes filtered BEFORE the draft; filter counts recorded), **M5**
+the hit record (request bytes + response class + matcher summary + version
+pin confidence class + next route).
 
 ## 3. Procedure — Numbered Actions
 
@@ -112,3 +130,4 @@ language. Sources: references/sources.md — the verification record
 | Designing templates and packs | references/mindset.md |
 | Running template campaigns | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
+| Grading the published practice, auditing matchers, re-rating severity | references/method-upgrade.md |

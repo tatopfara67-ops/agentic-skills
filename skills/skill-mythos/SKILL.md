@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.8.0
+version: 1.9.0
 type: ai-skill
 architecture: package
 description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the sixteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order, A14 the three registers — every organ states its expertise as WHAT/WHY/HOW, A15 war logic — the Sun Tzu crosswalk that shapes every campaign, and A16 method over mythology — a lineage named is not expertise delivered: every organ critiques its lineage's method where it was mechanically weak, states the should-have-been, and ships the executable upgrade), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison) and the tier-3 attack organs (injection-lab, ssrf-playbook, xss-playbook, cloud-config-auditor, mobile-hunter with the Charlie Miller lineage, cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook with the Gareth Heyes lineage), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, when planning the campaign's strategy (war logic), or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.7.0 — The Master Charter
+# skill-mythos v1.9.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -107,13 +107,27 @@ metadata:
     pattern modules live where they were first forged — the
     adversary-tracker bundle's method-upgrade module (M0–M5, v1.1.0)
     and the desync-hunter bundle's method-upgrade module (M1–M4,
-    v1.3.0) — and now ship with the second wave: xss-playbook
-    (M1–M5, v2.3.0), prototype-playbook (M1–M4, v1.2.0),
-    cache-playbook (M1–M5, v1.2.0), injection-lab (M1–M5, v1.3.0),
-    ssrf-playbook (M1–M5, v1.3.0), mobile-hunter (M1–M5, v1.1.0),
-    and chain-architect (M1–M5, v1.1.0); organs without one yet
-    name their debt in the resume note, and the debt is worked
-    before it is forgiven.
+    v1.3.0) — then the second wave (xss-playbook v2.3.0,
+    prototype-playbook v1.2.0, cache-playbook v1.2.0, injection-lab
+    v1.3.0, ssrf-playbook v1.3.0, mobile-hunter v1.1.0,
+    chain-architect v1.1.0), and the third wave closed the debt:
+    every organ that names a lineage now ships its method layer —
+    subdomain-hunter v2.1.0 (EdOverflow), scan-economist v1.1.0
+    (Fyodor), module-smith v1.1.0 (HD Moore), pipeline-smith v1.1.0
+    (Tomnomnom), feedback-fuzzer v1.1.0 (lcamtuf), template-scanner
+    v1.1.0 (ProjectDiscovery), packet-orchestrator v1.1.0 (Searle +
+    Mantis + Scapy), ghost-crawler v1.1.0 (Lamo), deep-teardown
+    v1.1.0 (Hotz), mirror-hunter v1.1.0 (Willison), signal-smith
+    v1.1.0 (Draper), trust-graph-hunter v1.1.0 (Mitnick),
+    auth-boundary-mapper v2.2.0 (Rosen), oauth-flow-auditor v2.2.0
+    (Parecki), content-discovery v2.1.0 (Miessler), business-logic-
+    hunter v2.2.0 (Dalili), cloud-config-auditor v2.2.0 (de la
+    Fuente), and glm-self-model v1.1.0 turned A16 inward — the
+    engine grading its own manual. Organs that carry no lineage
+    pretension (cartography, catalog, benchmark infrastructure)
+    inherit the discipline through the charter's gates without a
+    module of their own. The debt is worked; the resume notes are
+    clean.
 
 ## 2. The Bundle at a Glance
 

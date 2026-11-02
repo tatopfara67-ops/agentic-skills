@@ -1,6 +1,6 @@
 ---
 name: glm-self-model
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: >
@@ -9,7 +9,16 @@ description: >
   this bundle, plus the compensation gates that make long-horizon work
   survive the engine's documented bending modes: positional attention
   decay, salience capture, the ending gradient, confidence without
-  measurement, and zero weight-level persistence. Use this skill at
+  measurement, and zero weight-level persistence. Since v1.1.0 the manual
+  carries the executable method layer (A16, applied inward): the engine
+  grading its own first edition's floors (asserted truths never measured
+  in-session, gates run as doctrine without differentials, introspective
+  self-report where artifacts were available) and shipping the replacement
+  as protocol M1–M5 — the session self-baseline scored against the ledger,
+  the gate differential with paired controls, the calibration probe that
+  turns confidence into a score, the honest-floor statement separating
+  measured curves from class priors, and the externalized tell-log.
+  Use this skill at
   session start of any long engagement; the moment drift, déjà-vu, or an
   unearned feeling of completion is suspected; before writing or revising
   doctrine that must steer a transformer; and after any engagement that
@@ -21,7 +30,7 @@ metadata:
   author: tatopfara67-ops
 ---
 
-# glm-self-model v1.0.0 — The Engine's Own Manual
+# glm-self-model v1.1.0 — The Engine's Own Manual
 
 ## 0. What This Skill Is — and What It Refuses to Be
 
@@ -159,6 +168,27 @@ with its cause label; the next session inherits the countermeasure.
 5. Was critical state buried mid-context — acted on late, or never? (E2)
 6. Did a loud anomaly redirect the plan without a queue decision? (E3)
 
+## 3.5 The Method Layer — the Engine Grades Its Own Manual (A16)
+
+A lineage named is not expertise delivered — and the engine's own manual
+is a lineage too. `references/method-upgrade.md` grades the v1.0.0 manual
+where it shipped asserted instead of measured: decay curves quoted from
+the model class rather than read per-session, compensation gates
+prescribed without with-gate/without-gate evidence, confidence-without-
+measurement named and then practiced via self-report, and the §3 tell-
+checklist policed by the same attention it warns about. The replacement
+is executable: **M1** the session self-baseline (five probe markers at
+spread ledger positions, recalled against the ledger at close — the only
+ground truth the engine cannot bend), **M2** the gate differential
+(gated vs ungated arms on paired tasks, both graded against external
+checks; gates that never earn their cost are recorded honestly), **M3**
+the calibration probe (probability + honesty flag on a 3-item checkable
+set; OVERCONFIDENT classes triage findings into external re-verification),
+**M4** the honest-floor statement (measured vs prior vs residual, named),
+**M5** the tell-log (mechanical queries against artifacts; introspective
+rows marked weakest evidence). Doctrine loses to measurement — first
+inside the manual that taught that sentence to everyone else.
+
 ## 4. Load-When Routing
 
 | Load when… | What to do |
@@ -168,6 +198,7 @@ with its cause label; the next session inherits the countermeasure.
 | A closure is about to be written | G1 fresh-eyes, every time |
 | Doctrine is being written or revised | check new rules against the five truths — doctrine that fights geometry loses |
 | An engagement died early | label the cause with §3 before writing it off as "hard target" |
+| Grading the manual itself, running the self-baseline, scoring calibration, closing with the tell-log | open `references/method-upgrade.md` — A16 applied inward |
 
 ## 5. Quick Reference Card
 

@@ -1,9 +1,9 @@
 ---
 name: trust-graph-hunter
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier B — The Human & Signal Manipulators) built from the Kevin Mitnick lineage, translated to systems — context deception and trust-graph auditing. Enumerates the trust edges between components (what each boundary trusts: IP allowlists, Referer/Origin checks, internal headers, webhook signatures, server-to-server tokens, shared secrets), draws the trust graph across the estate, then pre-registers deception hypotheses — can the context a system trusts be FORGED from outside it — and proves inherited trust with differentials on self-owned accounts. Use when auditing trust between a main server and third-party APIs, when hunting internal-header spoofing, webhook signature bypass, referer-based authorization, SSRF-as-trust-confusion, or server-to-server privilege escalation ("trust relationship", "context deception", "internal header spoof", "webhook signature bypass", "hubungan antar sistem", "privilege escalation via trust").
+description: Legend-tier organ (Tier B — The Human & Signal Manipulators) built from the Kevin Mitnick lineage, translated to systems — context deception and trust-graph auditing. Enumerates the trust edges between components (what each boundary trusts: IP allowlists, Referer/Origin checks, internal headers, webhook signatures, server-to-server tokens, shared secrets), draws the trust graph across the estate, then pre-registers deception hypotheses — can the context a system trusts be FORGED from outside it — and provesSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the source material's floors as translated (trust edges narrated per-vignette and never assembled into a graph, forgery demonstrated without a differential against absent or legitimate context, no completeness accounting, third-party humans as instruments in the source practice, no falsifier anywhere) shipped as protocol M1–M5: the edge protocol with observed-behavior evidence, the three-condition context differential, the census gate that forbids claims on gapped boundaries, the operator-owned identity law, and the mechanical ethics gate. Use when auditing trust between a main server and third-party APIs, when hunting internal-header spoofing, webhook signature bypass, referer-based authorization, SSRF-as-trust-confusion, or server-to-server privilege escalation ("trust relationship", "context deception", "internal header spoof", "webhook signature bypass", "hubungan antar sistem", "privilege escalation via trust").
 category: security/legend-lineage
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; both endpoints of every deception proof must be in scope and operator-owned
 ---
 
-# trust-graph-hunter v1.0.0 — The System Trusts; Make It Trust You
+# trust-graph-hunter v1.1.0 — The System Trusts; Make It Trust You
 
 ## 0. What This Skill Is — and Is Not
 
@@ -84,6 +84,26 @@ analysis behind them. The verification record is
    ships the edge, the forged signal, the differential, and the
    access inherited — drawn as a graph, so the triage desk sees
    the systemic issue, not one odd header.
+
+## 3.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered — and the translation itself
+is graded, not inherited. `references/method-upgrade.md` grades the source
+form where it was mechanically weak — one exploited edge per story with
+the graph never assembled, "they believed me" conflating beats-absent with
+matches-legitimate, survivorship bias as a genre, real employees as demo
+instruments, a form in which nothing can be wrong — and ships the
+executable replacement: **M1** the edge protocol (per boundary: trusts=
+cited to OBSERVED behavior on operator-owned calls, classed
+contextual/cryptographic/ambient, graded verification-strength), **M2**
+the context differential (absent vs forged vs legitimate, n ≥ 5
+interleaved; forged-beats-absent is weak evidence, forged-matches-legit
+is the strong finding; challenged-and-held is defense data), **M3** the
+census gate (every boundary EDGE-recorded or explicitly gapped; gapped
+boundaries carry no claims), **M4** the identity law (operator-owned
+identities only, each an ASSET with ownership basis; real-person
+identities forbidden as a hard rule), **M5** the ethics gate (fields
+filled BEFORE the run; any failing field = the run does not start).
 
 ## 4. Procedure — Numbered Actions
 
@@ -158,3 +178,4 @@ analysis behind them. The verification record is
 | --- | --- |
 | Enumerating edges / signal classes / forgery matrix | `references/trust-context-catalog.md` |
 | Verifying the Mitnick lineage and translation | `references/sources.md` |
+| Grading the source translation, enumerating edges, running the context differential | `references/method-upgrade.md` |

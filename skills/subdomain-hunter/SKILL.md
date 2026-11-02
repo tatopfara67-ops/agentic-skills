@@ -1,9 +1,9 @@
 ---
 name: subdomain-hunter
-version: 2.0.0
+version: 2.1.0
 type: ai-skill
 architecture: package
-description: Phase-1 subdomain enumeration organ, upgraded (v2) with the EdOverflow lineage — passive-first ladder (certificate transparency, passive CLI routing), resolution and CDN/wildcard detection, permutation round, and CNAME-dangling takeover checks with a full dangling-class taxonomy (NXDOMAIN-CNAME, fingerprint-CNAME, dangling MX/NS, deep chains), TTL-aware verification, and the fingerprint-registry discipline. Use when the operator asks to enumerate subdomains, expand a domain's asset inventory, check wildcard DNS, or investigate subdomain takeover ("cari subdomain", "enum subdomain", "subdomain takeover", "permutasi domain", "asset discovery", "dangling MX", "dangling NS", "takeover verification").
+description: Phase-1 subdomain enumeration organ, upgraded (v2) with the EdOverflow lineage — passive-first ladder (certificate transparency, passive CLI routing), resolution and CDN/wildcard detection, permutation round, and CNAME-dangling takeover checks with a full dangling-class taxonomy (NXDOMAIN-CNAME, fingerprint-CNAME, dangling MX/NS, deep chains), TTL-aSince v2.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the EdOverflow art's floors (a community wiki read by memory, dead/dangling/claim-able conflated in one-shot demos, single-read DNS state, deep chains narrated per-bug, disclosure as afterthought) shipped as protocol M1–M5: the fingerprint-registry freshness discipline, the dangling differential ladder, the TTL-aware verification rule with SOA stability, the chain walk, and the disclosure gate. Use when the operator asks to enumerate subdomains, expand a domain's asset inventory, check wildcard DNS, or investigate subdomain takeover ("cari subdomain", "enum subdomain", "subdomain takeover", "permutasi domain", "asset discovery", "dangling MX", "dangling NS", "takeover verification").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# subdomain-hunter v2.0.0 — Passive First, Always
+# subdomain-hunter v2.1.0 — Passive First, Always
 
 ## 0. What This Skill Is — and Is Not
 
@@ -93,6 +93,21 @@ makes it evidence:
 * Only the two records together justify a Phase-2 hypothesis; neither alone
   is a finding.
 
+## 4.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published takeover art where it was mechanically weak — fingerprints
+read from an unversioned wiki, dead/dangling/claim-able blurred in demo
+stories, DNS read once without TTL or a second resolver, mid-chain dangle
+points missed without a walk protocol, disclosure left to prose — and ships
+the executable replacement: **M1** the fingerprint-registry discipline
+(per-entry freshness stamp; > 180 days = STALE, cited as such), **M2** the
+dangling differential (dead / dangling / claim-able decided by probe, never
+prose), **M3** TTL-aware verification (≥ 2 resolvers, ≥ 5 of 6 stable
+across the TTL window, SOA serial check), **M4** the chain walk (CNAME→CNAME
+to terminal, MX/NS classes separately, no single-read hops), **M5** the
+disclosure gate (wording capped at the demonstrated class).
+
 ## 5. Procedure — Numbered Actions
 
 1. Entry: AUTH record present; domain is in scope (`scope_check`).
@@ -139,5 +154,6 @@ makes it evidence:
 | Load when… | Module |
 | --- | --- |
 | Building the candidate ladder or permutation set | `references/sources.md` |
+| Grading the published method, dating fingerprints, running the dangling differential | `references/method-upgrade.md` |
 | Any CNAME leaves the parent domain | `references/takeover-signatures.md` |
 | Verifying any takeover candidate (class, TTL, claim path) | `references/takeover-field-guide.md` |

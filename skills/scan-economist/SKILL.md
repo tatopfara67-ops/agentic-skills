@@ -1,9 +1,9 @@
 ---
 name: scan-economist
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from Gordon Lyon (Fyodor), author of Nmap — the economics of network discovery. Treats every scan as a budget problem with a cost hierarchy (cheap host discovery before expensive port scans, liveness before depth), a speed-vs-stealth-vs-reliability triangle for every technique, empirical port priors instead of exhaustive 65535 sweeps, adaptive timing with retransmission, and port states as recorded inferences rather than facts. Use when mapping hosts, ports, or services; when choosing scan timing or rate; when deciding what to scan first; when a port/host state verdict must be defended ("which ports first", "is this host even up", "scan budget", "too noisy", "which targets are alive").
+description: Craft-lineage organ distilled from Gordon Lyon (Fyodor), author of Nmap — the economics of network discovery. Treats every scan as a budget problem with a cost hierarchy (cheap host discovery before expensive port scans, liveness before depth), a speed-vs-stealth-vs-reliability triangle for every technique, empirical port priors instead of exhaustive 65535 sweeps, adaptive timing with retransmissionSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Fyodor art's floors (techniques catalogued as a menu without a decision procedure, the adaptive timing policy hidden in tool defaults, version detection as an opaque database, scan narratives without footprint accounting, port priors by invisible default) shipped as protocol M1–M5: the budget table with unit prices, the portable measured timing gates, the service-ID confidence ladder, the footprint ledger, and the derived prior table that demotes the default top-100. Use when mapping hosts, ports, or services; when choosing scan timing or rate; when deciding what to scan first; when a port/host state verdict must be defended ("which ports first", "is this host even up", "scan budget", "too noisy", "which targets are alive").
 category: security/craft-lineage
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# scan-economist v1.0.0 — The Fyodor Lineage
+# scan-economist v1.1.0 — The Fyodor Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -58,6 +58,22 @@ consulted: references/sources.md — the verification record
    parallelism bounded because past a point it *hurts* ("more than 18
    or so" decreased performance on fast networks, 1997). Fixed rates
    are guesses; observed rates are data.
+
+## 2.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published scan art where it was mechanically weak — scans as a
+trick menu not an economy, timing intelligence locked inside Nmap defaults,
+version detection as a silently-matched database, writeups reporting ports
+without packets, "top 1000" as an invisible prior — and ships the
+executable replacement: **M1** the budget table (questions bind technique;
+priced probe classes; 20% overrun abort), **M2** the measured timing gates
+(RTT baseline, parallelism doubles only under loss < 2% and stable IQR,
+halves on retransmit), **M3** the service-ID ladder (passive → generic →
+class-specific; CONFIRMED/CLASS-ONLY/INFERRED pins), **M4** the footprint
+ledger (sends, retrans, rates, yield on every session), **M5** the prior
+table (target-derived priors first; house defaults last, with a resume
+note).
 
 ## 3. Procedure — Numbered Actions
 
@@ -105,3 +121,4 @@ consulted: references/sources.md — the verification record
 | Applying the five laws to a live engagement | references/mindset.md |
 | Running a sweep end to end | references/playbook.md |
 | Checking what the lineage actually said | references/sources.md |
+| Grading the published method, pricing the budget, holding timing gates | references/method-upgrade.md |

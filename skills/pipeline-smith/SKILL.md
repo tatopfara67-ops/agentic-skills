@@ -1,9 +1,9 @@
 ---
 name: pipeline-smith
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from Tom Hudson (Tomnomnom) — the Unix-pipeline school of bug bounty recon. Every stage is a small tool that does one thing well and speaks stdout; passive sources feed the pipeline before the target is ever touched; names are deduplicated before probing; liveness is proved with minimal requests (httprobe discipline); curated pattern packs (gf) encode expert pattern knowledge as data rather than bespoke scripts; the same path is fetched across many hosts and diffed (meg discipline) to surface what stands out. Use when chaining recon stages, when deciding what composes with what, when building or trimming a wordlist/pattern pack, or when a recon step must stay cheap and composable ("pipeline this", "dedupe first", "passive sources before probes", "pattern pack", "fetch the same path everywhere").
+description: Craft-lineage organ distilled from Tom Hudson (Tomnomnom) — the Unix-pipeline school of bug bounty recon. Every stage is a small tool that does one thing well and speaks stdout; passive sources feed the pipeline before the target is ever touched; names are deduplicated before probing; liveness is proved with minimal requests (httprobe discipline); curated pattern packs (gf) encode expert pattern knowledge as data rather than bespoke scripts; the same path is fetched across many hoSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the pipeline school's floors (pipelines as unversioned shell history, dedupe asserted but never measured, tool stdout as an unwritten contract, passive-source freshness unrecorded, results narrated without replayable provenance) shipped as protocol M1–M5: the versioned pipeline record, the collapse ledger with a cross-source gate, the stage contract with hard-fail semantics, the as-of stamp that prices liveness budget, and the five-field replay citation the report gate enforces. Use when chaining recon stages, when deciding what composes with what, when building or trimming a wordlist/pattern pack, or when a recon step must stay cheap and composable ("pipeline this", "dedupe first", "passive sources before probes", "pattern pack", "fetch the same path everywhere").
 category: security/craft-lineage
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# pipeline-smith v1.0.0 — The Tomnomnom Lineage
+# pipeline-smith v1.1.0 — The Tomnomnom Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -58,6 +58,22 @@ references/sources.md — the verification record
    hosts, then compare — the outlier is the signal. Modern form:
    uniform-path probes across a surface set; the deviation from the
    pack, not any absolute response, is the finding candidate.
+
+## 2.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published pipeline art where it was mechanically weak — the
+one-liner as the artifact (nothing versioned, nothing replayable),
+`sort -u` asserted without a collapse ratio, stdout formats drifting
+between tool versions with no schema check, archives read as if current,
+"found via waybackurls + gf" as the whole provenance chain — and ships the
+executable replacement: **M1** the pipeline record (versioned, hashed,
+cited by findings), **M2** the collapse ledger (in/out/ratio per stage;
+cross-source ratio < 0.2 fires the source-staleness gate), **M3** the stage
+contract (input schema validated before spend; mismatch = hard version
+bump, never a mid-run patch), **M4** the as-of stamp (memory-class
+candidates priced last), **M5** the replay proof (pipeline v + run id +
+stage + source + as-of — five fields, no exceptions).
 
 ## 3. Procedure — Numbered Actions
 
@@ -107,3 +123,4 @@ references/sources.md — the verification record
 | Designing or arguing a pipeline's stages | references/mindset.md |
 | Running the recon pipeline end to end | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
+| Grading the published method, measuring collapse ratios, stamping freshness | references/method-upgrade.md |

@@ -1,9 +1,9 @@
 ---
 name: module-smith
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from HD Moore — founder of the Metasploit Framework (2003) and of internet-scale exposure measurement (Project Sonar, 2013). Exploitation as composition: the door-opener (exploit), the cargo (payload), the delivery (stager/handler) are separate, rankable, reusable concerns — every hypothesis in this pipeline is a module with reliability metadata (rank, references, disclosure date), every impact proof is a payload kept separate from the access proof, and every claim of exposure is a reproducible measurement against a recorded baseline. Use when designing or structuring exploit/verification work, when reusing prior findings on new surfaces, when measuring exposure prevalence, or when composing probe chains ("reuse the earlier finding", "how reliable is this vector", "is this exposure systemic", "package this as a reusable check").
+description: Craft-lineage organ distilled from HD Moore — founder of the Metasploit Framework (2003) and of internet-scale exposure measurement (Project Sonar, 2013). Exploitation as composition: the door-opener (exploit), the cargo (payload), the delivery (stager/handler) are separate, rankable, reusable concerns — every hypothesis in this pipeline is a module with reliability metadata (rank, references, disclosure date), every impact proof is a payload kept separate from the access proof, and every claim of exposureSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the HD Moore art's floors (rank metadata asserted instead of measured, stagers tuned for one target class, composition proven by single-shot demo, internet-scale measurement without a written protocol, payload compatibility as prose folklore) shipped as protocol M1–M5: the module record with measured reliability, the stager differential across delivery classes, the composition joint-gate with cleanup accounting, the measurement protocol with harm gates, and the compat matrix with rank arithmetic. Use when designing or structuring exploit/verification work, when reusing prior findings on new surfaces, when measuring exposure prevalence, or when composing probe chains ("reuse the earlier finding", "how reliable is this vector", "is this exposure systemic", "package this as a reusable check").
 category: security/craft-lineage
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# module-smith v1.0.0 — The HD Moore Lineage
+# module-smith v1.1.0 — The HD Moore Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -56,6 +56,23 @@ Sources: references/sources.md — the verification record
    prevalence claims ("this endpoint pattern is systemic") cite a
    CONTROL baseline — N surfaces probed with the same effort, the
    hit-rate recorded — never a feeling.
+
+## 2.5 The Method Layer — Critique, Upgrade (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published module art where it was mechanically weak —
+`Rank: Excellent` as an author's label rather than a measurement, stagers
+inheriting the demo's egress conditions, exploit+stager+payload proven by
+one run, Sonar-class measurement left to goodwill, compat notes as folklore
+— and ships the executable replacement: **M1** the module record
+(reliability n/k per target-class; labels without n refused), **M2** the
+stager differential (n ≥ 5 per delivery class; FIELD-READY at ≥ 4/5
+established and surviving), **M3** the composition proof (joint n ≥ 5,
+clean-state per run, confidence = min(links) × joint factor, floor link
+named), **M4** the measurement protocol (scope, rate, dedup, harm-gates,
+aggregate disclosure — all fields filled before the run), **M5** the
+compat matrix + rank arithmetic (EMPTY cells never claim; rank =
+reliability × field-readiness × joint, factors visible).
 
 ## 3. Procedure — Numbered Actions
 
@@ -105,3 +122,4 @@ Sources: references/sources.md — the verification record
 | Structuring hypotheses as modules; ranking | references/mindset.md |
 | Running module proofs and exposure counts | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
+| Grading the published method, measuring module reliability, computing rank | references/method-upgrade.md |

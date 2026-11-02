@@ -36,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.1.0"
+MODULE_VERSION = "1.1.1"
 
 SPINE = "mythos-bug-hunter"
 

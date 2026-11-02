@@ -13,7 +13,7 @@ carries the distilled version; this module is the atlas.
                 └───────┬───────────────────────────┬──────────┘
    Phase 1–3 organs     │            evidence       │ incident branch
 ┌───────────────────────┴───────────────┴───────────┴─────────────┐
-│ arsenal/ — MCP server, 25 scope-gated tools, one R-NNN ledger   │
+│ arsenal/ — MCP server, 27 scope-gated tools, one R-NNN ledger   │
 │ auditor/ — PASS/FAIL report gate (recomputes CVSS, validates    │
 │            VRT ids against the shipped official taxonomy)       │
 │ lab/     — target_app.py + christmas_lab.py (self-owned)        │
@@ -43,13 +43,25 @@ closure gates, R7 budgets) instead of restating them. The charter
 | xss-playbook | 3 | untrusted strings can reach a sink | *context is the vulnerability* — the sink decides the payload, CSP is a recorded fact |
 | cloud-config-auditor | 1/3 | object storage, CORS, or DNS edge assets exist | *the perimeter is a configuration file* — anonymous reads and dangling delegations |
 | adversary-tracker | 4 | event-triggered: a sensor or the operator reports adversary activity on assets you are authorized to defend | *the Binary Brain* — freeze, halve by bits, two-channel fix, hand off (Shimomura lineage) |
+| scan-economist | 5 | any active sweep is planned — hosts, ports, or timing must be chosen | *scan economy* — liveness before depth, priors over exhaustive sweeps (Fyodor lineage) |
+| module-smith | 5 | a hypothesis or finding will be reused across surfaces | *exploitation as composition* — rankable modules, access and impact proofs separate (HD Moore lineage) |
+| pipeline-smith | 5 | a recon stage will run more than once | *small tools, stdout* — passive sources first, dedupe before paying (Tomnomnom lineage) |
+| feedback-fuzzer | 5 | a search space is too big for enumeration and needs a stopping rule | *the map guides the search* — bucketed novelty, minimization, saturation (lcamtuf lineage) |
+| template-scanner | 5 | a check will be reused across engagements and must be reproducible | *detection as data* — matchers pre-registered, campaigns cite their set (ProjectDiscovery lineage) |
+| packet-orchestrator | 5 | a manual trace works and is worth automating | *manual first* — translate to state-backed automation layer by layer (Searle + Mantis lineage) |
+| chain-architect | 6 | low/informational findings accumulate and want composition | *the compound kill chain* — 3-4 harmless gaps into critical impact, each link proven (Orange Tsai lineage) |
+| desync-hunter | 6 | a parser seam (CDN/WAF/terminator/backend) sits in scope | *specifications are hypotheses* — one ambiguity per request, bytes as artifacts (James Kettle lineage) |
+| deep-teardown | 6 | a client artifact (JS/APK/binary) is in scope and unread | *dismantle to primitives* — local dissection before any network flow (George Hotz lineage) |
+| ghost-crawler | 6 | scope is tight or the WAF is scanner-hostile | *enter without knocking* — passive indexes first, one bounded probe per candidate (Adrian Lamo lineage) |
+| signal-smith | 6 | a validator blocks honest payloads | *precision over volume* — one minimal variation per seam, two max (John Draper lineage) |
+| trust-graph-hunter | 6 | components trust each other (headers, referers, signatures, tokens) | *the trust graph* — enumerate trust edges, prove inherited privilege on operator-owned ends (Kevin Mitnick lineage) |
 
 ## 3. The execution hand — arsenal tool groups
 
 | Group | Tools | When |
 | --- | --- | --- |
 | loader | `list_skills`, `get_skill`, `get_skill_reference` | always first; metadata before bodies |
-| charter | `mythos_charter` | session start; operator activation |
+| charter | `mythos_charter`, `mythos_lineages`, `doctrine_forge` | session start; lineage questions; EVERY operator instruction (A13) |
 | governance | `scope_check`, `auth_status` | before any traffic; R0 |
 | evidence | `ledger_append`, `ledger_summary`, `ledger_read`, `ledger_merge` | continuously; merge at phase boundaries |
 | passive | `ct_subdomains`, `dns_resolve` | Phase 1, recon_only surfaces |

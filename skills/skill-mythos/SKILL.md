@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the thirteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, and A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick), the autonomy protocol for self-selecting organs by phase and event, and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.1.0 — The Master Charter
+# skill-mythos v1.1.1 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 

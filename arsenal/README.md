@@ -1,95 +1,41 @@
 # mythos-arsenal
 
-The specialized **organs + execution hand** for the Mythos agent stack:
-the **skill-mythos master charter** plus 25 organ skills — recon,
-mapping, access, logic, technical deep-dive, the incident branch, the
-**craft tier** (six organs distilled from named public researchers:
-Fyodor, HD Moore, Tomnomnom, lcamtuf, ProjectDiscovery, Searle +
-Mantis/PhonePe), and the **legend tier** (six organs distilled from the
-operator's Tier-S/A/B list: Orange Tsai, James Kettle, George Hotz,
-Adrian Lamo, John Draper, Kevin Mitnick — plus the Frans Rosen lineage
-folded into auth-boundary-mapper v2) and the **second lineage wave**
-(six first-generation organs upgraded to v2.0.0 with verified lineages:
-EdOverflow → subdomain-hunter, Aaron Parecki → oauth-flow-auditor,
-Soroush Dalili → business-logic-hunter, Mario Heiderich → xss-playbook,
-Toni de la Fuente → cloud-config-auditor, Daniel Miessler →
-content-discovery) — and a scope-gated MCP server
-that executes them with an append-only evidence ledger and **A13 prompt
-escalation** (`doctrine_forge`: any operator instruction, however terse,
-becomes an explicit doctrine order before any organ acts).
+The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **27 scope-gated tools** that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts, and 25 organ skills — 13 phase organs, 6 craft-lineage (Fyodor, HD Moore, Tomnomnom, lcamtuf, ProjectDiscovery, Searle + Mantis), 6 legend-tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, John Draper, Kevin Mitnick; the Rosen/EdOverflow/Parecki/Dalili/Heiderich/de la Fuente/Miessler lineages are folded into the v2.0.0 organs) — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
 
-The bundle's identity, autonomy contract, and quality standard live in
-**skills/skill-mythos/SKILL.md** — the activation module, formalized from
-the operator's charter instruction: extreme expertise over generality,
-legitimate assimilation of public methodologies, autonomous organ
-selection bounded by scope and ledger, and triage-grade findings
-(zero false positives, fully reproducible, CVSS 3.1 + Bugcrowd VRT /
-HackerOne classification on every confirmed report line). The
-assimilated lineages — figures, distillations, consulted sources, and
-attribution corrections on record — are enumerated by the
-`mythos_lineages` tool.
-
-Designed as **Spine + Organs**: `mythos-bug-hunter` stays the single
-discipline layer (ledger, hypothesis grammar, closure gates); every skill
-here is an organ that plugs into one of its phases and inherits its
-contracts instead of duplicating them.
-
-```
-                 ┌────────────────────────────────────────────┐
-                 │  mythos-bug-hunter (spine, not included)   │
-                 │  R0–R7 canon · ledger · hypotheses · gates │
-                 └───────┬──────────────────────────┬─────────┘
-      Phase 1           │ Phase 2/3                │ evidence
-┌───────────────────────┴───────────┴──────────────┴──────────┐
-│ arsenal/  MCP server — 27 tools, every one scope-gated      │
-│   charter: mythos_charter, mythos_lineages,                 │
-│            doctrine_forge (A13 prompt escalation)           │
-│   passive : ct_subdomains, dns_resolve                       │
-│   active : http_probe, content_discover, api_introspect,    │
-│            js_analyze                                       │
-│   map    : dossier_add, dossier_render, dossier_summary     │
-│   brain  : sbb_declare, sbb_decide, sbb_apply               │
-│            (Shimomura Binary Brain — adversary-tracker)     │
-│   report : cvss3_score, vrt_classify (CVSS 3.1 + Bugcrowd   │
-│            VRT + HackerOne crosswalk, official taxonomy)    │
-│   hand   : arsenal_route (CLI allowlist + flag blacklist)   │
-│   gov    : scope_check, auth_status, ledger_* , list/get_skill │
-└─────────────────────────────────────────────────────────────┘
-```
+The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md](../skills/skill-mythos/SKILL.md); the assimilated lineage registry (20 entries, corrections on record) is served by the `mythos_lineages` tool. Designed as **spine + organs**: `mythos-bug-hunter` stays the single discipline layer (ledger, hypothesis grammar, closure gates); every other skill is an organ that plugs into one of its phases and inherits its contracts instead of duplicating them.
 
 ## Skill index
 
 | Tier | Skill | Plugs into |
 | --- | --- | --- |
-| 0 Master | skill-mythos | activation module: thirteen charter articles (incl. A13 prompt escalation), bundle map, autonomy protocol, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne classification) — loads first, hunts nothing |
-| 1 Recon & Mapping | surface-cartographer | Phase 1 — the organized dossier (asset graph, 21-class taxonomy, priority queue) |
-| 1 | subdomain-hunter | Phase 1 — passive-first enumeration, wildcard verdicts, takeover pairs; v2 folds in the EdOverflow lineage (dangling classes, three-leg TTL-aware verification, claim-path test) |
-| 1 | content-discovery | Phase 1/3 — calibrated walks, backup/config triage; v2 folds in the Miessler lineage (corpus families, composition law, per-base recalibration) |
+| 0 Master | skill-mythos | activation: thirteen charter articles (incl. A13), bundle map, autonomy protocol, quality gates — loads first, hunts nothing |
+| 1 Recon & Mapping | surface-cartographer | Phase 1 — the dossier: asset graph, 21-class taxonomy, priority queue |
+| 1 | subdomain-hunter | Phase 1 — passive-first enumeration, wildcard verdicts, takeover pairs; v2: EdOverflow dangling classes |
+| 1 | content-discovery | Phase 1/3 — calibrated walks, backup/config triage; v2: Miessler corpus families |
 | 1 | js-recon | Phase 1/2 — bundle analysis, commented routes, masked secrets |
 | 1 | api-surface-mapper | Phase 1/2 — spec parsing, version diffs, undocumented endpoints |
-| 2 Access & Logic | auth-boundary-mapper | Phase 2/3 — role×resource matrix, IDOR/BOLA differentials; v2 folds in the Frans Rosen lineage (identifier construction, every parameter position, 2nd-order IDOR, tenant slices) |
-| 2 | oauth-flow-auditor | Phase 2/3 — flow check catalog with falsifiers; v2 folds in the Parecki lineage (redirect_uri matrix at both ends, state triple, PKCE downgrade, RFC 9700 vocabulary) |
-| 2 | business-logic-hunter | Phase 2/3 — workflow abuse, races with rate floors; v2 folds in the Dalili lineage (reshaping grammar, executor-verdict seams, comparison units) |
+| 2 Access & Logic | auth-boundary-mapper | Phase 2/3 — role×resource matrix, IDOR/BOLA differentials; v2: Rosen identifier-construction lineage |
+| 2 | oauth-flow-auditor | Phase 2/3 — flow checks with falsifiers; v2: Parecki redirect_uri/state/PKCE matrix, RFC 9700 |
+| 2 | business-logic-hunter | Phase 2/3 — workflow abuse, races with rate floors; v2: Dalili reshaping grammar |
 | 3 Deep technical | injection-lab | Phase 3 — differential oracles; sqlmap as oracle only |
 | 3 | ssrf-playbook | Phase 3 — canary-callback channel proofs, bounded egress |
-| 3 | xss-playbook | Phase 3 — sink contexts, marker proofs, CSP as fact; v2 folds in the Heiderich lineage (mXSS classes, post-mutation re-derivation, DOM clobbering, sanitizer versions as facts) |
-| 3 | cloud-config-auditor | Phase 1/3 — CORS matrix, anonymous storage (bounded), takeover checks; v2 folds in the de la Fuente lineage (checks as code: stable IDs, CIS citation, drift re-verification) |
-| 4 Incident branch | adversary-tracker | event-triggered, any phase — the Shimomura Binary Brain: freeze, halve by bits, two-channel fix, handoff (distilled from the 1994–95 hunt that ended in Raleigh) |
-| 5 Craft lineage | scan-economist | the Fyodor lineage: scan economy — cost hierarchy, technique triangle, states as inferences, priors over exhaustiveness, adaptive pacing (Phrack 51, read in full) |
-| 5 | module-smith | the HD Moore lineage: hypotheses as rankable reusable modules; access and impact proofs separate; exposure is a measurement with a denominator (Metasploit architecture, Project Sonar) |
-| 5 | pipeline-smith | the Tomnomnom lineage: Unix recon pipelines — passive first, dedupe before probes, pattern packs as data, diff to decide (assetfinder/httprobe/gf/meg/gron) |
-| 5 | feedback-fuzzer | the lcamtuf lineage: feedback-guided search — state maps, bucketed novelty, curated corpora, minimization, saturation as the stop rule (AFL design doc, read in full) |
-| 5 | template-scanner | the ProjectDiscovery lineage: detection as declarative templates — matchers pre-registered, packs versioned, campaigns cite their set (Sandeep Singh, Rishiraj Sharma, Marco Rivoli, Nizamul Rana) |
-| 5 | packet-orchestrator | the Searle + Mantis lineage: manual first, then layer-by-layer translation into state-backed automation; packet differentials show their bytes (attribution corrected on record) |
-| 6 Legend tier | chain-architect | the Orange Tsai lineage (Tier S): the compound kill chain — low-severity primitives composed into critical impact, every link proven by its own differential (the ProxyLogon pattern) |
-| 6 | desync-hunter | the James Kettle lineage (Tier S): protocol & specification asymmetry — parser-seam ambiguities one per request, bytes as artifacts, timing stays a lead |
-| 6 | deep-teardown | the George Hotz lineage (Tier S): dismantle client artifacts to primitives — JS/APK/binary ladders, local data flow before network flow, secrets masked |
-| 6 | ghost-crawler | the Adrian Lamo lineage (Tier A): enter without knocking — passive-index misconfig hunting, one bounded probe per candidate, main app untouched (authorized translation on record) |
-| 6 | signal-smith | the John Draper lineage (Tier B): input grammar and precision signal craft — calibrate the filter, forge ONE minimal variation, two per seam max, never an alarm |
-| 6 | trust-graph-hunter | the Kevin Mitnick lineage (Tier B, systems edition): the trust graph between components — forgeable context, inherited privilege, operator-owned ends only |
+| 3 | xss-playbook | Phase 3 — sink contexts, marker proofs, CSP as fact; v2: Heiderich mXSS layer |
+| 3 | cloud-config-auditor | Phase 1/3 — CORS matrix, anonymous storage, takeover checks; v2: Prowler checks-as-code |
+| 4 Incident branch | adversary-tracker | event-triggered, any phase — the Shimomura Binary Brain: freeze, halve, two-channel fix, handoff |
+| 5 Craft lineage | scan-economist | Fyodor — scan economy: cost hierarchy, priors, adaptive timing |
+| 5 | module-smith | HD Moore — hypotheses as rankable modules; access/impact proofs separate |
+| 5 | pipeline-smith | Tomnomnom — Unix recon pipelines: passive first, dedupe, pattern packs |
+| 5 | feedback-fuzzer | lcamtuf — feedback-guided search: bucketed novelty, saturation stop rule |
+| 5 | template-scanner | ProjectDiscovery — detection as declarative templates, matchers pre-registered |
+| 5 | packet-orchestrator | Searle + Mantis — manual first, then state-backed automation |
+| 6 Legend tier | chain-architect | Orange Tsai (S) — compound kill chains, every link proven by its own differential |
+| 6 | desync-hunter | James Kettle (S) — parser-seam ambiguities one per request, bytes as artifacts |
+| 6 | deep-teardown | George Hotz (S) — client artifacts dismantled locally to primitives |
+| 6 | ghost-crawler | Adrian Lamo (A) — passive-index misconfig hunting, one bounded probe per candidate |
+| 6 | signal-smith | John Draper (B) — input grammar craft, one minimal variation per seam, two max |
+| 6 | trust-graph-hunter | Kevin Mitnick (B) — the trust graph between components, inherited privilege on operator-owned ends |
 
-All 26 pass `scripts/validate_skill.py` from the agentic-skills repo —
-drop-in compatible with its CONTRIBUTING workflow.
+All 30 bundles in `skills/` pass `scripts/validate_skill.py --all`.
 
 ## Install & wiring
 
@@ -105,14 +51,13 @@ python3 arsenal/server.py --selftest   # should list 27 tools
   "mcpServers": {
     "mythos-arsenal": {
       "command": "python3",
-      "args": ["/absolute/path/to/mythos-arsenal/arsenal/server.py"]
+      "args": ["/absolute/path/to/agentic-skills/arsenal/server.py"]
     }
   }
 }
 ```
 
-Copy `CLAUDE.md` to the workspace root — it is the agent contract that
-makes the tools get used in discipline (MCP serves; the contract steers).
+Copy `CLAUDE.md` to the workspace root — MCP serves the tools; the contract steers the agent.
 
 Environment overrides: `MYTHOS_ARSENAL_ROOT` (package root, default:
 server.py's parent), `MYTHOS_ARSENAL_SCOPE` (scope.csv path),
@@ -163,56 +108,26 @@ handoff pack — lives in `examples/adversary-hunt/`.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s arsenal/tests    # 100 tests
+python3 -m unittest discover -s arsenal/tests    # 101 tests
 ```
 
-Covers: scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/
-denied/expired/missing-artifact), ledger append-only discipline, tool
-behavior against a live lab (refusals, calibration, extraction, masking,
-dossier evidence validation), and arsenal_route governance (allowlist,
-flag blacklist, sqlmap `--batch` rule, scope refusal), and the Binary
-Brain engine (null auto-insert, partition validation, information-gain
-ranking, pre-registration idempotence, tip-off gating, two-channel
-confirmation, falsified-space MISTAKE, mid-hunt extension, convergence
-at the log2 floor), the CVSS v3.1 engine (FIRST published example
-scores, PR-scope coupling, severity bands, malformed-vector refusals),
-vrt_classify (variant selection, taxonomy resolution, HackerOne
-crosswalk, template shaping), the charter payload (thirteen articles,
-the seven-tier registry, the A13 prompt-escalation contract), the
-lineage registry (fourteen lineages, verified figures, corrections on
-record), the doctrine_forge engine (the operator's own Indonesian
-example phrasings, every intent class, severity/quota extraction,
-quota discipline, verbatim preservation, determinism), and the
-hardened report gates (cvss score recomputation, unknown VRT ids,
-missing reproduction, incident-handoff exemption, strict block
-boundaries).
+Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/expired/missing-artifact), ledger append-only discipline, tool behavior against a live lab, `arsenal_route` governance, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, and the hardened report gates.
 
 ## Layout
 
+The server lives inside the agentic-skills repo; its working set:
+
 ```
-mythos-arsenal/
-├── CLAUDE.md            agent contract (the enforcement MCP can't provide;
-│                        A13: doctrine_forge runs before every instruction)
-├── scope.csv            authorization registry — operator-writable only
-├── arsenal/             MCP server + tools + engine (sbb.py, cvss.py) + tests
-├── skills/              skill-mythos master charter + 25 organ skills
-│                        (validator-compatible; VRT data: Apache-2.0, NOTICE.md;
-│                        craft tier: 6 organs with per-organ sources.md;
-│                        legend tier: 6 organs with per-organ sources.md, plus
-│                        the Rosen lineage folded into auth-boundary-mapper v2)
-├── auditor/             audit_report.py — PASS/FAIL report gate (recomputes
-│                        CVSS, validates VRT ids against the shipped taxonomy)
-├── lab/                 target_app.py + christmas_lab.py (self-owned)
-└── examples/            worked-engagement/ + adversary-hunt/ (audited PASS)
+CLAUDE.md        agent contract (A13: doctrine_forge before every instruction)
+scope.csv        authorization registry — operator-writable only
+arsenal/         this server: tools + engines (sbb.py, cvss.py) + tests
+auditor/         audit_report.py — PASS/FAIL report gate (recomputes CVSS,
+                 validates VRT ids against the shipped taxonomy)
+lab/             target_app.py + christmas_lab.py (self-owned)
+examples/        worked-engagement/ + adversary-hunt/ (audited PASS)
 ```
 
-## Merging into the agentic-skills repo
-
-1. `skills/*` → `agentic-skills/skills/` (each bundle is self-contained;
-   run the repo's own `scripts/validate_skill.py skills/<name>` to confirm).
-2. `arsenal/`, `auditor/`, `lab/`, `examples/` are new top-level dirs,
-   like the existing `agent/` and `prompts/`.
-3. Keep `CLAUDE.md` at whatever workspace the MCP server serves.
+The full repo map (skills, agent, prompts) is in the root `README.md`.
 
 ## Doctrine & safety
 

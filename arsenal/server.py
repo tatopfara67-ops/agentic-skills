@@ -37,9 +37,14 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from mcp.server.fastmcp import FastMCP  # noqa: E402  (site-packages `mcp` —
-# the local package is `arsenal`, deliberately NOT named `mcp`, so this
-# import always resolves to the official SDK)
+try:  # official MCP SDK 1.x — FastMCP lives at mcp.server.fastmcp.
+    # The local package is `arsenal`, deliberately NOT named `mcp`, so this
+    # import always resolves to the official SDK, never to a sibling dir.
+    from mcp.server.fastmcp import FastMCP  # noqa: E402
+except ModuleNotFoundError:  # mcp SDK 2.x reduced mcp.server.fastmcp to a
+    # raising stub — fall back to the standalone fastmcp package (2/3/4.x),
+    # which keeps the FastMCP/run()/tool()/list_tools() surface identical.
+    from fastmcp import FastMCP  # noqa: E402
 
 from arsenal.scope_gate import check_target, load_scope  # noqa: E402
 from arsenal import ledger, paths, sbb as _sbb  # noqa: E402

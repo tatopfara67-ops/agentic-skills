@@ -1,5 +1,21 @@
 # Source Ladder & Permutation Set
 
+## The v2 lineage — EdOverflow (verified)
+
+The takeover discipline in `takeover-field-guide.md` and the signature
+table below distill the community registry EdOverflow created and
+maintains: `github.com/EdOverflow/can-i-take-over-xyz` — README verdict
+table + `fingerprints.json` (machine-readable: service, CNAME targets,
+fingerprint string, NXDOMAIN flag, vulnerable boolean, discussion-issue
+link per entry). Consulted for this upgrade: the fingerprints.json
+structure and the issue history that demonstrates the correction
+tradition (entries argued, demoted to "not vulnerable", and retired as
+providers add ownership verification — Unbounce #11, Google Sites #277
+are the canonical retirements). The table in
+`takeover-signatures.md` is a local sync of that registry, date-pinned;
+when it disagrees with upstream on a load-bearing verdict, upstream wins
+and the discrepancy gets a record.
+
 ## Passive source ladder (cheapest first)
 
 | Rung | Source | Notes |

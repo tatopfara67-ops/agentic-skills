@@ -1,17 +1,18 @@
 ---
 name: business-logic-hunter
-version: 1.0.0
+version: 2.0.0
 type: ai-skill
 architecture: package
-description: Phase-2/3 business-logic organ — workflow-sequence abuse (skip/replay/reorder), race conditions with the spine's stochastic reproduction floors, and limit/price/coupon arithmetic testing, all hypothesis-first with self-owned test accounts. Use when the operator asks to test business logic, abuse workflows, race two requests, probe negative quantities or price arithmetic, or hunt coupon/voucher reuse ("logika bisnis", "race condition", "negative quantity", "price manipulation", "coupon abuse", "workflow bypass", "integer overflow").
+description: Phase-2/3 business-logic organ, upgraded (v2) with the Soroush Dalili lineage — workflow-sequence abuse (skip/replay/reorder), race conditions with the spine's stochastic reproduction floors, limit/price/coupon arithmetic testing, plus bypass craft: HTTP-reshaping grammar against business guards, parser differentials at guard/executor seams, intended-behavior inversion, and comparison functions as testable units, all hypothesis-first with self-owned test accounts. Use when the operator asks to test business logic, abuse workflows, race two requests, probe negative quantities or price arithmetic, hunt coupon/voucher reuse, or reshape around a blocked admin path ("logika bisnis", "race condition", "negative quantity", "price manipulation", "coupon abuse", "workflow bypass", "integer overflow", "bypass", "filter bypass", "parser differential").
 category: security/offensive-web
 license: MIT
 metadata:
   author: tatopfara67-ops
+  lineage: v2 — Soroush Dalili (irsdl, NCC Group; the HTTP-reshaping bypass grammar and parser-differential craft)
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned test accounts and self-owned orders
 ---
 
-# business-logic-hunter v1.0.0 — The App's Rules, Tested As Rules
+# business-logic-hunter v2.0.0 — The App's Rules, Tested As Rules
 
 ## 0. What This Skill Is — and Is Not
 
@@ -19,7 +20,10 @@ metadata:
   sequence abuse, races, arithmetic that trusts the client. Its unit of
   work is a WORKFLOW, mapped end-to-end before any step is attacked.
 * **Is not**: a fuzzer with a business vocabulary. Random parameter churn
-  on business endpoints is R1 slop; the workflow map comes first.
+  on business endpoints is R1 slop; the workflow map comes first. Since
+  v2 it carries the **Soroush Dalili lineage** as its field-guide layer —
+  bypass craft: when a guard blocks a treatment, the request gets
+  reshaped and the seam gets proven before anything closes.
 
 ## 1. Inherited Contracts
 
@@ -30,15 +34,37 @@ stabilized success-rate estimate — hiding stochasticity is slop), closure
 vocabulary, and canary doctrine (self-owned orders/accounts only; bounded
 proofs: one abused transaction, then stop).
 
-## 2. Procedure — Numbered Actions
+## 2. The Lineage Layer (v2 — the Dalili doctrine)
+
+**Soroush Dalili** (@irsdl, NCC Group line) — the public archetype of
+bypasses as craft: reshaping HTTP requests via the standard and
+web-server behavior until a filter and its executor disagree. v2 folds
+the lineage in as five field rules, applied inside the procedure (§3)
+and detailed in `references/bypass-craft.md`:
+
+1. **Reshape once, canonically, before closing any blocked hypothesis.**
+   Case, path params, segment padding, encoding, header/verb — one
+   canonical differential per seam, exact bytes recorded.
+2. **Seams are read at the executor's verdict,** not the guard's status
+   code: did the step RUN?
+3. **Invert every check.** Displaced or inverted, what does this check
+   become? — one hypothesis per inversion, still self-owned.
+4. **Comparison functions are testable units:** case folding, Unicode
+   normalization, type juggling; both identifiers' bytes recorded, the
+   runtime pinned as a FACT.
+5. **Two variants per seam, then park.** The grammar is combinatorial;
+   sweeping it is request-budget slop that buries the ledger.
+
+## 3. Procedure — Numbered Actions
 
 1. Map each in-scope workflow end-to-end with operator test accounts:
    every step, every state transition, every server-side check observed —
    all FACT records. The workflow-map template is in
    `references/abuse-catalog.md`.
 2. Pre-register hypotheses per abuse shape from the catalog: sequence
-   skip, step replay, reorder, race, arithmetic inversion, coupon reuse.
-   One mechanism per hypothesis (spine §5).
+   skip, step replay, reorder, race, arithmetic inversion, coupon reuse,
+   and (v2) guard-seam reshapes from `references/bypass-craft.md`. One
+   mechanism per hypothesis (spine §5).
 3. Run each as a differential: baseline (happy path, already recorded),
    treatment (the abuse), control (same effort, unrelated knob).
 4. Races follow `references/races.md` exactly: the attempt floor, the
@@ -54,7 +80,7 @@ proofs: one abused transaction, then stop).
 7. Exit gate: workflows mapped, hypotheses closed by state, races with
    their attempt counts and rates, every closure citing records.
 
-## 3. Hard Rules (mechanically enforced)
+## 4. Hard Rules (mechanically enforced)
 
 1. **Workflow map precedes hypotheses.** The first logic-shaped hypothesis
    cites workflow-map records.
@@ -64,8 +90,10 @@ proofs: one abused transaction, then stop).
    wallet and self-created orders; refunds/cancellations restore state.
 4. **One transaction proofs.** "Could drain the wallet" is proven by one
    bounded abuse, then stop (spine §8.2).
+5. **Bypass closures cite the exact reshaped request** (v2) — "some
+   encoding worked" is not a record.
 
-## 4. Tool Routing
+## 5. Tool Routing
 
 | When | Tool |
 | --- | --- |
@@ -74,9 +102,11 @@ proofs: one abused transaction, then stop).
 | Parallel race driver | `arsenal_route` absent → the spine's python3 micro-script doctrine (calibrated, timeouts, ledger-formatted output) |
 | Registering workflow surfaces | `dossier_add` (surface-cartographer) |
 
-## 5. Reference Library (load on demand)
+## 6. Reference Library (load on demand)
 
 | Load when… | Module |
 | --- | --- |
 | Mapping a workflow / choosing abuse shapes | `references/abuse-catalog.md` |
 | Any race hypothesis | `references/races.md` |
+| A guard blocked a treatment / seam or comparison questions | `references/bypass-craft.md` |
+| Citing the lineage artifacts behind the v2 layer | `references/sources.md` |

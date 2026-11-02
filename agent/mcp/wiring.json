@@ -88,8 +88,8 @@
         "list_skill/get_skill/get_skill_reference"
       ],
       "use_for": [
-        "activation: mythos_charter (charter 13 artikel + bundle map + gates), mythos_lineages (registry 14 lineage + koreksi atribusi), dan doctrine_forge (A13 prompt escalation — instruksi operator sekali baris apapun di-expand jadi doctrine order lengkap sebelum organ manapun jalan)",
-        "organ-skill execution Phases 1-3 (13 organ fase + 6 organ craft-lineage + 6 organ legend-tier: chain-architect/Orange Tsai, desync-hunter/James Kettle, deep-teardown/George Hotz, ghost-crawler/Adrian Lamo, signal-smith/John Draper, trust-graph-hunter/Kevin Mitnick; lineage Frans Rosen difold ke auth-boundary-mapper v2)",
+        "activation: mythos_charter (charter 13 artikel + bundle map + gates), mythos_lineages (registry 20 lineage + koreksi atribusi), dan doctrine_forge (A13 prompt escalation — instruksi operator sekali baris apapun di-expand jadi doctrine order lengkap sebelum organ manapun jalan)",
+        "organ-skill execution Phases 1-3 (13 organ fase — enam di antaranya kini v2.0.0 ber-lineage: subdomain-hunter/EdOverflow, oauth-flow-auditor/Parecki, business-logic-hunter/Dalili, xss-playbook/Heiderich, cloud-config-auditor/de la Fuente, content-discovery/Miessler — + 6 organ craft-lineage + 6 organ legend-tier: chain-architect/Orange Tsai, desync-hunter/James Kettle, deep-teardown/George Hotz, ghost-crawler/Adrian Lamo, signal-smith/John Draper, trust-graph-hunter/Kevin Mitnick; lineage Frans Rosen difold ke auth-boundary-mapper v2)",
         "incident branch: Binary Brain adversary hunts",
         "report classification: CVSS 3.1 + Bugcrowd VRT/HackerOne sebelum audit"
       ],

@@ -1,17 +1,18 @@
 ---
 name: subdomain-hunter
-version: 1.0.0
+version: 2.0.0
 type: ai-skill
 architecture: package
-description: Phase-1 subdomain enumeration organ — passive-first ladder (certificate transparency, passive CLI routing), resolution and CDN/wildcard detection, permutation round, and CNAME-dangling takeover checks, all evidence-cited. Use when the operator asks to enumerate subdomains, expand a domain's asset inventory, check wildcard DNS, or investigate subdomain takeover ("cari subdomain", "enum subdomain", "subdomain takeover", "permutasi domain", "asset discovery").
+description: Phase-1 subdomain enumeration organ, upgraded (v2) with the EdOverflow lineage — passive-first ladder (certificate transparency, passive CLI routing), resolution and CDN/wildcard detection, permutation round, and CNAME-dangling takeover checks with a full dangling-class taxonomy (NXDOMAIN-CNAME, fingerprint-CNAME, dangling MX/NS, deep chains), TTL-aware verification, and the fingerprint-registry discipline. Use when the operator asks to enumerate subdomains, expand a domain's asset inventory, check wildcard DNS, or investigate subdomain takeover ("cari subdomain", "enum subdomain", "subdomain takeover", "permutasi domain", "asset discovery", "dangling MX", "dangling NS", "takeover verification").
 category: security/offensive-web
 license: MIT
 metadata:
   author: tatopfara67-ops
+  lineage: v2 — EdOverflow (creator/maintainer of can-i-take-over-xyz; the dangling-record taxonomy and fingerprint-registry discipline)
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# subdomain-hunter v1.0.0 — Passive First, Always
+# subdomain-hunter v2.0.0 — Passive First, Always
 
 ## 0. What This Skill Is — and Is Not
 
@@ -19,7 +20,10 @@ metadata:
   with a deduplicated, resolved, classified list — and then answers the
   follow-up nobody should skip: "is any of it dangling?"
 * **Is not**: a brute-force firehose. Active enumeration is the LAST rung of
-  the ladder, and it is rate-courteous when it runs.
+  the ladder, and it is rate-courteous when it runs. Since v2 it carries
+  the **EdOverflow lineage** as its field-guide layer — the dangling-class
+  taxonomy and fingerprint discipline that turn "CNAME looks weird" into
+  a classed, dated, claim-path-tested verdict.
 
 ## 1. Inherited Contracts
 
@@ -27,7 +31,31 @@ Plugs into **Phase 1** of the mythos-bug-hunter spine. Inherits the Canon
 (especially R0 scope gate, R1 plan-before-action, R5 tools-are-not-verdicts),
 the ledger record format, and backlog mechanics. Does not restate them.
 
-## 2. The Ladder — Cheapest Signal First
+## 2. The Lineage Layer (v2 — the EdOverflow doctrine)
+
+**EdOverflow** created and maintains the community takeover registry
+(`can-i-take-over-xyz`: verdict table + machine-readable
+`fingerprints.json`). v2 folds the lineage in as five field rules,
+applied inside the takeover discipline (§4) and detailed in
+`references/takeover-field-guide.md`:
+
+1. **Class the dangling record, not just the CNAME.** NXDOMAIN-CNAME,
+   fingerprint-CNAME, dangling MX, dangling NS, deep chains — the class
+   IS the blast-radius argument (content control vs email reception vs
+   subtree control).
+2. **Three legs of verification:** DNS chain (every hop, terminal
+   included), provider marker (quoted fingerprint, body not status
+   alone), cache/TTL (negatives say their TTL; load-bearing verdicts
+   re-read after expiry).
+3. **Fingerprints are quoted, tables are dated.** The signature table is
+   a sync of the upstream registry, date-pinned; upstream wins
+   disagreements on load-bearing verdicts.
+4. **Run the claim-path test before CONFIRMED.** Ownership-verification-
+   gated claim paths make the record a hygiene finding, not a takeover.
+5. **Retirements are records too.** Providers harden; entries retire;
+   the correction tradition is doctrine, not noise.
+
+## 3. The Ladder — Cheapest Signal First
 
 1. **Certificate transparency** — `ct_subdomains(program, domain)`. Reads a
    public database; the target is never touched. Offline egress returns
@@ -49,12 +77,15 @@ the ledger record format, and backlog mechanics. Does not restate them.
    header, and redirect target become the reachability verdict for the
    dossier.
 
-## 3. Takeover Discipline (the follow-up that matters)
+## 4. Takeover Discipline (the follow-up that matters)
 
 A resolving name with a CNAME pointing at a deprovisioned third party is a
 takeover candidate. The check sequence and the provider signature table
 (Heroku/GitHub Pages/Shopify/Azure/CloudFront and friends) live in
-`references/takeover-signatures.md`. The discipline that makes it evidence:
+`references/takeover-signatures.md`; the v2 dangling-class taxonomy,
+TTL-aware verification protocol, fingerprint discipline, and claim-path
+test live in `references/takeover-field-guide.md`. The discipline that
+makes it evidence:
 
 * The CNAME chain is a FACT record (from `dns_resolve`).
 * The provider's "not found" marker on the dangling target is a second FACT
@@ -62,7 +93,7 @@ takeover candidate. The check sequence and the provider signature table
 * Only the two records together justify a Phase-2 hypothesis; neither alone
   is a finding.
 
-## 4. Procedure — Numbered Actions
+## 5. Procedure — Numbered Actions
 
 1. Entry: AUTH record present; domain is in scope (`scope_check`).
 2. Run ladder rungs 1–2; merge candidate names; dedupe; count them.
@@ -72,12 +103,14 @@ takeover candidate. The check sequence and the provider signature table
 5. `http_probe` the survivors; classify (surface-cartographer taxonomy) and
    `dossier_add` each with evidence citations.
 6. For names whose CNAME leaves the parent domain: run the takeover
-   sequence from `references/takeover-signatures.md`.
+   sequence from `references/takeover-signatures.md`, classed and verified
+   per `references/takeover-field-guide.md` (chain + marker + TTL +
+   claim-path test).
 7. Exit gate: numbers stated — candidates found, resolving, live, wildcard
    verdict, takeover candidates. Anything unresolved is parked with a
    reason, not dropped.
 
-## 5. Hard Rules (mechanically enforced)
+## 6. Hard Rules (mechanically enforced)
 
 1. **Passive before active.** The permutation round and HTTP liveness run
    only after CT and passive routing produced their records — the ledger's
@@ -85,11 +118,13 @@ takeover candidate. The check sequence and the provider signature table
    is a passive-source one).
 2. **Wildcard is a verdict, not a vibe.** Two random-name resolutions,
    recorded, before any "live host" claim.
-3. **Takeover claims need both records** (CNAME chain + provider marker).
+3. **Takeover claims need both records** (CNAME chain + provider marker),
+   the dangling class stated, and the claim-path verdict on record
+   (v2).
 4. **No invented names in the dossier.** Every name cites a discovery record
    (CT output, CLI output, or permutation record).
 
-## 6. Tool Routing
+## 7. Tool Routing
 
 | When | Tool |
 | --- | --- |
@@ -99,9 +134,10 @@ takeover candidate. The check sequence and the provider signature table
 | HTTP liveness + provider markers | `http_probe` |
 | Registering surfaces | `dossier_add` (surface-cartographer) |
 
-## 7. Reference Library (load on demand)
+## 8. Reference Library (load on demand)
 
 | Load when… | Module |
 | --- | --- |
 | Building the candidate ladder or permutation set | `references/sources.md` |
 | Any CNAME leaves the parent domain | `references/takeover-signatures.md` |
+| Verifying any takeover candidate (class, TTL, claim path) | `references/takeover-field-guide.md` |

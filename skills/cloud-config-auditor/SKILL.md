@@ -1,17 +1,18 @@
 ---
 name: cloud-config-auditor
-version: 1.0.0
+version: 2.0.0
 type: ai-skill
 architecture: package
-description: Phase-1/3 cloud-and-config organ — CORS origin-differential matrix, anonymous-access checks on object storage (bounded to one listing page), dangling-DNS takeover verification, and header/hygiene facts, all evidence-cited. Use when the operator asks to audit CORS, check S3/GCS bucket anonymous access, verify a subdomain takeover candidate, or review security headers and TLS hygiene ("tes CORS", "bucket anonymous", "S3 misconfig", "takeover check", "security headers", "origin differential").
+description: Phase-1/3 cloud-and-config organ, upgraded (v2) with the Toni de la Fuente (Prowler) lineage — CORS origin-differential matrix, anonymous-access checks on object storage (bounded to one listing page), dangling-DNS takeover verification, and header/hygiene facts, plus checks-as-code discipline: stable check IDs with versions, CIS benchmark citation for severity words, drift re-verification in the engagement window, and posture families over magic scores. Use when the operator asks to audit CORS, check S3/GCS bucket anonymous access, verify a subdomain takeover candidate, or review security headers and TLS hygiene ("tes CORS", "bucket anonymous", "S3 misconfig", "takeover check", "security headers", "origin differential", "CIS", "posture", "check version").
 category: security/offensive-web
 license: MIT
 metadata:
   author: tatopfara67-ops
+  lineage: v2 — Toni de la Fuente (Prowler author/steward; the checks-as-code, benchmark-mapping, and open-posture tradition)
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# cloud-config-auditor v1.0.0 — Misconfiguration Is A Differential Too
+# cloud-config-auditor v2.0.0 — Misconfiguration Is A Differential Too
 
 ## 0. What This Skill Is — and Is Not
 
@@ -20,6 +21,9 @@ metadata:
   a differential against a control origin/request, never as a screenshot.
 * **Is not**: a cloud account auditor. No credentials, no console, no
   infrastructure APIs — only what the target's public HTTP surface answers.
+  Since v2 it carries the **Toni de la Fuente lineage** as its field-guide
+  layer — checks as versioned code with benchmark citations, not scanner
+  opinions.
 
 ## 1. Inherited Contracts
 
@@ -28,14 +32,37 @@ the mythos-bug-hunter spine. Inherits the Canon, ledger discipline,
 closure vocabulary, and the bounded-scope proof rule (one listing page,
 then stop — spine §8.2).
 
-## 2. Procedure — Numbered Actions
+## 2. The Lineage Layer (v2 — the de la Fuente doctrine)
+
+**Toni de la Fuente** — Prowler's author and steward; the open-source
+cloud-posture tradition where every check is a versioned rule with a
+severity, a rationale, and a remediation. v2 folds the lineage in as
+five field rules, applied inside the procedure (§3) and detailed in
+`references/checks-as-code.md`:
+
+1. **Every check carries a stable ID + version + benchmark paragraph**
+   (CCA-CORS-01 style) — the rule text lives in the reference, not in
+   the operator's memory.
+2. **Severity words cite the mapped paragraph** (CIS families), never a
+   mood; where CIS and the target's hardening guide disagree, BOTH are
+   recorded.
+3. **Verdicts carry timestamps.** Load-bearing verdicts re-verify inside
+   the engagement window before the report ships; flips are
+   report-worthy observations.
+4. **Name the posture shape, then the provider instance** — the families
+   are shared across clouds; the fingerprints are local and date-pinned.
+5. **Matrix tables over magic scores.** An aggregated grade that cannot
+   be unpacked back into its records is exactly the hallucination-shaped
+   output this repo exists to prevent.
+
+## 3. Procedure — Numbered Actions
 
 1. Entry: AUTH record present; target in scope.
 2. **CORS matrix** per `references/cors-matrix.md`: the origin differential
    is three requests — no Origin header (baseline), an evil origin
    (treatment), a subdomain-of-target origin (control that separates
    reflected-allow from wildcard-allow). Read ACAO/ACAC verdicts from the
-   records, not from memory.
+   records, not from memory; the check row carries its CCA-CORS-* ID (v2).
 3. **Object storage anonymous access** for storage-shaped surfaces
    (file-storage class from the dossier): the bucket URL probed once
    anonymous (list attempt), once with a garbage token (control). A 200
@@ -55,7 +82,7 @@ then stop — spine §8.2).
    records; storage verdicts with bounded-listing attestations; takeover
    candidates with their record pairs; hygiene fact counts.
 
-## 3. Hard Rules (mechanically enforced)
+## 4. Hard Rules (mechanically enforced)
 
 1. **Every CORS verdict cites three records** (baseline/treatment/control
    origins). Single-origin screenshots close nothing.
@@ -66,8 +93,10 @@ then stop — spine §8.2).
    operator action outside this organ.
 4. **Hygiene is facts, not severity.** Missing headers alone never carry
    severity words in the report without a paired reachable-sink record.
+5. **Check rows carry ID + version + benchmark citation** (v2) — a
+   verdict whose rule text cannot be found is an incomplete record.
 
-## 4. Tool Routing
+## 5. Tool Routing
 
 | When | Tool |
 | --- | --- |
@@ -76,9 +105,11 @@ then stop — spine §8.2).
 | Recording verdicts | `ledger_append` (SURFACE/EXPERIMENT/CONTROL) |
 | Registering surfaces | `dossier_add` (surface-cartographer) |
 
-## 5. Reference Library (load on demand)
+## 6. Reference Library (load on demand)
 
 | Load when… | Module |
 | --- | --- |
 | Running the CORS matrix / reading verdicts | `references/cors-matrix.md` |
 | Verifying a takeover candidate | `references/takeover-checks.md` |
+| Check IDs, benchmark mapping, drift re-verification, posture families | `references/checks-as-code.md` |
+| Citing the lineage artifacts behind the v2 layer | `references/sources.md` |

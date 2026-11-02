@@ -142,16 +142,19 @@ class TestMythosCharter(unittest.TestCase):
 
 
 class TestMythosLineages(unittest.TestCase):
-    def test_registry_lists_fourteen_lineages_all_installed(self):
+    def test_registry_lists_twenty_lineages_all_installed(self):
         registry = _mythos.mythos_lineages()
-        self.assertEqual(registry["count"], 14)
+        self.assertEqual(registry["count"], 20)
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         for organ in ("adversary-tracker", "scan-economist", "module-smith",
                       "pipeline-smith", "feedback-fuzzer",
                       "template-scanner", "packet-orchestrator",
                       "chain-architect", "desync-hunter", "deep-teardown",
                       "ghost-crawler", "auth-boundary-mapper",
-                      "signal-smith", "trust-graph-hunter"):
+                      "signal-smith", "trust-graph-hunter",
+                      "subdomain-hunter", "xss-playbook",
+                      "oauth-flow-auditor", "content-discovery",
+                      "business-logic-hunter", "cloud-config-auditor"):
             self.assertIn(organ, by_organ)
             self.assertTrue(by_organ[organ]["installed"], organ)
             for field in ("figure", "distillation", "sources"):
@@ -165,7 +168,9 @@ class TestMythosLineages(unittest.TestCase):
                      "Zalewski", "Sandeep Singh", "Nizamul Rana",
                      "Justin Searle", "PhonePe", "Orange Tsai",
                      "James Kettle", "George Hotz", "Adrian Lamo",
-                     "Frans Rosen", "John Draper", "Kevin Mitnick"):
+                     "Frans Rosen", "John Draper", "Kevin Mitnick",
+                     "EdOverflow", "Heiderich", "Parecki", "Miessler",
+                     "Dalili", "de la Fuente"):
             self.assertIn(name, joined, name)
         # the unverified attributions from the operator brief stay out
         self.assertNotIn("Skappen", joined)
@@ -182,6 +187,27 @@ class TestMythosLineages(unittest.TestCase):
         self.assertIn("Frans Rosen", corrections["auth-boundary-mapper"])
         self.assertIn("unauthorized", corrections["ghost-crawler"])
         self.assertIn("translation", corrections["trust-graph-hunter"])
+
+    def test_second_wave_lineage_organs_are_v2(self):
+        """The six v2.0.0 organs carry the lineage in frontmatter, not
+        just in the registry — the SKILL.md metadata and the registry
+        entry must agree."""
+        registry = _mythos.mythos_lineages()
+        by_organ = {e["organ"]: e for e in registry["lineages"]}
+        skills_root = os.path.join(_TREE_ROOT, "skills")
+        for organ in ("subdomain-hunter", "xss-playbook",
+                      "oauth-flow-auditor", "content-discovery",
+                      "business-logic-hunter", "cloud-config-auditor"):
+            path = os.path.join(skills_root, organ, "SKILL.md")
+            with open(path, encoding="utf-8") as fh:
+                text = fh.read()
+            self.assertIn("version: 2.0.0", text, organ)
+            self.assertIn("lineage:", text, organ)
+            figure = by_organ[organ]["figure"]
+            surname = figure.split("(")[0].split("—")[0].strip()
+            self.assertIn(surname, text,
+                          "%s: figure %r not in SKILL.md lineage"
+                          % (organ, surname))
 
 
 # --------------------------------------------------------- vrt_classify

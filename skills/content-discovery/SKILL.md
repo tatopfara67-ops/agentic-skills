@@ -1,17 +1,18 @@
 ---
 name: content-discovery
-version: 1.0.0
+version: 2.0.0
 type: ai-skill
 architecture: package
-description: Phase-1 content discovery organ — calibrated, rate-courteous wordlist walks that report baseline deviations only, plus backup/config artifact hunting with differential triage. Use when the operator asks to find hidden paths, hunt backup or config files, brute directories politely, or triage discovered files ("cari path tersembunyi", "backup hunting", "wordlist", "directory brute", "file discovery", "cari .env").
+description: Phase-1 content discovery organ, upgraded (v2) with the Daniel Miessler (SecLists) lineage — calibrated, rate-courteous wordlist walks that report baseline deviations only, backup/config artifact hunting with differential triage, plus corpus science: family-based list selection, evidence-derived composition, extension derivation from the observed stack, per-base recalibration, and a hard scope wall around authentication-surface lists. Use when the operator asks to find hidden paths, hunt backup or config files, brute directories politely, or triage discovered files ("cari path tersembunyi", "backup hunting", "wordlist", "directory brute", "file discovery", "cari .env", "seclists", "wordlist choice").
 category: security/offensive-web
 license: MIT
 metadata:
   author: tatopfara67-ops
+  lineage: v2 — Daniel Miessler (maintainer of SecLists; the corpus-family discipline and composition law)
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# content-discovery v1.0.0 — Calibrate, Then Walk
+# content-discovery v2.0.0 — Calibrate, Then Walk
 
 ## 0. What This Skill Is — and Is Not
 
@@ -20,7 +21,10 @@ metadata:
   tool fires three control requests at random non-existent paths BEFORE the
   wordlist walk: the target's own 404/soft-404 profile IS the baseline.
 * **Is not**: an uncapped fuzzer. Requests are GET-only, rate-courteous,
-  capped per invocation, and every request lands in the ledger.
+  capped per invocation, and every request lands in the ledger. Since v2
+  it carries the **Daniel Miessler lineage** as its field-guide layer —
+  corpus science: lists are chosen by FAMILY and composed from evidence,
+  never grabbed by size.
 
 ## 1. Inherited Contracts
 
@@ -28,7 +32,29 @@ Plugs into **Phase 1** (primary sweep) and **Phase 3** (targeted re-walks)
 of the mythos-bug-hunter spine. Inherits the Canon, ledger discipline,
 backlog mechanics, and the differential mindset (control first — spine §6).
 
-## 2. Why Calibration Is Not Optional
+## 2. The Lineage Layer (v2 — the Miessler doctrine)
+
+**Daniel Miessler** maintains SecLists, the community wordlist corpus
+whose family structure (Discovery/Web-Content, Discovery/DNS, Passwords,
+Miscellaneous) IS the selection discipline. v2 folds the lineage in as
+five field rules, detailed in `references/corpus-science.md`:
+
+1. **Choose by family, not by size.** Discovery/Web-Content feeds this
+   organ; DNS families belong to subdomain-hunter; Passwords families
+   live behind their own scope wall (§5).
+2. **Compose rung-1/2 lists from evidence** (framework markers, JS/API
+   conventions); never blast a mega-list. The cap arithmetic in
+   `references/wordlists.md` governs composition unchanged.
+3. **Extensions derive from the observed stack**; the archive round runs
+   only when a signal earned it — then the NEIGHBORHOOD round follows.
+4. **New base URL → new calibration round, always.** Soft-404 shapes are
+   per-handler; re-using rung-0's profile on a new base is the classic
+   false-positive generator.
+5. **The password families are out of bounds here.** Authentication-
+   surface testing is its own scope row and its own audit story; parking
+   is one ledger note.
+
+## 3. Why Calibration Is Not Optional
 
 A bare "status != 404" rule is slop with a for-loop. Targets answer
 non-existent paths with soft-404s (200 + "not found" body), wildcard
@@ -38,7 +64,7 @@ DEVIATION from that measured baseline — status deviation, or (under
 soft-404) a size outlier. `references/wordlists.md` documents the ladder;
 the calibration mechanics are enforced inside the tool.
 
-## 3. Procedure — Numbered Actions
+## 4. Procedure — Numbered Actions
 
 1. Entry: AUTH record present; base URL in scope (`scope_check`).
 2. First walk: `content_discover(program, base, wordlist="default",
@@ -51,14 +77,16 @@ the calibration mechanics are enforced inside the tool.
    * auth/admin shapes → `auth-endpoint` / `admin-console`
    * interesting-but-unripe → `backlog=True` with a resume note
 5. Targeted second walk only for signals that earned it: tech-specific
-   wordlist (see `references/wordlists.md` ladder), extensions round
-   (`.tar.gz`, `.sql`, `.example`), bounded by the same cap.
+   wordlist (see `references/wordlists.md` ladder + the v2 composition law
+   in `references/corpus-science.md`), extensions round (`.tar.gz`, `.sql`,
+   `.example`), bounded by the same cap. A different base URL recalibrates
+   first (v2 rule 4).
 6. `dossier_add` each triaged finding citing the SURFACE record the tool
    emitted.
 7. Exit gate: numbers stated — probes sent, calibration verdict, findings,
    backlog count. Every finding cites its record.
 
-## 4. Hard Rules (mechanically enforced)
+## 5. Hard Rules (mechanically enforced)
 
 1. **Control requests first.** The tool refuses to walk before calibrating;
    the CONTROL records precede all FACT records of the walk in the ledger.
@@ -68,8 +96,11 @@ the calibration mechanics are enforced inside the tool.
    lands in the ledger note.
 4. **Findings are deviations.** The SURFACE record carries the calibration
    numbers in its note — the auditor checks.
+5. **Family discipline (v2).** A walk's wordlist source names its SecLists
+   family (or the evidence that composed it) in the ledger note;
+   authentication-surface lists never run in this organ.
 
-## 5. Tool Routing
+## 6. Tool Routing
 
 | When | Tool |
 | --- | --- |
@@ -78,9 +109,11 @@ the calibration mechanics are enforced inside the tool.
 | Faster local walk when `ffuf` installed | `arsenal_route(program, "ffuf", base, "-w default.txt -mc all -ac")` — output still goes through triage as hypotheses |
 | Registering findings | `dossier_add` (surface-cartographer) |
 
-## 6. Reference Library (load on demand)
+## 7. Reference Library (load on demand)
 
 | Load when… | Module |
 | --- | --- |
 | Choosing the ladder rung / tech-specific list | `references/wordlists.md` |
 | Triage of a specific finding class | `references/patterns.md` |
+| Composing a list beyond rung 0 / family & scope questions | `references/corpus-science.md` |
+| Citing the lineage artifacts behind the v2 layer | `references/sources.md` |

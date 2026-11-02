@@ -281,6 +281,130 @@ LINEAGES = [
                       "no human-target social engineering is contained or "
                       "used anywhere in the organ",
     },
+    {
+        "organ": "subdomain-hunter",
+        "figure": "EdOverflow — creator and maintainer of the "
+                  "can-i-take-over-xyz community registry; folded into the "
+                  "organ at v2.0.0",
+        "distillation": "takeover as a registry discipline: class the "
+                        "dangling record (NXDOMAIN-CNAME, fingerprint-"
+                        "CNAME, dangling MX/NS, deep chains) because the "
+                        "class IS the blast-radius argument; verify on "
+                        "three legs (DNS chain to the terminal, quoted "
+                        "provider fingerprint, TTL-aware re-reads); run "
+                        "the claim-path test before CONFIRMED; date the "
+                        "signature table and let upstream retirements "
+                        "flow through",
+        "sources": "github.com/EdOverflow/can-i-take-over-xyz — README "
+                   "verdict table + fingerprints.json structure; the "
+                   "issue history as the correction tradition (Unbounce "
+                   "#11, Google Sites #277 retirements); "
+                   "skills/subdomain-hunter/references/sources.md + "
+                   "takeover-field-guide.md",
+        "correction": None,
+    },
+    {
+        "organ": "xss-playbook",
+        "figure": "Mario Heiderich (Cure53 founder) — the mXSS research "
+                  "line; folded into the organ at v2.0.0",
+        "distillation": "context is not stable: mutation between "
+                        "sanitization and re-parse is the vulnerability — "
+                        "re-derive the sink context after every DOM "
+                        "mutation; one minimal differential per mutation "
+                        "class (re-serialization, namespace confusion, "
+                        "parsing-context switch) with the mutated bytes as "
+                        "the artifact; DOM clobbering harvested, not "
+                        "sprayed; sanitizer name+version is a ledgered "
+                        "FACT because sanitizers regress",
+        "sources": "'mXSS attacks: attacking well-secured web-"
+                   "applications by using innerHTML mutations' (ACM WPES "
+                   "2013, DOI 10.1145/2508859.2516723); 'Attacking "
+                   "well-secured Web-Applications by using innerHTML' "
+                   "(cure53.de/fp170.pdf); the 2024 mXSS revival talks "
+                   "(BSides Berlin 2024 showcase); "
+                   "skills/xss-playbook/references/sources.md + "
+                   "mxss-and-clobber.md",
+        "correction": None,
+    },
+    {
+        "organ": "oauth-flow-auditor",
+        "figure": "Aaron Parecki — author of OAuth 2.0 Simplified, "
+                  "maintainer of oauth.net, co-editor of the OAuth 2.1 "
+                  "draft; folded into the organ at v2.0.0",
+        "distillation": "redirect_uri is the load-bearing wall: exact "
+                        "match per RFC 6749 tested as a matrix at BOTH "
+                        "endpoints; state is three checks (presence, "
+                        "validation, binding); PKCE is checked where it "
+                        "wasn't invited (downgrade, plain-vs-S256); "
+                        "severity vocabulary maps to the BCP (RFC 9700); "
+                        "error paths are differential instruments and "
+                        "echoed redirect_uri is chain input",
+        "sources": "OAuth 2.0 Simplified (oauth.com / "
+                   "oauth2simplified.com); oauth.net/getting-started; "
+                   "RFC 6749 §3.1.2.3, RFC 7636, RFC 6819, RFC 9700; "
+                   "skills/oauth-flow-auditor/references/sources.md + "
+                   "flow-craft.md",
+        "correction": None,
+    },
+    {
+        "organ": "content-discovery",
+        "figure": "Daniel Miessler — maintainer of SecLists; folded into "
+                  "the organ at v2.0.0",
+        "distillation": "corpus science: wordlists are chosen by FAMILY "
+                        "and composed from evidence, never grabbed by "
+                        "size; extensions derive from the observed stack; "
+                        "a new base URL always recalibrates its negative "
+                        "profile; the password families live behind their "
+                        "own scope wall and never run in this organ",
+        "sources": "github.com/danielmiessler/SecLists — the family "
+                   "structure (Discovery/Web-Content, Discovery/DNS, "
+                   "Passwords, Miscellaneous) that the composition law "
+                   "mirrors; danielmiessler.com; "
+                   "skills/content-discovery/references/sources.md + "
+                   "corpus-science.md",
+        "correction": None,
+    },
+    {
+        "organ": "business-logic-hunter",
+        "figure": "Soroush Dalili (@irsdl, NCC Group line) — the "
+                  "HTTP-reshaping bypass grammar; folded into the organ "
+                  "at v2.0.0",
+        "distillation": "bypass craft: reshape once, canonically, before "
+                        "closing any blocked hypothesis (case, path "
+                        "params, segment padding, encoding, header/verb); "
+                        "seams are read at the executor's verdict, not the "
+                        "guard's status; invert every check — displaced, "
+                        "what does it become; comparison functions are "
+                        "testable units with both identifiers' bytes "
+                        "recorded; two variants per seam, then park",
+        "sources": "'WAF Bypass Techniques Using HTTP Standard and Web "
+                   "Servers' Behavior' (public talk); the NCC Group "
+                   "research posts (Flash upload-bypass advisory line); "
+                   "soroush.me/blog (HackPra 'File in the hole!' "
+                   "material); @irsdl on X; "
+                   "skills/business-logic-hunter/references/sources.md + "
+                   "bypass-craft.md",
+        "correction": None,
+    },
+    {
+        "organ": "cloud-config-auditor",
+        "figure": "Toni de la Fuente — Prowler's author and steward; "
+                  "folded into the organ at v2.0.0",
+        "distillation": "checks as code: every check carries a stable ID, "
+                        "a version, and a benchmark paragraph — severity "
+                        "words cite the mapped CIS paragraph, never a "
+                        "mood; verdicts carry timestamps and load-bearing "
+                        "ones re-verify inside the engagement window; "
+                        "name the posture shape, then the provider "
+                        "instance; matrix tables over magic scores",
+        "sources": "prowler.com (the platform + blog: 'Why We Need the "
+                   "Open Cloud Security Movement', Feb 2025; the State of "
+                   "Cloud Security Report 2025); github.com/prowler-"
+                   "cloud/prowler; CIS Benchmarks (cisecurity.org); "
+                   "skills/cloud-config-auditor/references/sources.md + "
+                   "checks-as-code.md",
+        "correction": None,
+    },
 ]
 
 ARTICLES = [

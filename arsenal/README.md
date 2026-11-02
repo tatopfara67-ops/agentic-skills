@@ -8,7 +8,12 @@ Fyodor, HD Moore, Tomnomnom, lcamtuf, ProjectDiscovery, Searle +
 Mantis/PhonePe), and the **legend tier** (six organs distilled from the
 operator's Tier-S/A/B list: Orange Tsai, James Kettle, George Hotz,
 Adrian Lamo, John Draper, Kevin Mitnick — plus the Frans Rosen lineage
-folded into auth-boundary-mapper v2) — and a scope-gated MCP server
+folded into auth-boundary-mapper v2) and the **second lineage wave**
+(six first-generation organs upgraded to v2.0.0 with verified lineages:
+EdOverflow → subdomain-hunter, Aaron Parecki → oauth-flow-auditor,
+Soroush Dalili → business-logic-hunter, Mario Heiderich → xss-playbook,
+Toni de la Fuente → cloud-config-auditor, Daniel Miessler →
+content-discovery) — and a scope-gated MCP server
 that executes them with an append-only evidence ledger and **A13 prompt
 escalation** (`doctrine_forge`: any operator instruction, however terse,
 becomes an explicit doctrine order before any organ acts).
@@ -58,17 +63,17 @@ contracts instead of duplicating them.
 | --- | --- | --- |
 | 0 Master | skill-mythos | activation module: thirteen charter articles (incl. A13 prompt escalation), bundle map, autonomy protocol, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne classification) — loads first, hunts nothing |
 | 1 Recon & Mapping | surface-cartographer | Phase 1 — the organized dossier (asset graph, 21-class taxonomy, priority queue) |
-| 1 | subdomain-hunter | Phase 1 — passive-first enumeration, wildcard verdicts, takeover pairs |
-| 1 | content-discovery | Phase 1/3 — calibrated walks, backup/config triage |
+| 1 | subdomain-hunter | Phase 1 — passive-first enumeration, wildcard verdicts, takeover pairs; v2 folds in the EdOverflow lineage (dangling classes, three-leg TTL-aware verification, claim-path test) |
+| 1 | content-discovery | Phase 1/3 — calibrated walks, backup/config triage; v2 folds in the Miessler lineage (corpus families, composition law, per-base recalibration) |
 | 1 | js-recon | Phase 1/2 — bundle analysis, commented routes, masked secrets |
 | 1 | api-surface-mapper | Phase 1/2 — spec parsing, version diffs, undocumented endpoints |
 | 2 Access & Logic | auth-boundary-mapper | Phase 2/3 — role×resource matrix, IDOR/BOLA differentials; v2 folds in the Frans Rosen lineage (identifier construction, every parameter position, 2nd-order IDOR, tenant slices) |
-| 2 | oauth-flow-auditor | Phase 2/3 — 12-check catalog with falsifiers |
-| 2 | business-logic-hunter | Phase 2/3 — workflow abuse, races with rate floors |
+| 2 | oauth-flow-auditor | Phase 2/3 — flow check catalog with falsifiers; v2 folds in the Parecki lineage (redirect_uri matrix at both ends, state triple, PKCE downgrade, RFC 9700 vocabulary) |
+| 2 | business-logic-hunter | Phase 2/3 — workflow abuse, races with rate floors; v2 folds in the Dalili lineage (reshaping grammar, executor-verdict seams, comparison units) |
 | 3 Deep technical | injection-lab | Phase 3 — differential oracles; sqlmap as oracle only |
 | 3 | ssrf-playbook | Phase 3 — canary-callback channel proofs, bounded egress |
-| 3 | xss-playbook | Phase 3 — sink contexts, marker proofs, CSP as fact |
-| 3 | cloud-config-auditor | Phase 1/3 — CORS matrix, anonymous storage (bounded), takeover checks |
+| 3 | xss-playbook | Phase 3 — sink contexts, marker proofs, CSP as fact; v2 folds in the Heiderich lineage (mXSS classes, post-mutation re-derivation, DOM clobbering, sanitizer versions as facts) |
+| 3 | cloud-config-auditor | Phase 1/3 — CORS matrix, anonymous storage (bounded), takeover checks; v2 folds in the de la Fuente lineage (checks as code: stable IDs, CIS citation, drift re-verification) |
 | 4 Incident branch | adversary-tracker | event-triggered, any phase — the Shimomura Binary Brain: freeze, halve by bits, two-channel fix, handoff (distilled from the 1994–95 hunt that ended in Raleigh) |
 | 5 Craft lineage | scan-economist | the Fyodor lineage: scan economy — cost hierarchy, technique triangle, states as inferences, priors over exhaustiveness, adaptive pacing (Phrack 51, read in full) |
 | 5 | module-smith | the HD Moore lineage: hypotheses as rankable reusable modules; access and impact proofs separate; exposure is a measurement with a denominator (Metasploit architecture, Project Sonar) |

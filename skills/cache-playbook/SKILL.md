@@ -1,6 +1,6 @@
 ---
 name: cache-playbook
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: Deep-technical organ (tier 3) built from the Omer Gil lineage (Web Cache Deception, Black Hat USA 2017) with James Kettle's cache-poisoning corpus (Practical Web Cache Poisoning, Black Hat USA 2018; Web Cache Entanglements, 2020) and the USENIX Security 2020 measurement "Cached and Confused" as its academic anchor — hunting the disagreement between origin and cache. The cache is treated as a second, silent parser: every disagreement between how the origin resolves a request and how the cache keys it (path confusion, unkeyed inputs, cache-key vs display-key gaps) becomes either stored secrets (deception: a victim's personalized response cached under a public path) or stored payloads (poisoning: an unkeyed input cached into other users' responses). Carries the WWH registers, the nonce-path discipline for poisoning proofs (never a real user's path), and the operator-as-victim law for deception proofs. Use when a CDN or caching proxy sits in front of the target, when X-Cache/Age/cache-control headers appear, when the operator suspects cache attacks ("cek cache poisoning", "ada CDN cloudflare/akamai", "web cache deception di target ini", "cache misconfiguration", "kenapa halaman ini ke-cache").
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); desync-hunter (parser-seam discipline, adjacent surface); packet-orchestrator (raw-request precision when discrepancies need it)
 ---
 
-# cache-playbook v1.0.0 — The Second Silent Parser
+# cache-playbook v1.1.0 — The Second Silent Parser
 
 ## 0. What This Skill Is — and Is Not
 
@@ -217,4 +217,13 @@ sabotage, not evidence.
 | Load when… | Module |
 | --- | --- |
 | Expanding any step of §3/§4 into exact probes, oracles, falsifiers | `references/cache-method.md` |
+| Exact technique set (cache buster discipline, unkeyed inputs, fat GET, Gil's deception suffix, delimiter confusion set, boundary mapping), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Gil/Kettle/USENIX lineage and its sources | `references/sources.md` |
+
+The corpus is versioned (`corpus_version`) and every entry carries its
+primary source and its **failure modes** — read them before closing any
+hypothesis as negative: a technique that failed for a documented reason
+(full-URL keys, Vary segmentation, router 404 posture, honored
+Cache-Control) leaves the cache untested, not secure. Every poisoning
+probe carries a cache buster — collateral poisoning of a shared entry
+is an incident, never a finding.

@@ -1,6 +1,6 @@
 ---
 name: ssrf-playbook
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: Phase-3 SSRF organ — canary-callback channel-existence proofs on an operator-owned interaction host, egress mapping by scheme, redirect-chain tracing, and metadata-endpoint checks only inside explicitly authorized cloud scope, all as differentials. Use when the operator asks to test SSRF, check a URL-fetch parameter, map egress from a target, trace redirect-based SSRF, or probe cloud metadata reachability ("tes SSRF", "url fetch", "internal request", "egress mapping", "metadata endpoint", "redirect to internal").
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned interaction/callback host
 ---
 
-# ssrf-playbook v1.1.0 — Prove The Channel, Not The Gossip
+# ssrf-playbook v1.2.0 — Prove The Channel, Not The Gossip
 
 ## 0. What This Skill Is — and Is Not
 
@@ -109,3 +109,12 @@ network is mapped by inference from one hit, never by storming it.
 | Load when… | Module |
 | --- | --- |
 | Setting up the callback host / interpreting callbacks | `references/canary-callback.md` |
+| Exact bypass payloads (scheme handlers, IP notations, redirect/rebinding, cloud metadata endpoints, parser confusion), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+
+The corpus is versioned (`corpus_version`) and every entry carries its
+primary source and its **failure modes** — read them before closing any
+hypothesis as negative: a bypass that failed for a documented reason
+(resolve-then-validate normalization, per-hop checks, IMDSv2 tokens)
+leaves the filter untested, not effective. The canary entry (SSRF-010)
+routes every channel proof through the operator's declared collector
+(`http_probe` canary mode).

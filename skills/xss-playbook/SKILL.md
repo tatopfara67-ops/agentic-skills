@@ -1,6 +1,6 @@
 ---
 name: xss-playbook
-version: 2.1.0
+version: 2.2.0
 type: ai-skill
 architecture: package
 description: Phase-3 XSS organ, upgraded (v2) with the Mario Heiderich (Cure53) lineage — sink-context analysis first (HTML body, attribute, JS string, URL, with CSP factored), context-aware payload grammar, execution proofs by self-owned canary marker instead of alert() theater, and the mXSS layer: re-derive context after DOM mutations, the mXSS class catalog (re-serialization, namespace confusion, parsing-context switch), DOM clobbering as a pseudo-source, and sanitizer version-pinning as a ledgered fact. Use when the operator asks to test reflected or stored XSS, analyze a sink context, draft context-safe payloads, check CSP impact, or trace DOM source-to-sink flows ("tes XSS", "reflected", "stored", "DOM XSS", "sink context", "CSP bypass check", "payload untuk konteks ini", "mXSS", "mutation XSS", "sanitizer bypass", "DOM clobbering").
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# xss-playbook v2.1.0 — Context First, Marker Always, Mutation Counts
+# xss-playbook v2.2.0 — Context First, Marker Always, Mutation Counts
 
 ## 0. What This Skill Is — and Is Not
 
@@ -156,4 +156,13 @@ surface.
 | --- | --- |
 | Classifying a sink / choosing the grammar | `references/contexts.md` |
 | Mutation-capable sink, sanitizer output executing, framework "safe" API | `references/mxss-and-clobber.md` |
+| Context-exact payloads (HTML body/attribute/JS string/raw-text/URL) plus the versioned mXSS corpus (noscript, svg, MathML mutation classes — each with the sanitizer version it bypassed and its credit), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
+
+The corpus is versioned (`corpus_version`) and every entry carries its
+primary source and its **failure modes** — read them before closing any
+hypothesis as negative: a payload that failed for a documented reason
+(CSP blocking inline handlers, patched sanitizer, engine-specific
+mutation) leaves the sink untested, not safe. Failed mXSS entries are
+version oracles: they date the sink's sanitizer, which is itself a
+ledgered FACT.

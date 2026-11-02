@@ -1,6 +1,6 @@
 ---
 name: injection-lab
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: Phase-3 injection organ — differential oracles only: every injection class (SQL/NoSQL/command/template/LDAP) tested as baseline vs treatment vs control with a stated falsifier; timing oracles honor repetition floors; sqlmap runs only as a differential oracle via governed routing. Use when the operator asks to test SQLi or NoSQLi, command or template injection, build a boolean/error/timing/out-of-band oracle, or run sqlmap within discipline ("tes SQLi", "injection", "blind boolean", "time-based", "template injection", "SSTI", "command injection", "differential oracle").
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# injection-lab v1.1.0 — Oracles, Not Payload Sprays
+# injection-lab v1.2.0 — Oracles, Not Payload Sprays
 
 ## 0. What This Skill Is — and Is Not
 
@@ -122,3 +122,10 @@ march.
 | Load when… | Module |
 | --- | --- |
 | Choosing/crafting an oracle for a class | `references/oracles.md` |
+| Exact oracle payloads per backend (boolean/UNION/time/error, comment grammar), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+
+The corpus is versioned (`corpus_version`) and every entry carries its
+primary source and its **failure modes** — read them before closing any
+hypothesis as negative: an oracle that failed for a documented reason
+(result caching, statement timeouts, stacked-queries disabled) leaves
+the sink untested, not clean.

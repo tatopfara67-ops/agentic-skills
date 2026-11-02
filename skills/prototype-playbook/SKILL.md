@@ -1,6 +1,6 @@
 ---
 name: prototype-playbook
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: Deep-technical organ (tier 3) built from the Gareth Heyes lineage (PortSwigger Research) — hunting the JavaScript object world as trust-bearing state. Three attack families live here because they share one root cause (code trusts inherited or ambient object properties it never validated): prototype pollution (a recursive merge writes attacker keys into Object.prototype and every object downstream inherits them — client-side via URL/hash/JSON sources, server-side via JSON bodies in Node), DOM clobbering (HTML named elements become window globals and shadow the references scripts trust), and postMessage origin confusion (message listeners trusting sender origins loosely). Carries the WWH registers, the source→gadget→sink hunting order, and the no-DoS law for server-side pollution detection (Heyes' safe black-box techniques: harmless canary properties whose only footprint is an observable response difference). Use when the target is a JavaScript-heavy SPA, when third-party JS libraries load, when JSON merges user input server-side, when postMessage listeners or DOM clobbering sinks are suspected ("cari prototype pollution", "audit JS libraries-nya", "apakah node app-nya merge JSON user", "test window.postMessage listener", "kamu tau gadget chain?").
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); xss-playbook (the sink grammar once a gadget feeds a DOM sink); js-recon (the bundle-reading discipline that locates merge code and listeners)
 ---
 
-# prototype-playbook v1.0.0 — The Object World Is Trust-Bearing State
+# prototype-playbook v1.1.0 — The Object World Is Trust-Bearing State
 
 ## 0. What This Skill Is — and Is Not
 
@@ -221,4 +221,13 @@ marker could not, and it burns the ground for everyone.
 | Load when… | Module |
 | --- | --- |
 | Expanding any family into exact probes, oracles, falsifiers; the safe-probe repertoire; the gadget library | `references/object-model-attacks.md` |
+| Exact probe set (query/JSON sources, constructor.prototype bypass, Heyes' safe detection oracles — JSON reflection, status-code override, CORS header reflection — and the gadget classes incl. CVE-2022-29078), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Heyes lineage and the research-wave sources | `references/sources.md` |
+
+The corpus is versioned (`corpus_version`) and every entry carries its
+primary source and its **failure modes** — read them before closing any
+hypothesis as negative. The negative-space entry (PP-010) defines what a
+REAL negative requires: source reached, merge path version-pinned,
+constructor bypass tried, two safe-detection oracles run, cleanup
+confirmed. The no-DoS law binds every entry: harmless property writes
+only.

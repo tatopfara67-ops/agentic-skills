@@ -117,13 +117,13 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [injection-lab](skills/injection-lab/) | 1.1.0 | Injection differential oracles — sqlmap runs as oracle only (`--batch` mandatory). |
-| [ssrf-playbook](skills/ssrf-playbook/) | 1.1.0 | SSRF channel proofs via canary callbacks, bounded egress checks. |
-| [xss-playbook](skills/xss-playbook/) | 2.1.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage). |
+| [injection-lab](skills/injection-lab/) | 1.2.0 | Injection differential oracles — sqlmap runs as oracle only (`--batch` mandatory). |
+| [ssrf-playbook](skills/ssrf-playbook/) | 1.2.0 | SSRF channel proofs via canary callbacks, bounded egress checks. |
+| [xss-playbook](skills/xss-playbook/) | 2.2.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage). |
 | [cloud-config-auditor](skills/cloud-config-auditor/) | 2.1.0 | CORS matrix, anonymous storage, takeover checks — checks-as-code (Prowler/de la Fuente lineage). |
 | [mobile-hunter](skills/mobile-hunter/) | 1.0.0 | Mobile teardown — the shipped APK/IPA is a confession read before the device is touched (Charlie Miller lineage). |
-| [cache-playbook](skills/cache-playbook/) | 1.0.0 | Web cache deception & poisoning — the cache as a second silent parser (Omer Gil + Kettle corpus). |
-| [prototype-playbook](skills/prototype-playbook/) | 1.0.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage). |
+| [cache-playbook](skills/cache-playbook/) | 1.1.0 | Web cache deception & poisoning — the cache as a second silent parser (Omer Gil + Kettle corpus). |
+| [prototype-playbook](skills/prototype-playbook/) | 1.1.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage). |
 
 ### Tier 4 — Incident Branch (1)
 
@@ -147,7 +147,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | Skill | Version | What it does |
 |---|---|---|
 | [chain-architect](skills/chain-architect/) | 1.0.0 | Compound kill chains — low findings composed into one critical impact (Orange Tsai lineage). |
-| [desync-hunter](skills/desync-hunter/) | 1.1.0 | Protocol asymmetry — one ambiguity per request, response-class differentials, exact bytes as artifacts (James Kettle lineage). |
+| [desync-hunter](skills/desync-hunter/) | 1.2.0 | Protocol asymmetry — one ambiguity per request, response-class differentials, exact bytes as artifacts (James Kettle lineage). |
 | [deep-teardown](skills/deep-teardown/) | 1.0.0 | Dismantle client artifacts to primitives — local dissection before any network flow (George Hotz lineage). |
 | [ghost-crawler](skills/ghost-crawler/) | 1.0.0 | Passive-index misconfig hunting — one bounded probe per candidate (Adrian Lamo lineage). |
 | [mirror-hunter](skills/mirror-hunter/) | 1.0.0 | Hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter (Simon Willison lineage). |

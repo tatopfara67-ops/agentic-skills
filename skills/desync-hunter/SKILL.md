@@ -1,6 +1,6 @@
 ---
 name: desync-hunter
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: Legend-tier organ (Tier S — the Logic Architects) built from the James Kettle / PortSwigger lineage — protocol & specification asymmetry analysis. Treats every protocol specification as a hypothesis, inventories the parsing chain (CDN/WAF/HTTP2-terminator/backend), and hunts the disagreements between front-end and back-end parsers via manually-crafted ambiguous requests (CL/TE conflicts, header-name oddities, absolute-form, obs-fold), confirmed by time-based and response-class differentials with raw bytes as artifacts. Use when testing without a scanner against proxy chains, when hunting request smuggling or desync, when documentation says the system works one way and you need to force input the other way, or when classifying parser asymmetries ("request smuggling", "CL.TE", "desync", "protocol asymmetry", "parser differential", "manipulasi HTTP header", "smuggling").
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; targets whose scope explicitly covers the infrastructure/proxy layer
 ---
 
-# desync-hunter v1.1.0 — The Spec Is A Hypothesis
+# desync-hunter v1.2.0 — The Spec Is A Hypothesis
 
 ## 0. What This Skill Is — and Is Not
 
@@ -180,4 +180,11 @@ victimless differential — never the poisoned production response.
 | Load when… | Module |
 | --- | --- |
 | Choosing/designing an ambiguity | `references/asymmetry-catalog.md` |
+| Exact probe bytes (CL.TE/TE.CL differential + timeout probes, TE.TE obfuscations, H2.CL), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Kettle lineage and sources | `references/sources.md` |
+
+The corpus is versioned (`corpus_version`) and every entry carries its
+primary source and its **failure modes** — read them before closing any
+hypothesis as negative: a probe that failed for a documented reason
+(intermediary re-framing, per-request connections, refusal posture)
+leaves the seam untested, not disproven.

@@ -4,6 +4,8 @@ Drop-in skills for AI agents (Claude Code, Z.ai, Cursor, MCP-driven operators) �
 
 Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
+How the whole skill agent works, in one picture: **[docs/mythos-arsenal-arsitektur.png](docs/mythos-arsenal-arsitektur.png)** (anatomy: charter → spine → 25 organs → the execution hand; then the session flow: A13 doctrine escalation → R0 scope gate → the hunt loop F0–F4 → the incident branch → report gates → instinct calibration).
+
 ## Skills
 
 | Skill | Version | What it does |

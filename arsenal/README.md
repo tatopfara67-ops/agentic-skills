@@ -35,7 +35,7 @@ The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md
 | 6 | signal-smith | John Draper (B) — input grammar craft, one minimal variation per seam, two max |
 | 6 | trust-graph-hunter | Kevin Mitnick (B) — the trust graph between components, inherited privilege on operator-owned ends |
 
-All 30 bundles in `skills/` pass `scripts/validate_skill.py --all`.
+All 31 bundles in `skills/` pass `scripts/validate_skill.py --all`.
 
 ## Install & wiring
 

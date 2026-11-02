@@ -30,6 +30,7 @@ closure gates, R7 budgets) instead of restating them. The charter
 
 | Organ | Tier | Load when… | Essence (philosophy it carries) |
 | --- | --- | --- | --- |
+| glm-self-model | 0 | session start of any long engagement; drift, déjà-vu, or unearned completion suspected; doctrine design; after an early engagement death | *know the engine* — the least trusted component gets its operator's manual: model-class failure geometry, labeled by epistemic class, every failure with a tell and a gate |
 | surface-cartographer | 1 | an engagement opens; the asset graph does not exist yet, or new assets appeared | *map before you move* — an unmapped attack surface makes every later claim weaker |
 | subdomain-hunter | 1 | the domain list is younger than the certificate logs | *passive first* — the target's own CT logs answer before the target is ever touched |
 | content-discovery | 1 | the map exists but the hidden paths do not; a 404 baseline is cheap | *calibration before claims* — a control request on every walk, so a hit means something |

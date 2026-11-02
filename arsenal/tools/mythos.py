@@ -36,11 +36,12 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.2.0"
+MODULE_VERSION = "1.3.0"
 
 SPINE = "mythos-bug-hunter"
 
 TIERS = {
+    "0-engine": ["glm-self-model"],
     "0-master": [MODULE],
     "1-recon-mapping": ["surface-cartographer", "subdomain-hunter",
                         "content-discovery", "js-recon", "api-surface-mapper"],

@@ -116,7 +116,8 @@ class TestMythosCharter(unittest.TestCase):
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 26)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 27)
+        self.assertEqual(tiers["0-engine"], {"glm-self-model": True})
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
         self.assertEqual(sorted(tiers["5-craft"]), [
             "feedback-fuzzer", "module-smith", "packet-orchestrator",

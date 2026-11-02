@@ -36,8 +36,15 @@ resume toward the unmet quota.
 3. Call `list_skills()` — metadata only. Do not `get_skill` everything;
    progressive disclosure is the cost model (name+description first,
    bodies on demand, references when the phase needs them).
-4. At engagement start, load the spine (mythos-bug-hunter) and its conduct
-   module. The organs below plug into its phases; they do not replace it.
+4. At engagement start, load the spine (mythos-bug-hunter), its conduct
+   module, and the engine manual (glm-self-model). The organs below plug
+   into its phases; they do not replace it. The engine manual matters
+   because the model executing this file has documented failure geometry
+   (positional decay, salience capture, the ending gradient, unmeasured
+   confidence, zero persistence) — its compensation gates are not
+   optional hygiene: fresh-eyes re-derivation before any CONFIRMED
+   closure, edges for critical state, priors cited from their first
+   written version, queue over decibels.
 5. `doctrine_forge` every operator instruction before acting on it (A13).
 6. Pick organs by phase, never by curiosity.
 

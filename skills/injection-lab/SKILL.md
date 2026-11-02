@@ -1,9 +1,9 @@
 ---
 name: injection-lab
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
-description: Phase-3 injection organ — differential oracles only: every injection class (SQL/NoSQL/command/template/LDAP) tested as baseline vs treatment vs control with a stated falsifier; timing oracles honor repetition floors; sqlmap runs only as a differential oracle via governed routing. Use when the operator asks to test SQLi or NoSQLi, command or template injection, build a boolean/error/timing/out-of-band oracle, or run sqlmap within discipline ("tes SQLi", "injection", "blind boolean", "time-based", "template injection", "SSTI", "command injection", "differential oracle").
+description: Phase-3 injection organ — differential oracles only: every injection class (SQL/NoSQL/command/template/LDAP) tested as baseline vs treatment vs control with a stated falsifier; timing oracles honor repetition floors; sqlmap runs only as a differential oracle via governed routing. Since v1.3.0 the organ carries the executable method layer (A16) — a mechanical critique of the scan-first tradition's floors (battery before oracle census, boolean pairs read by eyes, timing without jitter baselines, error signatures as lore, unbudgeted extraction) shipped as protocol M1–M5: the oracle census, the parity differential with reversed passes, the jitter-gated timing oracle, the extraction budget table with shown arithmetic, and the operator-owned out-of-band collector rule. Use when the operator asks to test SQLi or NoSQLi, command or template injection, build a boolean/error/timing/out-of-band oracle, or run sqlmap within discipline ("tes SQLi", "injection", "blind boolean", "time-based", "template injection", "SSTI", "command injection", "differential oracle").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# injection-lab v1.2.0 — Oracles, Not Payload Sprays
+# injection-lab v1.3.0 — Oracles, Not Payload Sprays
 
 ## 0. What This Skill Is — and Is Not
 
@@ -69,6 +69,24 @@ destructive payload proves nothing a differential could not, and
 time-based oracles are the last resort because they are the noisiest
 march.
 
+## 2.6 The Method Layer — Critique, Upgrade, M1–M5 (A16)
+
+A lineage named is not expertise delivered — and a tradition inherited
+is no better. `references/method-upgrade.md` grades the scan-first
+tradition this organ was forged against — payload batteries before
+oracle census, one true/false pair read by eyes, SLEEP(5) once on an
+unmeasured host, error signatures as lore, dump-the-table reflex at
+scanner rates — and ships the executable replacement: **M1** the
+oracle census (channel set per parameter, ON RECORD; empty channel =
+closed, no battery fired), **M2** the parity differential (n ≥ 10
+interleaved pairs + reversed pass + re-issue jitter check), **M3**
+the jitter-gated timing oracle (baseline IQR FIRST; threshold
+max(3 × IQR, 2 s); interleaved never five sleeps in a row), **M4**
+the extraction budget table (rows × ceil(log2 charset) arithmetic
+shown, abort-on-5xx-streak, resumable cursor), **M5** the out-of-band
+canary rule (operator-owned collector, out-of-scope, unique label per
+EXPERIMENT — a callback proves the CHANNEL, never the impact).
+
 ## 3. Procedure — Numbered Actions
 
 1. Entry: hypotheses already pre-registered from Phase 2 (surface +
@@ -123,6 +141,7 @@ march.
 | --- | --- |
 | Choosing/crafting an oracle for a class | `references/oracles.md` |
 | Exact oracle payloads per backend (boolean/UNION/time/error, comment grammar), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Grading the scan-first tradition, running the census and parity gate, budgeting extraction | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

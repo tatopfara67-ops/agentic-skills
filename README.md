@@ -34,7 +34,7 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.6.0 | The fifteen articles, the tiered bundle map, the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.8.0 | The fifteen articles, the tiered bundle map, the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.0.0 | The engine's own manual — model-class failure geometry and four compensation gates, written to the engine, not the operator. |
 | Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.5.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 19 reference modules + a PASS/FAIL report auditor. |
 | Organs | 29 hunting skills (tiers 1–6 below) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays. |
@@ -117,19 +117,19 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [injection-lab](skills/injection-lab/) | 1.2.0 | Injection differential oracles — sqlmap runs as oracle only (`--batch` mandatory). |
-| [ssrf-playbook](skills/ssrf-playbook/) | 1.2.0 | SSRF channel proofs via canary callbacks, bounded egress checks. |
-| [xss-playbook](skills/xss-playbook/) | 2.2.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage). |
+| [injection-lab](skills/injection-lab/) | 1.3.0 | Injection differential oracles — sqlmap runs as oracle only (`--batch` mandatory); oracle census before any battery. |
+| [ssrf-playbook](skills/ssrf-playbook/) | 1.3.0 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder. |
+| [xss-playbook](skills/xss-playbook/) | 2.3.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage); the mutation differential. |
 | [cloud-config-auditor](skills/cloud-config-auditor/) | 2.1.0 | CORS matrix, anonymous storage, takeover checks — checks-as-code (Prowler/de la Fuente lineage). |
-| [mobile-hunter](skills/mobile-hunter/) | 1.0.0 | Mobile teardown — the shipped APK/IPA is a confession read before the device is touched (Charlie Miller lineage). |
-| [cache-playbook](skills/cache-playbook/) | 1.1.0 | Web cache deception & poisoning — the cache as a second silent parser (Omer Gil + Kettle corpus). |
-| [prototype-playbook](skills/prototype-playbook/) | 1.1.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage). |
+| [mobile-hunter](skills/mobile-hunter/) | 1.1.0 | Mobile teardown — the shipped APK/IPA is a confession read before the device is touched (Charlie Miller lineage); coverage-gated harnesses. |
+| [cache-playbook](skills/cache-playbook/) | 1.2.0 | Web cache deception & poisoning — the cache as a second silent parser (Omer Gil + Kettle corpus); the cache-key baseline matrix. |
+| [prototype-playbook](skills/prototype-playbook/) | 1.2.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage); the merge-surface inventory. |
 
 ### Tier 4 — Incident Branch (1)
 
 | Skill | Version | What it does |
 |---|---|---|
-| [adversary-tracker](skills/adversary-tracker/) | 1.0.0 | Event-triggered hunts — the Shimomura Binary Brain: halving loop, two-channel confirmation, audited handoff. |
+| [adversary-tracker](skills/adversary-tracker/) | 1.1.0 | Event-triggered hunts — the Shimomura Binary Brain: halving loop, two-channel confirmation, audited handoff; the M0–M5 method upgrade. |
 
 ### Tier 5 — Craft Lineages (6)
 
@@ -146,8 +146,8 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [chain-architect](skills/chain-architect/) | 1.0.0 | Compound kill chains — low findings composed into one critical impact (Orange Tsai lineage). |
-| [desync-hunter](skills/desync-hunter/) | 1.2.0 | Protocol asymmetry — one ambiguity per request, response-class differentials, exact bytes as artifacts (James Kettle lineage). |
+| [chain-architect](skills/chain-architect/) | 1.1.0 | Compound kill chains — low findings composed into one critical impact (Orange Tsai lineage); the chain tree with evidenced prunes. |
+| [desync-hunter](skills/desync-hunter/) | 1.3.0 | Protocol asymmetry — one ambiguity per request, response-class differentials, exact bytes as artifacts (James Kettle lineage); the CHAINMAP method. |
 | [deep-teardown](skills/deep-teardown/) | 1.0.0 | Dismantle client artifacts to primitives — local dissection before any network flow (George Hotz lineage). |
 | [ghost-crawler](skills/ghost-crawler/) | 1.0.0 | Passive-index misconfig hunting — one bounded probe per candidate (Adrian Lamo lineage). |
 | [mirror-hunter](skills/mirror-hunter/) | 1.0.0 | Hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter (Simon Willison lineage). |

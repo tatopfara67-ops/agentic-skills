@@ -1,9 +1,9 @@
 ---
 name: ssrf-playbook
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
-description: Phase-3 SSRF organ — canary-callback channel-existence proofs on an operator-owned interaction host, egress mapping by scheme, redirect-chain tracing, and metadata-endpoint checks only inside explicitly authorized cloud scope, all as differentials. Use when the operator asks to test SSRF, check a URL-fetch parameter, map egress from a target, trace redirect-based SSRF, or probe cloud metadata reachability ("tes SSRF", "url fetch", "internal request", "egress mapping", "metadata endpoint", "redirect to internal").
+description: Phase-3 SSRF organ — canary-callback channel-existence proofs on an operator-owned interaction host, egress mapping by scheme, redirect-chain tracing, and metadata-endpoint checks only inside explicitly authorized cloud scope, all as differentials. Since v1.3.0 the organ carries the executable method layer (A16) — a mechanical critique of the callback-everywhere habit's floors (canary before hypotheses, channel conflation, parser disagreement re-discovered per bug, metadata URLs from memory, impact claimed without read-back) shipped as protocol M1–M5: the channel hypothesis table, the four-rung channel-proof ladder, the parser-differential map, the cloud-metadata decision table with mandatory headers, and the impact ceiling that refuses gossip. Use when the operator asks to test SSRF, check a URL-fetch parameter, map egress from a target, trace redirect-based SSRF, or probe cloud metadata reachability ("tes SSRF", "url fetch", "internal request", "egress mapping", "metadata endpoint", "redirect to internal").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned interaction/callback host
 ---
 
-# ssrf-playbook v1.2.0 — Prove The Channel, Not The Gossip
+# ssrf-playbook v1.3.0 — Prove The Channel, Not The Gossip
 
 ## 0. What This Skill Is — and Is Not
 
@@ -55,6 +55,25 @@ against known fetch surfaces; the ch'i is the redirect/rebind path
 the target's own parser chain permits that nobody documented. W2
 rides the channel law: one canary hit then stop — the internal
 network is mapped by inference from one hit, never by storming it.
+
+## 1.6 The Method Layer — Critique, Upgrade, M1–M5 (A16)
+
+A lineage named is not expertise delivered — and neither is a habit.
+`references/method-upgrade.md` grades the callback-everywhere default
+this organ was forged against — a canary pasted into every parameter
+before anything is known, DNS pings reported as compromise, parser
+disagreement re-discovered per bug, metadata URLs typed from memory
+(false negatives that read as "secured"), impact escalated on gossip
+— and ships the executable replacement: **M1** the channel hypothesis
+table (URL-shaped parameters registered BEFORE any canary fires),
+**M2** the channel-proof ladder (DNS → HTTP fetch → read-back →
+metadata; rung 2 is the minimum "confirmed", rung 1 alone is a LEAD),
+**M3** the parser-differential map (case/encoding and redirect-follow
+pairs per hop boundary, n ≥ 3, interleaved — which hop normalizes is
+a FACT), **M4** the cloud-metadata decision table (IMDSv2 two-step,
+GCP/Azure mandatory headers — a 403 is "guarded under THIS probe",
+never "secured"), **M5** the impact ceiling (claims capped by rung;
+credentials/RCE handed to chain-architect as candidates, not asserted).
 
 ## 2. Procedure — Numbered Actions
 
@@ -110,6 +129,7 @@ network is mapped by inference from one hit, never by storming it.
 | --- | --- |
 | Setting up the callback host / interpreting callbacks | `references/canary-callback.md` |
 | Exact bypass payloads (scheme handlers, IP notations, redirect/rebinding, cloud metadata endpoints, parser confusion), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Grading the callback habit, running the ladder and map, capping impact | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

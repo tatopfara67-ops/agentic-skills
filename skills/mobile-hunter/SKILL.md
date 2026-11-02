@@ -1,9 +1,9 @@
 ---
 name: mobile-hunter
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Deep-technical organ (tier 3) built from the Charlie Miller lineage (with Collin Mulliner on the 2009 iPhone SMS compromise) — the mobile teardown discipline for authorized bug bounty on Android (APK) and iOS (IPA) targets. The shipped binary is treated as a confession read in full before the device is ever touched (manifest, exported components, deep links, bundled strings and secrets, ghost endpoints), store review and code-signing are treated as hypotheses about attacker effort rather than walls, and every finding lands at a boundary — the API differential behind the app, or the runtime observation on an operator-owned device. Carries the WWH registers (WHAT the mobile attack surface is, WHY each class exists mechanically, HOW it is hunted step by step), the static-before-dynamic ladder, and the evidence law that every claim cites file:line from the artifact. Use when the target ships a mobile app in scope, when the operator provides an APK/IPA, when mobile-only endpoints or ghost APIs are suspected, or when the operator says to audit the app ("audit APK ini", "uji aplikasi mobile mereka", "cari celah di app-nya", "mobile app testing", "iOS app hunting", "ada endpoint yang cuma app yang manggil").
+description: Deep-technical organ (tier 3) built from the Charlie Miller lineage (with Collin Mulliner on the 2009 iPhone SMS compromise) — the mobile teardown discipline for authorized bug bounty on Android (APK) and iOS (IPA) targets. The shipped binary is treated as a confession read in full before the device is ever touched (manifest, exported components, deep links, bundled strings and secrets, ghost endpoints), store review and code-signing are treated as hypotheses about attacker effort rather than walls, and every finding lands at a boundary — the API differential behind the app, or the runtime observation on an operator-owned device. Carries the WWH registers (WHAT the mobile attack surface is, WHY each class exists mechanically, HOW it is hunted step by step), the static-before-dynamic ladder, and the evidence law that every claim cites file:line from the artifact. Since v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Miller/Mulliner art's floors (one-shot exploit narratives, dumb mutational fuzzing, the bench-to-field gap unmeasured, reversing as expert narration, demo theater as proof) shipped as protocol M1–M5: the device baseline inventory, coverage-gated harness discipline with budget tables, the crash signature-hash triage protocol, the exploit reliability differential (n ≥ 10 with condition lists), and the fleet-gap statement. Use when the target ships a mobile app in scope, when the operator provides an APK/IPA, when mobile-only endpoints or ghost APIs are suspected, or when the operator says to audit the app ("audit APK ini", "uji aplikasi mobile mereka", "cari celah di app-nya", "mobile app testing", "iOS app hunting", "ada endpoint yang cuma app yang manggil").
 category: security/deep-technical
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0 scope gate, ledger, differential triad); js-recon (client-code reading discipline); auth-boundary-mapper (the API-boundary differentials)
 ---
 
-# mobile-hunter v1.0.0 — The Binary Is a Confession
+# mobile-hunter v1.1.0 — The Binary Is a Confession
 
 ## 0. What This Skill Is — and Is Not
 
@@ -132,6 +132,24 @@ device is touched only after the confession is fully written. W2: the
 client-side bypass is proven on an operator-owned device; other users'
 installs are not instruments.
 
+## 3.5 The Method Layer — Critique, Upgrade, M1–M5 (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published mobile art where it was mechanically weak —
+exploits told as after-the-fact stories without rerun counts, mutation
+without coverage gates, crash piles triaged by eyes, the bench Jeep
+treated as the fleet, the method living in the IDA seat — and ships
+the executable replacement: **M1** the device baseline inventory
+(exact build, entitlements, signature posture, fleet variance table
+as FACTs), **M2** harness discipline (reachability proof before
+budget, coverage-slice gates, retire/reseed on zero new branches),
+**M3** crash triage (stack signature hash → cluster table, n ≥ 5
+repro rule, remote-reachability severity gate), **M4** the exploit
+differential (n ≥ 10, bucket distribution, precondition list,
+operator-owned marker end-state), **M5** the fleet-gap statement
+(proven on the tested set; the fleet is arithmetic with sources,
+never rounded up).
+
 ## 4. Procedure — Numbered Actions
 
 1. **Scope the artifact.** R0 gate first: is the app in the program's
@@ -212,3 +230,4 @@ installs are not instruments.
 | --- | --- |
 | Expanding any rung of §3/§4 into exact steps, oracles, falsifiers | `references/mobile-method.md` |
 | Verifying the Miller/Mulliner lineage and its sources | `references/sources.md` |
+| Grading the published method, running harness budgets, triaging crashes, claiming reliability | `references/method-upgrade.md` |

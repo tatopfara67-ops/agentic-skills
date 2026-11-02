@@ -1,9 +1,9 @@
 ---
 name: xss-playbook
-version: 2.2.0
+version: 2.3.0
 type: ai-skill
 architecture: package
-description: Phase-3 XSS organ, upgraded (v2) with the Mario Heiderich (Cure53) lineage — sink-context analysis first (HTML body, attribute, JS string, URL, with CSP factored), context-aware payload grammar, execution proofs by self-owned canary marker instead of alert() theater, and the mXSS layer: re-derive context after DOM mutations, the mXSS class catalog (re-serialization, namespace confusion, parsing-context switch), DOM clobbering as a pseudo-source, and sanitizer version-pinning as a ledgered fact. Use when the operator asks to test reflected or stored XSS, analyze a sink context, draft context-safe payloads, check CSP impact, or trace DOM source-to-sink flows ("tes XSS", "reflected", "stored", "DOM XSS", "sink context", "CSP bypass check", "payload untuk konteks ini", "mXSS", "mutation XSS", "sanitizer bypass", "DOM clobbering").
+description: Phase-3 XSS organ, upgraded (v2) with the Mario Heiderich (Cure53) lineage — sink-context analysis first (HTML body, attribute, JS string, URL, with CSP factored), context-aware payload grammar, execution proofs by self-owned canary marker instead of alert() theater, and the mXSS layer: re-derive context after DOM mutations, the mXSS class catalog (re-serialization, namespace confusion, parsing-context switch), DOM clobbering as a pseudo-source, and sanitizer version-pinning as a ledgered fact. Since v2.3.0 the organ carries the executable method layer (A16) — a mechanical critique of the published mXSS lineage's floors (single-screenshot epistemology, payloads retyped from slides, sink context judged by expert eyes, engine versions unpinned, sanitizer failures read as dead ends, alert() theater) shipped as protocol M1–M5: the rendering-context decision table, the interleaved mutation differential with one-byte controls, the sanitizer version-oracle ladder over corpus failure modes, the operator-owned marker proof with CSP factored first, and the render-environment FACT block. Use when the operator asks to test reflected or stored XSS, analyze a sink context, draft context-safe payloads, check CSP impact, or trace DOM source-to-sink flows ("tes XSS", "reflected", "stored", "DOM XSS", "sink context", "CSP bypass check", "payload untuk konteks ini", "mXSS", "mutation XSS", "sanitizer bypass", "DOM clobbering").
 category: security/offensive-web
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# xss-playbook v2.2.0 — Context First, Marker Always, Mutation Counts
+# xss-playbook v2.3.0 — Context First, Marker Always, Mutation Counts
 
 ## 0. What This Skill Is — and Is Not
 
@@ -84,6 +84,22 @@ parser quirk) that the target's own filter combination leaves open.
 W2: the marker proof is the win-without-fighting — `alert(document.domain)`
 once is a demonstration; a defaced page is a war crime on this
 surface.
+
+## 2.6 The Method Layer — Critique, Upgrade, M1–M5 (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published mXSS art where it was mechanically weak —
+single-screenshot epistemology, payloads retyped from slides, sink
+context judged by expert eyes, engine versions unpinned, sanitizer
+failures left to rot, alert() proof theater — and ships the executable
+replacement: **M1** the rendering-context decision table (bucket by
+probe, not judgment), **M2** the interleaved mutation differential
+(baseline/treatment/one-byte control, n ≥ 5), **M3** the sanitizer
+version-oracle ladder (a MISS dates the sanitizer), **M4** the
+operator-owned marker proof with CSP factored first, **M5** the
+render-environment FACT block pinning engine and version before any
+render claim. The module consumes `references/corpus.json` byte-exact;
+payloads are never retyped here.
 
 ## 3. Procedure — Numbered Actions
 
@@ -158,6 +174,7 @@ surface.
 | Mutation-capable sink, sanitizer output executing, framework "safe" API | `references/mxss-and-clobber.md` |
 | Context-exact payloads (HTML body/attribute/JS string/raw-text/URL) plus the versioned mXSS corpus (noscript, svg, MathML mutation classes — each with the sanitizer version it bypassed and its credit), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
+| Grading the published method, running the mutation differential, dating the sanitizer | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

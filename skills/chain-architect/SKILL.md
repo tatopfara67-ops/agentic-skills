@@ -1,9 +1,9 @@
 ---
 name: chain-architect
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier S — the Logic Architects) built from the Orange Tsai lineage — the compound kill-chain doctrine. Maps the target's component architecture from the dossier, inventories low/informational findings as chainable primitives, and designs pre-registered attack chains that compose 3-4 individually-harmless gaps into a critical whole (the ProxyLogon pattern). Severity floors stay honest per link while the chain carries the real impact. Use when hunting without a scanner, when low-severity findings pile up and the operator wants them weaponized legitimately, when composing SSRF + auth bypass + file write into escalation, or when the operator asks for chained bugs ("bug chaining", "rangkai celah kecil jadi kritis", "compose findings", "ProxyLogon style", "impact amplification", "chain low findings").
+description: Legend-tier organ (Tier S — the Logic Architects) built from the Orange Tsai lineage — the compound kill-chain doctrine. Maps the target's component architecture from the dossier, inventories low/informational findings as chainable primitives, and designs pre-registered attack chains that compose 3-4 individually-harmless gaps into a critical whole (the ProxyLogon pattern). Severity floors stay honest per link while the chain carries the real impact. Since v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Tsai art's floors (chains told after the fact, per-link confidence never tracked, endpoint lineage narrated as insight, single-path demos, impact ceilings conflated) shipped as protocol M1–M5: the pre-hunt chain candidate schema, the surface-diff protocol, the chain tree with evidenced prunes, the weakest-link differential gate, and the proven/demonstrated/claimed ceiling statement. Use when hunting without a scanner, when low-severity findings pile up and the operator wants them weaponized legitimately, when composing SSRF + auth bypass + file write into escalation, or when the operator asks for chained bugs ("bug chaining", "rangkai celah kecil jadi kritis", "compose findings", "ProxyLogon style", "impact amplification", "chain low findings").
 category: security/legend-lineage
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an engagement with at least a Phase-1 dossier
 ---
 
-# chain-architect v1.0.0 — The Compound Kill Chain
+# chain-architect v1.1.0 — The Compound Kill Chain
 
 ## 0. What This Skill Is — and Is Not
 
@@ -74,6 +74,25 @@ exploits. The verification record is `references/sources.md`.
 5. **Prove each link, then the joint.** Every link needs its own
    baseline/treatment/control; the chain proof then shows the joints
    — that link k's OUTPUT actually feeds link k+1's INPUT.
+
+## 3.5 The Method Layer — Critique, Upgrade, M1–M5 (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published chain art where it was mechanically weak — the
+winning path narrated as if architected, every hop reading equally
+solid, endpoint lineages discovered by one analyst's noticing, one
+chain shown while alternates stay invisible, proven/demonstrated/
+claimed collapsed into one sentence — and ships the executable
+replacement: **M1** the chain candidate schema (registered BEFORE the
+hunt; a link with an empty precondition cell is daydreaming), **M2**
+the surface-diff protocol (component inventory, version pinning,
+cross-reference graph walks — the eureka, mechanized), **M3** the
+chain tree with prunes (a branch pruned without evidence is
+abandoned, not pruned), **M4** the weakest-link differential gate
+(chain confidence = MIN over live links; the report names the floor
+link), **M5** the ceiling statement (registered/pruned/live counts,
+end-to-end n_runs distribution, org-wide claims ONLY with fleet
+evidence).
 
 ## 4. Procedure — Numbered Actions
 
@@ -138,3 +157,4 @@ exploits. The verification record is `references/sources.md`.
 | --- | --- |
 | Choosing primitives / chain archetypes | `references/chaining-catalog.md` |
 | Verifying the Orange Tsai lineage and sources | `references/sources.md` |
+| Grading the published method, registering candidates, running link gates | `references/method-upgrade.md` |

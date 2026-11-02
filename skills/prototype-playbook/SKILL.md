@@ -1,9 +1,9 @@
 ---
 name: prototype-playbook
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
-description: Deep-technical organ (tier 3) built from the Gareth Heyes lineage (PortSwigger Research) — hunting the JavaScript object world as trust-bearing state. Three attack families live here because they share one root cause (code trusts inherited or ambient object properties it never validated): prototype pollution (a recursive merge writes attacker keys into Object.prototype and every object downstream inherits them — client-side via URL/hash/JSON sources, server-side via JSON bodies in Node), DOM clobbering (HTML named elements become window globals and shadow the references scripts trust), and postMessage origin confusion (message listeners trusting sender origins loosely). Carries the WWH registers, the source→gadget→sink hunting order, and the no-DoS law for server-side pollution detection (Heyes' safe black-box techniques: harmless canary properties whose only footprint is an observable response difference). Use when the target is a JavaScript-heavy SPA, when third-party JS libraries load, when JSON merges user input server-side, when postMessage listeners or DOM clobbering sinks are suspected ("cari prototype pollution", "audit JS libraries-nya", "apakah node app-nya merge JSON user", "test window.postMessage listener", "kamu tau gadget chain?").
+description: Deep-technical organ (tier 3) built from the Gareth Heyes lineage (PortSwigger Research) — hunting the JavaScript object world as trust-bearing state. Three attack families live here because they share one root cause (code trusts inherited or ambient object properties it never validated): prototype pollution (a recursive merge writes attacker keys into Object.prototype and every object downstream inherits them — client-side via URL/hash/JSON sources, server-side via JSON bodies in Node), DOM clobbering (HTML named elements become window globals and shadow the references scripts trust), and postMessage origin confusion (message listeners trusting sender origins loosely). Carries the WWH registers, the source→gadget→sink hunting order, and the no-DoS law for server-side pollution detection (Heyes' safe black-box techniques: harmless canary properties whose only footprint is an observable response difference). Since v1.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the Heyes art's floors (DOM-Invader delivery, error side effects as the only oracle, gadget hunting before merge-surface mapping, library versions unpinned, single-shot pollution claims) shipped as protocol M1–M4: the merge-surface inventory, the calibrated oracle ladder (read-back → signature → refused crash), the __proto__ differential with same-shape controls, and the version-pinned gadget matrix. Use when the target is a JavaScript-heavy SPA, when third-party JS libraries load, when JSON merges user input server-side, when postMessage listeners or DOM clobbering sinks are suspected ("cari prototype pollution", "audit JS libraries-nya", "apakah node app-nya merge JSON user", "test window.postMessage listener", "kamu tau gadget chain?").
 category: security/deep-technical
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); xss-playbook (the sink grammar once a gadget feeds a DOM sink); js-recon (the bundle-reading discipline that locates merge code and listeners)
 ---
 
-# prototype-playbook v1.1.0 — The Object World Is Trust-Bearing State
+# prototype-playbook v1.2.0 — The Object World Is Trust-Bearing State
 
 ## 0. What This Skill Is — and Is Not
 
@@ -132,6 +132,22 @@ operator-owned response reveals), never by breaking the process — and
 the memory-exhaustion "proof" is refused outright: it proves nothing a
 marker could not, and it burns the ground for everyone.
 
+## 3.5 The Method Layer — Critique, Upgrade, M1–M4 (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published Heyes art where it was mechanically weak —
+DOM-Invader clicks as the procedure, one error message read by eyes as
+the hit rule, gadget hunting before the merge surface is mapped,
+library versions unpinned, one-shot pollution claims — and ships the
+executable replacement: **M1** the merge-surface inventory (surface
+count zero or nonzero ON RECORD before any gadget), **M2** the
+calibrated oracle ladder (O1 read-back, O2 error-signature, O3 crash
+REFUSED unless pre-registered and rate-capped), **M3** the `__proto__`
+differential (treatment vs same-shape control, n ≥ 5, interleave),
+**M4** the gadget chaining matrix (five mandatory cells per row,
+version-pinned from stack FACTs). Probes come byte-exact from
+`references/corpus.json`.
+
 ## 4. Procedure — Numbered Actions
 
 1. **Inventory the object-model surface.** From js-recon's bundle
@@ -223,6 +239,7 @@ marker could not, and it burns the ground for everyone.
 | Expanding any family into exact probes, oracles, falsifiers; the safe-probe repertoire; the gadget library | `references/object-model-attacks.md` |
 | Exact probe set (query/JSON sources, constructor.prototype bypass, Heyes' safe detection oracles — JSON reflection, status-code override, CORS header reflection — and the gadget classes incl. CVE-2022-29078), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Heyes lineage and the research-wave sources | `references/sources.md` |
+| Grading the published method, mapping the merge surface, running the differential | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

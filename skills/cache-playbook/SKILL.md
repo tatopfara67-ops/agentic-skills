@@ -1,9 +1,9 @@
 ---
 name: cache-playbook
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
-description: Deep-technical organ (tier 3) built from the Omer Gil lineage (Web Cache Deception, Black Hat USA 2017) with James Kettle's cache-poisoning corpus (Practical Web Cache Poisoning, Black Hat USA 2018; Web Cache Entanglements, 2020) and the USENIX Security 2020 measurement "Cached and Confused" as its academic anchor — hunting the disagreement between origin and cache. The cache is treated as a second, silent parser: every disagreement between how the origin resolves a request and how the cache keys it (path confusion, unkeyed inputs, cache-key vs display-key gaps) becomes either stored secrets (deception: a victim's personalized response cached under a public path) or stored payloads (poisoning: an unkeyed input cached into other users' responses). Carries the WWH registers, the nonce-path discipline for poisoning proofs (never a real user's path), and the operator-as-victim law for deception proofs. Use when a CDN or caching proxy sits in front of the target, when X-Cache/Age/cache-control headers appear, when the operator suspects cache attacks ("cek cache poisoning", "ada CDN cloudflare/akamai", "web cache deception di target ini", "cache misconfiguration", "kenapa halaman ini ke-cache").
+description: Deep-technical organ (tier 3) built from the Omer Gil lineage (Web Cache Deception, Black Hat USA 2017) with James Kettle's cache-poisoning corpus (Practical Web Cache Poisoning, Black Hat USA 2018; Web Cache Entanglements, 2020) and the USENIX Security 2020 measurement "Cached and Confused" as its academic anchor — hunting the disagreement between origin and cache. The cache is treated as a second, silent parser: every disagreement between how the origin resolves a request and how the cache keys it (path confusion, unkeyed inputs, cache-key vs display-key gaps) becomes either stored secrets (deception: a victim's personalized response cached under a public path) or stored payloads (poisoning: an unkeyed input cached into other users' responses). Carries the WWH registers, the nonce-path discipline for poisoning proofs (never a real user's path), and the operator-as-victim law for deception proofs. Since v1.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the Gil/Kettle art's floors (suffix guessing by habit, single-shot poison demos, cache keys narrated instead of measured, deception and poisoning families conflated, borrowed victims) shipped as protocol M1–M5: the pairwise cache-key baseline matrix, the suffix decision table, the poisoning differential with operator-owned victims, the served-check decay curve, and the family-separated ceiling statement. Use when a CDN or caching proxy sits in front of the target, when X-Cache/Age/cache-control headers appear, when the operator suspects cache attacks ("cek cache poisoning", "ada CDN cloudflare/akamai", "web cache deception di target ini", "cache misconfiguration", "kenapa halaman ini ke-cache").
 category: security/deep-technical
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); desync-hunter (parser-seam discipline, adjacent surface); packet-orchestrator (raw-request precision when discrepancies need it)
 ---
 
-# cache-playbook v1.1.0 — The Second Silent Parser
+# cache-playbook v1.2.0 — The Second Silent Parser
 
 ## 0. What This Skill Is — and Is Not
 
@@ -128,6 +128,22 @@ persistent poisoned production entry is un-weaponized (purged or
 expiry-bounded) before the report ships; leaving poison in place is
 sabotage, not evidence.
 
+## 3.5 The Method Layer — Critique, Upgrade, M1–M5 (A16)
+
+A lineage named is not expertise delivered. `references/method-upgrade.md`
+grades the published cache art where it was mechanically weak — suffixes
+guessed from intuition, poisons fired once and screenshotted, unkeyedness
+told as a discovery story, the deception and poisoning families mixed in
+one narrative, third-party victims borrowed for impact — and ships the
+executable replacement: **M1** the pairwise cache-key baseline matrix
+(two requests differing in exactly one dimension decide keyed/unkeyed),
+**M2** the WCD suffix protocol over the corpus suffix+delimiter set
+(operator's own profile, rate-capped), **M3** the poisoning differential
+(treatment/victim/control fetches, n ≥ 5, canary in the entry), **M4**
+the served-check decay curve (t = 0 s/30 s/2 min/10 min, window ×
+traffic-class arithmetic shown), **M5** the family-separated ceiling
+statement (third-party exposure NOT claimed, measured window only).
+
 ## 4. Procedure — Numbered Actions
 
 1. **Fingerprint the cache.** Identify the layer (headers, edge IP
@@ -219,6 +235,7 @@ sabotage, not evidence.
 | Expanding any step of §3/§4 into exact probes, oracles, falsifiers | `references/cache-method.md` |
 | Exact technique set (cache buster discipline, unkeyed inputs, fat GET, Gil's deception suffix, delimiter confusion set, boundary mapping), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Gil/Kettle/USENIX lineage and its sources | `references/sources.md` |
+| Grading the published method, baselining the cache key, measuring decay | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

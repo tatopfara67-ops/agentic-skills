@@ -1,6 +1,6 @@
 ---
 name: oauth-flow-auditor
-version: 2.0.0
+version: 2.1.0
 type: ai-skill
 architecture: package
 description: Phase-2/3 OAuth/OIDC flow organ, upgraded (v2) with the Aaron Parecki lineage — a check catalog (redirect_uri exact-match matrix at BOTH endpoints, state presence/validation/binding, PKCE downgrade, code reuse, token audience, implicit flow) where every check is a pre-registered hypothesis with its own falsifier, run as differentials against operator-owned IdP test apps, with severity vocabulary mapped to the RFC 9700 BCP. Use when the operator asks to audit an OAuth flow, test redirect_uri validation, check state/PKCE handling, probe code or token reuse, or review an OIDC client configuration ("tes oauth", "redirect_uri", "PKCE", "state missing", "code reuse", "token audience", "OIDC audit", "oauth 2.1", "mix-up").
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned OAuth test app pair
 ---
 
-# oauth-flow-auditor v2.0.0 — Flows Are State Machines; Test The Transitions
+# oauth-flow-auditor v2.1.0 — Flows Are State Machines; Test The Transitions
 
 ## 0. What This Skill Is — and Is Not
 
@@ -63,6 +63,34 @@ catalog (§4) and detailed in `references/flow-craft.md`:
    second one for cross-app confusion checks.
 3. The flow transcript: each step of ONE happy-path run, ledgered as FACT
    records, BEFORE any check runs — the baseline state machine.
+
+## 3.5 First Principles — the WWH registers (A14)
+
+* **WHAT** — delegation-protocol defects: OAuth 2.0 grants
+  (authorization code, implicit's ghosts, client credentials,
+  device flows), OIDC layers (ID-token claims, nonce, session), and
+  the implementation's checks (redirect-URI validation, state,
+  PKCE, token storage and audience).
+* **WHY** — the protocol DISTRIBUTES trust across parties: the
+  authorization server, the client, the resource owner, and every
+  value passed between them (codes, tokens, redirects, claims). Each
+  grant type chooses where secrets live; each implementation chooses
+  which spec options to enforce — the spec's flexibility is exactly
+  where implementations diverge, and a skipped check (state, exact
+  redirect match, audience binding) becomes a trust that crosses a
+  party that never earned it. That is the root cause of every check
+  in the catalog.
+* **HOW** — flows are state machines: enumerate the states (browsers,
+  user, AS, client) and the transitions (redirects, token posts,
+  redemptions), then test each TRANSITION against its spec check —
+  every check carries its falsifier: the probe that would FAIL it. An
+  audit where no check can fail is theater (the organ's own law).
+
+War note (A15): the cheng sweep is the 12-check catalog against the
+observed flows; the ch'i is the transition the implementation added
+that the spec never named (custom parameters crossing redirect
+boundaries). W4 pairs them; W6 governs the report — the triage desk
+reads state machines, not essays.
 
 ## 4. Procedure — Numbered Actions
 

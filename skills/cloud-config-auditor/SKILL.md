@@ -1,6 +1,6 @@
 ---
 name: cloud-config-auditor
-version: 2.0.0
+version: 2.1.0
 type: ai-skill
 architecture: package
 description: Phase-1/3 cloud-and-config organ, upgraded (v2) with the Toni de la Fuente (Prowler) lineage — CORS origin-differential matrix, anonymous-access checks on object storage (bounded to one listing page), dangling-DNS takeover verification, and header/hygiene facts, plus checks-as-code discipline: stable check IDs with versions, CIS benchmark citation for severity words, drift re-verification in the engagement window, and posture families over magic scores. Use when the operator asks to audit CORS, check S3/GCS bucket anonymous access, verify a subdomain takeover candidate, or review security headers and TLS hygiene ("tes CORS", "bucket anonymous", "S3 misconfig", "takeover check", "security headers", "origin differential", "CIS", "posture", "check version").
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# cloud-config-auditor v2.0.0 — Misconfiguration Is A Differential Too
+# cloud-config-auditor v2.1.0 — Misconfiguration Is A Differential Too
 
 ## 0. What This Skill Is — and Is Not
 
@@ -54,6 +54,40 @@ five field rules, applied inside the procedure (§3) and detailed in
 5. **Matrix tables over magic scores.** An aggregated grade that cannot
    be unpacked back into its records is exactly the hallucination-shaped
    output this repo exists to prevent.
+
+## 2.5 First Principles — the WWH registers (A14)
+
+* **WHAT** — a posture class: CORS allow-shapes, anonymous object
+  storage, dangling DNS delegations, absent security headers, cookie
+  attribute shapes. Unified not by exploit syntax but by locus: the
+  CONFIGURATION is the attack surface — nothing is injected, the
+  shipped state itself is the bug. The families are shared across
+  providers; the fingerprints (exact header shapes, provider markers)
+  are local and date-pinned.
+* **WHY** — every misconfiguration is a frozen decision meeting a
+  changed world: the CORS allow written for one origin after the
+  surface grew five; the bucket ACL set public before the data became
+  sensitive; the DNS record pointing at a service that was later
+  deleted. The root cause is that configuration is decided once, at
+  setup, with the adversary model of that day — and nothing in the
+  cloud re-derives it as topology drifts. That is why this class
+  compounds with company age and why re-verification inside the
+  engagement window (v2 rule 3) is not paranoia.
+* **HOW** — each check is a stable-ID rule run as a differential, not
+  a verdict from memory: the CORS origin triad (no-origin baseline,
+  evil-origin treatment, subdomain control), the anonymous/garbage-
+  token storage pair, the CNAME-chain + provider-marker double fact.
+  Severity words cite benchmark paragraphs; verdicts carry timestamps
+  and re-verify before the report; matrices ship, aggregates do not.
+
+War note (A15): this organ IS W3 — misconfiguration is neglect made
+visible, so the queue ranks by neglect signals (age, drift, forgotten
+edges) over surface fame. The cheng sweep is the check catalog
+(CCA-*, CIS families) against the inventoried surfaces; the ch'i is
+the dangling edge — the takeover pair or takeover-shaped DNS relic
+left behind by an infrastructure migration nobody re-audited. W2:
+the bounded proof reads ONE page of keys and stops; a full bucket
+dump is looting, not evidence.
 
 ## 3. Procedure — Numbered Actions
 

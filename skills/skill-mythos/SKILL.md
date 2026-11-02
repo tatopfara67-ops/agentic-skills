@@ -1,9 +1,9 @@
 ---
 name: skill-mythos
-version: 1.5.0
+version: 1.6.0
 type: ai-skill
 architecture: package
-description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the thirteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, and A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
+description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the fifteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order, A14 the three registers — every organ states its expertise as WHAT/WHY/HOW, and A15 war logic — the Sun Tzu crosswalk that shapes every campaign), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison) and the tier-3 attack organs (injection-lab, ssrf-playbook, xss-playbook, cloud-config-auditor, mobile-hunter with the Charlie Miller lineage, cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook with the Gareth Heyes lineage), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, when planning the campaign's strategy (war logic), or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
 category: security/governance
 license: MIT
 metadata:
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.5.0 — The Master Charter
+# skill-mythos v1.6.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -25,7 +25,7 @@ metadata:
 * **Is not**: a hunting technique. It performs zero probes. The organs do
   the work; the charter defines the frame they work inside.
 
-## 1. The Charter — Thirteen Articles
+## 1. The Charter — Fifteen Articles
 
 1. **Identity.** Skill Mythos is an extreme-expertise bundle for
    pentest, bug bounty, and security research — not general-purpose
@@ -74,6 +74,23 @@ metadata:
     the bare words; the original request rides along verbatim into the
     plan note. A quota order is an effort budget, never a severity
     mandate — escalation never relaxes discipline.
+14. **Three registers (what/why/how).** Every organ's expertise is
+    stated in three registers: WHAT the class of thing is (anatomy,
+    precise definitions), WHY it exists (the root cause — the
+    mechanical reason the bug lives where it lives), and HOW it is
+    hunted (numbered procedure with oracles and falsifiers). A
+    technique missing any register is not shipped knowledge; the
+    registers are the difference between a checklist and expertise.
+15. **War logic.** The bundle fights under the Art of War crosswalk:
+    spies before armies (passive before active), supreme excellence
+    wins without fighting (the differential triad proves — damage is
+    not evidence), avoid strength and strike weakness (seam density
+    over target size), cheng and ch'i (every plan pairs the orthodox
+    sweep with the unorthodox bet), shih accumulation (the ledger is
+    stored position), and the sovereign sets intent while the general
+    commands (A13 orders are campaigns, not errands). The seven
+    operational rules W1–W7 ride in every forged order; the full
+    mapping lives in references/war-doctrine.md (the war contract).
 
 ## 2. The Bundle at a Glance
 
@@ -94,6 +111,9 @@ metadata:
 | 3 | ssrf-playbook | canary-callback channel proofs, bounded egress |
 | 3 | xss-playbook | sink contexts, marker proofs, CSP as fact |
 | 3 | cloud-config-auditor | CORS matrix, anonymous storage (bounded), takeovers |
+| 3 | mobile-hunter | the Charlie Miller lineage (with Collin Mulliner): the mobile teardown discipline — the shipped binary is a confession, store review is a hypothesis, findings land at the API boundary |
+| 3 | cache-playbook | the Omer Gil + Kettle-cache lineage: the second silent parser — origin/cache disagreement becomes stored secrets (deception) or stored payloads (poisoning), proved on nonce paths and operator-as-victim |
+| 3 | prototype-playbook | the Gareth Heyes lineage: the object world is trust-bearing state — pollution, clobbering, and postMessage confusion hunted source → gadget → sink, server-side detection without the DoS |
 | 4 incident | adversary-tracker | the Shimomura Binary Brain — event-triggered hunts on assets you defend |
 | 5 craft | scan-economist | the Fyodor lineage: scan economy — cost hierarchy, technique triangle, states as inferences, priors over exhaustiveness, adaptive pacing |
 | 5 | module-smith | the HD Moore lineage: hypotheses as rankable reusable modules; access and impact proofs separate; exposure as measurement |
@@ -142,13 +162,16 @@ artifact.
    OODA-hygiene loop (observation note before the next thought, one
    pre-registered hypothesis per step), D1–D7 decision rules, and the
    organ's execution anchor. Selection picks the tool; execution is
-   how the tool runs.
+   how the tool runs. The campaign's shape obeys the war logic W1–W7
+   (A15): spies before armies, cheng paired with ch'i, shih stored in
+   the ledger.
 
 The full decision procedure, including the state variables and the
 combination rules, is in references/autonomy-protocol.md — the
 routing contract. Execution — how a selected organ behaves, decides,
 and stops — lives in references/autonomous-operation.md (the
-execution contract)
+execution contract); strategy — how the whole campaign is shaped —
+lives in references/war-doctrine.md (the war contract).
 
 ## 4. Quality Gates — the Mythos Standard
 
@@ -207,6 +230,7 @@ references/activation.md — the install runbook.
 | Mapping the full bundle, organ load-when triggers | references/bundle-map.md |
 | Selecting/combining organs autonomously | references/autonomy-protocol.md |
 | Running as a selected organ — behavior, decision, stop rules | references/autonomous-operation.md |
+| Shaping the campaign — the Art of War crosswalk, W1–W7, per-organ ch'i | references/war-doctrine.md |
 | Expanding an operator request / extending the intent grammar | references/doctrine-forge.md |
 | Writing or auditing a finding block | references/quality-gates.md |
 | Classifying against Bugcrowd VRT / HackerOne | references/vrt-mapping.md |

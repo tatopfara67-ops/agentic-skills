@@ -103,7 +103,49 @@ stop. Context exhaustion is a pause, not a stop — the MISSION block
 survives in engagement state and `continue_pending` resumes toward
 the unmet quota.
 
-## 6. Why this exists (the operator's brief, on record)
+## 6. The three registers (charter A14 — what every organ states)
+
+Since v1.6.0 the charter binds every organ's expertise to the WWH
+registers, and the forge's phase plans inherit the duty:
+
+* **WHAT** — the class of thing, anatomized: precise definitions and
+  the surface inventory, not vibes. An organ that cannot say what the
+  thing IS cannot claim to hunt it.
+* **WHY** — the root cause, mechanically: the reason the bug lives
+  where it lives (why the parser disagrees, why the merge trusts the
+  key, why the cache misclassifies). The WHY is what transfers to a
+  target the catalog never listed — it is the difference between
+  replaying a technique and reasoning with a cause.
+* **HOW** — the procedure, numbered, with oracles and falsifiers:
+  which request answers which question, what result falsifies the
+  hypothesis, and in what order the steps run. A step without its
+  oracle is a hope, not a step.
+
+The forge checks the registers by construction: a phase-plan step that
+cannot name its observable, its cause-hypothesis, and its order
+position is rewritten until it can. New organs are born
+register-complete (mobile-hunter, cache-playbook, prototype-playbook
+carry WHAT/WHY/HOW sections from v1.0.0); existing organs adopt the
+registers on their next content revision, and the tier-3 attack organs
+(injection-lab, ssrf-playbook, xss-playbook) already demonstrate the
+pattern.
+
+## 7. War logic on every order (charter A15)
+
+Since v1.6.0 every forged order's prompt tail carries the WAR LOGIC
+block (the `war_logic` field) — the seven rules W1–W7 distilled from
+the Art of War crosswalk (references/war-doctrine.md): spies before
+armies, win without fighting, avoid strength and strike weakness,
+cheng paired with ch'i, shih stored in the ledger, the sovereign sets
+intent while the general commands, and no nation profits from a
+prolonged war. The forged campaign is a campaign: it names its fronts
+(the surfaces), its sequencing (the phases), its supply lines (R7
+budgets), and its unorthodox bet (the plan note's ch'i line). A
+request that would produce a patrol — one technique, one surface, no
+bet — is forged into a campaign instead; that is what A13 plus A15
+buy together.
+
+## 8. Why this exists (the operator's brief, on record)
 
 The operator asked that even a sleepy one-line instruction —
 "please continue the pending bug bounty work" — be enough for the

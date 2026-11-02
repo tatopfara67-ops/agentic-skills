@@ -208,6 +208,28 @@ class TestForgedOrderContent(unittest.TestCase):
             self.assertIn("OODA-hygiene", prompt)
             self.assertIn("autonomous-operation.md", prompt)
 
+    def test_forged_order_carries_war_logic(self):
+        for request in ("dapatkan minimal 3 bug high-medium",
+                        "map the target surface",
+                        "tolong lanjutkan pekerjaan bug bounty yang tertunda"):
+            forged = _mythos.doctrine_forge(request)
+            war = forged.get("war_logic")
+            self.assertTrue(war, request)
+            joined = " ".join(war)
+            self.assertIn("spies before armies", joined)
+            self.assertIn("win without fighting", joined)
+            self.assertIn("strike weakness", joined)
+            self.assertIn("cheng and ch'i", joined)
+            self.assertIn("shih", joined)
+            self.assertIn("prolonged war", joined)
+            prompt = forged["doctrine_prompt"]
+            self.assertIn("WAR LOGIC", prompt)
+            self.assertIn("spies before armies", prompt)
+            self.assertIn("war-doctrine.md", prompt)
+            # every W rule is numbered and present
+            for rule in ("W1", "W2", "W3", "W4", "W5", "W6", "W7"):
+                self.assertIn("%s " % rule, joined)
+
 
 class TestDeterminism(unittest.TestCase):
     REQUESTS = [

@@ -8,7 +8,7 @@ Bugcrowd VRT category with P-rating, HackerOne severity crosswalk) — and an
 operator instruction, however terse, becomes an explicit doctrine order
 before any organ acts.
 
-  mythos_charter()      the activation payload: thirteen articles, the
+  mythos_charter()      the activation payload: fifteen articles, the
                         bundle map with install status, the quality gates
   doctrine_forge(...)   prompt escalation (A13): any operator request,
                         in any language, expanded deterministically into
@@ -36,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.5.0"
+MODULE_VERSION = "1.6.0"
 
 SPINE = "mythos-bug-hunter"
 
@@ -48,7 +48,8 @@ TIERS = {
     "2-access-logic": ["auth-boundary-mapper", "oauth-flow-auditor",
                        "business-logic-hunter"],
     "3-deep-technical": ["injection-lab", "ssrf-playbook", "xss-playbook",
-                         "cloud-config-auditor"],
+                         "cloud-config-auditor", "mobile-hunter",
+                         "cache-playbook", "prototype-playbook"],
     "4-incident": ["adversary-tracker"],
     "5-craft": ["scan-economist", "module-smith", "pipeline-smith",
                 "feedback-fuzzer", "template-scanner",
@@ -430,6 +431,85 @@ LINEAGES = [
                    "checks-as-code.md",
         "correction": None,
     },
+    {
+        "organ": "mobile-hunter",
+        "figure": "Charlie Miller (with Collin Mulliner on the 2009 "
+                  "iPhone SMS compromise)",
+        "distillation": "the mobile teardown discipline: the shipped "
+                        "binary is a confession (manifest, strings, "
+                        "bundled secrets, ghost endpoints read before "
+                        "the device is ever touched); store review and "
+                        "code-signing are hypotheses about attacker "
+                        "effort, not walls; and the app is a client to "
+                        "the same web API the program already pays "
+                        "for — mobile findings land at the API boundary",
+        "sources": "Wikipedia 'Charlie Miller (security researcher)' "
+                   "(Pwn2Own 2008 MacBook Air and 2009 Safari wins, "
+                   "five years at the NSA, the 2011 Instastock "
+                   "code-signing demonstration that got him expelled "
+                   "from the App Store, the 2015 remote Jeep exploit "
+                   "with Chris Valasek, and the 2009 SMS compromise "
+                   "of the iPhone demonstrated with Collin Mulliner); "
+                   "iOS Hacker's Handbook (Miller, Dai Zovi, Portnoy, "
+                   "Weinstein — Wiley, 2012); skills/mobile-hunter/"
+                   "references/sources.md",
+        "correction": None,
+    },
+    {
+        "organ": "cache-playbook",
+        "figure": "Omer Gil (web cache deception, Black Hat USA 2017) "
+                  "with James Kettle's cache-poisoning corpus (Black "
+                  "Hat USA 2018; Web Cache Entanglements, 2020)",
+        "distillation": "the cache is a second, silent parser: it "
+                        "decides what to store and whom to serve by "
+                        "its own key rules, and every disagreement "
+                        "between origin and cache — path confusion, "
+                        "unkeyed inputs, cache-key versus display-key "
+                        "gaps — becomes either stored secrets "
+                        "(deception) or stored payloads (poisoning)",
+        "sources": "Omer Gil, 'Web Cache Deception Attack' (Black Hat "
+                   "USA 2017 whitepaper, blackhat.com/docs); James "
+                   "Kettle, 'Practical Web Cache Poisoning: Redefining "
+                   "\"Unexploitable\"' (Black Hat USA 2018) and 'Web "
+                   "Cache Entanglements' (portswigger.net/research, "
+                   "2020); Mirheidari, Arshad, Onarlioglu, Crispo, "
+                   "Kirda, Robertson, 'Cached and Confused: Web Cache "
+                   "Deception in the Wild' (USENIX Security 2020); "
+                   "skills/cache-playbook/references/sources.md",
+        "correction": "James Kettle anchors desync-hunter; this entry "
+                      "cites his cache-poisoning corpus specifically — "
+                      "different works, different organ, kept distinct "
+                      "on record.",
+    },
+    {
+        "organ": "prototype-playbook",
+        "figure": "Gareth Heyes (PortSwigger Research)",
+        "distillation": "the object world is trust-bearing state: "
+                        "prototypes hand every object inherited "
+                        "defaults an attacker can overwrite (pollution "
+                        "to a gadget, then a sink), the DOM binds "
+                        "named elements into global scope (clobbering), "
+                        "and windows trust message origins — hunt "
+                        "source, gadget, sink in that order, and detect "
+                        "server-side pollution without the DoS",
+        "sources": "Gareth Heyes, 'Server-side prototype pollution: "
+                   "Black-box detection without the DoS' "
+                   "(portswigger.net/research, Feb 2023; presented at "
+                   "NullCon Berlin 2023 and OWASP Global AppSec Dublin "
+                   "2023); 'Widespread prototype pollution gadgets' "
+                   "(PortSwigger Research); DOM Invader, the Burp "
+                   "browser extension that finds XSS, prototype "
+                   "pollution, and postMessage issues (his); the "
+                   "research wave: 'DOM Clobbering strikes back' "
+                   "(PortSwigger Research, Feb 2020); PortSwigger Web "
+                   "Security Academy prototype-pollution module; skills/"
+                   "prototype-playbook/references/sources.md",
+        "correction": "'DOM Clobbering strikes back' is cited as "
+                      "PortSwigger Research without an individual "
+                      "author attribution — the organ's figure entry "
+                      "rests on Heyes' verified prototype-pollution "
+                      "and DOM Invader record only.",
+    },
 ]
 
 ARTICLES = [
@@ -470,6 +550,21 @@ ARTICLES = [
     "doctrine order (persona mix, phase plan, tools, gates) before any "
     "organ acts; the agent executes the expanded order, never the bare "
     "words — deterministic, and the original request rides along verbatim.",
+    "A14 three registers (what/why/how) — every organ's expertise is "
+    "stated in three registers: WHAT the class of thing is (anatomy, "
+    "precise definitions), WHY it exists (the root cause, the "
+    "mechanical reason the bug lives where it lives), and HOW it is "
+    "hunted (numbered procedure with oracles and falsifiers); a "
+    "technique missing any register is not shipped knowledge.",
+    "A15 war logic — the bundle fights under the Art of War crosswalk: "
+    "spies before armies (passive before active), supreme excellence "
+    "wins without fighting (the differential triad proves, damage is "
+    "not evidence), avoid strength and strike weakness (seam density "
+    "over target size), cheng and ch'i (every plan pairs the orthodox "
+    "sweep with the unorthodox bet), shih accumulation (the ledger is "
+    "stored position), and the sovereign sets intent while the general "
+    "commands (A13 orders are campaigns, not errands); full mapping in "
+    "references/war-doctrine.md (W1-W7).",
 ]
 
 QUALITY_GATES = [
@@ -505,6 +600,40 @@ EXECUTION_DOCTRINE = [
     "(D1-D7, behavior contracts, per-organ execution anchors).",
 ]
 
+# The war-logic layer (charter A15): the Sun Tzu crosswalk, distilled
+# into the seven operational rules every forged order carries. The full
+# concept-by-concept mapping lives in references/war-doctrine.md; these
+# are the clauses the agent re-reads in every doctrine prompt.
+WAR_DOCTRINE = [
+    "W1 spies before armies: no active byte leaves the machine before "
+    "the passive record exists (CT logs, archives, shipped code, store "
+    "listings); the ghost-crawler posture is the default march.",
+    "W2 win without fighting: the differential triad proves and the "
+    "canary demonstrates — damage is not evidence, and a destroyed "
+    "target ends the campaign for everyone.",
+    "W3 avoid strength, strike weakness: the priority queue ranks by "
+    "seam density and neglect, never by target size or fame; the "
+    "well-guarded front is recorded and bypassed, not stormed.",
+    "W4 cheng and ch'i: every engagement plan names its orthodox sweep "
+    "(known classes, calibrated oracles) AND its unorthodox bet (the "
+    "white-space move nobody submitted before); a plan without a ch'i "
+    "is a patrol, not a campaign.",
+    "W5 shih before battle: the ledger is stored position — every "
+    "proven primitive is a captured hill; chains (chain-architect) "
+    "convert accumulated low-severity links into decisive impact, and "
+    "no proven primitive is ever discarded unrecorded.",
+    "W6 the sovereign sets intent, the general commands: doctrine "
+    "orders (A13) are campaigns with fronts, sequencing, and supply "
+    "lines (R7 budgets); the general executes autonomously and never "
+    "re-asks mid-march what the order already answers.",
+    "W7 no nation ever profited from a prolonged war: quotas bound the "
+    "campaign; before a quota is met it ends only by exhaustion proof "
+    "or operator release, and context exhaustion is a pause, not a "
+    "surrender (mission horizon, researcher-conduct 34.8).",
+    "Full doctrine: skill-mythos references/war-doctrine.md (the Art of "
+    "War crosswalk, W1-W7 in depth, per-organ war notes, sources).",
+]
+
 REPORTING_TOOLS = {
     "cvss3_score": "spec-exact CVSS v3.1 base score from a vector",
     "vrt_classify": "finding-class -> Bugcrowd VRT + P-rating + H1 "
@@ -527,7 +656,7 @@ def _installed_skills() -> list[str]:
 def mythos_charter() -> dict:
     """The Skill Mythos activation payload, in one call.
 
-    Returns the thirteen charter articles, the bundle map with per-skill
+    Returns the fifteen charter articles, the bundle map with per-skill
     install status, the quality gates every report must pass, and the
     reporting-stage tool routing. Call this at session start (or whenever
     the operator says 'activate Skill Mythos') before list_skills."""
@@ -556,6 +685,8 @@ def mythos_charter() -> dict:
         "lineage_registry_tool": "mythos_lineages",
         "execution_doctrine":
             "skills/skill-mythos/references/autonomous-operation.md",
+        "war_doctrine":
+            "skills/skill-mythos/references/war-doctrine.md",
         "charter_reference": "skills/skill-mythos/SKILL.md",
     }
 
@@ -1125,12 +1256,15 @@ def doctrine_forge(request: str, context: str = "") -> dict:
     forged["doctrine_prompt"] += (
         "\n\nEXECUTION DOCTRINE (skill-mythos "
         "references/autonomous-operation.md):\n"
-        + "\n".join("- " + clause for clause in EXECUTION_DOCTRINE))
+        + "\n".join("- " + clause for clause in EXECUTION_DOCTRINE)
+        + "\n\nWAR LOGIC (skill-mythos references/war-doctrine.md):\n"
+        + "\n".join("- " + clause for clause in WAR_DOCTRINE))
     forged.update({
         "operator_request": request,
         "context": context,
         "gates": QUALITY_GATES,
         "execution_doctrine": EXECUTION_DOCTRINE,
+        "war_logic": WAR_DOCTRINE,
         "escalation_rule":
             "execute the expanded order, not the bare words; the original "
             "request rides along verbatim and lands in the plan note",

@@ -1,6 +1,6 @@
 ---
 name: ssrf-playbook
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: Phase-3 SSRF organ — canary-callback channel-existence proofs on an operator-owned interaction host, egress mapping by scheme, redirect-chain tracing, and metadata-endpoint checks only inside explicitly authorized cloud scope, all as differentials. Use when the operator asks to test SSRF, check a URL-fetch parameter, map egress from a target, trace redirect-based SSRF, or probe cloud metadata reachability ("tes SSRF", "url fetch", "internal request", "egress mapping", "metadata endpoint", "redirect to internal").
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned interaction/callback host
 ---
 
-# ssrf-playbook v1.0.0 — Prove The Channel, Not The Gossip
+# ssrf-playbook v1.1.0 — Prove The Channel, Not The Gossip
 
 ## 0. What This Skill Is — and Is Not
 
@@ -29,6 +29,32 @@ grammar, experiment contract, closure vocabulary, and the canary doctrine
 (§8): the channel-existence proof uses ONLY a marker we own —
 `MYTHOS-CANARY-<uuid>` — on an interaction host the operator controls.
 No third-party URL is ever the test payload.
+
+## 1.5 First Principles — the WWH registers (A14)
+
+* **WHAT** — the server is made to fetch attacker-chosen resources:
+  full SSRF (response visible), blind SSRF (only side effects),
+  semi-blind (status/timing hints), plus the egress classes (cloud
+  metadata, internal services, file:// and gopher:// style schemes
+  where the fetcher honors them).
+* **WHY** — the server's network position is the asset: perimeter
+  firewalls trust the server's own requests, internal services grew
+  up unauthenticated behind them, and the URL parser/redirect chain
+  differs at every hop — a fetch the FRONTEND validates can be
+  re-aimed by the backend parser after a redirect, a DNS rebinding,
+  or a parser's odd scheme. Trust in position plus disagreement
+  between parsers is the root cause.
+* **HOW** — the channel is the proof: a canary callback to a
+  self-owned interaction host, one hit, then stop. Response-body
+  claims are leads until the channel (or a bounded, self-owned
+  retrieval) confirms; egress is mapped by canary, never by
+  collateral fetching of real internal services.
+
+War note (A15): the cheng sweep is the scheme/parameter catalog
+against known fetch surfaces; the ch'i is the redirect/rebind path
+the target's own parser chain permits that nobody documented. W2
+rides the channel law: one canary hit then stop — the internal
+network is mapped by inference from one hit, never by storming it.
 
 ## 2. Procedure — Numbered Actions
 

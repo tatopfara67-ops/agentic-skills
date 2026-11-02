@@ -82,6 +82,25 @@ when a validator keeps refusing, vary the dimension, not the volume
 (D7). Every refuted hypothesis leaves a one-line lesson, re-read
 before the next hypothesis on the same surface class.
 
+## War logic (how the whole campaign is shaped)
+
+Execution disciplines a step; WAR LOGIC disciplines the campaign
+(skill-mythos references/war-doctrine.md, charter A15 — the Art of War
+crosswalk, carried as the `war_logic` field on every forged order):
+W1 spies before armies — the passive record exists before any active
+byte; W2 win without fighting — the differential triad proves and the
+canary demonstrates, damage is not evidence; W3 avoid strength, strike
+weakness — the queue ranks by seam density and neglect, never target
+fame; W4 cheng and ch'i — every engagement plan names its orthodox
+sweep AND its unorthodox bet (a plan without a ch'i is a patrol, not a
+campaign); W5 shih — every CONFIRMED primitive is captured ground,
+chain it, never discard it unrecorded; W6 the sovereign sets intent,
+the general commands — the forged order is executed autonomously,
+never re-asked mid-march; W7 no nation profits from a prolonged war —
+quota, exhaustion proof, or operator release, and context exhaustion
+is a pause. The plan note carries the campaign's cheng/ch'i pair; the
+ledger carries its shih.
+
 ## Incident branch (event-triggered, any phase)
 
 When a sensor or the operator reports adversary activity on assets this

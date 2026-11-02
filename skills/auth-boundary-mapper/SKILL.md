@@ -1,6 +1,6 @@
 ---
 name: auth-boundary-mapper
-version: 2.0.0
+version: 2.1.0
 type: ai-skill
 architecture: package
 description: Phase-2/3 access-control organ, upgraded (v2) with the Frans Rosen lineage — builds the role-by-resource authorization matrix from evidence, then runs systematic IDOR/BOLA differentials (baseline own-object, treatment cross-object, control nonexistent-object) with two operator-provided test accounts; v2 adds the IDOR field-guide layer — identifier-construction analysis before any swap, swap testing across ALL parameter positions, 2nd-order IDOR sweeps, full response-body diffing, cloud multi-tenant boundary emphasis, and non-obvious verb coverage (PATCH, bulk, export tokens). Use when the operator asks to test IDOR or BOLA, map who can access what, probe horizontal/vertical privilege boundaries, audit access control on an API, or audit cloud multi-tenant isolation ("tes IDOR", "BOLA", "akses kontrol", "privilege boundary", "role matrix", "broken access control", "2nd-order IDOR", "tenant isolation").
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; two operator-owned test accounts
 ---
 
-# auth-boundary-mapper v2.0.0 — The Matrix Before The Hunt
+# auth-boundary-mapper v2.1.0 — The Matrix Before The Hunt
 
 ## 0. What This Skill Is — and Is Not
 
@@ -74,6 +74,32 @@ in `references/idor-field-guide.md` §5.
 4. Sessions/tokens for both accounts are recorded as FACT records (kind,
    transport: cookie/header/both) — session semantics ARE the boundary
    under study.
+
+## 3.5 First Principles — the WWH registers (A14)
+
+* **WHAT** — broken object-level and function-level authorization:
+  IDOR/BOLA (another tenant's object readable/writable), privilege
+  escalation (a role reaching another role's function), and the
+  matrix that renders them visible — roles × resources × actions,
+  filled by probes, not by documentation.
+* **WHY** — authorization is enforced per route in application code,
+  and no framework encodes it: the same identifier that NAMES an
+  object addresses it, so every endpoint that skips the ownership
+  check trusts the client's addressing — that is the root cause.
+  The Rosen layer adds the amplifier: identifiers are CONSTRUCTED
+  (sequential, UUIDs-leaking-patterns, multi-tenant slices), so the
+  attacker does not need a leak to guess a neighbor's object.
+* **HOW** — the matrix first: two roles minimum, own-objects as
+  404/200 baselines, then the differential — same request, swapped
+  identifier, FULL response diff (not status codes alone: body,
+  headers, timing). Second-order paths and tenant slices follow the
+  same law; every cell cites its records.
+
+War note (A15): the cheng sweep is the matrix across inventoried
+routes; the ch'i is identifier construction — the pattern nobody
+swept because the UUIDs looked unguessable. W3 is why this organ
+exists: old versions and forgotten mobile-era routes are the
+neglected seam the queue must rank first.
 
 ## 4. Procedure — Numbered Actions
 

@@ -43,6 +43,9 @@ closure gates, R7 budgets) instead of restating them. The charter
 | ssrf-playbook | 3 | a server can be made to fetch | *the channel is the proof* — one canary callback, then stop |
 | xss-playbook | 3 | untrusted strings can reach a sink | *context is the vulnerability* — the sink decides the payload, CSP is a recorded fact |
 | cloud-config-auditor | 1/3 | object storage, CORS, or DNS edge assets exist | *the perimeter is a configuration file* — anonymous reads and dangling delegations |
+| mobile-hunter | 3 | the target ships an Android/iOS app in scope, or an APK/IPA is in hand | *the binary is a confession* — manifest, strings, and bundled secrets read before the device is touched; store review is a hypothesis; findings land at the API boundary (Charlie Miller lineage, with Collin Mulliner) |
+| cache-playbook | 3 | a CDN or caching proxy sits in front of the target (X-Cache/Age headers appear) | *the second silent parser* — origin/cache disagreement becomes stored secrets (deception) or stored payloads (poisoning); proofs run operator-as-victim and on nonce paths (Omer Gil + Kettle cache corpus) |
+| prototype-playbook | 3 | JavaScript object-model surface exists: JSON merges, third-party JS libraries, postMessage listeners | *the object world is trust-bearing state* — pollution, clobbering, and message confusion hunted source → gadget → sink, server-side detection without the DoS (Gareth Heyes lineage) |
 | adversary-tracker | 4 | event-triggered: a sensor or the operator reports adversary activity on assets you are authorized to defend | *the Binary Brain* — freeze, halve by bits, two-channel fix, hand off (Shimomura lineage) |
 | scan-economist | 5 | any active sweep is planned — hosts, ports, or timing must be chosen | *scan economy* — liveness before depth, priors over exhaustive sweeps (Fyodor lineage) |
 | module-smith | 5 | a hypothesis or finding will be reused across surfaces | *exploitation as composition* — rankable modules, access and impact proofs separate (HD Moore lineage) |
@@ -69,8 +72,12 @@ mirror-hunter, Tversky behind trust-graph-hunter, Chomsky behind
 signal-smith, Ashby behind pipeline-smith, Popper behind
 template-scanner, Snowden behind adversary-tracker, Ericsson behind
 the proving ground, Kauffman behind doctrine-forge, Metzinger behind
-glm-self-model. `doctrine_forge` carries the doctrine's summary on
-every forged order, so the contract rides with the work.
+glm-self-model. And the campaign those organs fight is SHAPED by the
+war logic (references/war-doctrine.md, A15): spies before armies,
+win without fighting, avoid strength and strike weakness, cheng
+paired with ch'i, shih stored in the ledger. `doctrine_forge` carries
+both summaries on every forged order, so the contracts ride with the
+work.
 
 ## 3. The execution hand — arsenal tool groups
 

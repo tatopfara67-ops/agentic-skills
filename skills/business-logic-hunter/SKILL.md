@@ -1,6 +1,6 @@
 ---
 name: business-logic-hunter
-version: 2.0.0
+version: 2.1.0
 type: ai-skill
 architecture: package
 description: Phase-2/3 business-logic organ, upgraded (v2) with the Soroush Dalili lineage — workflow-sequence abuse (skip/replay/reorder), race conditions with the spine's stochastic reproduction floors, limit/price/coupon arithmetic testing, plus bypass craft: HTTP-reshaping grammar against business guards, parser differentials at guard/executor seams, intended-behavior inversion, and comparison functions as testable units, all hypothesis-first with self-owned test accounts. Use when the operator asks to test business logic, abuse workflows, race two requests, probe negative quantities or price arithmetic, hunt coupon/voucher reuse, or reshape around a blocked admin path ("logika bisnis", "race condition", "negative quantity", "price manipulation", "coupon abuse", "workflow bypass", "integer overflow", "bypass", "filter bypass", "parser differential").
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned test accounts and self-owned orders
 ---
 
-# business-logic-hunter v2.0.0 — The App's Rules, Tested As Rules
+# business-logic-hunter v2.1.0 — The App's Rules, Tested As Rules
 
 ## 0. What This Skill Is — and Is Not
 
@@ -54,6 +54,33 @@ and detailed in `references/bypass-craft.md`:
    runtime pinned as a FACT.
 5. **Two variants per seam, then park.** The grammar is combinatorial;
    sweeping it is request-budget slop that buries the ledger.
+
+## 2.5 First Principles — the WWH registers (A14)
+
+* **WHAT** — business-rule violations: workflow abuse (steps
+  skipped, reordered, repeated), economic manipulation (price,
+  quantity, discount, currency), state-machine breaks (use-after-
+  cancel, resurrection of consumed resources), and races — the same
+  rule broken by timing instead of order.
+* **WHY** — business rules live ONLY in application code: no
+  framework, no sanitizer library, and no type system encodes "one
+  discount per customer" or "a cancelled order cannot ship". The
+  rules are also INVISIBLE to any single request — they exist
+  across sequences — so per-request testing cannot see them, and
+  multi-step flows hand the attacker the state transitions to
+  reorder. That structural blindness is the root cause.
+* **HOW** — model the intended workflow first (states, transitions,
+  invariants), then attack the model: replay steps out of order,
+  repeat completed steps, mutate mid-sequence values, race the
+  time-window with rate floors honored — every deviation scored
+  against the invariant it breaks, never against surprise alone.
+  Surprise without a broken rule is a bug report, not a bounty.
+
+War note (A15): the cheng sweep is the abuse catalog against the
+inventoried flows; the ch'i is the invariant nobody wrote down
+because "the UI doesn't allow that". W3 strikes exactly there —
+the API's rules are the weakness the polished frontend guards; W5
+reminds that a 50-cent logic bug is a primitive worth chaining.
 
 ## 3. Procedure — Numbered Actions
 

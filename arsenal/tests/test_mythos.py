@@ -10,6 +10,7 @@ vrt validation, reproduction reference, incident-handoff exemption).
 """
 import importlib.util
 import os
+import re
 import sys
 import tempfile
 import unittest
@@ -102,12 +103,14 @@ class TestMythosCharter(unittest.TestCase):
     def setUp(self):
         self.charter = _mythos.mythos_charter()
 
-    def test_thirteen_articles(self):
-        self.assertEqual(len(self.charter["articles"]), 13)
+    def test_fifteen_articles(self):
+        self.assertEqual(len(self.charter["articles"]), 15)
         for article in self.charter["articles"]:
             self.assertRegex(article, r"^A\d+ ")
         self.assertIn("CVSS 3.1", "".join(self.charter["articles"]))
-        self.assertTrue(self.charter["articles"][-1].startswith("A13"))
+        self.assertTrue(self.charter["articles"][-1].startswith("A15"))
+        self.assertIn("three registers", self.charter["articles"][13])
+        self.assertIn("war logic", self.charter["articles"][14])
 
     def test_charter_carries_prompt_escalation(self):
         escalation = self.charter["prompt_escalation"]
@@ -116,9 +119,13 @@ class TestMythosCharter(unittest.TestCase):
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 28)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 31)
         self.assertEqual(tiers["0-engine"], {"glm-self-model": True})
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
+        self.assertEqual(sorted(tiers["3-deep-technical"]), [
+            "cache-playbook", "cloud-config-auditor", "injection-lab",
+            "mobile-hunter", "prototype-playbook", "ssrf-playbook",
+            "xss-playbook"])
         self.assertEqual(sorted(tiers["5-craft"]), [
             "feedback-fuzzer", "module-smith", "packet-orchestrator",
             "pipeline-smith", "scan-economist", "template-scanner"])
@@ -144,9 +151,9 @@ class TestMythosCharter(unittest.TestCase):
 
 
 class TestMythosLineages(unittest.TestCase):
-    def test_registry_lists_twentyone_lineages_all_installed(self):
+    def test_registry_lists_twentyfour_lineages_all_installed(self):
         registry = _mythos.mythos_lineages()
-        self.assertEqual(registry["count"], 21)
+        self.assertEqual(registry["count"], 24)
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         for organ in ("adversary-tracker", "scan-economist", "module-smith",
                       "pipeline-smith", "feedback-fuzzer",
@@ -157,7 +164,9 @@ class TestMythosLineages(unittest.TestCase):
                       "signal-smith", "trust-graph-hunter",
                       "subdomain-hunter", "xss-playbook",
                       "oauth-flow-auditor", "content-discovery",
-                      "business-logic-hunter", "cloud-config-auditor"):
+                      "business-logic-hunter", "cloud-config-auditor",
+                      "mobile-hunter", "cache-playbook",
+                      "prototype-playbook"):
             self.assertIn(organ, by_organ)
             self.assertTrue(by_organ[organ]["installed"], organ)
             for field in ("figure", "distillation", "sources"):
@@ -192,9 +201,10 @@ class TestMythosLineages(unittest.TestCase):
         self.assertIn("translation", corrections["trust-graph-hunter"])
 
     def test_second_wave_lineage_organs_are_v2(self):
-        """The six v2.0.0 organs carry the lineage in frontmatter, not
+        """The six v2 organs carry the lineage in frontmatter, not
         just in the registry — the SKILL.md metadata and the registry
-        entry must agree."""
+        entry must agree. Since the WWH re-edit (A14) the version is a
+        floor (2.x), not a pin: minor bumps are the house semver."""
         registry = _mythos.mythos_lineages()
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         skills_root = os.path.join(_TREE_ROOT, "skills")
@@ -204,7 +214,8 @@ class TestMythosLineages(unittest.TestCase):
             path = os.path.join(skills_root, organ, "SKILL.md")
             with open(path, encoding="utf-8") as fh:
                 text = fh.read()
-            self.assertIn("version: 2.0.0", text, organ)
+            m = re.search(r"^version: (2\.(\d+))\.(\d+)$", text, re.M)
+            self.assertIsNotNone(m, "%s: not a v2.x organ" % organ)
             self.assertIn("lineage:", text, organ)
             figure = by_organ[organ]["figure"]
             surname = figure.split("(")[0].split("—")[0].strip()

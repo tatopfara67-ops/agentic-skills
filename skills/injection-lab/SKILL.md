@@ -1,6 +1,6 @@
 ---
 name: injection-lab
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: Phase-3 injection organ — differential oracles only: every injection class (SQL/NoSQL/command/template/LDAP) tested as baseline vs treatment vs control with a stated falsifier; timing oracles honor repetition floors; sqlmap runs only as a differential oracle via governed routing. Use when the operator asks to test SQLi or NoSQLi, command or template injection, build a boolean/error/timing/out-of-band oracle, or run sqlmap within discipline ("tes SQLi", "injection", "blind boolean", "time-based", "template injection", "SSTI", "command injection", "differential oracle").
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# injection-lab v1.0.0 — Oracles, Not Payload Sprays
+# injection-lab v1.1.0 — Oracles, Not Payload Sprays
 
 ## 0. What This Skill Is — and Is Not
 
@@ -42,6 +42,32 @@ per-injection-class grammar — is in `references/oracles.md`. Summary:
 | Error signature | specific error family appears only for the injected syntax | malformed-but-non-injected input produces generic errors |
 | Timing | delay correlates with injected arithmetic | equivalent non-injected delay absent; clock-skew control request run interleaved |
 | Out-of-band | self-owned interaction host receives a canary callback | no callback for the control payload |
+
+## 2.5 First Principles — the WWH registers (A14)
+
+* **WHAT** — an interpreter sits behind an input: SQL, NoSQL,
+  LDAP, XPath, OS command, template engines (SSTI), expression
+  languages. The class is unified by shape, not by syntax: user data
+  crosses into a language the backend will EXECUTE.
+* **WHY** — code and data share one channel: whenever the app
+  builds program text by concatenation/interpolation, the interpreter
+  cannot tell the developer's text from the attacker's — that is the
+  root cause, and every flavor (quote break, comment swallows,
+  stacked queries, directive injection in templates) is a dialect of
+  it. Prepared statements fix it by separating the channels; their
+  absence anywhere is the seam.
+* **HOW** — differential oracles (§2): each payload is designed to
+  flip ONE observable — a boolean, an error grammar, a timing delta,
+  an out-of-band callback — against its benign-twin control. The
+  oracle decides, the payload only asks; spray without a registered
+  oracle is not this organ's method.
+
+War note (A15): the cheng sweep is the catalog's oracles per
+interpreter in scope; the ch'i is the oracle only THIS target's error
+grammar or timing profile exposes. W2 binds absolutely — a
+destructive payload proves nothing a differential could not, and
+time-based oracles are the last resort because they are the noisiest
+march.
 
 ## 3. Procedure — Numbered Actions
 

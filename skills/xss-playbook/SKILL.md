@@ -1,6 +1,6 @@
 ---
 name: xss-playbook
-version: 2.0.0
+version: 2.1.0
 type: ai-skill
 architecture: package
 description: Phase-3 XSS organ, upgraded (v2) with the Mario Heiderich (Cure53) lineage — sink-context analysis first (HTML body, attribute, JS string, URL, with CSP factored), context-aware payload grammar, execution proofs by self-owned canary marker instead of alert() theater, and the mXSS layer: re-derive context after DOM mutations, the mXSS class catalog (re-serialization, namespace confusion, parsing-context switch), DOM clobbering as a pseudo-source, and sanitizer version-pinning as a ledgered fact. Use when the operator asks to test reflected or stored XSS, analyze a sink context, draft context-safe payloads, check CSP impact, or trace DOM source-to-sink flows ("tes XSS", "reflected", "stored", "DOM XSS", "sink context", "CSP bypass check", "payload untuk konteks ini", "mXSS", "mutation XSS", "sanitizer bypass", "DOM clobbering").
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# xss-playbook v2.0.0 — Context First, Marker Always, Mutation Counts
+# xss-playbook v2.1.0 — Context First, Marker Always, Mutation Counts
 
 ## 0. What This Skill Is — and Is Not
 
@@ -56,6 +56,34 @@ as five field rules, applied inside the procedure (§3) and detailed in
    a stale version is itself a reportable hygiene fact.
 5. **The marker proof still decides.** mXSS earns severity through the
    chain it enables (spine §8; chain-architect input), not drama.
+
+## 2.5 First Principles — the WWH registers (A14)
+
+* **WHAT** — an untrusted string reaches a browser execution
+  context: the context family (HTML body, attribute, JS string,
+  JS block, URL, CSS — and the mutation-prone combinations), the
+  source family (server-rendered, stored, DOM-sourced), and the
+  sink's parser. The context, not the payload, is the vulnerability.
+* **WHY** — the browser trusts markup it renders: encoding is
+  per-context (each context has its OWN metacharacters), and a
+  single filter/encoding choice applied to several contexts leaves
+  every other context open — that is the root cause of the class.
+  DOM XSS is the same cause client-side: a sink (innerHTML,
+  eval-family, location assignments) consumes an unvalidated
+  source; the Heiderich doctrine adds the third layer — mutation
+  and parser quirks reopen closed contexts.
+* **HOW** — sink grammar first: identify the context, THEN the
+  minimal payload its parser can flip; the marker proof (unique
+  string rendered verbatim) precedes any execution attempt; CSP
+  and its bypass surface are recorded facts, not guesses; execution
+  is proven once with a self-owned marker, then stop.
+
+War note (A15): the cheng sweep is the context grammar against the
+inventoried sinks; the ch'i is the mutation chain (context flip +
+parser quirk) that the target's own filter combination leaves open.
+W2: the marker proof is the win-without-fighting — `alert(document.domain)`
+once is a demonstration; a defaced page is a war crime on this
+surface.
 
 ## 3. Procedure — Numbered Actions
 

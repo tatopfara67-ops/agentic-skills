@@ -1,6 +1,6 @@
 ---
 name: desync-hunter
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: Legend-tier organ (Tier S — the Logic Architects) built from the James Kettle / PortSwigger lineage — protocol & specification asymmetry analysis. Treats every protocol specification as a hypothesis, inventories the parsing chain (CDN/WAF/HTTP2-terminator/backend), and hunts the disagreements between front-end and back-end parsers via manually-crafted ambiguous requests (CL/TE conflicts, header-name oddities, absolute-form, obs-fold), confirmed by time-based and response-class differentials with raw bytes as artifacts. Use when testing without a scanner against proxy chains, when hunting request smuggling or desync, when documentation says the system works one way and you need to force input the other way, or when classifying parser asymmetries ("request smuggling", "CL.TE", "desync", "protocol asymmetry", "parser differential", "manipulasi HTTP header", "smuggling").
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; targets whose scope explicitly covers the infrastructure/proxy layer
 ---
 
-# desync-hunter v1.0.0 — The Spec Is A Hypothesis
+# desync-hunter v1.1.0 — The Spec Is A Hypothesis
 
 ## 0. What This Skill Is — and Is Not
 
@@ -51,6 +51,39 @@ specification, assume implementations disagree, and design the exact
 input where they do. Distilled as decision logic only — no
 PortSwigger or Burp content is embedded. The verification record is
 `references/sources.md`.
+
+## 2.5 First Principles — the WWH registers (A14)
+
+* **WHAT** — a parsing-chain disagreement: two components (frontend
+  vs backend, HTTP/2 terminator vs HTTP/1.1 origin, browser vs cache)
+  both parse the same bytes and reach different conclusions about
+  where the message ends and the next one begins. The unit is the
+  SEAM — the boundary between adjacent parsers — and the bug class
+  is CL/TE and its siblings: any byte sequence whose framing verdict
+  differs across the chain.
+* **WHY** — HTTP has no single parser: the spec is prose read by
+  many implementers, each resolving ambiguity with its own state
+  machine (and its own legacy of lenient clients it must keep
+  serving). Two correct-enough parsers can disagree about edge
+  inputs precisely BECAUSE both are tolerating something. That is
+  the root cause — ambiguity tolerated twice, differently — and it
+  is why the class renews with every protocol generation (HTTP/2,
+  HTTP/3): new framing, same division of interpretive labor.
+* **HOW** — map the parsers (with versions) BEFORE any payload;
+  design each request to isolate ONE ambiguity; send it once; read
+  the delta as response-class AND timing, where timing is only a
+  lead that graduates to a response-class differential; ship the
+  exact bytes as the artifact. Poisoning demonstrations run on
+  operator-owned accounts only.
+
+War note (A15): the cheng sweep is the known seam catalog (CL+TE,
+duplicate CL, obs-fold, absolute-form) against the mapped chain; the
+ch'i is the seam PAIR only this stack joins — the version combination
+whose disagreement nobody has submitted. W1 binds before anything:
+the chain map with versions is the spies' report, written before the
+first crafted byte. W2 in its purest form: the smuggled request that
+lands in the backend queue and is READ from it is the proof — the
+victimless differential — never the poisoned production response.
 
 ## 3. Doctrine — How Kettle-Thinking Runs
 

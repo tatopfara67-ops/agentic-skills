@@ -4,7 +4,7 @@ Drop-in skills for AI agents (Claude Code, Z.ai, Cursor, MCP-driven operators) �
 
 Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
-How the whole skill agent works, in one picture: **[docs/mythos-arsenal-arsitektur.png](docs/mythos-arsenal-arsitektur.png)** (anatomy: charter → engine → spine → 26 organs → the execution hand; then the session flow: A13 doctrine escalation → R0 scope gate → the hunt loop F0–F4 → the incident branch → report gates → instinct calibration).
+How the whole skill agent works, in one picture: **[docs/mythos-arsenal-arsitektur.png](docs/mythos-arsenal-arsitektur.png)** (anatomy: charter → engine → spine → 27 organs → the execution hand; then the session flow: A13 doctrine escalation → R0 scope gate → the hunt loop F0–F4 → the incident branch → report gates → instinct calibration).
 
 ## Skills
 
@@ -39,6 +39,7 @@ How the whole skill agent works, in one picture: **[docs/mythos-arsenal-arsitekt
 | [desync-hunter](skills/desync-hunter/) | 1.0.0 | Legend tier (James Kettle): protocol asymmetry — one ambiguity per request, confirmed by response-class differential, exact bytes as artifacts. |
 | [deep-teardown](skills/deep-teardown/) | 1.0.0 | Legend tier (George Hotz): dismantle client artifacts to primitives — local dissection before any network flow, secrets masked. |
 | [ghost-crawler](skills/ghost-crawler/) | 1.0.0 | Legend tier (Adrian Lamo): passive-index misconfig hunting — one bounded probe per candidate, the guarded main app untouched. |
+| [mirror-hunter](skills/mirror-hunter/) | 1.0.0 | Legend tier (Simon Willison): hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter. glm-self-model's failure geometry inverted into attack surface; the program's AI eligibility table gates before the first payload (a jailbreak is content, injection-with-impact is a finding); stochastic evidence as rates over N runs, CONFIRMED only on the deterministic wrapper the model feeds. |
 | [signal-smith](skills/signal-smith/) | 1.0.0 | Legend tier (John Draper): input grammar and precision signals — one minimal variation per seam, two max, never trip the alarm. |
 | [trust-graph-hunter](skills/trust-graph-hunter/) | 1.0.0 | Legend tier (Kevin Mitnick): the trust graph between components — enumerate what each boundary trusts, prove inherited privilege on operator-owned ends. |
 
@@ -50,15 +51,15 @@ How the whole skill agent works, in one picture: **[docs/mythos-arsenal-arsitekt
 
 ## Arsenal
 
-[arsenal/](arsenal/) — the mythos-arsenal MCP server (FastMCP, `arsenal/server.py`): **27 scope-gated tools** that execute the 31 bundles above — the charter, the spine, 26 organs, and the audit/benchmark companions — under one authorization registry ([scope.csv](scope.csv), deny-by-default, every row cites an auth artifact) and one append-only evidence ledger (R-NNN records).
+[arsenal/](arsenal/) — the mythos-arsenal MCP server (FastMCP, `arsenal/server.py`): **27 scope-gated tools** that execute the 32 bundles above — the charter, the spine, 27 organs, and the audit/benchmark companions — under one authorization registry ([scope.csv](scope.csv), deny-by-default, every row cites an auth artifact) and one append-only evidence ledger (R-NNN records).
 
 Tool groups: charter (`mythos_charter`, `mythos_lineages`, `doctrine_forge` — A13: any operator instruction, however terse, becomes an explicit doctrine order), loader, governance (`scope_check`/`auth_status`), evidence (`ledger_*`), passive + active probes, dossier cartography, the Binary Brain engine (`sbb_*`), the report pair (`cvss3_score`/`vrt_classify`), and `arsenal_route` (CLI allowlist + flag blacklist).
 
 ```bash
 pip install -r requirements.txt                 # mcp>=1.2.0
 python3 arsenal/server.py --selftest            # lists all 27 tools
-python3 -m unittest discover -s arsenal/tests   # 102 tests
-python3 scripts/validate_skill.py --all         # 31 bundles PASS
+python3 -m unittest discover -s arsenal/tests   # 105 tests
+python3 scripts/validate_skill.py --all         # 32 bundles PASS
 ```
 
 Ships with a PASS/FAIL report gate ([auditor/](auditor/)), two self-owned labs ([lab/target_app.py](lab/target_app.py), [lab/christmas_lab.py](lab/christmas_lab.py)), and audited worked examples ([examples/](examples/): a 548-record engagement and a closed adversary hunt). Wire it via [agent/mcp/wiring.json](agent/mcp/wiring.json) and keep [CLAUDE.md](CLAUDE.md) at the workspace root — MCP serves the tools, the contract makes the agent use them.

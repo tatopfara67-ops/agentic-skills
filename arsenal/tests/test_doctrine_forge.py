@@ -64,6 +64,18 @@ class TestIntentDetection(unittest.TestCase):
             "map the target surface and enumerate subdomains")
         self.assertEqual(forged["detected_intent"], "surface_recon")
 
+    def test_ai_surface(self):
+        forged = _mythos.doctrine_forge(
+            "uji prompt injection di target AI ini sampai dapat 1 celah high")
+        self.assertEqual(forged["detected_intent"], "ai_surface")
+        self.assertEqual(forged["quota"], 1)
+        self.assertEqual(forged["severity_goal"], "high")
+
+    def test_ai_surface_english(self):
+        forged = _mythos.doctrine_forge(
+            "test the chatbot for prompt injection until data leaves")
+        self.assertEqual(forged["detected_intent"], "ai_surface")
+
     def test_default_fallback(self):
         forged = _mythos.doctrine_forge("hello there, good morning")
         self.assertEqual(forged["detected_intent"], "default")
@@ -101,6 +113,34 @@ class TestForgedOrderContent(unittest.TestCase):
         self.assertIn("exhaustion proof", prompt)
         self.assertIn("operator release", prompt)
         self.assertIn("stop-condition violation", prompt)
+
+    def test_ai_surface_order_carries_the_mirror_laws(self):
+        """An AI-target instruction forges the mirror order: eligibility
+        gate first, jailbreak-vs-impact, labeled projections, the rate
+        law, and the wrapper rule (mirror-hunter SKILL.md sections 3-5)."""
+        forged = _mythos.doctrine_forge(
+            "uji prompt injection di target AI ini sampai dapat 1 celah high")
+        prompt = forged["doctrine_prompt"]
+        self.assertEqual(forged["detected_intent"], "ai_surface")
+        # eligibility gate before the first payload
+        self.assertIn("Eligibility gate BEFORE the first payload", prompt)
+        self.assertIn("ineligible", prompt)
+        self.assertIn("jailbreak", prompt)
+        # mirror hazard: projections are labeled
+        self.assertIn("PROJECTION", prompt)
+        # rate law
+        self.assertIn("N >= 10", prompt)
+        self.assertIn("rate", prompt)
+        # wrapper rule
+        self.assertIn("deterministic stage", prompt)
+        self.assertIn("'the wrapper executed X' is the finding", prompt)
+        # persona mix carries the class namer + the chain/boundary crafts
+        keys = [p["key"] for p in forged["persona_mix"]]
+        self.assertIn("simon-willison", keys)
+        self.assertIn("orange-tsai", keys)
+        self.assertIn("frans-rosen", keys)
+        # the spine's long-horizon discipline rides along unchanged
+        self.assertIn("continuation mandate", prompt)
 
     def test_gates_ride_along_on_every_order(self):
         for request in ("tolong lanjutkan pekerjaan yang tertunda",

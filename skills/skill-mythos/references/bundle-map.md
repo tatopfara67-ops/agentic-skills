@@ -54,6 +54,7 @@ closure gates, R7 budgets) instead of restating them. The charter
 | desync-hunter | 6 | a parser seam (CDN/WAF/terminator/backend) sits in scope | *specifications are hypotheses* — one ambiguity per request, bytes as artifacts (James Kettle lineage) |
 | deep-teardown | 6 | a client artifact (JS/APK/binary) is in scope and unread | *dismantle to primitives* — local dissection before any network flow (George Hotz lineage) |
 | ghost-crawler | 6 | scope is tight or the WAF is scanner-hostile | *enter without knocking* — passive indexes first, one bounded probe per candidate (Adrian Lamo lineage) |
+| mirror-hunter | 6 | the target embeds an LLM, chatbot, copilot, RAG, or agent/MCP tooling, and the program's AI rules are in hand | *hunt the mirror* — the only target class that runs the same engine as the hunter: the self-model is the target map, the program's eligibility table is the negative scope, and CONFIRMED lands on the deterministic wrapper the model feeds (Simon Willison lineage) |
 | signal-smith | 6 | a validator blocks honest payloads | *precision over volume* — one minimal variation per seam, two max (John Draper lineage) |
 | trust-graph-hunter | 6 | components trust each other (headers, referers, signatures, tokens) | *the trust graph* — enumerate trust edges, prove inherited privilege on operator-owned ends (Kevin Mitnick lineage) |
 

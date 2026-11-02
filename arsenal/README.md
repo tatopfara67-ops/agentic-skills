@@ -1,14 +1,15 @@
 # mythos-arsenal
 
-The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **27 scope-gated tools** that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts, and 25 organ skills — 13 phase organs, 6 craft-lineage (Fyodor, HD Moore, Tomnomnom, lcamtuf, ProjectDiscovery, Searle + Mantis), 6 legend-tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, John Draper, Kevin Mitnick; the Rosen/EdOverflow/Parecki/Dalili/Heiderich/de la Fuente/Miessler lineages are folded into the v2.0.0 organs) — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
+The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **27 scope-gated tools** that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts, the glm-self-model engine manual, and 26 organ skills — 13 phase organs, 6 craft-lineage (Fyodor, HD Moore, Tomnomnom, lcamtuf, ProjectDiscovery, Searle + Mantis), 7 legend-tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Simon Willison, John Draper, Kevin Mitnick; the Rosen/EdOverflow/Parecki/Dalili/Heiderich/de la Fuente/Miessler lineages are folded into the v2.0.0 organs) — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
 
-The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md](../skills/skill-mythos/SKILL.md); the assimilated lineage registry (20 entries, corrections on record) is served by the `mythos_lineages` tool. Designed as **spine + organs**: `mythos-bug-hunter` stays the single discipline layer (ledger, hypothesis grammar, closure gates); every other skill is an organ that plugs into one of its phases and inherits its contracts instead of duplicating them.
+The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md](../skills/skill-mythos/SKILL.md); the assimilated lineage registry (21 entries, corrections on record) is served by the `mythos_lineages` tool. Designed as **spine + organs**: `mythos-bug-hunter` stays the single discipline layer (ledger, hypothesis grammar, closure gates); every other skill is an organ that plugs into one of its phases and inherits its contracts instead of duplicating them.
 
 ## Skill index
 
 | Tier | Skill | Plugs into |
 | --- | --- | --- |
 | 0 Master | skill-mythos | activation: thirteen charter articles (incl. A13), bundle map, autonomy protocol, quality gates — loads first, hunts nothing |
+| 0 Engine | glm-self-model | session start of any long engagement — model-class failure geometry + compensation gates for the agent that runs every organ |
 | 1 Recon & Mapping | surface-cartographer | Phase 1 — the dossier: asset graph, 21-class taxonomy, priority queue |
 | 1 | subdomain-hunter | Phase 1 — passive-first enumeration, wildcard verdicts, takeover pairs; v2: EdOverflow dangling classes |
 | 1 | content-discovery | Phase 1/3 — calibrated walks, backup/config triage; v2: Miessler corpus families |
@@ -32,10 +33,11 @@ The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md
 | 6 | desync-hunter | James Kettle (S) — parser-seam ambiguities one per request, bytes as artifacts |
 | 6 | deep-teardown | George Hotz (S) — client artifacts dismantled locally to primitives |
 | 6 | ghost-crawler | Adrian Lamo (A) — passive-index misconfig hunting, one bounded probe per candidate |
+| 6 | mirror-hunter | Simon Willison (S) — LLM/agent surfaces: self-model inverted into attack surface, eligibility gate before the first payload, rates over N runs, CONFIRMED on the deterministic wrapper |
 | 6 | signal-smith | John Draper (B) — input grammar craft, one minimal variation per seam, two max |
 | 6 | trust-graph-hunter | Kevin Mitnick (B) — the trust graph between components, inherited privilege on operator-owned ends |
 
-All 31 bundles in `skills/` pass `scripts/validate_skill.py --all`.
+All 32 bundles in `skills/` pass `scripts/validate_skill.py --all`.
 
 ## Install & wiring
 

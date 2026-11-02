@@ -116,7 +116,7 @@ class TestMythosCharter(unittest.TestCase):
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 27)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 28)
         self.assertEqual(tiers["0-engine"], {"glm-self-model": True})
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
         self.assertEqual(sorted(tiers["5-craft"]), [
@@ -124,7 +124,8 @@ class TestMythosCharter(unittest.TestCase):
             "pipeline-smith", "scan-economist", "template-scanner"])
         self.assertEqual(sorted(tiers["6-legend"]), [
             "chain-architect", "deep-teardown", "desync-hunter",
-            "ghost-crawler", "signal-smith", "trust-graph-hunter"])
+            "ghost-crawler", "mirror-hunter", "signal-smith",
+            "trust-graph-hunter"])
         for tier, skills in tiers.items():
             for name, installed in skills.items():
                 self.assertTrue(installed, "%s missing in tier %s"
@@ -143,15 +144,16 @@ class TestMythosCharter(unittest.TestCase):
 
 
 class TestMythosLineages(unittest.TestCase):
-    def test_registry_lists_twenty_lineages_all_installed(self):
+    def test_registry_lists_twentyone_lineages_all_installed(self):
         registry = _mythos.mythos_lineages()
-        self.assertEqual(registry["count"], 20)
+        self.assertEqual(registry["count"], 21)
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         for organ in ("adversary-tracker", "scan-economist", "module-smith",
                       "pipeline-smith", "feedback-fuzzer",
                       "template-scanner", "packet-orchestrator",
                       "chain-architect", "desync-hunter", "deep-teardown",
-                      "ghost-crawler", "auth-boundary-mapper",
+                      "ghost-crawler", "mirror-hunter",
+                      "auth-boundary-mapper",
                       "signal-smith", "trust-graph-hunter",
                       "subdomain-hunter", "xss-playbook",
                       "oauth-flow-auditor", "content-discovery",
@@ -171,7 +173,7 @@ class TestMythosLineages(unittest.TestCase):
                      "James Kettle", "George Hotz", "Adrian Lamo",
                      "Frans Rosen", "John Draper", "Kevin Mitnick",
                      "EdOverflow", "Heiderich", "Parecki", "Miessler",
-                     "Dalili", "de la Fuente"):
+                     "Dalili", "de la Fuente", "Simon Willison"):
             self.assertIn(name, joined, name)
         # the unverified attributions from the operator brief stay out
         self.assertNotIn("Skappen", joined)

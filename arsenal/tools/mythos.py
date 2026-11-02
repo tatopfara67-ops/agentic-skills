@@ -36,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.3.0"
+MODULE_VERSION = "1.4.0"
 
 SPINE = "mythos-bug-hunter"
 
@@ -54,7 +54,8 @@ TIERS = {
                 "feedback-fuzzer", "template-scanner",
                 "packet-orchestrator"],
     "6-legend": ["chain-architect", "desync-hunter", "deep-teardown",
-                 "ghost-crawler", "signal-smith", "trust-graph-hunter"],
+                 "ghost-crawler", "mirror-hunter", "signal-smith",
+                 "trust-graph-hunter"],
 }
 
 # The assimilated lineage registry (doctrine A3: attributed, verified,
@@ -226,6 +227,29 @@ LINEAGES = [
                       "lives, attribution discipline) into an R0-bounded "
                       "authorized posture; the distance is deliberate and "
                       "documented in the organ's sources.md",
+    },
+    {
+        "organ": "mirror-hunter",
+        "figure": "Simon Willison (coined the term 'prompt injection', "
+                  "October 2022) — Tier S, the Class Namer",
+        "distillation": "the mirror doctrine: the target runs the same "
+                        "engine class as the hunter — invert the "
+                        "self-model's failure geometry into attack "
+                        "surface, never project your own obedience "
+                        "boundary onto the target, gate on the program's "
+                        "eligibility table before the first payload, and "
+                        "land CONFIRMED only on the deterministic wrapper "
+                        "the model feeds",
+        "sources": "simonwillison.net 'Prompt injection: What's the worst "
+                   "that can happen?' (October 2022) plus the years of "
+                   "follow-up; the research wave it named (Greshake et "
+                   "al. 2023; Rehberger's exfil chains; OWASP LLM Top 10) "
+                   "— skills/mirror-hunter/references/sources.md",
+        "correction": "the mirror doctrine itself (self-model inversion, "
+                      "eligibility gating, the wrapper rule) is this "
+                      "bundle's own contribution — Willison's record is "
+                      "naming and documenting the class, credited exactly "
+                      "for that",
     },
     {
         "organ": "auth-boundary-mapper",
@@ -603,6 +627,17 @@ LEGEND_REGISTRY = [
                         "audit every trust edge for forgeable context — "
                         "inherited privilege proven on operator-owned ends",
     },
+    {
+        "key": "simon-willison",
+        "legend": "Simon Willison (Tier S — the Class Namer)",
+        "organ": "mirror-hunter",
+        "contribution": "the mirror doctrine — the target runs the same "
+                        "engine class as the hunter: invert the "
+                        "self-model's failure geometry into attack "
+                        "surface, gate on the program's eligibility table "
+                        "before the first payload, and land CONFIRMED only "
+                        "on the deterministic wrapper the model feeds",
+    },
 ]
 
 # (intent, keywords) — scored by distinct keyword hits; ties broken by
@@ -618,6 +653,12 @@ _INTENT_GRAMMAR = [
     ("classify_report", (
         "cvss", "vrt", "classify", "klasifikasi", "rating", "laporan",
         "report", "audit", "severity assessment")),
+    ("ai_surface", (
+        "prompt injection", "prompt-injection", "injeksi prompt",
+        "injection ke model", "llm", "chatbot", "copilot", "genai",
+        "chatgpt", "gemini", "model ai", "ai agent", "ai target",
+        "target ai", "aplikasi ai", "fitur ai", "celah ai", "bug ai",
+        "uji ai", "ai surface", "mcp server", "mcp", "agent ai")),
     ("bug_quota", (
         "bug", "temuan", "finding", "vulnerabilit", "celah", "dapatkan",
         "hunt", "carikan", "cari bug", "get me", "minimum", "minimal",
@@ -746,6 +787,77 @@ def _forge_bug_quota(request: str, severity: list[str],
         "tools": ["auth_status", "ct_subdomains", "dns_resolve",
                   "http_probe", "js_analyze", "api_introspect",
                   "content_discover", "dossier_add", "ledger_append",
+                  "cvss3_score", "vrt_classify",
+                  "auditor/audit_report.py"],
+        "doctrine_prompt": prompt,
+    }
+
+
+def _forge_ai_surface(request: str, severity: list[str],
+                      quota: int | None) -> dict:
+    severity_goal = "-".join(severity) if severity else "unspecified"
+    quota_line = ("at least %d" % quota) if quota else "unspecified count"
+    prompt = (
+        "PROFESSIONAL ORDER (auto-forged from the operator's request):\n\n"
+        "Hunt the authorized LLM/agent surface (mirror-hunter organ, "
+        "Willison lineage) with a severity goal of %s and a quota of %s.\n\n"
+        "1. Eligibility gate BEFORE the first payload: read the program's "
+        "AI rules and write the eligibility table into state — qualifying "
+        "categories with their required impact, ineligible list verbatim. "
+        "A jailbreak confined to your own session is content, not a "
+        "finding; a hypothesis that can only land in an ineligible class "
+        "is parked before a token is spent.\n"
+        "2. Surface inventory (spine section 24): which endpoints send text "
+        "to a model, what the model can DO (tools, fetch, render), whose "
+        "rows RAG sees, what memory persists; one dossier entry per "
+        "channel with record citations.\n"
+        "3. Mirror priors, labeled: every belief about what the target "
+        "model will obey is a PROJECTION — it encodes your engine, not "
+        "the target's — until its own record exists; write the base rate "
+        "before the runs (glm-self-model G3).\n"
+        "4. Craft selection (mirror-hunter injection-craft): the seam is "
+        "attention, not a parser — edge-loaded imperatives, salience "
+        "capture, authority forgery, commitment ladders; pre-register the "
+        "differential with the benign-twin payload as the control BEFORE "
+        "any run.\n"
+        "5. Rate law: stochastic claims run N >= 10 with successes "
+        "recorded as a rate and the model identifier recorded verbatim; "
+        "1/10 is a weak signal — hunt the conditions or downgrade.\n"
+        "6. Wrapper rule: CONFIRMED lands on the deterministic stage the "
+        "model feeds (tool-call handler, renderer, sink) — 'the model "
+        "emitted X' is a lead, 'the wrapper executed X' is the finding.\n"
+        "7. Impact proof ONCE: canary at the end (self-owned account, "
+        "self-owned artifact); one exfiltration hit then stop (the "
+        "channel law); tool-hijack chains run per-link differentials plus "
+        "a single joint proof (chain-architect law).\n"
+        "8. Classification and exit: cvss3_score on the observed path, "
+        "vrt_classify with the LLM01-family crosswalk, the rate line and "
+        "the version line in every finding block, auditor exit 0 before "
+        "shipping. State the exit numbers (R6): channels, hypotheses by "
+        "state, runs, rates, wrapper crossings, canary proofs.\n\n"
+        "Quota discipline (A7/A8) and mission horizon (researcher-conduct "
+        "34.8) apply unchanged: the quota is an effort budget and a "
+        "continuation mandate — before it is met the engagement ends only "
+        "by exhaustion proof or explicit operator release; context "
+        "exhaustion is a pause. Severity inflation — a jailbreak dressed "
+        "as impact — is the one unforgivable failure on this surface."
+        % (severity_goal, quota_line))
+    return {
+        "detected_intent": "ai_surface",
+        "severity_goal": severity_goal,
+        "quota": quota,
+        "persona_mix": _personas(["simon-willison", "orange-tsai",
+                                  "frans-rosen"]),
+        "phase_plan": [
+            "eligibility table from the program's AI rules (before payload)",
+            "AI surface inventory (spine section 24) into the dossier",
+            "labeled mirror priors + pre-registered differentials",
+            "N-run rate protocol with benign-twin controls",
+            "wrapper differentials -> bounded impact proof once",
+            "classification + audit until exit 0",
+        ],
+        "tools": ["auth_status", "http_probe", "js_analyze",
+                  "api_introspect", "dossier_add", "ledger_append",
                   "cvss3_score", "vrt_classify",
                   "auditor/audit_report.py"],
         "doctrine_prompt": prompt,
@@ -976,6 +1088,8 @@ def doctrine_forge(request: str, context: str = "") -> dict:
     intent = _detect_intent(request)
     if intent == "bug_quota":
         forged = _forge_bug_quota(request, severity, quota)
+    elif intent == "ai_surface":
+        forged = _forge_ai_surface(request, severity, quota)
     elif intent == "continue_pending":
         forged = _forge_continue(request)
     elif intent == "surface_recon":

@@ -159,8 +159,8 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [lineage-smith](skills/lineage-smith/) | 1.0.0 | The legend-assimilation factory — the operator's doctrine as an organ: scored selection, complete-corpus census, the five-lens psych-read on documented behavior, forge under the authoring contract, method layer born in; ships the eight-candidate queue. |
-| [rival-playbook](skills/rival-playbook/) | 1.0.0 | Corpus-vs-corpus competition — the date-pinned rival census (知彼知己), the hollow map (避实击虚), pressure-principle concentration (压强), proving-ground duel with capped wording (不战而屈人之兵); the deception stratagem family is banned. |
+| [lineage-smith](skills/lineage-smith/) | 1.1.0 | The legend-assimilation factory — the operator's doctrine as an organ: scored selection, complete-corpus census, the five-lens psych-read on documented behavior (with evidence classes and the OPINION quarantine), forge under the authoring contract, method layer born in; ships the eight-candidate queue. |
+| [rival-playbook](skills/rival-playbook/) | 1.1.0 | Corpus-vs-corpus competition — the date-pinned rival census (知彼知己), the hollow map (避实击虚), pressure-principle concentration (压强), proving-ground duel with capped wording (不战而屈人之兵); the season layer ships the Tian Ji allocation table (田忌赛马) and the protracted/quick-decisive tempo doctrine (持久战 vs 速决战); the deception stratagem family is banned, the translated middle class is on record. |
 
 ### Prompts
 

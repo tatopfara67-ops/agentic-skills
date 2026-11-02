@@ -84,3 +84,25 @@ attribution note: documented strategy, house interpretation.
 3. The map is versioned with the organ: when the census protocol
    changes, this crosswalk changes with it, and the charter's
    attribution discipline rides along.
+
+## 5. The translated middle class (v1.1.0)
+
+The licensed/banned split is the working filter; a few stratagems
+live between them — their SHAPE survives lawful competition but
+their classical mechanism (deception, harm) does not. They are
+recorded as TRANSLATED: the shape stated, the harm removed, the
+translated move bound to a census artifact. When in doubt, banned:
+the translated class is earned by an explicit translation on record,
+never by mood.
+
+| Stratagem (hanzi, gloss) | The translation (shape kept, harm removed) |
+| --- | --- |
+| 围魏救赵 (wéi Wèi jiù Zhào — relieve Wei by besieging Zhao) | do not meet the rival on the axis they contest; contest the neglected axis their effort DEPENDS on but does not defend — the hollow map's complement: strike the supply line, not the front. Bound to a SEGMAP row showing the dependency (their tooling or reputation rests on the contested axis) |
+| 李代桃僵 (lǐ dài táo jiāng — the plum withers for the peach) | the Tian Ji concession, stated as stratagem: sacrifice the unwinnable segment on record to secure the two winnable ones — the ALLOCATE table IS this move (campaign-protocol.md S3) |
+| 顺手牵羊 (shùn shǒu qiān yáng — pick up the passing sheep) | opportunistic findings while passing: a campaign committed to segment X still parks a bonus lead found in segment Y, with its provenance. Lawful because the sheep is unowned ground inside scope, never another hunter's work |
+| 以逸待劳 (yǐ yì dài láo — wait at ease for the worn) | choose grounds where THIS corpus's preparation compounds (versioned corpora, method layers) and the rival's burns (they re-derive what we already versioned) — the tempo doctrine's quiet half (campaign-protocol.md S4) |
+
+The translated class is auditable like everything else here: a
+translated move with no census/segment artifact behind it is not a
+move, it is a mood with a Chinese accent — hard rule 3 applies to
+strategy the same way it applies to findings.

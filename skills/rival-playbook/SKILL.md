@@ -1,9 +1,9 @@
 ---
 name: rival-playbook
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Forge-tier organ — the competitor playbook. Positions THIS corpus against rival skill corpora and agentic-security stacks using the Chinese competitive-strategy tradition reduced to an evidence discipline. Runs the rival census (知彼知己，百战不殆 — know the rival and know yourself; both sides graded on the SAME axes strictly from public, date-pinned artifacts — evidence discipline, falsifiers, scope gates, method layers, reproducible output, audited closure), builds the hollow map (避实击虚 — avoid strength, strike weakness; the axes where rivals have no artifact-backed answer), allocates force by the pressure principle (压强原则 — disproportionate concentration on one or two hollows until they are owned outright by mechanical gates, not claims), settles superiority without a hype war (不战而屈人之兵 — win without fighting; proving-ground numbers, wording capped at the demonstrated axis), and takes the unclaimed ground first (农村包围城市 — niche encirclement before the mainstream contest). Hard-bans the deception stratagem family and every un-citable claim about a rival. Use when the operator names a competitor, orders the corpus to win the market, or any claim about rival corpora is about to ship ("kalahkan kompetitor", "kalahkan korpus rival", "beat the competitor", "rival corpus", "benchmark rival", "posisi korpus", "competitive strategy", "strategi kompetitif", "why is our stack better", "bandingkan dengan korpus lain").
+description: Forge-tier organ — the competitor playbook. Positions THIS corpus against rival skill corpora and agentic-security stacks using the Chinese competitive-strategy tradition reduced to an evidence discipline. Runs the rival census (知彼知己，百战不殆 — know the rival and know yourself; both sides graded on the SAME axes strictly from public, date-pinned artifacts — evidence discipline, falsifiers, scope gates, method layers, reproducible output, audited closure), builds the hollow map (避实击虚 — avoid strength, strike weakness; the axes where rivals have no artifact-backed answer), allocates force by the pressure principle (压强原则 — disproportionate concentration on one or two hollows until they are owned outright by mechanical gates, not claims), settles superiority without a hype war (不战而屈人之兵 — win without fighting; proving-ground numbers, wording capped at the demonstrated axis), and takes the unclaimed ground first (农村包围城市 — niche encirclement before the mainstream contest). Hard-bans the deception stratagem family and every un-citable claim about a rival. Since v1.1.0 it also carries the season layer (references/campaign-protocol.md): the two seasonal ledgers, the segment map with yield verdicts, the Tian Ji allocation table (田忌赛马 — concede the unwinnable segment on record, commit to at most two, comparative arithmetic cited), the tempo declarations (持久战 vs 速决战 — protracted campaigns compound, quick-decisive windows rotate, stop rules stated), and the season review that feeds the next allocation; the stratagem map gains the translated middle class (围魏救赵, 李代桃僵, 顺手牵羊, 以逸待劳 — shape kept, harm removed, each bound to a census artifact). Use when the operator names a competitor, orders the corpus to win the market, or any claim about rival corpora is about to ship ("kalahkan kompetitor", "kalahkan korpus rival", "beat the competitor", "rival corpus", "benchmark rival", "posisi korpus", "competitive strategy", "strategi kompetitif", "why is our stack better", "bandingkan dengan korpus lain").
 category: security/craft-forge
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# rival-playbook v1.0.0 — Win the Market Without a Hype War
+# rival-playbook v1.1.0 — Win the Market Without a Hype War
 
 ## 0. What This Skill Is — and Is Not
 
@@ -163,4 +163,5 @@ is the proof the map stays honest.
 | Load when… | Module |
 | --- | --- |
 | Critiquing the folk competitor war; running the executable M1–M5 | references/method-upgrade.md |
-| The full Sun Tzu + stratagem crosswalk, banned family included | references/stratagem-map.md |
+| The full Sun Tzu + stratagem crosswalk, banned family included, plus the translated middle class | references/stratagem-map.md |
+| Planning the SEASON: ledgers, segment map, the Tian Ji allocation table, tempo declarations, the review | references/campaign-protocol.md |

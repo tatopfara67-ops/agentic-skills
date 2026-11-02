@@ -196,6 +196,41 @@ class TestMythosLineages(unittest.TestCase):
         self.assertNotIn("Skappen", joined)
         self.assertNotIn("Franz Rosen", joined)  # misspelling stays out
 
+    def test_method_layer_is_universal(self):
+        """A16's debt register is closed and stays closed: every organ
+        that shipped a method-upgrade module still carries it, and the
+        module keeps its three-part shape (critique, upgrades, and
+        where they land, falsifiers). New organs are born with the
+        layer — the guard list covers all 29 modules on record."""
+        organs = [
+            "adversary-tracker", "auth-boundary-mapper",
+            "business-logic-hunter", "cache-playbook", "chain-architect",
+            "cloud-config-auditor", "content-discovery", "deep-teardown",
+            "desync-hunter", "feedback-fuzzer", "ghost-crawler",
+            "glm-self-model", "injection-lab", "lineage-smith",
+            "mirror-hunter", "mobile-hunter", "module-smith",
+            "oauth-flow-auditor", "packet-orchestrator", "pipeline-smith",
+            "prototype-playbook", "rival-playbook", "scan-economist",
+            "signal-smith", "ssrf-playbook", "subdomain-hunter",
+            "template-scanner", "trust-graph-hunter", "xss-playbook",
+        ]
+        skills_root = os.path.join(_TREE_ROOT, "skills")
+        shipped = {n for n in os.listdir(skills_root)
+                   if os.path.isfile(os.path.join(skills_root, n,
+                                                 "references",
+                                                 "method-upgrade.md"))}
+        self.assertEqual(shipped, set(organs),
+                         "method-upgrade.md set drifted: %s"
+                         % (set(organs) ^ shipped))
+        for organ in organs:
+            with open(os.path.join(skills_root, organ, "references",
+                                   "method-upgrade.md"),
+                      encoding="utf-8") as fh:
+                body = fh.read()
+            for token in ("The critique", "upgrades", "Falsifiers"):
+                self.assertIn(token, body,
+                              "%s: A16 layer incomplete (%s)" % (organ, token))
+
     def test_attribution_corrections_are_on_record(self):
         registry = _mythos.mythos_lineages()
         corrections = {e["organ"]: e["correction"] for e in

@@ -9,7 +9,7 @@ Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 | Skill | Version | What it does |
 |---|---|---|
 | [skill-mythos](skills/skill-mythos/) | 1.1.1 | Master charter: thirteen articles, the tiered bundle map, the autonomy protocol, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
-| [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.3.0 | The spine: discipline layer for authorized web/API/AI research — evidence-cited claims, pre-registered hypotheses, reproducible PoCs, canary impact proofs. 19 reference modules + a PASS/FAIL report auditor. |
+| [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.4.0 | The spine: discipline layer for authorized web/API/AI research — evidence-cited claims, pre-registered hypotheses, reproducible PoCs, canary impact proofs, the trained-eye cue catalog with per-engagement instinct calibration. 19 reference modules + a PASS/FAIL report auditor. |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit. *Static analysis proposes, the runtime disposes* — no finding without a differential oracle. Calibrated by rediscovering CVE-2024-33663/33664 from the version diff. |
 | [mythos-proving-ground](skills/mythos-proving-ground/) | 1.0.0 | Ground-truth benchmark: deploys an instrumented vulnerable lab, records server-side trigger events, scores coverage, precision, hallucination rate, harm events. |
 | [aas-catalog](skills/aas-catalog/) | 1.0.0 | Search & install from the Agentic Awesome Skills catalog — one reviewed skill per install, risk-gated. |

@@ -1,6 +1,6 @@
 # Reference — Ai And Supply Chain
 
-> Part of **mythos-bug-hunter v4.3.0** (package architecture).
+> Part of **mythos-bug-hunter v4.4.0** (package architecture).
 > **Load when:** Phase 1-2 on AI/LLM/agent/MCP surfaces and supply-chain integrity verification (web-visible tier).
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

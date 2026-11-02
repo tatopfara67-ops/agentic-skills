@@ -1,6 +1,6 @@
 # Reference — Modern Attack Classes
 
-> Part of **mythos-bug-hunter v4.3.0** (package architecture).
+> Part of **mythos-bug-hunter v4.4.0** (package architecture).
 > **Load when:** Phase 2 hypothesis sources: HTTP request smuggling, cache poisoning/deception, single-packet race conditions, SSRF at the modern edge, framework-internal header bypasses, OAuth 2.1-era pitfalls.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

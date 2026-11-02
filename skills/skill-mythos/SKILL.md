@@ -79,7 +79,7 @@ metadata:
 
 | Tier | Skill | Role |
 | --- | --- | --- |
-| Spine | mythos-bug-hunter (v4.3.0, separate bundle) | discipline layer: R0–R7 canon, ledger, hypothesis grammar, closure gates |
+| Spine | mythos-bug-hunter (v4.4.0, separate bundle) | discipline layer: R0–R7 canon, ledger, hypothesis grammar, closure gates |
 | 0 master | skill-mythos (this bundle) | activation: charter, autonomy protocol, quality gates |
 | 1 recon & mapping | surface-cartographer | the organized dossier — asset graph, 21-class taxonomy, priority queue |
 | 1 | subdomain-hunter | passive-first enumeration, wildcard verdicts, takeover pairs |

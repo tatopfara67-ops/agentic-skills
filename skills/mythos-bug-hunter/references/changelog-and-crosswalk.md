@@ -1,6 +1,6 @@
 # Reference — Changelog And Crosswalk
 
-> Part of **mythos-bug-hunter v4.3.0** (package architecture).
+> Part of **mythos-bug-hunter v4.4.0** (package architecture).
 > **Load when:** Provenance: methodology crosswalk and changelog.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
@@ -34,6 +34,21 @@
 ## E. Changelog
 
 ```
+v4.4.0 (2026-11)
+  - New section §32.10 The Trained Eye (references/ruthless-mind.md): instinct
+    as a measurable asset — the 14-cue catalog (sequential-id vs UUID drift,
+    status-body asymmetry, dual id positions, v1/v2 twins, verbose oracles,
+    bimodal timing, per-role header drift, dead-but-alive verbs, stale build
+    hashes, decorative claims, orphan methods, tenant-slice acceptance,
+    GraphQL/REST twins, per-edge rate asymmetry), each with its smell, why it
+    smells, historical yield, and first cheap probe; the notice protocol
+    (log-on-fire, same-session H-record or named park, cue tag on the record);
+    the calibration loop (per-cue yield tally at engagement close, promote
+    ≥ 20%, demote < 5% twice, two-engagement floor before retirement).
+  - SKILL.md: H-record grammar gains the `cue:` line (required when the
+    trigger was noticing, not a scanner); operator set gains Noticing;
+    routing table updated. Version bump 4.3.0 → 4.4.0 (minor: new reference
+    content, non-breaking grammar addition).
 v4.3.0 (2026-11)
   - New module §34 (references/researcher-conduct.md): the behavioral layer —
     how the agent acts as a security researcher while doing anything else in

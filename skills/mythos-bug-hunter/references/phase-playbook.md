@@ -1,6 +1,6 @@
 # Reference — The Phase Playbook (Recon to Report, Action by Action)
 
-> Part of **mythos-bug-hunter v4.3.0** (package architecture).
+> Part of **mythos-bug-hunter v4.4.0** (package architecture).
 > **Load when:** An engagement starts (Mode F), a phase transition lands, or
 > the agent needs the *execution sequence* for the phase it is standing in:
 > entry conditions, numbered actions, methods, decision rules, exit gate,

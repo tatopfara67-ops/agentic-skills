@@ -1,6 +1,6 @@
 ---
 name: mythos-bug-hunter
-version: 4.3.0
+version: 4.4.0
 type: ai-skill
 architecture: package
 description: >
@@ -21,7 +21,7 @@ metadata:
   author: tatopfara67-ops
 ---
 
-# mythos-bug-hunter v4.3.0 — The Discipline Layer
+# mythos-bug-hunter v4.4.0 — The Discipline Layer
 
 ## 0. What This Skill Is — and Is Not
 
@@ -195,6 +195,7 @@ Every hypothesis is a block in the ledger, exactly five slots:
 ### H-001 — <short mechanism title> (facts R-004, R-006)
 - claim: If <mechanism X>, then <observable Y> under <conditions>.
 - facts: R-NNN, R-NNN        # the records that motivate this hypothesis
+- cue: C-id (§32.10)         # required when the trigger was noticing, not a scanner
 - prior: NN% — <base-rate justification>   # a number, with a reason
 - falsifier: <the observation that kills it — what makes delta = 0 or the control light up>
 - Closure: <filled in Phase 3 — CONFIRMED / FALSIFIED / INCONCLUSIVE (+ E-cards, R-refs)>
@@ -205,6 +206,10 @@ Rules:
 - **Committed before the first crafted payload.** A hypothesis that first
   appears after its "confirming" response is retrodiction, and retrodiction
   is discarded.
+- **Cue-tagged when perception-driven.** If a noticing fired the
+  hypothesis — not a scanner sweep — the `cue:` line names it (§32.10
+  catalog when it maps, a fresh C-id when it does not). Untagged instinct
+  cannot be calibrated, and uncalibrated instinct is a vibe.
 - Prior percentages are Bayesian starting points with stated base rates
   (public advisory coverage, class frequency, lab convention). The update
   rule and likelihood tables live in `references/logic-and-probability.md`.
@@ -294,6 +299,7 @@ and `references/logic-and-probability.md`):
 | **Abduction** | Given an anomaly, ask which mechanism would make it inevitable, then pre-register that mechanism as a hypothesis. |
 | **Variant analysis** | Given a patch or a fixed bug, ask where the same shape still lives unfixed. (Big Sleep's method — the highest-yield LLM-native technique.) |
 | **One-step-back** | When stuck, zoom out one level: from parameter to endpoint, endpoint to app, app to tier, tier to protocol. |
+| **Noticing** | The trained eye (§32.10): a cue fires → log it with its C-id → H-record or explicit park, same session. Perception is a pipeline stage, not a mood. |
 
 ## 10. Tool Discipline (MCP and friends)
 
@@ -413,7 +419,7 @@ preimage work, key recovery attacks on primitives. The JWT catalog is in
 | Phase 3–4: curl recipes, differential trio, canary payload library, minimal-code doctrine, micro-scripts | `references/toolkit-and-canaries.md` |
 | Phase 5: JSON schemas and full report templates | `references/report-templates.md` |
 | Long engagements: context discipline; TRENDFRESH web-research protocol | `references/research-protocol.md` |
-| Phase 2 warzone drills: assumption destruction, extreme inputs, cross-domain transplant, dark-lab protocol | `references/ruthless-mind.md` |
+| Phase 2 warzone drills: assumption destruction, extreme inputs, cross-domain transplant, dark-lab protocol; the trained eye — cue catalog, notice protocol, instinct calibration (§32.10) | `references/ruthless-mind.md` |
 | Always conceptually loaded: authorization policy, non-destruction, disclosure etiquette | `references/safety-and-ethics.md` |
 | Fast lookup: diagnosis trees, classification and false-positive cheat sheets | `references/decision-trees-and-cheatsheets.md` |
 | Grounded narratives: php2shell, php.net 2021, CVE-2025-29927, MCP poisoning, xz-utils | `references/case-studies.md` |

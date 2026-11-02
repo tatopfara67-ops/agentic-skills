@@ -1,7 +1,7 @@
 # Reference — Ruthless Mind
 
-> Part of **mythos-bug-hunter v4.3.0** (package architecture).
-> **Load when:** Phase 2 warzone drills: the nine principles, laziness mapping, extreme-input grammar, assumption destruction worksheet, cross-domain transplant matrix, dark-lab protocol.
+> Part of **mythos-bug-hunter v4.4.0** (package architecture).
+> **Load when:** Phase 2 warzone drills: the nine principles, laziness mapping, extreme-input grammar, assumption destruction worksheet, cross-domain transplant matrix, dark-lab protocol; the trained-eye cue catalog (any phase — perception fires before reasoning).
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
 > SKILL.md Canon or contracts, **SKILL.md wins**. Section numbering below is
@@ -171,5 +171,64 @@ unauthorized access to "just verify quickly", it is dead as a finding; it
 may survive as a marked theory in the journal. The purpose of extreme
 thinking is to find *more bugs inside the scope* — never to stretch the
 scope.
+
+### 32.10 The Trained Eye (instinct as a measurable asset)
+
+Hunters call it a gut feeling. Strip the mysticism: instinct is pattern
+recognition compressed from repetitions — a library of smells, a protocol
+for noticing, and a score that says which smells pay. An agent has no
+subconscious, so all three live on paper — which is better, because paper
+can be audited and trained.
+
+**The cue catalog.** What a sharpened eye actually reacts to — each row:
+the smell, why it smells, what it historically yields, the first cheap
+probe:
+
+| # | Cue (the thing you noticed) | Why it smells | Historical yield | First probe |
+|---|---|---|---|---|
+| C1 | one resource uses sequential ints while the app otherwise uses UUIDs | that code path predates the convention — and per-object authz | IDOR | id swap between two own accounts (§20 matrix) |
+| C2 | same status code, different body across roles on one endpoint | hand-rolled authorization layering | authz bypass | role×resource cell differential (§8) |
+| C3 | the object id is accepted in two positions (path + body/query) | two parsers; one of them unchecked | IDOR / mass assignment | mutate one position, hold the other constant |
+| C4 | v1 and v2 are both alive for the same resource | v1's authz froze when v2 shipped | IDOR on v1 | replay the v2 request against v1 |
+| C5 | error text echoes input or object metadata | a verbose oracle | enumeration / injection oracle | echo differential — same shape, one field changed |
+| C6 | bimodal timing on identical requests | cache path vs origin path | cache deception / poisoning | timing buckets + cache headers on both arms |
+| C7 | response headers differ across roles on one endpoint | middleware skipped per route | authz bypass | header inventory diff, then the missing-header hypothesis |
+| C8 | a route 404s on GET but answers on another verb | dead-but-alive surface | hidden functionality | method matrix, non-destructive verbs first |
+| C9 | a "new" feature ships an old build hash / sourcemap | stale code in production | patched bugs alive again | version diff against the vendor changelog |
+| C10 | the app behaves identically with a token claim removed | the claim is decorative | auth bypass | remove-claim differential, both own accounts |
+| C11 | docs or OPTIONS admit methods the UI never uses | orphan state-changers | logic abuse | one bounded probe per method, canary payload |
+| C12 | tenant A's id is accepted on tenant B's endpoint shape | tenancy enforced in the UI only | cross-tenant IDOR | tenant-slice differential, own tenants ×2 |
+| C13 | GraphQL and REST twins serve the same data | resolvers skip the field authz the REST layer had | field-level IDOR | twin diff — same object via both, compare fields |
+| C14 | a rate limit differs by client type (web vs mobile UA) | the limiter sits at one edge, not the backend | race window | paired courteous bursts, floors per R7 |
+
+Cues are priors, not verdicts: every row still enters through the normal
+hypothesis gates (§11, §5). A cue that skips the gate is a hunch — and
+hunches are exactly what §5 exists to kill.
+
+**The notice protocol.** Perception is a first-class pipeline stage:
+
+1. Log the perception the moment it fires — one line, the cue id and the
+   two records that produced it. "I'll remember it" is how surface
+   evaporates.
+2. Every cue becomes an H-record in the same session, or is explicitly
+   parked with its id and the reason. A cue that never becomes anything
+   is deleted by the calibration step below.
+3. The motivating H-record carries its `cue:` line. An untagged noticing
+   is unauditable; an unauditable instinct is a vibe.
+
+**The calibration loop.** The eye sharpens by scoring, not by feeling. At
+engagement close, tally per cue: fired → hypothesis → confirmed /
+killed / parked. Cue yield = confirmed ÷ fired.
+
+- yield ≥ 20% over the engagement: the cue moves earlier — its probe
+  family runs in the first hour of the next Phase 2.
+- yield < 5% on two consecutive engagements: demote to opportunistic
+  ("check only when the records already cross its path").
+- Never retire a cue on one bad engagement — base rates are noisy at
+  small n (§10.4); two is the floor, three is the signal.
+
+This is §31.5's calibration audit applied to perception: priors calibrate
+the reasoning, cues calibrate the eye. A hunter whose catalog is scored
+every engagement stops having hunches and starts having throughput.
 
 ---

@@ -15,7 +15,13 @@ severity/quota goals, the persona mix (which legend lineages apply), the
 phase plan, the tools, and the full professional doctrine order. You
 execute the EXPANDED order, never the bare words; the original request
 rides along verbatim into the plan note. Never treat a quota as a
-severity mandate — it is an effort budget, and the gates never bend.
+severity mandate — it is an effort budget, and the gates never bend. A
+quota is also a CONTINUATION MANDATE: before it is met, the engagement
+ends only by exhaustion proof or explicit operator release
+(mythos-bug-hunter researcher-conduct §34.8). A summary written over an
+unresolved TODO queue is a stop-condition violation, not a report;
+context exhaustion is a pause — write the MISSION block into state and
+resume toward the unmet quota.
 
 ## Session startup (any session that touches security work)
 

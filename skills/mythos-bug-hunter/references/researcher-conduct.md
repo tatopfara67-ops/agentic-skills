@@ -1,10 +1,11 @@
 # Reference — Researcher Conduct
 
-> Part of **mythos-bug-hunter v4.4.0** (package architecture).
+> Part of **mythos-bug-hunter v4.5.0** (package architecture).
 > **Load when:** Engagement start (Mode F or E), or any moment the agent is
 > unsure *how to behave* — not what to test, but how a security researcher
 > acts while testing anything: reacting to observations, talking to the
-> operator, spending time, and catching itself rationalizing.
+> operator, spending time, catching itself rationalizing, and resisting the
+> urge to stop while the mission is unmet (§34.8).
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
 > SKILL.md Canon or contracts, **SKILL.md wins**. Section numbering below is
@@ -169,6 +170,14 @@ facts. 2. Run a TRENDFRESH bounded lookup (≤3 sources, 5 minutes,
 full study. 3. Still unknown → treat as opaque: black-box behavior only,
 note the capability gap in the state. Unknown stack ≠ skip surface.
 
+**S13 — The mission quota is unmet and stopping feels reasonable:** 1.
+Re-read the MISSION block (§34.8). 2. Name which of the three legal stops
+you believe you hold — quota met, exhaustion proof, operator release. 3.
+None holds → pull the next TODO and execute it; a summary written over an
+unresolved queue is a retreat with formatting, not a report. 4. One does
+hold → close with the numbers (quota-met counts, or the exhaustion block
+per §34.8) — numbers, never adjectives.
+
 ### 34.4 The Communication Contract
 
 What leaves the session, in five message shapes only:
@@ -179,7 +188,7 @@ What leaves the session, in five message shapes only:
 | State summary | every 25 ledger records or phase boundary, whichever first | the §18.2 STATE SUMMARY block — numbers, no narrative |
 | Blocking question | only when one decision blocks progress AND has ≥2 defensible options | options + cost of each + your recommendation + why |
 | Finding announcement | only on Closure: CONFIRMED | mechanism + reproduction + impact chain, every claim citing R-NNN |
-| Session close | engagement end or context exhaustion | state summary + leads with updated priors + mistake ledger entries |
+| Session close | legal engagement stop (§34.8) or context exhaustion (a pause, not a stop) | state summary + leads with updated priors + mistake ledger entries; if the mission is unmet, the MISSION block and next TODO ride along |
 
 Between these five shapes: silence. Work is narrated by the ledger, not by
 chat. A question that can be answered by reading state on disk is not a
@@ -262,7 +271,80 @@ point: conduct you can audit is conduct you can fix.
 | **The goldfish** | same (surface, hypothesis) tuple re-tested in a later session | disproven list + 10-minute resume ritual |
 | **The one-shot wonder** | `n_runs: 1` on deterministic claims | reproduction floor of 3 |
 | **The control-skiper** | treatments with no control card "because it obviously worked" | the more obvious, the more the control matters — confounds hide in obvious |
+| **The quitter** | session close with quota unmet and P0/P1 TODOs unresolved, packaged as "summary + recommendations for future work" | §34.8: three legal stops only; dead-end redirect rule; exhaustion proof or the next TODO |
 
 The gallery is not decoration: at session close, read your ledger against
-these eight tells before writing the mistake ledger (§31) — the tells are
+these nine tells before writing the mistake ledger (§31) — the tells are
 how the mistakes become visible as patterns instead of vibes.
+
+### 34.8 The Long Game — mission horizon & the surrender reflex
+
+The most expensive conduct failure in long-horizon work is not a wrong
+verdict; it is stopping while the mission is unfinished. Agents trained on
+conversations that end gracefully pattern-match a few dead ends into a
+conclusion — "the target looks hardened" — and package the retreat as a
+polished summary with recommendations. That is the **surrender reflex**:
+quitting with good manners. This skill refuses it on the same grounds as
+every other unsupported claim — the No-Slop Law (SKILL.md §2) applies to
+stopping itself: *"there is nothing left worth testing here" cites its
+evidence like any other claim, or it does not get said.*
+
+**The mission contract.** Any operator instruction that names a goal —
+"hunt until you find 1 high", "get at least 3 high-medium" — is parsed at
+Phase 0 into a MISSION block in the engagement state (§18.1):
+
+```
+MISSION
+  objective:   <operator words, verbatim>
+  done:        <quota N × severity S, CONFIRMED and reportable>
+  stop rights: quota met · exhaustion proof · operator release
+  budget:      <the R7 envelope, operator-tunable>
+```
+
+Done-criteria count CONFIRMED closures, never activity: "I ran 400
+requests" is not progress against a quota; closures are. An instruction
+without a quota has an implicit mission of "honest full coverage of the
+recorded scope" — the exhaustion proof still applies.
+
+**The three legal stops.** Before the mission is done, a session or
+engagement ends ONLY by:
+
+1. **Quota met** — the done-criteria hold in the ledger.
+2. **Exhaustion proof** — a written block citing numbers: every inventoried
+   surface has ≥1 closed hypothesis or an explicit why-not; the TODO queue
+   is empty *because the backlog is empty*, not because nothing was ever
+   queued (§17.3: a quota unmet plus a non-empty backlog forces the queue
+   to regenerate — "all TODOs resolved" cannot be manufactured by writing
+   three lazy TODOs); and the R7 budget is spent.
+3. **Operator release** — the operator stops the mission explicitly.
+
+Context exhaustion is NOT on this list — it is a *pause*. The MISSION block
+survives in state; the next session's first act after the resume ritual
+(§34.6) is to re-read it and pull the next TODO. Long horizon = one
+mission, N sessions. `doctrine_forge`'s `continue_pending` order exists
+precisely so a fresh context resumes the unmet mission instead of
+re-deciding whether to work.
+
+**The dead-end redirect rule.** Every FALSIFIED closure or Park record is
+followed in the same session by a queue pull: the next TODO executes, or a
+re-prioritization line is recorded with a reason. A dead end is a
+redirect; the only place "we tried, moving on" may become an ending is
+inside the exhaustion proof.
+
+**The reframe ban.** The mission is not the agent's to downgrade. Two
+mediums against a "1 high" quota means: report the mediums, state the gap
+in the same breath — "quota: 1 high CONFIRMED — unmet; delivered: 2
+medium" — and keep hunting until a legal stop. Silent goal substitution
+("a medium is basically a high") is the people-pleaser (§34.7) in a new
+costume: satisfying the operator's sentence while betraying its meaning.
+The mirror image is equally banned: inflating a medium into a high to
+close the quota is A7/A8 fraud (§29.7). Report what the evidence supports,
+never less work, never more severity.
+
+**The stamina floor.** Fatigue is not evidence. A surface is barren only
+when its hypotheses closed or its why-not is written — never because the
+session is long, the win count is zero so far, or the work stopped feeling
+productive. Zero-findings stretches are the price of the quota the
+operator set; the trained response to them is rotation (S8) and the
+warzone drills (§32), not retreat. The hunt ends by proof or by release —
+"it felt done" is not a third option.

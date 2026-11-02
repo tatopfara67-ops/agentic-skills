@@ -1,6 +1,6 @@
 ---
 name: mythos-bug-hunter
-version: 4.4.0
+version: 4.5.0
 type: ai-skill
 architecture: package
 description: >
@@ -21,7 +21,7 @@ metadata:
   author: tatopfara67-ops
 ---
 
-# mythos-bug-hunter v4.4.0 — The Discipline Layer
+# mythos-bug-hunter v4.5.0 — The Discipline Layer
 
 ## 0. What This Skill Is — and Is Not
 
@@ -151,6 +151,9 @@ work. Authorization first: no `AUTH` record, no requests, full stop (R0).
 Record the capability inventory: which tools actually exist in this
 environment (MCP servers, Kali-style CLI tools, or neither — the fallback
 ladder in §10 keeps the pipeline functional with just curl and python3).
+If the operator's order names a goal or quota, the MISSION block is
+written here and stored in the engagement state (researcher-conduct.md
+§34.8): objective, done-criteria, the three legal stops, budget.
 
 ### 4.2 Phase 1 — Recon and surface inventory
 
@@ -425,7 +428,7 @@ preimage work, key recovery attacks on primitives. The JWT catalog is in
 | Grounded narratives: php2shell, php.net 2021, CVE-2025-29927, MCP poisoning, xz-utils | `references/case-studies.md` |
 | Phase 1 recon at scale, blind-vector probing order, or operator pressure for unearned findings: toolchain routing table, target triage score, duplicate suppression, time-boxes, probing ladder, sibling sweeps, operator-pressure protocol | `references/recon-toolchain.md` |
 | Engagement start (Mode F/E), or standing inside a phase needing its action sequence: entry conditions, numbered actions, methods, decisions, exit gates, failure modes, worked timeline | `references/phase-playbook.md` |
-| Engagement start, or any moment of conduct doubt — how to react to an anomaly, a 403, certainty, boredom, or operator pressure; what to say and when | `references/researcher-conduct.md` |
+| Engagement start, or any moment of conduct doubt — how to react to an anomaly, a 403, certainty, boredom, operator pressure, or the urge to stop while the mission is unmet (§34.8); what to say and when | `references/researcher-conduct.md` |
 | Provenance: methodology crosswalk and changelog | `references/changelog-and-crosswalk.md` |
 
 ## 18. Quick Reference Card
@@ -439,6 +442,8 @@ R4  claim → R-NNN, or it does not exist
 R5  scanner output = hypothesis, never finding
 R6  calibrate the instrument before trusting it
 R7  budget per vector; exhausted → park
+
+quota unmet → exhaustion proof or pull the next queued item (34.8)
 
 floor 3 runs (deterministic) · 20 attempts + stability (stochastic)
 Closure: CONFIRMED / FALSIFIED / INCONCLUSIVE — nothing else

@@ -8,7 +8,7 @@ carries the distilled version; this module is the atlas.
 
 ```
                 ┌──────────────────────────────────────────────┐
-                │ mythos-bug-hunter v4.4.0 (spine, own bundle) │
+                │ mythos-bug-hunter v4.5.0 (spine, own bundle) │
                 │ R0–R7 canon · ledger · hypotheses · gates    │
                 └───────┬───────────────────────────┬──────────┘
    Phase 1–3 organs     │            evidence       │ incident branch

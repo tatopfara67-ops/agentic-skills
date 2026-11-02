@@ -10,8 +10,8 @@ How the whole skill agent works, in one picture: **[docs/mythos-arsenal-arsitekt
 
 | Skill | Version | What it does |
 |---|---|---|
-| [skill-mythos](skills/skill-mythos/) | 1.1.1 | Master charter: thirteen articles, the tiered bundle map, the autonomy protocol, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
-| [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.4.0 | The spine: discipline layer for authorized web/API/AI research — evidence-cited claims, pre-registered hypotheses, reproducible PoCs, canary impact proofs, the trained-eye cue catalog with per-engagement instinct calibration. 19 reference modules + a PASS/FAIL report auditor. |
+| [skill-mythos](skills/skill-mythos/) | 1.2.0 | Master charter: thirteen articles, the tiered bundle map, the autonomy protocol, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.5.0 | The spine: discipline layer for authorized web/API/AI research — evidence-cited claims, pre-registered hypotheses, reproducible PoCs, canary impact proofs, the trained-eye cue catalog with per-engagement instinct calibration, long-horizon mission discipline (quota unmet ends only by exhaustion proof or operator release). 19 reference modules + a PASS/FAIL report auditor. |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit. *Static analysis proposes, the runtime disposes* — no finding without a differential oracle. Calibrated by rediscovering CVE-2024-33663/33664 from the version diff. |
 | [mythos-proving-ground](skills/mythos-proving-ground/) | 1.0.0 | Ground-truth benchmark: deploys an instrumented vulnerable lab, records server-side trigger events, scores coverage, precision, hallucination rate, harm events. |
 | [aas-catalog](skills/aas-catalog/) | 1.0.0 | Search & install from the Agentic Awesome Skills catalog — one reviewed skill per install, risk-gated. |
@@ -56,7 +56,7 @@ Tool groups: charter (`mythos_charter`, `mythos_lineages`, `doctrine_forge` — 
 ```bash
 pip install -r requirements.txt                 # mcp>=1.2.0
 python3 arsenal/server.py --selftest            # lists all 27 tools
-python3 -m unittest discover -s arsenal/tests   # 101 tests
+python3 -m unittest discover -s arsenal/tests   # 102 tests
 python3 scripts/validate_skill.py --all         # 30 bundles PASS
 ```
 

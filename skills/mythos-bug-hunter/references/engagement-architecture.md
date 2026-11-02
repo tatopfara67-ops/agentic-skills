@@ -1,6 +1,6 @@
 # Reference — Engagement Architecture
 
-> Part of **mythos-bug-hunter v4.4.0** (package architecture).
+> Part of **mythos-bug-hunter v4.5.0** (package architecture).
 > **Load when:** Phase 1: attack-surface inventory v3 (21 classes), pinpoint TODO system and priority engine, operational workflow, stop conditions, state management, reportability gate.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
@@ -306,6 +306,14 @@ says time is up; the operator instructs stop; a scope violation is
 discovered and cannot be remediated; or a safety incident occurs (e.g.
 unintended impact on production users).
 
+**Mission-quota clause** (researcher-conduct.md §34.8): when a mission
+quota is unmet, "all P0/P1 TODOs resolved" is only a stop if the backlog
+is empty and every inventoried surface has a closed hypothesis or an
+explicit why-not — a quota unmet plus remaining work forces the TODO
+queue to regenerate from the backlog, so the queue cannot be drained by
+never filling it. Stopping on an unmet quota requires the written
+exhaustion proof.
+
 ### 17.4 Branch Stop Record
 
 Stopping is an information-theoretic decision, not giving up. Record it:
@@ -332,6 +340,7 @@ every verdict change, TODO completion/blockage, and surface discovery.
 | Field | Content |
 |---|---|
 | `target` / `scope` | Program, in-scope assets, allowed/forbidden actions |
+| `mission` | Objective + done-criteria + stop rights, when the operator's order names a goal (§34.8) |
 | `mode` | Current operating mode (R/V/E/F, section 2) |
 | `phase` | Current workflow phase (section 16) |
 | `inventory` | Per §14 |

@@ -28,7 +28,7 @@ Worked example (the operator's own phrasings):
   mindset → Kettle's protocol asymmetry → Rosen's IDOR discipline →
   Mitnick's trust audit → Draper's signal craft (when validators
   block) → Hotz's teardown (when artifacts are in scope) — plus the
-  quota discipline paragraph.
+  quota discipline + mission horizon paragraphs.
 
 ## 2. The Intent Grammar (as implemented)
 
@@ -59,7 +59,10 @@ least N` or `N bug(s)/temuan/finding`.
   escalation NEVER relaxes discipline;
 * the **quota discipline** (when a quota was detected): an effort
   budget, not a severity mandate — severity inflation to satisfy a
-  quota is the one unforgivable failure (A7/A8).
+  quota is the one unforgivable failure (A7/A8);
+* the **mission horizon** (same trigger): the quota is also a
+  continuation mandate — before it is met, the engagement ends only
+  by exhaustion proof or operator release (§5).
 
 ## 4. Extending the grammar
 
@@ -72,7 +75,31 @@ the function pure (no clocks, no randomness, no environment reads
 beyond the static tables): determinism is the contract that makes
 the forged order auditable.
 
-## 5. Why this exists (the operator's brief, on record)
+## 5. Mission horizon (the quota's other half)
+
+Quota discipline guards one flank: inventing findings to fill a count
+(the people-pleaser). The other flank is the most common long-horizon
+agent failure — **surrendering before the count is filled**: a few
+dead ends, then a polished "summary + recommendations" over an
+unresolved TODO queue. The forged quota order therefore carries both
+clauses, and they are symmetrical:
+
+* never MORE severity than the evidence supports (A7/A8);
+* never LESS WORK than the mission demands — stopping before the
+  quota is met requires one of three legal stops: quota met,
+  exhaustion proof (every inventoried surface closed or why-not'd,
+  backlog empty, budget spent), or explicit operator release
+  (mythos-bug-hunter researcher-conduct.md §34.8 — mission contract,
+  dead-end redirect rule, reframe ban, stamina floor).
+
+"kerjakan bug bounty sampai menemukan 1 celah keamanan high" is not
+satisfied by a summary that recommends future work; it is satisfied
+by 1 CONFIRMED high, an exhaustion proof, or the operator saying
+stop. Context exhaustion is a pause, not a stop — the MISSION block
+survives in engagement state and `continue_pending` resumes toward
+the unmet quota.
+
+## 6. Why this exists (the operator's brief, on record)
 
 The operator asked that even a sleepy one-line instruction —
 "please continue the pending bug bounty work" — be enough for the

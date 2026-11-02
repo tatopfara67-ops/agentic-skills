@@ -1,6 +1,6 @@
 # Reference — Changelog And Crosswalk
 
-> Part of **mythos-bug-hunter v4.4.0** (package architecture).
+> Part of **mythos-bug-hunter v4.5.0** (package architecture).
 > **Load when:** Provenance: methodology crosswalk and changelog.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
@@ -34,6 +34,35 @@
 ## E. Changelog
 
 ```
+v4.5.0 (2026-11)
+  - New section §34.8 The Long Game (references/researcher-conduct.md):
+    mission horizon & the surrender reflex — the conduct answer to the
+    most common long-horizon agent failure, quitting while the mission
+    is unmet and packaging it as a summary. Mission contract (operator
+    goal parsed at Phase 0 into a MISSION state block: objective, done
+    criteria as CONFIRMED-closure counts, stop rights, budget); the
+    three legal stops (quota met · exhaustion proof · operator release)
+    with context exhaustion demoted to a pause — one mission, N
+    sessions, resumed via continue_pending; the dead-end redirect rule
+    (every FALSIFIED/Park is followed same-session by a queue pull);
+    the reframe ban (no silent goal downgrading, no severity
+    inflation — report the gap in the same breath); the stamina floor
+    (fatigue is not evidence; barren requires closed hypotheses).
+  - New conduct card S13 (quota unmet, stopping feels reasonable) and
+    failure gallery entry #9 "The quitter" (tell: session close with
+    quota unmet and P0/P1 TODOs unresolved, packaged as summary +
+    recommendations).
+  - engagement-architecture.md: §17.3 gains the mission-quota clause
+    (quota unmet + remaining backlog forces TODO regeneration — the
+    queue cannot be drained by never filling it; stopping on an unmet
+    quota requires the written exhaustion proof); §18.1 state gains the
+    `mission` field.
+  - SKILL.md: Phase 0 writes the MISSION block when the order names a
+    goal; routing and quick-reference card updated. doctrine_forge
+    (skill-mythos 1.2.0): the forged bug_quota order now carries the
+    mission-horizon clause — quota as continuation mandate — with a
+    paired unittest. Version bump 4.4.0 → 4.5.0 (minor: new reference
+    content, non-breaking).
 v4.4.0 (2026-11)
   - New section §32.10 The Trained Eye (references/ruthless-mind.md): instinct
     as a measurable asset — the 14-cue catalog (sequential-id vs UUID drift,

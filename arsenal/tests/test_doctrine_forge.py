@@ -95,6 +95,13 @@ class TestForgedOrderContent(unittest.TestCase):
         self.assertIn("severity inflation", prompt)
         self.assertIn("differential triad", prompt)
 
+    def test_quota_order_carries_mission_horizon(self):
+        prompt = self.quota_order["doctrine_prompt"]
+        self.assertIn("continuation mandate", prompt)
+        self.assertIn("exhaustion proof", prompt)
+        self.assertIn("operator release", prompt)
+        self.assertIn("stop-condition violation", prompt)
+
     def test_gates_ride_along_on_every_order(self):
         for request in ("tolong lanjutkan pekerjaan yang tertunda",
                         "get me 3 bugs",

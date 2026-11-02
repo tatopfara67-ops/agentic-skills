@@ -36,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.1.1"
+MODULE_VERSION = "1.2.0"
 
 SPINE = "mythos-bug-hunter"
 
@@ -714,7 +714,17 @@ def _forge_bug_quota(request: str, severity: list[str],
         "auditor/audit_report.py exit 0. If the evidence supports fewer or "
         "milder findings than the quota, the report says exactly that, with "
         "the state that produced it — severity inflation to satisfy a quota "
-        "is the one unforgivable failure. State the exit numbers (R6)."
+        "is the one unforgivable failure. State the exit numbers (R6). "
+        "Mission horizon (researcher-conduct.md 34.8): the quota is ALSO a "
+        "continuation mandate. Before it is met, the engagement ends only "
+        "by exhaustion proof (every inventoried surface has a closed "
+        "hypothesis or a why-not; the TODO queue is empty because the "
+        "backlog is empty) or explicit operator release — a summary "
+        "written over an unresolved TODO queue is a stop-condition "
+        "violation, not a report. Every dead end redirects: FALSIFIED or "
+        "parked, then the next TODO in the same session. Context exhaustion "
+        "is a pause — the MISSION block survives in state and the next "
+        "session resumes toward the unmet quota."
         % (severity_goal, quota_line))
     return {
         "detected_intent": "bug_quota",

@@ -1,6 +1,6 @@
 # Reference — Troubleshooting And Learning
 
-> Part of **mythos-bug-hunter v4.4.0** (package architecture).
+> Part of **mythos-bug-hunter v4.5.0** (package architecture).
 > **Load when:** Any phase on failure (self-repair protocol) and engagement close (mistake-learning system: error journal, bias checklist, regret table, calibration audit).
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

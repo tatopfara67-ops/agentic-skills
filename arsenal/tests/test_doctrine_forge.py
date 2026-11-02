@@ -191,6 +191,23 @@ class TestForgedOrderContent(unittest.TestCase):
             self.assertTrue(forged["tools"])
             self.assertTrue(all(t for t in forged["tools"]))
 
+    def test_forged_order_carries_execution_doctrine(self):
+        for request in ("dapatkan minimal 3 bug high-medium",
+                        "map the target surface",
+                        "tolong lanjutkan pekerjaan bug bounty yang tertunda"):
+            forged = _mythos.doctrine_forge(request)
+            doctrine = forged.get("execution_doctrine")
+            self.assertTrue(doctrine, request)
+            joined = " ".join(doctrine)
+            self.assertIn("OODA-hygiene", joined)
+            self.assertIn("observation note", joined)
+            self.assertIn("differential triad", joined)
+            self.assertIn("lesson", joined)
+            prompt = forged["doctrine_prompt"]
+            self.assertIn("EXECUTION DOCTRINE", prompt)
+            self.assertIn("OODA-hygiene", prompt)
+            self.assertIn("autonomous-operation.md", prompt)
+
 
 class TestDeterminism(unittest.TestCase):
     REQUESTS = [

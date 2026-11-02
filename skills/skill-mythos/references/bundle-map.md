@@ -58,6 +58,20 @@ closure gates, R7 budgets) instead of restating them. The charter
 | signal-smith | 6 | a validator blocks honest payloads | *precision over volume* — one minimal variation per seam, two max (John Draper lineage) |
 | trust-graph-hunter | 6 | components trust each other (headers, referers, signatures, tokens) | *the trust graph* — enumerate trust edges, prove inherited privilege on operator-owned ends (Kevin Mitnick lineage) |
 
+Selection is only half the routing contract: once loaded, every organ
+RUNS under the execution doctrine (references/autonomous-operation.md)
+— OODA-hygiene loop, D1–D7 decision rules, behavior contracts, and a
+per-organ execution anchor, the decision scientist behind the craft
+lineage: Boyd behind the spine, Simon behind scan-economist, March
+behind feedback-fuzzer, Klein behind chain-architect, Kahneman behind
+deep-teardown, Taleb behind ghost-crawler, Hofstadter behind
+mirror-hunter, Tversky behind trust-graph-hunter, Chomsky behind
+signal-smith, Ashby behind pipeline-smith, Popper behind
+template-scanner, Snowden behind adversary-tracker, Ericsson behind
+the proving ground, Kauffman behind doctrine-forge, Metzinger behind
+glm-self-model. `doctrine_forge` carries the doctrine's summary on
+every forged order, so the contract rides with the work.
+
 ## 3. The execution hand — arsenal tool groups
 
 | Group | Tools | When |

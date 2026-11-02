@@ -62,6 +62,26 @@ resume toward the unmet quota.
 | Incident (any phase) | adversary-tracker — the Binary Brain | `sbb_declare`, `sbb_decide`, `sbb_apply` |
 | Any instruction | doctrine_forge FIRST (A13) | `doctrine_forge` |
 
+## Organ execution (once an organ is selected)
+
+Selection is the autonomy protocol; EXECUTION is the doctrine every
+selected organ runs under (skill-mythos references/autonomous-operation.md),
+carried by every forged order: OODA-hygiene loop — write the
+observation note from fresh tool output BEFORE the next thought, one
+pre-registered hypothesis per step, and a step without an observation
+note is not done. The D1-D7 rules in brief: lineage intuition
+proposes, the differential triad concludes (D1 — bug hunting is a
+wicked learning environment, intuition concludes nothing); stops are
+recorded satisficing against an inventory, never felt "done" (D2);
+while a quota is unmet, at least 1 step in 5 probes a never-touched
+surface class (D3 — pure exploitation self-degrades into dupes);
+chains and full engagements open with a rejection premortem (D4);
+confidence comes from evidence class, never felt certainty (D5);
+check the dossier's coverage gaps before any negative verdict (D6);
+when a validator keeps refusing, vary the dimension, not the volume
+(D7). Every refuted hypothesis leaves a one-line lesson, re-read
+before the next hypothesis on the same surface class.
+
 ## Incident branch (event-triggered, any phase)
 
 When a sensor or the operator reports adversary activity on assets this

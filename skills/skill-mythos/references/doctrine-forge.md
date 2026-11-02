@@ -62,7 +62,11 @@ least N` or `N bug(s)/temuan/finding`.
   quota is the one unforgivable failure (A7/A8);
 * the **mission horizon** (same trigger): the quota is also a
   continuation mandate — before it is met, the engagement ends only
-  by exhaustion proof or operator release (§5).
+  by exhaustion proof or operator release (§5);
+* the **execution doctrine** (v1.5): every forged order carries the
+  OODA-hygiene loop + the D1–D7 summary — the behavior contract the
+  selected organ runs under (references/autonomous-operation.md);
+  lineage intuition proposes, the differential triad concludes.
 
 ## 4. Extending the grammar
 

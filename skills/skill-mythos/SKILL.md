@@ -1,9 +1,9 @@
 ---
 name: skill-mythos
-version: 1.4.0
+version: 1.5.0
 type: ai-skill
 architecture: package
-description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the thirteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, and A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison), the autonomy protocol for self-selecting organs by phase and event, and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
+description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the thirteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, and A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
 category: security/governance
 license: MIT
 metadata:
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.4.0 — The Master Charter
+# skill-mythos v1.5.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -81,7 +81,7 @@ metadata:
 | --- | --- | --- |
 | Spine | mythos-bug-hunter (v4.5.0, separate bundle) | discipline layer: R0–R7 canon, ledger, hypothesis grammar, closure gates |
 | 0 engine | glm-self-model | the engine's own manual: model-class failure geometry + compensation gates for the GLM-class agent that runs every other skill |
-| 0 master | skill-mythos (this bundle) | activation: charter, autonomy protocol, quality gates |
+| 0 master | skill-mythos (this bundle) | activation: charter, autonomy protocol, execution doctrine, quality gates |
 | 1 recon & mapping | surface-cartographer | the organized dossier — asset graph, 21-class taxonomy, priority queue |
 | 1 | subdomain-hunter | passive-first enumeration, wildcard verdicts, takeover pairs |
 | 1 | content-discovery | calibrated walks, backup/config triage |
@@ -138,10 +138,17 @@ artifact.
    trigger; park the remainder with a resume note (R1).
 5. **Interrupt** for the Binary Brain when a sensor or the operator
    reports adversary activity on assets you are authorized to defend.
+6. **Run the selected organ under the execution doctrine** —
+   OODA-hygiene loop (observation note before the next thought, one
+   pre-registered hypothesis per step), D1–D7 decision rules, and the
+   organ's execution anchor. Selection picks the tool; execution is
+   how the tool runs.
 
 The full decision procedure, including the state variables and the
 combination rules, is in references/autonomy-protocol.md — the
-routing contract.
+routing contract. Execution — how a selected organ behaves, decides,
+and stops — lives in references/autonomous-operation.md (the
+execution contract)
 
 ## 4. Quality Gates — the Mythos Standard
 
@@ -199,6 +206,7 @@ references/activation.md — the install runbook.
 | --- | --- |
 | Mapping the full bundle, organ load-when triggers | references/bundle-map.md |
 | Selecting/combining organs autonomously | references/autonomy-protocol.md |
+| Running as a selected organ — behavior, decision, stop rules | references/autonomous-operation.md |
 | Expanding an operator request / extending the intent grammar | references/doctrine-forge.md |
 | Writing or auditing a finding block | references/quality-gates.md |
 | Classifying against Bugcrowd VRT / HackerOne | references/vrt-mapping.md |

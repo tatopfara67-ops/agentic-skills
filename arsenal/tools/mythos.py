@@ -36,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.4.0"
+MODULE_VERSION = "1.5.0"
 
 SPINE = "mythos-bug-hunter"
 
@@ -485,6 +485,26 @@ QUALITY_GATES = [
     "no hedging language; no claims without R-NNN citations",
 ]
 
+EXECUTION_DOCTRINE = [
+    "OODA-hygiene loop: write the observation note from fresh tool "
+    "output BEFORE the next thought; one pre-registered hypothesis "
+    "per step; a step without an observation note is not done.",
+    "D1 intuition (Kahneman & Klein 2009): lineage intuition "
+    "proposes hypotheses; only the differential triad concludes — a "
+    "lineage is a method license, never an authority license.",
+    "D5 calibration (Xiong et al. 2024): confidence derives from "
+    "evidence class, never felt certainty; stochastic surfaces run "
+    "as rates over N runs.",
+    "D3 exploration (March 1991): while a quota is unmet, at least 1 "
+    "in 5 steps targets a surface class never probed this "
+    "engagement.",
+    "Reflexion (Shinn et al. 2023): every refuted hypothesis leaves "
+    "a one-line lesson, re-read before the next hypothesis on that "
+    "surface class.",
+    "Full doctrine: skill-mythos references/autonomous-operation.md "
+    "(D1-D7, behavior contracts, per-organ execution anchors).",
+]
+
 REPORTING_TOOLS = {
     "cvss3_score": "spec-exact CVSS v3.1 base score from a vector",
     "vrt_classify": "finding-class -> Bugcrowd VRT + P-rating + H1 "
@@ -534,6 +554,8 @@ def mythos_charter() -> dict:
                     "(A13); the original words ride along verbatim",
         },
         "lineage_registry_tool": "mythos_lineages",
+        "execution_doctrine":
+            "skills/skill-mythos/references/autonomous-operation.md",
         "charter_reference": "skills/skill-mythos/SKILL.md",
     }
 
@@ -1100,10 +1122,15 @@ def doctrine_forge(request: str, context: str = "") -> dict:
         forged = _forge_incident(request)
     else:
         forged = _forge_default(request)
+    forged["doctrine_prompt"] += (
+        "\n\nEXECUTION DOCTRINE (skill-mythos "
+        "references/autonomous-operation.md):\n"
+        + "\n".join("- " + clause for clause in EXECUTION_DOCTRINE))
     forged.update({
         "operator_request": request,
         "context": context,
         "gates": QUALITY_GATES,
+        "execution_doctrine": EXECUTION_DOCTRINE,
         "escalation_rule":
             "execute the expanded order, not the bare words; the original "
             "request rides along verbatim and lands in the plan note",

@@ -159,4 +159,7 @@ remainder with a resume note — do not silently re-run with a raised cap.
    findings (chain-architect) state per-link severities next to the
    chain severity, both classified.
 4. `python3 auditor/audit_report.py <report.md>` — exit 0 or it does not
-   ship. Fix the work behind the report, not the auditor.
+   ship. Fix the work behind the report, not the auditor. Filed next to a
+   `ledger/` directory (or with `--program`/`--ledger`), the audit also
+   grounds citations: fabricated, borrowed-from-another-engagement,
+   misdirected, or CONTROL/REFUSED/MISTAKE-tag citations fail the report.

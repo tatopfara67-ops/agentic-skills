@@ -8,6 +8,10 @@ Row classes:
   in_scope  — full testing authorized
   recon_only— passive sources only (CT logs, DNS); active tools refused
   denied    — explicit refusal; overrides any other matching row
+  canary    — the operator's OWN callback collector: reachable only through
+              `check_canary()` (GET-only poll, no body, no query string,
+              bounded path) so out-of-band canary verification can never
+              double as an exfiltration channel to a third party
 
 House doctrine: a rule without enforcement is a suggestion. This module IS
 the enforcement; the tools cannot bypass it because they all route through it.
@@ -24,9 +28,13 @@ from urllib.parse import urlsplit
 
 from . import paths
 
-CLASSES = ("in_scope", "recon_only", "denied")
+CLASSES = ("in_scope", "recon_only", "denied", "canary")
 
 _URLISH = re.compile(r"^[a-z][a-z0-9+.-]*://", re.IGNORECASE)
+
+# how far a canary poll path may extend the declared collector path —
+# a session suffix, never a data channel
+CANARY_PATH_SLACK = 64
 
 
 @dataclass
@@ -175,6 +183,20 @@ def check_target(target: str, active: bool = True,
                            % (target, denied.line_no),
                            denied.target, "denied", denied.auth_artifact)
 
+    # canary rows never authorize ordinary probing — a callback collector
+    # is not a test target. Polls reach it only through check_canary().
+    probe_matches = [m for m in matches if m[1].klass != "canary"]
+    if not probe_matches:
+        crow = matches[0][1]
+        return CheckResult(
+            False,
+            "scope: target %r matches only a canary-class row — canary hosts "
+            "are the operator's callback collectors, not test targets. Canary "
+            "verification polls go through http_probe(canary=True), never "
+            "through probing or content discovery." % target,
+            crow.target, "canary", crow.auth_artifact)
+    matches = probe_matches
+
     # Most restrictive surviving class wins; then strongest precedence.
     best_rank, row = min(matches, key=lambda m: (m[0], m[1].line_no))
     if any(r.klass == "recon_only" for _r, r in matches):
@@ -220,6 +242,94 @@ def check_target(target: str, active: bool = True,
         row.target, row.klass, row.auth_artifact)
 
 
+def check_canary(target: str,
+                 scope_path: str | None = None) -> CheckResult:
+    """Authorization check for ONE canary callback verification poll.
+
+    Canary verification is out-of-band by nature — the whole point is that
+    the target server calls BACK to a collector the operator owns. That
+    same out-of-band channel is the classic exfiltration route, so this
+    path is deliberately narrower than `check_target`:
+
+      * only canary-class rows authorize it (in_scope test-target rows do
+        NOT — being allowed to probe a host never makes it your collector)
+      * denied rows still override everything
+      * GET only, no body (enforced by http_probe's canary mode)
+      * no query string — ?data=... exfil is closed by policy
+      * the polled path may extend the declared collector row by at most
+        CANARY_PATH_SLACK characters — a session suffix, not a payload
+    """
+    rows = load_scope(scope_path)
+    scheme, host, port, path = _split_target(target)
+    if not host:
+        return CheckResult(False, "unparsable canary target: %r" % target)
+    if urlsplit(target if _URLISH.match(target) else "http://%s" % target).query:
+        return CheckResult(
+            False,
+            "canary: query strings are forbidden on callback polls — the "
+            "out-of-band data channel is closed by policy")
+    url = "%s://%s%s%s" % (scheme or "http", host,
+                            ":" + port if port else "", path)
+
+    matches = [(rank, row) for row in rows
+               if (rank := _row_matches(row, scheme, host, port, url))]
+    if any(row.klass == "denied" for _rank, row in matches):
+        denied = next(row for _r, row in matches if row.klass == "denied")
+        return CheckResult(False, "canary: target %r is explicitly denied "
+                           "(row %d)" % (target, denied.line_no),
+                           denied.target, "denied", denied.auth_artifact)
+    matches = [(rank, row) for rank, row in matches if row.klass == "canary"]
+    if not matches:
+        return CheckResult(
+            False,
+            "canary: %r matches no canary-class scope.csv row — declare the "
+            "operator-owned collector (class canary, with artifact) before "
+            "any out-of-band interaction. Test-target rows do not authorize "
+            "canary polls, and third-party URLs are never auto-authorized." % target)
+    _rank, row = min(matches, key=lambda m: (m[0], m[1].line_no))
+
+    if not row.auth_artifact:
+        return CheckResult(
+            False,
+            "canary: row %d carries no operator artifact — fill the "
+            "auth_artifact column (who owns this collector)" % row.line_no,
+            row.target, "canary", "")
+
+    rt = row.target.strip()
+    if _URLISH.match(rt):
+        row_path = (urlsplit(rt).path or "/").rstrip("/")
+        asked = (path or "/")
+        slack = len(asked) - len(row_path)
+        if slack > CANARY_PATH_SLACK:
+            return CheckResult(
+                False,
+                "canary: polled path exceeds the declared collector row by "
+                "%d characters — data-in-path is an exfiltration channel, "
+                "not a callback" % slack,
+                row.target, "canary", row.auth_artifact)
+
+    if row.expires:
+        try:
+            if date.fromisoformat(row.expires) < date.today():
+                return CheckResult(
+                    False,
+                    "canary: authorization for %r expired on %s"
+                    % (target, row.expires),
+                    row.target, "canary", row.auth_artifact)
+        except ValueError:
+            return CheckResult(
+                False,
+                "canary: unparseable expires date %r on row %d — refusing "
+                "(fix the row)" % (row.expires, row.line_no),
+                row.target, "canary", row.auth_artifact)
+
+    return CheckResult(
+        True,
+        "canary poll authorized: collector %r (artifact %r)"
+        % (row.target, row.auth_artifact),
+        row.target, "canary", row.auth_artifact)
+
+
 class ScopeViolation(Exception):
     """Raised by tools when the gate refuses a target.
 
@@ -235,6 +345,15 @@ def guard(target: str, active: bool = True,
           scope_path: str | None = None) -> CheckResult:
     """Check-or-raise helper used by every network tool."""
     result = check_target(target, active=active, scope_path=scope_path)
+    if not result.authorized:
+        raise ScopeViolation(result)
+    return result
+
+
+def guard_canary(target: str,
+                 scope_path: str | None = None) -> CheckResult:
+    """Check-or-raise helper for canary verification polls."""
+    result = check_canary(target, scope_path=scope_path)
     if not result.authorized:
         raise ScopeViolation(result)
     return result

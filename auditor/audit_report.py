@@ -2,7 +2,15 @@
 """mythos-arsenal report auditor — PASS/FAIL evidence-discipline gate.
 
 Usage:
-    python3 auditor/audit_report.py <report.md>
+    python3 auditor/audit_report.py <report.md> [--program NAME]
+                                          [--ledger DIR]
+
+Grounding context resolution order: explicit --ledger DIR, explicit
+--program NAME (engagements/<program>/ledger/), auto-detect when the
+report lives under engagements/<program>/, auto-detect a sibling
+ledger/ directory next to the report (the shipped worked example).
+Without any of these the auditor runs standalone, syntax-only — see
+check 9.
 
 Checks (the spine's report contract, applied to arsenal engagements):
  1. any line carrying a severity or vulnerability-class word cites an
@@ -29,6 +37,25 @@ Checks (the spine's report contract, applied to arsenal engagements):
          explicit reproduction: line
     Incident handoffs (adversary hunts) rate `Risk:`, not `severity:` —
     the classification gates do not apply to them.
+ 9. citation grounding — existence: every R-NNN cited anywhere in the
+    report must exist in the engagement's own ledger. A cited-but-missing
+    record (fabricated, or borrowed from another engagement) fails the
+    report — citation laundering of the first kind.
+ 10. citation grounding — relevance (entailment PROXY): each severity/
+     class claim line is token-checked against the records it cites.
+     two or more shared salient tokens -> grounded
+     one shared token                     -> INFO (human review)
+     zero shared, and the line NAMES a probed surface token the record
+     never touched                        -> FAIL (misdirected citation —
+     the claim describes a different surface than the evidence)
+     zero shared, assessment-only prose   -> INFO (grounding rests on the
+     block's facts lines — human review)
+     Records tagged CONTROL / REFUSED / MISTAKE cited as vulnerability
+     evidence FAIL outright — those tags are non-evidence by definition.
+     Honest limit: token overlap is a proxy, not semantic understanding;
+     it kills fabricated and misdirected citations and flags weak ones,
+     but a full entailment judgment needs an LLM judge (documented,
+     deliberate).
 Exit 0 = PASS. Exit 1 = violations listed. Fix the work, not the auditor.
 """
 from __future__ import annotations
@@ -63,6 +90,17 @@ VRT_PATH = re.compile(r"\b([a-z][a-z_]*(?:\.[a-z_0-9]+)+)\b")
 P_LEVEL = re.compile(r"\bP([1-5])\b")
 E_REF = re.compile(r"\bE-\d{3,}\b")
 REPRO_LINE = re.compile(r"^(?:[-*]\s*)?reproduction:\s*\S", re.I)
+RECORD_LINE = re.compile(r"^(R-\d{3,})\s*\|")
+XREF = re.compile(r"\b[A-Za-z]+-\d{2,}\b")       # R-042, H-012, E-003, CVE-…
+TOKEN = re.compile(r"[a-z0-9][a-z0-9_./\-]{2,}")
+NON_EVIDENCE_TAGS = frozenset({"CONTROL", "REFUSED", "MISTAKE"})
+_GENERIC = frozenset("""
+the and for with that this from was were are has have had not but its
+their they when then than into over under without http https www com net
+org response responses request requests line lines record records ledger
+report reports finding findings evidence cited citation severity class
+note notes critical high medium low informational
+""".split())
 
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 for _p in (_ROOT,):
@@ -107,7 +145,193 @@ def _vrt_node(dotted: str):
     return node
 
 
-def audit(path: str) -> list[tuple[str, str]]:
+def _resolve_program(path: str, explicit: str | None) -> str | None:
+    """Explicit --program wins; else auto-detect engagements/<program>/."""
+    if explicit:
+        return explicit
+    parts = os.path.normpath(os.path.abspath(path)).split(os.sep)
+    if "engagements" in parts:
+        i = parts.index("engagements")
+        if i + 1 < len(parts) and parts[i + 1] not in ("", "..", "."):
+            return parts[i + 1]
+    return None
+
+
+def _resolve_ledger_dir(path: str, explicit: str | None,
+                        program: str | None) -> str | None:
+    """Explicit --ledger wins; else a sibling ledger/ directory next to
+    the report (how the shipped worked-engagement example is laid out)."""
+    if explicit:
+        return explicit
+    if program:
+        return None                      # engagements/<program>/ path applies
+    sibling = os.path.join(os.path.dirname(os.path.abspath(path)),
+                           "ledger")
+    return sibling if os.path.isdir(sibling) else None
+
+
+def _load_records(ledger_dir: str | None,
+                  program: str | None) -> dict[str, tuple[str, str]] | None:
+    """One pass over an engagement ledger -> {rid: (tag, full_line)}.
+    Explicit --ledger DIR is read directly (exported evidence bundles);
+    a program name goes through arsenal.ledger's own resolver. None when
+    neither is available — standalone audits keep running."""
+    out: dict[str, tuple[str, str]] = {}
+    if ledger_dir:
+        try:
+            for name in ("records.md", "append.md"):
+                p = os.path.join(ledger_dir, name)
+                if not os.path.isfile(p):   # exported bundles may omit one
+                    continue
+                with open(p, encoding="utf-8", errors="replace") as fh:
+                    for line in fh:
+                        m = RECORD_LINE.match(line)
+                        if not m or m.group(1) in out:
+                            continue
+                        parts = [q.strip() for q in line.split("|")]
+                        tag = parts[6] if len(parts) > 6 else ""
+                        out[m.group(1)] = (tag, line.rstrip("\n"))
+        except OSError:
+            return None
+        return out or None
+    if program:
+        try:
+            from arsenal import ledger as _ledger
+        except Exception:
+            return None
+        try:
+            for rid, line in _ledger._iter_records(program):
+                parts = [q.strip() for q in line.split("|")]
+                tag = parts[6] if len(parts) > 6 else ""
+                out[rid] = (tag, line)
+        except Exception:
+            return None
+        return out or None
+    return None
+
+
+def _salient(text: str) -> set[str]:
+    """Salient tokens: lowercase runs (paths, params, statuses, probe
+    vocabulary) with cross-references (R-/H-/E- ids) and generic report
+    furniture stripped — the entailment proxy's vocabulary. Tokens that
+    carry slashes also contribute their segments: a claim written as
+    "/api/v0/debug" must ground against a record that logged
+    "127.0.0.1:8477/api/v0/debug"."""
+    toks = set()
+    for m in TOKEN.finditer(XREF.sub(" ", text.lower())):
+        t = m.group(0).strip("./-")
+        if len(t) >= 3 and t not in _GENERIC:
+            toks.add(t)
+            if "/" in t:
+                for seg in t.split("/"):
+                    seg = seg.strip("./-")
+                    if len(seg) >= 3 and seg not in _GENERIC:
+                        toks.add(seg)
+    return toks
+
+
+def _evidence_text(raw_line: str) -> str:
+    """Record fields that carry evidence: tool, action, result, note —
+    never the id, timestamp, size, or tag columns (tag names like
+    SURFACE would leak into the vocabulary as fake signal)."""
+    parts = [q.strip() for q in raw_line.split("|")]
+    if len(parts) < 7:
+        return raw_line
+    return " | ".join(parts[2:5] + parts[7:8])
+
+
+def _claim_tokens(line: str) -> set[str]:
+    """Salient tokens of a report claim line, with CVSS vectors and
+    stated scores stripped first — those are assessment furniture, not
+    surface vocabulary."""
+    text = CVSS_STATED.sub(" ", CVSS_VECTOR.sub(" ", line))
+    return _salient(text)
+
+
+def _grounding(ledger_dir: str | None, program: str | None,
+               lines: list[str], results: list) -> None:
+    """Checks 9 + 10: cited records must exist and must ground the claims
+    that cite them (token-overlap entailment proxy)."""
+    records = _load_records(ledger_dir, program)
+    ctx = ledger_dir or ("engagement %r" % program if program else "")
+    if records is None:
+        results.append(("INFO", "ledger for %s unavailable — "
+                        "existence/relevance checks skipped (pass --ledger "
+                        "or --program to ground them)" % ctx))
+        return
+    cited = {m.group(0) for m in RID.finditer("\n".join(lines))}
+    missing = sorted(cited - set(records))
+    for rid in missing:
+        results.append(("FAIL", "cited record %s does not exist in the %s "
+                        "ledger — fabricated citation, or a record borrowed "
+                        "from another engagement (which is not evidence "
+                        "here)" % (rid, ctx)))
+    if cited and not missing:
+        results.append(("PASS", "citation existence: all %d cited record(s) "
+                         "present in the %s ledger" % (len(cited), ctx)))
+
+    # action-field vocabulary: every surface token this engagement has
+    # actually probed (urls, params, hosts) — the oracle that separates
+    # "misdirected citation" from "assessment-only prose"
+    action_vocab: set[str] = set()
+    for _tag, raw in records.values():
+        parts = [q.strip() for q in raw.split("|")]
+        if len(parts) > 3:
+            action_vocab |= _salient(parts[3])
+
+    checked = 0
+    for i, line in enumerate(lines, 1):
+        if not (SEVERITY_WORDS.search(line) or CLASS_WORDS.search(line)):
+            continue
+        if CVSS_LINE.match(line) or VRT_LINE.match(line):
+            continue          # classification furniture, machine-verified in
+                             # check 8 (score recomputed, taxonomy checked) —
+                             # not an evidence claim
+        rids = [m.group(0) for m in RID.finditer(line)]
+        if not rids:
+            continue                     # check 1 already fails those
+        claim = _claim_tokens(line)
+        for rid in rids:
+            if rid not in records:
+                continue                 # already failed above
+            tag, raw = records[rid]
+            if tag in NON_EVIDENCE_TAGS and CLASS_WORDS.search(line):
+                results.append(("FAIL", "line %d cites %s (tag %s) as "
+                                "vulnerability evidence — %s records are "
+                                "non-evidence by definition" % (i, rid, tag,
+                                                                tag)))
+                continue
+            checked += 1
+            shared = claim & _salient(_evidence_text(raw))
+            gist = raw.split("|", 2)[-1].strip()[:100]
+            if len(shared) >= 2:
+                continue
+            if len(shared) == 1:
+                results.append(("INFO", "line %d -> %s weak grounding: only "
+                                "shared token %r — human review. Record says: "
+                                "%s" % (i, rid, sorted(shared)[0], gist)))
+                continue
+            named = claim & action_vocab
+            if named:
+                results.append(("FAIL", "line %d cites %s but names probed "
+                                "surface token(s) %s the record never "
+                                "touched — the claim describes a different "
+                                "surface than the evidence. Record says: %s"
+                                % (i, rid, sorted(named)[:4], gist)))
+            else:
+                results.append(("INFO", "line %d -> %s assessment-only line: "
+                                "no surface vocabulary to check (grounding "
+                                "rests on the block's facts lines — human "
+                                "review). Record says: %s" % (i, rid, gist)))
+    if checked:
+        results.append(("INFO", "citation relevance (entailment proxy): %d "
+                        "claim-line/record pair(s) token-checked — misdirected "
+                        "citations FAIL above, weak/assessment-only pairs "
+                        "flagged for review" % checked))
+
+
+def audit(path: str, program: str | None = None,
+          ledger_dir: str | None = None) -> list[tuple[str, str]]:
     results = []
 
     def note(status, msg):
@@ -152,6 +376,16 @@ def audit(path: str) -> list[tuple[str, str]]:
              % "; ".join(uncited[:6]))
     else:
         note("PASS", "all severity/class lines cite records")
+
+    # 9 + 10. citation grounding (existence + relevance proxy)
+    program = _resolve_program(path, program)
+    ledger_dir = _resolve_ledger_dir(path, ledger_dir, program)
+    if program or ledger_dir:
+        _grounding(ledger_dir, program, lines, results)
+    else:
+        results.append(("INFO", "no engagement context — citation grounding "
+                        "skipped (pass --ledger or --program, or file the "
+                        "report next to a ledger/ directory)"))
 
     # 2/3/5/6/8. block-level contracts. A block is strict: it runs from
     # its ### heading to the NEXT heading of any level — summary sections
@@ -302,13 +536,39 @@ def audit(path: str) -> list[tuple[str, str]]:
 
 
 def main(argv: list[str]) -> int:
-    if len(argv) < 2:
+    rest: list[str] = []
+    program = None
+    ledger_dir = None
+    i = 1
+    while i < len(argv):
+        a = argv[i]
+        if a == "--program" and i + 1 < len(argv):
+            program = argv[i + 1]
+            i += 2
+            continue
+        if a.startswith("--program="):
+            program = a.split("=", 1)[1]
+            i += 1
+            continue
+        if a == "--ledger" and i + 1 < len(argv):
+            ledger_dir = argv[i + 1]
+            i += 2
+            continue
+        if a.startswith("--ledger="):
+            ledger_dir = a.split("=", 1)[1]
+            i += 1
+            continue
+        rest.append(a)
+        i += 1
+    if not rest:
         print(__doc__)
         return 2
-    path = argv[1]
-    print("== audit: %s" % path)
+    path = rest[0]
+    ctx = " (program: %s)" % program if program else ""
+    ctx += " (ledger: %s)" % ledger_dir if ledger_dir else ""
+    print("== audit: %s%s" % (path, ctx))
     failed = False
-    for status, msg in audit(path):
+    for status, msg in audit(path, program, ledger_dir):
         print("[ %s ] %s" % (status, msg))
         if status == "FAIL":
             failed = True

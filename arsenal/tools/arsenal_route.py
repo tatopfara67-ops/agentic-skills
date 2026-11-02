@@ -10,6 +10,9 @@ Governance (mechanical, not stylistic):
   * blacklist  : destructive/intrusive flag tokens are refused outright —
                  --dump/--os-shell/--script style flags belong to manual
                  operator sessions, not to an agent loop
+  * civility   : high-volume scanners (ffuf, nuclei) get a default request
+                 rate injected when the caller set none — authorized is not
+                 unlimited, whether the agent remembered a -rate flag or not
   * scope gate : active=True — the target must be in_scope BEFORE exec
   * ledger     : exit code + output head recorded for every execution
   * timeout    : hard 180s ceiling; partial output is still evidence
@@ -37,11 +40,33 @@ _BLOCKED_TOKENS = {
 }
 _BLOCKED_SUBSTRINGS = ("--script=", "--os-", "--tamper=", "aggressive")
 
+# default request-rate caps per high-volume tool: (flag, default value).
+# Overridable: an explicit flag in args always wins.
+_CIVILITY = {
+    "ffuf": ("-rate", "25"),    # requests/second ceiling
+    "nuclei": ("-rl", "15"),    # rate limit, requests/second
+}
+
 
 def _blocked(args: list[str]) -> list[str]:
     bad = [t for t in args if t in _BLOCKED_TOKENS]
     bad += [t for t in args if any(sub in t for sub in _BLOCKED_SUBSTRINGS)]
     return sorted(set(bad))
+
+
+def _enforce_civility(tool: str,
+                      tokens: list[str]) -> tuple[list[str], str]:
+    """Inject a default rate cap for high-volume scanners when the caller
+    set none. Explicit rates pass through untouched; the injection is
+    returned as a note so the ledger records the courtesy was applied."""
+    spec = _CIVILITY.get(tool)
+    if spec is None:
+        return tokens, ""
+    flag, default = spec
+    if any(t == flag or t.startswith(flag + "=") for t in tokens):
+        return tokens, ""
+    return tokens + [flag, default], "default %s %s injected (no explicit " \
+        "rate given — authorized is not unlimited)" % (flag, default)
 
 
 def arsenal_route(program: str, tool: str, target: str,
@@ -73,6 +98,8 @@ def arsenal_route(program: str, tool: str, target: str,
                 "error": "blocked flag tokens refused: %s — destructive modes "
                          "belong to manual operator sessions" % bad}
 
+    tokens, civility = _enforce_civility(tool, tokens)
+
     binary = shutil.which(tool)
     if binary is None:
         rid = ledger.append(program, "arsenal_route", "%s %s" % (tool, target),
@@ -94,7 +121,9 @@ def arsenal_route(program: str, tool: str, target: str,
     head = out[:8192].decode("utf-8", "replace")
     rid = ledger.append(program, "arsenal_route", " ".join(argv[:12]),
                         "exit=%d output=%dB" % (proc.returncode, len(out)),
-                        "%dB" % len(out), "FACT", "head saved to artifact")
+                        "%dB" % len(out), "FACT",
+                        (civility + "; " if civility else "")
+                        + "head saved to artifact")
     artifact = util.save_artifact(program, "%s_%s.out" % (tool, rid), out) if out else ""
     return {"ok": proc.returncode == 0, "rid": rid, "tool": tool,
             "exit": proc.returncode, "artifact": artifact,

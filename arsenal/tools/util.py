@@ -8,7 +8,7 @@ import urllib.error
 import urllib.request
 
 from .. import ledger
-from ..scope_gate import CheckResult, ScopeViolation, guard
+from ..scope_gate import CheckResult, ScopeViolation, guard, guard_canary
 
 UA = "MythosArsenal/1.0 (authorized-research; scope-gated)"
 
@@ -25,6 +25,19 @@ def require_scope(program: str, target: str, active: bool = True) -> CheckResult
         ledger.append(program, "scope-gate",
                       "target=%r active=%s" % (target, active),
                       exc.result.reason, "", "REFUSED", "gate refusal")
+        raise RuntimeError(exc.result.reason) from exc
+
+
+def require_canary(program: str, target: str) -> CheckResult:
+    """Gate a canary verification poll (narrower channel: GET-only, no
+    query string, bounded path — see scope_gate.check_canary). Refusals
+    are ledgered like every other gate decision."""
+    try:
+        return guard_canary(target)
+    except ScopeViolation as exc:
+        ledger.append(program, "scope-gate",
+                      "canary target=%r" % target,
+                      exc.result.reason, "", "REFUSED", "canary gate refusal")
         raise RuntimeError(exc.result.reason) from exc
 
 

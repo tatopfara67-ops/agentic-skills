@@ -69,6 +69,51 @@ class TestLedger(unittest.TestCase):
         with self.assertRaises(KeyError):
             ledger.read(self.program, "R-999")
 
+    # ------------------------------------------- O(1) id minting (v1.7.0)
+
+    def test_o1_mint_beyond_record_1000(self):
+        ids = [ledger.append(self.program, "t", "a", "r", "", "FACT", "")
+               for _ in range(1100)]
+        self.assertEqual(ids[0], "R-001")
+        self.assertEqual(ids[999], "R-1000")       # 4-digit id, format intact
+        self.assertEqual(ids[-1], "R-1100")
+        self.assertTrue(all(int(b[2:]) - int(a[2:]) == 1
+                            for a, b in zip(ids, ids[1:])))
+        self.assertEqual(ledger.count(self.program), 1100)
+
+    def test_mint_after_trailing_operator_notes(self):
+        for _ in range(5):
+            ledger.append(self.program, "t", "a", "r", "", "FACT", "")
+        d = os.path.join(self.root, "engagements", self.program, "ledger")
+        with open(os.path.join(d, "append.md"), "a") as fh:
+            fh.write("# operator note: weekend pause\n" * 50)
+        self.assertEqual(
+            ledger.append(self.program, "t", "a", "r", "", "FACT", ""),
+            "R-006")
+
+    def test_full_scan_fallback_when_tails_unreadable(self):
+        # a records.md whose 8KB tail is a wall of notes (no record lines
+        # in the window) must fall back to ONE full scan — ids never
+        # collide silently on a hand-mangled ledger
+        d = os.path.join(self.root, "engagements", self.program, "ledger")
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, "records.md"), "w") as fh:
+            fh.write("R-001 | t | a | r |  | FACT | hand-built\n")
+            fh.write("R-002 | t | a | r |  | FACT | hand-built\n")
+            fh.write("# " + "operator notes " * 700 + "\n")   # > 8KB tail
+        open(os.path.join(d, "append.md"), "w").close()
+        self.assertEqual(
+            ledger.append(self.program, "t", "a", "r", "", "FACT", ""),
+            "R-003")
+
+    def test_portable_lock_context(self):
+        # the cross-platform lock acquires and releases on this platform
+        d = ledger._ledger_dir(self.program)
+        with ledger._CrossFileLock(os.path.join(d, ".lock")):
+            pass
+        with ledger._CrossFileLock(os.path.join(d, ".lock")):
+            pass                      # re-acquirable after release
+
 
 if __name__ == "__main__":
     unittest.main()

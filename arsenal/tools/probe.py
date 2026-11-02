@@ -37,11 +37,33 @@ _DOC_ENDPOINTS = (
 def http_probe(program: str, url: str, method: str = "GET",
                headers: dict | None = None, body: str | None = None,
                tag: str = "FACT", note: str = "",
-               save_body: bool = True, timeout: int = 15) -> dict:
+               save_body: bool = True, timeout: int = 15,
+               canary: bool = False) -> dict:
     """One request, one ledger record. Redirects are NOT followed — the
     3xx + Location header is itself the observation. Body is saved to an
-    artifact and kept OUT of the returned context (spine §3)."""
-    util.require_scope(program, url, active=True)
+    artifact and kept OUT of the returned context (spine §3).
+
+    canary=True polls the operator's declared callback collector (scope.csv
+    class `canary`) — the ONLY way to reach a canary-class host, and a
+    deliberately narrow channel: GET-only, no body, no query string, the
+    CANARY tag forced. Out-of-band exfiltration through the canary channel
+    is refused and ledgered, not merely discouraged."""
+    if canary:
+        if method.upper() != "GET" or body is not None:
+            rid = ledger.append(program, "http_probe",
+                                "canary poll refused: non-GET or body",
+                                "method=%s body=%dB" % (method,
+                                                         len(body or "")),
+                                "", "REFUSED",
+                                "canary polls are GET-only, no body")
+            raise ValueError("canary polls are GET-only with no body — the "
+                             "out-of-band data channel is closed (refused "
+                             "as %s)" % rid)
+        util.require_canary(program, url)
+        tag = "CANARY"
+        note = (note + " canary poll").strip()
+    else:
+        util.require_scope(program, url, active=True)
     r = util.http_fetch(url, method=method, headers=headers, body=body,
                         timeout=timeout)
     rid = ledger.append(program, "%s %s" % (method, url.split("//", 1)[-1][:100]),
@@ -140,9 +162,11 @@ def content_discover(program: str, base_url: str, wordlist: str = "default",
             "calibration": cal, "findings": findings}
 
 
-def api_introspect(program: str, base_url: str, timeout: int = 12) -> dict:
+def api_introspect(program: str, base_url: str, timeout: int = 12,
+                   delay: float = 0.25) -> dict:
     """Bounded API-documentation & introspection sweep (max: the endpoint
-    list + one GraphQL introspection POST). Read-only queries only."""
+    list + one GraphQL introspection POST). Read-only queries only, with
+    a courteous delay between requests — authorized is not unlimited."""
     util.require_scope(program, base_url, active=True)
     base = base_url.rstrip("/")
     found = []
@@ -155,6 +179,8 @@ def api_introspect(program: str, base_url: str, timeout: int = 12) -> dict:
                           "network-error %s" % exc.__class__.__name__,
                           "", "FACT", "")
             continue
+        finally:
+            time.sleep(delay)
         size = len(r["body"])
         interesting = r["status"] == 200 and (
             endpoint.endswith((".json", "-docs", "/api-docs")) or size > 0)

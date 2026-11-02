@@ -28,7 +28,8 @@ from lab.target_app import Handler  # noqa: E402
 
 from http.server import ThreadingHTTPServer  # noqa: E402
 
-SCOPE = "127.0.0.1,in_scope,lab declaration,,,op,\n"
+SCOPE = "127.0.0.1,in_scope,lab declaration,,,op,\n" \
+          "127.0.0.1,canary,lab canary collector,,,op,\n"
 
 
 class LabFixture:
@@ -194,6 +195,71 @@ class TestTools(unittest.TestCase):
     def test_15_route_scope_refused(self):
         with self.assertRaises(RuntimeError):
             _route.arsenal_route(self.program, "nmap", "192.0.2.99", "-sV")
+
+    # ------------------------------------------------- canary poll channel
+
+    def test_16_canary_poll_get_only(self):
+        with self.assertRaises(ValueError) as cm:
+            probe.http_probe(self.program, self.lab.base + "/",
+                             method="POST", canary=True)
+        self.assertIn("GET-only", str(cm.exception))
+        tags = [s["tag"] for s in ledger.summary(self.program)]
+        self.assertIn("REFUSED", tags)      # the refusal is ledgered
+
+    def test_17_canary_poll_query_string_refused(self):
+        with self.assertRaises(RuntimeError) as cm:
+            probe.http_probe(self.program,
+                             self.lab.base + "/cb?data=exfil", canary=True)
+        self.assertIn("query", str(cm.exception).lower())
+
+    def test_18_canary_poll_executes_and_tags(self):
+        out = probe.http_probe(self.program, self.lab.base + "/",
+                               canary=True)
+        self.assertTrue(out["rid"].startswith("R-"))
+        line = ledger.read(self.program, out["rid"])
+        self.assertIn("CANARY", line)       # tag forced
+
+    def test_19_canary_poll_needs_canary_row(self):
+        # 192.0.2.55 is in nobody's scope: not a target, not a collector
+        with self.assertRaises(RuntimeError) as cm:
+            probe.http_probe(self.program, "http://192.0.2.55/cb",
+                             canary=True)
+        self.assertIn("canary", str(cm.exception))
+
+    # --------------------------------------------------- civility defaults
+
+    def test_20_civility_default_injected(self):
+        toks, note = _route._enforce_civility("ffuf",
+                                              ["-w", "words.txt"])
+        self.assertIn("-rate", toks)
+        self.assertIn("25", toks)
+        self.assertIn("injected", note)
+
+    def test_21_civility_explicit_rate_wins(self):
+        toks, note = _route._enforce_civility("ffuf", ["-rate", "100"])
+        self.assertNotIn("25", toks)
+        self.assertEqual(note, "")
+
+    def test_22_civility_other_tools_untouched(self):
+        toks, note = _route._enforce_civility("dig", ["+short"])
+        self.assertEqual((toks, note), (["+short"], ""))
+
+    def test_23_route_ffuf_gets_rate_cap(self):
+        bindir = tempfile.mkdtemp()
+        fake = os.path.join(bindir, "ffuf")
+        with open(fake, "w") as fh:
+            fh.write("#!/bin/sh\necho \"argv: $@\"\n")
+        os.chmod(fake, os.stat(fake).st_mode | stat.S_IEXEC)
+        old_path = os.environ.get("PATH")
+        os.environ["PATH"] = bindir + os.pathsep + (old_path or "")
+        try:
+            out = _route.arsenal_route(self.program, "ffuf",
+                                       "127.0.0.1", "-w /dev/null")
+        finally:
+            os.environ["PATH"] = old_path or ""
+        self.assertTrue(out["ok"])
+        self.assertIn("-rate", out["output_head"])
+        self.assertIn("25", out["output_head"])
 
 
 if __name__ == "__main__":

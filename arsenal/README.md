@@ -74,7 +74,10 @@ target,class,auth_artifact,issued,expires,operator,notes
 ```
 
 * classes: `in_scope` (full testing), `recon_only` (passive sources),
-  `denied` (explicit refusal — always wins)
+  `denied` (explicit refusal — always wins), `canary` (the operator's
+  OWN callback collector — reachable only via `http_probe(canary=True)`:
+  GET-only, no body, no query string, bounded path; out-of-band canary
+  verification can never double as an exfiltration channel)
 * `auth_artifact` must be non-empty: bug-bounty scope page, engagement
   letter, or self-owned lab declaration. No artifact, no traffic (R0).
 * domains cover subdomains; rows may also be IP, CIDR, host:port, or a
@@ -93,7 +96,10 @@ python3 arsenal/server.py                 # start the MCP server
 The complete run, captured from a live session, is in
 `examples/worked-engagement/`: `TRANSCRIPT.md` (every tool call and its
 real output), `ledger/records.md` (548 records), `dossier.md` (the
-organized map), and `report.md` (audited PASS by `auditor/audit_report.py`).
+organized map), and `report.md` (audited PASS by `auditor/audit_report.py`
+— grounded against the sibling `ledger/` automatically: every cited
+R-NNN exists and the claim lines share surface vocabulary with the
+records they cite).
 
 ## Try the Binary Brain (self-owned synthetic hunt)
 
@@ -110,10 +116,10 @@ handoff pack — lives in `examples/adversary-hunt/`.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s arsenal/tests    # 101 tests
+python3 -m unittest discover -s arsenal/tests    # 136 tests
 ```
 
-Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/expired/missing-artifact), ledger append-only discipline, tool behavior against a live lab, `arsenal_route` governance, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, and the hardened report gates.
+Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/canary/expired/missing-artifact, canary exfil-channel refusal), ledger append-only discipline + O(1) id minting (tail-scan with full-scan fallback, portable cross-platform lock), tool behavior against a live lab, `arsenal_route` governance + civility rate defaults, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, and the hardened report gates — including citation grounding (fabricated / misdirected / non-evidence citations fail the audit).
 
 ## Layout
 
@@ -124,7 +130,9 @@ CLAUDE.md        agent contract (A13: doctrine_forge before every instruction)
 scope.csv        authorization registry — operator-writable only
 arsenal/         this server: tools + engines (sbb.py, cvss.py) + tests
 auditor/         audit_report.py — PASS/FAIL report gate (recomputes CVSS,
-                 validates VRT ids against the shipped taxonomy)
+                 validates VRT ids against the shipped taxonomy, and
+                 grounds citations: fabricated, borrowed, misdirected, or
+                 non-evidence-tag citations fail the report)
 lab/             target_app.py + christmas_lab.py (self-owned)
 examples/        worked-engagement/ + adversary-hunt/ (audited PASS)
 ```

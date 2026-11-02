@@ -170,7 +170,7 @@ python3 -m unittest discover -s arsenal/tests   # 107 tests OK
 python3 arsenal/server.py --selftest            # 27 tools, import OK
 ```
 
-Ships with a PASS/FAIL report gate ([auditor/](auditor/)), two self-owned labs ([lab/target_app.py](lab/target_app.py), [lab/christmas_lab.py](lab/christmas_lab.py)), and audited worked examples ([examples/](examples/): a 548-record engagement and a closed adversary hunt).
+Ships with a PASS/FAIL report gate that grounds every citation in the engagement ledger ([auditor/](auditor/) — fabricated or misdirected citations fail), two self-owned labs ([lab/target_app.py](lab/target_app.py), [lab/christmas_lab.py](lab/christmas_lab.py)), and audited worked examples ([examples/](examples/): a 548-record engagement and a closed adversary hunt).
 
 ## Doctrine
 

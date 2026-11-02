@@ -1,9 +1,9 @@
 ---
 name: desync-hunter
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier S — the Logic Architects) built from the James Kettle / PortSwigger lineage — protocol & specification asymmetry analysis. Treats every protocol specification as a hypothesis, inventories the parsing chain (CDN/WAF/HTTP2-terminator/backend), and hunts the disagreements between front-end and back-end parsers via manually-crafted ambiguous requests (CL/TE conflicts, header-name oddities, absolute-form, obs-fold), confirmed by time-based and response-class differentials with raw bytes as artifacts. Use when testing without a scanner against proxy chains, when hunting request smuggling or desync, when documentation says the system works one way and you need to force input the other way, or when classifying parser asymmetries ("request smuggling", "CL.TE", "desync", "protocol asymmetry", "parser differential", "manipulasi HTTP header", "smuggling").
+description: Legend-tier organ (Tier S — the Logic Architects) built from the James Kettle / PortSwigger lineage — protocol & specification asymmetry analysis. Treats every protocol specification as a hypothesis, inventories the parsing chain (CDN/WAF/HTTP2-terminator/backend), and hunts the disagreements between front-end and back-end parsers via manually-crafted ambiguous requests (CL/TE conflicts, header-name oddities, absolute-form, obs-fold), confirmed by time-based and response-class differentials with raw bytes as artifacts. Since v1.3.0 the organ carries the executable method layer (A16): a mechanical critique of the published art's floors (Burp-centric delivery, probe-first map-later, timing-oracle habit, single-shot narrative, borrowed victims) and their fixes as protocol M1–M4 — the CHAINMAP record schema with per-hop version evidence, the parser-pair × ambiguity-class selection matrix, the interleaved differential confirmation rule (n ≥ 5, response-class buckets, control with one restoring byte), and the escalation ladder with canary-marked operator-owned victims and a mandatory ceiling statement. Use when testing without a scanner against proxy chains, when hunting request smuggling or desync, when documentation says the system works one way and you need to force input the other way, or when classifying parser asymmetries ("request smuggling", "CL.TE", "desync", "protocol asymmetry", "parser differential", "manipulasi HTTP header", "smuggling").
 category: security/legend-lineage
 license: MIT
 metadata:
@@ -13,7 +13,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; targets whose scope explicitly covers the infrastructure/proxy layer
 ---
 
-# desync-hunter v1.2.0 — The Spec Is A Hypothesis
+# desync-hunter v1.3.0 — The Spec Is A Hypothesis
 
 ## 0. What This Skill Is — and Is Not
 
@@ -109,6 +109,34 @@ victimless differential — never the poisoned production response.
    (request capture, cache poisoning affecting a victim fetch) runs
    with operator-owned accounts and operator-controlled fetches.
 
+## 3.5 The Method Layer — Critique, Upgrade, M1–M4 (A16)
+
+A lineage named is not expertise delivered. The published art is
+told through Burp verbs and one-shot narratives — documented floors,
+not heresy. `references/method-upgrade.md` grades each floor (W1–W5)
+and ships the executable replacement:
+
+* **M1 CHAINMAP** — one FACT record per hop with product VERSION and
+  its evidence (ordered headers, ALPN negotiation, absolute-form
+  acceptance, error-page ownership). "nginx" is not
+  "nginx/1.24.0"; the matrix keys on the pair of versions.
+* **M2 selection matrix** — parser pair × ambiguity class, with
+  preconditions and the FIRST probe by corpus ID. A class without a
+  matching pair row is a refused request, not a shot.
+* **M3 differential protocol** — baseline / treatment / control,
+  n ≥ 5 each, INTERLEAVED; response-class buckets; the three-part
+  confirm rule; timing as escalation only, thresholds pre-registered
+  (median deltas vs 3 × baseline IQR), single shots never reported.
+* **M4 escalation ladder** — error-echo → response-class → short
+  timing → long timing → poisoning demo with canary-marked
+  operator-owned victim; each step entered only on the previous
+  one's recorded inconclusive. The report carries a mandatory
+  ceiling statement: which level was actually reached.
+
+Probes come byte-exact from `references/corpus.json` — never
+hand-typed, never from memory. Doctrine (§3) states the posture;
+M1–M4 make it executable.
+
 ## 4. Procedure — Numbered Actions
 
 1. Map the parsing chain: one `http_probe` per infrastructure
@@ -180,6 +208,7 @@ victimless differential — never the poisoned production response.
 | Load when… | Module |
 | --- | --- |
 | Choosing/designing an ambiguity | `references/asymmetry-catalog.md` |
+| Grading the published method, building the CHAINMAP, running the selection matrix and differential protocol | `references/method-upgrade.md` |
 | Exact probe bytes (CL.TE/TE.CL differential + timeout probes, TE.TE obfuscations, H2.CL), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Kettle lineage and sources | `references/sources.md` |
 

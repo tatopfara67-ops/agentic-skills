@@ -8,7 +8,7 @@ Bugcrowd VRT category with P-rating, HackerOne severity crosswalk) — and an
 operator instruction, however terse, becomes an explicit doctrine order
 before any organ acts.
 
-  mythos_charter()      the activation payload: fifteen articles, the
+  mythos_charter()      the activation payload: sixteen articles, the
                         bundle map with install status, the quality gates
   doctrine_forge(...)   prompt escalation (A13): any operator request,
                         in any language, expanded deterministically into
@@ -565,6 +565,18 @@ ARTICLES = [
     "stored position), and the sovereign sets intent while the general "
     "commands (A13 orders are campaigns, not errands); full mapping in "
     "references/war-doctrine.md (W1-W7).",
+    "A16 method over mythology — a lineage named is not expertise "
+    "delivered: every organ carries (a) an honest critique of its "
+    "lineage's original method, specific and mechanical, on record; "
+    "(b) the should-have-been — where the master's method was weak, "
+    "the organ states what the master should have done and implements "
+    "exactly that, upgraded with modern technique; and (c) an "
+    "executable method layer — numbered phases, exact commands, "
+    "decision tables with thresholds, falsifiers, and the ledger "
+    "records each step files — so an agent with no prior exposure to "
+    "the lineage executes at expert precision; attribution is a "
+    "license to critique, never a ceiling (pattern modules: "
+    "adversary-tracker and desync-hunter references/method-upgrade.md).",
 ]
 
 QUALITY_GATES = [
@@ -656,7 +668,7 @@ def _installed_skills() -> list[str]:
 def mythos_charter() -> dict:
     """The Skill Mythos activation payload, in one call.
 
-    Returns the fifteen charter articles, the bundle map with per-skill
+    Returns the sixteen charter articles, the bundle map with per-skill
     install status, the quality gates every report must pass, and the
     reporting-stage tool routing. Call this at session start (or whenever
     the operator says 'activate Skill Mythos') before list_skills."""

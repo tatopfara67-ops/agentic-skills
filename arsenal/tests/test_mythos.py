@@ -103,14 +103,18 @@ class TestMythosCharter(unittest.TestCase):
     def setUp(self):
         self.charter = _mythos.mythos_charter()
 
-    def test_fifteen_articles(self):
-        self.assertEqual(len(self.charter["articles"]), 15)
+    def test_sixteen_articles(self):
+        self.assertEqual(len(self.charter["articles"]), 16)
         for article in self.charter["articles"]:
             self.assertRegex(article, r"^A\d+ ")
         self.assertIn("CVSS 3.1", "".join(self.charter["articles"]))
-        self.assertTrue(self.charter["articles"][-1].startswith("A15"))
+        self.assertTrue(self.charter["articles"][-1].startswith("A16"))
         self.assertIn("three registers", self.charter["articles"][13])
         self.assertIn("war logic", self.charter["articles"][14])
+        self.assertIn("method over mythology",
+                      self.charter["articles"][15])
+        self.assertIn("expert precision",
+                      self.charter["articles"][15])
 
     def test_charter_carries_prompt_escalation(self):
         escalation = self.charter["prompt_escalation"]

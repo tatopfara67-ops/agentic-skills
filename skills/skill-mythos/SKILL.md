@@ -1,9 +1,9 @@
 ---
 name: skill-mythos
-version: 1.6.0
+version: 1.7.0
 type: ai-skill
 architecture: package
-description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the fifteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order, A14 the three registers — every organ states its expertise as WHAT/WHY/HOW, and A15 war logic — the Sun Tzu crosswalk that shapes every campaign), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison) and the tier-3 attack organs (injection-lab, ssrf-playbook, xss-playbook, cloud-config-auditor, mobile-hunter with the Charlie Miller lineage, cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook with the Gareth Heyes lineage), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, when planning the campaign's strategy (war logic), or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
+description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the sixteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order, A14 the three registers — every organ states its expertise as WHAT/WHY/HOW, A15 war logic — the Sun Tzu crosswalk that shapes every campaign, and A16 method over mythology — a lineage named is not expertise delivered: every organ critiques its lineage's method where it was mechanically weak, states the should-have-been, and ships the executable upgrade), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison) and the tier-3 attack organs (injection-lab, ssrf-playbook, xss-playbook, cloud-config-auditor, mobile-hunter with the Charlie Miller lineage, cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook with the Gareth Heyes lineage), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, when planning the campaign's strategy (war logic), or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
 category: security/governance
 license: MIT
 metadata:
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.6.0 — The Master Charter
+# skill-mythos v1.7.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -25,7 +25,7 @@ metadata:
 * **Is not**: a hunting technique. It performs zero probes. The organs do
   the work; the charter defines the frame they work inside.
 
-## 1. The Charter — Fifteen Articles
+## 1. The Charter — Sixteen Articles
 
 1. **Identity.** Skill Mythos is an extreme-expertise bundle for
    pentest, bug bounty, and security research — not general-purpose
@@ -91,6 +91,24 @@ metadata:
     commands (A13 orders are campaigns, not errands). The seven
     operational rules W1–W7 ride in every forged order; the full
     mapping lives in references/war-doctrine.md (the war contract).
+16. **Method over mythology.** A lineage named is not expertise
+    delivered. Every organ ships three layers beyond its doctrine:
+    (a) an honest critique of its lineage's original method —
+    specific, mechanical, on record (the floors of the 1994–95 hunt;
+    the Burp verbs and one-shot narratives of the published desync
+    art); (b) the should-have-been — where the master's method was
+    weak, the organ states what the master should have done and
+    implements exactly that, upgraded with modern technique; and
+    (c) an executable method layer — numbered phases, exact
+    commands, decision tables with thresholds, falsifiers, and the
+    ledger records each step files — so an agent with no prior
+    exposure to the lineage executes at expert precision.
+    Attribution is a license to critique, never a ceiling. The
+    pattern modules live where they were first forged — the
+    adversary-tracker bundle's method-upgrade module (M0–M5, v1.1.0)
+    and the desync-hunter bundle's method-upgrade module (M1–M4,
+    v1.3.0); organs without one yet name their debt in the
+    resume note, and the debt is worked before it is forgiven.
 
 ## 2. The Bundle at a Glance
 
@@ -114,7 +132,7 @@ metadata:
 | 3 | mobile-hunter | the Charlie Miller lineage (with Collin Mulliner): the mobile teardown discipline — the shipped binary is a confession, store review is a hypothesis, findings land at the API boundary |
 | 3 | cache-playbook | the Omer Gil + Kettle-cache lineage: the second silent parser — origin/cache disagreement becomes stored secrets (deception) or stored payloads (poisoning), proved on nonce paths and operator-as-victim |
 | 3 | prototype-playbook | the Gareth Heyes lineage: the object world is trust-bearing state — pollution, clobbering, and postMessage confusion hunted source → gadget → sink, server-side detection without the DoS |
-| 4 incident | adversary-tracker | the Shimomura Binary Brain — event-triggered hunts on assets you defend |
+| 4 incident | adversary-tracker | the Shimomura Binary Brain — event-triggered hunts on assets you defend; carries the M0–M5 method layer (critique and upgrade of the 1994–95 floors) |
 | 5 craft | scan-economist | the Fyodor lineage: scan economy — cost hierarchy, technique triangle, states as inferences, priors over exhaustiveness, adaptive pacing |
 | 5 | module-smith | the HD Moore lineage: hypotheses as rankable reusable modules; access and impact proofs separate; exposure as measurement |
 | 5 | pipeline-smith | the Tomnomnom lineage: Unix recon pipelines — passive first, dedupe before probes, pattern packs as data, diff to decide |
@@ -122,7 +140,7 @@ metadata:
 | 5 | template-scanner | the ProjectDiscovery lineage: detection as declarative templates — matchers pre-registered, packs versioned, campaigns cite their set |
 | 5 | packet-orchestrator | the Searle + Mantis lineage: manual first, then layer-by-layer translation into state-backed automation; packet differentials show their bytes |
 | 6 legend | chain-architect | the Orange Tsai lineage (Tier S): the compound kill chain — low-severity primitives composed into critical impact, every link proven by its own differential |
-| 6 | desync-hunter | the James Kettle lineage (Tier S): protocol & specification asymmetry — parser-seam ambiguities, one per request, bytes as evidence |
+| 6 | desync-hunter | the James Kettle lineage (Tier S): protocol & specification asymmetry — parser-seam ambiguities, one per request, bytes as evidence; carries the M1–M4 method layer (CHAINMAP, selection matrix, differential protocol, escalation ladder) |
 | 6 | deep-teardown | the George Hotz lineage (Tier S): dismantle client artifacts to primitives — local data flow before network flow |
 | 6 | ghost-crawler | the Adrian Lamo lineage (Tier A): enter without knocking — passive-index misconfig hunting, one probe per candidate, main app untouched |
 | 6 | mirror-hunter | the Simon Willison lineage (Tier S, the Class Namer): hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter; the program's eligibility table gates before the first payload, stochastic evidence runs as rates, CONFIRMED lands on the deterministic wrapper the model feeds |

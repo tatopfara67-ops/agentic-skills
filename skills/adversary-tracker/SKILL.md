@@ -1,9 +1,9 @@
 ---
 name: adversary-tracker
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
-description: Event-triggered defensive organ — the Shimomura Binary Brain for tracing an adversary who touches assets you are authorized to defend. Four binary registers (SIGNAL / SPLIT / TRUTH / TIP-OFF) drive a halving loop freeze and capture first, classify against a calibrated baseline, enumerate hypotheses with the null auto-inserted, eliminate by halves with passive tests gated ahead of tip-off ones, and confirm the survivor only through two independent channels — then hand off, never retaliate. Use when the operator reports being probed or scanned, asks to investigate a suspicious login or intrusion, or wants an attacker traced ("ada yang scanning kita", "investigasi login aneh", "kenapa ada traffic ganjil", "trace the attacker", "incident triage").
+description: Event-triggered defensive organ — the Shimomura Binary Brain for tracing an adversary who touches assets you are authorized to defend. Four binary registers (SIGNAL / SPLIT / TRUTH / TIP-OFF) drive a halving loop freeze and capture first, classify against a calibrated baseline, enumerate hypotheses with the null auto-inserted, eliminate by halves with passive tests gated ahead of tip-off ones, and confirm the survivor only through two independent channels — then hand off, never retaliate. Since v1.1.0 the organ carries the executable method layer (A16): a mechanical critique of the 1994–95 hunt's floors (detection-by-luck, unsynced triangulation, ad-hoc fingerprinting, no deception layer, unstated localization floor) and their fixes as protocol M0–M5 — tripwire canaries, NTP-disciplined arrival deltas with a sync-error table, a four-feature stack-fingerprint predicate calibrated against known hosts, deception under the tip-off gate, and a stated localization floor. Use when the operator reports being probed or scanned, asks to investigate a suspicious login or intrusion, or wants an attacker traced ("ada yang scanning kita", "investigasi login aneh", "kenapa ada traffic ganjil", "trace the attacker", "incident triage").
 category: security/defensive-ir
 license: MIT
 metadata:
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# adversary-tracker v1.0.0 — The Binary Brain
+# adversary-tracker v1.1.0 — The Binary Brain
 
 ## 0. What This Skill Is — and Is Not
 
@@ -71,6 +71,38 @@ in the `references/binary-brain.md` module.
 Full playbook, channel catalog, test menu, tip-off taxonomy:
 the `references/hunt-playbook.md` module.
 
+## 3.5 The Method Layer — Critique, Upgrade, M0–M5 (A16)
+
+A lineage named is not expertise delivered. The 1994–95 hunt
+succeeded on instrumentation luck, telephone-era triangulation, and
+an expert's eyeball fingerprinting — documented floors, not
+mythology. `references/method-upgrade.md` grades each floor (W1–W6),
+states the should-have-been, and ships the replacement as executable
+protocol:
+
+* **M0 tripwire layer** — canaries + audit watches + ring capture +
+  the clock gate (offset > 10 ms demotes timing evidence to coarse).
+* **M1 freeze-plus** — the volatile state (socket→process, flow ages,
+  login history) a 1994 disk-and-packet freeze could not hold.
+* **M2 stack fingerprint discipline** — four features (initTTL, IP-ID
+  arithmetic, window class, TSval Hz + uptime), one clustering
+  predicate, calibrated against KNOWN hosts first: the fingerprint
+  lives in the table, not the man.
+* **M3 localization at the network floor** — passive handshake RTT
+  (≤ (RTT/2) × 200 km/ms, consistency check unless path is known)
+  + multi-sensor arrival deltas with the mechanical sync-error table
+  (1 ms sync = ±200 km per pair). Rule T applies: timing alone is one
+  story told with precision.
+* **M4 deception under the tip-off gate** — tarpits and per-placement
+  canary tokens that spend THEIR budget; engine-gated behind every
+  passive eliminator.
+* **M5 handoff with the floor stated** — metro/ASN granularity,
+  person-level attribution explicitly the consumer's lane.
+
+Every M-step names its ledger record type and its falsifier; the
+worked micro-example at the module's end shows the whole chain in
+numbers. Run P0–P6 for the loop; run M0–M5 for the mechanics.
+
 ## 4. Procedure — Numbered Actions
 
 1. Entry: AUTH record + the trigger event as a FACT record with
@@ -126,5 +158,6 @@ the `references/hunt-playbook.md` module.
 | --- | --- |
 | Formalizing registers, states, halving math | `references/binary-brain.md` |
 | Running P0–P6, designing tests and channels | `references/hunt-playbook.md` |
+| Grading the 1994–95 method, running M0–M5 mechanics (tripwire, fingerprint, localization, deception) | `references/method-upgrade.md` |
 | Writing the audited handoff pack | `references/evidence-templates.md` |
 | Grounding the discipline in the 1994–95 case | `references/history-1995.md` |

@@ -60,6 +60,8 @@ closure gates, R7 budgets) instead of restating them. The charter
 | mirror-hunter | 6 | the target embeds an LLM, chatbot, copilot, RAG, or agent/MCP tooling, and the program's AI rules are in hand | *hunt the mirror* — the only target class that runs the same engine as the hunter: the self-model is the target map, the program's eligibility table is the negative scope, and CONFIRMED lands on the deterministic wrapper the model feeds (Simon Willison lineage) |
 | signal-smith | 6 | a validator blocks honest payloads | *precision over volume* — one minimal variation per seam, two max (John Draper lineage) |
 | trust-graph-hunter | 6 | components trust each other (headers, referers, signatures, tokens) | *the trust graph* — enumerate trust edges, prove inherited privilege on operator-owned ends (Kevin Mitnick lineage) |
+| lineage-smith | 7 | a figure is nominated for assimilation, or the operator orders corpus growth ("rakit skill dari tokoh", "the next legend") | *read everything, ship the method* — the operator's doctrine as a factory: scored selection, complete-corpus census, documented-behavior psych-read, forge under the authoring contract, wiring through charter + registry + gates |
+| rival-playbook | 7 | a rival corpus is named or encountered, positioning is questioned ("kalahkan kompetitor", "beat the competitor"), or any claim about rival corpora is about to ship | *know the rival, know yourself* — the census reads public artifacts date-pinned, force concentrates on the hollow axes, superiority claims land only on measured axes |
 
 Selection is only half the routing contract: once loaded, every organ
 RUNS under the execution doctrine (references/autonomous-operation.md)

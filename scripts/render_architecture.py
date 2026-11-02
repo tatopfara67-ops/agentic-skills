@@ -52,12 +52,14 @@ TIERS = [
         "chain-architect", "desync-hunter", "deep-teardown",
         "ghost-crawler", "mirror-hunter", "signal-smith",
         "trust-graph-hunter"]),
+    ("Tier 7 — Forge & Competition", [
+        "lineage-smith", "rival-playbook"]),
 ]
-NEW_ORGANS = {"mobile-hunter", "cache-playbook", "prototype-playbook"}
-N_ORGANS = sum(len(o) for _, o in TIERS)          # 29 hunting organs
-N_BUNDLES = 35
+NEW_ORGANS = {"lineage-smith", "rival-playbook"}
+N_ORGANS = sum(len(o) for _, o in TIERS)          # 31 organs (29 hunting + 2 forge)
+N_BUNDLES = 37
 N_TOOLS = 27
-N_TESTS = 107
+N_TESTS = 136
 
 BOXES = []  # (x0, y0, x1, y1) registry per panel for the overlap check
 
@@ -141,9 +143,9 @@ def main():
 
     # tier rows: organ chips (computed top-down, no overlap possible)
     chip_h = 0.030
-    step = 0.042
-    tier_gap = 0.034
-    y = 0.630                      # bottom of each tier's first chip row
+    step = 0.040
+    tier_gap = 0.030
+    y = 0.645                      # bottom of each tier's first chip row
     for tier_name, organs in TIERS:
         ax1.text(0.035, y + chip_h / 2, tier_name, ha="left", va="center",
                  fontsize=10.5, color=INK, weight="bold")
@@ -176,6 +178,7 @@ def main():
              style="italic")
 
     # ================= panel 2 — session flow ==========================
+    assert_no_overlap()          # panel 1 closed — check before clearing
     begin_panel()
     ax2.text(0.5, 0.985, "SESSION FLOW", ha="center", va="top",
              fontsize=17, weight="bold", color=INK)
@@ -212,6 +215,7 @@ def main():
         y -= h + 0.045
 
     # ================= panel 3 — always-on rails ========================
+    assert_no_overlap()          # panel 2 closed — check before clearing
     begin_panel()
     ax3.text(0.5, 0.985, "ALWAYS-ON RAILS", ha="center", va="top",
              fontsize=17, weight="bold", color=INK)

@@ -123,9 +123,11 @@ class TestMythosCharter(unittest.TestCase):
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 31)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 33)
         self.assertEqual(tiers["0-engine"], {"glm-self-model": True})
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
+        self.assertEqual(sorted(tiers["7-forge"]),
+                         ["lineage-smith", "rival-playbook"])
         self.assertEqual(sorted(tiers["3-deep-technical"]), [
             "cache-playbook", "cloud-config-auditor", "injection-lab",
             "mobile-hunter", "prototype-playbook", "ssrf-playbook",
@@ -155,9 +157,9 @@ class TestMythosCharter(unittest.TestCase):
 
 
 class TestMythosLineages(unittest.TestCase):
-    def test_registry_lists_twentyfour_lineages_all_installed(self):
+    def test_registry_lists_twentysix_lineages_all_installed(self):
         registry = _mythos.mythos_lineages()
-        self.assertEqual(registry["count"], 24)
+        self.assertEqual(registry["count"], 26)
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         for organ in ("adversary-tracker", "scan-economist", "module-smith",
                       "pipeline-smith", "feedback-fuzzer",
@@ -170,7 +172,8 @@ class TestMythosLineages(unittest.TestCase):
                       "oauth-flow-auditor", "content-discovery",
                       "business-logic-hunter", "cloud-config-auditor",
                       "mobile-hunter", "cache-playbook",
-                      "prototype-playbook"):
+                      "prototype-playbook", "lineage-smith",
+                      "rival-playbook"):
             self.assertIn(organ, by_organ)
             self.assertTrue(by_organ[organ]["installed"], organ)
             for field in ("figure", "distillation", "sources"):
@@ -186,7 +189,8 @@ class TestMythosLineages(unittest.TestCase):
                      "James Kettle", "George Hotz", "Adrian Lamo",
                      "Frans Rosen", "John Draper", "Kevin Mitnick",
                      "EdOverflow", "Heiderich", "Parecki", "Miessler",
-                     "Dalili", "de la Fuente", "Simon Willison"):
+                     "Dalili", "de la Fuente", "Simon Willison",
+                     "Sun Tzu"):
             self.assertIn(name, joined, name)
         # the unverified attributions from the operator brief stay out
         self.assertNotIn("Skappen", joined)

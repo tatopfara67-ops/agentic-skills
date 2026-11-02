@@ -1,9 +1,9 @@
 ---
 name: skill-mythos
-version: 1.9.0
+version: 1.10.0
 type: ai-skill
 architecture: package
-description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the sixteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order, A14 the three registers — every organ states its expertise as WHAT/WHY/HOW, A15 war logic — the Sun Tzu crosswalk that shapes every campaign, and A16 method over mythology — a lineage named is not expertise delivered: every organ critiques its lineage's method where it was mechanically weak, states the should-have-been, and ships the executable upgrade), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison) and the tier-3 attack organs (injection-lab, ssrf-playbook, xss-playbook, cloud-config-auditor, mobile-hunter with the Charlie Miller lineage, cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook with the Gareth Heyes lineage), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, when planning the campaign's strategy (war logic), or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda").
+description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the sixteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order, A14 the three registers — every organ states its expertise as WHAT/WHY/HOW, A15 war logic — the Sun Tzu crosswalk that shapes every campaign, and A16 method over mythology — a lineage named is not expertise delivered: every organ critiques its lineage's method where it was mechanically weak, states the should-have-been, and ships the executable upgrade), the forge tier since v1.10.0 — lineage-smith (the operator's doctrine as an organ: find the popular figures, read everything public, model the psychology and the thinking from documented behavior, ship the executable method — the legend-assimilation factory whose candidate queue names the next organs) and rival-playbook (corpus-vs-corpus competition under the Sun Tzu and stratagem tradition: date-pinned rival census, the hollow map, pressure-principle concentration, proving-ground duel claims with capped wording, the deception family banned), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison) and the tier-3 attack organs (injection-lab, ssrf-playbook, xss-playbook, cloud-config-auditor, mobile-hunter with the Charlie Miller lineage, cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook with the Gareth Heyes lineage), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, when planning the campaign's strategy (war logic), or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda", "rakit skill dari tokoh", "assimilate a lineage", "kalahkan kompetitor", "beat the competitor").
 category: security/governance
 license: MIT
 metadata:
@@ -11,7 +11,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.9.0 — The Master Charter
+# skill-mythos v1.10.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -127,7 +127,7 @@ metadata:
     pretension (cartography, catalog, benchmark infrastructure)
     inherit the discipline through the charter's gates without a
     module of their own. The debt is worked; the resume notes are
-    clean.
+    clean. The forge tier (lineage-smith v1.0.0, rival-playbook v1.0.0, tier 7) is born under this article: new organs ship their method layer in the commit they are born in — the debt is never allowed to accrue again, not even for one release.
 
 ## 2. The Bundle at a Glance
 
@@ -165,6 +165,8 @@ metadata:
 | 6 | mirror-hunter | the Simon Willison lineage (Tier S, the Class Namer): hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter; the program's eligibility table gates before the first payload, stochastic evidence runs as rates, CONFIRMED lands on the deterministic wrapper the model feeds |
 | 6 | signal-smith | the John Draper lineage (Tier B): input grammar and precision signal craft — one forged variation, never a spray, never an alarm |
 | 6 | trust-graph-hunter | the Kevin Mitnick lineage (Tier B, systems edition): the trust graph — forgeable context and inherited privilege, operator-owned ends only |
+| 7 forge | lineage-smith | the operator's doctrine as an organ: the legend-assimilation factory — scored selection, complete-corpus census, the five-lens psych-read on documented behavior, forge under the authoring contract, wiring through charter + registry + gates |
+| 7 | rival-playbook | corpus-vs-corpus competition under the strategist tradition (Sun Tzu + the stratagem register): date-pinned rival census, the hollow map, pressure-principle concentration, benchmark-duel claims with capped wording |
 
 v2 upgrade on record: **auth-boundary-mapper** (tier 2) folds in the
 **Frans Rosen** lineage (Tier A) — identifier construction, every

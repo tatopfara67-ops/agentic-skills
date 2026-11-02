@@ -36,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.9.0"
+MODULE_VERSION = "1.10.0"
 
 SPINE = "mythos-bug-hunter"
 
@@ -57,6 +57,7 @@ TIERS = {
     "6-legend": ["chain-architect", "desync-hunter", "deep-teardown",
                  "ghost-crawler", "mirror-hunter", "signal-smith",
                  "trust-graph-hunter"],
+    "7-forge": ["lineage-smith", "rival-playbook"],
 }
 
 # The assimilated lineage registry (doctrine A3: attributed, verified,
@@ -509,6 +510,53 @@ LINEAGES = [
                       "author attribution — the organ's figure entry "
                       "rests on Heyes' verified prototype-pollution "
                       "and DOM Invader record only.",
+    },
+    {
+        "organ": "lineage-smith",
+        "figure": "the operator's assimilation doctrine, standing brief — "
+                  "find the popular figures, read everything public, "
+                  "model the psychology and the thinking, ship the "
+                  "method",
+        "distillation": "assimilation as a factory: scored selection gate "
+                        "(corpus over fame, overlap resolved first), "
+                        "the complete-corpus census with a read-in-full "
+                        "ledger, the five-lens psych-read bound to "
+                        "documented behavior with an inner-life ban, "
+                        "distillation as a registry record, the forge "
+                        "under the authoring contract with the method "
+                        "layer born in, wiring through charter + "
+                        "registry + gates",
+        "sources": "the three method waves (commits 308bf3b, dbf89c2, "
+                   "5ba9032) — 24 lineages assimilated under this "
+                   "doctrine; skills/lineage-smith/references/"
+                   "method-upgrade.md",
+        "correction": None,
+    },
+    {
+        "organ": "rival-playbook",
+        "figure": "Sun Tzu (孙子) — The Art of War; the 36-stratagem "
+                  "tradition (三十六计); documented modern practice — "
+                  "the publicized pressure principle (压强原则)",
+        "distillation": "corpus-vs-corpus competition as positioning: "
+                        "know the rival and yourself (date-pinned "
+                        "census of public artifacts, both sides on the "
+                        "same axes), avoid strength and strike the "
+                        "hollow, concentrate disproportionate force on "
+                        "one or two hollows until owned by mechanical "
+                        "gates, win without fighting (measured axes "
+                        "beat marketing claims, wording capped at the "
+                        "demonstrated axis), niche encirclement before "
+                        "the mainstream contest",
+        "sources": "The Art of War, public-domain Giles translation, "
+                   "read for the maxims used in the crosswalk; the "
+                   "charter's war-doctrine.md (A15); public accounts "
+                   "of the pressure principle; "
+                   "skills/rival-playbook/references/stratagem-map.md",
+        "correction": "the stratagem crosswalk rejects the deception "
+                      "family (the 声东击西 class) for corpus "
+                      "competition — census claims read public "
+                      "artifacts only; no FUD, no disparagement, "
+                      "wording capped at the demonstrated axis",
     },
 ]
 

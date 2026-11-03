@@ -3,7 +3,27 @@ name: deep-teardown
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier S — the Logic Architects) built from the George Hotz (geohot) lineage — dismantle-to-primitives reverse engineering. Acquires the client artifact once (JS bundle, mobile APK/IPA, desktop binary, firmware image within scope), then dissects it LOCALLY down its teardown ladder (deobfuscation, sourcemaps, dex-to-source, strings/symbols) to reconstruct business logic and map how the app handles tokens, keys, and PII on-device BEFORE anything is sent to the server; every server-relevant dSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Hotz-era form's floors (teardowns as unrecorded streams, the where-to-look ladder in pattern memory, symbols trusted unbounded, artifact version pinning an afterthought, read-it-all heroics without coverage accounting) shipped as protocol M1–M5: the artifact pin as the claim's scope contract, the gated ladder with per-rung outputs, the symbol-trust table with three grades, the static-proposes-dynamic-disposes cross-check, and the budget + coverage row that bounds every negative claim. Use when the operator wants the app taken apart rather than probed, when hunting hidden feature flags, admin-gated code shipped in clients, hardcoded internal endpoints, or client-side secret storage ("bongkar aplikasi", "decompile APK", "reverse engineer the client", "teardown", "analisa biner", "read the minified JS logic").
+description: >-
+  Legend-tier organ (Tier S — the Logic Architects) built from the George Hotz
+  (geohot) lineage — dismantle-to-primitives reverse engineering. Acquires the
+  client artifact once (JS bundle, mobile APK/IPA, desktop binary, firmware
+  image within scope), then dissects it LOCALLY down its teardown ladder
+  (deobfuscation, sourcemaps, dex-to-source, strings/symbols) to reconstruct
+  business logic and map how the app handles tokens, keys, and PII on-device
+  BEFORE anything is sent to the server; every server-relevant dSince v1.1.0
+  the organ carries the executable method layer (A16) — a mechanical critique
+  of the Hotz-era form's floors (teardowns as unrecorded streams, the
+  where-to-look ladder in pattern memory, symbols trusted unbounded, artifact
+  version pinning an afterthought, read-it-all heroics without coverage
+  accounting) shipped as protocol M1–M5: the artifact pin as the claim's scope
+  contract, the gated ladder with per-rung outputs, the symbol-trust table
+  with three grades, the static-proposes-dynamic-disposes cross-check, and the
+  budget + coverage row that bounds every negative claim. Use when the
+  operator wants the app taken apart rather than probed, when hunting hidden
+  feature flags, admin-gated code shipped in clients, hardcoded internal
+  endpoints, or client-side secret storage ("bongkar aplikasi", "decompile
+  APK", "reverse engineer the client", "teardown", "analisa biner", "read the
+  minified JS logic").
 category: security/legend-lineage
 license: MIT
 metadata:

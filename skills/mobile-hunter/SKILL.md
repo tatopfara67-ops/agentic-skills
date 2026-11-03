@@ -3,7 +3,31 @@ name: mobile-hunter
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Deep-technical organ (tier 3) built from the Charlie Miller lineage (with Collin Mulliner on the 2009 iPhone SMS compromise) — the mobile teardown discipline for authorized bug bounty on Android (APK) and iOS (IPA) targets. The shipped binary is treated as a confession read in full before the device is ever touched (manifest, exported components, deep links, bundled strings and secrets, ghost endpoints), store review and code-signing are treated as hypotheses about attacker effort rather than walls, and every finding lands at a boundary — the API differential behind the app, or the runtime observation on an operator-owned device. Carries the WWH registers (WHAT the mobile attack surface is, WHY each class exists mechanically, HOW it is hunted step by step), the static-before-dynamic ladder, and the evidence law that every claim cites file:line from the artifact. Since v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Miller/Mulliner art's floors (one-shot exploit narratives, dumb mutational fuzzing, the bench-to-field gap unmeasured, reversing as expert narration, demo theater as proof) shipped as protocol M1–M5: the device baseline inventory, coverage-gated harness discipline with budget tables, the crash signature-hash triage protocol, the exploit reliability differential (n ≥ 10 with condition lists), and the fleet-gap statement. Use when the target ships a mobile app in scope, when the operator provides an APK/IPA, when mobile-only endpoints or ghost APIs are suspected, or when the operator says to audit the app ("audit APK ini", "uji aplikasi mobile mereka", "cari celah di app-nya", "mobile app testing", "iOS app hunting", "ada endpoint yang cuma app yang manggil").
+description: >-
+  Deep-technical organ (tier 3) built from the Charlie Miller lineage (with
+  Collin Mulliner on the 2009 iPhone SMS compromise) — the mobile teardown
+  discipline for authorized bug bounty on Android (APK) and iOS (IPA) targets.
+  The shipped binary is treated as a confession read in full before the device
+  is ever touched (manifest, exported components, deep links, bundled strings
+  and secrets, ghost endpoints), store review and code-signing are treated as
+  hypotheses about attacker effort rather than walls, and every finding lands
+  at a boundary — the API differential behind the app, or the runtime
+  observation on an operator-owned device. Carries the WWH registers (WHAT the
+  mobile attack surface is, WHY each class exists mechanically, HOW it is
+  hunted step by step), the static-before-dynamic ladder, and the evidence law
+  that every claim cites file:line from the artifact. Since v1.1.0 the organ
+  carries the executable method layer (A16) — a mechanical critique of the
+  Miller/Mulliner art's floors (one-shot exploit narratives, dumb mutational
+  fuzzing, the bench-to-field gap unmeasured, reversing as expert narration,
+  demo theater as proof) shipped as protocol M1–M5: the device baseline
+  inventory, coverage-gated harness discipline with budget tables, the crash
+  signature-hash triage protocol, the exploit reliability differential (n ≥ 10
+  with condition lists), and the fleet-gap statement. Use when the target
+  ships a mobile app in scope, when the operator provides an APK/IPA, when
+  mobile-only endpoints or ghost APIs are suspected, or when the operator says
+  to audit the app ("audit APK ini", "uji aplikasi mobile mereka", "cari celah
+  di app-nya", "mobile app testing", "iOS app hunting", "ada endpoint yang
+  cuma app yang manggil").
 category: security/deep-technical
 license: MIT
 metadata:

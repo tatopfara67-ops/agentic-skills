@@ -3,12 +3,37 @@ name: trust-graph-hunter
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier B — The Human & Signal Manipulators) built from the Kevin Mitnick lineage, translated to systems — context deception and trust-graph auditing. Enumerates the trust edges between components (what each boundary trusts: IP allowlists, Referer/Origin checks, internal headers, webhook signatures, server-to-server tokens, shared secrets), draws the trust graph across the estate, then pre-registers deception hypotheses — can the context a system trusts be FORGED from outside it — and provesSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the source material's floors as translated (trust edges narrated per-vignette and never assembled into a graph, forgery demonstrated without a differential against absent or legitimate context, no completeness accounting, third-party humans as instruments in the source practice, no falsifier anywhere) shipped as protocol M1–M5: the edge protocol with observed-behavior evidence, the three-condition context differential, the census gate that forbids claims on gapped boundaries, the operator-owned identity law, and the mechanical ethics gate. Use when auditing trust between a main server and third-party APIs, when hunting internal-header spoofing, webhook signature bypass, referer-based authorization, SSRF-as-trust-confusion, or server-to-server privilege escalation ("trust relationship", "context deception", "internal header spoof", "webhook signature bypass", "hubungan antar sistem", "privilege escalation via trust").
+description: >-
+  Legend-tier organ (Tier B — The Human & Signal Manipulators) built from the
+  Kevin Mitnick lineage, translated to systems — context deception and
+  trust-graph auditing. Enumerates the trust edges between components (what
+  each boundary trusts: IP allowlists, Referer/Origin checks, internal
+  headers, webhook signatures, server-to-server tokens, shared secrets), draws
+  the trust graph across the estate, then pre-registers deception hypotheses —
+  can the context a system trusts be FORGED from outside it — and provesSince
+  v1.1.0 the organ carries the executable method layer (A16) — a mechanical
+  critique of the source material's floors as translated (trust edges narrated
+  per-vignette and never assembled into a graph, forgery demonstrated without
+  a differential against absent or legitimate context, no completeness
+  accounting, third-party humans as instruments in the source practice, no
+  falsifier anywhere) shipped as protocol M1–M5: the edge protocol with
+  observed-behavior evidence, the three-condition context differential, the
+  census gate that forbids claims on gapped boundaries, the operator-owned
+  identity law, and the mechanical ethics gate. Use when auditing trust
+  between a main server and third-party APIs, when hunting internal-header
+  spoofing, webhook signature bypass, referer-based authorization,
+  SSRF-as-trust-confusion, or server-to-server privilege escalation ("trust
+  relationship", "context deception", "internal header spoof", "webhook
+  signature bypass", "hubungan antar sistem", "privilege escalation via
+  trust").
 category: security/legend-lineage
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: Kevin Mitnick (1963-2023, author of The Art of Deception — trust exploitation, distilled here as a SYSTEMS discipline: forge the context a boundary trusts)
+  lineage: >-
+    Kevin Mitnick (1963-2023, author of The Art of Deception — trust
+    exploitation, distilled here as a SYSTEMS discipline: forge the context a
+    boundary trusts)
   tier: B — The Human & Signal Manipulators
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; both endpoints of every deception proof must be in scope and operator-owned
 ---

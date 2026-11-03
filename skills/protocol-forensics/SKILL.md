@@ -3,7 +3,38 @@ name: protocol-forensics
 version: 1.0.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ forged from Dan Kaminsky (IOActive director of penetration testing, later White Ops chief scientist; the 2008 DNS cache-poisoning disclosure, VU#800113) — protocol forensics at internet scale. Treats a specification as a treaty between strangers: every implementation of one RFC class resolves the spec's ambiguities independently, so the hunting unit is the class-times-population, never one product. The organ ships with its method layer born in (A16): a mechanical critique of the published Kaminsky art — the hunt itself told as story with no replayable procedure, the entropy arithmetic scattered across talks and advisories instead of one decision table, the vendor census executed through personal trust networks rather than a reproducible matrix, post-patch deployment tracked by anecdote, and humor compressing the executable steps out of the talks — and the replacement protocol M1–M6: the population census with its boundary argument against desync-hunter and scan-economist, the invariant audit with computed collision arithmetic (worked from the recorded VU#800113 constants — 16-bit transaction ID, 32,768 average blind attempts, ~16 additional bits of source-port entropy — and the birthday structures computed on record), the disagreement-matrix differential probes, the impact ladder with a measured denominator, the coordinated-disclosure engineering (vendor matrix, embargo, simultaneous patch day), and post-patch verification with a measured saturation gate plus a residual-risk register that labels every stopgap a stopgap. Use when a protocol-level or spec-level weakness is suspected or must be argued; when one RFC class must be hunted across its implementation population; when entropy or collision arithmetic must price an invariant; when a finding's blast radius needs a measured denominator; or when disclosure must be engineered as a coordinated multi-vendor event ("protocol forensics", "spec-level bug", "systemic weakness across implementations", "invariant audit", "coordinated disclosure", "the Kaminsky move", "kelemahan level spesifikasi", "bedah protokol kelas RFC", "diferensial antar implementasi", "populasi implementasi").
+description: >-
+  Craft-lineage organ forged from Dan Kaminsky (IOActive director of
+  penetration testing, later White Ops chief scientist; the 2008 DNS
+  cache-poisoning disclosure, VU#800113) — protocol forensics at internet
+  scale. Treats a specification as a treaty between strangers: every
+  implementation of one RFC class resolves the spec's ambiguities
+  independently, so the hunting unit is the class-times-population, never one
+  product. The organ ships with its method layer born in (A16): a mechanical
+  critique of the published Kaminsky art — the hunt itself told as story with
+  no replayable procedure, the entropy arithmetic scattered across talks and
+  advisories instead of one decision table, the vendor census executed through
+  personal trust networks rather than a reproducible matrix, post-patch
+  deployment tracked by anecdote, and humor compressing the executable steps
+  out of the talks — and the replacement protocol M1–M6: the population census
+  with its boundary argument against desync-hunter and scan-economist, the
+  invariant audit with computed collision arithmetic (worked from the recorded
+  VU#800113 constants — 16-bit transaction ID, 32,768 average blind attempts,
+  ~16 additional bits of source-port entropy — and the birthday structures
+  computed on record), the disagreement-matrix differential probes, the impact
+  ladder with a measured denominator, the coordinated-disclosure engineering
+  (vendor matrix, embargo, simultaneous patch day), and post-patch
+  verification with a measured saturation gate plus a residual-risk register
+  that labels every stopgap a stopgap. Use when a protocol-level or spec-level
+  weakness is suspected or must be argued; when one RFC class must be hunted
+  across its implementation population; when entropy or collision arithmetic
+  must price an invariant; when a finding's blast radius needs a measured
+  denominator; or when disclosure must be engineered as a coordinated
+  multi-vendor event ("protocol forensics", "spec-level bug", "systemic
+  weakness across implementations", "invariant audit", "coordinated
+  disclosure", "the Kaminsky move", "kelemahan level spesifikasi", "bedah
+  protokol kelas RFC", "diferensial antar implementasi", "populasi
+  implementasi").
 category: security/craft-lineage
 license: MIT
 metadata:

@@ -9,6 +9,8 @@ Enforces the authoring contract in CONTRIBUTING.md:
   - SKILL.md exists, parses, and stays a lean routing layer
   - required frontmatter: name, version, description, license, author
     (author may sit at top level or under `metadata:`)
+  - frontmatter parses as STRICT YAML when pyyaml is available (a plain
+    scalar containing `: ` breaks real YAML consumers; fold it `>-`)
   - name matches the bundle directory; version is MAJOR.MINOR.PATCH
   - description is substantive (>= 40 chars) — it is what makes a skill fire
   - no placeholder markers left in SKILL.md (TODO / FIXME / XXX / TBD / ____ / 【)
@@ -24,6 +26,11 @@ Fix the skill, not the gate.
 import os
 import re
 import sys
+
+try:
+    import yaml as _strict_yaml
+except ImportError:  # pyyaml optional: the strict check degrades gracefully
+    _strict_yaml = None
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -81,6 +88,22 @@ def parse_frontmatter(text):
             i += 1
             while i < end and (not lines[i].strip() or lines[i][:1].isspace()):
                 mm = re.match(r"^\s+([A-Za-z0-9_-]+):\s*(.*)$", lines[i])
+                if mm and mm.group(2).strip() in (">", "|", ">-", "|-", ">+", "|+"):
+                    sub_key = mm.group(1)
+                    sub_pad = len(lines[i]) - len(lines[i].lstrip())
+                    parts = []
+                    i += 1
+                    while i < end:
+                        ln = lines[i]
+                        if not ln.strip():
+                            i += 1
+                            continue
+                        if len(ln) - len(ln.lstrip()) <= sub_pad:
+                            break
+                        parts.append(ln.strip())
+                        i += 1
+                    metadata[sub_key] = " ".join(p for p in parts if p)
+                    continue
                 if mm:
                     metadata[mm.group(1)] = mm.group(2).strip()
                 i += 1
@@ -148,6 +171,18 @@ def check_bundle(bundle_path):
         note("FAIL", "frontmatter: %s" % err)
         return results
     note("PASS", "frontmatter fences and syntax ok")
+
+    if _strict_yaml is not None:
+        m = re.match(r"^---\n(.*?)\n---\n", core, re.S)
+        if m:
+            try:
+                _strict_yaml.safe_load(m.group(1))
+            except Exception as exc:
+                note("FAIL", "frontmatter is not strict YAML (%s) — fold the value "
+                     "as a `>-` block scalar or quote it"
+                     % str(exc).strip().splitlines()[0][:90])
+            else:
+                note("PASS", "frontmatter parses as strict YAML")
 
     for key in REQUIRED_KEYS:
         value = str(fm.get(key, "")).strip()

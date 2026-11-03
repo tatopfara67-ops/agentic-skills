@@ -3,7 +3,23 @@ name: subdomain-hunter
 version: 2.1.0
 type: ai-skill
 architecture: package
-description: Phase-1 subdomain enumeration organ, upgraded (v2) with the EdOverflow lineage — passive-first ladder (certificate transparency, passive CLI routing), resolution and CDN/wildcard detection, permutation round, and CNAME-dangling takeover checks with a full dangling-class taxonomy (NXDOMAIN-CNAME, fingerprint-CNAME, dangling MX/NS, deep chains), TTL-aSince v2.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the EdOverflow art's floors (a community wiki read by memory, dead/dangling/claim-able conflated in one-shot demos, single-read DNS state, deep chains narrated per-bug, disclosure as afterthought) shipped as protocol M1–M5: the fingerprint-registry freshness discipline, the dangling differential ladder, the TTL-aware verification rule with SOA stability, the chain walk, and the disclosure gate. Use when the operator asks to enumerate subdomains, expand a domain's asset inventory, check wildcard DNS, or investigate subdomain takeover ("cari subdomain", "enum subdomain", "subdomain takeover", "permutasi domain", "asset discovery", "dangling MX", "dangling NS", "takeover verification").
+description: >-
+  Phase-1 subdomain enumeration organ, upgraded (v2) with the EdOverflow
+  lineage — passive-first ladder (certificate transparency, passive CLI
+  routing), resolution and CDN/wildcard detection, permutation round, and
+  CNAME-dangling takeover checks with a full dangling-class taxonomy
+  (NXDOMAIN-CNAME, fingerprint-CNAME, dangling MX/NS, deep chains), TTL-aSince
+  v2.1.0 the organ carries the executable method layer (A16) — a mechanical
+  critique of the EdOverflow art's floors (a community wiki read by memory,
+  dead/dangling/claim-able conflated in one-shot demos, single-read DNS state,
+  deep chains narrated per-bug, disclosure as afterthought) shipped as
+  protocol M1–M5: the fingerprint-registry freshness discipline, the dangling
+  differential ladder, the TTL-aware verification rule with SOA stability, the
+  chain walk, and the disclosure gate. Use when the operator asks to enumerate
+  subdomains, expand a domain's asset inventory, check wildcard DNS, or
+  investigate subdomain takeover ("cari subdomain", "enum subdomain",
+  "subdomain takeover", "permutasi domain", "asset discovery", "dangling MX",
+  "dangling NS", "takeover verification").
 category: security/offensive-web
 license: MIT
 metadata:

@@ -3,7 +3,7 @@ name: mythos-bug-hunter
 version: 4.5.0
 type: ai-skill
 architecture: package
-description: >
+description: >-
   Discipline layer for AI agents doing authorized security research, bug bounty,
   and pentest work on web applications, APIs, and AI-powered surfaces. Use this
   skill whenever the operator wants to hunt vulnerabilities on an authorized

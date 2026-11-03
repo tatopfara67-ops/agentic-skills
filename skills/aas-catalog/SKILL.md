@@ -1,7 +1,7 @@
 ---
 name: aas-catalog
 version: 1.0.0
-description: >
+description: >-
   Search and install skills on demand from the Agentic Awesome Skills catalog
   (2,884+ SKILL.md playbooks for Claude Code, Codex, Cursor, Gemini CLI).
   Use when the operator asks to find a ready-made skill, browse the skill

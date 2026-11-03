@@ -3,7 +3,22 @@ name: ssrf-playbook
 version: 1.3.0
 type: ai-skill
 architecture: package
-description: Phase-3 SSRF organ — canary-callback channel-existence proofs on an operator-owned interaction host, egress mapping by scheme, redirect-chain tracing, and metadata-endpoint checks only inside explicitly authorized cloud scope, all as differentials. Since v1.3.0 the organ carries the executable method layer (A16) — a mechanical critique of the callback-everywhere habit's floors (canary before hypotheses, channel conflation, parser disagreement re-discovered per bug, metadata URLs from memory, impact claimed without read-back) shipped as protocol M1–M5: the channel hypothesis table, the four-rung channel-proof ladder, the parser-differential map, the cloud-metadata decision table with mandatory headers, and the impact ceiling that refuses gossip. Use when the operator asks to test SSRF, check a URL-fetch parameter, map egress from a target, trace redirect-based SSRF, or probe cloud metadata reachability ("tes SSRF", "url fetch", "internal request", "egress mapping", "metadata endpoint", "redirect to internal").
+description: >-
+  Phase-3 SSRF organ — canary-callback channel-existence proofs on an
+  operator-owned interaction host, egress mapping by scheme, redirect-chain
+  tracing, and metadata-endpoint checks only inside explicitly authorized
+  cloud scope, all as differentials. Since v1.3.0 the organ carries the
+  executable method layer (A16) — a mechanical critique of the
+  callback-everywhere habit's floors (canary before hypotheses, channel
+  conflation, parser disagreement re-discovered per bug, metadata URLs from
+  memory, impact claimed without read-back) shipped as protocol M1–M5: the
+  channel hypothesis table, the four-rung channel-proof ladder, the
+  parser-differential map, the cloud-metadata decision table with mandatory
+  headers, and the impact ceiling that refuses gossip. Use when the operator
+  asks to test SSRF, check a URL-fetch parameter, map egress from a target,
+  trace redirect-based SSRF, or probe cloud metadata reachability ("tes SSRF",
+  "url fetch", "internal request", "egress mapping", "metadata endpoint",
+  "redirect to internal").
 category: security/offensive-web
 license: MIT
 metadata:

@@ -3,7 +3,31 @@ name: cache-playbook
 version: 1.2.0
 type: ai-skill
 architecture: package
-description: Deep-technical organ (tier 3) built from the Omer Gil lineage (Web Cache Deception, Black Hat USA 2017) with James Kettle's cache-poisoning corpus (Practical Web Cache Poisoning, Black Hat USA 2018; Web Cache Entanglements, 2020) and the USENIX Security 2020 measurement "Cached and Confused" as its academic anchor — hunting the disagreement between origin and cache. The cache is treated as a second, silent parser: every disagreement between how the origin resolves a request and how the cache keys it (path confusion, unkeyed inputs, cache-key vs display-key gaps) becomes either stored secrets (deception: a victim's personalized response cached under a public path) or stored payloads (poisoning: an unkeyed input cached into other users' responses). Carries the WWH registers, the nonce-path discipline for poisoning proofs (never a real user's path), and the operator-as-victim law for deception proofs. Since v1.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the Gil/Kettle art's floors (suffix guessing by habit, single-shot poison demos, cache keys narrated instead of measured, deception and poisoning families conflated, borrowed victims) shipped as protocol M1–M5: the pairwise cache-key baseline matrix, the suffix decision table, the poisoning differential with operator-owned victims, the served-check decay curve, and the family-separated ceiling statement. Use when a CDN or caching proxy sits in front of the target, when X-Cache/Age/cache-control headers appear, when the operator suspects cache attacks ("cek cache poisoning", "ada CDN cloudflare/akamai", "web cache deception di target ini", "cache misconfiguration", "kenapa halaman ini ke-cache").
+description: >-
+  Deep-technical organ (tier 3) built from the Omer Gil lineage (Web Cache
+  Deception, Black Hat USA 2017) with James Kettle's cache-poisoning corpus
+  (Practical Web Cache Poisoning, Black Hat USA 2018; Web Cache Entanglements,
+  2020) and the USENIX Security 2020 measurement "Cached and Confused" as its
+  academic anchor — hunting the disagreement between origin and cache. The
+  cache is treated as a second, silent parser: every disagreement between how
+  the origin resolves a request and how the cache keys it (path confusion,
+  unkeyed inputs, cache-key vs display-key gaps) becomes either stored secrets
+  (deception: a victim's personalized response cached under a public path) or
+  stored payloads (poisoning: an unkeyed input cached into other users'
+  responses). Carries the WWH registers, the nonce-path discipline for
+  poisoning proofs (never a real user's path), and the operator-as-victim law
+  for deception proofs. Since v1.2.0 the organ carries the executable method
+  layer (A16) — a mechanical critique of the Gil/Kettle art's floors (suffix
+  guessing by habit, single-shot poison demos, cache keys narrated instead of
+  measured, deception and poisoning families conflated, borrowed victims)
+  shipped as protocol M1–M5: the pairwise cache-key baseline matrix, the
+  suffix decision table, the poisoning differential with operator-owned
+  victims, the served-check decay curve, and the family-separated ceiling
+  statement. Use when a CDN or caching proxy sits in front of the target, when
+  X-Cache/Age/cache-control headers appear, when the operator suspects cache
+  attacks ("cek cache poisoning", "ada CDN cloudflare/akamai", "web cache
+  deception di target ini", "cache misconfiguration", "kenapa halaman ini
+  ke-cache").
 category: security/deep-technical
 license: MIT
 metadata:

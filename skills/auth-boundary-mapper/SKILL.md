@@ -3,12 +3,35 @@ name: auth-boundary-mapper
 version: 2.2.0
 type: ai-skill
 architecture: package
-description: Phase-2/3 access-control organ, upgraded (v2) with the Frans Rosen lineage — builds the role-by-resource authorization matrix from evidence, then runs systematic IDOR/BOLA differentials (baseline own-object, treatment cross-object, control nonexistent-object) with two operator-provided test accounts; v2 adds the IDOR field-guide layer — identifier-construction analysis before any swap, swap testing across ALL parameter positions, 2nd-order IDOR sweeps, full response-body diffing, cloud multi-tenant boundary emphasis, Since v2.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the published Rosen-era form's floors (one-finding narratives with the mapping protocol implicit, identifier intuition instead of a census, response-diff asserted without buckets or n, the access matrix never assembled as data, second-order travel narrated as eureka) shipped as protocol M1–M5: the identifier census with measured predictability, the pre-registered role×resource access matrix, the three-condition boundary differential (own/other/nonexistent ids, marker-checked), the second-order marker round-trip map, and the operator-owned-pair impact ceiling. Use when the operator asks to test IDOR or BOLA, map who can access what, probe horizontal/vertical privilege boundaries, audit access control on an API, or audit cloud multi-tenant isolation ("tes IDOR", "BOLA", "akses kontrol", "privilege boundary", "role matrix", "broken access control", "2nd-order IDOR", "tenant isolation").
+description: >-
+  Phase-2/3 access-control organ, upgraded (v2) with the Frans Rosen lineage —
+  builds the role-by-resource authorization matrix from evidence, then runs
+  systematic IDOR/BOLA differentials (baseline own-object, treatment
+  cross-object, control nonexistent-object) with two operator-provided test
+  accounts; v2 adds the IDOR field-guide layer — identifier-construction
+  analysis before any swap, swap testing across ALL parameter positions,
+  2nd-order IDOR sweeps, full response-body diffing, cloud multi-tenant
+  boundary emphasis, Since v2.2.0 the organ carries the executable method
+  layer (A16) — a mechanical critique of the published Rosen-era form's floors
+  (one-finding narratives with the mapping protocol implicit, identifier
+  intuition instead of a census, response-diff asserted without buckets or n,
+  the access matrix never assembled as data, second-order travel narrated as
+  eureka) shipped as protocol M1–M5: the identifier census with measured
+  predictability, the pre-registered role×resource access matrix, the
+  three-condition boundary differential (own/other/nonexistent ids,
+  marker-checked), the second-order marker round-trip map, and the
+  operator-owned-pair impact ceiling. Use when the operator asks to test IDOR
+  or BOLA, map who can access what, probe horizontal/vertical privilege
+  boundaries, audit access control on an API, or audit cloud multi-tenant
+  isolation ("tes IDOR", "BOLA", "akses kontrol", "privilege boundary", "role
+  matrix", "broken access control", "2nd-order IDOR", "tenant isolation").
 category: security/offensive-web
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: v2 — Frans Rosen (Detectify co-founder; IDOR-through-methodology lineage: identifier construction, 2nd-order IDOR, response-diff rigor)
+  lineage: >-
+    v2 — Frans Rosen (Detectify co-founder; IDOR-through-methodology lineage:
+    identifier construction, 2nd-order IDOR, response-diff rigor)
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; two operator-owned test accounts
 ---
 

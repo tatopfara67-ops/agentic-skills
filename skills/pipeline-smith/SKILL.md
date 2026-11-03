@@ -3,7 +3,26 @@ name: pipeline-smith
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from Tom Hudson (Tomnomnom) — the Unix-pipeline school of bug bounty recon. Every stage is a small tool that does one thing well and speaks stdout; passive sources feed the pipeline before the target is ever touched; names are deduplicated before probing; liveness is proved with minimal requests (httprobe discipline); curated pattern packs (gf) encode expert pattern knowledge as data rather than bespoke scripts; the same path is fetched across many hoSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the pipeline school's floors (pipelines as unversioned shell history, dedupe asserted but never measured, tool stdout as an unwritten contract, passive-source freshness unrecorded, results narrated without replayable provenance) shipped as protocol M1–M5: the versioned pipeline record, the collapse ledger with a cross-source gate, the stage contract with hard-fail semantics, the as-of stamp that prices liveness budget, and the five-field replay citation the report gate enforces. Use when chaining recon stages, when deciding what composes with what, when building or trimming a wordlist/pattern pack, or when a recon step must stay cheap and composable ("pipeline this", "dedupe first", "passive sources before probes", "pattern pack", "fetch the same path everywhere").
+description: >-
+  Craft-lineage organ distilled from Tom Hudson (Tomnomnom) — the
+  Unix-pipeline school of bug bounty recon. Every stage is a small tool that
+  does one thing well and speaks stdout; passive sources feed the pipeline
+  before the target is ever touched; names are deduplicated before probing;
+  liveness is proved with minimal requests (httprobe discipline); curated
+  pattern packs (gf) encode expert pattern knowledge as data rather than
+  bespoke scripts; the same path is fetched across many hoSince v1.1.0 the
+  organ carries the executable method layer (A16) — a mechanical critique of
+  the pipeline school's floors (pipelines as unversioned shell history, dedupe
+  asserted but never measured, tool stdout as an unwritten contract,
+  passive-source freshness unrecorded, results narrated without replayable
+  provenance) shipped as protocol M1–M5: the versioned pipeline record, the
+  collapse ledger with a cross-source gate, the stage contract with hard-fail
+  semantics, the as-of stamp that prices liveness budget, and the five-field
+  replay citation the report gate enforces. Use when chaining recon stages,
+  when deciding what composes with what, when building or trimming a
+  wordlist/pattern pack, or when a recon step must stay cheap and composable
+  ("pipeline this", "dedupe first", "passive sources before probes", "pattern
+  pack", "fetch the same path everywhere").
 category: security/craft-lineage
 license: MIT
 metadata:

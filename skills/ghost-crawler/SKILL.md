@@ -3,7 +3,27 @@ name: ghost-crawler
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier A — The Silent Infiltrators) built from the Adrian Lamo lineage — enter-without-knocking infrastructure hunting. Drives Phase 1 from PASSIVE public indexes first (CT logs, search-engine dork grammar, public archives, DNS records), hunting the forgotten side doors — abandoned subdomains, exposed panels, open directories, backup archives, misconfigured storage, accidentally-public internal services — while the guarded main application stays untouched. ESince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Lamo-era form's floors (entries as anecdotes with the noticing left in the man, indexes read without coverage records, side-door classes implicit per story, archive freshness unstamped, the no-trace discipline carried by prose ethics instead of accounting) shipped as protocol M1–M5: the index protocol with a coverage table and named gaps, the census schema with a completeness gate, the as-of freshness rule that prices follow-up, the exposure differential with persistence checks, and the trace ledger that closes every session with counted touches. Use when scope is tight and information minimal, when the target's WAF is scanner-hostile, when the operator wants misconfigurations and forgotten assets instead of app-layer bugs, or when recon must raise zero alarms ("masuk tanpa mengetuk", "siluman", "cari misconfiguration", "google dorking", "forgotten assets", "side door", "avoid the WAF").
+description: >-
+  Legend-tier organ (Tier A — The Silent Infiltrators) built from the Adrian
+  Lamo lineage — enter-without-knocking infrastructure hunting. Drives Phase 1
+  from PASSIVE public indexes first (CT logs, search-engine dork grammar,
+  public archives, DNS records), hunting the forgotten side doors — abandoned
+  subdomains, exposed panels, open directories, backup archives, misconfigured
+  storage, accidentally-public internal services — while the guarded main
+  application stays untouched. ESince v1.1.0 the organ carries the executable
+  method layer (A16) — a mechanical critique of the Lamo-era form's floors
+  (entries as anecdotes with the noticing left in the man, indexes read
+  without coverage records, side-door classes implicit per story, archive
+  freshness unstamped, the no-trace discipline carried by prose ethics instead
+  of accounting) shipped as protocol M1–M5: the index protocol with a coverage
+  table and named gaps, the census schema with a completeness gate, the as-of
+  freshness rule that prices follow-up, the exposure differential with
+  persistence checks, and the trace ledger that closes every session with
+  counted touches. Use when scope is tight and information minimal, when the
+  target's WAF is scanner-hostile, when the operator wants misconfigurations
+  and forgotten assets instead of app-layer bugs, or when recon must raise
+  zero alarms ("masuk tanpa mengetuk", "siluman", "cari misconfiguration",
+  "google dorking", "forgotten assets", "side door", "avoid the WAF").
 category: security/legend-lineage
 license: MIT
 metadata:

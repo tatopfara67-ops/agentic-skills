@@ -3,7 +3,28 @@ name: template-scanner
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from the ProjectDiscovery team (Sandeep Singh, Rishiraj Sharma, Marco Rivoli, Nizamul Rana — creators of subfinder and nuclei) — detection knowledge as declarative, versioned templates. A template is a pre-registered experiment: matchers (status/word/regex/DSL conditions) written before the run; severity and metadata baked in; engine and template packs evolve separately so the community compounds; multi-protocol reach (HTTP, raw TCP, DNS) keeps one language across surfaces; and a whole Since v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the template-scanning practice's floors (matchers run as received without review, severity baked into YAML for a generic universe, engine×pack drift untracked, noise classes narrated as findings, hits reported without the bytes the matcher saw) shipped as protocol M1–M5: the pre-run review gate that converts templates into pre-registered experiments, the severity re-rating ladder with both columns in every output, the RUN-PIN version matrix, the noise filter table with visible counts, and the hit record with evidence blocks and confidence-class version pins. Use when turning a repeatable check into a reusable artifact, when running scan campaigns that must be reproducible, when aligning detection packs with VRT classes, or when sharing a detection with others ("make this a template", "rerun last week's scan", "template pack", "same check everywhere", "reproducible campaign").
+description: >-
+  Craft-lineage organ distilled from the ProjectDiscovery team (Sandeep Singh,
+  Rishiraj Sharma, Marco Rivoli, Nizamul Rana — creators of subfinder and
+  nuclei) — detection knowledge as declarative, versioned templates. A
+  template is a pre-registered experiment: matchers (status/word/regex/DSL
+  conditions) written before the run; severity and metadata baked in; engine
+  and template packs evolve separately so the community compounds;
+  multi-protocol reach (HTTP, raw TCP, DNS) keeps one language across
+  surfaces; and a whole Since v1.1.0 the organ carries the executable method
+  layer (A16) — a mechanical critique of the template-scanning practice's
+  floors (matchers run as received without review, severity baked into YAML
+  for a generic universe, engine×pack drift untracked, noise classes narrated
+  as findings, hits reported without the bytes the matcher saw) shipped as
+  protocol M1–M5: the pre-run review gate that converts templates into
+  pre-registered experiments, the severity re-rating ladder with both columns
+  in every output, the RUN-PIN version matrix, the noise filter table with
+  visible counts, and the hit record with evidence blocks and confidence-class
+  version pins. Use when turning a repeatable check into a reusable artifact,
+  when running scan campaigns that must be reproducible, when aligning
+  detection packs with VRT classes, or when sharing a detection with others
+  ("make this a template", "rerun last week's scan", "template pack", "same
+  check everywhere", "reproducible campaign").
 category: security/craft-lineage
 license: MIT
 metadata:

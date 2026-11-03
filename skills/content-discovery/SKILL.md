@@ -3,7 +3,24 @@ name: content-discovery
 version: 2.1.0
 type: ai-skill
 architecture: package
-description: Phase-1 content discovery organ, upgraded (v2) with the Daniel Miessler (SecLists) lineage — calibrated, rate-courteous wordlist walks that report baseline deviations only, backup/config artifact hunting with differential triage, plus corpus science: family-based list selection, evidence-derived composition, extension derivation from the observed stack, per-base recalibration,Since v2.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the SecLists-era practice's floors (list choice as taste, dictionaries sprayed uncalibrated to the target's naming grammar, yield never accounted per list class, freshness unstamped on living repo artifacts, interesting-by-glance triage) shipped as protocol M1–M5: the question→list-class binding table, grammar calibration harvested from known 200-class paths, the yield ledger with a marginal-exhaustion gate, the as-of stamp rule, and the extension×status×size triage table. Use when the operator asks to find hidden paths, hunt backup or config files, brute directories politely, or triage discovered files ("cari path tersembunyi", "backup hunting", "wordlist", "directory brute", "file discovery", "cari .env", "seclists", "wordlist choice").
+description: >-
+  Phase-1 content discovery organ, upgraded (v2) with the Daniel Miessler
+  (SecLists) lineage — calibrated, rate-courteous wordlist walks that report
+  baseline deviations only, backup/config artifact hunting with differential
+  triage, plus corpus science: family-based list selection, evidence-derived
+  composition, extension derivation from the observed stack, per-base
+  recalibration,Since v2.1.0 the organ carries the executable method layer
+  (A16) — a mechanical critique of the SecLists-era practice's floors (list
+  choice as taste, dictionaries sprayed uncalibrated to the target's naming
+  grammar, yield never accounted per list class, freshness unstamped on living
+  repo artifacts, interesting-by-glance triage) shipped as protocol M1–M5: the
+  question→list-class binding table, grammar calibration harvested from known
+  200-class paths, the yield ledger with a marginal-exhaustion gate, the as-of
+  stamp rule, and the extension×status×size triage table. Use when the
+  operator asks to find hidden paths, hunt backup or config files, brute
+  directories politely, or triage discovered files ("cari path tersembunyi",
+  "backup hunting", "wordlist", "directory brute", "file discovery", "cari
+  .env", "seclists", "wordlist choice").
 category: security/offensive-web
 license: MIT
 metadata:

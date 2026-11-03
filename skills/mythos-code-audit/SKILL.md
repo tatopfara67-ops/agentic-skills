@@ -3,7 +3,7 @@ name: mythos-code-audit
 version: 1.0.0
 type: ai-skill
 architecture: package
-description: >
+description: >-
   White-box source-code audit engine and the companion skill to
   mythos-bug-hunter. Use this skill whenever the operator wants source code
   audited for vulnerabilities, a dependency or library checked before use, a

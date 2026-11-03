@@ -3,7 +3,7 @@ name: glm-self-model
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: >
+description: >-
   The engine's own operator manual — model-class failure geometry for the
   LLM agent (GLM-class transformer) that executes every other skill in
   this bundle, plus the compensation gates that make long-horizon work

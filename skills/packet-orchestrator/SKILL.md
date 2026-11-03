@@ -3,7 +3,31 @@ name: packet-orchestrator
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ built from two verified lineages — Justin Searle's manual-to-structured craft (SamuraiWTF/STFU distributions, NESCOR-methodology ICS testing, protocol dissection teaching) and the Mantis framework (PhonePe) school of workflow orchestration (state-backed pipelines, scanner base classes, schedulers, alerting), with Scapy's layered packet-crafting as the underlying tool lineage. Doctrine: automate only what you have first done manually and understood; translate the manual trace into a structured, state-backed automation one layer at a time; every automation stage keeps the manual path re-runnable beside it; packet-level work means crafting the exact bytes and obSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the three source lineages' floors (manual craft as performed wizardry with the intent→fields translation unwritten, orchestration demonstrated without mechanical abort gates, packet libraries invoked without send discipline, dissection told as single-shot narration with implicit expectations) shipped as protocol M1–M5: the translation table with enumerated response classes, the state gates that can stop a pipeline, the send rule with its burst ban and per-send ledger, the dissection differential with a written expectation table, and the orchestrator record that makes runs re-walkable. Use when converting manual test logic into repeatable automation, when orchestrating multi-stage workflows with persistent state, when doing raw-protocol differentials, or when an automation must stay debuggable ("automate this manual check", "workflow with state", "packet-level differential", "wire this into the pipeline", "why did the automation diverge").
+description: >-
+  Craft-lineage organ built from two verified lineages — Justin Searle's
+  manual-to-structured craft (SamuraiWTF/STFU distributions,
+  NESCOR-methodology ICS testing, protocol dissection teaching) and the Mantis
+  framework (PhonePe) school of workflow orchestration (state-backed
+  pipelines, scanner base classes, schedulers, alerting), with Scapy's layered
+  packet-crafting as the underlying tool lineage. Doctrine: automate only what
+  you have first done manually and understood; translate the manual trace into
+  a structured, state-backed automation one layer at a time; every automation
+  stage keeps the manual path re-runnable beside it; packet-level work means
+  crafting the exact bytes and obSince v1.1.0 the organ carries the executable
+  method layer (A16) — a mechanical critique of the three source lineages'
+  floors (manual craft as performed wizardry with the intent→fields
+  translation unwritten, orchestration demonstrated without mechanical abort
+  gates, packet libraries invoked without send discipline, dissection told as
+  single-shot narration with implicit expectations) shipped as protocol M1–M5:
+  the translation table with enumerated response classes, the state gates that
+  can stop a pipeline, the send rule with its burst ban and per-send ledger,
+  the dissection differential with a written expectation table, and the
+  orchestrator record that makes runs re-walkable. Use when converting manual
+  test logic into repeatable automation, when orchestrating multi-stage
+  workflows with persistent state, when doing raw-protocol differentials, or
+  when an automation must stay debuggable ("automate this manual check",
+  "workflow with state", "packet-level differential", "wire this into the
+  pipeline", "why did the automation diverge").
 category: security/craft-lineage
 license: MIT
 metadata:

@@ -3,12 +3,40 @@ name: prototype-playbook
 version: 1.2.0
 type: ai-skill
 architecture: package
-description: Deep-technical organ (tier 3) built from the Gareth Heyes lineage (PortSwigger Research) — hunting the JavaScript object world as trust-bearing state. Three attack families live here because they share one root cause (code trusts inherited or ambient object properties it never validated): prototype pollution (a recursive merge writes attacker keys into Object.prototype and every object downstream inherits them — client-side via URL/hash/JSON sources, server-side via JSON bodies in Node), DOM clobbering (HTML named elements become window globals and shadow the references scripts trust), and postMessage origin confusion (message listeners trusting sender origins loosely). Carries the WWH registers, the source→gadget→sink hunting order, and the no-DoS law for server-side pollution detection (Heyes' safe black-box techniques: harmless canary properties whose only footprint is an observable response difference). Since v1.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the Heyes art's floors (DOM-Invader delivery, error side effects as the only oracle, gadget hunting before merge-surface mapping, library versions unpinned, single-shot pollution claims) shipped as protocol M1–M4: the merge-surface inventory, the calibrated oracle ladder (read-back → signature → refused crash), the __proto__ differential with same-shape controls, and the version-pinned gadget matrix. Use when the target is a JavaScript-heavy SPA, when third-party JS libraries load, when JSON merges user input server-side, when postMessage listeners or DOM clobbering sinks are suspected ("cari prototype pollution", "audit JS libraries-nya", "apakah node app-nya merge JSON user", "test window.postMessage listener", "kamu tau gadget chain?").
+description: >-
+  Deep-technical organ (tier 3) built from the Gareth Heyes lineage
+  (PortSwigger Research) — hunting the JavaScript object world as
+  trust-bearing state. Three attack families live here because they share one
+  root cause (code trusts inherited or ambient object properties it never
+  validated): prototype pollution (a recursive merge writes attacker keys into
+  Object.prototype and every object downstream inherits them — client-side via
+  URL/hash/JSON sources, server-side via JSON bodies in Node), DOM clobbering
+  (HTML named elements become window globals and shadow the references scripts
+  trust), and postMessage origin confusion (message listeners trusting sender
+  origins loosely). Carries the WWH registers, the source→gadget→sink hunting
+  order, and the no-DoS law for server-side pollution detection (Heyes' safe
+  black-box techniques: harmless canary properties whose only footprint is an
+  observable response difference). Since v1.2.0 the organ carries the
+  executable method layer (A16) — a mechanical critique of the Heyes art's
+  floors (DOM-Invader delivery, error side effects as the only oracle, gadget
+  hunting before merge-surface mapping, library versions unpinned, single-shot
+  pollution claims) shipped as protocol M1–M4: the merge-surface inventory,
+  the calibrated oracle ladder (read-back → signature → refused crash), the
+  __proto__ differential with same-shape controls, and the version-pinned
+  gadget matrix. Use when the target is a JavaScript-heavy SPA, when
+  third-party JS libraries load, when JSON merges user input server-side, when
+  postMessage listeners or DOM clobbering sinks are suspected ("cari prototype
+  pollution", "audit JS libraries-nya", "apakah node app-nya merge JSON user",
+  "test window.postMessage listener", "kamu tau gadget chain?").
 category: security/deep-technical
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: Gareth Heyes (PortSwigger Research — "Server-side prototype pollution: Black-box detection without the DoS", 2023; "Widespread prototype pollution gadgets"; DOM Invader, the Burp browser extension that finds XSS, prototype pollution, and postMessage issues)
+  lineage: >-
+    Gareth Heyes (PortSwigger Research — "Server-side prototype pollution:
+    Black-box detection without the DoS", 2023; "Widespread prototype pollution
+    gadgets"; DOM Invader, the Burp browser extension that finds XSS, prototype
+    pollution, and postMessage issues)
   tier: 3 — deep technical (the object-world doctrine)
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); xss-playbook (the sink grammar once a gadget feeds a DOM sink); js-recon (the bundle-reading discipline that locates merge code and listeners)
 ---

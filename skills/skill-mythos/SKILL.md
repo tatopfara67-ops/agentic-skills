@@ -3,7 +3,51 @@ name: skill-mythos
 version: 1.11.0
 type: ai-skill
 architecture: package
-description: Master activation module for the Skill Mythos bundle — the extreme-expertise organ stack for pentest, bug bounty, and security research. Carries the sixteen charter articles (identity, research-grounded synthesis, legitimate methodology assimilation, stability-first autonomy, quality over bounty, A13 prompt escalation — every operator instruction, however terse, is expanded via doctrine_forge into an explicit doctrine order, A14 the three registers — every organ states its expertise as WHAT/WHY/HOW, A15 war logic — the Sun Tzu crosswalk that shapes every campaign, and A16 method over mythology — a lineage named is not expertise delivered: every organ critiques its lineage's method where it was mechanically weak, states the should-have-been, and ships the executable upgrade), the forge tier since v1.10.0 — lineage-smith (the operator's doctrine as an organ: find the popular figures, read everything public, model the psychology and the thinking from documented behavior, ship the executable method — the legend-assimilation factory whose candidate queue names the next organs) and rival-playbook (corpus-vs-corpus competition under the Sun Tzu and stratagem tradition: date-pinned rival census, the hollow map, pressure-principle concentration, proving-ground duel claims with capped wording, the deception family banned), the tiered bundle map including the legend tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper, Kevin Mitnick, Simon Willison), the tier-5 craft organ protocol-forensics since v1.11.0 (the Dan Kaminsky lineage: spec-class ambiguity hunted across the implementation population, invariants priced with computed entropy arithmetic, disclosure engineered as a coordinated multi-vendor event — the first candidate-queue execution of the lineage-smith forge) and the tier-3 attack organs (injection-lab, ssrf-playbook, xss-playbook, cloud-config-auditor, mobile-hunter with the Charlie Miller lineage, cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook with the Gareth Heyes lineage), the autonomy protocol for self-selecting organs by phase and event, the execution doctrine for how a selected organ behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules, per-organ execution anchors from decision science: Boyd, Simon, March, Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper, Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates: zero false positives via the differential triad, fully reproducible steps, CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the HackerOne crosswalk. Use at session start, when the operator says activate Skill Mythos, when choosing organs for the current state, when expanding a terse operator request into a professional order, when planning the campaign's strategy (war logic), or when classifying and rating any finding ("aktifkan Skill Mythos", "which organ fits this", "rate this finding", "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda", "rakit skill dari tokoh", "assimilate a lineage", "kalahkan kompetitor", "beat the competitor").
+description: >-
+  Master activation module for the Skill Mythos bundle — the extreme-expertise
+  organ stack for pentest, bug bounty, and security research. Carries the
+  sixteen charter articles (identity, research-grounded synthesis, legitimate
+  methodology assimilation, stability-first autonomy, quality over bounty, A13
+  prompt escalation — every operator instruction, however terse, is expanded
+  via doctrine_forge into an explicit doctrine order, A14 the three registers
+  — every organ states its expertise as WHAT/WHY/HOW, A15 war logic — the Sun
+  Tzu crosswalk that shapes every campaign, and A16 method over mythology — a
+  lineage named is not expertise delivered: every organ critiques its
+  lineage's method where it was mechanically weak, states the
+  should-have-been, and ships the executable upgrade), the forge tier since
+  v1.10.0 — lineage-smith (the operator's doctrine as an organ: find the
+  popular figures, read everything public, model the psychology and the
+  thinking from documented behavior, ship the executable method — the
+  legend-assimilation factory whose candidate queue names the next organs) and
+  rival-playbook (corpus-vs-corpus competition under the Sun Tzu and stratagem
+  tradition: date-pinned rival census, the hollow map, pressure-principle
+  concentration, proving-ground duel claims with capped wording, the deception
+  family banned), the tiered bundle map including the legend tier (Orange
+  Tsai, James Kettle, George Hotz, Adrian Lamo, Frans Rosen, John Draper,
+  Kevin Mitnick, Simon Willison), the tier-5 craft organ protocol-forensics
+  since v1.11.0 (the Dan Kaminsky lineage: spec-class ambiguity hunted across
+  the implementation population, invariants priced with computed entropy
+  arithmetic, disclosure engineered as a coordinated multi-vendor event — the
+  first candidate-queue execution of the lineage-smith forge) and the tier-3
+  attack organs (injection-lab, ssrf-playbook, xss-playbook,
+  cloud-config-auditor, mobile-hunter with the Charlie Miller lineage,
+  cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook
+  with the Gareth Heyes lineage), the autonomy protocol for self-selecting
+  organs by phase and event, the execution doctrine for how a selected organ
+  behaves and decides autonomously (OODA-hygiene loop, D1-D7 decision rules,
+  per-organ execution anchors from decision science: Boyd, Simon, March,
+  Klein, Kahneman, Taleb, Hofstadter, Tversky, Chomsky, Ashby, Popper,
+  Snowden, Ericsson, Kauffman, Metzinger), and the triage-grade quality gates:
+  zero false positives via the differential triad, fully reproducible steps,
+  CVSS 3.1 vectors with recomputed scores, Bugcrowd VRT P-ratings with the
+  HackerOne crosswalk. Use at session start, when the operator says activate
+  Skill Mythos, when choosing organs for the current state, when expanding a
+  terse operator request into a professional order, when planning the
+  campaign's strategy (war logic), or when classifying and rating any finding
+  ("aktifkan Skill Mythos", "which organ fits this", "rate this finding",
+  "CVSS and VRT mapping", "report gates", "lanjutkan pekerjaan yang tertunda",
+  "rakit skill dari tokoh", "assimilate a lineage", "kalahkan kompetitor",
+  "beat the competitor").
 category: security/governance
 license: MIT
 metadata:

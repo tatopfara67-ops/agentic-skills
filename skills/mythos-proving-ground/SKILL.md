@@ -3,7 +3,7 @@ name: mythos-proving-ground
 version: 1.0.0
 type: ai-skill
 architecture: package
-description: >
+description: >-
   Ground-truth benchmark harness for AI security agents. Deploys an
   instrumented vulnerable lab on localhost, watches what the agent actually
   does via server-side trigger events, and scores its claimed findings

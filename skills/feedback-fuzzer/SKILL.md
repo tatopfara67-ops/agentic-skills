@@ -3,7 +3,27 @@ name: feedback-fuzzer
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from Michal Zalewski (lcamtuf), creator of AFL — the feedback-guided search mindset. Blind mutation is noise; the map of observed states turns a search into a guided one. Every probe outcome updates a coarse state map (bucketed novelty detection, not fine-grained diffs); the corpus of inputs that reached new states is curated small (culling by cost); deterministic mutations come before random ones; exploration is preserved with probabilities instead of greedy pursuit; tar pits that buy 1% coverage at 100x cost are rejected; and eSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the lcamtuf art's floors (a map instantiated only for binary coverage, culling thresholds as folklore, crash-vs-hang classified by eyes, determinism assumed and never measured, the state-map-to-hypothesis loop left unwritten) shipped as protocol M1–M5: the bucketed state-map schema for service targets, the corpus budget with eviction rules, the novelty gate with slice arithmetic, the classification table with a rerun floor, and the map-reading rule that converts stable novelty into falsifiable hypotheses. Use when hunting through input/state spaces with an oracle loop, when deciding to stop (saturation), when triaging a noisy signal, or when a probe campaign needs a stopping rule ("keep fuzzing or stop", "is this new behavior", "minimize the PoC", "saturation", "noise in responses").
+description: >-
+  Craft-lineage organ distilled from Michal Zalewski (lcamtuf), creator of AFL
+  — the feedback-guided search mindset. Blind mutation is noise; the map of
+  observed states turns a search into a guided one. Every probe outcome
+  updates a coarse state map (bucketed novelty detection, not fine-grained
+  diffs); the corpus of inputs that reached new states is curated small
+  (culling by cost); deterministic mutations come before random ones;
+  exploration is preserved with probabilities instead of greedy pursuit; tar
+  pits that buy 1% coverage at 100x cost are rejected; and eSince v1.1.0 the
+  organ carries the executable method layer (A16) — a mechanical critique of
+  the lcamtuf art's floors (a map instantiated only for binary coverage,
+  culling thresholds as folklore, crash-vs-hang classified by eyes,
+  determinism assumed and never measured, the state-map-to-hypothesis loop
+  left unwritten) shipped as protocol M1–M5: the bucketed state-map schema for
+  service targets, the corpus budget with eviction rules, the novelty gate
+  with slice arithmetic, the classification table with a rerun floor, and the
+  map-reading rule that converts stable novelty into falsifiable hypotheses.
+  Use when hunting through input/state spaces with an oracle loop, when
+  deciding to stop (saturation), when triaging a noisy signal, or when a probe
+  campaign needs a stopping rule ("keep fuzzing or stop", "is this new
+  behavior", "minimize the PoC", "saturation", "noise in responses").
 category: security/craft-lineage
 license: MIT
 metadata:

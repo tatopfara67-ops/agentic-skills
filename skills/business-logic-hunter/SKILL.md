@@ -3,7 +3,27 @@ name: business-logic-hunter
 version: 2.2.0
 type: ai-skill
 architecture: package
-description: Phase-2/3 business-logic organ, upgraded (v2) with the Soroush Dalili lineage — workflow-sequence abuse (skip/replay/reorder), race conditions with the spine's stochastic reproduction floors, limit/price/coupon arithmetic testing, plus bypass craft: HTTP-reshaping grammar against business guards, parser differentials at guard/executor seams, intended-behavior inversion, and comparison functions as testableSince v2.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the published Dalili-era form's floors (bypass grammars as curated lists without rule-class preconditions, single-bug narratives with generalization implicit, the defeated parser hop unnamed, one-shot demos without repeatability, bypass conflated with impact) shipped as protocol M1–M5: the rule-class bypass matrix with corpus-pinned first probes, the three-condition reshaping differential with a placebo control, chain-map linkage naming the enforcing hop, the repeatability floor with a stability window, and the route-opened impact ceiling. Use when the operator asks to test business logic, abuse workflows, race two requests, probe negative quantities or price arithmetic, hunt coupon/voucher reuse, or reshape around a blocked admin path ("logika bisnis", "race condition", "negative quantity", "price manipulation", "coupon abuse", "workflow bypass", "integer overflow", "bypass", "filter bypass", "parser differential").
+description: >-
+  Phase-2/3 business-logic organ, upgraded (v2) with the Soroush Dalili
+  lineage — workflow-sequence abuse (skip/replay/reorder), race conditions
+  with the spine's stochastic reproduction floors, limit/price/coupon
+  arithmetic testing, plus bypass craft: HTTP-reshaping grammar against
+  business guards, parser differentials at guard/executor seams,
+  intended-behavior inversion, and comparison functions as testableSince
+  v2.2.0 the organ carries the executable method layer (A16) — a mechanical
+  critique of the published Dalili-era form's floors (bypass grammars as
+  curated lists without rule-class preconditions, single-bug narratives with
+  generalization implicit, the defeated parser hop unnamed, one-shot demos
+  without repeatability, bypass conflated with impact) shipped as protocol
+  M1–M5: the rule-class bypass matrix with corpus-pinned first probes, the
+  three-condition reshaping differential with a placebo control, chain-map
+  linkage naming the enforcing hop, the repeatability floor with a stability
+  window, and the route-opened impact ceiling. Use when the operator asks to
+  test business logic, abuse workflows, race two requests, probe negative
+  quantities or price arithmetic, hunt coupon/voucher reuse, or reshape around
+  a blocked admin path ("logika bisnis", "race condition", "negative
+  quantity", "price manipulation", "coupon abuse", "workflow bypass", "integer
+  overflow", "bypass", "filter bypass", "parser differential").
 category: security/offensive-web
 license: MIT
 metadata:

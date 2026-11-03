@@ -3,7 +3,24 @@ name: adversary-tracker
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Event-triggered defensive organ — the Shimomura Binary Brain for tracing an adversary who touches assets you are authorized to defend. Four binary registers (SIGNAL / SPLIT / TRUTH / TIP-OFF) drive a halving loop freeze and capture first, classify against a calibrated baseline, enumerate hypotheses with the null auto-inserted, eliminate by halves with passive tests gated ahead of tip-off ones, and confirm the survivor only through two independent channels — then hand off, never retaliate. Since v1.1.0 the organ carries the executable method layer (A16): a mechanical critique of the 1994–95 hunt's floors (detection-by-luck, unsynced triangulation, ad-hoc fingerprinting, no deception layer, unstated localization floor) and their fixes as protocol M0–M5 — tripwire canaries, NTP-disciplined arrival deltas with a sync-error table, a four-feature stack-fingerprint predicate calibrated against known hosts, deception under the tip-off gate, and a stated localization floor. Use when the operator reports being probed or scanned, asks to investigate a suspicious login or intrusion, or wants an attacker traced ("ada yang scanning kita", "investigasi login aneh", "kenapa ada traffic ganjil", "trace the attacker", "incident triage").
+description: >-
+  Event-triggered defensive organ — the Shimomura Binary Brain for tracing an
+  adversary who touches assets you are authorized to defend. Four binary
+  registers (SIGNAL / SPLIT / TRUTH / TIP-OFF) drive a halving loop freeze and
+  capture first, classify against a calibrated baseline, enumerate hypotheses
+  with the null auto-inserted, eliminate by halves with passive tests gated
+  ahead of tip-off ones, and confirm the survivor only through two independent
+  channels — then hand off, never retaliate. Since v1.1.0 the organ carries
+  the executable method layer (A16): a mechanical critique of the 1994–95
+  hunt's floors (detection-by-luck, unsynced triangulation, ad-hoc
+  fingerprinting, no deception layer, unstated localization floor) and their
+  fixes as protocol M0–M5 — tripwire canaries, NTP-disciplined arrival deltas
+  with a sync-error table, a four-feature stack-fingerprint predicate
+  calibrated against known hosts, deception under the tip-off gate, and a
+  stated localization floor. Use when the operator reports being probed or
+  scanned, asks to investigate a suspicious login or intrusion, or wants an
+  attacker traced ("ada yang scanning kita", "investigasi login aneh", "kenapa
+  ada traffic ganjil", "trace the attacker", "incident triage").
 category: security/defensive-ir
 license: MIT
 metadata:

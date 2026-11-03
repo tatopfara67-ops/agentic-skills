@@ -3,7 +3,22 @@ name: injection-lab
 version: 1.3.0
 type: ai-skill
 architecture: package
-description: Phase-3 injection organ — differential oracles only: every injection class (SQL/NoSQL/command/template/LDAP) tested as baseline vs treatment vs control with a stated falsifier; timing oracles honor repetition floors; sqlmap runs only as a differential oracle via governed routing. Since v1.3.0 the organ carries the executable method layer (A16) — a mechanical critique of the scan-first tradition's floors (battery before oracle census, boolean pairs read by eyes, timing without jitter baselines, error signatures as lore, unbudgeted extraction) shipped as protocol M1–M5: the oracle census, the parity differential with reversed passes, the jitter-gated timing oracle, the extraction budget table with shown arithmetic, and the operator-owned out-of-band collector rule. Use when the operator asks to test SQLi or NoSQLi, command or template injection, build a boolean/error/timing/out-of-band oracle, or run sqlmap within discipline ("tes SQLi", "injection", "blind boolean", "time-based", "template injection", "SSTI", "command injection", "differential oracle").
+description: >-
+  Phase-3 injection organ — differential oracles only: every injection class
+  (SQL/NoSQL/command/template/LDAP) tested as baseline vs treatment vs control
+  with a stated falsifier; timing oracles honor repetition floors; sqlmap runs
+  only as a differential oracle via governed routing. Since v1.3.0 the organ
+  carries the executable method layer (A16) — a mechanical critique of the
+  scan-first tradition's floors (battery before oracle census, boolean pairs
+  read by eyes, timing without jitter baselines, error signatures as lore,
+  unbudgeted extraction) shipped as protocol M1–M5: the oracle census, the
+  parity differential with reversed passes, the jitter-gated timing oracle,
+  the extraction budget table with shown arithmetic, and the operator-owned
+  out-of-band collector rule. Use when the operator asks to test SQLi or
+  NoSQLi, command or template injection, build a
+  boolean/error/timing/out-of-band oracle, or run sqlmap within discipline
+  ("tes SQLi", "injection", "blind boolean", "time-based", "template
+  injection", "SSTI", "command injection", "differential oracle").
 category: security/offensive-web
 license: MIT
 metadata:

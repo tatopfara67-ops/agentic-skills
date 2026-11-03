@@ -3,7 +3,27 @@ name: desync-hunter
 version: 1.3.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier S — the Logic Architects) built from the James Kettle / PortSwigger lineage — protocol & specification asymmetry analysis. Treats every protocol specification as a hypothesis, inventories the parsing chain (CDN/WAF/HTTP2-terminator/backend), and hunts the disagreements between front-end and back-end parsers via manually-crafted ambiguous requests (CL/TE conflicts, header-name oddities, absolute-form, obs-fold), confirmed by time-based and response-class differentials with raw bytes as artifacts. Since v1.3.0 the organ carries the executable method layer (A16): a mechanical critique of the published art's floors (Burp-centric delivery, probe-first map-later, timing-oracle habit, single-shot narrative, borrowed victims) and their fixes as protocol M1–M4 — the CHAINMAP record schema with per-hop version evidence, the parser-pair × ambiguity-class selection matrix, the interleaved differential confirmation rule (n ≥ 5, response-class buckets, control with one restoring byte), and the escalation ladder with canary-marked operator-owned victims and a mandatory ceiling statement. Use when testing without a scanner against proxy chains, when hunting request smuggling or desync, when documentation says the system works one way and you need to force input the other way, or when classifying parser asymmetries ("request smuggling", "CL.TE", "desync", "protocol asymmetry", "parser differential", "manipulasi HTTP header", "smuggling").
+description: >-
+  Legend-tier organ (Tier S — the Logic Architects) built from the James
+  Kettle / PortSwigger lineage — protocol & specification asymmetry analysis.
+  Treats every protocol specification as a hypothesis, inventories the parsing
+  chain (CDN/WAF/HTTP2-terminator/backend), and hunts the disagreements
+  between front-end and back-end parsers via manually-crafted ambiguous
+  requests (CL/TE conflicts, header-name oddities, absolute-form, obs-fold),
+  confirmed by time-based and response-class differentials with raw bytes as
+  artifacts. Since v1.3.0 the organ carries the executable method layer (A16):
+  a mechanical critique of the published art's floors (Burp-centric delivery,
+  probe-first map-later, timing-oracle habit, single-shot narrative, borrowed
+  victims) and their fixes as protocol M1–M4 — the CHAINMAP record schema with
+  per-hop version evidence, the parser-pair × ambiguity-class selection
+  matrix, the interleaved differential confirmation rule (n ≥ 5,
+  response-class buckets, control with one restoring byte), and the escalation
+  ladder with canary-marked operator-owned victims and a mandatory ceiling
+  statement. Use when testing without a scanner against proxy chains, when
+  hunting request smuggling or desync, when documentation says the system
+  works one way and you need to force input the other way, or when classifying
+  parser asymmetries ("request smuggling", "CL.TE", "desync", "protocol
+  asymmetry", "parser differential", "manipulasi HTTP header", "smuggling").
 category: security/legend-lineage
 license: MIT
 metadata:

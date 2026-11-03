@@ -3,7 +3,27 @@ name: module-smith
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Craft-lineage organ distilled from HD Moore — founder of the Metasploit Framework (2003) and of internet-scale exposure measurement (Project Sonar, 2013). Exploitation as composition: the door-opener (exploit), the cargo (payload), the delivery (stager/handler) are separate, rankable, reusable concerns — every hypothesis in this pipeline is a module with reliability metadata (rank, references, disclosure date), every impact proof is a payload kept separate from the access proof, and every claim of exposureSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the HD Moore art's floors (rank metadata asserted instead of measured, stagers tuned for one target class, composition proven by single-shot demo, internet-scale measurement without a written protocol, payload compatibility as prose folklore) shipped as protocol M1–M5: the module record with measured reliability, the stager differential across delivery classes, the composition joint-gate with cleanup accounting, the measurement protocol with harm gates, and the compat matrix with rank arithmetic. Use when designing or structuring exploit/verification work, when reusing prior findings on new surfaces, when measuring exposure prevalence, or when composing probe chains ("reuse the earlier finding", "how reliable is this vector", "is this exposure systemic", "package this as a reusable check").
+description: >-
+  Craft-lineage organ distilled from HD Moore — founder of the Metasploit
+  Framework (2003) and of internet-scale exposure measurement (Project Sonar,
+  2013). Exploitation as composition: the door-opener (exploit), the cargo
+  (payload), the delivery (stager/handler) are separate, rankable, reusable
+  concerns — every hypothesis in this pipeline is a module with reliability
+  metadata (rank, references, disclosure date), every impact proof is a
+  payload kept separate from the access proof, and every claim of
+  exposureSince v1.1.0 the organ carries the executable method layer (A16) — a
+  mechanical critique of the HD Moore art's floors (rank metadata asserted
+  instead of measured, stagers tuned for one target class, composition proven
+  by single-shot demo, internet-scale measurement without a written protocol,
+  payload compatibility as prose folklore) shipped as protocol M1–M5: the
+  module record with measured reliability, the stager differential across
+  delivery classes, the composition joint-gate with cleanup accounting, the
+  measurement protocol with harm gates, and the compat matrix with rank
+  arithmetic. Use when designing or structuring exploit/verification work,
+  when reusing prior findings on new surfaces, when measuring exposure
+  prevalence, or when composing probe chains ("reuse the earlier finding",
+  "how reliable is this vector", "is this exposure systemic", "package this as
+  a reusable check").
 category: security/craft-lineage
 license: MIT
 metadata:

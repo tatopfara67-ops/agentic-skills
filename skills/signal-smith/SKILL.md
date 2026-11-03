@@ -3,12 +3,35 @@ name: signal-smith
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier B — The Human & Signal Manipulators) built from the John Draper (Captain Crunch) lineage — input grammar and precision signal craft. Before any payload is sent, it calibrates the validator's expected grammar (type, length, charset, encoding, frequency/rate), maps every double-parse seam where frontend normalization and backend interpretation can diverge, then crafts ONE or TWO minimally-modified byte/encoding variations that the filter accepts while the deeper parser reads diffeSince v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Draper-era form's floors (the craft transmitted as legend with the method inseparable from dead trunks, grammar calibration by ear, indistinguishability asserted never tested, precision without a tolerance envelope, in-band and out-of-band blurred in retellings) shipped as protocol M1–M5: the measured calibration table with verbatim rejection classes, the double-parse seam map with pair-probes, the in-band differential with a blind judge, the precision budget with edge-tested margins, and the escalation gate to the backend observable. Use when a WAF or validator blocks honest payloads, when hunting encoding/canonicalization bypasses, when tuning request frequency to stay under rate filters, or when the operator asks for manual evasion with minimal requests ("bypass validasi", "WAF blocks my payload", "encoding trick", "byte-level manipulation", "satu variasi presisi", "avoid triggering the alarm").
+description: >-
+  Legend-tier organ (Tier B — The Human & Signal Manipulators) built from the
+  John Draper (Captain Crunch) lineage — input grammar and precision signal
+  craft. Before any payload is sent, it calibrates the validator's expected
+  grammar (type, length, charset, encoding, frequency/rate), maps every
+  double-parse seam where frontend normalization and backend interpretation
+  can diverge, then crafts ONE or TWO minimally-modified byte/encoding
+  variations that the filter accepts while the deeper parser reads diffeSince
+  v1.1.0 the organ carries the executable method layer (A16) — a mechanical
+  critique of the Draper-era form's floors (the craft transmitted as legend
+  with the method inseparable from dead trunks, grammar calibration by ear,
+  indistinguishability asserted never tested, precision without a tolerance
+  envelope, in-band and out-of-band blurred in retellings) shipped as protocol
+  M1–M5: the measured calibration table with verbatim rejection classes, the
+  double-parse seam map with pair-probes, the in-band differential with a
+  blind judge, the precision budget with edge-tested margins, and the
+  escalation gate to the backend observable. Use when a WAF or validator
+  blocks honest payloads, when hunting encoding/canonicalization bypasses,
+  when tuning request frequency to stay under rate filters, or when the
+  operator asks for manual evasion with minimal requests ("bypass validasi",
+  "WAF blocks my payload", "encoding trick", "byte-level manipulation", "satu
+  variasi presisi", "avoid triggering the alarm").
 category: security/legend-lineage
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: John Draper (Captain Crunch — the 1971-72 2600 Hz blue box: one precisely-forged in-band signal indistinguishable from a legitimate one)
+  lineage: >-
+    John Draper (Captain Crunch — the 1971-72 2600 Hz blue box: one
+    precisely-forged in-band signal indistinguishable from a legitimate one)
   tier: B — The Human & Signal Manipulators
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an in-scope target with a validation/WAF layer under study
 ---

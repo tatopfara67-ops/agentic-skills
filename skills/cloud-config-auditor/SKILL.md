@@ -3,7 +3,26 @@ name: cloud-config-auditor
 version: 2.2.0
 type: ai-skill
 architecture: package
-description: Phase-1/3 cloud-and-config organ, upgraded (v2) with the Toni de la Fuente (Prowler) lineage — CORS origin-differential matrix, anonymous-access checks on object storage (bounded to one listing page), dangling-DNS takeover verification, and header/hygiene facts, plus checks-as-code discipline: stable check IDs with versions, CIS benchmark citation for severity words, drift re-verification in theSince v2.2.0 the organ carries the executable method layer (A16) — a mechanical critique of the checks-as-code practice's floors (checks run as received with their logic trusted like a compiler, benchmark mappings cited as authority and never re-derived, severity as vendor label, re-runs compared to nothing, one snapshot sold as posture) shipped as protocol M1–M5: the check review gate with quarantine rows, the benchmark spot-rederivation with divergence classes, the severity re-rate ladder with both columns in every output, the delta protocol whose regression row is the headline, and the posture-trend ceiling with a mandatory unmeasured list. Use when the operator asks to audit CORS, check S3/GCS bucket anonymous access, verify a subdomain takeover candidate, or review security headers and TLS hygiene ("tes CORS", "bucket anonymous", "S3 misconfig", "takeover check", "security headers", "origin differential", "CIS", "posture", "check version").
+description: >-
+  Phase-1/3 cloud-and-config organ, upgraded (v2) with the Toni de la Fuente
+  (Prowler) lineage — CORS origin-differential matrix, anonymous-access checks
+  on object storage (bounded to one listing page), dangling-DNS takeover
+  verification, and header/hygiene facts, plus checks-as-code discipline:
+  stable check IDs with versions, CIS benchmark citation for severity words,
+  drift re-verification in theSince v2.2.0 the organ carries the executable
+  method layer (A16) — a mechanical critique of the checks-as-code practice's
+  floors (checks run as received with their logic trusted like a compiler,
+  benchmark mappings cited as authority and never re-derived, severity as
+  vendor label, re-runs compared to nothing, one snapshot sold as posture)
+  shipped as protocol M1–M5: the check review gate with quarantine rows, the
+  benchmark spot-rederivation with divergence classes, the severity re-rate
+  ladder with both columns in every output, the delta protocol whose
+  regression row is the headline, and the posture-trend ceiling with a
+  mandatory unmeasured list. Use when the operator asks to audit CORS, check
+  S3/GCS bucket anonymous access, verify a subdomain takeover candidate, or
+  review security headers and TLS hygiene ("tes CORS", "bucket anonymous", "S3
+  misconfig", "takeover check", "security headers", "origin differential",
+  "CIS", "posture", "check version").
 category: security/offensive-web
 license: MIT
 metadata:

@@ -3,7 +3,25 @@ name: chain-architect
 version: 1.1.0
 type: ai-skill
 architecture: package
-description: Legend-tier organ (Tier S — the Logic Architects) built from the Orange Tsai lineage — the compound kill-chain doctrine. Maps the target's component architecture from the dossier, inventories low/informational findings as chainable primitives, and designs pre-registered attack chains that compose 3-4 individually-harmless gaps into a critical whole (the ProxyLogon pattern). Severity floors stay honest per link while the chain carries the real impact. Since v1.1.0 the organ carries the executable method layer (A16) — a mechanical critique of the Tsai art's floors (chains told after the fact, per-link confidence never tracked, endpoint lineage narrated as insight, single-path demos, impact ceilings conflated) shipped as protocol M1–M5: the pre-hunt chain candidate schema, the surface-diff protocol, the chain tree with evidenced prunes, the weakest-link differential gate, and the proven/demonstrated/claimed ceiling statement. Use when hunting without a scanner, when low-severity findings pile up and the operator wants them weaponized legitimately, when composing SSRF + auth bypass + file write into escalation, or when the operator asks for chained bugs ("bug chaining", "rangkai celah kecil jadi kritis", "compose findings", "ProxyLogon style", "impact amplification", "chain low findings").
+description: >-
+  Legend-tier organ (Tier S — the Logic Architects) built from the Orange Tsai
+  lineage — the compound kill-chain doctrine. Maps the target's component
+  architecture from the dossier, inventories low/informational findings as
+  chainable primitives, and designs pre-registered attack chains that compose
+  3-4 individually-harmless gaps into a critical whole (the ProxyLogon
+  pattern). Severity floors stay honest per link while the chain carries the
+  real impact. Since v1.1.0 the organ carries the executable method layer
+  (A16) — a mechanical critique of the Tsai art's floors (chains told after
+  the fact, per-link confidence never tracked, endpoint lineage narrated as
+  insight, single-path demos, impact ceilings conflated) shipped as protocol
+  M1–M5: the pre-hunt chain candidate schema, the surface-diff protocol, the
+  chain tree with evidenced prunes, the weakest-link differential gate, and
+  the proven/demonstrated/claimed ceiling statement. Use when hunting without
+  a scanner, when low-severity findings pile up and the operator wants them
+  weaponized legitimately, when composing SSRF + auth bypass + file write into
+  escalation, or when the operator asks for chained bugs ("bug chaining",
+  "rangkai celah kecil jadi kritis", "compose findings", "ProxyLogon style",
+  "impact amplification", "chain low findings").
 category: security/legend-lineage
 license: MIT
 metadata:

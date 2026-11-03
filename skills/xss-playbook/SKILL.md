@@ -3,7 +3,27 @@ name: xss-playbook
 version: 2.3.0
 type: ai-skill
 architecture: package
-description: Phase-3 XSS organ, upgraded (v2) with the Mario Heiderich (Cure53) lineage — sink-context analysis first (HTML body, attribute, JS string, URL, with CSP factored), context-aware payload grammar, execution proofs by self-owned canary marker instead of alert() theater, and the mXSS layer: re-derive context after DOM mutations, the mXSS class catalog (re-serialization, namespace confusion, parsing-context switch), DOM clobbering as a pseudo-source, and sanitizer version-pinning as a ledgered fact. Since v2.3.0 the organ carries the executable method layer (A16) — a mechanical critique of the published mXSS lineage's floors (single-screenshot epistemology, payloads retyped from slides, sink context judged by expert eyes, engine versions unpinned, sanitizer failures read as dead ends, alert() theater) shipped as protocol M1–M5: the rendering-context decision table, the interleaved mutation differential with one-byte controls, the sanitizer version-oracle ladder over corpus failure modes, the operator-owned marker proof with CSP factored first, and the render-environment FACT block. Use when the operator asks to test reflected or stored XSS, analyze a sink context, draft context-safe payloads, check CSP impact, or trace DOM source-to-sink flows ("tes XSS", "reflected", "stored", "DOM XSS", "sink context", "CSP bypass check", "payload untuk konteks ini", "mXSS", "mutation XSS", "sanitizer bypass", "DOM clobbering").
+description: >-
+  Phase-3 XSS organ, upgraded (v2) with the Mario Heiderich (Cure53) lineage —
+  sink-context analysis first (HTML body, attribute, JS string, URL, with CSP
+  factored), context-aware payload grammar, execution proofs by self-owned
+  canary marker instead of alert() theater, and the mXSS layer: re-derive
+  context after DOM mutations, the mXSS class catalog (re-serialization,
+  namespace confusion, parsing-context switch), DOM clobbering as a
+  pseudo-source, and sanitizer version-pinning as a ledgered fact. Since
+  v2.3.0 the organ carries the executable method layer (A16) — a mechanical
+  critique of the published mXSS lineage's floors (single-screenshot
+  epistemology, payloads retyped from slides, sink context judged by expert
+  eyes, engine versions unpinned, sanitizer failures read as dead ends,
+  alert() theater) shipped as protocol M1–M5: the rendering-context decision
+  table, the interleaved mutation differential with one-byte controls, the
+  sanitizer version-oracle ladder over corpus failure modes, the
+  operator-owned marker proof with CSP factored first, and the
+  render-environment FACT block. Use when the operator asks to test reflected
+  or stored XSS, analyze a sink context, draft context-safe payloads, check
+  CSP impact, or trace DOM source-to-sink flows ("tes XSS", "reflected",
+  "stored", "DOM XSS", "sink context", "CSP bypass check", "payload untuk
+  konteks ini", "mXSS", "mutation XSS", "sanitizer bypass", "DOM clobbering").
 category: security/offensive-web
 license: MIT
 metadata:

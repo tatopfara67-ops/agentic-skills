@@ -1,6 +1,6 @@
 ---
 name: scan-economist
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -9,7 +9,7 @@ description: >-
   with a cost hierarchy (cheap host discovery before expensive port scans,
   liveness before depth), a speed-vs-stealth-vs-reliability triangle for every
   technique, empirical port priors instead of exhaustive 65535 sweeps,
-  adaptive timing with retransmissionSince v1.1.0 the organ carries the
+  adaptive timing with retransmission. Since v1.1.0 the organ carries the
   executable method layer (A16) — a mechanical critique of the Fyodor art's
   floors (techniques catalogued as a menu without a decision procedure, the
   adaptive timing policy hidden in tool defaults, version detection as an
@@ -29,7 +29,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# scan-economist v1.1.0 — The Fyodor Lineage
+# scan-economist v1.1.1 — The Fyodor Lineage
 
 ## 0. What This Skill Is — and Is Not
 

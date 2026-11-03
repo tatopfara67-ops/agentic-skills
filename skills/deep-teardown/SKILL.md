@@ -1,6 +1,6 @@
 ---
 name: deep-teardown
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -10,7 +10,7 @@ description: >-
   image within scope), then dissects it LOCALLY down its teardown ladder
   (deobfuscation, sourcemaps, dex-to-source, strings/symbols) to reconstruct
   business logic and map how the app handles tokens, keys, and PII on-device
-  BEFORE anything is sent to the server; every server-relevant dSince v1.1.0
+  BEFORE anything is sent to the server. Since v1.1.0
   the organ carries the executable method layer (A16) — a mechanical critique
   of the Hotz-era form's floors (teardowns as unrecorded streams, the
   where-to-look ladder in pattern memory, symbols trusted unbounded, artifact
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; artifacts acquired within program scope (store-published app, public bundle, in-scope download)
 ---
 
-# deep-teardown v1.1.0 — Dismantle To Primitives
+# deep-teardown v1.1.1 — Dismantle To Primitives
 
 ## 0. What This Skill Is — and Is Not
 

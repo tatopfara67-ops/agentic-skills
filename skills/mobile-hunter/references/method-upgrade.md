@@ -1,37 +1,13 @@
-# The method upgrade — critiquing the Miller lineage, shipping the executable mobile hunt
+# The executable method — M1–M5 for mobile-hunter
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Charlie Miller and Collin Mulliner's art is real — the iOS Handbook,
-Pwn2Own wins, the Instastock code-signing demo, the Jeep chain — but
-it is told as exploit narrative: one-shot stories, dumb fuzzing,
-expert-eye reversing. This module extracts what is tool-agnostic,
-names the floors, and ships the replacement: a device-baseline
-inventory, coverage-gated harness discipline, a crash triage protocol,
-reliability differentials for exploit claims, and a bench-vs-field
-floor statement. An agent with no IDA seat and no trophy must run this
-at their precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Miller's and Mulliner's public research) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | One-shot exploit narratives — Pwn2Own writeups and the Jeep account tell the winning path after the fact, without rerun counts, failure rates, or the branches that died | Reliability is the difference between a demo and a weapon, and it is exactly what the narrative omits; Miller himself publicly noted live-demo flakiness — the method never recorded it as data |
-| W2 | Dumb mutational fuzzing — the SMS/MMS era fuzzed by brute mutation without coverage feedback; crash triage by eyes | Budget burns on inputs that never reach new code; crash piles dedup by nothing — one real bug reads as fifty, or fifty read as one |
-| W3 | Bench-to-field gap unmeasured — the Jeep exploit tuned on one bench vehicle; fleet variance (firmware versions, carrier configs, head units) stayed unquantified | The claim's scope is the fleet; the evidence is one VIN. Nothing in the method states or bounds that gap |
-| W4 | Reversing as expert narration — the Handbook era's method lives in IDA seats and pattern recognition, not in scripted, re-runnable harnesses | The method lives in the man: two analysts on the same binary produce different maps with no protocol to reconcile them (the same floor as adversary-tracker's W3) |
-| W5 | Demo theater as proof — code-signing shown by an app that should not run; the demo IS the evidence | No canary/marker doctrine, no operator-owned observable: the proof cannot be re-checked, only admired |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | The target fingerprinted as DATA before any work | **M1** — the device baseline inventory |
-| U2 | Fuzzing gated on coverage, budgeted by table | **M2** — harness discipline |
-| U3 | Crash triage as a dedup protocol, not eyes | **M3** — signature-hash clustering |
-| U4 | Reliability measured, reported with conditions | **M4** — the exploit differential |
-| U5 | The bench-vs-field floor stated in the pack | **M5** — the fleet-gap statement |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the device baseline inventory
 
@@ -126,7 +102,7 @@ the fleet is arithmetic on the variance table with sources, stated
 under the same rule as the adversary-tracker's localization floor —
 never rounded up.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * Two analysts' harness reachability proofs disagree → the surface
   census (M1) is incomplete or wrong: re-census before any fuzz
@@ -142,7 +118,7 @@ never rounded up.
   harness is still triaged (M3), because bugs found badly are still
   bugs.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Target: messaging app on a pinned OS build (M1: entitlement set + URL
 scheme census, 4 surface classes). Harness on the attachment parser
@@ -155,3 +131,39 @@ preconditions = clean process state + attachment auto-fetch ON.
 Fleet-gap: tested build 20F75, variance table from release notes
 3 build configs — field claim capped to "the tested build class".
 Marker: EXPERIMENT-tagged output file observed by operator collection.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Charlie Miller and Collin Mulliner's art is real — the iOS Handbook,
+Pwn2Own wins, the Instastock code-signing demo, the Jeep chain — but
+it is told as exploit narrative: one-shot stories, dumb fuzzing,
+expert-eye reversing. This module extracts what is tool-agnostic,
+names the floors, and ships the replacement: a device-baseline
+inventory, coverage-gated harness discipline, a crash triage protocol,
+reliability differentials for exploit claims, and a bench-vs-field
+floor statement. An agent with no IDA seat and no trophy must run this
+at their precision.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | One-shot exploit narratives — Pwn2Own writeups and the Jeep account tell the winning path after the fact, without rerun counts, failure rates, or the branches that died | Reliability is the difference between a demo and a weapon, and it is exactly what the narrative omits; Miller himself publicly noted live-demo flakiness — the method never recorded it as data |
+| W2 | Dumb mutational fuzzing — the SMS/MMS era fuzzed by brute mutation without coverage feedback; crash triage by eyes | Budget burns on inputs that never reach new code; crash piles dedup by nothing — one real bug reads as fifty, or fifty read as one |
+| W3 | Bench-to-field gap unmeasured — the Jeep exploit tuned on one bench vehicle; fleet variance (firmware versions, carrier configs, head units) stayed unquantified | The claim's scope is the fleet; the evidence is one VIN. Nothing in the method states or bounds that gap |
+| W4 | Reversing as expert narration — the Handbook era's method lives in IDA seats and pattern recognition, not in scripted, re-runnable harnesses | The method lives in the man: two analysts on the same binary produce different maps with no protocol to reconcile them (the same floor as adversary-tracker's W3) |
+| W5 | Demo theater as proof — code-signing shown by an app that should not run; the demo IS the evidence | No canary/marker doctrine, no operator-owned observable: the proof cannot be re-checked, only admired |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | The target fingerprinted as DATA before any work | **M1** — the device baseline inventory |
+| U2 | Fuzzing gated on coverage, budgeted by table | **M2** — harness discipline |
+| U3 | Crash triage as a dedup protocol, not eyes | **M3** — signature-hash clustering |
+| U4 | Reliability measured, reported with conditions | **M4** — the exploit differential |
+| U5 | The bench-vs-field floor stated in the pack | **M5** — the fleet-gap statement |

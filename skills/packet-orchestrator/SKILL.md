@@ -1,6 +1,6 @@
 ---
 name: packet-orchestrator
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -13,7 +13,7 @@ description: >-
   you have first done manually and understood; translate the manual trace into
   a structured, state-backed automation one layer at a time; every automation
   stage keeps the manual path re-runnable beside it; packet-level work means
-  crafting the exact bytes and obSince v1.1.0 the organ carries the executable
+  crafting the exact bytes. Since v1.1.0 the organ carries the executable
   method layer (A16) — a mechanical critique of the three source lineages'
   floors (manual craft as performed wizardry with the intent→fields
   translation unwritten, orchestration demonstrated without mechanical abort
@@ -36,7 +36,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# packet-orchestrator v1.1.0 — The Searle + Mantis Lineage
+# packet-orchestrator v1.1.1 — The Searle + Mantis Lineage
 
 ## 0. What This Skill Is — and Is Not
 

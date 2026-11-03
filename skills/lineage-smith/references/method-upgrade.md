@@ -1,38 +1,13 @@
-# The method upgrade — critiquing the folk way of studying legends, shipping the assimilation factory
+# The executable method — M1–M6 for lineage-smith
 
-The charter's A16 charge, applied to the operator's own doctrine:
-**studying famous hackers is a real method only when it is
-mechanical.** The folk way — hero worship, highlight reels, tool
-collections — produces fandom, not expertise. This module names the
-floors of the folk method and ships the replacement: a scored
-selection gate, a census with a read-in-full ledger, a five-lens
-psych-read bound to documented behavior, a distillation record that
-lands in the lineage registry, a forge checklist, and a wiring gate.
-The proof it works is the corpus itself: three method waves, twenty-
-four registered lineages, every one graded by these gates.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+the folk method and its worked example) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the folk method
-
-| # | What the folk way shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------------ | --------------------------------- |
-| W1 | Hero worship — the legend's biography, feuds, and trivia recited as expertise | Biography displaces method: the student can narrate the life but cannot run the decisions; nothing in a birth year improves a hunt |
-| W2 | Snippet mining — talks consumed as highlight reels, quotes pulled from listicles, "top 10 tips" posts | The corpus is never read in full, so the method's context is invented by the reader; a quote without its talk is a fingerprint without a provider |
-| W3 | Tool cargo-cult — installing the legend's tools, following their GitHub stars | Possession is not decision logic: the tool says nothing about WHEN and WHERE the master pointed it, which is the entire expertise |
-| W4 | Unfalsifiable distillation — "think like X", "be creative like Y" | No oracle, no stop rule, no falsifier: advice that cannot fail cannot teach, and a distillation nobody can check is fabrication with prestige |
-| W5 | Silent borrowing — methods absorbed without attribution or correction records | The lineage becomes anonymous slop; the corpus cannot say what it took, from whom, or what it fixed — the exact debt A16 closed |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Selection by corpus, not fame | **M1** — the scored selection gate |
-| U2 | The complete public corpus, read in full, on a ledger | **M2** — the census protocol |
-| U3 | Psychology modeled from documented behavior only | **M3** — the psych-read protocol |
-| U4 | Distillation as a checkable registry record | **M4** — the distillation record |
-| U5 | The forge under the authoring contract, method layer born in | **M5** — the forge checklist |
-| U6 | Wiring through charter, registry, and gates | **M6** — the wiring gate |
-
-## 3. The executable protocol — M1 through M6
+## 1. The executable protocol — M1 through M6
 
 ### M1 — the scored selection gate
 
@@ -104,7 +79,7 @@ four registered lineages, every one graded by these gates.
    stays green. A FAIL at this gate reverts the forge — fix the
    skill, not the gate.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * A claimed pattern turns up in only one artifact → it was never a
   pattern; the hypothesis dies on the dossier, the distillation never
@@ -118,7 +93,7 @@ four registered lineages, every one graded by these gates.
   method, publishes a retraction → the registry gains a correction
   entry and the organ's method-upgrade module gains a revision row.
 
-## 5. Worked micro-example (registry-consistent)
+## 3. Worked micro-example (registry-consistent)
 
 Candidate: **Gordon Lyon (Fyodor)** — scored 9/10 at screening
 (corpus volume 2: the 1997 Phrack paper and the 2009 book plus the
@@ -139,3 +114,40 @@ published art priced scans in prose, not budgets — shipped later as
 scan-economist v1.1.0's budget table and timing gates (wave three).
 Outcome: organ forged, wired, gates green — the exact path every
 queue candidate now runs.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge, applied to the operator's own doctrine:
+**studying famous hackers is a real method only when it is
+mechanical.** The folk way — hero worship, highlight reels, tool
+collections — produces fandom, not expertise. This module names the
+floors of the folk method and ships the replacement: a scored
+selection gate, a census with a read-in-full ledger, a five-lens
+psych-read bound to documented behavior, a distillation record that
+lands in the lineage registry, a forge checklist, and a wiring gate.
+The proof it works is the corpus itself: three method waves, twenty-
+four registered lineages, every one graded by these gates.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the folk method (context, not steps)
+
+| # | What the folk way shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------------ | --------------------------------- |
+| W1 | Hero worship — the legend's biography, feuds, and trivia recited as expertise | Biography displaces method: the student can narrate the life but cannot run the decisions; nothing in a birth year improves a hunt |
+| W2 | Snippet mining — talks consumed as highlight reels, quotes pulled from listicles, "top 10 tips" posts | The corpus is never read in full, so the method's context is invented by the reader; a quote without its talk is a fingerprint without a provider |
+| W3 | Tool cargo-cult — installing the legend's tools, following their GitHub stars | Possession is not decision logic: the tool says nothing about WHEN and WHERE the master pointed it, which is the entire expertise |
+| W4 | Unfalsifiable distillation — "think like X", "be creative like Y" | No oracle, no stop rule, no falsifier: advice that cannot fail cannot teach, and a distillation nobody can check is fabrication with prestige |
+| W5 | Silent borrowing — methods absorbed without attribution or correction records | The lineage becomes anonymous slop; the corpus cannot say what it took, from whom, or what it fixed — the exact debt A16 closed |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Selection by corpus, not fame | **M1** — the scored selection gate |
+| U2 | The complete public corpus, read in full, on a ledger | **M2** — the census protocol |
+| U3 | Psychology modeled from documented behavior only | **M3** — the psych-read protocol |
+| U4 | Distillation as a checkable registry record | **M4** — the distillation record |
+| U5 | The forge under the authoring contract, method layer born in | **M5** — the forge checklist |
+| U6 | Wiring through charter, registry, and gates | **M6** — the wiring gate |

@@ -1,6 +1,6 @@
 ---
 name: xss-playbook
-version: 2.3.0
+version: 2.3.1
 type: ai-skill
 architecture: package
 description: >-
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# xss-playbook v2.3.0 — Context First, Marker Always, Mutation Counts
+# xss-playbook v2.3.1 — Context First, Marker Always, Mutation Counts
 
 ## 0. What This Skill Is — and Is Not
 

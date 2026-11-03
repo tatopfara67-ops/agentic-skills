@@ -1,6 +1,6 @@
 ---
 name: lineage-smith
-version: 1.3.0
+version: 1.3.1
 type: ai-skill
 architecture: package
 description: >-
@@ -35,7 +35,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# lineage-smith v1.3.0 — Read Everything, Ship the Method
+# lineage-smith v1.3.1 — Read Everything, Ship the Method
 
 ## 0. What This Skill Is — and Is Not
 

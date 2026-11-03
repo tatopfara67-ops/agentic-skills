@@ -1,6 +1,6 @@
 ---
 name: content-discovery
-version: 2.1.0
+version: 2.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -29,7 +29,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# content-discovery v2.1.0 — Calibrate, Then Walk
+# content-discovery v2.1.1 — Calibrate, Then Walk
 
 ## 0. What This Skill Is — and Is Not
 

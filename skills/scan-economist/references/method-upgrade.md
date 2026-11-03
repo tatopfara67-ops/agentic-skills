@@ -1,39 +1,13 @@
-# The method upgrade — critiquing Fyodor, shipping the executable scan economy
+# The executable method — M1–M5 for scan-economist
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Fyodor's art is real — Phrack 51 (1997) invented the modern port
-scan, Nmap industrialized it, the book (2009) systematized it — but
-the published form has floors: techniques told one at a time, the
-timing engine's intelligence hidden behind tool defaults, version
-detection as an opaque database, and scan stories reported at machine
-speed with no footprint accounting. This module extracts what is
-tool-agnostic and ships the replacement: an explicit cost hierarchy
-with arithmetic, empirical port priors, measured timing gates,
-liveness-before-depth as a hard gate, and a footprint ledger. An
-agent without Nmap must run this at its economy.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Fyodor's 1997 scan paper) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | Techniques catalogued singly — Phrack 51 presents scan types (TCP connect, SYN, FIN, NULL, Xmas, UDP) as a menu of tricks | No decision procedure binds technique to PURPOSE: which scan, for which question, at which point in the budget — the reader inherits a toolbox, not an economy |
-| W2 | Timing intelligence hidden in defaults — Nmap's adaptive timing (congestion window, RTT tracking) is tuned by the tool, and the book documents the KNOBS, not the policy | Operators who cannot run Nmap (agent environments, restricted toolsets) inherit nothing: the adaptive policy was never published as a portable rule |
-| W3 | Version detection as an opaque DB — the service probes and match lines are a shipped artifact, matched silently | The METHOD (probe ladder cheap-first, match-line confidence) is not transferable as written; re-implementers guess and call it "version scanning" |
-| W4 | Scan narratives without footprint accounting — writeups report ports found, not packets sent, rates held, or alerts risked | Without a footprint ledger the same "successful scan" is un-ratable for stealth and civility; two scans with identical finds are treated as equal when one burned 50× the budget |
-| W5 | Port priors by habit — "scan top 1000" is a Nmap default, not a stated prior with an empirical basis per environment | The default is invisible: nobody re-derives whether 1000 is right for THIS target class, and the alternative (empirical prior from the target's own exposed service class) is never computed |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Cost hierarchy as arithmetic, questions binding technique | **M1** — the budget table |
-| U2 | The adaptive timing policy, portable | **M2** — the measured timing gates |
-| U3 | Version detection as a probe ladder with confidence classes | **M3** — the service-ID ladder |
-| U4 | Every scan accounted in packets and rates | **M4** — the footprint ledger |
-| U5 | Port priors derived per target class, defaults demoted | **M5** — the prior table |
-| U6 | Liveness before depth as a hard gate | House doctrine (§2 law 2), given its enforcement record here |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the budget table (cost hierarchy as arithmetic)
 
@@ -111,7 +85,7 @@ Rule: the default prior is spent only after the derived priors are
 exhausted or absent ON RECORD; "top 1000" without a derivation is
 the refused habit (W5).
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * Loss stays < 2% but a depth probe still gets dropped repeatedly →
   a filtering device, not congestion: record firewall-suspected,
@@ -129,7 +103,7 @@ the refused habit (W5).
   stopped at the marginal-yield gate, and the NEXT plan cites this
   row as the reason it stops earlier.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Question: mail-service exposure on 12 hosts. M1 budget: discovery
 (arp/icmp) 12u spent; liveness: syn on prior table ports
@@ -141,3 +115,41 @@ to newline → INFERRED "TLS-wait class", recorded as class only.
 M4: 48 sends, 0 retrans, peak 4 pps, duration 9.4 s, yield
 2 open ports 1 confirmed service class. M5: default top-100 not
 spent — derived prior covered the question; resume note says so.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Fyodor's art is real — Phrack 51 (1997) invented the modern port
+scan, Nmap industrialized it, the book (2009) systematized it — but
+the published form has floors: techniques told one at a time, the
+timing engine's intelligence hidden behind tool defaults, version
+detection as an opaque database, and scan stories reported at machine
+speed with no footprint accounting. This module extracts what is
+tool-agnostic and ships the replacement: an explicit cost hierarchy
+with arithmetic, empirical port priors, measured timing gates,
+liveness-before-depth as a hard gate, and a footprint ledger. An
+agent without Nmap must run this at its economy.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | Techniques catalogued singly — Phrack 51 presents scan types (TCP connect, SYN, FIN, NULL, Xmas, UDP) as a menu of tricks | No decision procedure binds technique to PURPOSE: which scan, for which question, at which point in the budget — the reader inherits a toolbox, not an economy |
+| W2 | Timing intelligence hidden in defaults — Nmap's adaptive timing (congestion window, RTT tracking) is tuned by the tool, and the book documents the KNOBS, not the policy | Operators who cannot run Nmap (agent environments, restricted toolsets) inherit nothing: the adaptive policy was never published as a portable rule |
+| W3 | Version detection as an opaque DB — the service probes and match lines are a shipped artifact, matched silently | The METHOD (probe ladder cheap-first, match-line confidence) is not transferable as written; re-implementers guess and call it "version scanning" |
+| W4 | Scan narratives without footprint accounting — writeups report ports found, not packets sent, rates held, or alerts risked | Without a footprint ledger the same "successful scan" is un-ratable for stealth and civility; two scans with identical finds are treated as equal when one burned 50× the budget |
+| W5 | Port priors by habit — "scan top 1000" is a Nmap default, not a stated prior with an empirical basis per environment | The default is invisible: nobody re-derives whether 1000 is right for THIS target class, and the alternative (empirical prior from the target's own exposed service class) is never computed |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Cost hierarchy as arithmetic, questions binding technique | **M1** — the budget table |
+| U2 | The adaptive timing policy, portable | **M2** — the measured timing gates |
+| U3 | Version detection as a probe ladder with confidence classes | **M3** — the service-ID ladder |
+| U4 | Every scan accounted in packets and rates | **M4** — the footprint ledger |
+| U5 | Port priors derived per target class, defaults demoted | **M5** — the prior table |
+| U6 | Liveness before depth as a hard gate | House doctrine (§2 law 2), given its enforcement record here |

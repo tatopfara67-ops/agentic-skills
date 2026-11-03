@@ -1,37 +1,13 @@
-# The method upgrade — critiquing the Tsai lineage, shipping the executable chain architecture
+# The executable method — M1–M5 for chain-architect
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Orange Tsai's art is real — ProxyLogon, the SSRF-era talks, the
-confusion-attack line — but it is told as after-the-fact narrative: a
-winning path presented as a story, endpoint lineages narrated as
-insight, one chain shown among the many that died silently. This
-module extracts what is tool-agnostic, names the floors, and ships the
-replacement: a chain candidate schema registered BEFORE the hunt, a
-surface-diff protocol, a chain tree with prunes on record, per-link
-differential gates, and an honest ceiling. An agent that has never
-keynoted must run this at his precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Orange Tsai's published chains) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | The chain as after-the-fact narrative — the writeups walk the winning path end-to-end, discovered incrementally, presented as if architected | The METHOD (how candidates were generated, what was tried and discarded) is invisible; readers learn the bug, not the craft, and cannot re-run the discovery on a new target |
-| W2 | Per-link confidence never tracked — every hop in the story reads equally solid | A chain is as good as its weakest link; a narrative can bury a "worked twice, flaky" hop inside confident prose. Nothing in the published form records link confidence or reproducibility per hop |
-| W3 | Endpoint-lineage discovery narrated as insight — "I noticed /ecp refers to OWA" told as a eureka | No reproducible surface-diff protocol: component inventory, version pinning, and cross-reference graph walks are replaced by one analyst's noticing (the floor adversary-tracker calls W3: the method lives in the man) |
-| W4 | Single-path demos — one chain is shown; alternate chains through the same primitives are unexplored or unreported | The reader cannot tell whether the shown chain was the only one, the best one, or just the first one; the attack-surface's real combinatorics stay unknown |
-| W5 | Impact ceiling conflated — RCE demo theater blended with "full chain" claims | What is PROVEN (each primitive, each link, reproducibility) versus DEMONSTRATED (one end-to-end run) versus CLAIMED (fleet impact) collapse into one number-less sentence |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Chain candidates registered BEFORE the hunt, as records | **M1** — the chain candidate schema |
-| U2 | Surface lineage by protocol, not insight | **M2** — the surface-diff protocol |
-| U3 | Dead branches on record | **M3** — the chain tree with prunes |
-| U4 | Every link earns its own differential gate | **M4** — the weakest-link rule |
-| U5 | Proven / demonstrated / claimed kept apart | **M5** — the ceiling statement |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the chain candidate schema (register before you hunt)
 
@@ -126,7 +102,7 @@ proven chain, 5/5 every link, demonstrated 10/10" are DIFFERENT
 findings and are reported differently. The end-to-end run is itself an
 EXPERIMENT with n_runs — one run is one run.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * A link confirmed 5/5 in isolation fails ≥ 50% inside the chain →
   hidden precondition: the link's gate was incomplete; downgrade the
@@ -141,7 +117,7 @@ EXPERIMENT with n_runs — one run is one run.
   wrong: re-open via `sbb_declare`; a prune stands only while its
   evidence stands.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Mail-front appliance, pinned version (M2: banner + build-path in
 static asset, diff surface harvested from two public advisories).
@@ -154,3 +130,39 @@ Weakest-link: chain conf 0.6, L2 named as floor. End-to-end: 7/10
 full, 3/10 crash-only — demonstrated with distribution, not a
 screenshot. Ceiling block complete; org-wide impact NOT claimed
 (fleet evidence absent).
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Orange Tsai's art is real — ProxyLogon, the SSRF-era talks, the
+confusion-attack line — but it is told as after-the-fact narrative: a
+winning path presented as a story, endpoint lineages narrated as
+insight, one chain shown among the many that died silently. This
+module extracts what is tool-agnostic, names the floors, and ships the
+replacement: a chain candidate schema registered BEFORE the hunt, a
+surface-diff protocol, a chain tree with prunes on record, per-link
+differential gates, and an honest ceiling. An agent that has never
+keynoted must run this at his precision.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | The chain as after-the-fact narrative — the writeups walk the winning path end-to-end, discovered incrementally, presented as if architected | The METHOD (how candidates were generated, what was tried and discarded) is invisible; readers learn the bug, not the craft, and cannot re-run the discovery on a new target |
+| W2 | Per-link confidence never tracked — every hop in the story reads equally solid | A chain is as good as its weakest link; a narrative can bury a "worked twice, flaky" hop inside confident prose. Nothing in the published form records link confidence or reproducibility per hop |
+| W3 | Endpoint-lineage discovery narrated as insight — "I noticed /ecp refers to OWA" told as a eureka | No reproducible surface-diff protocol: component inventory, version pinning, and cross-reference graph walks are replaced by one analyst's noticing (the floor adversary-tracker calls W3: the method lives in the man) |
+| W4 | Single-path demos — one chain is shown; alternate chains through the same primitives are unexplored or unreported | The reader cannot tell whether the shown chain was the only one, the best one, or just the first one; the attack-surface's real combinatorics stay unknown |
+| W5 | Impact ceiling conflated — RCE demo theater blended with "full chain" claims | What is PROVEN (each primitive, each link, reproducibility) versus DEMONSTRATED (one end-to-end run) versus CLAIMED (fleet impact) collapse into one number-less sentence |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Chain candidates registered BEFORE the hunt, as records | **M1** — the chain candidate schema |
+| U2 | Surface lineage by protocol, not insight | **M2** — the surface-diff protocol |
+| U3 | Dead branches on record | **M3** — the chain tree with prunes |
+| U4 | Every link earns its own differential gate | **M4** — the weakest-link rule |
+| U5 | Proven / demonstrated / claimed kept apart | **M5** — the ceiling statement |

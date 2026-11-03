@@ -1,6 +1,6 @@
 ---
 name: auth-boundary-mapper
-version: 2.2.0
+version: 2.2.1
 type: ai-skill
 architecture: package
 description: >-
@@ -35,7 +35,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; two operator-owned test accounts
 ---
 
-# auth-boundary-mapper v2.2.0 — The Matrix Before The Hunt
+# auth-boundary-mapper v2.2.1 — The Matrix Before The Hunt
 
 ## 0. What This Skill Is — and Is Not
 
@@ -124,7 +124,7 @@ swept because the UUIDs looked unguessable. W3 is why this organ
 exists: old versions and forgotten mobile-era routes are the
 neglected seam the queue must rank first.
 
-## 3.5 The Method Layer — Critique, Upgrade (A16)
+## 3.6 The Method Layer — Critique, Upgrade (A16)
 
 A lineage named is not expertise delivered. `references/method-upgrade.md`
 grades the published boundary-hunt form where it was mechanically weak —

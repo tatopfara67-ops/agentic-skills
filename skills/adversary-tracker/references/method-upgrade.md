@@ -1,40 +1,13 @@
-# The method upgrade — critiquing Shimomura, shipping the executable hunt
+# The executable method — M0–M5 for adversary-tracker
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-This module reads the 1994–95 hunt (references/history-1995.md) as a
-*method*, grades it against what a tracker can do today, keeps what was
-right, names what was weak, and ships the replacement as executable
-protocol M0–M5 — numbered steps, exact commands, thresholds, decision
-tables, and the ledger points where each artifact lands. An agent that
-has never heard of Shimomura must be able to run this at his precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Shimomura's 1994–95 hunt) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — six mechanical weaknesses of the 1994–95 method
-
-The hunt succeeded. The method still had floors, and pretending
-otherwise is mythology, not lineage. Each weakness below is mechanical,
-not biographical:
-
-| # | What he did (documented) | Why it was weak |
-| - | ------------------------ | --------------- |
-| W1 | Detection by instrumented luck — the intrusion surfaced because tcpdump traces and accounting logs happened to be running on a curious physicist's machines | Detection depended on a person's habits, not on a system. Nothing fired on first touch; the discovery came at morning-after review |
-| W2 | Triangulation by telephone — friends at other sites were phoned and asked to run taps; clock state across sites was never disciplined; arrival-time deltas were eyeballed | Inter-sensor timing evidence with unsynced clocks carries error of tens to hundreds of ms — thousands of km of slack. It worked only because the adversary was noisy and stationary |
-| W3 | Ad-hoc fingerprinting — headers, sequence arithmetic, and TTL quirks were read by one expert's eyes | Irreproducible: two analysts reading the same capture could disagree with no protocol to resolve them. The fingerprint lived in the man, not the method |
-| W4 | Pure observation from his own vantage — no deception layer, no tarpit, nothing that slowed or steered the adversary | Dwell time was the attacker's choice. The defender's budget (their exposure) was spent at the attacker's preferred rate |
-| W5 | The person-level fix came from carrier records and RF measurement — out-of-band assets a network defender cannot assume | Correct as a handoff, but the network method itself stopped at metro granularity and never said so: no stated localization floor |
-| W6 | Narrative epistemology — conclusions in the writeup are single-run stories; no pre-registration, no n_runs, no falsifier | The account is convincing because of who told it. Swap the physicist for a mediocre analyst and the same steps could convict a dial-up modem |
-
-## 2. The upgrades — what he should have had, and what we ship
-
-| # | The should-have-been | What this organ implements |
-| - | -------------------- | -------------------------- |
-| U1 | Detection as an always-on, tamper-evident tripwire layer — canaries and flow records that fire on FIRST touch | **M0** — the tripwire layer, installed before any hunt exists |
-| U2 | NTP-disciplined sensor mesh with recorded offsets; timing evidence quoted with its error bar, or not at all | **M0 clock gate + M3(b)** — multi-sensor arrival deltas with a sync-error table |
-| U3 | Fingerprinting as a calibration protocol against KNOWN stacks in the same environment, with a clustering predicate two analysts must agree on | **M2** — the four-feature signature, the decision table, the clustering rule |
-| U4 | Deception that spends the adversary's budget, not ours — tarpits, per-placement canary tokens, latency shaping | **M4** — under the tip-off gate; every deployed deception is a FACT record |
-| U5 | The localization floor stated in the pack: network evidence ends at metro/ASN granularity; person-level attribution is the consumer's lane | **M5** — handoff fields, floor stated, no overclaim |
-| U6 | Pre-registered halving, two-channel confirmation, append-only records | The SBB engine itself (`arsenal/sbb.py`) — this module supplies the concrete network-hunt instantiations |
-
-## 3. The executable protocol — M0 through M5
+## 1. The executable protocol — M0 through M5
 
 ### M0 — the tripwire layer (before any hunt exists)
 
@@ -196,7 +169,7 @@ Every line cites R-NNN records; the auditor recomputes what it can.
 Overclaiming past the floor ("the attacker IS in city Y" from a 200 km
 error bar) fails the audit exactly like an uncited claim.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * Two sync-≤100 µs sensors disagree by more than the error table
   allows → path asymmetry, not distance: record a MISTAKE, never
@@ -210,7 +183,7 @@ error bar) fails the audit exactly like an uncited claim.
   → re-open via `sbb_declare`; eliminated hypotheses stay dead only
   while the eliminating record stands.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Sensor mesh: 3 taps, chrony offsets 0.4/0.8/1.2 ms → all under the
 10 ms gate, sync class 1 ms (±200 km per pair).
@@ -229,3 +202,42 @@ best; person-level attribution not claimed.* Two channels (timing +
 netflow), both ledgered, null hypothesis eliminated first (scheduled
 authorized scan calendar — the cheap bit). That is the 1995 hunt with
 the floors fixed.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+This module reads the 1994–95 hunt (references/history-1995.md) as a
+*method*, grades it against what a tracker can do today, keeps what was
+right, names what was weak, and ships the replacement as executable
+protocol M0–M5 — numbered steps, exact commands, thresholds, decision
+tables, and the ledger points where each artifact lands. An agent that
+has never heard of Shimomura must be able to run this at his precision.
+
+## 4. Appendix — the lineage critique — six mechanical weaknesses of the 1994–95 method (context, not steps)
+
+The hunt succeeded. The method still had floors, and pretending
+otherwise is mythology, not lineage. Each weakness below is mechanical,
+not biographical:
+
+| # | What he did (documented) | Why it was weak |
+| - | ------------------------ | --------------- |
+| W1 | Detection by instrumented luck — the intrusion surfaced because tcpdump traces and accounting logs happened to be running on a curious physicist's machines | Detection depended on a person's habits, not on a system. Nothing fired on first touch; the discovery came at morning-after review |
+| W2 | Triangulation by telephone — friends at other sites were phoned and asked to run taps; clock state across sites was never disciplined; arrival-time deltas were eyeballed | Inter-sensor timing evidence with unsynced clocks carries error of tens to hundreds of ms — thousands of km of slack. It worked only because the adversary was noisy and stationary |
+| W3 | Ad-hoc fingerprinting — headers, sequence arithmetic, and TTL quirks were read by one expert's eyes | Irreproducible: two analysts reading the same capture could disagree with no protocol to resolve them. The fingerprint lived in the man, not the method |
+| W4 | Pure observation from his own vantage — no deception layer, no tarpit, nothing that slowed or steered the adversary | Dwell time was the attacker's choice. The defender's budget (their exposure) was spent at the attacker's preferred rate |
+| W5 | The person-level fix came from carrier records and RF measurement — out-of-band assets a network defender cannot assume | Correct as a handoff, but the network method itself stopped at metro granularity and never said so: no stated localization floor |
+| W6 | Narrative epistemology — conclusions in the writeup are single-run stories; no pre-registration, no n_runs, no falsifier | The account is convincing because of who told it. Swap the physicist for a mediocre analyst and the same steps could convict a dial-up modem |
+
+## 5. Appendix — the upgrades table — what he should have had, and what we ship (context, not steps)
+
+| # | The should-have-been | What this organ implements |
+| - | -------------------- | -------------------------- |
+| U1 | Detection as an always-on, tamper-evident tripwire layer — canaries and flow records that fire on FIRST touch | **M0** — the tripwire layer, installed before any hunt exists |
+| U2 | NTP-disciplined sensor mesh with recorded offsets; timing evidence quoted with its error bar, or not at all | **M0 clock gate + M3(b)** — multi-sensor arrival deltas with a sync-error table |
+| U3 | Fingerprinting as a calibration protocol against KNOWN stacks in the same environment, with a clustering predicate two analysts must agree on | **M2** — the four-feature signature, the decision table, the clustering rule |
+| U4 | Deception that spends the adversary's budget, not ours — tarpits, per-placement canary tokens, latency shaping | **M4** — under the tip-off gate; every deployed deception is a FACT record |
+| U5 | The localization floor stated in the pack: network evidence ends at metro/ASN granularity; person-level attribution is the consumer's lane | **M5** — handoff fields, floor stated, no overclaim |
+| U6 | Pre-registered halving, two-channel confirmation, append-only records | The SBB engine itself (`arsenal/sbb.py`) — this module supplies the concrete network-hunt instantiations |

@@ -1,6 +1,6 @@
 ---
 name: cache-playbook
-version: 1.2.0
+version: 1.2.1
 type: ai-skill
 architecture: package
 description: >-
@@ -37,7 +37,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); desync-hunter (parser-seam discipline, adjacent surface); packet-orchestrator (raw-request precision when discrepancies need it)
 ---
 
-# cache-playbook v1.2.0 — The Second Silent Parser
+# cache-playbook v1.2.1 — The Second Silent Parser
 
 ## 0. What This Skill Is — and Is Not
 

@@ -1,39 +1,13 @@
-# The method upgrade — critiquing the manual-craft lineages, shipping the executable packet discipline
+# The executable method — M1–M5 for packet-orchestrator
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-packet-orchestrator stands on three real lineages — Searle's
-manual-to-structured teaching craft, the Mantis school of
-state-backed orchestration, and Scapy's packet-crafting — but the
-published forms have floors: manual craft shown as classroom
-wizardry, orchestration demonstrated without state gates, Scapy
-invoked without send discipline, and protocol dissection told as
-single-shot demos. This module extracts what is protocol-shaped and
-ships the replacement: a translation table, a send discipline, a
-state-backed pipeline record, a dissection differential, and
-orchestrator abort gates. An agent with no classroom seat must run
-this at its precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+the Searle-era corpus) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | Manual craft as wizardry — Searle's teaching demos show an expert hand-driving Wireshark/scapy live; the INTENT→FIELDS translation is performed, not written | The craft lives in the demonstrator: two analysts translate "test the restart behavior" into different packets with no protocol to reconcile them (the recurring W3 floor, packet edition) |
-| W2 | Orchestration without state gates — Mantis-style pipelines demonstrate stages and schedulers; the ABORT conditions are demo conveniences | A pipeline that cannot state, mechanically, when it stops is a liability with a scheduler: mid-run target state changes (service restarts, connection drops) must gate the next stage or the run lies |
-| W3 | Scapy invoked raw — the classic pattern is `sr1(IP(...)/TCP(...))` in a loop with no rate, no count cap, no response classing | Craft without send discipline is a flood wearing a lab coat: the civility floor is not optional metadata, it is part of the method |
-| W4 | Dissection as single-shot narration — "look at the handshake, see the odd FIN" | One capture, one observer, no expected-vs-observed differential: anomaly calls are taste, and taste does not survive an audit |
-| W5 | Layered expectations implicit — the analyst "knows" what a compliant exchange looks like; the expectation is never written | Without a per-layer expectation table, "weird" is un-falsifiable: nobody can say what response would have been NORMAL, so nothing can be judged abnormal |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Intent→fields as a written translation table | **M1** — the translation table |
-| U2 | Orchestration with mechanical abort gates | **M2** — the state gates |
-| U3 | Send discipline as first-class method | **M3** — the send rule |
-| U4 | Dissection as expected-vs-observed differential | **M4** — the dissection differential |
-| U5 | Layer expectations written per probe family | **M4(a)** — the expectation table |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the translation table (intent → fields)
 
@@ -106,7 +80,7 @@ The orchestrator exists to make the run re-runnable by a second
 analyst from the record alone — the demo conveniences (schedulers,
 alerting) are plumbing; the RECORD is the method.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * Gate-2's state-change token fires but the service still answers
   normally → the token was under-inclusive (e.g. banner unchanged,
@@ -124,7 +98,7 @@ alerting) are plumbing; the RECORD is the method.
   is state-machine-defensive: check the send ledger FIRST (the
   method suspects itself before the target).
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Intent "half-open session restart behavior" (M1 row: flags=S,
 count 3, rate 1/2 s, response-classes enumerated). M3: sends at
@@ -137,3 +111,41 @@ same port in-window) compliant 2/2 → anomaly CONFIRMED as class
 the ledger, not memory). ORCH-RECORD: gate-1 held (baseline quiet),
 gate-2 never tripped (banner stable), 6 sends total, 2 pcap
 artifacts hashed. Verdict table: RST 5/6, no-answer 1/6.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+packet-orchestrator stands on three real lineages — Searle's
+manual-to-structured teaching craft, the Mantis school of
+state-backed orchestration, and Scapy's packet-crafting — but the
+published forms have floors: manual craft shown as classroom
+wizardry, orchestration demonstrated without state gates, Scapy
+invoked without send discipline, and protocol dissection told as
+single-shot demos. This module extracts what is protocol-shaped and
+ships the replacement: a translation table, a send discipline, a
+state-backed pipeline record, a dissection differential, and
+orchestrator abort gates. An agent with no classroom seat must run
+this at its precision.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | Manual craft as wizardry — Searle's teaching demos show an expert hand-driving Wireshark/scapy live; the INTENT→FIELDS translation is performed, not written | The craft lives in the demonstrator: two analysts translate "test the restart behavior" into different packets with no protocol to reconcile them (the recurring W3 floor, packet edition) |
+| W2 | Orchestration without state gates — Mantis-style pipelines demonstrate stages and schedulers; the ABORT conditions are demo conveniences | A pipeline that cannot state, mechanically, when it stops is a liability with a scheduler: mid-run target state changes (service restarts, connection drops) must gate the next stage or the run lies |
+| W3 | Scapy invoked raw — the classic pattern is `sr1(IP(...)/TCP(...))` in a loop with no rate, no count cap, no response classing | Craft without send discipline is a flood wearing a lab coat: the civility floor is not optional metadata, it is part of the method |
+| W4 | Dissection as single-shot narration — "look at the handshake, see the odd FIN" | One capture, one observer, no expected-vs-observed differential: anomaly calls are taste, and taste does not survive an audit |
+| W5 | Layered expectations implicit — the analyst "knows" what a compliant exchange looks like; the expectation is never written | Without a per-layer expectation table, "weird" is un-falsifiable: nobody can say what response would have been NORMAL, so nothing can be judged abnormal |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Intent→fields as a written translation table | **M1** — the translation table |
+| U2 | Orchestration with mechanical abort gates | **M2** — the state gates |
+| U3 | Send discipline as first-class method | **M3** — the send rule |
+| U4 | Dissection as expected-vs-observed differential | **M4** — the dissection differential |
+| U5 | Layer expectations written per probe family | **M4(a)** — the expectation table |

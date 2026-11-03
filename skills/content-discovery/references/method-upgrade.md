@@ -1,39 +1,30 @@
-# The method upgrade — critiquing the SecLists tradition, shipping the executable discovery economy
+# The executable method — M1–M5 for content-discovery
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Daniel Miessler's art is real — SecLists is the field's corpus-family
-discipline, and the composition law (lists combine) is his — but the
-published practice has floors: which list answers which question is
-taste, dictionary spraying runs uncalibrated to the target's naming
-grammar, yield is never accounted per list class, and freshness
-rides on repo pulls nobody stamps. This module extracts what is
-protocol-shaped and ships the replacement: a question→list-class
-binding table, target grammar calibration, a per-list yield ledger
-with a marginal gate, as-of stamps, and an interesting-class
-decision table. An agent with a stale local SecLists checkout must
-run this at its economy.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Miessler's SecLists practice) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published practice
+## 1. The executable protocol — M1 through M5
 
-| # | What the practice shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------------- | --------------------------------- |
-| W1 | List choice as taste — the README organizes by category; WHICH list for WHICH question stays folk knowledge | Two hunters "check for backups" with different lists and different coverage, and neither knows their gap; the artifact is versioned, the METHOD is not |
-| W2 | Spraying uncalibrated dictionaries — `dirsearch -w common.txt` against a target whose naming grammar (kebab? camel? digits? locale?) was never read | Most of every list is dead weight for a given target; the grammar is harvestable from the target's own 200-class pages, and the practice never harvests |
-| W3 | Yield unaccounted — no run reports hit-rate or marginal yield per list class | Budget discipline is impossible without selectivity numbers: the practice burns flat budgets on flat yield and calls it thoroughness |
-| W4 | Freshness unstamped — the lists are living repo artifacts; local checkouts drift for months | A wordlist's hit-rate claim made in March is about March's list; September's re-run compares nothing (the pipeline-smith as-of floor, dictionary edition) |
-| W5 | "Interesting" by eyes — a found path is triaged by an operator's glance | The interesting-class (extension × status × size × context) is a decision table the practice never writes; drama files (admin.php 200, 0 bytes) waste follow-up budget |
+Quickstart — one rung, calibrated, yield ledgered (the M2 harvest and
+M3 marginal-yield gates decide whether the next rung runs at all):
 
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Questions bound to list CLASSES, on record | **M1** — the binding table |
-| U2 | The target's naming grammar harvested and used | **M2** — grammar calibration |
-| U3 | Yield + marginal gate per list | **M3** — the yield ledger |
-| U4 | As-of stamp per list per run | **M4** — the freshness rule |
-| U5 | Interesting-class as a decision table | **M5** — the triage table |
-
-## 3. The executable protocol — M1 through M5
+```bash
+# M2 grammar calibration — harvest observed keys BEFORE spraying
+cat s4-dedupe.txt | unfurl -u keys | sort -u | head -50 > observed-keys.txt
+# M3 rung 1 — common list, auto-calibrated against the 404 baseline
+ffuf -w SecLists/Discovery/Web-Content/common.txt \
+     -u https://TARGET/FUZZ -ac -t 25 -o rung1.json
+# gate: marginal yield of rung 1 == 0 -> PARK the ladder, never escalate
+# M3 rung 2 — only if rung 1 paid (extensions from observed-keys)
+ffuf -w SecLists/Discovery/Web-Content/raft-small-words.txt \
+     -u https://TARGET/FUZZ -ac -t 25 -o rung2.json
+# M5 triage — "interesting" is arithmetic: deviation from baseline
+jq -r '.results[] | select(.status==200)' rung1.json | wc -l
+```
 
 ### M1 — the binding table (questions before lists)
 
@@ -95,7 +86,7 @@ stamps — re-run or re-stamp (W4).
 Every found path exits through a table row; glance-triage is
 refused at the ledger (W5).
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * A generic list outperforms the calibrated derivatives → the
   grammar harvest mis-read the target (mixed conventions per
@@ -112,7 +103,7 @@ refused at the ledger (W5).
   exception class with the evidence; the table grows by
   falsification, not by operator hope.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Question set: panels, backups, staging. M2 grammar: kebab, ext=php,
 digits-no. Derivatives: `/api/report` → `report.bak, report.php~,
@@ -126,3 +117,41 @@ bytes attached). Drama `admin.php` 200/0-bytes → discount row,
 verified depth 1 → redirect-to-login → closed as route. Coverage
 statement cites three exhausted classes by ledger row, not by
 feeling.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Daniel Miessler's art is real — SecLists is the field's corpus-family
+discipline, and the composition law (lists combine) is his — but the
+published practice has floors: which list answers which question is
+taste, dictionary spraying runs uncalibrated to the target's naming
+grammar, yield is never accounted per list class, and freshness
+rides on repo pulls nobody stamps. This module extracts what is
+protocol-shaped and ships the replacement: a question→list-class
+binding table, target grammar calibration, a per-list yield ledger
+with a marginal gate, as-of stamps, and an interesting-class
+decision table. An agent with a stale local SecLists checkout must
+run this at its economy.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published practice (context, not steps)
+
+| # | What the practice shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------------- | --------------------------------- |
+| W1 | List choice as taste — the README organizes by category; WHICH list for WHICH question stays folk knowledge | Two hunters "check for backups" with different lists and different coverage, and neither knows their gap; the artifact is versioned, the METHOD is not |
+| W2 | Spraying uncalibrated dictionaries — `dirsearch -w common.txt` against a target whose naming grammar (kebab? camel? digits? locale?) was never read | Most of every list is dead weight for a given target; the grammar is harvestable from the target's own 200-class pages, and the practice never harvests |
+| W3 | Yield unaccounted — no run reports hit-rate or marginal yield per list class | Budget discipline is impossible without selectivity numbers: the practice burns flat budgets on flat yield and calls it thoroughness |
+| W4 | Freshness unstamped — the lists are living repo artifacts; local checkouts drift for months | A wordlist's hit-rate claim made in March is about March's list; September's re-run compares nothing (the pipeline-smith as-of floor, dictionary edition) |
+| W5 | "Interesting" by eyes — a found path is triaged by an operator's glance | The interesting-class (extension × status × size × context) is a decision table the practice never writes; drama files (admin.php 200, 0 bytes) waste follow-up budget |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Questions bound to list CLASSES, on record | **M1** — the binding table |
+| U2 | The target's naming grammar harvested and used | **M2** — grammar calibration |
+| U3 | Yield + marginal gate per list | **M3** — the yield ledger |
+| U4 | As-of stamp per list per run | **M4** — the freshness rule |
+| U5 | Interesting-class as a decision table | **M5** — the triage table |

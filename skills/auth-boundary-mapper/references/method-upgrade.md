@@ -1,38 +1,13 @@
-# The method upgrade — critiquing Rosen, shipping the executable boundary map
+# The executable method — M1–M5 for auth-boundary-mapper
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Frans Rosen's art is real — the IDOR-through-methodology line:
-identifier construction, second-order IDOR, response-diff rigor —
-but the published form has floors: one-finding writeups, identifier
-intuition taught as attention ("look for GUIDs"), response
-differences read by eyes, the access matrix never assembled as
-data. This module extracts what is protocol-shaped and ships the
-replacement: an identifier census, a pre-registered role×resource
-matrix, the three-condition IDOR differential, a second-order flow
-map, and an impact ceiling. An agent that has never read the blog
-must run this at its rigor.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Frans Rosen's public practice) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | One-finding narratives — each writeup walks ONE IDOR end-to-end; the mapping protocol that FOUND it stays implicit | Readers inherit bug stories, not a surface procedure; every new target restarts from zero with "pay attention to ids" as the entire toolkit |
-| W2 | Identifier intuition — "sequential ids are juicy, GUIDs can still leak" taught as attention rules | Without an identifier CENSUS (every id class, its construction grammar, its predictability measured), the hunter samples the surface by taste and misses the classes nobody blogged about |
-| W3 | Response-diff rigor asserted — "compare the responses" with no bucket rule, no n, no threshold | Two analysts diffing the same pair disagree on "different"; jitter ( CSRF tokens, timestamps) reads as access divergence exactly once — the false positive engine of the whole class |
-| W4 | The access matrix never built — role × resource × action as a grid is implied by every writeup and assembled by none | Without the pre-registered matrix, "tested the boundary" is unfalsifiable: nobody can say which cells were probed, so coverage is feeling |
-| W5 | Second-order IDOR as eureka — "the id traveled server-side into another query" narrated per bug | The travel of identifiers through server-side flows is MAP-ABLE (which handlers consume which ids); per-bug eureka means the map is rebuilt by luck every engagement |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Every identifier censused with grammar + predictability | **M1** — the identifier census |
-| U2 | The matrix pre-registered from operator-owned roles | **M2** — the access matrix |
-| U3 | IDOR as a three-condition differential with buckets | **M3** — the boundary differential |
-| U4 | Identifier travel mapped as data | **M4** — the second-order map |
-| U5 | Claims capped at operator-owned pair evidence | **M5** — the impact ceiling |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the identifier census
 
@@ -115,7 +90,7 @@ report never rounds "userA saw userB's data (operator pair)" up to
 "any user sees any user's data" without the matrix cells that prove
 the generalization.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * Treatment matches control in every cell but the app demonstrably
   leaks in production → the grammar class was wrong (the control id
@@ -134,7 +109,7 @@ the generalization.
   downstream surface is batched/scheduled: park with the schedule
   hypothesis; never close it as negative from one timing.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Matrix: 3 roles (anon, userA, userB) × 14 resource×action cells.
 M1 census: order-id sequential (n = 12 minted, spread 421xx —
@@ -147,3 +122,40 @@ M4: order-id consumed at /receipt-send, surfaces at notification
 honestly). M5 ceiling: operator pair, order-detail class, P3;
 "any user" NOT claimed — matrix cites exactly which cells were
 probed (11/14; 3 cells parked with reasons).
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Frans Rosen's art is real — the IDOR-through-methodology line:
+identifier construction, second-order IDOR, response-diff rigor —
+but the published form has floors: one-finding writeups, identifier
+intuition taught as attention ("look for GUIDs"), response
+differences read by eyes, the access matrix never assembled as
+data. This module extracts what is protocol-shaped and ships the
+replacement: an identifier census, a pre-registered role×resource
+matrix, the three-condition IDOR differential, a second-order flow
+map, and an impact ceiling. An agent that has never read the blog
+must run this at its rigor.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | One-finding narratives — each writeup walks ONE IDOR end-to-end; the mapping protocol that FOUND it stays implicit | Readers inherit bug stories, not a surface procedure; every new target restarts from zero with "pay attention to ids" as the entire toolkit |
+| W2 | Identifier intuition — "sequential ids are juicy, GUIDs can still leak" taught as attention rules | Without an identifier CENSUS (every id class, its construction grammar, its predictability measured), the hunter samples the surface by taste and misses the classes nobody blogged about |
+| W3 | Response-diff rigor asserted — "compare the responses" with no bucket rule, no n, no threshold | Two analysts diffing the same pair disagree on "different"; jitter ( CSRF tokens, timestamps) reads as access divergence exactly once — the false positive engine of the whole class |
+| W4 | The access matrix never built — role × resource × action as a grid is implied by every writeup and assembled by none | Without the pre-registered matrix, "tested the boundary" is unfalsifiable: nobody can say which cells were probed, so coverage is feeling |
+| W5 | Second-order IDOR as eureka — "the id traveled server-side into another query" narrated per bug | The travel of identifiers through server-side flows is MAP-ABLE (which handlers consume which ids); per-bug eureka means the map is rebuilt by luck every engagement |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Every identifier censused with grammar + predictability | **M1** — the identifier census |
+| U2 | The matrix pre-registered from operator-owned roles | **M2** — the access matrix |
+| U3 | IDOR as a three-condition differential with buckets | **M3** — the boundary differential |
+| U4 | Identifier travel mapped as data | **M4** — the second-order map |
+| U5 | Claims capped at operator-owned pair evidence | **M5** — the impact ceiling |

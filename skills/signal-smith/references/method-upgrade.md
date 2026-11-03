@@ -1,37 +1,13 @@
-# The method upgrade — critiquing the Draper lineage, shipping the executable signal craft
+# The executable method — M1–M5 for signal-smith
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-John Draper's art is real — the 2600 Hz blue box: one precisely
-forged in-band signal indistinguishable from the legitimate one —
-but the published form is legend: the craft transmitted as story,
-grammar calibration as ear, and no falsifier for the claim that
-matters ("indistinguishable"). This module extracts what is
-protocol-shaped and ships the replacement: a measured grammar
-calibration, a double-parse seam map, an in-band differential with
-a blind judge, a precision budget, and an escalation gate. An agent
-born after the trunks must run this at its precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+the Draper-era signal record) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | The craft as legend — the 2600 Hz story is told as an anecdote (cereal whistle, trunk tones), the working knowledge as folklore | The METHOD (calibrate the expected grammar, forge within it) is separable from the phone system; the legend-form keeps the story and loses the protocol — nothing transfers to a modern validator |
-| W2 | Grammar calibration by ear — the era's craft lived as practiced recognition of tone durations, cadence, and dialing grammar | Calibration as perception is unreproducible: two crafters send "the same" signal with different timings and neither knows which mattered; a validator's grammar is a MEASURABLE (type, length, charset, rate) |
-| W3 | "Indistinguishable" asserted, never tested — the signal's whole point was being indistinguishable from legitimate, and nothing in the record tests that | The claim needs a differential: forged vs legitimate, judged blind; without it, "it worked" conflates "accepted" with "indistinguishable" (accepted-with-tells is a weaker, different finding) |
-| W4 | Precision unbudgeted — the famous number (2600 Hz) is quoted without tolerance analysis (how far off still works? for how long?) | A signal craft without its tolerance envelope cannot be re-run: the next crafter guesses the margins the first one lived inside |
-| W5 | In-band/out-of-band blurred in retellings — stories mix what the network verified (nothing, in-band) with what it could have checked | For a MODERN validator the seam is the finding: which layer checks what; retellings that blur the layers teach admiration, not analysis |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | The validator's grammar MEASURED before any forge | **M1** — the calibration table |
-| U2 | The seams where two parsers differ, mapped | **M2** — the seam map |
-| U3 | Indistinguishable tested blind, not asserted | **M3** — the in-band differential |
-| U4 | Precision with tolerance envelope | **M4** — the precision budget |
-| U5 | In-band claims capped; out-of-band routes onward | **M5** — the escalation gate |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the calibration table (the grammar, measured)
 
@@ -105,7 +81,7 @@ report's claim is capped at the demonstrated backend effect
 (house ceiling habit; the blue-box lesson generalized: the network
 accepting your tone was never the whole finding).
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * The blind judge separates forged from legitimate above chance →
   the tells are real: the finding demotes to accepted-with-tells,
@@ -120,7 +96,7 @@ accepting your tone was never the whole finding).
   accepted-forged vs accepted-legit → the in-band acceptance is a
   dead end here: record honestly (accepted-but-inert), never pad.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Surface: profile "display name" param, frontend-echoed and
 backend-stored. M1: type string, length 1–40 observed (n = 3
@@ -136,3 +112,39 @@ and 41 (truncated — cliff recorded). M5: backend differential —
 stored NFD artifact changes downstream sort order class 4/5 →
 finding capped: "in-band acceptance + stored-form divergence,
 sort-order impact class", P4, seams and tells cited.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+John Draper's art is real — the 2600 Hz blue box: one precisely
+forged in-band signal indistinguishable from the legitimate one —
+but the published form is legend: the craft transmitted as story,
+grammar calibration as ear, and no falsifier for the claim that
+matters ("indistinguishable"). This module extracts what is
+protocol-shaped and ships the replacement: a measured grammar
+calibration, a double-parse seam map, an in-band differential with
+a blind judge, a precision budget, and an escalation gate. An agent
+born after the trunks must run this at its precision.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | The craft as legend — the 2600 Hz story is told as an anecdote (cereal whistle, trunk tones), the working knowledge as folklore | The METHOD (calibrate the expected grammar, forge within it) is separable from the phone system; the legend-form keeps the story and loses the protocol — nothing transfers to a modern validator |
+| W2 | Grammar calibration by ear — the era's craft lived as practiced recognition of tone durations, cadence, and dialing grammar | Calibration as perception is unreproducible: two crafters send "the same" signal with different timings and neither knows which mattered; a validator's grammar is a MEASURABLE (type, length, charset, rate) |
+| W3 | "Indistinguishable" asserted, never tested — the signal's whole point was being indistinguishable from legitimate, and nothing in the record tests that | The claim needs a differential: forged vs legitimate, judged blind; without it, "it worked" conflates "accepted" with "indistinguishable" (accepted-with-tells is a weaker, different finding) |
+| W4 | Precision unbudgeted — the famous number (2600 Hz) is quoted without tolerance analysis (how far off still works? for how long?) | A signal craft without its tolerance envelope cannot be re-run: the next crafter guesses the margins the first one lived inside |
+| W5 | In-band/out-of-band blurred in retellings — stories mix what the network verified (nothing, in-band) with what it could have checked | For a MODERN validator the seam is the finding: which layer checks what; retellings that blur the layers teach admiration, not analysis |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | The validator's grammar MEASURED before any forge | **M1** — the calibration table |
+| U2 | The seams where two parsers differ, mapped | **M2** — the seam map |
+| U3 | Indistinguishable tested blind, not asserted | **M3** — the in-band differential |
+| U4 | Precision with tolerance envelope | **M4** — the precision budget |
+| U5 | In-band claims capped; out-of-band routes onward | **M5** — the escalation gate |

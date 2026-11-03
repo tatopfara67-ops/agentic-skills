@@ -1,6 +1,6 @@
 ---
 name: pipeline-smith
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -10,7 +10,7 @@ description: >-
   before the target is ever touched; names are deduplicated before probing;
   liveness is proved with minimal requests (httprobe discipline); curated
   pattern packs (gf) encode expert pattern knowledge as data rather than
-  bespoke scripts; the same path is fetched across many hoSince v1.1.0 the
+  bespoke scripts; the same path is fetched across many hosts. Since v1.1.0 the
   organ carries the executable method layer (A16) — a mechanical critique of
   the pipeline school's floors (pipelines as unversioned shell history, dedupe
   asserted but never measured, tool stdout as an unwritten contract,
@@ -31,7 +31,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# pipeline-smith v1.1.0 — The Tomnomnom Lineage
+# pipeline-smith v1.1.1 — The Tomnomnom Lineage
 
 ## 0. What This Skill Is — and Is Not
 

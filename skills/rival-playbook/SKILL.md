@@ -1,6 +1,6 @@
 ---
 name: rival-playbook
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -40,7 +40,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# rival-playbook v1.1.0 — Win the Market Without a Hype War
+# rival-playbook v1.1.1 — Win the Market Without a Hype War
 
 ## 0. What This Skill Is — and Is Not
 

@@ -1,38 +1,13 @@
-# The method upgrade — critiquing the callback-everywhere habit, shipping the executable channel hunt
+# The executable method — M1–M5 for ssrf-playbook
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-ssrf-playbook, like injection-lab, was forged against an industry
-default rather than a single master: the Collaborator-era habit of
-pasting an out-of-band URL into every parameter and calling any DNS
-ping "SSRF". That default has documented floors; they are critiqued
-mechanically here, and the replacement ships as executable protocol:
-a per-parameter channel hypothesis table, a channel-proof ladder,
-a parser-differential map, a cloud-metadata decision table, and an
-impact ceiling that refuses gossip. An agent with no Collaborator
-subscription must run this better than the habit it replaces.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+the Collaborator-era habit) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the callback-everywhere habit
-
-| # | What the habit shows (documented) | Why it is weak as a shipped method |
-| - | ---------------------------------- | --------------------------------- |
-| W1 | Canary-first reflex — the interaction payload goes into every parameter before anything is known about the parameter | The hit tells you SOMETHING fetched your URL, and nothing else: which parameter, which parser, which hop — all unknown; meanwhile the reflex burned the entire surface's budget in one pass |
-| W2 | Channel conflation — DNS resolve, HTTP fetch, and metadata read-back all reported as "SSRF confirmed" | They are three different strengths of evidence; conflating them makes a DNS cache miss read like cloud-metadata compromise and makes real findings un-rateable |
-| W3 | Parser disagreement narrated per-bug — each public writeup re-discovers that the client, proxy, and origin normalize the URL differently | The disagreement is a MAP-able property of the chain (which hop re-parses, which normalizes, which resolves), knowable quietly per hop; per-bug re-discovery is the same floor as desync-hunter's W2, one layer up |
-| W4 | Cloud metadata URLs typed from memory | Endpoint drift (IMDSv2 tokens, hop limits, header requirements, GCP/Azure header names) — hand-typed URLs produce false NEGATIVES that read as "metadata secured", the worst failure class a hunter can ship |
-| W5 | Impact claimed without read-back — "we got a callback" escalated to credentials/RCE in prose | Without a second-stage read-back under operator-owned rules, impact is gossip; the escalation is exactly where reports die in triage |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Per-parameter hypotheses registered before any canary fires | **M1** — the channel hypothesis table |
-| U2 | Channel strength as a ladder with separate records | **M2** — the channel-proof ladder |
-| U3 | The chain's parse behavior mapped, hop by hop | **M3** — the parser-differential map |
-| U4 | Metadata endpoints as versioned data with required headers | **M4** — the cloud-metadata decision table |
-| U5 | Impact = read-back, never the callback | **M5** — the impact ceiling |
-| U6 | Byte-exact probes with sources and failure modes | `references/corpus.json` (SSRF-001…010, SSRF-010 wired to the http_probe canary) — consumed, never re-typed |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the channel hypothesis table (register before firing)
 
@@ -122,7 +97,7 @@ implied, RCE hinted — is REFUSED in this organ's report and handed to
 chain-architect as a chain CANDIDATE with the rung as link evidence
 (the W5 floor, made a gate).
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * The collector sees DNS but the map shows the label never left the
   client (pre-resolved by the browser/app) → rung 1 was client-side
@@ -140,7 +115,7 @@ chain-architect as a chain CANDIDATE with the rung as link evidence
   → rung 3 evidence is jitter: downgraded to rung 2 until re-run
   stable.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Parameter `webhook_url` (absolute-URL shape, registered M1). Ladder:
 rung 1 DNS label seen; rung 2 collector logs full GET with the
@@ -155,3 +130,40 @@ echo page reflects the fetched banner length class 4/5 → read-back
 confirmed. Ceiling: content-bearing SSRF, read-back of length class;
 credentials/RCE handed to chain-architect as candidate C-021 with
 rung-3 link evidence. No gossip in the report.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+ssrf-playbook, like injection-lab, was forged against an industry
+default rather than a single master: the Collaborator-era habit of
+pasting an out-of-band URL into every parameter and calling any DNS
+ping "SSRF". That default has documented floors; they are critiqued
+mechanically here, and the replacement ships as executable protocol:
+a per-parameter channel hypothesis table, a channel-proof ladder,
+a parser-differential map, a cloud-metadata decision table, and an
+impact ceiling that refuses gossip. An agent with no Collaborator
+subscription must run this better than the habit it replaces.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the callback-everywhere habit (context, not steps)
+
+| # | What the habit shows (documented) | Why it is weak as a shipped method |
+| - | ---------------------------------- | --------------------------------- |
+| W1 | Canary-first reflex — the interaction payload goes into every parameter before anything is known about the parameter | The hit tells you SOMETHING fetched your URL, and nothing else: which parameter, which parser, which hop — all unknown; meanwhile the reflex burned the entire surface's budget in one pass |
+| W2 | Channel conflation — DNS resolve, HTTP fetch, and metadata read-back all reported as "SSRF confirmed" | They are three different strengths of evidence; conflating them makes a DNS cache miss read like cloud-metadata compromise and makes real findings un-rateable |
+| W3 | Parser disagreement narrated per-bug — each public writeup re-discovers that the client, proxy, and origin normalize the URL differently | The disagreement is a MAP-able property of the chain (which hop re-parses, which normalizes, which resolves), knowable quietly per hop; per-bug re-discovery is the same floor as desync-hunter's W2, one layer up |
+| W4 | Cloud metadata URLs typed from memory | Endpoint drift (IMDSv2 tokens, hop limits, header requirements, GCP/Azure header names) — hand-typed URLs produce false NEGATIVES that read as "metadata secured", the worst failure class a hunter can ship |
+| W5 | Impact claimed without read-back — "we got a callback" escalated to credentials/RCE in prose | Without a second-stage read-back under operator-owned rules, impact is gossip; the escalation is exactly where reports die in triage |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Per-parameter hypotheses registered before any canary fires | **M1** — the channel hypothesis table |
+| U2 | Channel strength as a ladder with separate records | **M2** — the channel-proof ladder |
+| U3 | The chain's parse behavior mapped, hop by hop | **M3** — the parser-differential map |
+| U4 | Metadata endpoints as versioned data with required headers | **M4** — the cloud-metadata decision table |
+| U5 | Impact = read-back, never the callback | **M5** — the impact ceiling |
+| U6 | Byte-exact probes with sources and failure modes | `references/corpus.json` (SSRF-001…010, SSRF-010 wired to the http_probe canary) — consumed, never re-typed |

@@ -1,6 +1,6 @@
 ---
 name: feedback-fuzzer
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -11,7 +11,7 @@ description: >-
   diffs); the corpus of inputs that reached new states is curated small
   (culling by cost); deterministic mutations come before random ones;
   exploration is preserved with probabilities instead of greedy pursuit; tar
-  pits that buy 1% coverage at 100x cost are rejected; and eSince v1.1.0 the
+  pits that buy 1% coverage at 100x cost are rejected. Since v1.1.0 the
   organ carries the executable method layer (A16) — a mechanical critique of
   the lcamtuf art's floors (a map instantiated only for binary coverage,
   culling thresholds as folklore, crash-vs-hang classified by eyes,
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# feedback-fuzzer v1.1.0 — The lcamtuf Lineage
+# feedback-fuzzer v1.1.1 — The lcamtuf Lineage
 
 ## 0. What This Skill Is — and Is Not
 

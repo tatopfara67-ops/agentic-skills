@@ -1,6 +1,8 @@
 ---
 name: aas-catalog
-version: 1.0.0
+version: 1.0.1
+type: ai-skill
+architecture: package
 description: >-
   Search and install skills on demand from the Agentic Awesome Skills catalog
   (2,884+ SKILL.md playbooks for Claude Code, Codex, Cursor, Gemini CLI).
@@ -9,6 +11,7 @@ description: >-
   "install skill X dari katalog", "aas", "agentic awesome skills", "butuh
   skill untuk <tugas>"). Never bulk-installs; each install is one reviewed
   skill.
+category: security/craft-forge
 license: MIT
 metadata:
   author: tatopfara67-ops

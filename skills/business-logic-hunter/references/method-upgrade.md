@@ -1,39 +1,13 @@
-# The method upgrade — critiquing Dalili, shipping the executable reshaping protocol
+# The executable method — M1–M5 for business-logic-hunter
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Soroush Dalili's art is real — the HTTP-reshaping bypass grammar
-(irsdl's method overrides, path normalization tricks, header
-redistribution) is the field's reference craft — but the published
-form has floors: bypasses as curated lists, single-bug narratives,
-the parser hop each trick defeats unnamed, repeatability unproven,
-and bypass conflated with impact. This module extracts what is
-protocol-shaped and ships the replacement: a bypass-class matrix
-with preconditions, the reshaping differential, chain-map linkage
-to the defeating hop, a repeatability floor, and an impact ceiling.
-An agent that has never read the writeups must run this at its
-grammar.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Soroush Dalili's public practice) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | Bypasses as curated lists — the tricks ship as enumeration posts (method-override families, case tricks, dot-segments) | A list without preconditions sprays: which trick applies depends on the defender's RULE (method blocklist? path regex? header gate); without the rule class, the "method" is matching lottery tickets |
-| W2 | Single-bug narratives — each bypass shown defeating ONE concrete WAF/rule in ONE writeup | The generalization (this trick family defeats rules of shape S) stays implicit; readers re-discover applicability per target by trial |
-| W3 | The defeating hop unnamed — the writeup says "the WAF missed it" without the parser chain | WHICH layer parsed what is the whole mechanism (the desync-hunter CHAINMAP habit); without it the fix-side and the finding-side both stay folklore |
-| W4 | Repeatability unproven — the demo fires once | Reshaping tricks interact with normalization order and caching; a 1-of-1 bypass is environment luck until re-run — the floor every organ in this charter names |
-| W5 | Bypass conflated with impact — "bypassed the rule" graded as if access followed | The bypass OPENS a route; whether the route leads anywhere is a separate differential (the auth-boundary M3 discipline); the writeup form merges them into one adjective |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Each trick family bound to rule-class preconditions | **M1** — the bypass matrix |
-| U2 | Reshaping as a three-condition differential | **M2** — the reshaping differential |
-| U3 | The defeating hop cited from a chain map | **M3** — the chain-map linkage |
-| U4 | Repeatability as a floor before claims | **M4** — the repeatability rule |
-| U5 | Bypass and impact kept separate | **M5** — the impact ceiling |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the bypass matrix (rule classes before tricks)
 
@@ -95,7 +69,7 @@ CEILING: bypass=<rule class, hop cited, stable|conditional> route-
 route-opened row is the deliverable and the impact row cites the
 boundary differential that closed it (W5).
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * The control passes as often as the treatment → the rule was never
   the gate: the intermediary accepts anything of that shape; the
@@ -112,7 +86,7 @@ boundary differential that closed it (W5).
   rule class was mis-observed (the rejection dialect was read
   wrong): re-read the verbatim 403 classes; the matrix row moves.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Rule observed: POST /api/admin blocked 403, rejection class
 verbatim "method not allowed" (recorded). M1 row: method-blocklist
@@ -125,3 +99,41 @@ M5 ceiling: route-opened = admin action reachable; impact =
 NONE-DEMONSTRATED (auth still required — boundary differential cell
 cited, parked as chain candidate). Report grades bypass P4 with
 hop, stability window, and the honest impact row.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Soroush Dalili's art is real — the HTTP-reshaping bypass grammar
+(irsdl's method overrides, path normalization tricks, header
+redistribution) is the field's reference craft — but the published
+form has floors: bypasses as curated lists, single-bug narratives,
+the parser hop each trick defeats unnamed, repeatability unproven,
+and bypass conflated with impact. This module extracts what is
+protocol-shaped and ships the replacement: a bypass-class matrix
+with preconditions, the reshaping differential, chain-map linkage
+to the defeating hop, a repeatability floor, and an impact ceiling.
+An agent that has never read the writeups must run this at its
+grammar.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | Bypasses as curated lists — the tricks ship as enumeration posts (method-override families, case tricks, dot-segments) | A list without preconditions sprays: which trick applies depends on the defender's RULE (method blocklist? path regex? header gate); without the rule class, the "method" is matching lottery tickets |
+| W2 | Single-bug narratives — each bypass shown defeating ONE concrete WAF/rule in ONE writeup | The generalization (this trick family defeats rules of shape S) stays implicit; readers re-discover applicability per target by trial |
+| W3 | The defeating hop unnamed — the writeup says "the WAF missed it" without the parser chain | WHICH layer parsed what is the whole mechanism (the desync-hunter CHAINMAP habit); without it the fix-side and the finding-side both stay folklore |
+| W4 | Repeatability unproven — the demo fires once | Reshaping tricks interact with normalization order and caching; a 1-of-1 bypass is environment luck until re-run — the floor every organ in this charter names |
+| W5 | Bypass conflated with impact — "bypassed the rule" graded as if access followed | The bypass OPENS a route; whether the route leads anywhere is a separate differential (the auth-boundary M3 discipline); the writeup form merges them into one adjective |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Each trick family bound to rule-class preconditions | **M1** — the bypass matrix |
+| U2 | Reshaping as a three-condition differential | **M2** — the reshaping differential |
+| U3 | The defeating hop cited from a chain map | **M3** — the chain-map linkage |
+| U4 | Repeatability as a floor before claims | **M4** — the repeatability rule |
+| U5 | Bypass and impact kept separate | **M5** — the impact ceiling |

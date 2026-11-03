@@ -1,39 +1,13 @@
-# The method upgrade — critiquing the Mitnick translation, shipping the executable trust audit
+# The executable method — M1–M5 for trust-graph-hunter
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Kevin Mitnick's art is real — The Art of Deception systematized
-context-based trust exploitation — but this organ's source is
-vignette fiction (the book's stories) plus social narrative, and
-the systems translation is OURS: that means the translation itself
-must be graded, not inherited. The floors: trust edges narrated
-per-story, forgery demonstrated without differentials, no
-completeness accounting for the graph, impersonation practiced on
-third parties in the source material, and no falsifier anywhere.
-This module ships the executable replacement: edge enumeration,
-the context differential, a completeness gate, an
-operator-owned-identity law, and an ethics gate with teeth.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+the Mitnick record) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the source method
-
-| # | What the source shows (documented) | Why it is weak as a shipped method |
-| - | ---------------------------------- | --------------------------------- |
-| W1 | Trust edges per-vignette — each story names one exploited edge ("the help desk trusts a caller who knows the ticket format") | The edges never assemble into a GRAPH: which boundaries exist, what each trusts, and what the whole picture admits — every reader re-derives the map from scratch, per story |
-| W2 | Forgery demonstrated, not differentialed — the con works in the story; the forged context is never tested AGAINST the absent context | "They believed me" conflates two questions: does the forged context beat NO context, and does it beat the LEGITIMATE context? Different weaknesses, different fixes — the vignette cannot ask |
-| W3 | No completeness accounting — the stories cherry-pick the edges that worked | A trust audit needs a census discipline: every boundary, every trust class, checked or explicitly gapped; the story-form makes survivorship bias the genre |
-| W4 | Third-party humans as instruments — the source material's demonstrations run against real employees, real help desks | In this organ's lane the instruments are operator-owned identities and self-owned accounts ONLY; the source practice is exactly what the ethics gate (M5) exists to forbid |
-| W5 | No falsifier anywhere — a failed con is a better con, a successful one is genius | Nothing in the source can be wrong; translated to systems, that epistemology produces unfalsifiable audits — the anti-pattern this charter's ledger exists to kill |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Trust edges enumerated as a graph, with evidence | **M1** — the edge protocol |
-| U2 | Forgery as a three-condition differential | **M2** — the context differential |
-| U3 | Completeness gated per boundary class | **M3** — the census gate |
-| U4 | Operator-owned identities only | **M4** — the identity law |
-| U5 | Ethics as a mechanical gate | **M5** — the ethics gate |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the edge protocol (the graph, with evidence)
 
@@ -108,7 +82,7 @@ existence is the difference between auditing trust as a SYSTEM and
 reheating the source material's practice with new victims (W4, W5
 together: the falsifiable version of the discipline).
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * Forged-context matches legitimate acceptance on an edge graded
   `cryptographic` → the grading was wrong: the signature is not
@@ -126,7 +100,7 @@ together: the falsifiable version of the discipline).
   the evidence probe was under-specified: re-run the
   operator-owned calls with the disagreement as the hypothesis.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Boundary set: 6 (asset-graph enumerated). M1 EDGE example:
 webhook-receiver trusts `X-Internal-IP` header + source-IP
@@ -141,3 +115,41 @@ M4: forged identity = operator-registered test account, ownership
 basis logged. M5: ethics gate all-zero fields, run legal. Finding:
 internal-header trust partially forgeable, P3, three conditions
 cited, guard-holds half recorded as defense data.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Kevin Mitnick's art is real — The Art of Deception systematized
+context-based trust exploitation — but this organ's source is
+vignette fiction (the book's stories) plus social narrative, and
+the systems translation is OURS: that means the translation itself
+must be graded, not inherited. The floors: trust edges narrated
+per-story, forgery demonstrated without differentials, no
+completeness accounting for the graph, impersonation practiced on
+third parties in the source material, and no falsifier anywhere.
+This module ships the executable replacement: edge enumeration,
+the context differential, a completeness gate, an
+operator-owned-identity law, and an ethics gate with teeth.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the source method (context, not steps)
+
+| # | What the source shows (documented) | Why it is weak as a shipped method |
+| - | ---------------------------------- | --------------------------------- |
+| W1 | Trust edges per-vignette — each story names one exploited edge ("the help desk trusts a caller who knows the ticket format") | The edges never assemble into a GRAPH: which boundaries exist, what each trusts, and what the whole picture admits — every reader re-derives the map from scratch, per story |
+| W2 | Forgery demonstrated, not differentialed — the con works in the story; the forged context is never tested AGAINST the absent context | "They believed me" conflates two questions: does the forged context beat NO context, and does it beat the LEGITIMATE context? Different weaknesses, different fixes — the vignette cannot ask |
+| W3 | No completeness accounting — the stories cherry-pick the edges that worked | A trust audit needs a census discipline: every boundary, every trust class, checked or explicitly gapped; the story-form makes survivorship bias the genre |
+| W4 | Third-party humans as instruments — the source material's demonstrations run against real employees, real help desks | In this organ's lane the instruments are operator-owned identities and self-owned accounts ONLY; the source practice is exactly what the ethics gate (M5) exists to forbid |
+| W5 | No falsifier anywhere — a failed con is a better con, a successful one is genius | Nothing in the source can be wrong; translated to systems, that epistemology produces unfalsifiable audits — the anti-pattern this charter's ledger exists to kill |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Trust edges enumerated as a graph, with evidence | **M1** — the edge protocol |
+| U2 | Forgery as a three-condition differential | **M2** — the context differential |
+| U3 | Completeness gated per boundary class | **M3** — the census gate |
+| U4 | Operator-owned identities only | **M4** — the identity law |
+| U5 | Ethics as a mechanical gate | **M5** — the ethics gate |

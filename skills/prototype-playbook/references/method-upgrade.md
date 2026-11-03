@@ -1,36 +1,13 @@
-# The method upgrade — critiquing Heyes, shipping the executable pollution hunt
+# The executable method — M1–M4 for prototype-playbook
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Gareth Heyes' prototype-pollution art is real — black-box detection,
-gadget catalogs, DOM Invader — but it is told through Burp's browser,
-single error messages read by eyes, and crash-flavored gadgets. This
-module extracts what is tool-agnostic, names the floors, and ships the
-replacement: a merge-surface inventory before any gadget, a calibrated
-oracle ladder, a differential with a same-shape control, and a
-version-pinned gadget matrix. An agent with no Burp license must run
-this at his precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Heyes' prototype-pollution research) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | Delivery is DOM Invader / Burp Browser — the extension's findings panels ARE the procedure | The method does not transfer: "look at the canary tab" is not a step an agent can run; passive extension heuristics replace surface math |
-| W2 | Detection leans on error side effects — gadgets that throw readable errors; the crash-free black-box detection still keys on one observable read by eyes | One error message, one observer, no calibrated oracle: two analysts can disagree on "is this a hit" with no rule to settle it |
-| W3 | Gadget hunting BEFORE merge-surface mapping — the published flow finds gadgets in code it already has, not by mapping which endpoints merge user objects into trust-bearing state | Scan-first map-later burns budget on apps whose merge surface is empty (nothing merges user input into `Object.assign`/`defaultsDeep`/settings chains) while looking busy |
-| W4 | Library and runtime versions unpinned — gadget writeups rarely record lodash/jquery/express/node versions as data, though gadget behavior is version-bounded | The finding cannot be scoped or re-tested: a gadget claim without a version range is an anecdote |
-| W5 | Single-shot narrative — "it polluted Object.prototype" from one request | No n_runs, no same-shape control, no read-back gate: a one-off error from a flaky validator reads as pollution exactly once |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | The merge surface mapped FIRST, from traffic, not from extension heuristics | **M1** — the merge-surface inventory |
-| U2 | Detection oracles calibrated and ranked by cost | **M2** — the oracle ladder (read-back → error-signature → crash, refused last) |
-| U3 | Pollution claims as differentials with same-shape controls | **M3** — the `__proto__` differential |
-| U4 | Gadgets as a version-pinned matrix, not anecdotes | **M4** — the gadget chaining matrix |
-| U5 | Byte-exact probes with sources and failure modes | `references/corpus.json` (PP-001…010, shipped v1.1.0) — consumed here, never re-typed |
-
-## 3. The executable protocol — M1 through M4
+## 1. The executable protocol — M1 through M4
 
 ### M1 — the merge-surface inventory (before any gadget exists)
 
@@ -118,7 +95,7 @@ Rules: a gadget row without all five cells is a parked hypothesis
 chain-architect ceiling statement — pollution + gadget proven ≠
 end-to-end impact claimed.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * The CONTROL also fires O1/O2 → the top-level key shape, not
   `__proto__`, caused the delta: hypothesis dies.
@@ -130,7 +107,7 @@ end-to-end impact claimed.
   re-derive the census first: the sink census, not the demo, is the
   arbiter (the PP-010 negative-space rule).
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Express app, `x-powered-by: Express`, `lodash` 4.17.12 exposed via a
 reflection path (FACT). M1: `/api/prefs` reflects nested keys at deeper
@@ -142,3 +119,38 @@ site `/.well-known/tmp-clean` job, lodash merge-order precondition
 runs last, version range pinned to the corpus entry. Ceiling:
 pollution + gadget primitive proven; end-to-end file-delete impact
 parked pending operator-owned canary file (chain-architect ladder).
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Gareth Heyes' prototype-pollution art is real — black-box detection,
+gadget catalogs, DOM Invader — but it is told through Burp's browser,
+single error messages read by eyes, and crash-flavored gadgets. This
+module extracts what is tool-agnostic, names the floors, and ships the
+replacement: a merge-surface inventory before any gadget, a calibrated
+oracle ladder, a differential with a same-shape control, and a
+version-pinned gadget matrix. An agent with no Burp license must run
+this at his precision.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | Delivery is DOM Invader / Burp Browser — the extension's findings panels ARE the procedure | The method does not transfer: "look at the canary tab" is not a step an agent can run; passive extension heuristics replace surface math |
+| W2 | Detection leans on error side effects — gadgets that throw readable errors; the crash-free black-box detection still keys on one observable read by eyes | One error message, one observer, no calibrated oracle: two analysts can disagree on "is this a hit" with no rule to settle it |
+| W3 | Gadget hunting BEFORE merge-surface mapping — the published flow finds gadgets in code it already has, not by mapping which endpoints merge user objects into trust-bearing state | Scan-first map-later burns budget on apps whose merge surface is empty (nothing merges user input into `Object.assign`/`defaultsDeep`/settings chains) while looking busy |
+| W4 | Library and runtime versions unpinned — gadget writeups rarely record lodash/jquery/express/node versions as data, though gadget behavior is version-bounded | The finding cannot be scoped or re-tested: a gadget claim without a version range is an anecdote |
+| W5 | Single-shot narrative — "it polluted Object.prototype" from one request | No n_runs, no same-shape control, no read-back gate: a one-off error from a flaky validator reads as pollution exactly once |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | The merge surface mapped FIRST, from traffic, not from extension heuristics | **M1** — the merge-surface inventory |
+| U2 | Detection oracles calibrated and ranked by cost | **M2** — the oracle ladder (read-back → error-signature → crash, refused last) |
+| U3 | Pollution claims as differentials with same-shape controls | **M3** — the `__proto__` differential |
+| U4 | Gadgets as a version-pinned matrix, not anecdotes | **M4** — the gadget chaining matrix |
+| U5 | Byte-exact probes with sources and failure modes | `references/corpus.json` (PP-001…010, shipped v1.1.0) — consumed here, never re-typed |

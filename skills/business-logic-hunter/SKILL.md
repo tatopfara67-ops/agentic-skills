@@ -1,6 +1,6 @@
 ---
 name: business-logic-hunter
-version: 2.2.0
+version: 2.2.1
 type: ai-skill
 architecture: package
 description: >-
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned test accounts and self-owned orders
 ---
 
-# business-logic-hunter v2.2.0 — The App's Rules, Tested As Rules
+# business-logic-hunter v2.2.1 — The App's Rules, Tested As Rules
 
 ## 0. What This Skill Is — and Is Not
 
@@ -102,7 +102,7 @@ because "the UI doesn't allow that". W3 strikes exactly there —
 the API's rules are the weakness the polished frontend guards; W5
 reminds that a 50-cent logic bug is a primitive worth chaining.
 
-## 2.5 The Method Layer — Critique, Upgrade (A16)
+## 2.6 The Method Layer — Critique, Upgrade (A16)
 
 A lineage named is not expertise delivered. `references/method-upgrade.md`
 grades the published reshaping craft where it was mechanically weak —

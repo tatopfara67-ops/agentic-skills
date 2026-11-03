@@ -62,18 +62,27 @@ what was not read.
      (repository, 2.3k stars), the RPC extraction tooling talk (PoC
      2023): the corpus ships the census before the exploit, three
      times, years apart.
+     *Extracted as*: M1 interior census with boundary rows — no class
+     is attacked before every class is enumerated.
   2. *Hunt the trust decision, not the memory* — the logical-
      vulnerability interest stated in two independent conference bios
      (OffensiveCon 2018, RECON 2016) and demonstrated by the corpus's
      shape (the primitive line, the UMCI and Device Guard bypasses,
      the boundary arguments).
+     *Extracted as*: the hunting ground is the access-check trust
+     decision (M2 ACCESS_MASK audit), never memory corruption.
   3. *Ship the instrument with the finding* — the object-manager
      module (gallery), the PoC packing tool used in the 2018
      disclosure's PoC (press record), the network proxy library line
      (repository): findings arrive with their tools attached.
+     *Extracted as*: counts and inventories are computed and cited
+     (the command-count census); findings ship with reproduction
+     attached.
   4. *Teach as a first-class output* — two books (2017, 2024), the
      Windows logical EoP workshop repository (233 stars), conference
      talks across a decade: the corpus doubles as curriculum.
+     *Extracted as*: the boundary report with declined-seam residual
+     risk (M5) — the organ doubles as curriculum.
 * **L2 obsession (multi-year arc):** the Windows trust architecture —
   access control from the 2015 primitive taxonomy to the 2024 book's
   token/descriptor/access-check chapters; authentication relay from
@@ -82,11 +91,15 @@ what was not read.
   (2017) to the UMCI talk (2018); the RPC line from the local
   reimplementation era to the PoC 2023 tooling. Eleven-plus years on
   one problem class: how the OS decides whom to trust.
+  *Extracted as*: scope discipline — one problem class, enforced by
+  the census regression (M6).
 * **L3 aesthetics (own words, cited):** "Symbolic links in themselves
   are not vulnerabilities, instead they're useful primitives for
   exploiting different classes of vulnerabilities" (2015 post) — the
   primitive as the unit of art; the byline "abusing symbolic links
   like it's 1999" (2015) carries the tonal register.
+  *Extracted as*: the primitive, not the exploit, is the unit of
+  record — M3's primitive inventory with the availability matrix.
 * **L4 failure mode (on the record):** the WontFix case — the
   AppContainer firewall configuration issue published WITH the
   vendor's disposition and the full mechanism explanation (2021); the
@@ -96,12 +109,16 @@ what was not read.
   Microsoft's mitigation response (backported to Vista) to the
   lineage's own primitive line. Rejections, deadlines, and
   counter-moves are kept, not hidden.
+  *Extracted as*: vendor dispositions, deadlines, and counter-moves
+  land as rows in the boundary report (M5), never silently dropped.
 * **L5 cadence (public timeline):** report → vendor window → publish
   with tooling → teach. The 2018 case is fully dated (reported
   January, deadline April, PoC public); the 2013 bounty (program
   unveiled mid-year, payout announced October); the 2015
   disclosure-with-PoC (January). The pattern: the finding ships with
   its reproduction attached, on a stated clock.
+  *Extracted as*: the report clock — findings ship with reproduction
+  attached; M6 re-runs the census on the stated schedule.
 
 OPINION figure=James Forshaw lens=cross reading=the long game on one
 vendor is deliberate platform positioning — depth chosen over breadth

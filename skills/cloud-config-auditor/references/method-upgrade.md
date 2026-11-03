@@ -1,38 +1,13 @@
-# The method upgrade — critiquing the Prowler tradition, shipping the executable posture audit
+# The executable method — M1–M5 for cloud-config-auditor
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Toni de la Fuente's art is real — Prowler's checks-as-code,
-benchmark mapping, and open posture tradition industrialized cloud
-auditing — but the published practice has floors: checks run as
-received, the CIS/benchmark mapping trusted and never re-derived,
-severity as vendor label, re-runs compared to nothing, and one
-snapshot sold as "posture". This module extracts what is
-protocol-shaped and ships the replacement: a check review gate, a
-benchmark spot-rederivation, a severity re-rate ladder, a delta
-protocol between runs, and a posture-trend ceiling. An agent that
-has never run Prowler must audit posture at its discipline.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+de la Fuente's Prowler practice) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published practice
-
-| # | What the practice shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------------- | --------------------------------- |
-| W1 | Checks run as received — the default is `prowler aws` against an account; the check logic is trusted like a compiler | Checks are heuristics with environments they misread (multi-account quirks, custom naming, nonstandard regions); un-audited checks produce findings that are the TOOL's opinion, not the account's state |
-| W2 | Benchmark mapping trusted — the CIS column in each check's output cited as authority, never re-derived against the benchmark text | Mapping drift is silent and two-way: checks that cite a control they don't fully test (false coverage) and controls nobody checks (false completeness) — the audit's own coverage is unaudited |
-| W3 | Severity as vendor label — fail/severity grades ride the output verbatim | Severity is target-relative (an open security group on a bastion VPC ≠ one on an isolated dev VPC); the label's universality misprices everything in particular |
-| W4 | Re-runs compared to nothing — each execution emits a full report; nothing diffs against the last | Posture is a TIME SERIES; single-run reporting makes regressions invisible and fix-verification manual — the exact gap a delta protocol closes |
-| W5 | Snapshot sold as posture — one run, one account, one region-set quoted as "the posture" | Without the window, scope, and delta discipline, "posture" is a screenshot with confidence it did not earn |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Check logic audited before its findings ride | **M1** — the check review gate |
-| U2 | Benchmark mapping spot-re-derived | **M2** — the rederivation protocol |
-| U3 | Severity re-rated per target context | **M3** — the re-rate ladder |
-| U4 | Every run diffed against its predecessor | **M4** — the delta protocol |
-| U5 | Posture as bounded time series | **M5** — the trend ceiling |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the check review gate
 
@@ -96,7 +71,7 @@ POSTURE-CEILING: window=<first..last run> scope=<accounts/regions
 The unmeasured list (accounts, regions, services not covered) is
 mandatory — posture claims never leak past the measured set (W5).
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * A quarantined check's finding later proves real → the quarantine
   was right anyway (tool-opinion is not evidence); the check gets
@@ -114,7 +89,7 @@ mandatory — posture claims never leak past the measured set (W5).
   consistency): quarantine the check for flapping; its history is
   the evidence.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Run 14 vs run 13 (same scope: 2 accounts, 4 regions; check-set
 @sha256:a1b2). M1: 9 report-riding checks audited + 6 random; 1
@@ -129,3 +104,40 @@ failed — REGRESSION row, headline). M5 ceiling: window 30 days,
 scope-set listed, unmeasured = 1 account (no credentials), claim
 capped: "persistent 12 by class, 1 regression, resolution rate
 5/8" — no posture adjective beyond it.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Toni de la Fuente's art is real — Prowler's checks-as-code,
+benchmark mapping, and open posture tradition industrialized cloud
+auditing — but the published practice has floors: checks run as
+received, the CIS/benchmark mapping trusted and never re-derived,
+severity as vendor label, re-runs compared to nothing, and one
+snapshot sold as "posture". This module extracts what is
+protocol-shaped and ships the replacement: a check review gate, a
+benchmark spot-rederivation, a severity re-rate ladder, a delta
+protocol between runs, and a posture-trend ceiling. An agent that
+has never run Prowler must audit posture at its discipline.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published practice (context, not steps)
+
+| # | What the practice shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------------- | --------------------------------- |
+| W1 | Checks run as received — the default is `prowler aws` against an account; the check logic is trusted like a compiler | Checks are heuristics with environments they misread (multi-account quirks, custom naming, nonstandard regions); un-audited checks produce findings that are the TOOL's opinion, not the account's state |
+| W2 | Benchmark mapping trusted — the CIS column in each check's output cited as authority, never re-derived against the benchmark text | Mapping drift is silent and two-way: checks that cite a control they don't fully test (false coverage) and controls nobody checks (false completeness) — the audit's own coverage is unaudited |
+| W3 | Severity as vendor label — fail/severity grades ride the output verbatim | Severity is target-relative (an open security group on a bastion VPC ≠ one on an isolated dev VPC); the label's universality misprices everything in particular |
+| W4 | Re-runs compared to nothing — each execution emits a full report; nothing diffs against the last | Posture is a TIME SERIES; single-run reporting makes regressions invisible and fix-verification manual — the exact gap a delta protocol closes |
+| W5 | Snapshot sold as posture — one run, one account, one region-set quoted as "the posture" | Without the window, scope, and delta discipline, "posture" is a screenshot with confidence it did not earn |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Check logic audited before its findings ride | **M1** — the check review gate |
+| U2 | Benchmark mapping spot-re-derived | **M2** — the rederivation protocol |
+| U3 | Severity re-rated per target context | **M3** — the re-rate ladder |
+| U4 | Every run diffed against its predecessor | **M4** — the delta protocol |
+| U5 | Posture as bounded time series | **M5** — the trend ceiling |

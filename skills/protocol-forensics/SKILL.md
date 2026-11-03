@@ -1,6 +1,6 @@
 ---
 name: protocol-forensics
-version: 1.0.0
+version: 1.0.1
 type: ai-skill
 architecture: package
 description: >-
@@ -43,7 +43,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; skill-mythos charter v1.11+
 ---
 
-# protocol-forensics v1.0.0 — The Kaminsky Lineage
+# protocol-forensics v1.0.1 — The Kaminsky Lineage
 
 ## 0. What This Skill Is — and Is Not
 

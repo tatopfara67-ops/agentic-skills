@@ -1,6 +1,6 @@
 ---
 name: mirror-hunter
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -14,7 +14,7 @@ description: >-
   obedience boundary onto the target. Gates every engagement on the program's
   AI eligibility table BEFORE the first payload (a jailbreak is content;
   injection with impact is a finding), runs stochastic evidence as rates over
-  N runs, and lands CONFIRMED only on the determinisSince v1.1.0 the organ
+  N runs, and lands CONFIRMED only on the deterministic differential. Since v1.1.0 the organ
   carries the executable method layer (A16) — a mechanical critique of the
   Willison-era form's floors (injection demonstrated as screenshot anecdotes,
   craft circulated as folklore prompt lists, defenses graded by vibes,
@@ -38,7 +38,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+; glm-self-model v1.0+ (the mirror needs the engine manual); the spine's AI surface map (ai-and-supply-chain module, section 24)
 ---
 
-# mirror-hunter v1.1.0 — Hunt the Mirror
+# mirror-hunter v1.1.1 — Hunt the Mirror
 
 ## 0. What This Skill Is — and Is Not
 

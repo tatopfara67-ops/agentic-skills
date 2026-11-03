@@ -52,18 +52,29 @@ index/abstract, and what was not read.
      22+ vendors), PKI 2009 (X.509 structure, not one CA), Sony 2005
      (population census of one infection) — the same move three
      times, six years apart.
+     *Extracted as*: M1 population census — the disagreement matrix
+     prices the whole implementation population, never one vendor's
+     parser.
   2. *Build instruments to see the population* — Paketto tools
      (2002), worldwide DNS scans (2005), the Conficker signature
      scanner (2009): the corpus ships measurement tools with its
      findings.
+     *Extracted as*: the measurement harness — computed entropy
+     arithmetic and probe budgets; no population claim without an
+     instrument reading.
   3. *Compose the invariant classes* — entropy × ordering × trust
      (2008); ASN.1 confusion × null terminators (2009): single-class
      findings get composed before they are claimed.
+     *Extracted as*: M2 invariant audit composes the classes
+     (entropy × ordering × trust) before any BROKEN claim is priced.
 * **L2 obsession (multi-year arc):** the DNS/trust-in-infrastructure
   class spans 2002–2017 — DNS tunneling (2004), DNS scans (2005),
   rebinding (2007), cache poisoning + the fix (2008), DNSSEC
   advocacy and zero-config DNSSEC serving (2009–2010), the root
   key-holder role (2010), web-trust realism (2010).
+  *Extracted as*: scope discipline — the organ stays on the
+  spec/trust class; the boundaries vs desync-hunter and
+  scan-economist are argued in this file.
 * **L3 aesthetics (own words, cited):** "The Internet was never
   designed to be secure. The Internet was designed to move pictures
   of cats... We didn't think you'd be moving trillions of dollars
@@ -72,6 +83,10 @@ index/abstract, and what was not read.
   has two forms: The abstraction that outsiders are led to believe,
   and the reality that insiders actually and carefully operate...
   You eventually unlearn its necessary lies." (X, 2018-01-17).
+  *Extracted as*: the invariant-hunting stance — audit the
+  abstraction the population was led to believe against the reality
+  it operates; the gap between the two forms is where the seams
+  live.
 * **L4 failure mode (on the record):** the priority record — djb
   reported the TXID weakness in 1999 and djbdns shipped the port
   randomization years early while the industry shipped vulnerable
@@ -81,12 +96,18 @@ index/abstract, and what was not read.
   format; the stopgap honesty — the record itself prices port
   randomization as partial and pushes DNSSEC (VU#800113;
   Network World 2009).
+  *Extracted as*: the correction discipline (priority beats
+  folklore, on record) plus the falsifiers section and partial-fix
+  pricing with denominators in the impact ladder (M4).
 * **L5 cadence (public timeline):** discovered early 2008 → months
   of secret coordination (DHS; Microsoft HQ meeting) → simultaneous
   patch 2008-07-08 (VU#800113 original release date) → leak
   2008-07-21 → full reveal Black Hat 2008-08-06/07 (webcast page,
   Wikipedia, Hall of Fame). The pattern: sit on the find until the
   fix is ecosystem-ready, then disclose as a coordinated event.
+  *Extracted as*: M5 disclosure engineering + M6 post-patch
+  saturation gate — the claim waits for ecosystem readiness, then
+  ships as a coordinated, dated event.
 
 OPINION figure=Dan Kaminsky lens=cross reading=the humor was a
 deliberate pedagogical instrument, chosen over density

@@ -1,6 +1,6 @@
 ---
 name: module-smith
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -11,7 +11,7 @@ description: >-
   concerns — every hypothesis in this pipeline is a module with reliability
   metadata (rank, references, disclosure date), every impact proof is a
   payload kept separate from the access proof, and every claim of
-  exposureSince v1.1.0 the organ carries the executable method layer (A16) — a
+  exposure carries its proof. Since v1.1.0 the organ carries the executable method layer (A16) — a
   mechanical critique of the HD Moore art's floors (rank metadata asserted
   instead of measured, stagers tuned for one target class, composition proven
   by single-shot demo, internet-scale measurement without a written protocol,
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# module-smith v1.1.0 — The HD Moore Lineage
+# module-smith v1.1.1 — The HD Moore Lineage
 
 ## 0. What This Skill Is — and Is Not
 

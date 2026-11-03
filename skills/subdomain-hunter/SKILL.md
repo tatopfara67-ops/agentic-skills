@@ -1,6 +1,6 @@
 ---
 name: subdomain-hunter
-version: 2.1.0
+version: 2.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -28,7 +28,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# subdomain-hunter v2.1.0 — Passive First, Always
+# subdomain-hunter v2.1.1 — Passive First, Always
 
 ## 0. What This Skill Is — and Is Not
 

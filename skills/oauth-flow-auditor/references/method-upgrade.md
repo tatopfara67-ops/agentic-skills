@@ -1,37 +1,13 @@
-# The method upgrade — critiquing Parecki, shipping the executable flow audit
+# The executable method — M1–M5 for oauth-flow-auditor
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Aaron Parecki's art is real — OAuth 2.0 Simplified, oauth.net
-stewardship, the 2.1 draft — but the published craft ships as
-blog-checklist: redirect_uri exactness, state, PKCE as rules of
-thumb, each told singly, none with a differential. This module
-extracts what is protocol-shaped and ships the replacement: a flow
-pin with the version matrix, the exactness differential, the
-state three-condition test, the PKCE downgrade probe, and a token
-lifecycle ceiling measured on operator-owned grants. An agent that
-has never read the RFCs must run this at its precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Parecki's OAuth practice) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published craft
-
-| # | What the craft shows (documented) | Why it is weak as a shipped method |
-| - | ---------------------------------- | --------------------------------- |
-| W1 | Checklist epistemology — "validate redirect_uri exactly", "always use state", "use PKCE" stated as rules | Presence rules without differential tests: a flow can pass every checklist line and still accept a byte-variant redirect or an unvalidated state — the checklists grade configuration, not behavior |
-| W2 | Flows tested singly — each endpoint (authorize, token, callback) audited alone | The vulnerability classes live in the SEQUENCE (code interception needs the whole redirect walk; downgrade needs the pair of grant attempts); single-endpoint audits cannot see them |
-| W3 | Presence conflated with correctness — "state is present" treated as "state is validated" | The two are independent: unvalidated state is a silent as its absence; only the forged/replayed/absent three-condition test separates them |
-| W4 | Version layers blurred — 2.0 vs 2.1 vs OIDC vs provider extensions mixed in prose guidance | A finding's meaning depends on which spec layer the provider actually implements; unpinned advice produces both false positives (demanding 2.1 behavior from a 2.0 flow) and missed classes |
-| W5 | Token lifecycle as afterthought — expiry, rotation, scope creep mentioned, never measured | The granted-scope vs requested-scope delta, the refresh-rotation behavior, and the expiry class are the impact carriers; folklore treats them as deployment trivia |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | The flow pinned: provider, spec layer, endpoints as FACTs | **M1** — the flow pin |
-| U2 | Redirect exactness as a byte-class differential | **M2** — the exactness differential |
-| U3 | State as a three-condition test | **M3** — the state test |
-| U4 | PKCE as a downgrade probe | **M4** — the PKCE probe |
-| U5 | The lifecycle measured on operator-owned grants | **M5** — the lifecycle ceiling |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the flow pin
 
@@ -112,7 +88,7 @@ endpoint or JWT decode) — never from a third party's (W5). The
 ceiling caps impact claims at what the operator's grant
 demonstrated.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * A variant class is accepted but the code never lands anywhere
   attacker-usable → acceptance ≠ redirect: the landing observation
@@ -128,7 +104,7 @@ demonstrated.
   introspection source is authoritative; the decode stale — record
   the divergence as a lifecycle finding of its own (drift class).
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Provider pinned (2.0-behavior + OIDC layer, evidence: authorize
 requires client_id param grammar per observation). M2: exact
@@ -141,3 +117,39 @@ client → downgrade row recorded. M5: granted scope = requested +
 `profile` (delta class creep), expiry 3600 s, rotation single-use
 observed n = 2. Ceiling: all rows on operator-owned grants; report
 cites the FLOW-PIN and both spec layers.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Aaron Parecki's art is real — OAuth 2.0 Simplified, oauth.net
+stewardship, the 2.1 draft — but the published craft ships as
+blog-checklist: redirect_uri exactness, state, PKCE as rules of
+thumb, each told singly, none with a differential. This module
+extracts what is protocol-shaped and ships the replacement: a flow
+pin with the version matrix, the exactness differential, the
+state three-condition test, the PKCE downgrade probe, and a token
+lifecycle ceiling measured on operator-owned grants. An agent that
+has never read the RFCs must run this at its precision.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published craft (context, not steps)
+
+| # | What the craft shows (documented) | Why it is weak as a shipped method |
+| - | ---------------------------------- | --------------------------------- |
+| W1 | Checklist epistemology — "validate redirect_uri exactly", "always use state", "use PKCE" stated as rules | Presence rules without differential tests: a flow can pass every checklist line and still accept a byte-variant redirect or an unvalidated state — the checklists grade configuration, not behavior |
+| W2 | Flows tested singly — each endpoint (authorize, token, callback) audited alone | The vulnerability classes live in the SEQUENCE (code interception needs the whole redirect walk; downgrade needs the pair of grant attempts); single-endpoint audits cannot see them |
+| W3 | Presence conflated with correctness — "state is present" treated as "state is validated" | The two are independent: unvalidated state is a silent as its absence; only the forged/replayed/absent three-condition test separates them |
+| W4 | Version layers blurred — 2.0 vs 2.1 vs OIDC vs provider extensions mixed in prose guidance | A finding's meaning depends on which spec layer the provider actually implements; unpinned advice produces both false positives (demanding 2.1 behavior from a 2.0 flow) and missed classes |
+| W5 | Token lifecycle as afterthought — expiry, rotation, scope creep mentioned, never measured | The granted-scope vs requested-scope delta, the refresh-rotation behavior, and the expiry class are the impact carriers; folklore treats them as deployment trivia |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | The flow pinned: provider, spec layer, endpoints as FACTs | **M1** — the flow pin |
+| U2 | Redirect exactness as a byte-class differential | **M2** — the exactness differential |
+| U3 | State as a three-condition test | **M3** — the state test |
+| U4 | PKCE as a downgrade probe | **M4** — the PKCE probe |
+| U5 | The lifecycle measured on operator-owned grants | **M5** — the lifecycle ceiling |

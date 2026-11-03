@@ -1,6 +1,6 @@
 ---
 name: template-scanner
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# template-scanner v1.1.0 — The ProjectDiscovery Lineage
+# template-scanner v1.1.1 — The ProjectDiscovery Lineage
 
 ## 0. What This Skill Is — and Is Not
 

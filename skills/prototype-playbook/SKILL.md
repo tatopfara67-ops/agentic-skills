@@ -1,6 +1,6 @@
 ---
 name: prototype-playbook
-version: 1.2.0
+version: 1.2.1
 type: ai-skill
 architecture: package
 description: >-
@@ -41,7 +41,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); xss-playbook (the sink grammar once a gadget feeds a DOM sink); js-recon (the bundle-reading discipline that locates merge code and listeners)
 ---
 
-# prototype-playbook v1.2.0 — The Object World Is Trust-Bearing State
+# prototype-playbook v1.2.1 — The Object World Is Trust-Bearing State
 
 ## 0. What This Skill Is — and Is Not
 

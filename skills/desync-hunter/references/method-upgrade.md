@@ -1,35 +1,14 @@
-# The method upgrade — critiquing Kettle, shipping the executable seam hunt
+# The executable method — M1–M4 for desync-hunter
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-Kettle's published art is real, but it is told through Burp Suite and
-one-shot narratives. This module extracts what is tool-agnostic in it,
-names the mechanical weaknesses, and ships the executable protocol:
-chain map with a schema, a parser-pair × ambiguity-class selection
-matrix, and a differential confirmation protocol with thresholds. An
-agent that has never opened Burp must run this at the lineage's
-precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+Kettle's published desync research) is preserved verbatim as the
+§3–§4 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | Delivery is Burp-centric — Repeater, Turbo Intruder, the Smuggler extension are the verbs | The method does not transfer. An agent with `http_probe` and raw sockets inherits the posture but not the procedure; "open Repeater" is not a step |
-| W2 | Probe-first: the labs jump straight to sending known CL.TE / TE.CL templates | Spraying classes at a chain that cannot disagree that way burns requests, alerts WAFs, and leaves the seam untested while looking busy. The chain map (WHO parses, WHICH versions) must select the class, not habit |
-| W3 | The timing oracle is the default confirmation — hold the backend 30–40 s and watch | Slow, noisy, and inconclusive on jittery edges: a cold cache or a queued worker can fake a one-off delay. Error-echo and response-class oracles confirm faster and cheaper; timing is escalation, not default |
-| W4 | Single-shot narrative — "the request smuggled" reported from one send | No n_runs, no jitter baseline, no control condition. A flaky backend reads as a desync exactly once, then never again — and the writeup still says confirmed |
-| W5 | Poisoning demos that borrow third-party users as the victim | The victim must be operator-owned — the rule is in our canary doctrine precisely because the published demos needed it written down |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | The method stated in bytes and steps, tool-agnostic | This module; probes come byte-exact from `references/corpus.json` (never hand-typed) |
-| U2 | Map the parsers WITH versions before selecting a class | **M1** — the CHAINMAP record schema + evidence commands |
-| U3 | Class selection by parser PAIR, not by habit | **M2** — the selection matrix (pair × class → probe + preconditions) |
-| U4 | Confirmation as a differential with distributions | **M3** — baseline/treatment/control, n ≥ 5, medians + IQR, bucket rules |
-| U5 | A written victim rule and an escalation ladder with gates | **M4** — operator-owned victims, canary markers, each escalation earned |
-
-## 3. The executable protocol — M1 through M4
+## 1. The executable protocol — M1 through M4
 
 ### M1 — the chain map, as a record with a schema
 
@@ -144,7 +123,7 @@ reached the origin queue (level 3)" is a different finding than "cache
 poisoning served to an operator-owned fetch (level 5)" and is reported
 as such — never rounded up.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * The CONTROL also shows the delta → the ambiguity was not the cause;
   the hypothesis dies (and the control caught it — that is its job).
@@ -159,3 +138,37 @@ as such — never rounded up.
   treat the seam as unknown-framing: matrix row 1 classes run as
   EXPERIMENTS with framing explicitly uncertain, and the report says
   which hop could not be pinned.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§2 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+Kettle's published art is real, but it is told through Burp Suite and
+one-shot narratives. This module extracts what is tool-agnostic in it,
+names the mechanical weaknesses, and ships the executable protocol:
+chain map with a schema, a parser-pair × ambiguity-class selection
+matrix, and a differential confirmation protocol with thresholds. An
+agent that has never opened Burp must run this at the lineage's
+precision.
+
+## 3. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | Delivery is Burp-centric — Repeater, Turbo Intruder, the Smuggler extension are the verbs | The method does not transfer. An agent with `http_probe` and raw sockets inherits the posture but not the procedure; "open Repeater" is not a step |
+| W2 | Probe-first: the labs jump straight to sending known CL.TE / TE.CL templates | Spraying classes at a chain that cannot disagree that way burns requests, alerts WAFs, and leaves the seam untested while looking busy. The chain map (WHO parses, WHICH versions) must select the class, not habit |
+| W3 | The timing oracle is the default confirmation — hold the backend 30–40 s and watch | Slow, noisy, and inconclusive on jittery edges: a cold cache or a queued worker can fake a one-off delay. Error-echo and response-class oracles confirm faster and cheaper; timing is escalation, not default |
+| W4 | Single-shot narrative — "the request smuggled" reported from one send | No n_runs, no jitter baseline, no control condition. A flaky backend reads as a desync exactly once, then never again — and the writeup still says confirmed |
+| W5 | Poisoning demos that borrow third-party users as the victim | The victim must be operator-owned — the rule is in our canary doctrine precisely because the published demos needed it written down |
+
+## 4. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | The method stated in bytes and steps, tool-agnostic | This module; probes come byte-exact from `references/corpus.json` (never hand-typed) |
+| U2 | Map the parsers WITH versions before selecting a class | **M1** — the CHAINMAP record schema + evidence commands |
+| U3 | Class selection by parser PAIR, not by habit | **M2** — the selection matrix (pair × class → probe + preconditions) |
+| U4 | Confirmation as a differential with distributions | **M3** — baseline/treatment/control, n ≥ 5, medians + IQR, bucket rules |
+| U5 | A written victim rule and an escalation ladder with gates | **M4** — operator-owned victims, canary markers, each escalation earned |

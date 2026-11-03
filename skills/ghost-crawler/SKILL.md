@@ -1,6 +1,6 @@
 ---
 name: ghost-crawler
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; program rules that permit passive public-index queries
 ---
 
-# ghost-crawler v1.1.0 — Enter Without Knocking
+# ghost-crawler v1.1.1 — Enter Without Knocking
 
 ## 0. What This Skill Is — and Is Not
 

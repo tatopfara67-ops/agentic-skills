@@ -1,6 +1,6 @@
 ---
 name: adversary-tracker
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -25,10 +25,14 @@ category: security/defensive-ir
 license: MIT
 metadata:
   author: tatopfara67-ops
+  lineage: >-
+    Tsutomu Shimomura (the 1994-95 hunt; source case archived as a
+    fact table at references/history-1995.md, method extracted into
+    references/binary-brain.md and references/hunt-playbook.md)
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# adversary-tracker v1.1.0 — The Binary Brain
+# adversary-tracker v1.1.1 — The Binary Brain
 
 ## 0. What This Skill Is — and Is Not
 

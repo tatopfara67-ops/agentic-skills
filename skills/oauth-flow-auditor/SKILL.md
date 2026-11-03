@@ -1,6 +1,6 @@
 ---
 name: oauth-flow-auditor
-version: 2.2.0
+version: 2.2.1
 type: ai-skill
 architecture: package
 description: >-
@@ -9,7 +9,7 @@ description: >-
   endpoints, state presence/validation/binding, PKCE downgrade, code reuse,
   token audience, implicit flow) where every check is a pre-registered
   hypothesis with its own falsifier, run as differentials against
-  operator-owned IdP testSince v2.2.0 the organ carries the executable method
+  operator-owned IdP test tenants. Since v2.2.0 the organ carries the executable method
   layer (A16) — a mechanical critique of the published checklist craft's
   floors (presence rules without differential tests, endpoints audited singly
   while the classes live in sequences, state presence conflated with
@@ -31,7 +31,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned OAuth test app pair
 ---
 
-# oauth-flow-auditor v2.2.0 — Flows Are State Machines; Test The Transitions
+# oauth-flow-auditor v2.2.1 — Flows Are State Machines; Test The Transitions
 
 ## 0. What This Skill Is — and Is Not
 
@@ -111,7 +111,7 @@ that the spec never named (custom parameters crossing redirect
 boundaries). W4 pairs them; W6 governs the report — the triage desk
 reads state machines, not essays.
 
-## 3.5 The Method Layer — Critique, Upgrade (A16)
+## 3.6 The Method Layer — Critique, Upgrade (A16)
 
 A lineage named is not expertise delivered. `references/method-upgrade.md`
 grades the published OAuth craft where it was mechanically weak —

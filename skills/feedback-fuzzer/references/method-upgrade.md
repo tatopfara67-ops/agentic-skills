@@ -1,39 +1,13 @@
-# The method upgrade — critiquing lcamtuf, shipping the executable feedback search
+# The executable method — M1–M5 for feedback-fuzzer
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-lcamtuf's art is real — AFL's map-and-cull design is the canonical
-feedback-guided search — but the published form has floors: the map
-is binary-coverage-specific, culling thresholds are folklore, crash
-classification is narrated per-bug, and the transfer to non-binary
-targets (HTTP, APIs) is left as an exercise. This module extracts
-what is protocol-shaped and ships the replacement: a state-map
-instantiation for service targets, corpus culling with a cost table,
-novelty-gate arithmetic, a classification table, and
-dedup-before-diagnosis. An agent with no compiler instrumentation
-must run this at its guidance.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+lcamtuf's fuzzing corpus) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the published method
-
-| # | What the art shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------- | --------------------------------- |
-| W1 | The map is binary-coverage-shaped — AFL's bitmap keys on edge tuples in compiled code; the design papers transfer the IDEA, not the instantiation | For HTTP/API targets nobody ships the map: what is a "state"? What is a "new" state? Without a bucketing rule, "feedback-guided" on web targets degenerates into blind spraying with extra steps |
-| W2 | Culling thresholds as folklore — "keep the corpus small" is stated, the actual cull costs (fav-factor, size, exec time) are tuned inside the tool | A re-implementer guesses thresholds; the corpus bloats or starves silently, and nothing in the run record says which |
-| W3 | Crash-vs-hang classified by eyes post-hoc — the interesting-behavior triage in the writeups is expert narration | Two analysts bucket the same anomaly differently with no rule; severity routing becomes taste (the floor every organ in this charter names W3 — here it is again) |
-| W4 | Determinism assumed, measured nowhere — replay stability of "interesting" inputs is asserted by the demo, not by a rerun protocol | A flaky service makes 1-of-1 "novel states" out of jitter; the corpus fills with ghosts and the map lies to its own operator |
-| W5 | Feedback search stopped at the boundary — the tool finds inputs, the writeup narrates findings, but the loop from state-map to HYPOTHESIS (why is this state new?) is unwritten | The most valuable half of the method — reading the map as evidence — ships as personal skill, not protocol |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | The map instantiated for service targets | **M1** — the state-map schema |
-| U2 | Culling as a cost table, on record | **M2** — the corpus budget |
-| U3 | Novelty as arithmetic with a gate | **M3** — the novelty gate |
-| U4 | Anomaly classes as a decision table + rerun rule | **M4** — the classification protocol |
-| U5 | The map read as evidence → hypotheses | **M5** — the map-reading rule |
-| U6 | Replay stability measured before corpus entry | **M4(b)** — the rerun floor |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the state-map schema (the instantiation the papers omit)
 
@@ -103,7 +77,7 @@ evidence. Rules: one hypothesis per novelty, falsifier stated
 (minimization) starts only from a hypothesis record — never from a
 raw "weird response" (W5).
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * Two analysts' bucket declarations differ and the maps diverge →
   the buckets were under-specified: re-declare at coarser class,
@@ -119,7 +93,7 @@ raw "weird response" (W5).
   is starving old-but-load-bearing seeds: cap the young-quota at
   60% and re-measure.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 API target, 6 parameters. M1 buckets declared (5 log2 length
 buckets, 3 body-shape classes). Slice 1 (500 execs): yield 4.2%
@@ -131,3 +105,41 @@ body-shape JSON→error-page — rerun 3/3 stable. M5 hypothesis:
 charset value change), falsifier declared. Corpus 37/50, evicted 2.
 HANG-CLASS entries: 3, clocked at median 9.1 s vs baseline IQR
 0.3 s — parked as clocked artifacts, not crashes.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+lcamtuf's art is real — AFL's map-and-cull design is the canonical
+feedback-guided search — but the published form has floors: the map
+is binary-coverage-specific, culling thresholds are folklore, crash
+classification is narrated per-bug, and the transfer to non-binary
+targets (HTTP, APIs) is left as an exercise. This module extracts
+what is protocol-shaped and ships the replacement: a state-map
+instantiation for service targets, corpus culling with a cost table,
+novelty-gate arithmetic, a classification table, and
+dedup-before-diagnosis. An agent with no compiler instrumentation
+must run this at its guidance.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the published method (context, not steps)
+
+| # | What the art shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------- | --------------------------------- |
+| W1 | The map is binary-coverage-shaped — AFL's bitmap keys on edge tuples in compiled code; the design papers transfer the IDEA, not the instantiation | For HTTP/API targets nobody ships the map: what is a "state"? What is a "new" state? Without a bucketing rule, "feedback-guided" on web targets degenerates into blind spraying with extra steps |
+| W2 | Culling thresholds as folklore — "keep the corpus small" is stated, the actual cull costs (fav-factor, size, exec time) are tuned inside the tool | A re-implementer guesses thresholds; the corpus bloats or starves silently, and nothing in the run record says which |
+| W3 | Crash-vs-hang classified by eyes post-hoc — the interesting-behavior triage in the writeups is expert narration | Two analysts bucket the same anomaly differently with no rule; severity routing becomes taste (the floor every organ in this charter names W3 — here it is again) |
+| W4 | Determinism assumed, measured nowhere — replay stability of "interesting" inputs is asserted by the demo, not by a rerun protocol | A flaky service makes 1-of-1 "novel states" out of jitter; the corpus fills with ghosts and the map lies to its own operator |
+| W5 | Feedback search stopped at the boundary — the tool finds inputs, the writeup narrates findings, but the loop from state-map to HYPOTHESIS (why is this state new?) is unwritten | The most valuable half of the method — reading the map as evidence — ships as personal skill, not protocol |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | The map instantiated for service targets | **M1** — the state-map schema |
+| U2 | Culling as a cost table, on record | **M2** — the corpus budget |
+| U3 | Novelty as arithmetic with a gate | **M3** — the novelty gate |
+| U4 | Anomaly classes as a decision table + rerun rule | **M4** — the classification protocol |
+| U5 | The map read as evidence → hypotheses | **M5** — the map-reading rule |
+| U6 | Replay stability measured before corpus entry | **M4(b)** — the rerun floor |

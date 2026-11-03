@@ -1,36 +1,13 @@
-# The method upgrade — critiquing the folk competitor war, shipping the evidence-disciplined playbook
+# The executable method — M1–M5 for rival-playbook
 
-The charter's A16 charge, applied to the strategist tradition:
-**strategy named is not advantage delivered.** Sun Tzu survives
-twenty-five centuries because the maxims are real; the folk way of
-"beating competitors" fails because it keeps none of the
-discipline. This module names the floors of the folk competitor war
-and ships the replacement: a census protocol with pinned artifacts,
-the hollow map with cited verdicts, the pressure allocation rule,
-the duel rule with capped wording, and the re-census loop. An agent
-that has never read The Art of War must still run this at precision.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+the strategist tradition) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the folk way
-
-| # | What the folk way shows (documented) | Why it is weak as a shipped method |
-| - | ------------------------------------ | --------------------------------- |
-| W1 | The hype war — "most advanced", "industry-leading", adjectives as armament | No axis, no measurement, nothing falsifiable; a claim that cannot lose cannot win, it can only be louder |
-| W2 | Feature-count parity — checklists compared by length, bullets counted | The corpus with more bullets "wins" while neither side runs an auditor; length measures verbosity, not enforcement |
-| W3 | FUD and badmouthing — the rival's reputation as the battlefield, un-citable claims about its internals | Poison twice over: un-credible to anyone who checks, and it burns the claimant's own evidence discipline — the one asset the house actually owns |
-| W4 | Un-pinned benchmarks — grading rivals from memory against last year's README screenshot | The census equivalent of the wiki-fingerprint floor: the "weakness" being attacked may have retired two releases ago |
-| W5 | Cargo-cult copying — the rival ships a feature, the corpus ships its surface without the discipline | The copy is decoration: the validator, tests, and auditor that make the feature real are exactly what did not get copied |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Both sides graded on public, pinned artifacts | **M1** — the census protocol |
-| U2 | Weakness as a cited verdict, not a vibe | **M2** — the hollow map |
-| U3 | Concentration until mechanically owned | **M3** — the pressure allocation rule |
-| U4 | Claims settled on measured axes | **M4** — the duel rule |
-| U5 | The map kept honest after every release | **M5** — the re-census loop |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the census protocol
 
@@ -87,7 +64,7 @@ that has never read The Art of War must still run this at precision.
    a census is refreshed when the artifacts move, and staleness is
    stamped, never ignored.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * A rival ships the hollow WITH discipline → the hollow retires, the
   correction lands, and any claim built on the retired hollow is
@@ -102,7 +79,7 @@ that has never read The Art of War must still run this at precision.
   releases → the census has gone stale; the map is being maintained
   by memory (the W4 floor, back again).
 
-## 5. Worked micro-example (format is the deliverable; corpus R is fictional)
+## 3. Worked micro-example (format is the deliverable; corpus R is fictional)
 
 Rival corpus R is named. Census row (R, validator axis): "no
 validation script found in the repository; README states 'every
@@ -119,3 +96,38 @@ demonstrated axis, both pins attached, no superlative, no
 characterization of R beyond its own repository. If R ships a
 validator next release, the hollow retires with a correction, and
 the claim narrows to what remains measured.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge, applied to the strategist tradition:
+**strategy named is not advantage delivered.** Sun Tzu survives
+twenty-five centuries because the maxims are real; the folk way of
+"beating competitors" fails because it keeps none of the
+discipline. This module names the floors of the folk competitor war
+and ships the replacement: a census protocol with pinned artifacts,
+the hollow map with cited verdicts, the pressure allocation rule,
+the duel rule with capped wording, and the re-census loop. An agent
+that has never read The Art of War must still run this at precision.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the folk way (context, not steps)
+
+| # | What the folk way shows (documented) | Why it is weak as a shipped method |
+| - | ------------------------------------ | --------------------------------- |
+| W1 | The hype war — "most advanced", "industry-leading", adjectives as armament | No axis, no measurement, nothing falsifiable; a claim that cannot lose cannot win, it can only be louder |
+| W2 | Feature-count parity — checklists compared by length, bullets counted | The corpus with more bullets "wins" while neither side runs an auditor; length measures verbosity, not enforcement |
+| W3 | FUD and badmouthing — the rival's reputation as the battlefield, un-citable claims about its internals | Poison twice over: un-credible to anyone who checks, and it burns the claimant's own evidence discipline — the one asset the house actually owns |
+| W4 | Un-pinned benchmarks — grading rivals from memory against last year's README screenshot | The census equivalent of the wiki-fingerprint floor: the "weakness" being attacked may have retired two releases ago |
+| W5 | Cargo-cult copying — the rival ships a feature, the corpus ships its surface without the discipline | The copy is decoration: the validator, tests, and auditor that make the feature real are exactly what did not get copied |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Both sides graded on public, pinned artifacts | **M1** — the census protocol |
+| U2 | Weakness as a cited verdict, not a vibe | **M2** — the hollow map |
+| U3 | Concentration until mechanically owned | **M3** — the pressure allocation rule |
+| U4 | Claims settled on measured axes | **M4** — the duel rule |
+| U5 | The map kept honest after every release | **M5** — the re-census loop |

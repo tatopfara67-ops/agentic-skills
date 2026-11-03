@@ -1,6 +1,6 @@
 ---
 name: desync-hunter
-version: 1.3.0
+version: 1.3.1
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; targets whose scope explicitly covers the infrastructure/proxy layer
 ---
 
-# desync-hunter v1.3.0 — The Spec Is A Hypothesis
+# desync-hunter v1.3.1 — The Spec Is A Hypothesis
 
 ## 0. What This Skill Is — and Is Not
 

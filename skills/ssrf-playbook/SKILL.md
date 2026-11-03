@@ -1,6 +1,6 @@
 ---
 name: ssrf-playbook
-version: 1.3.0
+version: 1.3.1
 type: ai-skill
 architecture: package
 description: >-
@@ -26,7 +26,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned interaction/callback host
 ---
 
-# ssrf-playbook v1.3.0 — Prove The Channel, Not The Gossip
+# ssrf-playbook v1.3.1 — Prove The Channel, Not The Gossip
 
 ## 0. What This Skill Is — and Is Not
 

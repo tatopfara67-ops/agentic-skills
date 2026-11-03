@@ -1,6 +1,6 @@
 ---
 name: chain-architect
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -31,7 +31,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an engagement with at least a Phase-1 dossier
 ---
 
-# chain-architect v1.1.0 — The Compound Kill Chain
+# chain-architect v1.1.1 — The Compound Kill Chain
 
 ## 0. What This Skill Is — and Is Not
 

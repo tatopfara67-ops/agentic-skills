@@ -1,6 +1,6 @@
 ---
 name: signal-smith
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -36,7 +36,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an in-scope target with a validation/WAF layer under study
 ---
 
-# signal-smith v1.1.0 — One Precise Tone
+# signal-smith v1.1.1 — One Precise Tone
 
 ## 0. What This Skill Is — and Is Not
 

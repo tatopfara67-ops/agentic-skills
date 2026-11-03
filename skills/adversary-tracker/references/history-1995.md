@@ -1,69 +1,26 @@
-# The source case — Christmas Day 1994 to Raleigh, February 1995
+# The source case — Christmas Day 1994 to Raleigh, February 1995 (case file)
 
-The binary brain is distilled from one hunt. This file records what is
-documented, with sources; the skill keeps the method and leaves the era.
+The binary brain is distilled from one hunt. This file is the case
+record in fact-table form: every documented fact carries the method
+lesson it contributed, and the era, the personalities, and the
+mythology stay out. The method itself lives in
+references/binary-brain.md and references/hunt-playbook.md; the
+executable protocol is references/method-upgrade.md §1 (M0–M5).
 
-## The event
+## Case facts → method lessons
 
-On **December 25, 1994**, Tsutomu Shimomura — a computational physicist
-at the San Diego Supercomputer Center — discovered that someone had
-broken into his personal machines, kept at his beach cottage near San
-Diego. The intrusion used **IP source-address spoofing combined with
-TCP sequence-number prediction**: the attacker posed as a trusted host
-and abused rsh/rlogin trust without ever seeing the replies. The
-technique was not new — Robert Morris had described it in 1985 and
-Steven Bellovin in 1989 — but it had mostly lived on paper until then.
-Among the files taken was cellular-telephone security software; later
-reporting put its value at up to one million dollars. The intruder
-reportedly also left taunting messages on Shimomura's answering
-machine.
-
-## The man
-
-The counterparty was not a generic incident responder. Shimomura had
-studied at Caltech under Richard Feynman, worked on lattice-gas
-computation at Los Alamos, joined SDSC in 1989, and had testified
-before the U.S. Congress in **1992 on vulnerabilities in cellular
-phone systems** — years before the same substrate became his hunting
-ground. He is the son of Osamu Shimomura, who received the 2008 Nobel
-Prize in Chemistry for green fluorescent protein. The hunt worked
-because the defender understood the physics underneath the adversary's
-tools: sequence-number mathematics, telephone switching, radio.
-
-## The hunt
-
-Contemporary reporting and the book account (*Takedown*, 1996, with
-journalist John Markoff) describe the shape:
-
-* The compromised machines were **studied, not scrubbed** — packet
-  captures preserved, the intrusion reconstructed from records.
-* The trail ran through intermediate systems and telephone networks;
-  the intruder had touched systems in **San Diego, Seattle, and
-  Colorado**, and monitoring let investigators watch him "commandeer
-  telephone company switching centers" while using cellular phones for
-  access.
-* The decisive phase paired **carrier-side records** (the telephone
-  network's own accounting of where the calls were) with
-  **radio-frequency measurement** on the ground — triangulating the
-  handset's signal from the street. Retellings popularized the phrase
-  "reverse double triangulation" for this two-channel fix. On
-  **Saturday, February 11, 1995**, Shimomura concluded the intruder
-  was Kevin Mitnick and that he was in Raleigh, North Carolina.
-* On **February 15, 1995, at about 1:30 in the morning**, the FBI
-  arrested Mitnick at his Raleigh apartment. The physicist had handed
-  them the location; the door was theirs to knock on.
-
-## The aftermath
-
-Mitnick — by then the FBI's most wanted computer outlaw — was indicted
-on multiple counts of computer and wire fraud and, after a 1996 plea
-agreement, ultimately served nearly five years in prison. He later
-worked as a security consultant and author until his death in July
-2023. The telling itself stayed contested: Mitnick's supporters
-disputed both the narrative and even the authorship of the attack
-itself; Jonathan Littman's *The Fugitive Game* (1996) is the rival
-account. The discipline in this skill takes no side in that argument —
-it keeps the method, which is documented, not the mythology.
+| Date | Documented fact (sourced) | Method lesson kept |
+| ---- | ------------------------- | ------------------ |
+| 1994-12-25 | Intrusion into Shimomura's personal machines discovered; technique = IP source-address spoofing + TCP sequence-number prediction, abusing rsh/rlogin trust without seeing the replies | the trust decision, not the memory, is the seam — hunt the trust edge (P1/P2) |
+| prior art | The technique was described by Robert Morris (1985) and Steven Bellovin (1989) but had mostly lived on paper until then | the spec-vs-population gap: a paper mitigation is not a deployed defense — audit the population |
+| 1994-12-25 | Among the files taken: cellular-telephone security software (later reporting put its value at up to one million dollars); taunting messages left on the answering machine | tempting unreadable assets are instrumentation, not just loss — file canaries with unique tokens (M0) |
+| 1992 | Shimomura had testified before the U.S. Congress on cellular-phone vulnerabilities — years before the same substrate became his hunting ground | domain depth under the adversary's tools beats generic incident response |
+| 1995 (weeks after) | The compromised machines were studied, not scrubbed — packet captures preserved, the intrusion reconstructed from records | capture before change (P0) — volatile state first, analysis second |
+| 1995 (weeks after) | The trail ran through intermediate systems and telephone networks; the intruder touched systems in San Diego, Seattle, and Colorado, and monitoring watched telephone switching centers being commandeered | multi-channel evidence with per-channel provenance (P3) — a channel that lands in the ledger is a channel that exists |
+| 1995-02-11 | The decisive phase paired carrier-side records (the telephone network's own accounting) with radio-frequency measurement on the ground — the "reverse double triangulation" | two independent channels to fix a claim; single-channel conclusions are LEADs, never findings (Rule T) |
+| 1995-02-15 ~01:30 | The FBI arrested Mitnick at his Raleigh apartment; the physicist had handed them the location | the handoff pack is the ending (P6) — person-level action is the consumer's lane, not the tracker's |
+| 1996-04 | Plea agreement; nearly five years served; later a security consultant and author until his death in July 2023 | nothing — era, not method; kept here only to close the record |
+| contested | Mitnick's supporters disputed both the narrative and even the authorship of the attack (Jonathan Littman, *The Fugitive Game*, 1996) | single-story epistemology fails: pre-registered falsifiers, n_runs floors, and append-only records (W6 → U6) |
 
 ## What the skill keeps, and what it leaves
 

@@ -1,6 +1,6 @@
 ---
 name: mobile-hunter
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -37,7 +37,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0 scope gate, ledger, differential triad); js-recon (client-code reading discipline); auth-boundary-mapper (the API-boundary differentials)
 ---
 
-# mobile-hunter v1.1.0 — The Binary Is a Confession
+# mobile-hunter v1.1.1 — The Binary Is a Confession
 
 ## 0. What This Skill Is — and Is Not
 

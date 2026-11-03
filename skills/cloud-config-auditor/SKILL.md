@@ -1,6 +1,6 @@
 ---
 name: cloud-config-auditor
-version: 2.2.0
+version: 2.2.1
 type: ai-skill
 architecture: package
 description: >-
@@ -9,7 +9,7 @@ description: >-
   on object storage (bounded to one listing page), dangling-DNS takeover
   verification, and header/hygiene facts, plus checks-as-code discipline:
   stable check IDs with versions, CIS benchmark citation for severity words,
-  drift re-verification in theSince v2.2.0 the organ carries the executable
+  drift re-verification. Since v2.2.0 the organ carries the executable
   method layer (A16) — a mechanical critique of the checks-as-code practice's
   floors (checks run as received with their logic trusted like a compiler,
   benchmark mappings cited as authority and never re-derived, severity as
@@ -31,7 +31,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# cloud-config-auditor v2.2.0 — Misconfiguration Is A Differential Too
+# cloud-config-auditor v2.2.1 — Misconfiguration Is A Differential Too
 
 ## 0. What This Skill Is — and Is Not
 
@@ -108,7 +108,7 @@ left behind by an infrastructure migration nobody re-audited. W2:
 the bounded proof reads ONE page of keys and stops; a full bucket
 dump is looting, not evidence.
 
-## 2.5 The Method Layer — Critique, Upgrade (A16)
+## 2.6 The Method Layer — Critique, Upgrade (A16)
 
 A lineage named is not expertise delivered. `references/method-upgrade.md`
 grades the published posture practice where it was mechanically weak —

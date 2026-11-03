@@ -1,6 +1,6 @@
 ---
 name: glm-self-model
-version: 1.1.0
+version: 1.1.1
 type: ai-skill
 architecture: package
 description: >-
@@ -30,7 +30,7 @@ metadata:
   author: tatopfara67-ops
 ---
 
-# glm-self-model v1.1.0 — The Engine's Own Manual
+# glm-self-model v1.1.1 — The Engine's Own Manual
 
 ## 0. What This Skill Is — and What It Refuses to Be
 

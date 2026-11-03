@@ -1,36 +1,13 @@
-# The method upgrade — critiquing the scan-first tradition, shipping the executable oracle hunt
+# The executable method — M1–M5 for injection-lab
 
-The charter's A16 charge: **a lineage named is not expertise delivered.**
-injection-lab carries no single master's name — its "lineage" is the
-industry default it was built against: the sqlmap-era payload-spray
-tradition and the checklist habit of running a battery before knowing
-what oracle, if any, the sink even exposes. A16 still applies: the
-tradition has documented floors, they get critiqued mechanically, and
-the replacement ships as executable protocol. An agent that has never
-launched sqlmap must run this at a better precision than sqlmap.
+This file is the organ's executable method: numbered phases,
+exact record formats, thresholds, decision gates, and falsifiers,
+in run order. An agent that has never heard of any name in the
+appendix runs this at full precision. The lineage critique that
+justifies each step (why these phases exist, what was weak in
+the sqlmap-era tradition) is preserved verbatim as the §4–§5 appendix.
 
-## 1. The critique — five mechanical weaknesses of the scan-first tradition
-
-| # | What the tradition shows (documented) | Why it is weak as a shipped method |
-| - | -------------------------------------- | --------------------------------- |
-| W1 | Battery-first — fire the payload list, then look at what came back | Oracle classification comes AFTER the noise: the target's error/boolean/time/out-of-band channels are knowable quietly first; spraying burns budget, trips WAFs, and closes sinks that a quieter probe would have kept open |
-| W2 | Boolean-blind confirmed by ONE true/false pair, read by eyes | One page-length difference is jitter until proven otherwise: no n_runs, no alternation, no bucket statistics — the tradition's false-positive engine |
-| W3 | Time-based oracles without a jitter baseline — `SLEEP(5)` once, delta seen, "confirmed" | A loaded shared host delays everything seconds; the tradition never measures the target's idle IQR first, so its slowest oracle is also its noisiest false source |
-| W4 | Error signatures matched from memory or stale regex lists | Signature drift: backend version families change error grammar; unpinned signatures produce both misses and false families. Signatures are data (versioned corpus), not lore |
-| W5 | Extraction habits without a budget — dump-the-table reflex at scanner rates | The extraction phase is where the DoS and the WAF trip actually happen; a method without explicit row/request caps and resume points is a liability wearing a badge |
-
-## 2. The upgrades — and where they land
-
-| # | The should-have-been | Shipped as |
-| - | -------------------- | ---------- |
-| U1 | Oracle channel classified FIRST, quietly, before any payload battery | **M1** — the oracle census |
-| U2 | Boolean claims as alternation statistics | **M2** — the parity differential |
-| U3 | Time claims above a measured jitter floor | **M3** — the jitter-gated timing oracle |
-| U4 | Signatures as versioned data with sources | `references/corpus.json` (INJ-001…010) + `references/oracles.md` — consumed, never re-typed |
-| U5 | Extraction as a budgeted, resumable job | **M4** — the extraction budget table |
-| U6 | Out-of-band callbacks under canary doctrine | **M5** — the operator-owned collector rule |
-
-## 3. The executable protocol — M1 through M5
+## 1. The executable protocol — M1 through M5
 
 ### M1 — the oracle census (before any payload exists)
 
@@ -114,7 +91,7 @@ resumable precisely because the ledger has the row cursor.
    ssrf-playbook ladder is the cross-reference. "We got DNS" is
    never "we have SQLi impact" in any report this organ signs.
 
-## 4. Falsifiers — what would prove this method wrong
+## 2. Falsifiers — what would prove this method wrong
 
 * The reversed-parity pass flips the buckets → order effect, not a
   boolean oracle: M2's confirm rule kills the claim; re-design the
@@ -129,7 +106,7 @@ resumable precisely because the ledger has the row cursor.
   BOTH aborts with timestamps; the operator decides whether the
   target is defending or dying.
 
-## 5. Worked micro-example (numbers consistent, incident fictional)
+## 3. Worked micro-example (numbers consistent, incident fictional)
 
 Parameter `?item=` on a product endpoint. M1 census: error channel
 YES (signature class matches corpus INJ-004 entry, backend family
@@ -144,3 +121,38 @@ requests, parity arithmetic shown), then 40 rows × ceil(log2 62) ≈ 6
 req/char-column, house rate floor, resume ledger id attached. Ceiling:
 data extraction demonstrated under operator scope; impact beyond the
 queried table NOT claimed.
+
+*The appendix preserves the original framing text: what the
+named lineage practiced, what was weak, and what this organ
+ships instead. It is context for humans; the agent's run order
+is §1–§3 above.*
+
+The charter's A16 charge: **a lineage named is not expertise delivered.**
+injection-lab carries no single master's name — its "lineage" is the
+industry default it was built against: the sqlmap-era payload-spray
+tradition and the checklist habit of running a battery before knowing
+what oracle, if any, the sink even exposes. A16 still applies: the
+tradition has documented floors, they get critiqued mechanically, and
+the replacement ships as executable protocol. An agent that has never
+launched sqlmap must run this at a better precision than sqlmap.
+
+## 4. Appendix — the lineage critique — five mechanical weaknesses of the scan-first tradition (context, not steps)
+
+| # | What the tradition shows (documented) | Why it is weak as a shipped method |
+| - | -------------------------------------- | --------------------------------- |
+| W1 | Battery-first — fire the payload list, then look at what came back | Oracle classification comes AFTER the noise: the target's error/boolean/time/out-of-band channels are knowable quietly first; spraying burns budget, trips WAFs, and closes sinks that a quieter probe would have kept open |
+| W2 | Boolean-blind confirmed by ONE true/false pair, read by eyes | One page-length difference is jitter until proven otherwise: no n_runs, no alternation, no bucket statistics — the tradition's false-positive engine |
+| W3 | Time-based oracles without a jitter baseline — `SLEEP(5)` once, delta seen, "confirmed" | A loaded shared host delays everything seconds; the tradition never measures the target's idle IQR first, so its slowest oracle is also its noisiest false source |
+| W4 | Error signatures matched from memory or stale regex lists | Signature drift: backend version families change error grammar; unpinned signatures produce both misses and false families. Signatures are data (versioned corpus), not lore |
+| W5 | Extraction habits without a budget — dump-the-table reflex at scanner rates | The extraction phase is where the DoS and the WAF trip actually happen; a method without explicit row/request caps and resume points is a liability wearing a badge |
+
+## 5. Appendix — the upgrades table — and where they land (context, not steps)
+
+| # | The should-have-been | Shipped as |
+| - | -------------------- | ---------- |
+| U1 | Oracle channel classified FIRST, quietly, before any payload battery | **M1** — the oracle census |
+| U2 | Boolean claims as alternation statistics | **M2** — the parity differential |
+| U3 | Time claims above a measured jitter floor | **M3** — the jitter-gated timing oracle |
+| U4 | Signatures as versioned data with sources | `references/corpus.json` (INJ-001…010) + `references/oracles.md` — consumed, never re-typed |
+| U5 | Extraction as a budgeted, resumable job | **M4** — the extraction budget table |
+| U6 | Out-of-band callbacks under canary doctrine | **M5** — the operator-owned collector rule |

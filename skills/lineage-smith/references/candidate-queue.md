@@ -8,18 +8,18 @@ lineage registry is the only record of assimilation, and a queue
 entry is a nomination with homework attached, not a distillation.
 Scores are the M1 gate's five axes (0–2 each); they are re-scored at
 every screening, and entries retire with their reasons kept. The
-queue's first three end-to-end executions retired Q1 into the shipped
+queue's first four end-to-end executions retired Q1 into the shipped
 organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage), Q2 into
 the shipped organ interior-cartographer (v1.0.0, the James Forshaw
-lineage), and Q5 into the shipped organ harness-smith (v1.0.0, the
-Tavis Ormandy lineage) — the retirement records below are the template
-every future retirement follows.
+lineage), Q5 into the shipped organ harness-smith (v1.0.0, the
+Tavis Ormandy lineage), and Q3 into the shipped organ probe-smith
+(v1.0.0, the Travis Goodspeed lineage) — the retirement records
+below are the template every future retirement follows.
 
 ## The running table
 
 | # | Candidate | Score | Forge target | The honest gate |
 | - | --------- | ----- | ------------ | --------------- |
-| Q3 | Travis Goodspeed | 8 | hardware-teardown organ (tier 6) | scattered talk/blog corpus consolidated first |
 | Q4 | the grugq | 7 | opsec-discipline organ (tier 5) | talk-heavy corpus; explicitness must survive the reading |
 | Q6 | Jason Haddix | 7 | spine onboarding upgrade (tier 5) | deck versions pinned; curation separated from method |
 | Q7 | Sean Metcalf | 8 | trust-graph-hunter upgrade (tier 6) | overlap resolved as upgrade; blog corpus read end to end |
@@ -107,19 +107,53 @@ quarantined-anecdote correction. Retirement keeps this record: a
 third queue slot converted to a shipped organ is the queue doing its
 job three times.
 
-## Q3 — Travis Goodspeed (score 8/10)
+## Q3 — Travis Goodspeed — RETIRED, assimilated as probe-smith
 
-* **Public corpus (documented)**: his public blog on embedded and
-  radio hacking; conference talks on router, RF, and firmware work;
-  documented hardware exploitation techniques.
-* **The pattern worth extracting**: hardware-first teardown — the
-  physically probeable interface is ground truth the datasheet
-  marketing cannot spin; cheap rigs and patient method over
-  expensive labs (documented across his tool-building writeups).
-* **Forge target**: a hardware-teardown organ — the physical sibling
-  of deep-teardown.
-* **The gate**: the corpus is scattered across years and venues; the
-  census consolidates it before any psych-read line lands.
+**Score at retirement: 8/10. Reason: executed end-to-end.** The
+candidate passed P1 at the top of the table, and the queue's own
+gate — the scattered corpus consolidated FIRST — was honored: the
+consolidated talk record (infocondb, 2008–2023) gathered the
+twenty-five-plus talks across DEF CON, CCC, REcon, ShmooCon,
+ToorCon, HOPE, TROOPERS, Summercon, and Hacktivity before any
+psych-read line landed. The census was read with the honest bound
+stated: the method-bearing long-form artifacts read in full (the
+nRF24L01+ promiscuity post, 2011; the Facedancer USB emulation
+post, 2012; the GoodFET repo README; the hardwear.io trainer
+profile — packet-in-packet, the MYK82 Clipper dump, Facedancer,
+GoodWatch; the Microcontroller Exploits publisher synopsis, No
+Starch, September 2024, 408 pages; the 26C3 speaker record; the
+PoC||GTFO contents with his five essays attributed; the REcon 2023
+mask-ROM abstract; the 25C3 abstract record; the multi-sourced
+press record — Hackaday, Dangerous Prototypes, Hacktivity 2013),
+with the journal issues, the book's full text, the talk videos,
+and the tool source trees stated as BOUNDED, not line-read. The
+psych-read landed on documented behavior, with the
+hillbilly/junk-hacking persona admitted as his own stated
+aesthetic only and the podcast-era teaching framing quarantined.
+The organ shipped **born with both layers** — the A16 method layer
+(the W1–W5 critique: the interface instinct never stated as a
+census rule, the rig economics lived as an aesthetic, the
+lock-bypass escalation demonstrated per-target but never tabled as
+one priced ladder, the method scattered across fifteen years of
+venues, the thin-firmware/thick-Python architecture stated as
+commentary — and the M1–M6 executable protocol: the
+probeable-interface census with boundary rows, the rig decision
+with the junk-class option and the missing-instrument gate, port
+discovery with the datasheet-as-hypothesis discrepancy register,
+the lock-bypass ladder with success-rate arithmetic, the radio
+channel with promiscuity before injection, and extraction
+verification with the rig-reproducible report) and the A17
+operator runtime (operator-os.md: thinking rules, behavioral
+protocol, scripting arsenal, rigid run-order). The boundary was
+argued in the census: probe-smith ACQUIRES the artifact from
+silicon when the vendor refuses to hand it over; deep-teardown
+dissects the artifact once it exists; signal-smith forges
+application-layer variations while probe-smith opens the PHY
+layer. The organ lives at skills/probe-smith/; the registry entry
+carries the persona-as-aesthetic and synopsis-level-book
+corrections. Retirement keeps this record: a fourth queue slot
+converted to a shipped organ is the queue doing its job four
+times.
 
 ## Q4 — the grugq (score 7/10)
 

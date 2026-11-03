@@ -56,8 +56,8 @@ TIERS = {
                 "packet-orchestrator", "protocol-forensics",
                 "interior-cartographer", "harness-smith"],
     "6-legend": ["chain-architect", "desync-hunter", "deep-teardown",
-                 "ghost-crawler", "mirror-hunter", "signal-smith",
-                 "trust-graph-hunter"],
+                 "ghost-crawler", "mirror-hunter", "probe-smith",
+                 "signal-smith", "trust-graph-hunter"],
     "7-forge": ["lineage-smith", "rival-playbook"],
 }
 
@@ -667,6 +667,61 @@ LINEAGES = [
                       "primary artifact); the Zenbleed outsider-view "
                       "claim is admitted as his own stated aesthetic "
                       "only, not as method evidence",
+    },
+    {
+        "organ": "probe-smith",
+        "figure": "Travis Goodspeed (embedded systems reverse "
+                  "engineer, East Tennessee) — the MSP430 BSL "
+                  "timing-and-glitch attacks (25C3 2008); the GoodFET "
+                  "open bus adapter (DEF CON 17, 2009); the IM-ME "
+                  "flashing guide (2010); the nRF24L01+ promiscuity "
+                  "method (2011); packet-in-packet raw frame injection "
+                  "(ToorCon 13, 2011, with Sergey Bratus); the "
+                  "Facedancer USB emulation framework (REcon 2012); the "
+                  "MYK82 Clipper chip firmware dump; mask-ROM "
+                  "photographic extraction (REcon 2023); the book "
+                  "Microcontroller Exploits (No Starch Press, 2024)",
+        "distillation": "hardware-first teardown: the physically "
+                        "probeable interface is ground truth the "
+                        "datasheet marketing cannot spin — every vendor "
+                        "protection claim is a hypothesis priced against "
+                        "a lock-bypass ladder (default password, timing "
+                        "channel, voltage glitch with measured rates, "
+                        "unconventional erasure, decap as the floor); "
+                        "cheap rigs and patient method over expensive "
+                        "labs, with the rig budget stated and the "
+                        "junk-class option always priced; every bus "
+                        "exposed to userland Python (thin firmware on "
+                        "the rig, thick Python on the host — an "
+                        "unscriptable bus generates no records); the "
+                        "missing instrument built on a stated budget; "
+                        "radios opened by promiscuity (illegal register "
+                        "settings, preamble slack) before any injection; "
+                        "and the report that reproduces from a priced "
+                        "parts list",
+        "sources": "blog posts read in full (Promiscuity is the "
+                   "nRF24L01+'s Duty 2011; Emulating USB Devices with "
+                   "Python 2012); the GoodFET repo README; the "
+                   "hardwear.io trainer profile (packet-in-packet, the "
+                   "MYK82 Clipper dump, Facedancer, GoodWatch); the "
+                   "Microcontroller Exploits synopsis (No Starch, Sept "
+                   "2024, 408 pp); the consolidated talk record "
+                   "2008-2023 (infocondb); the 26C3 speaker record; the "
+                   "25C3 abstract record; the PoC||GTFO contents (his "
+                   "five essays); the REcon 2023 mask-ROM abstract; the "
+                   "multi-sourced press record (Hackaday, Dangerous "
+                   "Prototypes, Hacktivity 2013) — with the journal "
+                   "issues, the book's full text, the talk videos, and "
+                   "the tool source trees bounded, not line-read; "
+                   "skills/probe-smith/references/sources.md",
+        "correction": "the hillbilly/junk-hacking persona is "
+                      "admitted as his own stated aesthetic only (L3: "
+                      "the titles and the keynote are on record), never "
+                      "as method evidence; the podcast-era teaching "
+                      "framing stays quarantined pending a primary "
+                      "artifact — the documented teaching evidence is "
+                      "the trainer profile; the book's techniques enter "
+                      "the organ at synopsis level only, bounded",
     },
 ]
 

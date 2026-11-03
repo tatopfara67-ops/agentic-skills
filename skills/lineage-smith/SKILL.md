@@ -1,6 +1,6 @@
 ---
 name: lineage-smith
-version: 1.4.0
+version: 1.5.0
 type: ai-skill
 architecture: package
 description: >-
@@ -31,11 +31,11 @@ category: security/craft-forge
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 27 lineages on the registry under this doctrine, the first three candidate-queue executions landed protocol-forensics (the Dan Kaminsky lineage), interior-cartographer (the James Forshaw lineage), and harness-smith (the Tavis Ormandy lineage)
+  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 28 lineages on the registry under this doctrine, the first four candidate-queue executions landed protocol-forensics (the Dan Kaminsky lineage), interior-cartographer (the James Forshaw lineage), harness-smith (the Tavis Ormandy lineage), and probe-smith (the Travis Goodspeed lineage)
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# lineage-smith v1.4.0 — Read Everything, Ship the Method
+# lineage-smith v1.5.0 — Read Everything, Ship the Method
 
 ## 0. What This Skill Is — and Is Not
 
@@ -206,5 +206,5 @@ behavior, and behavior leaves artifacts.
 | Load when… | Module |
 | --- | --- |
 | Critiquing the folk way of studying famous figures; running the executable M1–M6 | references/method-upgrade.md |
-| Screening the next legends; the scored queue with five standing candidates (Q1, Q2, and Q5 executed — retired into protocol-forensics, interior-cartographer, and harness-smith) | references/candidate-queue.md |
+| Screening the next legends; the scored queue with four standing candidates (Q1, Q2, Q5, and Q3 executed — retired into protocol-forensics, interior-cartographer, harness-smith, and probe-smith) | references/candidate-queue.md |
 | Evidence classes per lens dimension; the OPINION quarantine; the assembly crosswalk | references/psychology-catalog.md |

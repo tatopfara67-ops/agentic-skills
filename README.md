@@ -1,10 +1,10 @@
 # Mythos Arsenal — Agentic Security Skills
 
-**39 drop-in skill bundles that turn an AI agent into a disciplined bug-bounty specialist** — for Claude Code, Z.ai, Cursor, and any MCP-driven operator. Built on one doctrine: **evidence-first, zero slop**. Every claim the agent makes must survive an audit; every hunt runs inside authorization gates.
+**41 drop-in skill bundles that turn an AI agent into a disciplined bug-bounty specialist** — for Claude Code, Z.ai, Cursor, and any MCP-driven operator. Built on one doctrine: **evidence-first, zero slop**. Every claim the agent makes must survive an audit; every hunt runs inside authorization gates.
 
 Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
-![bundles](https://img.shields.io/badge/skill_bundles-39-informational) ![tools](https://img.shields.io/badge/MCP_tools-27-informational) ![tests](https://img.shields.io/badge/tests-138_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
+![bundles](https://img.shields.io/badge/skill_bundles-41-informational) ![tools](https://img.shields.io/badge/MCP_tools-27-informational) ![tests](https://img.shields.io/badge/tests-141_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
 
 ---
 
@@ -16,7 +16,7 @@ Three panels, one system:
 
 | Panel | What it shows |
 |---|---|
-| **Stack anatomy** | charter → engine → spine → 33 organs (31 hunting + 2 forge) → the execution hand |
+| **Stack anatomy** | charter → engine → spine → 35 organs (33 hunting + 2 forge) → the execution hand |
 | **Session flow** | A13 doctrine escalation → R0 scope gate → the hunt loop F0–F4 → incident branch → report gates → instinct calibration |
 | **Always-on rails** | evidence, calibration, impact, economy, engine gates, mission horizon — plus the A14 three registers and the A15 war logic (Sun Tzu crosswalk, W1–W7) |
 
@@ -24,7 +24,7 @@ Regenerate after any organ change: `python3 scripts/render_architecture.py`
 
 ## What this is
 
-An **organ stack** for authorized pentest, bug bounty, and security research. Instead of one giant prompt, the expertise is split into 39 self-contained skills — each a narrow discipline with its own hard rules, loaded on demand. Four ideas hold it together:
+An **organ stack** for authorized pentest, bug bounty, and security research. Instead of one giant prompt, the expertise is split into 41 self-contained skills — each a narrow discipline with its own hard rules, loaded on demand. Four ideas hold it together:
 
 1. **The LLM is the least trusted component.** Every layer exists to catch the agent when it hallucinates: an append-only evidence ledger (no claim without a record), pre-registered hypotheses (declare what would falsify you *before* testing), differential oracles (baseline/treatment/control — static analysis proposes, the runtime disposes).
 2. **Expertise is stated in three registers (A14).** Every organ answers WHAT the bug class is, WHY it lives where it lives (the root cause), and HOW it is hunted (numbered procedure with oracles). A technique missing a register is not shipped.
@@ -35,10 +35,10 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.13.0 | The seventeen articles (A16 method over mythology, A17 behavior over biography), the tiered bundle map (tiers 0-7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.15.0 | The seventeen articles (A16 method over mythology, A17 behavior over biography), the tiered bundle map (tiers 0-7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.0.0 | The engine's own manual — model-class failure geometry and four compensation gates, written to the engine, not the operator. |
 | Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.5.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 19 reference modules + a PASS/FAIL report auditor. |
-| Organs | 33 organ skills (tiers 1–7 below: 31 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
+| Organs | 35 organ skills (tiers 1–7 below: 33 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
 | Execution hand | [arsenal/](arsenal/) | The FastMCP server: 27 scope-gated tools that execute everything above, plus the report auditor and self-owned labs. |
 
 ## Installation
@@ -146,7 +146,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | [interior-cartographer](skills/interior-cartographer/) | 1.1.0 | OS internal-surface cartography — the interior census with boundary rows, the access-model audit with a computed seam table and ACCESS_MASK budget, primitives composed across uncovered seams, findings mapped onto the vendor's own boundary taxonomy (James Forshaw lineage); the declined-seam residual-risk register and the post-fix census regression.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 | [harness-smith](skills/harness-smith/) | 1.0.0 | Fuzz-first attack-surface triage and oracle engineering — the privileged-parser census (privilege × deployment × input hostility), harness engineering with corpus distillation and the missing-tool gate, the oracle classification table (crash / state-diff / serialized), minimization to the simplest repro, the no-terms vendor protocol, and the mandatory missed-why postmortem (Tavis Ormandy lineage). |
 
-### Tier 6 — Legend Tier (7)
+### Tier 6 — Legend Tier (8)
 
 | Skill | Version | What it does |
 |---|---|---|
@@ -155,6 +155,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | [deep-teardown](skills/deep-teardown/) | 1.2.0 | Dismantle client artifacts to primitives — local dissection before any network flow (George Hotz lineage); the gated ladder and symbol-trust table.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 | [ghost-crawler](skills/ghost-crawler/) | 1.2.0 | Passive-index misconfig hunting — one bounded probe per candidate (Adrian Lamo lineage); the index protocol and trace ledger.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 | [mirror-hunter](skills/mirror-hunter/) | 1.2.0 | Hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter (Simon Willison lineage); the craft differential and guard evaluation.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [probe-smith](skills/probe-smith/) | 1.0.0 | Hardware-first teardown — the probeable-interface census (access × yield × rig economy), the rig decision with the junk-class option and the missing-instrument budget, pinout discovery with the datasheet as hypothesis, the priced lock-bypass ladder (default password → timing → glitch → erasure → decap), the radio promiscuity method, and the rig-reproducible report with its priced parts list (Travis Goodspeed lineage); born with the operator runtime layer (A17) — thinking rules, behavior, scripting as craft. |
 | [signal-smith](skills/signal-smith/) | 1.2.0 | Input grammar and precision signals — one minimal variation per seam, never trip the alarm (John Draper lineage); the calibration table and blind in-band differential.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 | [trust-graph-hunter](skills/trust-graph-hunter/) | 1.2.0 | The trust graph between components — inherited privilege proven on operator-owned ends (Kevin Mitnick lineage); the edge protocol and context differential.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 
@@ -162,7 +163,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [lineage-smith](skills/lineage-smith/) | 1.3.0 | The legend-assimilation factory — the operator's doctrine as an organ: scored selection, complete-corpus census, the five-lens psych-read on documented behavior (with evidence classes and the OPINION quarantine), forge under the authoring contract, method layer born in; the candidate queue's first two executions landed the Dan Kaminsky lineage (protocol-forensics) and the James Forshaw lineage (interior-cartographer), six standing candidates remain. |
+| [lineage-smith](skills/lineage-smith/) | 1.5.0 | The legend-assimilation factory — the operator's doctrine as an organ: scored selection, complete-corpus census, the five-lens psych-read on documented behavior (with evidence classes and the OPINION quarantine), forge under the authoring contract, method layer born in; the candidate queue's first four executions landed the Dan Kaminsky lineage (protocol-forensics), the James Forshaw lineage (interior-cartographer), the Tavis Ormandy lineage (harness-smith), and the Travis Goodspeed lineage (probe-smith), four standing candidates remain. |
 | [rival-playbook](skills/rival-playbook/) | 1.1.0 | Corpus-vs-corpus competition — the date-pinned rival census (知彼知己), the hollow map (避实击虚), pressure-principle concentration (压强), proving-ground duel with capped wording (不战而屈人之兵); the season layer ships the Tian Ji allocation table (田忌赛马) and the protracted/quick-decisive tempo doctrine (持久战 vs 速决战); the deception stratagem family is banned, the translated middle class is on record. |
 
 ### Prompts
@@ -176,8 +177,8 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 The repo refuses to ship on vibes. Run all three before trusting a checkout:
 
 ```bash
-python3 scripts/validate_skill.py --all         # 40 bundles PASS
-python3 -m unittest discover -s arsenal/tests   # 140 tests OK
+python3 scripts/validate_skill.py --all         # 41 bundles PASS
+python3 -m unittest discover -s arsenal/tests   # 141 tests OK
 python3 arsenal/server.py --selftest            # 27 tools, import OK
 ```
 

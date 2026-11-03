@@ -1,6 +1,6 @@
 ---
 name: template-scanner
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# template-scanner v1.1.1 — The ProjectDiscovery Lineage
+# template-scanner v1.2.0 — The ProjectDiscovery Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -100,6 +100,21 @@ changed pin = new run, never merged), **M4** the noise table (TLS/banner
 the hit record (request bytes + response class + matcher summary + version
 pin confidence class + next route).
 
+## 2.6 The Operator Layer (A17) — the ProjectDiscovery runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of ProjectDiscovery.
+
 ## 3. Procedure — Numbered Actions
 
 1. When a check is worth running twice, template it: write the data
@@ -152,3 +167,4 @@ pin confidence class + next route).
 | Running template campaigns | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
 | Grading the published practice, auditing matchers, re-rating severity | references/method-upgrade.md |
+| Running the hunt — the ProjectDiscovery runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

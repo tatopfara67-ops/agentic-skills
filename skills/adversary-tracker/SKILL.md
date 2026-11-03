@@ -1,6 +1,6 @@
 ---
 name: adversary-tracker
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# adversary-tracker v1.1.1 — The Binary Brain
+# adversary-tracker v1.2.0 — The Binary Brain
 
 ## 0. What This Skill Is — and Is Not
 
@@ -124,6 +124,21 @@ Every M-step names its ledger record type and its falsifier; the
 worked micro-example at the module's end shows the whole chain in
 numbers. Run P0–P6 for the loop; run M0–M5 for the mechanics.
 
+## 3.6 The Operator Layer (A17) — the Tsutomu Shimomura runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of Tsutomu Shimomura.
+
 ## 4. Procedure — Numbered Actions
 
 1. Entry: AUTH record + the trigger event as a FACT record with
@@ -180,5 +195,6 @@ numbers. Run P0–P6 for the loop; run M0–M5 for the mechanics.
 | Formalizing registers, states, halving math | `references/binary-brain.md` |
 | Running P0–P6, designing tests and channels | `references/hunt-playbook.md` |
 | Grading the 1994–95 method, running M0–M5 mechanics (tripwire, fingerprint, localization, deception) | `references/method-upgrade.md` |
+| Running the hunt — the Tsutomu Shimomura runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Writing the audited handoff pack | `references/evidence-templates.md` |
 | Grounding the discipline in the 1994–95 case | `references/history-1995.md` |

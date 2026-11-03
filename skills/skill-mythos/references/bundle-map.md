@@ -4,6 +4,13 @@ Load when you need the complete map: what exists, where it lives, and
 the load-when trigger for every organ. The charter (`mythos_charter()`)
 carries the distilled version; this module is the atlas.
 
+Since charter v1.13.0 (A17 — behavior over biography), every
+person-lineage organ also ships `references/operator-os.md` — the
+figure's documented psychology as the agent's runtime: thinking rules,
+situation-to-action behavior with refusals, the scripting arsenal as
+exact commands, and the rigid run-order. Load it when the hunt runs,
+not when it is planned.
+
 ## 1. Architecture — spine + organs + execution hand
 
 ```

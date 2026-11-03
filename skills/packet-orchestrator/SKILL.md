@@ -1,6 +1,6 @@
 ---
 name: packet-orchestrator
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -36,7 +36,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# packet-orchestrator v1.1.1 — The Searle + Mantis Lineage
+# packet-orchestrator v1.2.0 — The Searle + Mantis Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -115,6 +115,21 @@ reproduces ≥ 2/3 with a compliant control in-window), **M5** the
 orchestrator record (gates, sends, pcaps, verdicts, resume cursor — the
 record IS the method).
 
+## 2.6 The Operator Layer (A17) — the Justin Searle + the Scapy lineage runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of Justin Searle + the Scapy lineage.
+
 ## 3. Procedure — Numbered Actions
 
 1. Walk the logic manually; record every request/response pair and
@@ -168,3 +183,4 @@ record IS the method).
 | Orchestrating workflows with state | references/playbook.md |
 | Lineage verification, incl. the Mantis attribution correction | references/sources.md |
 | Grading the source lineages, translating intent, holding the gates | references/method-upgrade.md |
+| Running the hunt — the Justin Searle + the Scapy lineage runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

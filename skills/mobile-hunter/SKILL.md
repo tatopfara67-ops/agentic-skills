@@ -1,6 +1,6 @@
 ---
 name: mobile-hunter
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -37,7 +37,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0 scope gate, ledger, differential triad); js-recon (client-code reading discipline); auth-boundary-mapper (the API-boundary differentials)
 ---
 
-# mobile-hunter v1.1.1 — The Binary Is a Confession
+# mobile-hunter v1.2.0 — The Binary Is a Confession
 
 ## 0. What This Skill Is — and Is Not
 
@@ -174,6 +174,21 @@ operator-owned marker end-state), **M5** the fleet-gap statement
 (proven on the tested set; the fleet is arithmetic with sources,
 never rounded up).
 
+## 3.6 The Operator Layer (A17) — the Charlie Miller runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of Charlie Miller.
+
 ## 4. Procedure — Numbered Actions
 
 1. **Scope the artifact.** R0 gate first: is the app in the program's
@@ -255,3 +270,4 @@ never rounded up).
 | Expanding any rung of §3/§4 into exact steps, oracles, falsifiers | `references/mobile-method.md` |
 | Verifying the Miller/Mulliner lineage and its sources | `references/sources.md` |
 | Grading the published method, running harness budgets, triaging crashes, claiming reliability | `references/method-upgrade.md` |
+| Running the hunt — the Charlie Miller runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

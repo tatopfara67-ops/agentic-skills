@@ -3,7 +3,7 @@
 This file is the organ's executable method: numbered phases,
 exact record formats, thresholds, decision gates, and falsifiers,
 in run order. An agent that has never heard of any name in the
-appendix runs this at full precision. The lineage critique that
+appendix runs this at full precision. The critique that
 justifies each step (why these phases exist, what was weak in
 Kaminsky's published DNS work) is preserved verbatim as the §4–§5 appendix.
 

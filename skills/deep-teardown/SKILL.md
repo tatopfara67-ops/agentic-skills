@@ -1,6 +1,6 @@
 ---
 name: deep-teardown
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; artifacts acquired within program scope (store-published app, public bundle, in-scope download)
 ---
 
-# deep-teardown v1.1.1 — Dismantle To Primitives
+# deep-teardown v1.2.0 — Dismantle To Primitives
 
 ## 0. What This Skill Is — and Is Not
 
@@ -114,6 +114,21 @@ mismatch corrects the map — the teardown's own error becomes data), **M5**
 the budget + coverage row ("nothing else found" valid only at 100%
 coverage, else bounded to the examined set).
 
+## 3.6 The Operator Layer (A17) — the George Hotz runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of George Hotz.
+
 ## 4. Procedure — Numbered Actions
 
 1. Acquire the artifact inside scope: public store APK (in-scope
@@ -183,3 +198,4 @@ coverage, else bounded to the examined set).
 | Choosing the teardown path per artifact type | `references/teardown-ladder.md` |
 | Verifying the Hotz lineage and sources | `references/sources.md` |
 | Grading the published form, pinning artifacts, grading symbols, bounding coverage | `references/method-upgrade.md` |
+| Running the hunt — the George Hotz runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

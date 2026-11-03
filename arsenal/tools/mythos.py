@@ -8,7 +8,7 @@ Bugcrowd VRT category with P-rating, HackerOne severity crosswalk) — and an
 operator instruction, however terse, becomes an explicit doctrine order
 before any organ acts.
 
-  mythos_charter()      the activation payload: sixteen articles, the
+  mythos_charter()      the activation payload: seventeen articles, the
                         bundle map with install status, the quality gates
   doctrine_forge(...)   prompt escalation (A13): any operator request,
                         in any language, expanded deterministically into
@@ -36,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.10.0"
+MODULE_VERSION = "1.13.0"
 
 SPINE = "mythos-bug-hunter"
 
@@ -694,6 +694,23 @@ ARTICLES = [
     "the lineage executes at expert precision; attribution is a "
     "license to critique, never a ceiling (pattern modules: "
     "adversary-tracker and desync-hunter references/method-upgrade.md).",
+    "A17 behavior over biography — a figure's story is not a skill: "
+    "every organ forged from a named person ships "
+    "references/operator-os.md, the figure's documented psychology as "
+    "the agent's RUNTIME — (a) the thinking framework: numbered "
+    "if-then decision rules, each citing the documented behavior it "
+    "distills; (b) the behavioral protocol: situation-to-action tables "
+    "with refusals, pacing, and failure reactions — how the agent acts "
+    "and behaves while hunting; (c) the scripting arsenal: the "
+    "lineage's techniques as exact tool-agnostic commands and "
+    "micro-scripts, each with its expected read-out and decision gate; "
+    "and (d) the rigid run-order: the step-by-step frame binding rules, "
+    "behavior, and scripts onto the A16 method protocol — so the agent "
+    "does not merely know the lineage's method, it behaves like the "
+    "lineage while running it; the forge organs carry their "
+    "equivalents (psychology-catalog, campaign-protocol, "
+    "failure-geometry) and the layer is locked by "
+    "test_operator_os_is_universal.",
 ]
 
 QUALITY_GATES = [
@@ -785,7 +802,7 @@ def _installed_skills() -> list[str]:
 def mythos_charter() -> dict:
     """The Skill Mythos activation payload, in one call.
 
-    Returns the sixteen charter articles, the bundle map with per-skill
+    Returns the seventeen charter articles, the bundle map with per-skill
     install status, the quality gates every report must pass, and the
     reporting-stage tool routing. Call this at session start (or whenever
     the operator says 'activate Skill Mythos') before list_skills."""

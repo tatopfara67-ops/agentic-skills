@@ -35,7 +35,7 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.12.0 | The sixteen articles, the tiered bundle map (tiers 0-7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.13.0 | The seventeen articles (A16 method over mythology, A17 behavior over biography), the tiered bundle map (tiers 0-7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.0.0 | The engine's own manual — model-class failure geometry and four compensation gates, written to the engine, not the operator. |
 | Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.5.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 19 reference modules + a PASS/FAIL report auditor. |
 | Organs | 33 organ skills (tiers 1–7 below: 31 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
@@ -89,7 +89,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [skill-mythos](skills/skill-mythos/) | 1.6.0 | Master charter — fifteen articles (A13 escalation, A14 WWH registers, A15 war logic), bundle map, autonomy + execution + war doctrines, quality gates. |
+| [skill-mythos](skills/skill-mythos/) | 1.13.0 | Master charter — seventeen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography), bundle map, autonomy + execution + war doctrines, quality gates. |
 | [glm-self-model](skills/glm-self-model/) | 1.1.0 | The engine layer — five truths, failure geometry E1–E8, compensation gates G1–G4; the engine grades its own manual (M1–M5). |
 | [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.5.0 | The spine — R0–R7 canon, ledger, hypothesis grammar, closure gates, mission horizon. |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit — static analysis proposes, the runtime disposes. Calibrated by rediscovering CVE-2024-33663/33664. |
@@ -101,8 +101,8 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | Skill | Version | What it does |
 |---|---|---|
 | [surface-cartographer](skills/surface-cartographer/) | 1.0.0 | The attack-surface dossier — asset graph, 21-class taxonomy, priority queue. |
-| [subdomain-hunter](skills/subdomain-hunter/) | 2.1.0 | Passive-first enumeration, wildcard verdicts, takeover signatures (EdOverflow lineage); the dangling differential. |
-| [content-discovery](skills/content-discovery/) | 2.1.0 | Calibrated content walks, 404-baseline controls, backup/config triage (Miessler lineage); the yield ledger with a marginal gate. |
+| [subdomain-hunter](skills/subdomain-hunter/) | 2.2.0 | Passive-first enumeration, wildcard verdicts, takeover signatures (EdOverflow lineage); the dangling differential.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [content-discovery](skills/content-discovery/) | 2.2.0 | Calibrated content walks, 404-baseline controls, backup/config triage (Miessler lineage); the yield ledger with a marginal gate.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 | [js-recon](skills/js-recon/) | 1.0.0 | JS bundle analysis — endpoints, commented routes, sourcemaps, masked secrets. |
 | [api-surface-mapper](skills/api-surface-mapper/) | 1.0.0 | API spec discovery, version diffs, undocumented endpoints. |
 
@@ -110,9 +110,9 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [auth-boundary-mapper](skills/auth-boundary-mapper/) | 2.2.0 | Role×resource matrix, IDOR/BOLA differentials (Frans Rosen lineage: identifier construction, 2nd-order IDOR); the identifier census. |
-| [oauth-flow-auditor](skills/oauth-flow-auditor/) | 2.2.0 | OAuth/OIDC checks with falsifiers (Aaron Parecki lineage, RFC 9700 vocabulary); the exactness and state differentials. |
-| [business-logic-hunter](skills/business-logic-hunter/) | 2.2.0 | Workflow abuse, races with rate floors, parameter tampering (Soroush Dalili reshaping lineage); the rule-class bypass matrix. |
+| [auth-boundary-mapper](skills/auth-boundary-mapper/) | 2.3.0 | Role×resource matrix, IDOR/BOLA differentials (Frans Rosen lineage: identifier construction, 2nd-order IDOR); the identifier census.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [oauth-flow-auditor](skills/oauth-flow-auditor/) | 2.3.0 | OAuth/OIDC checks with falsifiers (Aaron Parecki lineage, RFC 9700 vocabulary); the exactness and state differentials.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [business-logic-hunter](skills/business-logic-hunter/) | 2.3.0 | Workflow abuse, races with rate floors, parameter tampering (Soroush Dalili reshaping lineage); the rule-class bypass matrix.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 
 ### Tier 3 — Deep Technical (7)
 
@@ -120,42 +120,42 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 |---|---|---|
 | [injection-lab](skills/injection-lab/) | 1.3.0 | Injection differential oracles — sqlmap runs as oracle only (`--batch` mandatory); oracle census before any battery. |
 | [ssrf-playbook](skills/ssrf-playbook/) | 1.3.0 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder. |
-| [xss-playbook](skills/xss-playbook/) | 2.3.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage); the mutation differential. |
-| [cloud-config-auditor](skills/cloud-config-auditor/) | 2.2.0 | CORS matrix, anonymous storage, takeover checks — checks-as-code (Prowler/de la Fuente lineage); the delta protocol with regression rows. |
-| [mobile-hunter](skills/mobile-hunter/) | 1.1.0 | Mobile teardown — the shipped APK/IPA is a confession read before the device is touched (Charlie Miller lineage); coverage-gated harnesses. |
-| [cache-playbook](skills/cache-playbook/) | 1.2.0 | Web cache deception & poisoning — the cache as a second silent parser (Omer Gil + Kettle corpus); the cache-key baseline matrix. |
-| [prototype-playbook](skills/prototype-playbook/) | 1.2.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage); the merge-surface inventory. |
+| [xss-playbook](skills/xss-playbook/) | 2.4.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage); the mutation differential.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [cloud-config-auditor](skills/cloud-config-auditor/) | 2.3.0 | CORS matrix, anonymous storage, takeover checks — checks-as-code (Prowler/de la Fuente lineage); the delta protocol with regression rows.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [mobile-hunter](skills/mobile-hunter/) | 1.2.0 | Mobile teardown — the shipped APK/IPA is a confession read before the device is touched (Charlie Miller lineage); coverage-gated harnesses.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [cache-playbook](skills/cache-playbook/) | 1.3.0 | Web cache deception & poisoning — the cache as a second silent parser (Omer Gil + Kettle corpus); the cache-key baseline matrix.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [prototype-playbook](skills/prototype-playbook/) | 1.3.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage); the merge-surface inventory.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 
 ### Tier 4 — Incident Branch (1)
 
 | Skill | Version | What it does |
 |---|---|---|
-| [adversary-tracker](skills/adversary-tracker/) | 1.1.0 | Event-triggered hunts — the Shimomura Binary Brain: halving loop, two-channel confirmation, audited handoff; the M0–M5 method upgrade. |
+| [adversary-tracker](skills/adversary-tracker/) | 1.2.0 | Event-triggered hunts — the Shimomura Binary Brain: halving loop, two-channel confirmation, audited handoff; the M0–M5 method upgrade.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 
 ### Tier 5 — Craft Lineages (8)
 
 | Skill | Version | What it does |
 |---|---|---|
-| [scan-economist](skills/scan-economist/) | 1.1.0 | Scan economy — liveness before depth, priors over exhaustive sweeps (Fyodor lineage); the budget table and footprint ledger. |
-| [module-smith](skills/module-smith/) | 1.1.0 | Hypotheses as rankable reusable modules; access and impact proofs kept separate (HD Moore lineage); measured reliability and rank arithmetic. |
-| [pipeline-smith](skills/pipeline-smith/) | 1.1.0 | Unix recon pipelines — passive first, dedupe before paying (Tomnomnom lineage); versioned pipeline records with collapse ledgers. |
-| [feedback-fuzzer](skills/feedback-fuzzer/) | 1.1.0 | Feedback-guided search — bucketed novelty, minimization before diagnosis (lcamtuf lineage); the state-map schema and novelty gate. |
-| [template-scanner](skills/template-scanner/) | 1.1.0 | Detection as declarative templates — matchers pre-registered (ProjectDiscovery lineage); the review gate and re-rating ladder. |
-| [packet-orchestrator](skills/packet-orchestrator/) | 1.1.0 | Manual first, then layer-by-layer state-backed automation; packet differentials show their bytes (Searle + Mantis lineage); translation tables and state gates. |
-| [protocol-forensics](skills/protocol-forensics/) | 1.0.0 | Protocol forensics at internet scale — the spec's ambiguity hunted across the implementation population, invariants priced with computed entropy arithmetic, the fix engineered as a coordinated event (Dan Kaminsky lineage); the census, disagreement matrix, and post-patch saturation gate. |
-| [interior-cartographer](skills/interior-cartographer/) | 1.0.0 | OS internal-surface cartography — the interior census with boundary rows, the access-model audit with a computed seam table and ACCESS_MASK budget, primitives composed across uncovered seams, findings mapped onto the vendor's own boundary taxonomy (James Forshaw lineage); the declined-seam residual-risk register and the post-fix census regression. |
+| [scan-economist](skills/scan-economist/) | 1.2.0 | Scan economy — liveness before depth, priors over exhaustive sweeps (Fyodor lineage); the budget table and footprint ledger.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [module-smith](skills/module-smith/) | 1.2.0 | Hypotheses as rankable reusable modules; access and impact proofs kept separate (HD Moore lineage); measured reliability and rank arithmetic.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [pipeline-smith](skills/pipeline-smith/) | 1.2.0 | Unix recon pipelines — passive first, dedupe before paying (Tomnomnom lineage); versioned pipeline records with collapse ledgers.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [feedback-fuzzer](skills/feedback-fuzzer/) | 1.2.0 | Feedback-guided search — bucketed novelty, minimization before diagnosis (lcamtuf lineage); the state-map schema and novelty gate.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [template-scanner](skills/template-scanner/) | 1.2.0 | Detection as declarative templates — matchers pre-registered (ProjectDiscovery lineage); the review gate and re-rating ladder.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [packet-orchestrator](skills/packet-orchestrator/) | 1.2.0 | Manual first, then layer-by-layer state-backed automation; packet differentials show their bytes (Searle + Mantis lineage); translation tables and state gates.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [protocol-forensics](skills/protocol-forensics/) | 1.1.0 | Protocol forensics at internet scale — the spec's ambiguity hunted across the implementation population, invariants priced with computed entropy arithmetic, the fix engineered as a coordinated event (Dan Kaminsky lineage); the census, disagreement matrix, and post-patch saturation gate.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [interior-cartographer](skills/interior-cartographer/) | 1.1.0 | OS internal-surface cartography — the interior census with boundary rows, the access-model audit with a computed seam table and ACCESS_MASK budget, primitives composed across uncovered seams, findings mapped onto the vendor's own boundary taxonomy (James Forshaw lineage); the declined-seam residual-risk register and the post-fix census regression.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 
 ### Tier 6 — Legend Tier (7)
 
 | Skill | Version | What it does |
 |---|---|---|
-| [chain-architect](skills/chain-architect/) | 1.1.0 | Compound kill chains — low findings composed into one critical impact (Orange Tsai lineage); the chain tree with evidenced prunes. |
-| [desync-hunter](skills/desync-hunter/) | 1.3.0 | Protocol asymmetry — one ambiguity per request, response-class differentials, exact bytes as artifacts (James Kettle lineage); the CHAINMAP method. |
-| [deep-teardown](skills/deep-teardown/) | 1.1.0 | Dismantle client artifacts to primitives — local dissection before any network flow (George Hotz lineage); the gated ladder and symbol-trust table. |
-| [ghost-crawler](skills/ghost-crawler/) | 1.1.0 | Passive-index misconfig hunting — one bounded probe per candidate (Adrian Lamo lineage); the index protocol and trace ledger. |
-| [mirror-hunter](skills/mirror-hunter/) | 1.1.0 | Hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter (Simon Willison lineage); the craft differential and guard evaluation. |
-| [signal-smith](skills/signal-smith/) | 1.1.0 | Input grammar and precision signals — one minimal variation per seam, never trip the alarm (John Draper lineage); the calibration table and blind in-band differential. |
-| [trust-graph-hunter](skills/trust-graph-hunter/) | 1.1.0 | The trust graph between components — inherited privilege proven on operator-owned ends (Kevin Mitnick lineage); the edge protocol and context differential. |
+| [chain-architect](skills/chain-architect/) | 1.2.0 | Compound kill chains — low findings composed into one critical impact (Orange Tsai lineage); the chain tree with evidenced prunes.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [desync-hunter](skills/desync-hunter/) | 1.4.0 | Protocol asymmetry — one ambiguity per request, response-class differentials, exact bytes as artifacts (James Kettle lineage); the CHAINMAP method.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [deep-teardown](skills/deep-teardown/) | 1.2.0 | Dismantle client artifacts to primitives — local dissection before any network flow (George Hotz lineage); the gated ladder and symbol-trust table.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [ghost-crawler](skills/ghost-crawler/) | 1.2.0 | Passive-index misconfig hunting — one bounded probe per candidate (Adrian Lamo lineage); the index protocol and trace ledger.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [mirror-hunter](skills/mirror-hunter/) | 1.2.0 | Hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter (Simon Willison lineage); the craft differential and guard evaluation.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [signal-smith](skills/signal-smith/) | 1.2.0 | Input grammar and precision signals — one minimal variation per seam, never trip the alarm (John Draper lineage); the calibration table and blind in-band differential.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [trust-graph-hunter](skills/trust-graph-hunter/) | 1.2.0 | The trust graph between components — inherited privilege proven on operator-owned ends (Kevin Mitnick lineage); the edge protocol and context differential.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 
 ### Tier 7 — Forge & Competition (2)
 
@@ -176,7 +176,7 @@ The repo refuses to ship on vibes. Run all three before trusting a checkout:
 
 ```bash
 python3 scripts/validate_skill.py --all         # 39 bundles PASS
-python3 -m unittest discover -s arsenal/tests   # 138 tests OK
+python3 -m unittest discover -s arsenal/tests   # 139 tests OK
 python3 arsenal/server.py --selftest            # 27 tools, import OK
 ```
 

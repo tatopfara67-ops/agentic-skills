@@ -1,6 +1,6 @@
 ---
 name: auth-boundary-mapper
-version: 2.2.1
+version: 2.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -35,7 +35,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; two operator-owned test accounts
 ---
 
-# auth-boundary-mapper v2.2.1 — The Matrix Before The Hunt
+# auth-boundary-mapper v2.3.0 — The Matrix Before The Hunt
 
 ## 0. What This Skill Is — and Is Not
 
@@ -143,6 +143,21 @@ second-order map (marker round-trip closes a row; shape-inference parks
 as hypothesis), **M5** the impact ceiling (operator-owned pair evidence;
 generalizations need the matrix cells that prove them).
 
+## 3.6 The Operator Layer (A17) — the Frans Rosen runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of Frans Rosen.
+
 ## 4. Procedure — Numbered Actions
 
 1. Build the matrix skeleton from the api-surface-mapper inventory:
@@ -215,3 +230,4 @@ generalizations need the matrix cells that prove them).
 | Building the matrix / verdict grammar | `references/matrix.md` |
 | Identifier classes / swap positions / 2nd-order flows / tenant slices (the Rosen field guide) | `references/idor-field-guide.md` |
 | Grading the published form, censusing identifiers, running the boundary differential | `references/method-upgrade.md` |
+| Running the hunt — the Frans Rosen runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

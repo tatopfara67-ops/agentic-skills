@@ -103,18 +103,22 @@ class TestMythosCharter(unittest.TestCase):
     def setUp(self):
         self.charter = _mythos.mythos_charter()
 
-    def test_sixteen_articles(self):
-        self.assertEqual(len(self.charter["articles"]), 16)
+    def test_seventeen_articles(self):
+        self.assertEqual(len(self.charter["articles"]), 17)
         for article in self.charter["articles"]:
             self.assertRegex(article, r"^A\d+ ")
         self.assertIn("CVSS 3.1", "".join(self.charter["articles"]))
-        self.assertTrue(self.charter["articles"][-1].startswith("A16"))
+        self.assertTrue(self.charter["articles"][-1].startswith("A17"))
         self.assertIn("three registers", self.charter["articles"][13])
         self.assertIn("war logic", self.charter["articles"][14])
         self.assertIn("method over mythology",
                       self.charter["articles"][15])
         self.assertIn("expert precision",
                       self.charter["articles"][15])
+        self.assertIn("behavior over biography",
+                      self.charter["articles"][16])
+        self.assertIn("operator-os.md",
+                      self.charter["articles"][16])
 
     def test_charter_carries_prompt_escalation(self):
         escalation = self.charter["prompt_escalation"]
@@ -234,6 +238,47 @@ class TestMythosLineages(unittest.TestCase):
             for token in ("The critique", "upgrades", "Falsifiers"):
                 self.assertIn(token, body,
                               "%s: A16 layer incomplete (%s)" % (organ, token))
+
+    def test_operator_os_is_universal(self):
+        """A17's layer is shipped and locked: every organ forged from a
+        named person carries references/operator-os.md, and the module
+        keeps its four-part runtime shape (thinking framework,
+        behavioral protocol, scripting arsenal, rigid run-order) plus
+        falsifiers. The forge-tier organs carry their named
+        equivalents instead (psychology-catalog, campaign-protocol,
+        failure-geometry) — the guard covers the 26 person-lineage
+        organs on record."""
+        organs = [
+            "adversary-tracker", "auth-boundary-mapper",
+            "business-logic-hunter", "cache-playbook", "chain-architect",
+            "cloud-config-auditor", "content-discovery", "deep-teardown",
+            "desync-hunter", "feedback-fuzzer", "ghost-crawler",
+            "interior-cartographer", "mirror-hunter", "mobile-hunter",
+            "module-smith", "oauth-flow-auditor", "packet-orchestrator",
+            "pipeline-smith", "protocol-forensics", "prototype-playbook",
+            "scan-economist", "signal-smith", "subdomain-hunter",
+            "template-scanner", "trust-graph-hunter", "xss-playbook",
+        ]
+        skills_root = os.path.join(_TREE_ROOT, "skills")
+        shipped = {n for n in os.listdir(skills_root)
+                   if os.path.isfile(os.path.join(skills_root, n,
+                                                 "references",
+                                                 "operator-os.md"))}
+        self.assertEqual(shipped, set(organs),
+                         "operator-os.md set drifted: %s"
+                         % (set(organs) ^ shipped))
+        for organ in organs:
+            with open(os.path.join(skills_root, organ, "references",
+                                   "operator-os.md"),
+                      encoding="utf-8") as fh:
+                body = fh.read()
+            for token in ("The thinking framework",
+                          "The behavioral protocol",
+                          "The scripting arsenal",
+                          "The rigid run-order",
+                          "Falsifiers"):
+                self.assertIn(token, body,
+                              "%s: A17 layer incomplete (%s)" % (organ, token))
 
     def test_attribution_corrections_are_on_record(self):
         registry = _mythos.mythos_lineages()

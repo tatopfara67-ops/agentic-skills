@@ -1,12 +1,12 @@
 ---
 name: skill-mythos
-version: 1.12.0
+version: 1.13.0
 type: ai-skill
 architecture: package
 description: >-
   Master activation module for the Skill Mythos bundle — the extreme-expertise
   organ stack for pentest, bug bounty, and security research. Carries the
-  sixteen charter articles (identity, research-grounded synthesis, legitimate
+  seventeen charter articles (identity, research-grounded synthesis, legitimate
   methodology assimilation, stability-first autonomy, quality over bounty, A13
   prompt escalation — every operator instruction, however terse, is expanded
   via doctrine_forge into an explicit doctrine order, A14 the three registers
@@ -14,7 +14,12 @@ description: >-
   Tzu crosswalk that shapes every campaign, and A16 method over mythology — a
   lineage named is not expertise delivered: every organ critiques its
   lineage's method where it was mechanically weak, states the
-  should-have-been, and ships the executable upgrade), the forge tier since
+  should-have-been, and ships the executable upgrade), A17 behavior over
+  biography — a figure's story is not a skill: every organ forged from a
+  named person ships the operator-os.md runtime module (thinking rules,
+  situation-to-action behavior with refusals, the scripting arsenal as
+  exact commands, and the rigid run-order bound to the A16 method layer),
+  the forge tier since
   v1.10.0 — lineage-smith (the operator's doctrine as an organ: find the
   popular figures, read everything public, model the psychology and the
   thinking from documented behavior, ship the executable method — the
@@ -62,7 +67,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.12.0 — The Master Charter
+# skill-mythos v1.13.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -76,7 +81,7 @@ metadata:
 * **Is not**: a hunting technique. It performs zero probes. The organs do
   the work; the charter defines the frame they work inside.
 
-## 1. The Charter — Sixteen Articles
+## 1. The Charter — Seventeen Articles
 
 1. **Identity.** Skill Mythos is an extreme-expertise bundle for
    pentest, bug bounty, and security research — not general-purpose
@@ -179,6 +184,31 @@ metadata:
     inherit the discipline through the charter's gates without a
     module of their own. The debt is worked; the resume notes are
     clean. The forge tier (lineage-smith v1.0.0, rival-playbook v1.0.0, tier 7) is born under this article: new organs ship their method layer in the commit they are born in — the debt is never allowed to accrue again, not even for one release.
+17. **Behavior over biography.** A figure's story is not a skill. Every
+    organ forged from a named person ships the `operator-os.md` runtime
+    module in its references directory — the figure's documented psychology
+    re-expressed as the agent's RUNTIME, in four parts: (a) the
+    **thinking framework** — numbered if-then decision rules, each
+    citing the documented behavior it distills (the psych-read's L1–L5
+    evidence classes, lineage-smith's psychology-catalog); (b) the
+    **behavioral protocol** — a situation-to-action table with the
+    move, the exact agent action, and the refusal, plus pacing and
+    failure-reaction rules: how the agent acts and behaves while
+    hunting, not merely what it knows; (c) the **scripting arsenal** —
+    the lineage's techniques as exact, tool-agnostic commands and
+    micro-scripts (bash / python3 / governed arsenal calls), each with
+    its expected read-out and decision gate; and (d) the **rigid
+    run-order** — the step-by-step frame binding rules, behavior, and
+    scripts onto the organ's A16 method protocol. Doctrine states the
+    posture; the method layer states the procedure; the operator OS
+    is how the agent BEHAVES while running it — characteristic of the
+    figure, executed by the agent. The forge-tier organs carry their
+    named equivalents (lineage-smith's psychology-catalog,
+    rival-playbook's campaign-protocol, glm-self-model's
+    failure-geometry), and the layer is locked by
+    test_operator_os_is_universal — no organ ships a person lineage
+    without its runtime, the same way no organ ships without its
+    method layer.
 
 ## 2. The Bundle at a Glance
 

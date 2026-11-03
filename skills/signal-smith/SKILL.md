@@ -1,6 +1,6 @@
 ---
 name: signal-smith
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -36,7 +36,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an in-scope target with a validation/WAF layer under study
 ---
 
-# signal-smith v1.1.1 — One Precise Tone
+# signal-smith v1.2.0 — One Precise Tone
 
 ## 0. What This Skill Is — and Is Not
 
@@ -123,6 +123,21 @@ the precision budget (operating point + tolerances, margins probed at
 edges; cliffs recorded as intelligence), **M5** the escalation gate
 (in-band acceptance opens the backend differential, never the conclusion).
 
+## 3.6 The Operator Layer (A17) — the John Draper runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of John Draper.
+
 ## 4. Procedure — Numbered Actions
 
 1. Calibration round (CONTROL records): a small fixed input ladder
@@ -192,3 +207,4 @@ edges; cliffs recorded as intelligence), **M5** the escalation gate
 | Building the input ladder / choosing the minimal variation | `references/encoding-grammar.md` |
 | Verifying the Draper lineage and sources | `references/sources.md` |
 | Grading the published form, calibrating grammar, testing indistinguishability blind | `references/method-upgrade.md` |
+| Running the hunt — the John Draper runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

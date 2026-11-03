@@ -1,6 +1,6 @@
 ---
 name: desync-hunter
-version: 1.3.1
+version: 1.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; targets whose scope explicitly covers the infrastructure/proxy layer
 ---
 
-# desync-hunter v1.3.1 — The Spec Is A Hypothesis
+# desync-hunter v1.4.0 — The Spec Is A Hypothesis
 
 ## 0. What This Skill Is — and Is Not
 
@@ -157,6 +157,21 @@ Probes come byte-exact from `references/corpus.json` — never
 hand-typed, never from memory. Doctrine (§3) states the posture;
 M1–M4 make it executable.
 
+## 3.6 The Operator Layer (A17) — the James Kettle runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of James Kettle.
+
 ## 4. Procedure — Numbered Actions
 
 1. Map the parsing chain: one `http_probe` per infrastructure
@@ -229,6 +244,7 @@ M1–M4 make it executable.
 | --- | --- |
 | Choosing/designing an ambiguity | `references/asymmetry-catalog.md` |
 | Grading the published method, building the CHAINMAP, running the selection matrix and differential protocol | `references/method-upgrade.md` |
+| Running the hunt — the James Kettle runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Exact probe bytes (CL.TE/TE.CL differential + timeout probes, TE.TE obfuscations, H2.CL), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Kettle lineage and sources | `references/sources.md` |
 

@@ -1,6 +1,6 @@
 ---
 name: cache-playbook
-version: 1.2.1
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -37,7 +37,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); desync-hunter (parser-seam discipline, adjacent surface); packet-orchestrator (raw-request precision when discrepancies need it)
 ---
 
-# cache-playbook v1.2.1 — The Second Silent Parser
+# cache-playbook v1.3.0 — The Second Silent Parser
 
 ## 0. What This Skill Is — and Is Not
 
@@ -168,6 +168,21 @@ the served-check decay curve (t = 0 s/30 s/2 min/10 min, window ×
 traffic-class arithmetic shown), **M5** the family-separated ceiling
 statement (third-party exposure NOT claimed, measured window only).
 
+## 3.6 The Operator Layer (A17) — the Omer Gil + James Kettle runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of Omer Gil + James Kettle.
+
 ## 4. Procedure — Numbered Actions
 
 1. **Fingerprint the cache.** Identify the layer (headers, edge IP
@@ -260,6 +275,7 @@ statement (third-party exposure NOT claimed, measured window only).
 | Exact technique set (cache buster discipline, unkeyed inputs, fat GET, Gil's deception suffix, delimiter confusion set, boundary mapping), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Gil/Kettle/USENIX lineage and its sources | `references/sources.md` |
 | Grading the published method, baselining the cache key, measuring decay | `references/method-upgrade.md` |
+| Running the hunt — the Omer Gil + James Kettle runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

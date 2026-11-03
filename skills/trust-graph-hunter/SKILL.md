@@ -1,6 +1,6 @@
 ---
 name: trust-graph-hunter
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -38,7 +38,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; both endpoints of every deception proof must be in scope and operator-owned
 ---
 
-# trust-graph-hunter v1.1.1 — The System Trusts; Make It Trust You
+# trust-graph-hunter v1.2.0 — The System Trusts; Make It Trust You
 
 ## 0. What This Skill Is — and Is Not
 
@@ -130,6 +130,21 @@ identities only, each an ASSET with ownership basis; real-person
 identities forbidden as a hard rule), **M5** the ethics gate (fields
 filled BEFORE the run; any failing field = the run does not start).
 
+## 3.6 The Operator Layer (A17) — the Kevin Mitnick runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of Kevin Mitnick.
+
 ## 4. Procedure — Numbered Actions
 
 1. Enumerate trust edges from the Phase-1 dossier and the
@@ -204,3 +219,4 @@ filled BEFORE the run; any failing field = the run does not start).
 | Enumerating edges / signal classes / forgery matrix | `references/trust-context-catalog.md` |
 | Verifying the Mitnick lineage and translation | `references/sources.md` |
 | Grading the source translation, enumerating edges, running the context differential | `references/method-upgrade.md` |
+| Running the hunt — the Kevin Mitnick runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

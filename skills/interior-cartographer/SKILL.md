@@ -1,6 +1,6 @@
 ---
 name: interior-cartographer
-version: 1.0.1
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: >-
@@ -42,7 +42,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; skill-mythos charter v1.12+
 ---
 
-# interior-cartographer v1.0.1 — The Forshaw Lineage
+# interior-cartographer v1.1.0 — The Forshaw Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -142,6 +142,21 @@ availability matrix, **M4** the composition hunt with one variable per
 step, **M5** the boundary report with declined-seam residual risk, and
 **M6** the post-fix census regression.
 
+## 2.6 The Operator Layer (A17) — the James Forshaw runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of James Forshaw.
+
 ## 3. Procedure — Numbered Actions
 
 1. **Scope the census** (M1): write the census header — the target
@@ -223,4 +238,5 @@ step, **M5** the boundary report with declined-seam residual risk, and
 | --- | --- |
 | Running the full hunt end to end (census schema, computed tables, boundary crosswalk, composition rules) | references/interior-method.md |
 | Grading the lineage, running M1–M6, holding the thresholds | references/method-upgrade.md |
+| Running the hunt — the James Forshaw runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Checking what was actually consulted; the census, read ledger, psych-read evidence | references/sources.md |

@@ -1,6 +1,6 @@
 ---
 name: business-logic-hunter
-version: 2.2.1
+version: 2.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned test accounts and self-owned orders
 ---
 
-# business-logic-hunter v2.2.1 — The App's Rules, Tested As Rules
+# business-logic-hunter v2.3.0 — The App's Rules, Tested As Rules
 
 ## 0. What This Skill Is — and Is Not
 
@@ -123,6 +123,21 @@ min; stable vs environment-conditional recorded with conditions),
 cites the auth-boundary differential cell — bypass never grades as
 access).
 
+## 2.6 The Operator Layer (A17) — the Soroush Dalili runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of Soroush Dalili.
+
 ## 3. Procedure — Numbered Actions
 
 1. Map each in-scope workflow end-to-end with operator test accounts:
@@ -179,3 +194,4 @@ access).
 | A guard blocked a treatment / seam or comparison questions | `references/bypass-craft.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
 | Grading the published form, running the reshaping differential, citing the defeated hop | `references/method-upgrade.md` |
+| Running the hunt — the Soroush Dalili runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

@@ -1,6 +1,6 @@
 ---
 name: protocol-forensics
-version: 1.0.1
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: >-
@@ -43,7 +43,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; skill-mythos charter v1.11+
 ---
 
-# protocol-forensics v1.0.1 — The Kaminsky Lineage
+# protocol-forensics v1.1.0 — The Kaminsky Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -141,6 +141,21 @@ ladder with a measured denominator, **M5** the coordinated-disclosure
 engineering, **M6** the post-patch verification with a saturation
 gate and a residual-risk register.
 
+## 2.6 The Operator Layer (A17) — the Dan Kaminsky runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of Dan Kaminsky.
+
 ## 3. Procedure — Numbered Actions
 
 1. **Name the class.** Write the census header: the RFC class, the
@@ -210,4 +225,5 @@ gate and a residual-risk register.
 | --- | --- |
 | Running the full hunt end to end (invariant classes, birthday tables, matrix schema) | references/protocol-method.md |
 | Grading the lineage, running M1–M6, holding the thresholds | references/method-upgrade.md |
+| Running the hunt — the Dan Kaminsky runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Checking what was actually consulted; the census, read ledger, psych-read evidence | references/sources.md |

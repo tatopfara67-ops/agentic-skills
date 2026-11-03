@@ -1,6 +1,6 @@
 ---
 name: module-smith
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# module-smith v1.1.1 — The HD Moore Lineage
+# module-smith v1.2.0 — The HD Moore Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -94,6 +94,21 @@ aggregate disclosure — all fields filled before the run), **M5** the
 compat matrix + rank arithmetic (EMPTY cells never claim; rank =
 reliability × field-readiness × joint, factors visible).
 
+## 2.6 The Operator Layer (A17) — the HD Moore runtime
+
+`references/operator-os.md` ships the figure's documented psychology
+as the agent's RUNTIME, in four parts: the thinking framework (numbered
+if-then decision rules, each citing the documented behavior it
+distills), the behavioral protocol (situation → move → agent action →
+refusal, with pacing and failure-reaction rules — how the agent acts
+and behaves while hunting), the scripting arsenal (the organ's core
+techniques as exact, tool-agnostic commands and micro-scripts, each
+with its read-out and decision gate), and the rigid run-order binding
+rules, behavior, and scripts onto the M-protocol above. Load it when
+the hunt runs: the doctrine states the posture, the M-protocol states
+the procedure — the operator OS is how the agent BEHAVES while
+executing, characteristic of HD Moore.
+
 ## 3. Procedure — Numbered Actions
 
 1. Frame each hypothesis as a module card: **inputs** (target,
@@ -143,3 +158,4 @@ reliability × field-readiness × joint, factors visible).
 | Running module proofs and exposure counts | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
 | Grading the published method, measuring module reliability, computing rank | references/method-upgrade.md |
+| Running the hunt — the HD Moore runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

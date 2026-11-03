@@ -59,6 +59,7 @@ mcp = FastMCP("mythos-arsenal")
 
 _BUNDLE_RE = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
 _FM_LINE = re.compile(r"^([A-Za-z0-9_-]+):\s*(.*)$")
+_FM_BLOCK = (">", "|", ">-", "|-", ">+", "|+")
 
 
 def _norm_program(program: str) -> str:
@@ -70,12 +71,26 @@ def _parse_frontmatter(text: str) -> dict:
     if not text.startswith("---"):
         return fm
     lines = text.splitlines()
-    for line in lines[1:]:
+    i = 1
+    while i < len(lines):
+        line = lines[i]
         if line.strip() == "---":
             break
         m = _FM_LINE.match(line)
         if m and not line[:1].isspace():
-            fm[m.group(1)] = m.group(2).strip()
+            value = m.group(2).strip()
+            if value in _FM_BLOCK:
+                parts = []
+                i += 1
+                while (i < len(lines) and lines[i].strip() != "---"
+                       and (not lines[i].strip() or lines[i][:1].isspace())):
+                    if lines[i].strip():
+                        parts.append(lines[i].strip())
+                    i += 1
+                fm[m.group(1)] = " ".join(p for p in parts if p)
+                continue
+            fm[m.group(1)] = value
+        i += 1
     return fm
 
 

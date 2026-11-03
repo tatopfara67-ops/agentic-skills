@@ -7,13 +7,16 @@ grow the stack. **Nothing here is claimed as assimilated** — the
 lineage registry is the only record of assimilation, and a queue
 entry is a nomination with homework attached, not a distillation.
 Scores are the M1 gate's five axes (0–2 each); they are re-scored at
-every screening, and entries retire with their reasons kept.
+every screening, and entries retire with their reasons kept. The
+queue's first end-to-end execution retired Q1 into the shipped
+organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage) — the
+retirement record below is the template every future retirement
+follows.
 
 ## The running table
 
 | # | Candidate | Score | Forge target | The honest gate |
 | - | --------- | ----- | ------------ | --------------- |
-| Q1 | Dan Kaminsky | 9 | protocol-forensics organ (tier 5) | talk corpus must be collected and read in full |
 | Q2 | James Forshaw | 8 | OS internal-surface cartography organ (tier 5) | blog corpus read and dated; boundary vs api-surface-mapper argued |
 | Q3 | Travis Goodspeed | 8 | hardware-teardown organ (tier 6) | scattered talk/blog corpus consolidated first |
 | Q4 | the grugq | 7 | opsec-discipline organ (tier 5) | talk-heavy corpus; explicitness must survive the reading |
@@ -22,24 +25,26 @@ every screening, and entries retire with their reasons kept.
 | Q7 | Sean Metcalf | 8 | trust-graph-hunter upgrade (tier 6) | overlap resolved as upgrade; blog corpus read end to end |
 | Q8 | Deviant Ollam | 7 | physical-access organ (tier 6) | engagement fit argued before drafting |
 
-## Q1 — Dan Kaminsky (score 9/10)
+## Q1 — Dan Kaminsky — RETIRED, assimilated as protocol-forensics
 
-* **Public corpus (documented)**: the 2008 DNS cache-poisoning
-  disclosure — a systemic weakness across implementations of one
-  specification, coordinated multi-vendor patch, the Black Hat 2008
-  talk; the recurring Black Ops talk series at Black Hat; public
-  writing on DNS and protocol fragility.
-* **The pattern worth extracting**: protocol forensics at internet
-  scale — hunt the specification's ambiguity across EVERY
-  implementation rather than one product; engineer disclosure as an
-  industry event, not a single vendor ticket; humor as a documented
-  teaching instrument across the talk corpus.
-* **Forge target**: a protocol-forensics craft organ — systemic-
-  weakness hunting across implementations of one RFC class.
-* **The gate**: the talk corpus must be collected and read in full
-  first; the census must argue the boundary against desync-hunter
-  (parser asymmetry at a seam — same protocol family, different
-  discipline).
+**Score at retirement: 9/10. Reason: executed end-to-end.** The
+candidate passed P1 at the top of the table, the census was read
+(CERT VU#800113 in full; the restored talk corpus 2001–2012 with his
+own abstracts; the primary records of the 2008 event), the psych-read
+landed on documented behavior with one quarantined opinion on
+record, and the organ shipped **born with its method layer** — the
+W1–W6 critique and the M1–M6 executable protocol (population census,
+invariant audit with computed entropy arithmetic, disagreement
+matrix, impact ladder with denominators, disclosure engineering,
+post-patch saturation gate). The gate's own demands were met: the
+talk corpus was collected via the restored index with every
+load-bearing abstract read, and the boundary against desync-hunter
+was argued in the census (population-level spec ambiguity vs
+single-request parser seams). The organ lives at
+skills/protocol-forensics/; the registry entry carries the priority
+correction (Bernstein 1999, djbdns's early port randomization).
+Retirement keeps this record: a queue slot converted to a shipped
+organ is the queue doing its job.
 
 ## Q2 — James Forshaw (score 8/10)
 

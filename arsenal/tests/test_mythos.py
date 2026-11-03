@@ -123,7 +123,7 @@ class TestMythosCharter(unittest.TestCase):
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 33)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 34)
         self.assertEqual(tiers["0-engine"], {"glm-self-model": True})
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
         self.assertEqual(sorted(tiers["7-forge"]),
@@ -134,7 +134,8 @@ class TestMythosCharter(unittest.TestCase):
             "xss-playbook"])
         self.assertEqual(sorted(tiers["5-craft"]), [
             "feedback-fuzzer", "module-smith", "packet-orchestrator",
-            "pipeline-smith", "scan-economist", "template-scanner"])
+            "pipeline-smith", "protocol-forensics", "scan-economist",
+            "template-scanner"])
         self.assertEqual(sorted(tiers["6-legend"]), [
             "chain-architect", "deep-teardown", "desync-hunter",
             "ghost-crawler", "mirror-hunter", "signal-smith",
@@ -157,9 +158,9 @@ class TestMythosCharter(unittest.TestCase):
 
 
 class TestMythosLineages(unittest.TestCase):
-    def test_registry_lists_twentysix_lineages_all_installed(self):
+    def test_registry_lists_twentyseven_lineages_all_installed(self):
         registry = _mythos.mythos_lineages()
-        self.assertEqual(registry["count"], 26)
+        self.assertEqual(registry["count"], 27)
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         for organ in ("adversary-tracker", "scan-economist", "module-smith",
                       "pipeline-smith", "feedback-fuzzer",
@@ -190,7 +191,7 @@ class TestMythosLineages(unittest.TestCase):
                      "Frans Rosen", "John Draper", "Kevin Mitnick",
                      "EdOverflow", "Heiderich", "Parecki", "Miessler",
                      "Dalili", "de la Fuente", "Simon Willison",
-                     "Sun Tzu"):
+                     "Dan Kaminsky", "Sun Tzu"):
             self.assertIn(name, joined, name)
         # the unverified attributions from the operator brief stay out
         self.assertNotIn("Skappen", joined)
@@ -201,7 +202,7 @@ class TestMythosLineages(unittest.TestCase):
         that shipped a method-upgrade module still carries it, and the
         module keeps its three-part shape (critique, upgrades, and
         where they land, falsifiers). New organs are born with the
-        layer — the guard list covers all 29 modules on record."""
+        layer — the guard list covers all 30 modules on record."""
         organs = [
             "adversary-tracker", "auth-boundary-mapper",
             "business-logic-hunter", "cache-playbook", "chain-architect",
@@ -210,9 +211,10 @@ class TestMythosLineages(unittest.TestCase):
             "glm-self-model", "injection-lab", "lineage-smith",
             "mirror-hunter", "mobile-hunter", "module-smith",
             "oauth-flow-auditor", "packet-orchestrator", "pipeline-smith",
-            "prototype-playbook", "rival-playbook", "scan-economist",
-            "signal-smith", "ssrf-playbook", "subdomain-hunter",
-            "template-scanner", "trust-graph-hunter", "xss-playbook",
+            "protocol-forensics", "prototype-playbook", "rival-playbook",
+            "scan-economist", "signal-smith", "ssrf-playbook",
+            "subdomain-hunter", "template-scanner", "trust-graph-hunter",
+            "xss-playbook",
         ]
         skills_root = os.path.join(_TREE_ROOT, "skills")
         shipped = {n for n in os.listdir(skills_root)
@@ -242,6 +244,7 @@ class TestMythosLineages(unittest.TestCase):
         self.assertIn("Frans Rosen", corrections["auth-boundary-mapper"])
         self.assertIn("unauthorized", corrections["ghost-crawler"])
         self.assertIn("translation", corrections["trust-graph-hunter"])
+        self.assertIn("Bernstein", corrections["protocol-forensics"])
 
     def test_second_wave_lineage_organs_are_v2(self):
         """The six v2 organs carry the lineage in frontmatter, not

@@ -1,6 +1,6 @@
 ---
 name: lineage-smith
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: Forge-tier organ — the legend-assimilation factory. Turns a named public security figure into a shipped skill bundle under the operator's standing doctrine — find the popular figures, observe them, study their COMPLETE public corpus (talks, papers, journal publications, blogs, tools, advisories, post-mortems — read in full, never snippet-mined), model the psychology and the way of thinking from documented behavior only, extract the decision logic as a distillation, and forge the executable method into an organ that is BORN with its method layer and wired through the charter, the lineage registry, and the validation gates. Runs the scored selection gate against the candidate queue, the corpus census with a read-in-full ledger, the five-lens psych-read, the distillation record, the forge checklist, and the wiring gate. Since v1.1.0 the psych-read carries its evidence-class catalog (references/psychology-catalog.md): per lens dimension, which evidence is admissible and which is not (mythology-class exclusions on record), the OPINION quarantine gate that keeps unartifacted readings out of distillation, and the assembly crosswalk that pairs lens lines into organ design traits (confirmation rigor, unit of work, pacing, record shapes). Use when the operator nominates a figure for assimilation, orders corpus growth, or asks for the next organ ("rakit skill dari tokoh", "pelajari tokoh hacker", "analisis psikologi tokoh", "asimilasi lineage", "assimilate a lineage", "forge a new organ", "skill baru dari metodologi", "bangun organ baru", "the next legend", "korpus makin besar", "corpus growth").
@@ -8,11 +8,11 @@ category: security/craft-forge
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 24 lineages already on the registry under this doctrine
+  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 25 lineages on the registry under this doctrine, the first candidate-queue execution landed protocol-forensics (the Dan Kaminsky lineage)
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# lineage-smith v1.1.0 — Read Everything, Ship the Method
+# lineage-smith v1.2.0 — Read Everything, Ship the Method
 
 ## 0. What This Skill Is — and Is Not
 
@@ -183,5 +183,5 @@ behavior, and behavior leaves artifacts.
 | Load when… | Module |
 | --- | --- |
 | Critiquing the folk way of studying famous figures; running the executable M1–M6 | references/method-upgrade.md |
-| Screening the next legends; the scored queue with eight standing candidates | references/candidate-queue.md |
+| Screening the next legends; the scored queue with seven standing candidates (Q1 executed — retired into protocol-forensics) | references/candidate-queue.md |
 | Evidence classes per lens dimension; the OPINION quarantine; the assembly crosswalk | references/psychology-catalog.md |

@@ -53,7 +53,7 @@ TIERS = {
     "4-incident": ["adversary-tracker"],
     "5-craft": ["scan-economist", "module-smith", "pipeline-smith",
                 "feedback-fuzzer", "template-scanner",
-                "packet-orchestrator"],
+                "packet-orchestrator", "protocol-forensics"],
     "6-legend": ["chain-architect", "desync-hunter", "deep-teardown",
                  "ghost-crawler", "mirror-hunter", "signal-smith",
                  "trust-graph-hunter"],
@@ -527,9 +527,10 @@ LINEAGES = [
                         "layer born in, wiring through charter + "
                         "registry + gates",
         "sources": "the three method waves (commits 308bf3b, dbf89c2, "
-                   "5ba9032) — 24 lineages assimilated under this "
-                   "doctrine; skills/lineage-smith/references/"
-                   "method-upgrade.md",
+                   "5ba9032) plus the first candidate-queue execution "
+                   "(protocol-forensics, Q1 retired) — 25 lineages "
+                   "assimilated under this doctrine; skills/lineage-smith/"
+                   "references/method-upgrade.md",
         "correction": None,
     },
     {
@@ -557,6 +558,38 @@ LINEAGES = [
                       "competition — census claims read public "
                       "artifacts only; no FUD, no disparagement, "
                       "wording capped at the demonstrated axis",
+    },
+    {
+        "organ": "protocol-forensics",
+        "figure": "Dan Kaminsky (1979-2021, IOActive / White Ops) — "
+                  "the 2008 DNS cache-poisoning disclosure (VU#800113)",
+        "distillation": "protocol forensics at internet scale: the "
+                        "spec is a treaty between strangers — hunt the "
+                        "specification's ambiguity across every "
+                        "implementation of the class rather than one "
+                        "product, price each invariant with computed "
+                        "entropy arithmetic before any claim, measure "
+                        "the population as the finding's denominator, "
+                        "engineer the fix as a coordinated simultaneous "
+                        "event, and verify the patch as a measurement "
+                        "that labels every stopgap a stopgap",
+        "sources": "CERT VU#800113, read in full (16-bit TXID, 32,768 "
+                   "average attempts, +16 bits source-port entropy, "
+                   "22-vendor list); the Black Hat Webcast #2 record "
+                   "(July 2008); the restored talk corpus at "
+                   "dankaminsky.org (2001-2012 abstracts, his own); the "
+                   "Internet Hall of Fame account (2021); "
+                   "skills/protocol-forensics/references/sources.md",
+        "correction": "the priority record is kept: Bernstein reported "
+                      "the transaction-ID weakness in 1999 and djbdns "
+                      "shipped source-port randomization years early "
+                      "while the industry shipped vulnerable — the "
+                      "organ credits Kaminsky for the composed attack, "
+                      "the measured census, and the engineered "
+                      "industry-wide fix, not for the entropy flaw's "
+                      "novelty; the arithmetic constants cite "
+                      "VU#800113 and every other number in the organ is "
+                      "computed in-house and labeled as computed",
     },
 ]
 

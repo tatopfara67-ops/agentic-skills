@@ -8,10 +8,11 @@ lineage registry is the only record of assimilation, and a queue
 entry is a nomination with homework attached, not a distillation.
 Scores are the M1 gate's five axes (0–2 each); they are re-scored at
 every screening, and entries retire with their reasons kept. The
-queue's first two end-to-end executions retired Q1 into the shipped
-organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage) and Q2
-into the shipped organ interior-cartographer (v1.0.0, the James
-Forshaw lineage) — the retirement records below are the template
+queue's first three end-to-end executions retired Q1 into the shipped
+organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage), Q2 into
+the shipped organ interior-cartographer (v1.0.0, the James Forshaw
+lineage), and Q5 into the shipped organ harness-smith (v1.0.0, the
+Tavis Ormandy lineage) — the retirement records below are the template
 every future retirement follows.
 
 ## The running table
@@ -20,7 +21,6 @@ every future retirement follows.
 | - | --------- | ----- | ------------ | --------------- |
 | Q3 | Travis Goodspeed | 8 | hardware-teardown organ (tier 6) | scattered talk/blog corpus consolidated first |
 | Q4 | the grugq | 7 | opsec-discipline organ (tier 5) | talk-heavy corpus; explicitness must survive the reading |
-| Q5 | Tavis Ormandy | 8 | triage-velocity craft organ (tier 5) | enormous report corpus; a stated, honest reading bound |
 | Q6 | Jason Haddix | 7 | spine onboarding upgrade (tier 5) | deck versions pinned; curation separated from method |
 | Q7 | Sean Metcalf | 8 | trust-graph-hunter upgrade (tier 6) | overlap resolved as upgrade; blog corpus read end to end |
 | Q8 | Deviant Ollam | 7 | physical-access organ (tier 6) | engagement fit argued before drafting |
@@ -75,6 +75,38 @@ co-fuzzing is the verified shared record). Retirement keeps this
 record: a second queue slot converted to a shipped organ is the queue
 doing its job twice.
 
+## Q5 — Tavis Ormandy — RETIRED, assimilated as harness-smith
+
+**Score at retirement: 8/10. Reason: executed end-to-end.** The
+candidate passed P1 at 8/10 (the operator's own doctrine had named
+him first — "Tavis Ormandy, fuzz-first"), the census was read with
+the honest bound the gate demanded (the Project Zero long-form posts
+read in full: BigSig 2021, Down the Rabbit-Hole 2019, the Symantec
+endpoint post 2016, the poisoned-NUL-byte 2014; his own Zenbleed
+writeup at cmpxchg8b.com read in full; Fuzzing at scale 2011 read in
+full; the HITB 2009 speaker record; documented X posts 2015-2020;
+the press record multi-sourced — while the enormous tracker corpus
+is stated as BOUNDED, not line-read, per the census rule), the
+psych-read landed on documented behavior with the shower anecdote
+quarantined as press-record-only, and the organ shipped **born with
+both layers** — the A16 method layer (the W1-W5 critique: instinct
+never stated as a census rule, instruments shipped late, method
+scattered across postmortems, cadence never tabled, the missed-why
+run once — and the M1-M6 executable protocol: the privileged-parser
+census with boundary rows, harness engineering with distillation
+arithmetic and the missing-tool gate, the oracle classification
+table, the minimization ladder, the no-terms vendor protocol, the
+missed-why postmortem with its residual register) and the A17
+operator runtime (operator-os.md: thinking rules, behavioral
+protocol, scripting arsenal, rigid run-order). The boundary was
+argued in the census: harness-smith selects the target and engineers
+the instrument; feedback-fuzzer runs the search loop once target +
+harness + oracle exist; scan-economist prices network sweeps. The
+organ lives at skills/harness-smith/; the registry entry carries the
+quarantined-anecdote correction. Retirement keeps this record: a
+third queue slot converted to a shipped organ is the queue doing its
+job three times.
+
 ## Q3 — Travis Goodspeed (score 8/10)
 
 * **Public corpus (documented)**: his public blog on embedded and
@@ -102,20 +134,6 @@ doing its job twice.
 * **The gate**: the corpus is talk-heavy; method explicitness must
   survive the reading stage — the score may drop, and a drop is
   recorded, not hidden.
-
-## Q5 — Tavis Ormandy (score 8/10)
-
-* **Public corpus (documented)**: Project Zero blog posts and public
-  bug reports across Windows, antivirus engines, and beyond —
-  reproducible reports in public trackers.
-* **The pattern worth extracting**: breadth-with-triage — attack
-  surface read at velocity, guided by where input handling
-  concentrates; the public, reproducible bug report AS the artifact.
-* **Forge target**: a triage-velocity craft organ, or a
-  surface-reduction upgrade to scan-economist.
-* **The gate**: the report corpus is enormous — the census must bound
-  it with a stated reading window and selection criteria, without
-  collapsing into snippet-mining.
 
 ## Q6 — Jason Haddix (score 7/10)
 

@@ -132,7 +132,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 |---|---|---|
 | [adversary-tracker](skills/adversary-tracker/) | 1.2.0 | Event-triggered hunts — the Shimomura Binary Brain: halving loop, two-channel confirmation, audited handoff; the M0–M5 method upgrade.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 
-### Tier 5 — Craft Lineages (8)
+### Tier 5 — Craft Lineages (9)
 
 | Skill | Version | What it does |
 |---|---|---|
@@ -144,6 +144,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | [packet-orchestrator](skills/packet-orchestrator/) | 1.2.0 | Manual first, then layer-by-layer state-backed automation; packet differentials show their bytes (Searle + Mantis lineage); translation tables and state gates.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 | [protocol-forensics](skills/protocol-forensics/) | 1.1.0 | Protocol forensics at internet scale — the spec's ambiguity hunted across the implementation population, invariants priced with computed entropy arithmetic, the fix engineered as a coordinated event (Dan Kaminsky lineage); the census, disagreement matrix, and post-patch saturation gate.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 | [interior-cartographer](skills/interior-cartographer/) | 1.1.0 | OS internal-surface cartography — the interior census with boundary rows, the access-model audit with a computed seam table and ACCESS_MASK budget, primitives composed across uncovered seams, findings mapped onto the vendor's own boundary taxonomy (James Forshaw lineage); the declined-seam residual-risk register and the post-fix census regression.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [harness-smith](skills/harness-smith/) | 1.0.0 | Fuzz-first attack-surface triage and oracle engineering — the privileged-parser census (privilege × deployment × input hostility), harness engineering with corpus distillation and the missing-tool gate, the oracle classification table (crash / state-diff / serialized), minimization to the simplest repro, the no-terms vendor protocol, and the mandatory missed-why postmortem (Tavis Ormandy lineage). |
 
 ### Tier 6 — Legend Tier (7)
 
@@ -175,8 +176,8 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 The repo refuses to ship on vibes. Run all three before trusting a checkout:
 
 ```bash
-python3 scripts/validate_skill.py --all         # 39 bundles PASS
-python3 -m unittest discover -s arsenal/tests   # 139 tests OK
+python3 scripts/validate_skill.py --all         # 40 bundles PASS
+python3 -m unittest discover -s arsenal/tests   # 140 tests OK
 python3 arsenal/server.py --selftest            # 27 tools, import OK
 ```
 

@@ -54,7 +54,7 @@ TIERS = {
     "5-craft": ["scan-economist", "module-smith", "pipeline-smith",
                 "feedback-fuzzer", "template-scanner",
                 "packet-orchestrator", "protocol-forensics",
-                "interior-cartographer"],
+                "interior-cartographer", "harness-smith"],
     "6-legend": ["chain-architect", "desync-hunter", "deep-teardown",
                  "ghost-crawler", "mirror-hunter", "signal-smith",
                  "trust-graph-hunter"],
@@ -528,9 +528,9 @@ LINEAGES = [
                         "layer born in, wiring through charter + "
                         "registry + gates",
         "sources": "the three method waves (commits 308bf3b, dbf89c2, "
-                   "5ba9032) plus the two candidate-queue executions "
+                   "5ba9032) plus the three candidate-queue executions "
                    "(protocol-forensics, Q1 retired; interior-cartographer, "
-                   "Q2 retired) — 26 lineages "
+                   "Q2 retired; harness-smith, Q5 retired) — 27 lineages "
                    "assimilated under this doctrine; skills/lineage-smith/"
                    "references/method-upgrade.md",
         "correction": None,
@@ -626,6 +626,47 @@ LINEAGES = [
                       "record is the 2016 registry co-fuzzing "
                       "Jurczyk documents, and the organ claims only "
                       "that thread",
+    },
+    {
+        "organ": "harness-smith",
+        "figure": "Tavis Ormandy (Google Project Zero / Information "
+                  "Security Engineering) — the 2011 Fuzzing-at-scale "
+                  "corpus-distillation tradition; the Symantec "
+                  "enterprise-endpoint disclosures (2016); the Windows "
+                  "Defender engine bugs (2017); the MSCTF rabbit-hole "
+                  "with ctftool (2019); the NSS BigSig postmortem (2021); "
+                  "Zenbleed, CVE-2023-20593 (2023)",
+        "distillation": "fuzz-first attack-surface triage and oracle "
+                        "engineering: the privileged parser — software "
+                        "parsing the least trusted input at the highest "
+                        "privilege — is the target class, selected by a "
+                        "census (privilege x deployment x input "
+                        "hostility), never by taste; the instrument is "
+                        "part of the finding, built when missing with a "
+                        "stated budget; the oracle class (crash, "
+                        "state-diff, serialized) is declared before the "
+                        "run with its blind spots; the finding ships "
+                        "minimized to its simplest repro and reported "
+                        "publicly without agreeing to terms; and every "
+                        "confirmed bug carries its missed-why postmortem "
+                        "— which defenses should have caught it and the "
+                        "mechanical reason each did not",
+        "sources": "Project Zero posts read in full (BigSig postmortem "
+                   "2021; Down the Rabbit-Hole 2019; How to Compromise "
+                   "the Enterprise Endpoint 2016; the poisoned NUL byte "
+                   "2014, Evans); the Zenbleed writeup at cmpxchg8b.com "
+                   "(2023) read in full; Fuzzing at scale (Google "
+                   "Security Blog, 2011) read in full; the HITB 2009 "
+                   "speaker record; documented X posts (2015-2020); the "
+                   "multi-sourced press record (Wired, Computerworld, "
+                   "SecurityWeek, ZDNet, AMD-SB-7008) — with the "
+                   "enormous tracker corpus bounded, not line-read; "
+                   "skills/harness-smith/references/sources.md",
+        "correction": "the shower-conceived-LastPass-bug anecdote stays "
+                      "quarantined as press-record-only (never a "
+                      "primary artifact); the Zenbleed outsider-view "
+                      "claim is admitted as his own stated aesthetic "
+                      "only, not as method evidence",
     },
 ]
 

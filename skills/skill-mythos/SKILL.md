@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.13.0
+version: 1.14.0
 type: ai-skill
 architecture: package
 description: >-
@@ -40,7 +40,14 @@ description: >-
   access-model audit with a computed seam table, primitives composed
   across seams the access model never priced, findings mapped onto the
   vendor's own boundary taxonomy with declined seams kept on record —
-  the second candidate-queue execution) and the tier-3
+  the second candidate-queue execution) and the tier-5 craft organ
+  harness-smith
+  since v1.14.0 (the Tavis Ormandy lineage: fuzz-first attack-surface
+  triage and oracle engineering — the privileged-parser census, harness
+  engineering with corpus distillation, the oracle classification
+  table, minimization to the simplest repro, the no-terms vendor
+  protocol, and the mandatory missed-why postmortem — the third
+  candidate-queue execution), the tier-3
   attack organs (injection-lab, ssrf-playbook, xss-playbook,
   cloud-config-auditor, mobile-hunter with the Charlie Miller lineage,
   cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook
@@ -67,7 +74,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.13.0 — The Master Charter
+# skill-mythos v1.14.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -241,6 +248,7 @@ metadata:
 | 5 | packet-orchestrator | the Searle + Mantis lineage: manual first, then layer-by-layer translation into state-backed automation; packet differentials show their bytes |
 | 5 | protocol-forensics | the Dan Kaminsky lineage: protocol forensics at internet scale — the spec's ambiguity hunted across the implementation population, invariants priced with computed arithmetic, the fix engineered as a coordinated event |
 | 5 | interior-cartographer | the James Forshaw lineage: OS internal-surface cartography — the interior census with boundary rows, the access-model audit with a computed seam table, primitives composed across uncovered seams, findings mapped to the vendor's own boundary taxonomy with declined seams on record |
+| 5 | harness-smith | the Tavis Ormandy lineage: fuzz-first attack-surface triage and oracle engineering — the privileged-parser census, the harness with corpus distillation, the declared oracle, the minimized repro, the no-terms report, and the missed-why postmortem |
 | 6 legend | chain-architect | the Orange Tsai lineage (Tier S): the compound kill chain — low-severity primitives composed into critical impact, every link proven by its own differential |
 | 6 | desync-hunter | the James Kettle lineage (Tier S): protocol & specification asymmetry — parser-seam ambiguities, one per request, bytes as evidence; carries the M1–M4 method layer (CHAINMAP, selection matrix, differential protocol, escalation ladder) |
 | 6 | deep-teardown | the George Hotz lineage (Tier S): dismantle client artifacts to primitives — local data flow before network flow |

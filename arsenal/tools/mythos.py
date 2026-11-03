@@ -53,7 +53,8 @@ TIERS = {
     "4-incident": ["adversary-tracker"],
     "5-craft": ["scan-economist", "module-smith", "pipeline-smith",
                 "feedback-fuzzer", "template-scanner",
-                "packet-orchestrator", "protocol-forensics"],
+                "packet-orchestrator", "protocol-forensics",
+                "interior-cartographer"],
     "6-legend": ["chain-architect", "desync-hunter", "deep-teardown",
                  "ghost-crawler", "mirror-hunter", "signal-smith",
                  "trust-graph-hunter"],
@@ -527,8 +528,9 @@ LINEAGES = [
                         "layer born in, wiring through charter + "
                         "registry + gates",
         "sources": "the three method waves (commits 308bf3b, dbf89c2, "
-                   "5ba9032) plus the first candidate-queue execution "
-                   "(protocol-forensics, Q1 retired) — 25 lineages "
+                   "5ba9032) plus the two candidate-queue executions "
+                   "(protocol-forensics, Q1 retired; interior-cartographer, "
+                   "Q2 retired) — 26 lineages "
                    "assimilated under this doctrine; skills/lineage-smith/"
                    "references/method-upgrade.md",
         "correction": None,
@@ -590,6 +592,40 @@ LINEAGES = [
                       "novelty; the arithmetic constants cite "
                       "VU#800113 and every other number in the organ is "
                       "computed in-house and labeled as computed",
+    },
+    {
+        "organ": "interior-cartographer",
+        "figure": "James Forshaw (Google Project Zero) — listed #1 "
+                  "researcher for MSRC; Pwn2Own and Microsoft "
+                  "Mitigation Bypass bounty winner (the program's "
+                  "first $100,000 payout, 2013); author of Attacking "
+                  "Network Protocols (2017) and Windows Security "
+                  "Internals (2024)",
+        "distillation": "OS internal-surface cartography: the interior "
+                        "is the perimeter — every local interface a "
+                        "low-privileged process can reach enumerated "
+                        "as a census before any attack, primitives "
+                        "(links, tokens, reflection) composed across "
+                        "seams the access model never priced, findings "
+                        "mapped onto the vendor's own boundary "
+                        "taxonomy with declined seams kept on record, "
+                        "and the instrument shipping with the finding",
+        "sources": "Project Zero posts (symbolic link mitigations "
+                   "2015; arbitrary file writes 2018; AppContainer "
+                   "network access 2021); the PoC 2023 RPC-tooling "
+                   "abstract; the OffensiveCon 2018 bio and UMCI "
+                   "abstract; the NtObjectManager package pages "
+                   "(1.1.14, 1.1.33) and the 1.1.17 manifest; the "
+                   "tyranid GitHub profile (37 repositories); the "
+                   "MSRC 2015 acknowledgments window; "
+                   "skills/interior-cartographer/references/sources.md",
+        "correction": "the Windows Registry Adventure series "
+                      "(2024-2025) is Mateusz Jurczyk's, not "
+                      "Forshaw's — an aggregator title initially "
+                      "suggested otherwise; the verified shared "
+                      "record is the 2016 registry co-fuzzing "
+                      "Jurczyk documents, and the organ claims only "
+                      "that thread",
     },
 ]
 

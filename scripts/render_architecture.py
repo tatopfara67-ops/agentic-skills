@@ -48,7 +48,7 @@ TIERS = [
     ("Tier 5 — Craft Lineages", [
         "scan-economist", "module-smith", "pipeline-smith",
         "feedback-fuzzer", "template-scanner", "packet-orchestrator",
-        "protocol-forensics"]),
+        "protocol-forensics", "interior-cartographer"]),
     ("Tier 6 — Legend Tier", [
         "chain-architect", "desync-hunter", "deep-teardown",
         "ghost-crawler", "mirror-hunter", "signal-smith",
@@ -56,11 +56,12 @@ TIERS = [
     ("Tier 7 — Forge & Competition", [
         "lineage-smith", "rival-playbook"]),
 ]
-NEW_ORGANS = {"lineage-smith", "rival-playbook", "protocol-forensics"}
-N_ORGANS = sum(len(o) for _, o in TIERS)          # 32 organs (30 hunting + 2 forge)
-N_BUNDLES = 38
+NEW_ORGANS = {"lineage-smith", "rival-playbook", "protocol-forensics",
+              "interior-cartographer"}
+N_ORGANS = sum(len(o) for _, o in TIERS)          # 33 organs (31 hunting + 2 forge)
+N_BUNDLES = 39
 N_TOOLS = 27
-N_TESTS = 137
+N_TESTS = 138
 
 BOXES = []  # (x0, y0, x1, y1) registry per panel for the overlap check
 

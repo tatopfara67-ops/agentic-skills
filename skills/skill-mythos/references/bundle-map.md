@@ -54,6 +54,7 @@ closure gates, R7 budgets) instead of restating them. The charter
 | template-scanner | 5 | a check will be reused across engagements and must be reproducible | *detection as data* — matchers pre-registered, campaigns cite their set (ProjectDiscovery lineage) |
 | packet-orchestrator | 5 | a manual trace works and is worth automating | *manual first* — translate to state-backed automation layer by layer (Searle + Mantis lineage) |
 | protocol-forensics | 5 | a specification class must be hunted across its implementation population, an invariant's entropy must be priced with computed arithmetic, or a class-level fix must be engineered as a coordinated event | *the spec is a treaty between strangers* — implementations resolve ambiguity independently; the class is the target, the population is the denominator, the fix is an event, and every stopgap is labeled a stopgap (Dan Kaminsky lineage) |
+| interior-cartographer | 5 | a foothold exists on an OS-class target and the local attack surface is unmapped; a local elevation chain must be argued against the vendor's boundary taxonomy; a declined seam must stay on record | *the interior is the perimeter* — enumerate every local interface the low-privileged principal can reach before composing primitives across seams the access model never priced; the vendor's boundary list is the argument's terrain, and the census — not the exploit — is the research (James Forshaw lineage) |
 | chain-architect | 6 | low/informational findings accumulate and want composition | *the compound kill chain* — 3-4 harmless gaps into critical impact, each link proven (Orange Tsai lineage) |
 | desync-hunter | 6 | a parser seam (CDN/WAF/terminator/backend) sits in scope | *specifications are hypotheses* — one ambiguity per request, bytes as artifacts (James Kettle lineage) |
 | deep-teardown | 6 | a client artifact (JS/APK/binary) is in scope and unread | *dismantle to primitives* — local dissection before any network flow (George Hotz lineage) |
@@ -75,7 +76,8 @@ mirror-hunter, Tversky behind trust-graph-hunter, Chomsky behind
 signal-smith, Ashby behind pipeline-smith, Popper behind
 template-scanner, Snowden behind adversary-tracker, Ericsson behind
 the proving ground, Kauffman behind doctrine-forge, Metzinger behind
-glm-self-model, Shannon behind protocol-forensics. And the campaign those organs fight is SHAPED by the
+glm-self-model, Shannon behind protocol-forensics, Korzybski behind
+interior-cartographer. And the campaign those organs fight is SHAPED by the
 war logic (references/war-doctrine.md, A15): spies before armies,
 win without fighting, avoid strength and strike weakness, cheng
 paired with ch'i, shih stored in the ledger. `doctrine_forge` carries

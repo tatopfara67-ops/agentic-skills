@@ -1,6 +1,6 @@
 ---
 name: lineage-smith
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -31,11 +31,11 @@ category: security/craft-forge
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 25 lineages on the registry under this doctrine, the first candidate-queue execution landed protocol-forensics (the Dan Kaminsky lineage)
+  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 26 lineages on the registry under this doctrine, the first two candidate-queue executions landed protocol-forensics (the Dan Kaminsky lineage) and interior-cartographer (the James Forshaw lineage)
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# lineage-smith v1.2.0 — Read Everything, Ship the Method
+# lineage-smith v1.3.0 — Read Everything, Ship the Method
 
 ## 0. What This Skill Is — and Is Not
 
@@ -206,5 +206,5 @@ behavior, and behavior leaves artifacts.
 | Load when… | Module |
 | --- | --- |
 | Critiquing the folk way of studying famous figures; running the executable M1–M6 | references/method-upgrade.md |
-| Screening the next legends; the scored queue with seven standing candidates (Q1 executed — retired into protocol-forensics) | references/candidate-queue.md |
+| Screening the next legends; the scored queue with six standing candidates (Q1 and Q2 executed — retired into protocol-forensics and interior-cartographer) | references/candidate-queue.md |
 | Evidence classes per lens dimension; the OPINION quarantine; the assembly crosswalk | references/psychology-catalog.md |

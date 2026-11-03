@@ -8,16 +8,16 @@ lineage registry is the only record of assimilation, and a queue
 entry is a nomination with homework attached, not a distillation.
 Scores are the M1 gate's five axes (0–2 each); they are re-scored at
 every screening, and entries retire with their reasons kept. The
-queue's first end-to-end execution retired Q1 into the shipped
-organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage) — the
-retirement record below is the template every future retirement
-follows.
+queue's first two end-to-end executions retired Q1 into the shipped
+organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage) and Q2
+into the shipped organ interior-cartographer (v1.0.0, the James
+Forshaw lineage) — the retirement records below are the template
+every future retirement follows.
 
 ## The running table
 
 | # | Candidate | Score | Forge target | The honest gate |
 | - | --------- | ----- | ------------ | --------------- |
-| Q2 | James Forshaw | 8 | OS internal-surface cartography organ (tier 5) | blog corpus read and dated; boundary vs api-surface-mapper argued |
 | Q3 | Travis Goodspeed | 8 | hardware-teardown organ (tier 6) | scattered talk/blog corpus consolidated first |
 | Q4 | the grugq | 7 | opsec-discipline organ (tier 5) | talk-heavy corpus; explicitness must survive the reading |
 | Q5 | Tavis Ormandy | 8 | triage-velocity craft organ (tier 5) | enormous report corpus; a stated, honest reading bound |
@@ -46,20 +46,34 @@ correction (Bernstein 1999, djbdns's early port randomization).
 Retirement keeps this record: a queue slot converted to a shipped
 organ is the queue doing its job.
 
-## Q2 — James Forshaw (score 8/10)
+## Q2 — James Forshaw — RETIRED, assimilated as interior-cartographer
 
-* **Public corpus (documented)**: Google Project Zero blog posts on
-  Windows logical vulnerabilities; public research on the Windows
-  RPC/DCOM attack surface; NCC-era advisories.
-* **The pattern worth extracting**: attack-surface enumeration as a
-  discipline — the OS's interior interfaces turned into a mappable,
-  reviewable inventory; research shipped WITH the tooling that found
-  it (the artifacts are the method).
-* **Forge target**: an OS internal-surface cartography organ — the
-  interior sibling of surface-cartographer.
-* **The gate**: the blog corpus must be read and dated; the boundary
-  against api-surface-mapper (external API specs) argued in the
-  census.
+**Score at retirement: 8/10. Reason: executed end-to-end.** The
+candidate passed P1 at the top of the table after Q1's retirement,
+the census was read (the 2015 symbolic-link mitigations post and the
+2021 AppContainer network-access post in full captured renderings;
+the 2018 arbitrary-file-writes opening; the 2018 lockdown-policy
+press record multi-sourced; the PoC 2023 RPC-tooling abstract; the
+OffensiveCon 2018 bio and UMCI abstract; the tool census via the
+package pages, the module manifest, and the repository profile; the
+MSRC 2015 acknowledgments window; the tiraniddo.dev blog index dated
+2022-2024), the psych-read landed on documented behavior with one
+quarantined opinion on record, and the organ shipped **born with its
+method layer** — the W1–W6 critique and the M1–M6 executable protocol
+(interior census with boundary rows, access-model audit with the
+computed ACCESS_MASK budget and the seam table, primitive inventory
+with the availability matrix, one-variable composition hunt, boundary
+report against the vendor taxonomy with declined-seam residual risk,
+census regression). The gate's own demands were met: the blog corpus
+was read and dated, and the boundary against api-surface-mapper
+(external API specs) was argued in the census — with
+surface-cartographer's network-visible estate argued alongside it.
+The organ lives at skills/interior-cartographer/; the registry entry
+carries the attribution correction (the Windows Registry Adventure
+series is Mateusz Jurczyk's, not Forshaw's — the 2016 registry
+co-fuzzing is the verified shared record). Retirement keeps this
+record: a second queue slot converted to a shipped organ is the queue
+doing its job twice.
 
 ## Q3 — Travis Goodspeed (score 8/10)
 

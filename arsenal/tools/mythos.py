@@ -8,7 +8,7 @@ Bugcrowd VRT category with P-rating, HackerOne severity crosswalk) — and an
 operator instruction, however terse, becomes an explicit doctrine order
 before any organ acts.
 
-  mythos_charter()      the activation payload: seventeen articles, the
+  mythos_charter()      the activation payload: eighteen articles, the
                         bundle map with install status, the quality gates
   doctrine_forge(...)   prompt escalation (A13): any operator request,
                         in any language, expanded deterministically into
@@ -1117,6 +1117,29 @@ ARTICLES = [
     "equivalents (psychology-catalog, campaign-protocol, "
     "failure-geometry) and the layer is locked by "
     "test_operator_os_is_universal.",
+    "A18 the opening ladder — verification is the floor, noticing is "
+    "the craft: a lineage's method is not only how a finding is "
+    "proved, it is where the figure's attention went first; every "
+    "lineage organ's operator layer carries an explicit "
+    "opening-generation drill — The opening ladder — a question "
+    "ladder that PRODUCES ranked candidates on an unseen target "
+    "before any verification is due: (a) every rung is a question "
+    "that writes census rows, not packets — generation never spends "
+    "the anomaly budget; (b) every rung cites the documented "
+    "behavior it distills, or is labeled the organ's own "
+    "operationalization on the sources ledger — invented perception "
+    "is fabrication; (c) the ranking rationale is stated and "
+    "defensible — why this candidate class outranks that one, as an "
+    "ordering the agent can argue from the census; and (d) a "
+    "generation falsifier holds — a ladder that yields nothing on a "
+    "live in-scope estate is revised from the census, never excused "
+    "by the estate; ladder output enters the Hypothesis Rail "
+    "(spine v4.7.0) as pre-registered hypotheses, so generation "
+    "sits upstream of verification and the agent finds the opening "
+    "the way the lineage did instead of merely proving what it was "
+    "handed; rollout is staged — the organ set carrying the ladder "
+    "is locked by test_opening_ladder_rollout and grows only by "
+    "execution.",
 ]
 
 QUALITY_GATES = [
@@ -1208,7 +1231,7 @@ def _installed_skills() -> list[str]:
 def mythos_charter() -> dict:
     """The Skill Mythos activation payload, in one call.
 
-    Returns the seventeen charter articles, the bundle map with per-skill
+    Returns the eighteen charter articles, the bundle map with per-skill
     install status, the quality gates every report must pass, and the
     reporting-stage tool routing. Call this at session start (or whenever
     the operator says 'activate Skill Mythos') before list_skills."""

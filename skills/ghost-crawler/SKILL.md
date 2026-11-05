@@ -1,6 +1,6 @@
 ---
 name: ghost-crawler
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -132,7 +132,11 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Adrian Lamo.
+executing, characteristic of Adrian Lamo. Since v1.3.0 it also ships
+**The opening ladder** (A18): where Lamo's candidates come from — the perception layer
+that PRODUCES candidates before any verification is due (rungs write
+census rows, never packets; ranking rationale stated; generation
+falsifier on record).
 
 ## 4. Procedure — Numbered Actions
 
@@ -205,4 +209,4 @@ executing, characteristic of Adrian Lamo.
 | Building the dork grammar / misconfig classes | `references/side-door-catalog.md` |
 | Verifying the Lamo lineage (and its caveat) | `references/sources.md` |
 | Grading the published form, running the index pass, closing the census gate | `references/method-upgrade.md` |
-| Running the hunt — the Adrian Lamo runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Adrian Lamo runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

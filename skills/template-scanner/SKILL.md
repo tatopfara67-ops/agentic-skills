@@ -1,6 +1,6 @@
 ---
 name: template-scanner
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -113,7 +113,11 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of ProjectDiscovery.
+executing, characteristic of ProjectDiscovery. Since v1.3.0 it also ships
+**The opening ladder** (A18): from fingerprint to template — the perception layer
+that PRODUCES candidates before any verification is due (rungs write
+census rows, never packets; ranking rationale stated; generation
+falsifier on record).
 
 ## 3. Procedure — Numbered Actions
 
@@ -167,4 +171,4 @@ executing, characteristic of ProjectDiscovery.
 | Running template campaigns | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
 | Grading the published practice, auditing matchers, re-rating severity | references/method-upgrade.md |
-| Running the hunt — the ProjectDiscovery runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the ProjectDiscovery runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

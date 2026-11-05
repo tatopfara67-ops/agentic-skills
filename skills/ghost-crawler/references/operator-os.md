@@ -3,7 +3,7 @@
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > passive-index laws; the M-protocol (references/method-upgrade.md)
 > states the index protocol; THIS module is the runtime — how the agent
-> thinks, behaves, and scripts while executing them, characteristic of
+> notices, thinks, behaves, and scripts while executing them, characteristic of
 > Adrian Lamo's documented craft: enter without knocking, read what the
 > infrastructure already exposed, one probe per candidate, and the main
 > application untouched.
@@ -39,6 +39,36 @@ everyone else's logs.
 R6 **Record the exposure, not the content.** The artifact is proof the
 exposure exists (status, listing shape, sample row); wholesale copying
 of exposed data is not the finding and not the behavior.
+
+### The opening ladder — where Lamo's candidates come from
+
+The rules above govern posture once a candidate exists. The ladder
+produces the candidates — the documented perception (targets chosen
+by watching for infrastructure nobody owned) made runnable as
+questions. Every rung reads sources that are already public; NO rung
+sends a packet — verification is T4's job, and T4 fires once per
+candidate (R3). Rows out; anomaly budget untouched.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Who stopped owning what? | names that resolve while no current asset map explains them — the estate's DNS admits tenants nobody evicted | the documented entry pattern — misconfiguration, not exploits |
+| G2 | What does the estate's history admit that its present hides? | archive paths alive in old snapshots and absent from today's surface — forgotten admin and debug doors | the same pattern, read from archives (T1's output) |
+| G3 | Which names outlived their purpose? | certificate-transparency names with live certificates and no current role — staging, internal, dead-project names | organ's own operationalization, labeled on the sources ledger |
+| G4 | Where did convenience outrank hygiene? | backup and VCS shapes, editor residue, test prefixes — the file shapes haste leaves behind | organ's own operationalization (the dork grammar's class, the sources ledger's honest caveat) |
+| G5 | Which periphery touches the core? | the main app's neighbors — shared-cookie hosts, API edges, static estates (R4's map read as a candidate source) | the documented main-network adjacency, translated |
+
+Ranking rationale: neglect strength = staleness × orphan status ×
+distance from current ownership. The stalest, most orphaned,
+least-attended surface outranks the fresh and watched one — neglect
+compounds, and a two-year-old orphan with a live name is the estate's
+signed confession. A fresh exposure is a lead; a stale exposure is
+the opening.
+
+Generation falsifier: a live in-scope estate where the ladder yields
+zero candidates means the ladder is missing a rung — the census is
+re-read for the neglect class it cannot see, and the new rung is
+written with its grounding row. The estate is never excused as
+clean; that verdict belongs to verification, not generation.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

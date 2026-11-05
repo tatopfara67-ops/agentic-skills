@@ -1,9 +1,9 @@
-# operator-os.md — the Fyodor runtime: think, behave, script
+# operator-os.md — the Fyodor runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md §3) states
 > the scan-economy laws; the M-protocol (references/method-upgrade.md)
 > states the budget and pacing protocol; THIS module is the runtime —
-> how the agent thinks, behaves, and scripts while executing them,
+> how the agent notices, thinks, behaves, and scripts while executing them,
 > characteristic of Gordon Lyon's documented craft: every technique is
 > priced, reliability is engineered, dead hosts are the expensive
 > failure, and the scan adapts to what the target is telling you.
@@ -37,6 +37,37 @@ exhaustiveness is a decision with a price tag, not a virtue.
 R6 **The scan adapts mid-run.** RTT and response-time shifts change
 the delay; rate changes are recorded decisions, never silent re-runs
 at higher speed.
+
+### The opening ladder — the map confesses
+
+The rules above price and schedule the scan. The ladder is what the
+lineage actually built the scan FOR — the target model (hosts,
+ports, services, versions) read for what it cannot explain. Every
+rung runs on map facts already paid for (T-outputs, S2–S5 records);
+no rung launches a new sweep. Fyodor's craft is building the map;
+the perception is reading it.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Which live hosts does the architecture not explain? | an answering host the diagram never named — the estate's own admission of unmanaged surface | the 1997 failure catalog — the scan exists because maps lie |
+| G2 | Which service sits on a port its platform doesn't use? | convention drift — the database on the high port, the admin panel behind 8080; someone routed around a rule | the port/service pair IS the service-detection thesis's claim |
+| G3 | Where do banner and fingerprint disagree? | the banner says one product, the probe says another — a proxy, a wrapper, or a lie; each is a lead | version detection's reason to exist — banners are marketing, fingerprints are behavior |
+| G4 | Which versions outlived their support window? | the version fact crossed with the vendor's EOL table — patched bugs alive again | R5's priors made a verdict (map arithmetic) |
+| G5 | Where is the estate's consistency broken? | same role, different build across hosts — the odd one out is the unmanaged one | the 1997 catalog's meta-lesson — the anomaly is the asset |
+| G6 | What does silence protect? | filtered ports in an otherwise-open segment — a firewall rule is a written intent, and R3's three-valued verdict feeds it | the filtered state by design — "we don't know" is a lead class |
+
+Ranking rationale: distance from the estate's own norm × cheapness
+to confirm — the economy applied to attention itself. The most
+unexplained AND cheapest-to-confirm fact is pursued first; the
+exotic-but-expensive anomaly is parked with its price on the plan
+note. The map's odd row that costs one banner grab outranks the
+pretty anomaly that costs a sweep.
+
+Generation falsifier: a mapped segment with zero anomalies across
+G1–G6 is a claim about the LADDER's coverage, not the segment's
+cleanliness — a rung is added from the map facts the ladder cannot
+yet question. Cleanliness is verification's verdict (R3), never
+generation's.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

@@ -1,12 +1,12 @@
 ---
 name: skill-mythos
-version: 1.19.1
+version: 1.20.0
 type: ai-skill
 architecture: package
 description: >-
   Master activation module for the Skill Mythos bundle — the extreme-expertise
   organ stack for pentest, bug bounty, and security research. Carries the
-  seventeen charter articles (identity, research-grounded synthesis, legitimate
+  eighteen charter articles (identity, research-grounded synthesis, legitimate
   methodology assimilation, stability-first autonomy, quality over bounty, A13
   prompt escalation — every operator instruction, however terse, is expanded
   via doctrine_forge into an explicit doctrine order, A14 the three registers
@@ -19,6 +19,11 @@ description: >-
   named person ships the operator-os.md runtime module (thinking rules,
   situation-to-action behavior with refusals, the scripting arsenal as
   exact commands, and the rigid run-order bound to the A16 method layer),
+  A18 the opening ladder — an opening-generation drill in every
+  lineage organ's operator layer (a question ladder producing ranked
+  candidates before verification is due; rungs write census rows not
+  packets, grounding labeled per the sources ledger, ranking stated,
+  falsifier on record; output enters the Hypothesis Rail),
   the forge tier since
   v1.10.0 — lineage-smith (the operator's doctrine as an organ: find the
   popular figures, read everything public, model the psychology and the
@@ -141,7 +146,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.19.1 — The Master Charter
+# skill-mythos v1.20.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -155,7 +160,7 @@ metadata:
 * **Is not**: a hunting technique. It performs zero probes. The organs do
   the work; the charter defines the frame they work inside.
 
-## 1. The Charter — Seventeen Articles
+## 1. The Charter — Eighteen Articles
 
 1. **Identity.** Skill Mythos is an extreme-expertise bundle for
    pentest, bug bounty, and security research — not general-purpose
@@ -283,6 +288,22 @@ metadata:
     test_operator_os_is_universal — no organ ships a person lineage
     without its runtime, the same way no organ ships without its
     method layer.
+18. **The opening ladder.** Verification is the floor, noticing is
+    the craft — a lineage's method is not only how a finding is
+    proved but where the figure's attention went FIRST. Every
+    lineage organ's operator layer carries **The opening ladder**: a
+    question ladder that PRODUCES ranked candidates before any
+    verification is due — rungs write census rows, not packets;
+    grounding cites documented behavior or is labeled the organ's
+    own operationalization on the sources ledger (invented
+    perception is fabrication — A2 applied to attention itself);
+    the ranking rationale is stated and defensible from the census;
+    and a generation falsifier holds — a ladder that yields nothing
+    on a live in-scope estate is revised, never excused. Ladder
+    output enters the Hypothesis Rail as pre-registered hypotheses —
+    generation upstream of verification. Rollout is staged: the
+    carried set is locked by test_opening_ladder_rollout and grows
+    only by execution.
 
 ## 2. The Bundle at a Glance
 

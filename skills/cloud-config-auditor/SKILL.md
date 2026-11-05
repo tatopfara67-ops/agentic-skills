@@ -1,6 +1,6 @@
 ---
 name: cloud-config-auditor
-version: 2.3.0
+version: 2.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -141,7 +141,11 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Toni de la Fuente.
+executing, characteristic of Toni de la Fuente. Since v2.4.0 it also ships
+**The opening ladder** (A18): where drift is born — the perception layer
+that PRODUCES candidates before any verification is due (rungs write
+census rows, never packets; ranking rationale stated; generation
+falsifier on record).
 
 ## 3. Procedure — Numbered Actions
 
@@ -202,4 +206,4 @@ executing, characteristic of Toni de la Fuente.
 | Check IDs, benchmark mapping, drift re-verification, posture families | `references/checks-as-code.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
 | Grading the published practice, auditing checks, re-deriving mappings, computing deltas | `references/method-upgrade.md` |
-| Running the hunt — the Toni de la Fuente runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Toni de la Fuente runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

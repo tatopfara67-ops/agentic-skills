@@ -1,9 +1,9 @@
-# operator-os.md — the de la Fuente runtime: think, behave, script
+# operator-os.md — the de la Fuente runtime: notice, think, behave, script
 
 > A17's layer. Load when the audit RUNS. Doctrine (SKILL.md) states the
 > posture laws; the M-protocol (references/method-upgrade.md) states
 > the check-review and delta protocol; THIS module is the runtime —
-> how the agent thinks, behaves, and scripts while executing them,
+> how the agent notices, thinks, behaves, and scripts while executing them,
 > characteristic of Toni de la Fuente's documented craft: posture is
 > checks-as-code, benchmarks are re-derived not trusted, and the
 > finding is the DELTA with its severity argued on a ladder.
@@ -35,6 +35,33 @@ never enumeration of the tenant's data.
 R6 **Regression rows keep the fix honest.** Post-fix re-runs produce
 delta rows; a fix that changes no effective state is a stopgap, named
 as one.
+
+### The opening ladder — where drift is born
+
+Prowler's checks are the codified openings; the ladder is where the
+lineage's craft points BEFORE the check run. Drift has a birthplace,
+and it is almost always the console — the change someone made at
+human speed, outside the code path that reviews catch. Every rung
+reads config sources already collected; no rung changes state.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Which resources were born outside the template? | console-created versus IaC-tracked — drift's birthplace, where the unreviewed change lives | checks-as-code inverted — what ISN'T code is the question |
+| G2 | Which policies got wider over time? | statement and version diffs — permission accretion, the grant that never shrank | the delta doctrine (R3) applied to history, not just state |
+| G3 | Which services skipped the org controls? | org-policy versus member-exception gaps — the "temporary" exception that aged into architecture | benchmark re-derivation (R2) at the org layer |
+| G4 | Which exposures are new primitives? | the service nobody benchmarked yet — newest service, thinnest guardrails, checks still being written | the lineage's own growth record — checks lag services |
+| G5 | Which credentials outlived their owners? | unused keys, orphaned service accounts — hygiene debt that compounds with every offboarding | the hygiene check class the toolchain is famous for |
+
+Ranking rationale: blast radius × exposure × age of exception. The
+wide-exposure exception that aged three years outranks the fresh
+narrow one; the new primitive with no checks outranks both when it
+is internet-reachable. Drift ages like debt — the ranking follows
+the interest.
+
+Generation falsifier: an account where no drift class yields means
+the CONFIG SOURCES are incomplete — a read-level gap (a region not
+enumerated, a service not inventoried), not the account's posture.
+The census re-runs before any "clean" claim is written.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

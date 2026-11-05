@@ -103,12 +103,12 @@ class TestMythosCharter(unittest.TestCase):
     def setUp(self):
         self.charter = _mythos.mythos_charter()
 
-    def test_seventeen_articles(self):
-        self.assertEqual(len(self.charter["articles"]), 17)
+    def test_eighteen_articles(self):
+        self.assertEqual(len(self.charter["articles"]), 18)
         for article in self.charter["articles"]:
             self.assertRegex(article, r"^A\d+ ")
         self.assertIn("CVSS 3.1", "".join(self.charter["articles"]))
-        self.assertTrue(self.charter["articles"][-1].startswith("A17"))
+        self.assertTrue(self.charter["articles"][-1].startswith("A18"))
         self.assertIn("three registers", self.charter["articles"][13])
         self.assertIn("war logic", self.charter["articles"][14])
         self.assertIn("method over mythology",
@@ -119,6 +119,12 @@ class TestMythosCharter(unittest.TestCase):
                       self.charter["articles"][16])
         self.assertIn("operator-os.md",
                       self.charter["articles"][16])
+        self.assertIn("the opening ladder",
+                      self.charter["articles"][17])
+        self.assertIn("Hypothesis Rail",
+                      self.charter["articles"][17])
+        self.assertIn("test_opening_ladder_rollout",
+                      self.charter["articles"][17])
 
     def test_charter_carries_prompt_escalation(self):
         escalation = self.charter["prompt_escalation"]
@@ -291,6 +297,35 @@ class TestMythosLineages(unittest.TestCase):
                           "Falsifiers"):
                 self.assertIn(token, body,
                               "%s: A17 layer incomplete (%s)" % (organ, token))
+
+    def test_opening_ladder_rollout(self):
+        """A18's staged rollout: the organs whose operator-os carries
+        The opening ladder — the figure's perception as a candidate-
+        generation question ladder (rungs write census rows, never
+        packets; ranking rationale stated; generation falsifier on
+        record). The set below is the executed rollout on record;
+        it grows only by execution (one organ done well beats a
+        mass wave done thin — the A17 lesson), and the full-corpus
+        lock replaces this list when all 31 person-lineage organs
+        carry the ladder."""
+        rollout = [
+            "cloud-config-auditor", "ghost-crawler", "oauth-flow-auditor",
+            "pipeline-smith", "scan-economist", "template-scanner",
+        ]
+        skills_root = os.path.join(_TREE_ROOT, "skills")
+        for organ in rollout:
+            path = os.path.join(skills_root, organ, "references",
+                                "operator-os.md")
+            self.assertTrue(os.path.isfile(path),
+                             "%s: operator-os.md missing" % organ)
+            with open(path, encoding="utf-8") as fh:
+                body = fh.read()
+            for token in ("The opening ladder",
+                          "Ranking rationale",
+                          "Generation falsifier"):
+                self.assertIn(token, body,
+                              "%s: A18 layer incomplete (%s)" % (organ,
+                                                                 token))
 
     def test_attribution_corrections_are_on_record(self):
         registry = _mythos.mythos_lineages()

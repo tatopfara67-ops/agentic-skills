@@ -1,9 +1,9 @@
-# operator-os.md — the ProjectDiscovery runtime: think, behave, script
+# operator-os.md — the ProjectDiscovery runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > template laws; the M-protocol (references/method-upgrade.md) states
 > the matcher and RUN-PIN protocol; THIS module is the runtime — how
-> the agent thinks, behaves, and scripts while executing them,
+> the agent notices, thinks, behaves, and scripts while executing them,
 > characteristic of the ProjectDiscovery craft: detection as
 > declarative templates, matchers pre-registered before the run, packs
 > versioned as data, and noise filtered before it becomes a report.
@@ -38,6 +38,34 @@ R6 **Noise is a first-class metric.** The run reports its noise ratio
 (false-shaping hits filtered / total hits); a template whose noise
 ratio exceeds the filter table's ceiling is retired or fixed, not
 tolerated.
+
+### The opening ladder — from fingerprint to template
+
+The organ verifies with templates; the lineage's generation craft is
+writing the template FROM the observed fingerprint — detection as
+hypothesis, the estate's exact versions as the input. Every rung
+reads the fingerprint census and the pack inventory; no rung fires a
+request — the run is verification's territory.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Which exact versions did the estate admit? | headers, bodies, hashes — the fingerprint census as the ground the whole craft stands on | the engine/data separation — detection starts from the observed, never the assumed |
+| G2 | Which pairs lack a covering template? | fingerprint rows with no matching pack entry — the estate's unproven surface | pack versioning read as coverage, not just identity |
+| G3 | Which changelog lines match the running builds? | the vendor fix that shipped after the deployed build — the bug alive in production | the stale-build cue class, stated as a template's origin |
+| G4 | Which custom shapes deserve a template? | the estate's own patterns — login paths, API prefixes, vendor fingerprints — become pack data | declarative detection (R1) applied to the estate's shape |
+| G5 | Which templates would die here? | stack-mismatched packs — the noise the run would waste, filtered BEFORE it runs | R6's noise metric moved upstream of the run |
+
+Ranking rationale: version-known-vulnerable > version-uncovered >
+pattern-novel. The fingerprint that matches a known vulnerable
+version outranks the coverage gap; both outrank novel shapes — the
+confirmed-alive bug is the headline, the uncovered surface is the
+bet, and novelty is exploration priced last.
+
+Generation falsifier: an estate where every fingerprint already has
+a green covering template is a COVERAGE CLAIM the run must still
+prove with its noise ratio — not a generation success. Uncovered
+fingerprints remaining after the census IS the ladder working; a
+zero-gap census is re-read before it is believed.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

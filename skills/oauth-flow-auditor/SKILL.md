@@ -1,6 +1,6 @@
 ---
 name: oauth-flow-auditor
-version: 2.3.0
+version: 2.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -145,7 +145,11 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Aaron Parecki.
+executing, characteristic of Aaron Parecki. Since v2.4.0 it also ships
+**The opening ladder** (A18): the client inventory first — the perception layer
+that PRODUCES candidates before any verification is due (rungs write
+census rows, never packets; ranking rationale stated; generation
+falsifier on record).
 
 ## 4. Procedure — Numbered Actions
 
@@ -198,4 +202,4 @@ executing, characteristic of Aaron Parecki.
 | redirect_uri matrix, state triple, PKCE downgrade, BCP vocabulary, error-path instruments | `references/flow-craft.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
 | Grading the published craft, pinning the flow, running exactness and state differentials | `references/method-upgrade.md` |
-| Running the hunt — the Aaron Parecki runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Aaron Parecki runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

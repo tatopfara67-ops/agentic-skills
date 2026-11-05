@@ -1,9 +1,9 @@
-# operator-os.md — the Parecki runtime: think, behave, script
+# operator-os.md — the Parecki runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > flow laws; the M-protocol (references/method-upgrade.md) states the
 > flow-pin and exactness protocol; THIS module is the runtime — how
-> the agent thinks, behaves, and scripts while executing them,
+> the agent notices, thinks, behaves, and scripts while executing them,
 > characteristic of Aaron Parecki's documented craft: pin the exact
 > flow first, exactness is a differential, state and PKCE are tested
 > as behavior — and token lifetimes are arithmetic.
@@ -38,6 +38,36 @@ must exit complete or explicitly parked.
 R6 **Client secrets and tokens are evidence, not trophies.** Captured
 artifacts (code, token) live in the ledger hashed, used once for the
 proof, never replayed.
+
+### The opening ladder — the client inventory first
+
+T2's neighbor matrix generates variants once a flow is pinned. The
+ladder runs UPSTREAM — which flows, clients, and registrations to
+pin at all. The perception is inventory discipline, the lineage's
+own emphasis made active: the IdP's client population is the attack
+surface, and the weakest redirect lives in the crowd. Every rung
+reads registration metadata and observed authorize redirects; no
+rung sends a probe — the matrix is verification's tool, not
+generation's.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | How many clients share this IdP? | every registered app is a surface; the count per grant type is the real scope statement | R1's pin-first discipline applied at population scale |
+| G2 | Which clients still run legacy grants? | implicit and token-endpoint remnants — retired grants are the hunted class | the grant taxonomy the lineage maintains (OAuth 2.0 Simplified) |
+| G3 | Which redirect registrations are widest? | prefix, regex, and wildcard registrations ranked by width BEFORE any probe — width is read from metadata, not tested | R2's exactness discipline inverted — measure the policy's shape first |
+| G4 | Which flows cross origin boundaries? | custom schemes, deep links, localhost callbacks — public-client territory where client secrets cannot protect anything | the public/confidential client distinction |
+| G5 | Which tokens live longest? | TTL outliers and rotation gaps — the lifetime that outlives its session | R4's arithmetic applied as ranking |
+
+Ranking rationale: policy width × grant age × client exposure. The
+widest redirect on the oldest grant in the most exposed client is
+pinned first; a narrow, fresh, confidential client parks. The
+ordering mirrors the failure record — OAuth incidents cluster where
+registration was loose and the grant was old.
+
+Generation falsifier: an IdP whose inventory yields nothing to pin
+means the inventory READ is incomplete — a source row is missing
+(an undocumented client, an internal authorize endpoint), not the
+population innocent. The census re-runs before any "clean" claim.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

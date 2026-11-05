@@ -1,6 +1,6 @@
 ---
 name: scan-economist
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -105,7 +105,11 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Gordon Lyon (Fyodor).
+executing, characteristic of Gordon Lyon (Fyodor). Since v1.3.0 it also ships
+**The opening ladder** (A18): the map confesses — the perception layer
+that PRODUCES candidates before any verification is due (rungs write
+census rows, never packets; ranking rationale stated; generation
+falsifier on record).
 
 ## 3. Procedure — Numbered Actions
 
@@ -154,4 +158,4 @@ executing, characteristic of Gordon Lyon (Fyodor).
 | Running a sweep end to end | references/playbook.md |
 | Checking what the lineage actually said | references/sources.md |
 | Grading the published method, pricing the budget, holding timing gates | references/method-upgrade.md |
-| Running the hunt — the Gordon Lyon (Fyodor) runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Gordon Lyon (Fyodor) runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

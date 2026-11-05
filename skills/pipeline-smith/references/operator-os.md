@@ -1,9 +1,9 @@
-# operator-os.md — the Tomnomnom runtime: think, behave, script
+# operator-os.md — the Tomnomnom runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > Unix-philosophy laws; the M-protocol (references/method-upgrade.md)
 > states the pipeline records and collapse ledger; THIS module is the
-> runtime — how the agent thinks, behaves, and scripts while executing
+> runtime — how the agent notices, thinks, behaves, and scripts while executing
 > them, characteristic of Tom Hudson's documented craft: small
 > composable tools, passive first, dedupe before probes, and the diff
 > IS the decision.
@@ -35,6 +35,34 @@ generation timestamp and source versions; an undated list is a rumor.
 R6 **Small outputs, cited stages.** Each stage's row count is a
 citation ("1,204 hosts from waybackurls at 2026-11-03"); the replay
 runs five-field citations — tool, version, input, flags, stamp.
+
+### The opening ladder — the pattern is the hypothesis
+
+The rules above keep the pipeline honest. The ladder is the lineage's
+actual craft: the tools generate the mass (waybackurls, assetfinder),
+and the perception SELECTS — the passive mass filtered by named
+patterns, each pattern a hypothesis about what neglect looks like.
+Every rung is a question over pipeline rows; no rung adds a probe —
+R1's verify-only boundary holds.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What did the estate ever publish that it stopped advertising? | archived paths absent from the live surface — the historical admission nobody retracted | waybackurls — the lineage's own input end |
+| G2 | Which file shapes mean "left behind"? | environment files, VCS directories, dumps, backups — the shapes haste leaves when it moves fast | the gf tradition — named pattern families as selection |
+| G3 | Which parameter families mean "old code path"? | debug, test, and verbose keys in archived URLs — parameters are code paths exposed in public | same — the pattern IS the hypothesis |
+| G4 | What is new since the last run? | diff lines only — the estate's freshest mistakes, R4's rule read as generation | the lineage's diff-first doctrine |
+| G5 | Which hosts appear in exactly ONE source? | single-source hosts — the estate doesn't know them either; uncorroborated means unmanaged | the collapse ledger read as signal instead of hygiene |
+
+Ranking rationale: yield priors per pattern family × freshness.
+Each pattern family carries its historical hit rate (R5's "priors
+are data" applied to patterns); new diff lines outrank the stale
+mass — a fresh residue row beats a two-year-old path, because
+fresh neglect is live neglect.
+
+Generation falsifier: zero leads from a full passive mass means a
+pattern family is MISSING, not the estate clean — the mass is
+re-read for the shape no current pattern selects, and the new
+pattern is written, named, and versioned (R2: one job).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

@@ -13,38 +13,32 @@ Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 ```mermaid
 flowchart TD
     subgraph LOAD["WHAT LOADS — the organ stack"]
-        C["skill-mythos v1.19.0 · the charter<br/>seventeen articles · tiered bundle map<br/>autonomy · war doctrines · quality gates"]
-        E["glm-self-model v1.1.1 · the engine manual<br/>failure geometry E1–E8 · compensation gates G1–G4<br/>written to the engine, not the operator"]
-        S["mythos-bug-hunter v4.6.0 · the spine<br/>R0–R7 canon · append-only R-NNN ledger<br/>hypothesis grammar · closure gates · mission horizon"]
-        O["37 organs · tiers 1–7 · 35 hunting + 2 forge<br/>recon · access logic · deep technical · incident<br/>craft lineages · legends · the forge"]
-        H["arsenal/ · the execution hand<br/>27 scope-gated MCP tools · deny-by-default<br/>PASS/FAIL report auditor · two self-owned labs"]
-        C --> E
-        E --> S
-        S --> O
-        O --> H
+        C["skill-mythos v1.19.0<br/>the charter<br/>articles · bundle map"]
+        E["glm-self-model v1.1.1<br/>the engine manual<br/>E1–E8 · gates G1–G4"]
+        S["mythos-bug-hunter<br/>v4.6.0 · the spine<br/>R0–R7 · R-NNN ledger"]
+        O["37 organs · tiers 1–7<br/>35 hunting + 2 forge"]
+        H["arsenal/ · execution hand<br/>27 scope-gated MCP tools<br/>report auditor · 2 labs"]
+        C --> E --> S --> O --> H
     end
 
     subgraph RUN["WHAT RUNS — one engagement"]
-        A["operator order — one line, any language"]
-        B["doctrine_forge · A13 escalation<br/>intent · phase plan · war logic W1–W7 · gates"]
-        G{"R0 · scope gate<br/>scope.csv · deny-by-default"}
-        X["refusal logged as a ledger record<br/>no byte leaves"]
-        L["the hunt loop · F0–F4<br/>map → pre-registered hypotheses<br/>→ differential tests → canary impact proofs<br/>→ closure: CONFIRMED / FALSIFIED / INCONCLUSIVE"]
-        I["incident branch · event-triggered<br/>freeze → halve by bits → two-channel fix<br/>→ audited handoff, then the loop resumes"]
-        R["report gates<br/>ledger records only · CVSS 3.1 recomputed<br/>VRT + H1 crosswalk · auditor exit 0 or no ship"]
-        K["instinct calibration<br/>trained-eye cue catalog scored per engagement"]
-        A --> B
-        B --> G
+        A["operator order<br/>one line, any language"]
+        B["doctrine_forge · A13<br/>intent · war logic W1–W7"]
+        G{"R0 · scope gate<br/>scope.csv<br/>deny-by-default"}
+        X["refusal logged<br/>as a ledger record<br/>no byte leaves"]
+        L["the hunt loop · F0–F4<br/>map → hypotheses<br/>tests · canary proofs<br/>closure — CONFIRMED,<br/>FALSIFIED, INCONCLUSIVE"]
+        I["incident branch<br/>freeze → halve by bits<br/>two-channel fix<br/>then the loop resumes"]
+        R["report gates<br/>ledger-only · CVSS 3.1<br/>VRT · auditor exit 0"]
+        K["instinct calibration<br/>trained-eye cues<br/>scored per engagement"]
+        A --> B --> G
         G -->|refused| X
         G -->|authorized| L
         L --> I
-        I --> L
-        L --> R
-        R --> K
+        L --> R --> K
     end
-
-    H --> A
 ```
+
+The two panels connect at the seam: the execution hand (bottom of WHAT LOADS) is what carries out the operator order (top of WHAT RUNS) — the tools the stack loads are the tools the engagement runs.
 
 The always-on rails — the constraints that ride along every step of every engagement:
 

@@ -13,23 +13,23 @@ Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 ```mermaid
 flowchart TD
     subgraph LOAD["WHAT LOADS — the organ stack"]
-        C["skill-mythos v1.19.0<br/>the charter<br/>articles · bundle map"]
-        E["glm-self-model v1.1.1<br/>the engine manual<br/>E1–E8 · gates G1–G4"]
-        S["mythos-bug-hunter<br/>v4.6.0 · the spine<br/>R0–R7 · R-NNN ledger"]
-        O["37 organs · tiers 1–7<br/>35 hunting + 2 forge"]
-        H["arsenal/ · execution hand<br/>27 scope-gated MCP tools<br/>report auditor · 2 labs"]
+        C["the charter"]
+        E["engine manual"]
+        S["the spine"]
+        O["37 organs"]
+        H["execution hand"]
         C --> E --> S --> O --> H
     end
 
     subgraph RUN["WHAT RUNS — one engagement"]
-        A["operator order<br/>one line, any language"]
-        B["doctrine_forge · A13<br/>intent · war logic W1–W7"]
-        G{"R0 · scope gate<br/>scope.csv<br/>deny-by-default"}
-        X["refusal logged<br/>as a ledger record<br/>no byte leaves"]
-        L["the hunt loop · F0–F4<br/>map → hypotheses<br/>tests · canary proofs<br/>closure — CONFIRMED,<br/>FALSIFIED, INCONCLUSIVE"]
-        I["incident branch<br/>freeze → halve by bits<br/>two-channel fix<br/>then the loop resumes"]
-        R["report gates<br/>ledger-only · CVSS 3.1<br/>VRT · auditor exit 0"]
-        K["instinct calibration<br/>trained-eye cues<br/>scored per engagement"]
+        A["operator order"]
+        B["doctrine order"]
+        G{"scope gate R0"}
+        X["refusal logged"]
+        L["hunt loop"]
+        I["incident branch"]
+        R["report gates"]
+        K["calibration"]
         A --> B --> G
         G -->|refused| X
         G -->|authorized| L

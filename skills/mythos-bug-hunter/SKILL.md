@@ -1,6 +1,6 @@
 ---
 name: mythos-bug-hunter
-version: 4.7.0
+version: 4.8.0
 type: ai-skill
 architecture: package
 description: >-
@@ -23,6 +23,11 @@ description: >-
   the arsenal server — hypothesis_register refuses registration whose
   motivating facts are not ledger records; hypothesis_close refuses
   retrodiction, non-three-state closure, and closure without evidence.
+  Since v4.8.0 the onboarding runtime carries **The opening ladder**
+  (A18): the corpus-reading questions — pin, split, rot, gate,
+  basis, proof — that write preservation rows before any engagement
+  state exists (rungs write rows, never requests; ranking rationale
+  stated; generation falsifier on record).
 category: security/offensive-web
 license: MIT
 metadata:
@@ -35,7 +40,7 @@ metadata:
     methodology-preservation layer, the queue's seventh execution
 ---
 
-# mythos-bug-hunter v4.7.0 — The Discipline Layer
+# mythos-bug-hunter v4.8.0 — The Discipline Layer
 
 ## 0. What This Skill Is — and Is Not
 
@@ -456,7 +461,7 @@ preimage work, key recovery attacks on primitives. The JWT catalog is in
 | Phase 3–4: curl recipes, differential trio, canary payload library, minimal-code doctrine, micro-scripts | `references/toolkit-and-canaries.md` |
 | Phase 5: JSON schemas and full report templates | `references/report-templates.md` |
 | Long engagements: context discipline; TRENDFRESH web-research protocol | `references/research-protocol.md` |
-| Onboarding a new operator or agent; pinning corpus state at engagement start; version bumps and drift audits; the Jason Haddix lineage layer's provenance | `references/method-upgrade.md`, `references/operator-os.md`, `references/sources.md` |
+| Onboarding a new operator or agent; pinning corpus state at engagement start; version bumps and drift audits; the Jason Haddix lineage layer's provenance; the A18 opening ladder (the onboarding question set that writes pin/split/rot/gate/basis/proof rows first) | `references/method-upgrade.md`, `references/operator-os.md`, `references/sources.md` |
 | Phase 2 warzone drills: assumption destruction, extreme inputs, cross-domain transplant, dark-lab protocol; the trained eye — cue catalog, notice protocol, instinct calibration (§32.10) | `references/ruthless-mind.md` |
 | Always conceptually loaded: authorization policy, non-destruction, disclosure etiquette | `references/safety-and-ethics.md` |
 | Fast lookup: diagnosis trees, classification and false-positive cheat sheets | `references/decision-trees-and-cheatsheets.md` |
@@ -491,5 +496,5 @@ creativity proposes; evidence disposes
 
 how to act  → researcher-conduct.md §34 (moment loop, situation cards)
 what to run → phase-playbook.md §35 (phase-by-phase actions + methods)
-how to onboard → method-upgrade.md + operator-os.md (pin, split, gate, prove)
+how to onboard → method-upgrade.md + operator-os.md (ladder first: pin, split, gate, prove)
 ```

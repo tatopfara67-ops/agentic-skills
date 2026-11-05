@@ -300,22 +300,26 @@ class TestMythosLineages(unittest.TestCase):
                               "%s: A17 layer incomplete (%s)" % (organ, token))
 
     def test_opening_ladder_rollout(self):
-        """A18's staged rollout: the organs whose operator-os carries
-        The opening ladder — the figure's perception as a candidate-
-        generation question ladder (rungs write census rows, never
-        packets; ranking rationale stated; generation falsifier on
-        record). The set below is the executed rollout on record;
-        it grows only by execution (one organ done well beats a
-        mass wave done thin — the A17 lesson), and the full-corpus
-        lock replaces this list when all 31 person-lineage organs
-        carry the ladder."""
+        """A18's rollout is CLOSED at the full corpus: every
+        person-lineage organ's operator-os carries The opening
+        ladder — the figure's perception as a candidate-generation
+        question ladder (rungs write census rows, never packets;
+        ranking rationale stated; generation falsifier on record).
+        The staged rollout grew only by execution (one organ done
+        well beats a mass wave done thin — the A17 lesson) and
+        closed with its two person-lineage special cases: the
+        Shimomura runtime (the hunt's telemetry-reading ladder) and
+        the spine itself (the onboarding corpus-reading ladder) —
+        all 31 person-lineage organs carry the ladder, so this list
+        is the lock."""
         rollout = [
-            "auth-boundary-mapper", "business-logic-hunter",
-            "cache-playbook", "chain-architect", "cloud-config-auditor",
-            "content-discovery", "deep-teardown", "desync-hunter",
-            "feedback-fuzzer", "ghost-crawler", "harness-smith",
-            "interior-cartographer", "mirror-hunter", "mobile-hunter",
-            "module-smith", "oauth-flow-auditor", "opsec-discipline",
+            "adversary-tracker", "auth-boundary-mapper",
+            "business-logic-hunter", "cache-playbook", "chain-architect",
+            "cloud-config-auditor", "content-discovery", "deep-teardown",
+            "desync-hunter", "feedback-fuzzer", "ghost-crawler",
+            "harness-smith", "interior-cartographer", "mirror-hunter",
+            "mobile-hunter", "module-smith", "mythos-bug-hunter",
+            "oauth-flow-auditor", "opsec-discipline",
             "packet-orchestrator", "pipeline-smith", "probe-smith",
             "protocol-forensics", "prototype-playbook", "scan-economist",
             "signal-smith", "subdomain-hunter", "template-scanner",
@@ -526,7 +530,7 @@ class TestMythosLineages(unittest.TestCase):
         with open(os.path.join(spine, "SKILL.md"),
                   encoding="utf-8") as fh:
             text = fh.read()
-        self.assertIn("version: 4.7.0", text)
+        self.assertIn("version: 4.8.0", text)
         self.assertIn("Jason Haddix", text)
         for module in ("references/method-upgrade.md",
                        "references/operator-os.md",

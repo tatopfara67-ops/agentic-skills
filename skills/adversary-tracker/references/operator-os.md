@@ -37,6 +37,71 @@ R6 **Defend the assets, then prove the path.** Containment decisions
 are separate records from investigation records — both ledgered, never
 mixed, so the case survives the emergency.
 
+### The opening ladder — where the hunt's candidates come from
+
+The rules above govern the trace once evidence is in hand; the ladder
+produces the candidates FIRST — the sensors-speak-first discipline
+(R1's own statement: the hunt begins by READING existing telemetry,
+not by generating new traffic) made runnable as questions. Every
+rung is a reading question that writes rows — no rung sends a probe,
+generates traffic, or spends the adversary's awareness; the trace
+stays gated behind the freeze (S2) and consumes the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What do the sensors already hold — logs, captures, ring buffers, flow retention — before anything new is generated? | the existing-telemetry census: per sensor, what exists and how far back it reaches | the W1 critique on record (the intrusion surfaced because tcpdump traces and accounting logs happened to be running on a curious physicist's machines — method-upgrade.md §4, the documented floor; the 1994-12-25 fact row, history-1995.md) |
+| G2 | What is this estate's normal — which of these rows would the calibrated baseline call noise? | the baseline rows: the signal/noise line per channel, drawn from own logs | the organ's own P1 step, labeled (baseline from CONTROL records; the signal/noise line is calibrated, never guessed — the hunt playbook's own numbered step) |
+| G3 | Who else is scheduled to touch this estate — what benign or authorized explanation exists before any adversary is named? | the null rows: the authorized/benign candidates — scheduled scans, backups, maintenance windows, the own fleet | the engine's own rule, labeled (the null is auto-inserted — "the boring explanation is always in the space"; the worked micro-example's first elimination is the scheduled authorized scan calendar, "the cheap bit" — method-upgrade.md §3) |
+| G4 | Where does one observation agree with a second independent source — and where does it stand alone? | the correlation candidates: rows where ≥ 2 independent sources agree — the only class promotable to FACT; single-source rows stay LEADs | the 1995-02-11 fact on record (the decisive phase paired carrier-side records with radio-frequency measurement — two independent channels, the "reverse double triangulation" — history-1995.md, the fact table) |
+| G5 | What state dies if we touch anything — what must be frozen before analysis? | the volatile-set candidates: socket→process map, flow ages, process lstart, L2 neighbors, login history | the 1995 fact on record (the compromised machines were studied, not scrubbed — history-1995.md, the fact table) + M1 freeze-plus, the organ's own upgrade, labeled |
+| G6 | What does the contested record say — which claims are single-story and must stay quarantined? | the quarantine rows: press narratives, contested authorship, attribution mythology — never evidence | the contested fact on record (Mitnick's supporters disputed both the narrative and even the attack's authorship — Littman, *The Fugitive Game*, 1996; history-1995.md, the fact table's last row) |
+
+Ranking rationale: candidate priority = perishability ×
+cross-source agreement × null-first. An existing telemetry row ranks
+first (reading costs nothing, and it is the one record the adversary
+cannot alter by our acting); the volatile state it implicates ranks
+with it — M1 exists because that state dies on the first touch; a row
+two independent channels agree on ranks next (it is the only class
+promotable to FACT); the null's cheap eliminators rank BEFORE any
+adversary-shaped candidate (the engine inserts the null first and
+the halving math agrees — the scheduled-scan calendar is the cheap
+bit); a single-source adversary-shaped row is a LEAD and stays one;
+the quarantined story never ranks — OPINION class, priced as nothing.
+
+Generation falsifier: an estate whose sensors yield zero rows means
+the tripwire layer does not exist — the 1994 case surfaced only
+because traces happened to be running on the right machines, and
+that luck is W1's documented floor, not a property to assume; zero
+rows does not excuse the hunt, it indicts the M0 layer, and the
+hunt's first act becomes building it. A hunt whose every candidate
+is adversary-shaped with no null row means the enumeration was
+never run — the engine refuses to confirm anyway, and the ledger
+records the refusal.
+
+#### The ladder's payload kit — the reading rows (customize before use)
+
+Generation writes rows; these are the read classes the rows name,
+every one a reading of evidence already in the sensors' custody (no
+traffic generated; the hunt mechanics live in the M-protocol and
+T1–T5):
+
+| Read row | The read payload class | Writes which row |
+| --- | --- | --- |
+| telemetry row | per sensor: the log set, capture window, ring depth, flow retention already held | sensor-census row (FACT candidates) |
+| baseline row | per channel: the estate's normal from own logs — where the noise line sits | CONTROL row (P1/M0 calibration) |
+| schedule row | the authorized/benign calendar touching this estate — scans, backups, maintenance, own fleet | null-hypothesis row (auto-inserted by sbb_declare) |
+| correlation row | per observation: which second independent source agrees, and which does not | cross-source candidate row (FACT-promotable; single-source stays LEAD) |
+| volatile row | what dies on touch: socket→process, flow ages, process lstart, L2 neighbors, login history | freeze-plus queue row (M1 set) |
+| quarantine row | the single-story claims: press narratives, contested authorship, attribution mythology | OPINION quarantine row (never evidence) |
+
+Customization knobs, stated in the plan note: the sensor census
+breadth (which channels load: host logs, ring capture, netflow,
+host-audit — which sensors the mesh covers), the baseline window
+(how many days of normal the calibration reads before the noise line
+is drawn), and the null-first strictness (which cheap eliminators
+run before any adversary-shaped test — the tip-off gate's passive
+reserve).
+
 ## 2. The behavioral protocol — situation, move, refusal
 
 | Situation | The move | Agent action | Refusal |

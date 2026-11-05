@@ -1,6 +1,6 @@
 ---
 name: adversary-tracker
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -17,7 +17,13 @@ description: >-
   fixes as protocol M0–M5 — tripwire canaries, NTP-disciplined arrival deltas
   with a sync-error table, a four-feature stack-fingerprint predicate
   calibrated against known hosts, deception under the tip-off gate, and a
-  stated localization floor. Use when the operator reports being probed or
+  stated localization floor. Since v1.3.0 the operator runtime also
+  ships **The opening ladder** (A18): the telemetry-reading questions
+  — sensor census, baseline, null-first, correlation, freeze-set,
+  quarantine — that write the hunt's candidate rows before any
+  traffic is generated (rungs write rows, never packets; ranking
+  rationale stated; generation falsifier on record). Use when the
+  operator reports being probed or
   scanned, asks to investigate a suspicious login or intrusion, or wants an
   attacker traced ("ada yang scanning kita", "investigasi login aneh", "kenapa
   ada traffic ganjil", "trace the attacker", "incident triage").
@@ -32,7 +38,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# adversary-tracker v1.2.0 — The Binary Brain
+# adversary-tracker v1.3.0 — The Binary Brain
 
 ## 0. What This Skill Is — and Is Not
 
@@ -137,7 +143,12 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Tsutomu Shimomura.
+executing, characteristic of Tsutomu Shimomura. Since v1.3.0 the
+runtime also ships **The opening ladder** (A18): where the hunt's
+candidates come from — the telemetry-reading questions that write
+sensor / baseline / null / correlation / freeze / quarantine rows
+before any traffic is generated (rungs write census rows, never
+packets; ranking rationale stated; generation falsifier on record).
 
 ## 4. Procedure — Numbered Actions
 
@@ -195,6 +206,6 @@ executing, characteristic of Tsutomu Shimomura.
 | Formalizing registers, states, halving math | `references/binary-brain.md` |
 | Running P0–P6, designing tests and channels | `references/hunt-playbook.md` |
 | Grading the 1994–95 method, running M0–M5 mechanics (tripwire, fingerprint, localization, deception) | `references/method-upgrade.md` |
-| Running the hunt — the Tsutomu Shimomura runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Tsutomu Shimomura runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order, and the A18 opening ladder (the telemetry-reading questions that write rows first) | references/operator-os.md |
 | Writing the audited handoff pack | `references/evidence-templates.md` |
 | Grounding the discipline in the 1994–95 case | `references/history-1995.md` |

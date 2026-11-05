@@ -1,6 +1,6 @@
 # The operator runtime — the onboarding-preservation layer (R1–R6, T1–T5, S1–S6)
 
-> Part of **mythos-bug-hunter v4.7.0** (package architecture).
+> Part of **mythos-bug-hunter v4.8.0** (package architecture).
 > **Load when:** onboarding runs, engagement start (the PIN step),
 > version bumps, drift audits, newcomer first-runs. The method layer
 > this runtime executes lives in
@@ -46,6 +46,76 @@ runs mechanically:
   — mechanically: tier claims (S/A/B/C and any ranking) are priors
   with named basis; corrections enter the ledger as records, never as
   silent edits; a tier flip without a ledger record is a defect.
+
+### The opening ladder — where the onboarding questions come from
+
+The rules above preserve the methodology once the engagement runs;
+the ladder produces the questions FIRST — the lineage's own opening
+act, made runnable: the corpus read as an estate before anything is
+pinned (nine years, six carriers, a version chain that re-forges
+fast, and a documented rot record — the onboarding surface is
+already rich before a single preservation row exists). Every rung is
+a reading question that writes preservation rows — no rung sends a
+request, gates a newcomer, or adopts a bump; generation never spends
+the engagement's state. The S1–S6 order stays behind the ladder and
+consumes its rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What version of every loaded artifact answers this engagement — and which carrier does each row live in? | the pin row: version + carrier + provenance channel per loaded module (what is loaded is what can betray you) | the version-pinned read table on record (v1 "How To Shot Web" DEF CON 23 2015 → TBHM Core 2024+; sources.md §1, the queue's gate honored) |
+| G2 | Which rows are doctrine the house owns — and which are somebody else's tool on an era stamp? | the split row: owned method vs attributed curation, owner named per tool row | the corpus's own attribution discipline on record (the seventeen-name attribution slide at DC23; "the curation is his, the tools are theirs" — sources.md §4, the A3 ledger) |
+| G3 | What rotted since the last era — which curated rows are past their stamp, changed behavior, or gone paid? | the re-verification queue: existence, behavior delta, paywall/rot per stale row | the corpus's own rot record on record (WPscan "has gone paid … I'm still looking for a viable alternative", the Twitter-API workflow "currently in trouble", the eight-year-old XSS methodology — sources.md §2 L4, the Live Day 2 rows) |
+| G4 | Which checklist row claims completion without its evidence artifact? | the gate conversions: entry condition, evidence, falsifier per task row | the Fast Testing Checklist on record — task-checkboxes without gates in the shipped form (W3; sources.md §1, the checklist's own header naming its WAHH parent). The gate form is the organ's own operationalization, labeled |
+| G5 | Which numbers will price effort — and what is each made of? | the basis classes: measured / stated-rule-of-thumb / heuristic, sample + revalidation trigger per claim | the quantified instinct on record (the 2x-per-subdomain / 4x-per-apex multipliers, the "+50%" efficacy of configured APIs, the "3-10% increased discoveries" — sources.md §2 L1, the Live Day 1/Day 2 rows) |
+| G6 | Who is the newcomer — and what closed record separates "has read the methodology" from "can run it"? | the proof gate: the canary run's gates, the calibration priors, the live-scope refusal | the corpus's own onboarding surface on record (conference decks, a paid course, a Discord community — the newcomer's proof is never defined; W5's documented absence, method-upgrade.md §1). The gate is the organ's own operationalization, labeled |
+
+Ranking rationale: question priority = what betrays the engagement
+first × what cannot be repaired mid-run. The pin ranks first — an
+unpinned state is unreconstructable, and no drift audit can name what
+changed mid-run after the fact; the split ranks second because it
+arms the rot queue (an unsplit tool row walks into the engagement as
+evidence); the rot queue ranks third — a stale row fires as evidence
+before anyone re-reads it; the gate conversions rank fourth
+(checkbox theater wastes a run quietly rather than catastrophically);
+the basis classes fifth (a rule-of-thumb multiplier mispriced surfaces
+in the report, not mid-run); the proof gate last in reading order but
+first in refusal strength — live scope stays refused behind it. Rows
+out; nothing pinned, nothing adopted, no newcomer cleared.
+
+Generation falsifier: an onboarding read that yields zero rows across
+all six classes means the reading was shallow, not the corpus clean —
+a corpus with a nine-year version chain, a seventeen-name attribution
+ledger, a documented rot record, and a carrier drift record (the
+repo chapters stalled 2016–2020 while the decks versioned; 12_IDOR "To
+be continued …" to this day) always yields rows; zero rows
+falsifies the reading, never the corpus. A newcomer with zero
+calibration deltas means the PROOF run was not run, not that the
+priors were perfect.
+
+#### The ladder's payload kit — the preservation rows (customize before use)
+
+Generation writes rows; these are the read classes the rows name,
+every one a reading of corpus artifacts already in scope (no request
+sent; the protocol mechanics live in the M-protocol and T1–T5):
+
+| Read row | The read payload class | Writes which row |
+| --- | --- | --- |
+| version row | each loaded module's version + carrier (deck / repo / checklist / gist) + provenance channel | PIN row (M1) |
+| attribution row | each tool row's owner + era stamp + re-verify flag | SPLIT row (M2, the curation side) |
+| rot row | each era-stamped row's last-verified state vs its stamp: existence, behavior delta, paywall | reverify-queue row (M2's defects) |
+| gate row | each checklist task's entry condition, evidence artifact, falsifier | TASK row with gates (M3) |
+| basis row | each quantified claim's basis class, sample size, revalidation trigger | NUM row (M4) |
+| proof row | the newcomer's canary gates + calibration priors vs observed | PROOF row (M5) |
+| drift row | old pin vs new pin per bump: doctrine delta, curation rot | DRIFT record (M6) |
+
+Customization knobs, stated in the plan note: the pin breadth
+(loaded-organs-only vs whole-corpus — the rule is loaded-only, "what
+is loaded is what can betray you"; the knob is which carriers pin:
+the free chain, the stated-BOUNDED paid interiors, or both), the era
+window (how many months stale before a row enters the re-verification
+queue), and the proof strictness (which gates the house demands
+before live scope clears: auditor exit-0, ledger discipline, closure
+states — the subset is the engagement's to name).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

@@ -1,6 +1,6 @@
 # Reference — Changelog And Crosswalk
 
-> Part of **mythos-bug-hunter v4.5.0** (package architecture).
+> Part of **mythos-bug-hunter v4.6.0** (package architecture).
 > **Load when:** Provenance: methodology crosswalk and changelog.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
@@ -34,6 +34,47 @@
 ## E. Changelog
 
 ```
+v4.6.0 (2026-11)
+  - The onboarding path carries the Jason Haddix lineage layer — the
+    queue's seventh execution, the spine's first documented lineage
+    upgrade (methodology preservation: an entire hunt compressed into
+    a versioned, re-runnable playbook; the corpus's craft imported
+    where it belongs, the spine's activation path).
+  - New module (references/method-upgrade.md) — the spine's first A16
+    layer, born in: the W1-W6 critique of the versioned-deck corpus's
+    shipped form (versions without a version rule; curation entangled
+    with method; checklists without gates; numbers without
+    denominators; onboarding assuming a human with a GUI and no
+    proof-of-competence; carriers drifting with no canonical anchor)
+    and the executable M1-M6 preservation protocol (PIN the corpus
+    state after R0; SPLIT method rows from curation rows with era
+    stamps; CONVERT checklists to entry/evidence/falsifier gates;
+    CLASSIFY every number by basis with rule-of-thumb numbers capped
+    as priors; the newcomer PROOF gate — a bounded canary engagement
+    passing the same auditor gates before live scope; the DRIFT audit
+    before every version bump, rot rows as TODOs).
+  - New module (references/operator-os.md) — the spine's first A17
+    runtime: rules R1-R6 (pin before first request; curation rows are
+    claims not facts; scanner/AI output is hypothesis with dataset-
+    cutoff honesty; route don't re-teach; templates re-derive target
+    values never store them; tiers are opinions with a correction
+    path), the behavioral protocol with the refusals, the read-only
+    arsenal T1-T5 (pin snapshotter, curation auditor, checklist gate
+    renderer, drift differ, newcomer first-run verifier), and the
+    rigid run-order S1-S6.
+  - New module (references/sources.md) — the lineage's provenance
+    ledger: the version-pinned read table (v1 DEF CON 23 2015 read in
+    full; the tbhm repo chapters and Fast Testing Checklist read in
+    full; the TBHM Live Day One/Day Two decks read in full; v2/v3/v4
+    pinned via their release records and complete notes; the paid
+    interiors stated BOUNDED), the five-lens psych-read on documented
+    behavior, the OPINION quarantine, and the A3 attribution ledger
+    (the tools are theirs; the packaging is his).
+  - SKILL.md: description and metadata gain the lineage layer; §17
+    index gains the three module rows; §18 quick card gains the pin
+    line and the onboarding routing line. All module headers bumped
+    to v4.6.0. Version bump 4.5.0 → 4.6.0 (minor: new reference
+    content + the onboarding precondition, non-breaking).
 v4.5.0 (2026-11)
   - New section §34.8 The Long Game (references/researcher-conduct.md):
     mission horizon & the surrender reflex — the conduct answer to the

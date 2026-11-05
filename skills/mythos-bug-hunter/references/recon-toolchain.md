@@ -1,6 +1,6 @@
 # Reference — Recon Toolchain, Target Triage, and Time Discipline
 
-> Part of **mythos-bug-hunter v4.5.0** (package architecture).
+> Part of **mythos-bug-hunter v4.6.0** (package architecture).
 > **Load when:** Phase 1 recon at any scale wider than a single host; deciding
 > which resolved target to test first; selecting recon tools; a vector has run
 > blind with no error output; a CONFIRMED closure just landed; the operator is

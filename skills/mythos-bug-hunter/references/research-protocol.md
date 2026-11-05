@@ -1,6 +1,6 @@
 # Reference — Research Protocol
 
-> Part of **mythos-bug-hunter v4.5.0** (package architecture).
+> Part of **mythos-bug-hunter v4.6.0** (package architecture).
 > **Load when:** Long engagements (context-window discipline) and keeping the skill current (TRENDFRESH web-research protocol, source priority).
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

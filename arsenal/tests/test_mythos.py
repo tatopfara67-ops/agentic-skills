@@ -163,9 +163,9 @@ class TestMythosCharter(unittest.TestCase):
 
 
 class TestMythosLineages(unittest.TestCase):
-    def test_registry_lists_thirty_one_lineages_all_installed(self):
+    def test_registry_lists_thirty_two_lineages_all_installed(self):
         registry = _mythos.mythos_lineages()
-        self.assertEqual(registry["count"], 31)
+        self.assertEqual(registry["count"], 32)
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         for organ in ("adversary-tracker", "scan-economist", "module-smith",
                       "pipeline-smith", "feedback-fuzzer",
@@ -181,7 +181,7 @@ class TestMythosLineages(unittest.TestCase):
                       "prototype-playbook", "interior-cartographer",
                       "lineage-smith",
                       "rival-playbook", "harness-smith", "probe-smith",
-                      "opsec-discipline"):
+                      "opsec-discipline", "mythos-bug-hunter"):
             self.assertIn(organ, by_organ)
             self.assertTrue(by_organ[organ]["installed"], organ)
             for field in ("figure", "distillation", "sources"):
@@ -200,7 +200,7 @@ class TestMythosLineages(unittest.TestCase):
                      "Dalili", "de la Fuente", "Simon Willison",
                      "Dan Kaminsky", "James Forshaw", "Sun Tzu",
                      "Tavis Ormandy", "Travis Goodspeed",
-                     "Sean Metcalf", "the grugq"):
+                     "Sean Metcalf", "the grugq", "Jason Haddix"):
             self.assertIn(name, joined, name)
         # the unverified attributions from the operator brief stay out
         self.assertNotIn("Skappen", joined)
@@ -211,7 +211,7 @@ class TestMythosLineages(unittest.TestCase):
         that shipped a method-upgrade module still carries it, and the
         module keeps its three-part shape (critique, upgrades, and
         where they land, falsifiers). New organs are born with the
-        layer — the guard list covers all 34 modules on record."""
+        layer — the guard list covers all 35 modules on record."""
         organs = [
             "adversary-tracker", "auth-boundary-mapper",
             "business-logic-hunter", "cache-playbook", "chain-architect",
@@ -220,7 +220,8 @@ class TestMythosLineages(unittest.TestCase):
             "glm-self-model", "harness-smith", "injection-lab",
             "interior-cartographer", "lineage-smith",
             "mirror-hunter", "mobile-hunter", "module-smith",
-            "oauth-flow-auditor", "opsec-discipline",
+            "mythos-bug-hunter", "oauth-flow-auditor",
+            "opsec-discipline",
             "packet-orchestrator", "pipeline-smith",
             "probe-smith", "protocol-forensics", "prototype-playbook",
             "rival-playbook", "scan-economist", "signal-smith",
@@ -251,7 +252,7 @@ class TestMythosLineages(unittest.TestCase):
         behavioral protocol, scripting arsenal, rigid run-order) plus
         falsifiers. The forge-tier organs carry their named
         equivalents instead (psychology-catalog, campaign-protocol,
-        failure-geometry) — the guard covers the 29 person-lineage
+        failure-geometry) — the guard covers the 30 person-lineage
         organs on record."""
         organs = [
             "adversary-tracker", "auth-boundary-mapper",
@@ -259,8 +260,9 @@ class TestMythosLineages(unittest.TestCase):
             "cloud-config-auditor", "content-discovery", "deep-teardown",
             "desync-hunter", "feedback-fuzzer", "ghost-crawler",
             "harness-smith", "interior-cartographer", "mirror-hunter",
-            "mobile-hunter", "module-smith", "oauth-flow-auditor",
-            "opsec-discipline", "packet-orchestrator", "pipeline-smith",
+            "mobile-hunter", "module-smith", "mythos-bug-hunter",
+            "oauth-flow-auditor", "opsec-discipline", "packet-orchestrator",
+            "pipeline-smith",
             "probe-smith",
             "protocol-forensics", "prototype-playbook", "scan-economist",
             "signal-smith", "subdomain-hunter", "template-scanner",
@@ -410,6 +412,50 @@ class TestMythosLineages(unittest.TestCase):
         self.assertIn("authorized-engagement", entry["correction"])
         self.assertIn("Ben Nagy", entry["correction"])
         self.assertIn("quarantined", entry["correction"])
+
+    def test_mythos_bug_hunter_onboarding_lineage_entry(self):
+        """Q6's retirement record: the seventh candidate-queue execution
+        is the spine's first documented lineage UPGRADE — the
+        methodology-preservation layer on the onboarding path. The
+        registry entry carries the figure (the versioned deck chain
+        2015-2024), the distillation (pin/split/gate/classify/proof/
+        drift), the version-pinned census with its BOUNDED rows, and
+        the curation-attribution correction; the spine itself carries
+        both layers born in (method-upgrade.md and operator-os.md,
+        the 35th and 30th of their sets)."""
+        registry = _mythos.mythos_lineages()
+        by_organ = {e["organ"]: e for e in registry["lineages"]}
+        entry = by_organ["mythos-bug-hunter"]
+        self.assertIn("Jason Haddix", entry["figure"])
+        self.assertIn("DEF CON 23", entry["figure"])
+        self.assertIn("LevelUp 0x02", entry["figure"])
+        self.assertIn("Fast Testing Checklist", entry["figure"])
+        for token in ("methodology packaging", "PIN the corpus state",
+                      "SPLIT method from curation",
+                      "checklists to gates", "CLASSIFY every number",
+                      "PROOF gate", "DRIFT audit"):
+            self.assertIn(token, entry["distillation"])
+        self.assertIn("read in full", entry["sources"])
+        self.assertIn("BOUNDED", entry["sources"])
+        self.assertIn("skills/mythos-bug-hunter/references/sources.md",
+                      entry["sources"])
+        self.assertIn("the tools are theirs", entry["correction"])
+        self.assertIn("WAHH", entry["correction"])
+        self.assertIn("quarantined", entry["correction"])
+        # the upgraded organ carries both layers, born in
+        skills_root = os.path.join(_TREE_ROOT, "skills")
+        spine = os.path.join(skills_root, "mythos-bug-hunter")
+        with open(os.path.join(spine, "SKILL.md"),
+                  encoding="utf-8") as fh:
+            text = fh.read()
+        self.assertIn("version: 4.6.0", text)
+        self.assertIn("Jason Haddix", text)
+        for module in ("references/method-upgrade.md",
+                       "references/operator-os.md",
+                       "references/sources.md"):
+            path = os.path.join(spine, module)
+            self.assertTrue(os.path.isfile(path),
+                             "spine layer missing: %s" % module)
 
     def test_second_wave_lineage_organs_are_v2(self):
         """The six v2 organs carry the lineage in frontmatter, not

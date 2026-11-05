@@ -1,6 +1,6 @@
 ---
 name: mythos-bug-hunter
-version: 4.5.0
+version: 4.6.0
 type: ai-skill
 architecture: package
 description: >-
@@ -15,13 +15,24 @@ description: >-
   evidence-cited claims, pre-registered falsifiable hypotheses, reproducible
   PoCs, canary-based impact proof, and zero AI slop. Operates only under
   explicit authorization; every claim in a report must cite a ledger record.
+  Since v4.6.0 the onboarding path carries the Jason Haddix lineage layer —
+  the methodology-preservation craft (version-pinned corpus state,
+  method/curation split, checklists as gates, numbers with basis classes, the
+  newcomer proof run, the drift audit) learned from nine years of versioned
+  hunt playbooks.
 category: security/offensive-web
 license: MIT
 metadata:
   author: tatopfara67-ops
+  lineage: >-
+    Jason Haddix (the Bug Hunter's Methodology author — the versioned deck
+    chain 2015-2024: DEF CON 23, LevelUp 0x01/0x02, the v4 Recon edition,
+    the TBHM Live decks, TBHM Core; the tbhm repo and its Fast Testing
+    Checklist) — the v4.6.0 upgrade of the spine's onboarding path with the
+    methodology-preservation layer, the queue's seventh execution
 ---
 
-# mythos-bug-hunter v4.5.0 — The Discipline Layer
+# mythos-bug-hunter v4.6.0 — The Discipline Layer
 
 ## 0. What This Skill Is — and Is Not
 
@@ -422,6 +433,7 @@ preimage work, key recovery attacks on primitives. The JWT catalog is in
 | Phase 3–4: curl recipes, differential trio, canary payload library, minimal-code doctrine, micro-scripts | `references/toolkit-and-canaries.md` |
 | Phase 5: JSON schemas and full report templates | `references/report-templates.md` |
 | Long engagements: context discipline; TRENDFRESH web-research protocol | `references/research-protocol.md` |
+| Onboarding a new operator or agent; pinning corpus state at engagement start; version bumps and drift audits; the Jason Haddix lineage layer's provenance | `references/method-upgrade.md`, `references/operator-os.md`, `references/sources.md` |
 | Phase 2 warzone drills: assumption destruction, extreme inputs, cross-domain transplant, dark-lab protocol; the trained eye — cue catalog, notice protocol, instinct calibration (§32.10) | `references/ruthless-mind.md` |
 | Always conceptually loaded: authorization policy, non-destruction, disclosure etiquette | `references/safety-and-ethics.md` |
 | Fast lookup: diagnosis trees, classification and false-positive cheat sheets | `references/decision-trees-and-cheatsheets.md` |
@@ -443,6 +455,8 @@ R5  scanner output = hypothesis, never finding
 R6  calibrate the instrument before trusting it
 R7  budget per vector; exhausted → park
 
+pin the corpus state at start (v4.6.0) — no PIN, no requests past recon
+
 quota unmet → exhaustion proof or pull the next queued item (34.8)
 
 floor 3 runs (deterministic) · 20 attempts + stability (stochastic)
@@ -452,4 +466,5 @@ creativity proposes; evidence disposes
 
 how to act  → researcher-conduct.md §34 (moment loop, situation cards)
 what to run → phase-playbook.md §35 (phase-by-phase actions + methods)
+how to onboard → method-upgrade.md + operator-os.md (pin, split, gate, prove)
 ```

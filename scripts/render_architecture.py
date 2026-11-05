@@ -48,20 +48,20 @@ TIERS = [
     ("Tier 5 — Craft Lineages", [
         "scan-economist", "module-smith", "pipeline-smith",
         "feedback-fuzzer", "template-scanner", "packet-orchestrator",
-        "protocol-forensics", "interior-cartographer"]),
+        "protocol-forensics", "interior-cartographer", "harness-smith",
+        "opsec-discipline"]),
     ("Tier 6 — Legend Tier", [
         "chain-architect", "desync-hunter", "deep-teardown",
-        "ghost-crawler", "mirror-hunter", "signal-smith",
-        "trust-graph-hunter"]),
+        "ghost-crawler", "mirror-hunter", "probe-smith",
+        "signal-smith", "trust-graph-hunter"]),
     ("Tier 7 — Forge & Competition", [
         "lineage-smith", "rival-playbook"]),
 ]
-NEW_ORGANS = {"lineage-smith", "rival-playbook", "protocol-forensics",
-              "interior-cartographer"}
-N_ORGANS = sum(len(o) for _, o in TIERS)          # 33 organs (31 hunting + 2 forge)
-N_BUNDLES = 39
+NEW_ORGANS = {"harness-smith", "probe-smith", "opsec-discipline"}
+N_ORGANS = sum(len(o) for _, o in TIERS)          # 36 organs (34 hunting + 2 forge)
+N_BUNDLES = 42
 N_TOOLS = 27
-N_TESTS = 138
+N_TESTS = 144
 
 BOXES = []  # (x0, y0, x1, y1) registry per panel for the overlap check
 
@@ -136,7 +136,7 @@ def main():
         sub="five truths · failure geometry E1–E8 · compensation gates "
             "G1–G4 · written to the engine, not the operator")
     box(ax1, 0.18, 0.692, 0.64, 0.052,
-        "mythos-bug-hunter v4.5.0 — THE SPINE", SPINE, fs=13, bold=True,
+        "mythos-bug-hunter v4.6.0 — THE SPINE", SPINE, fs=13, bold=True,
         sub="R0–R7 canon · append-only R-NNN ledger · hypothesis grammar "
             "· closure gates · mission horizon")
     arrow(ax1, 0.5, 0.848, 0.5, 0.826)
@@ -146,7 +146,7 @@ def main():
     # tier rows: organ chips (computed top-down, no overlap possible)
     chip_h = 0.030
     step = 0.040
-    tier_gap = 0.030
+    tier_gap = 0.026
     y = 0.645                      # bottom of each tier's first chip row
     for tier_name, organs in TIERS:
         ax1.text(0.035, y + chip_h / 2, tier_name, ha="left", va="center",

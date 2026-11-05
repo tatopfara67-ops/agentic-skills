@@ -1,6 +1,6 @@
 # Reference — Ruthless Mind
 
-> Part of **mythos-bug-hunter v4.5.0** (package architecture).
+> Part of **mythos-bug-hunter v4.6.0** (package architecture).
 > **Load when:** Phase 2 warzone drills: the nine principles, laziness mapping, extreme-input grammar, assumption destruction worksheet, cross-domain transplant matrix, dark-lab protocol; the trained-eye cue catalog (any phase — perception fires before reasoning).
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

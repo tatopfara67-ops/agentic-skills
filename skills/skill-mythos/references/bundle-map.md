@@ -9,13 +9,18 @@ person-lineage organ also ships `references/operator-os.md` — the
 figure's documented psychology as the agent's runtime: thinking rules,
 situation-to-action behavior with refusals, the scripting arsenal as
 exact commands, and the rigid run-order. Load it when the hunt runs,
-not when it is planned.
+not when it is planned. Since charter v1.18.0 the spine itself joins
+that contract with its first lineage layer (the Jason Haddix
+lineage, v4.6.0): the onboarding path's methodology-preservation
+modules — `references/method-upgrade.md`, `references/operator-os.md`,
+`references/sources.md` — load at engagement start (the PIN step), at
+version bumps, and at newcomer first-runs.
 
 ## 1. Architecture — spine + organs + execution hand
 
 ```
                 ┌──────────────────────────────────────────────┐
-                │ mythos-bug-hunter v4.5.0 (spine, own bundle) │
+                │ mythos-bug-hunter v4.6.0 (spine, own bundle) │
                 │ R0–R7 canon · ledger · hypotheses · gates    │
                 └───────┬───────────────────────────┬──────────┘
    Phase 1–3 organs     │            evidence       │ incident branch

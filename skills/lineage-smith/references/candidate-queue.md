@@ -8,7 +8,7 @@ lineage registry is the only record of assimilation, and a queue
 entry is a nomination with homework attached, not a distillation.
 Scores are the M1 gate's five axes (0–2 each); they are re-scored at
 every screening, and entries retire with their reasons kept. The
-queue's first six end-to-end executions retired Q1 into the shipped
+queue's first seven end-to-end executions retired Q1 into the shipped
 organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage), Q2 into
 the shipped organ interior-cartographer (v1.0.0, the James Forshaw
 lineage), Q5 into the shipped organ harness-smith (v1.0.0, the
@@ -18,15 +18,17 @@ UPGRADE of trust-graph-hunter (v1.3.0, the Sean Metcalf lineage
 layer — the queue's standing demonstration that an upgrade is an
 assimilation too), and Q4 into the shipped organ opsec-discipline
 (v1.0.0, the grugq lineage — the queue's first score RISE at
-retirement, the talk-heavy gate answered by reading) — the
-retirement records below are the template every future retirement
-follows.
+retirement, the talk-heavy gate answered by reading), and Q6 into
+the shipped UPGRADE of the mythos-bug-hunter SPINE itself (v4.6.0,
+the Jason Haddix lineage — the methodology-preservation layer on
+the onboarding path, the queue's second recorded score RISE and
+the spine's first lineage layer) — the retirement records below
+are the template every future retirement follows.
 
 ## The running table
 
 | # | Candidate | Score | Forge target | The honest gate |
 | - | --------- | ----- | ------------ | --------------- |
-| Q6 | Jason Haddix | 7 | spine onboarding upgrade (tier 5) | deck versions pinned; curation separated from method |
 | Q8 | Deviant Ollam | 7 | physical-access organ (tier 6) | engagement fit argued before drafting |
 
 ## Q1 — Dan Kaminsky — RETIRED, assimilated as protocol-forensics
@@ -287,20 +289,82 @@ named ("stated only inside conduct rules") now paid with a
 dedicated organ — and the gate's warning answered in the direction
 the corpus earned.
 
-## Q6 — Jason Haddix (score 7/10)
+## Q6 — Jason Haddix — RETIRED, assimilated as the mythos-bug-hunter UPGRADE (v4.6.0)
 
-* **Public corpus (documented)**: The Bug Bounty Hunter's Methodology
-  — a public talk series with published, versioned decks; public
-  writing on recon workflow and bounty operations.
-* **The pattern worth extracting**: methodology packaging — an entire
-  hunt compressed into a repeatable, versioned playbook a newcomer
-  can run; the deck itself as the method artifact.
-* **Forge target**: an upgrade to the spine's onboarding path — the
-  methodology-preservation layer.
-* **The gate**: decks version fast, so the census pins WHICH deck
-  versions were read; the psych-read must separate the figure's own
-  method from his documented curation of others' tools (attribution
-  discipline, A3).
+**Score at retirement: 9/10. Reason: executed end-to-end — the queue's
+second RECORDED RISE (7 → 9), per-axis reasons kept below.** The route
+is the upgrade route the queue's own rule names ("a documented upgrade
+of an existing organ counts as an assimilation too"), taken further
+than Q7 dared: not an upgrade of a lineage organ, but an upgrade of
+the SPINE — the discipline layer itself now carries a person lineage,
+its first, on the one path the figure's craft was actually about:
+the onboarding path.
+
+The gate was honored before drafting, both clauses: **the deck
+versions were pinned** (the census's read ledger: "How To Shot Web"
+read IN FULL from the repo PDF — DEF CON 23, Aug 2015, the v1.0 deck,
+82 slides, the corpus's own genesis where the talk overflowed into
+the Git project; the tbhm repo chapters 01–11 read in full with their
+2016–2020 commit dates, including the "To be continued ..." 12_IDOR
+stub that documents the carrier drift; the Fast Testing Checklist
+read in full — its own header stating the Web Application Hacker's
+Handbook derivation; the TBHM Live Day One Recon and Day Two
+Application Analysis course decks read in full, 2023-era content; the
+TBHM Core public syllabus read; v2 pinned via the LevelUp 0x01 2017
+record, v3 pinned via the LevelUp 0x02 2018 record and complete
+third-party notes stated as such, v4 pinned via the Jun 14–15 2020
+release posts and complete notes, the Drive original honestly
+BOUNDED) — and **the curation was separated from the method** as the
+A3 attribution ledger: every tool row keeps its author, the WAHH
+derivation stays on record, the tiering is opinion with a correction
+path, the paid interiors are BOUNDED, and the critique of the
+corpus's shipped FORM is licensed by that attribution, never by
+seniority.
+
+The psych-read landed on documented behavior with the OPINION
+quarantine kept (the leaderboard rank, the community-reception
+framings, the motive-free reading of the free-deck-to-paid-course
+transition). The re-score: volume 2 (nine years, six carriers, a
+versioned chain), explicitness 2 (the HOW ships — checklists,
+numbered protocols, a report template, the SSWLR response-reading
+mnemonic, the HUNT parameter lists), verifiability 2 (the free chain
+is public; the paid interiors stated BOUNDED), non-overlap 1 (the
+upgrade route — the layer is new ground but it lands ON the spine's
+existing onboarding path; capped honestly), psych-read yield 2
+(patterns repeat across 15+ artifacts on the open record; no
+pseudonym caps the read). Total 9/10.
+
+The upgrade shipped **born with both layers** — the spine's FIRST
+method-upgrade.md and operator-os.md (the 35th and 30th of their
+universality sets): the A16 method layer (the W1–W6 critique of the
+corpus's shipped form — versions without a version rule; curation
+entangled with method; checklists without gates; numbers without
+denominators; onboarding assuming a human with a GUI and no
+proof-of-competence; carriers drifting with no canonical anchor —
+and the M1–M6 preservation protocol: PIN the corpus state after R0,
+SPLIT method rows from era-stamped curation rows, CONVERT the
+checklists to entry/evidence/falsifier gates, CLASSIFY every number
+by basis with rules-of-thumb capped as priors, the newcomer PROOF
+gate — a bounded canary engagement passing the same auditor gates
+before live scope — and the DRIFT audit before every version bump)
+and the A17 operator runtime (the Haddix rules R1–R6: pin before
+first request, curation rows are claims not facts, scanner/AI output
+is hypothesis, route don't re-teach, templates re-derive target
+values, tiers are opinions with a correction path; the behavioral
+protocol with the refusals doing the heavy lifting; the read-only
+arsenal T1–T5; the rigid run-order S1–S6). The boundary was argued
+before drafting: the methodology-preservation layer belongs ON the
+spine's onboarding path — not a new organ beside it (module-smith
+smiths modules, the charter routes, nothing in the stack preserved
+the corpus-state discipline across versions and newcomers).
+
+Retirement keeps this record: a seventh queue slot converted to a
+shipped UPGRADE — and the upgrade route now proven twice over, once
+on a lineage organ and once on the spine itself; the corpus's own
+gate ("decks version fast, so the census pins WHICH deck versions
+were read") became the shipped protocol's first law (M1: pin the
+corpus state — the house now practices on itself what the corpus
+never did for itself).
 
 ## Q8 — Deviant Ollam (score 7/10)
 

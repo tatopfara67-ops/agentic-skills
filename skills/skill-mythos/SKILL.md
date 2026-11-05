@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.17.0
+version: 1.18.0
 type: ai-skill
 architecture: package
 description: >-
@@ -81,7 +81,21 @@ description: >-
   treated as events whose timing and correlation leak before
   content, and the closure audit running the
   destruction/contraception triad on the operator's own artifacts —
-  the sixth candidate-queue execution), the tier-3
+  the sixth candidate-queue execution), and the spine itself
+  upgraded at v4.6.0 since charter v1.18.0 (the Jason Haddix lineage
+  layer: methodology preservation on the onboarding path — the
+  versioned-deck craft imported as the spine's executable protocol:
+  pin the corpus state before the first request, split method rows
+  from era-stamped curation rows because curation rots on a
+  different clock than doctrine, convert checklists to
+  entry/evidence/falsifier gates, classify every number by basis
+  with rules-of-thumb capped as priors, the newcomer proof gate —
+  a bounded canary engagement passing the same auditor gates
+  before live scope — and the drift audit before every version
+  bump; the spine's first lineage layer, born with both the A16
+  method-upgrade and A17 operator-os modules — the seventh
+  candidate-queue execution, the second recorded score RISE), the
+  tier-3
   attack organs (injection-lab, ssrf-playbook, xss-playbook,
   cloud-config-auditor, mobile-hunter with the Charlie Miller lineage,
   cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook
@@ -108,7 +122,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.17.0 — The Master Charter
+# skill-mythos v1.18.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -255,7 +269,7 @@ metadata:
 
 | Tier | Skill | Role |
 | --- | --- | --- |
-| Spine | mythos-bug-hunter (v4.5.0, separate bundle) | discipline layer: R0–R7 canon, ledger, hypothesis grammar, closure gates |
+| Spine | mythos-bug-hunter (v4.6.0, separate bundle) | discipline layer: R0–R7 canon, ledger, hypothesis grammar, closure gates — upgraded with the Jason Haddix lineage layer (methodology preservation: pin, split, gate, classify, prove, drift-audit) |
 | 0 engine | glm-self-model | the engine's own manual: model-class failure geometry + compensation gates for the GLM-class agent that runs every other skill |
 | 0 master | skill-mythos (this bundle) | activation: charter, autonomy protocol, execution doctrine, quality gates |
 | 1 recon & mapping | surface-cartographer | the organized dossier — asset graph, 21-class taxonomy, priority queue |

@@ -4,7 +4,7 @@
 
 Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
-![bundles](https://img.shields.io/badge/skill_bundles-42-informational) ![tools](https://img.shields.io/badge/MCP_tools-27-informational) ![tests](https://img.shields.io/badge/tests-143_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
+![bundles](https://img.shields.io/badge/skill_bundles-42-informational) ![tools](https://img.shields.io/badge/MCP_tools-27-informational) ![tests](https://img.shields.io/badge/tests-144_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
 
 ---
 
@@ -35,9 +35,9 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.17.0 | The seventeen articles (A16 method over mythology, A17 behavior over biography), the tiered bundle map (tiers 0-7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.18.0 | The seventeen articles (A16 method over mythology, A17 behavior over biography), the tiered bundle map (tiers 0-7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.0.0 | The engine's own manual — model-class failure geometry and four compensation gates, written to the engine, not the operator. |
-| Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.5.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 19 reference modules + a PASS/FAIL report auditor. |
+| Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.6.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 22 reference modules + a PASS/FAIL report auditor — upgraded at v4.6.0 with the Jason Haddix lineage layer: the onboarding path's methodology-preservation protocol (pin the corpus state, split method from curation, checklists as gates, numbers with basis classes, the newcomer proof run, the drift audit). |
 | Organs | 35 organ skills (tiers 1–7 below: 33 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
 | Execution hand | [arsenal/](arsenal/) | The FastMCP server: 27 scope-gated tools that execute everything above, plus the report auditor and self-owned labs. |
 
@@ -89,9 +89,9 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [skill-mythos](skills/skill-mythos/) | 1.16.0 | Master charter — seventeen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography), bundle map, autonomy + execution + war doctrines, quality gates. |
+| [skill-mythos](skills/skill-mythos/) | 1.18.0 | Master charter — seventeen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography), bundle map, autonomy + execution + war doctrines, quality gates. |
 | [glm-self-model](skills/glm-self-model/) | 1.1.0 | The engine layer — five truths, failure geometry E1–E8, compensation gates G1–G4; the engine grades its own manual (M1–M5). |
-| [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.5.0 | The spine — R0–R7 canon, ledger, hypothesis grammar, closure gates, mission horizon. |
+| [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.6.0 | The spine — R0–R7 canon, ledger, hypothesis grammar, closure gates, mission horizon; the onboarding path carries the Jason Haddix lineage layer (methodology preservation: pin, split, gate, classify, prove, drift-audit). |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit — static analysis proposes, the runtime disposes. Calibrated by rediscovering CVE-2024-33663/33664. |
 | [mythos-proving-ground](skills/mythos-proving-ground/) | 1.0.0 | Ground-truth benchmark — instrumented lab, server-side triggers, scores coverage/precision/hallucination/harm. |
 | [aas-catalog](skills/aas-catalog/) | 1.0.0 | Search & install from the Agentic Awesome Skills catalog — one reviewed skill per install, risk-gated. |
@@ -164,7 +164,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [lineage-smith](skills/lineage-smith/) | 1.7.0 | The legend-assimilation factory — the operator's doctrine as an organ: scored selection, complete-corpus census, the five-lens psych-read on documented behavior (with evidence classes and the OPINION quarantine), forge under the authoring contract, method layer born in; the candidate queue's first six executions landed the Dan Kaminsky lineage (protocol-forensics), the James Forshaw lineage (interior-cartographer), the Tavis Ormandy lineage (harness-smith), the Travis Goodspeed lineage (probe-smith), the Sean Metcalf lineage as the trust-graph-hunter upgrade — the standing demonstration that an upgrade is an assimilation too — and the grugq lineage (opsec-discipline, the queue's first score RISE at retirement); two standing candidates remain. |
+| [lineage-smith](skills/lineage-smith/) | 1.8.0 | The legend-assimilation factory — the operator's doctrine as an organ: scored selection, complete-corpus census, the five-lens psych-read on documented behavior (with evidence classes and the OPINION quarantine), forge under the authoring contract, method layer born in; the candidate queue's first seven executions landed the Dan Kaminsky lineage (protocol-forensics), the James Forshaw lineage (interior-cartographer), the Tavis Ormandy lineage (harness-smith), the Travis Goodspeed lineage (probe-smith), the Sean Metcalf lineage as the trust-graph-hunter upgrade — the standing demonstration that an upgrade is an assimilation too — the grugq lineage (opsec-discipline, the queue's first score RISE at retirement), and the Jason Haddix lineage as the mythos-bug-hunter spine upgrade (the methodology-preservation layer on the onboarding path — the queue's second recorded RISE and the spine's first lineage layer); one standing candidate remains. |
 | [rival-playbook](skills/rival-playbook/) | 1.1.0 | Corpus-vs-corpus competition — the date-pinned rival census (知彼知己), the hollow map (避实击虚), pressure-principle concentration (压强), proving-ground duel with capped wording (不战而屈人之兵); the season layer ships the Tian Ji allocation table (田忌赛马) and the protracted/quick-decisive tempo doctrine (持久战 vs 速决战); the deception stratagem family is banned, the translated middle class is on record. |
 
 ### Prompts
@@ -179,7 +179,7 @@ The repo refuses to ship on vibes. Run all three before trusting a checkout:
 
 ```bash
 python3 scripts/validate_skill.py --all         # 42 bundles PASS
-python3 -m unittest discover -s arsenal/tests   # 143 tests OK
+python3 -m unittest discover -s arsenal/tests   # 144 tests OK
 python3 arsenal/server.py --selftest            # 27 tools, import OK
 ```
 

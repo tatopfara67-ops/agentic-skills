@@ -1,6 +1,6 @@
 # Reference — Researcher Conduct
 
-> Part of **mythos-bug-hunter v4.5.0** (package architecture).
+> Part of **mythos-bug-hunter v4.6.0** (package architecture).
 > **Load when:** Engagement start (Mode F or E), or any moment the agent is
 > unsure *how to behave* — not what to test, but how a security researcher
 > acts while testing anything: reacting to observations, talking to the

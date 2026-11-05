@@ -1,6 +1,6 @@
 # The operator runtime — the onboarding-preservation layer (R1–R6, T1–T5, S1–S6)
 
-> Part of **mythos-bug-hunter v4.6.0** (package architecture).
+> Part of **mythos-bug-hunter v4.7.0** (package architecture).
 > **Load when:** onboarding runs, engagement start (the PIN step),
 > version bumps, drift audits, newcomer first-runs. The method layer
 > this runtime executes lives in

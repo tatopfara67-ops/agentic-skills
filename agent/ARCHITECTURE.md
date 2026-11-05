@@ -123,16 +123,26 @@ sudah terverifikasi.
 
 - **Aturan inti:** SETIAP respons non-200 / anomali / soft-404 / header
   aneh → jadi **hipotesis bernomor**, bukan dilewati.
-- Format record (satu baris JSONL, `hypotheses.jsonl`):
+- Format record (satu baris JSONL, `hypotheses.jsonl` — kanonik sejak
+  spine v4.7.0, lihat modul `arsenal/hypotheses.py`):
   ```json
-  {"id":"H-014","surface":"staging.api.target.id/v1/admin","obs":"403 tanpa body, beda dari 403 WAF","hyp":"path-based ACL yang bisa di-bypass prefix","pred":"Kalau prefix /v1/admin/../public dipakai → 200","kill":"3 varian bypass gagal semua","prior":0.35,"status":"open"}
+  {"id":"H-014","surface":"staging.api.target.id/v1/admin","obs":"403 tanpa body, beda dari 403 WAF","claim":"path-based ACL yang bisa di-bypass prefix","pred":"Kalau prefix /v1/admin/../public dipakai → 200","falsifier":"3 varian bypass gagal semua","prior":0.35,"prior_basis":"frekuensi kelas di korpus lab","facts":["R-041","R-042"],"cue":"C2","status":"open"}
   ```
+- **Terejawantahkan (v4.7.0):** `hypothesis_register` menolak fakta
+  pemotivasi yang bukan record ledger (R4), prior di luar (0,1), atau
+  basis base-rate kosong; `hypothesis_close` hanya menerima tiga state
+  penutupan, menolak INCONCLUSIVE tanpa record Park, dan menolak
+  CONFIRMED saat record EXPERIMENT yang mengutip hipotesis itu lebih
+  tua dari registrasinya (retrodiction = dibuang); `hypothesis_list`
+  menampilkan open set — gerbang masuk Phase 4.
 - Disiplin eksperimen: **satu variabel per request** (baseline tercatat,
   satu mutasi); pasangan **differential** wajib; kill condition
   dipraregistrasi SEBELUM test (hasil negatif harus informatif — hipotesis
   tewas menyempitkan ruang cari).
 - Prior = skor kecurigaan yang naik-turun dari bukti; agen boleh mengais
-  kembali `status: killed` hanya jika ada bukti baru, bukan vibes.
+  kembali hipotesis yang sudah mati hanya dengan bukti baru — bentuknya
+  registrasi H-NNN BARU yang mengutip yang lama plus fakta baru (bukan
+  vibes).
 - Toolkit mental: 403-bypass matrix, endpoint revival, logic inversion,
   chaining (per aturan chaining program — Glints: pasca-kompromi STOP,
   no pivot).
@@ -317,7 +327,7 @@ Fase 4 hanya setelah fase 3 hijau. Tidak ada jalan pintas ke target nyata.
 | L0 Conduct | silent-operator | — |
 | L1 Gate | 0day-forge (law #1) | — |
 | L2 Intelligence | 0day-forge (law #2, #6) + kali-bridge (`surface_diff`, `theHarvester`, `js_recon`) | — |
-| L3 Hypothesis | mythos-bug-hunter (22 modul: researcher-conduct §34, phase-playbook §35, reasoning-engine, modern-attack-classes, recon-toolchain, decision-trees, method-upgrade, operator-os, sources…) | 4.6.0 |
+| L3 Hypothesis | mythos-bug-hunter (22 modul: researcher-conduct §34, phase-playbook §35, reasoning-engine, modern-attack-classes, recon-toolchain, decision-trees, method-upgrade, operator-os, sources…) | 4.7.0 |
 | L4 Arsenal | kali-mcp-bridge + acb/acb-mcp + github-mcp | bridge / v0.1.4 / v2.0.3 |
 | L5 Evidence | 0day-forge (law #4, #8) + mythos-code-audit (differential oracle) | 1.0.0 |
 | L6 Court | mythos-proving-ground | 1.0.0 |

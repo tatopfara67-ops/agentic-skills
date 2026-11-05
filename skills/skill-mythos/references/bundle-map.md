@@ -14,18 +14,22 @@ that contract with its first lineage layer (the Jason Haddix
 lineage, v4.6.0): the onboarding path's methodology-preservation
 modules — `references/method-upgrade.md`, `references/operator-os.md`,
 `references/sources.md` — load at engagement start (the PIN step), at
-version bumps, and at newcomer first-runs.
+version bumps, and at newcomer first-runs. Since charter v1.19.1 the
+spine's hypothesis rail is executable: `hypothesis_register` /
+`hypothesis_close` / `hypothesis_list` in the arsenal server carry the
+§5 contract as refusals — no facts, no hypothesis; three closure
+states only; retrodiction discarded.
 
 ## 1. Architecture — spine + organs + execution hand
 
 ```
                 ┌──────────────────────────────────────────────┐
-                │ mythos-bug-hunter v4.6.0 (spine, own bundle) │
+                │ mythos-bug-hunter v4.7.0 (spine, own bundle) │
                 │ R0–R7 canon · ledger · hypotheses · gates    │
                 └───────┬───────────────────────────┬──────────┘
    Phase 1–3 organs     │            evidence       │ incident branch
 ┌───────────────────────┴───────────────┴───────────┴─────────────┐
-│ arsenal/ — MCP server, 27 scope-gated tools, one R-NNN ledger   │
+│ arsenal/ — MCP server, 30 scope-gated tools, one R-NNN ledger   │
 │ auditor/ — PASS/FAIL report gate (recomputes CVSS, validates    │
 │            VRT ids against the shipped official taxonomy)       │
 │ lab/     — target_app.py + christmas_lab.py (self-owned)        │

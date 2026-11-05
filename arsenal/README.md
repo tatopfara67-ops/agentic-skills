@@ -1,14 +1,17 @@
 # mythos-arsenal
 
-The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **27 scope-gated tools** that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts, the glm-self-model engine manual, and 26 organ skills — 13 phase organs, 6 craft-lineage (Fyodor, HD Moore, Tomnomnom, lcamtuf, ProjectDiscovery, Searle + Mantis), 7 legend-tier (Orange Tsai, James Kettle, George Hotz, Adrian Lamo, Simon Willison, John Draper, Kevin Mitnick; the Rosen/EdOverflow/Parecki/Dalili/Heiderich/de la Fuente/Miessler lineages are folded into the v2.0.0 organs) — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
+The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **30 scope-gated tools** that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts (append-only ledger, the v4.7.0 hypothesis rail, closure gates), the glm-self-model engine manual, and the organ skills — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
 
-The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md](../skills/skill-mythos/SKILL.md); the assimilated lineage registry (21 entries, corrections on record) is served by the `mythos_lineages` tool. Designed as **spine + organs**: `mythos-bug-hunter` stays the single discipline layer (ledger, hypothesis grammar, closure gates); every other skill is an organ that plugs into one of its phases and inherits its contracts instead of duplicating them.
+The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md](../skills/skill-mythos/SKILL.md); the assimilated lineage registry (33 entries, corrections on record) is served by the `mythos_lineages` tool. Designed as **spine + organs**: `mythos-bug-hunter` stays the single discipline layer (ledger, hypothesis grammar, closure gates — mechanized since v4.7.0); every other skill is an organ that plugs into one of its phases and inherits its contracts instead of duplicating them.
 
 ## Skill index
 
+The phase-routing view; the full 43-bundle catalog with versions is the
+root `README.md`'s skill catalog.
+
 | Tier | Skill | Plugs into |
 | --- | --- | --- |
-| 0 Master | skill-mythos | activation: thirteen charter articles (incl. A13), bundle map, autonomy protocol, quality gates — loads first, hunts nothing |
+| 0 Master | skill-mythos | activation: seventeen charter articles (incl. A13), bundle map, autonomy protocol, quality gates — loads first, hunts nothing |
 | 0 Engine | glm-self-model | session start of any long engagement — model-class failure geometry + compensation gates for the agent that runs every organ |
 | 1 Recon & Mapping | surface-cartographer | Phase 1 — the dossier: asset graph, 21-class taxonomy, priority queue |
 | 1 | subdomain-hunter | Phase 1 — passive-first enumeration, wildcard verdicts, takeover pairs; v2: EdOverflow dangling classes |
@@ -22,6 +25,9 @@ The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md
 | 3 | ssrf-playbook | Phase 3 — canary-callback channel proofs, bounded egress |
 | 3 | xss-playbook | Phase 3 — sink contexts, marker proofs, CSP as fact; v2: Heiderich mXSS layer + versioned mXSS corpus |
 | 3 | cloud-config-auditor | Phase 1/3 — CORS matrix, anonymous storage, takeover checks; v2: Prowler checks-as-code |
+| 3 | mobile-hunter | Phase 1/3 — the shipped APK/IPA read before the device is touched (Charlie Miller lineage) |
+| 3 | cache-playbook | Phase 3 — cache-key baseline matrix for deception/poisoning (Omer Gil + James Kettle corpus) |
+| 3 | prototype-playbook | Phase 3 — prototype pollution, DOM clobbering, postMessage: source → gadget → sink (Gareth Heyes lineage) |
 | 4 Incident branch | adversary-tracker | event-triggered, any phase — the Shimomura Binary Brain: freeze, halve, two-channel fix, handoff |
 | 5 Craft lineage | scan-economist | Fyodor — scan economy: cost hierarchy, priors, adaptive timing |
 | 5 | module-smith | HD Moore — hypotheses as rankable modules; access/impact proofs separate |
@@ -29,6 +35,10 @@ The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md
 | 5 | feedback-fuzzer | lcamtuf — feedback-guided search: bucketed novelty, saturation stop rule |
 | 5 | template-scanner | ProjectDiscovery — detection as declarative templates, matchers pre-registered |
 | 5 | packet-orchestrator | Searle + Mantis — manual first, then state-backed automation |
+| 5 | protocol-forensics | Dan Kaminsky — spec ambiguity across the implementation population, entropy-priced invariants |
+| 5 | interior-cartographer | James Forshaw — OS internal-surface census, seam tables, ACCESS_MASK budget |
+| 5 | harness-smith | Tavis Ormandy — fuzz-first triage, oracle engineering, the mandatory missed-why postmortem |
+| 5 | opsec-discipline | the grugq — campaign hygiene as an economic discipline: exposure census, compartmentation, closure audit |
 | 6 Legend tier | chain-architect | Orange Tsai (S) — compound kill chains, every link proven by its own differential |
 | 6 | desync-hunter | James Kettle (S) — parser-seam ambiguities one per request, bytes as artifacts |
 | 6 | deep-teardown | George Hotz (S) — client artifacts dismantled locally to primitives |
@@ -36,14 +46,18 @@ The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md
 | 6 | mirror-hunter | Simon Willison (S) — LLM/agent surfaces: self-model inverted into attack surface, eligibility gate before the first payload, rates over N runs, CONFIRMED on the deterministic wrapper |
 | 6 | signal-smith | John Draper (B) — input grammar craft, one minimal variation per seam, two max |
 | 6 | trust-graph-hunter | Kevin Mitnick (B) — the trust graph between components, inherited privilege on operator-owned ends |
+| 6 | probe-smith | Travis Goodspeed — hardware teardown: pinout discovery, priced bypass ladder, radio promiscuity |
+| 6 | threshold-hunter | Deviant Ollam — physical trust boundaries at the information layer; detection as the deliverable |
+| 7 Forge | lineage-smith | the assimilation factory — scored selection, complete-corpus census, the five-lens psych-read |
+| 7 | rival-playbook | corpus-vs-corpus competition — date-pinned rival census, proving-ground duel with capped wording |
 
-All 32 bundles in `skills/` pass `scripts/validate_skill.py --all`.
+All 43 bundles in `skills/` pass `scripts/validate_skill.py --all`.
 
 ## Install & wiring
 
 ```bash
 pip install "mcp>=1.2.0"        # FastMCP SDK
-python3 arsenal/server.py --selftest   # should list 27 tools
+python3 arsenal/server.py --selftest   # should list 30 tools
 ```
 
 `.mcp.json` (Claude Code / Cursor), adjusting the path:
@@ -116,10 +130,10 @@ handoff pack — lives in `examples/adversary-hunt/`.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s arsenal/tests    # 136 tests
+python3 -m unittest discover -s arsenal/tests    # 161 tests
 ```
 
-Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/canary/expired/missing-artifact, canary exfil-channel refusal), ledger append-only discipline + O(1) id minting (tail-scan with full-scan fallback, portable cross-platform lock), tool behavior against a live lab, `arsenal_route` governance + civility rate defaults, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, and the hardened report gates — including citation grounding (fabricated / misdirected / non-evidence citations fail the audit).
+Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/canary/expired/missing-artifact, canary exfil-channel refusal), ledger append-only discipline + O(1) id minting (tail-scan with full-scan fallback, portable cross-platform lock), the v4.7.0 hypothesis rail (pre-registration refusals, three-state closure, the retrodiction guard), tool behavior against a live lab, `arsenal_route` governance + civility rate defaults, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, and the hardened report gates — including citation grounding (fabricated / misdirected / non-evidence citations fail the audit).
 
 ## Layout
 

@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.19.0
+version: 1.19.1
 type: ai-skill
 architecture: package
 description: >-
@@ -141,7 +141,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.19.0 — The Master Charter
+# skill-mythos v1.19.1 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -288,7 +288,7 @@ metadata:
 
 | Tier | Skill | Role |
 | --- | --- | --- |
-| Spine | mythos-bug-hunter (v4.6.0, separate bundle) | discipline layer: R0–R7 canon, ledger, hypothesis grammar, closure gates — upgraded with the Jason Haddix lineage layer (methodology preservation: pin, split, gate, classify, prove, drift-audit) |
+| Spine | mythos-bug-hunter (v4.7.0, separate bundle) | discipline layer: R0–R7 canon, ledger, hypothesis grammar — mechanized since v4.7.0: hypothesis_register / hypothesis_close / hypothesis_list in the arsenal server refuse unevidenced registration, non-three-state closure, and retrodiction — closure gates, upgraded with the Jason Haddix lineage layer (methodology preservation: pin, split, gate, classify, prove, drift-audit) |
 | 0 engine | glm-self-model | the engine's own manual: model-class failure geometry + compensation gates for the GLM-class agent that runs every other skill |
 | 0 master | skill-mythos (this bundle) | activation: charter, autonomy protocol, execution doctrine, quality gates |
 | 1 recon & mapping | surface-cartographer | the organized dossier — asset graph, 21-class taxonomy, priority queue |
@@ -334,9 +334,11 @@ v2 upgrade on record: **auth-boundary-mapper** (tier 2) folds in the
 parameter position, 2nd-order IDOR, tenant slices, full response diffs
 (the organ's idor-field-guide module).
 
-Execution hand: the **arsenal** MCP server (27 scope-gated tools,
-incl. `doctrine_forge` for A13), the **auditor** report gate, two
-self-owned **labs**, and audited **examples**. Full map with load-when
+Execution hand: the **arsenal** MCP server (30 scope-gated tools,
+incl. `doctrine_forge` for A13 and the v4.7.0 hypothesis rail —
+`hypothesis_register` / `hypothesis_close` / `hypothesis_list`), the
+**auditor** report gate, two self-owned **labs**, and audited
+**examples**. Full map with load-when
 triggers lives in references/bundle-map.md — the atlas. The craft and
 legend tiers' figures, distillations, and attribution corrections are
 enumerated by the `mythos_lineages` tool — the doctrine's compliance

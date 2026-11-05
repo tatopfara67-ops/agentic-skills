@@ -1,6 +1,6 @@
 ---
 name: mythos-bug-hunter
-version: 4.6.0
+version: 4.7.0
 type: ai-skill
 architecture: package
 description: >-
@@ -19,7 +19,10 @@ description: >-
   the methodology-preservation craft (version-pinned corpus state,
   method/curation split, checklists as gates, numbers with basis classes, the
   newcomer proof run, the drift audit) learned from nine years of versioned
-  hunt playbooks.
+  hunt playbooks. Since v4.7.0 the Hypothesis Contract (§5) is mechanized in
+  the arsenal server — hypothesis_register refuses registration whose
+  motivating facts are not ledger records; hypothesis_close refuses
+  retrodiction, non-three-state closure, and closure without evidence.
 category: security/offensive-web
 license: MIT
 metadata:
@@ -32,7 +35,7 @@ metadata:
     methodology-preservation layer, the queue's seventh execution
 ---
 
-# mythos-bug-hunter v4.6.0 — The Discipline Layer
+# mythos-bug-hunter v4.7.0 — The Discipline Layer
 
 ## 0. What This Skill Is — and Is Not
 
@@ -54,7 +57,7 @@ Package layout:
 mythos-bug-hunter/
 ├── SKILL.md                    # this file — the only always-loaded part
 ├── README.md                   # product positioning and quickstart
-├── references/                 # load-on-demand library (19 modules)
+├── references/                 # load-on-demand library (22 modules)
 ├── scripts/audit_report.py     # mechanical slop auditor for reports
 └── example/                    # full worked engagement + audit fixtures
 ```
@@ -230,6 +233,26 @@ Rules:
 - One hypothesis, one mechanism. "The app is broken somewhere" is not a
   hypothesis; it is a mood.
 - No surface is left hypothesis-less: write one, or write why not.
+
+Mechanized (v4.7.0) — when the arsenal server is wired in, the contract is
+executable, and the refusals are the doctrine:
+
+- `hypothesis_register` mints the H-NNN and refuses a hypothesis whose
+  motivating `facts` are not existing R-NNN records, a prior outside (0,1),
+  a missing base-rate justification, or a malformed cue id. Registration
+  without evidence is structurally impossible, not frowned upon.
+- `hypothesis_close` accepts only the three closure states, requires the
+  closure to cite existing evidence R-NNN records, refuses INCONCLUSIVE
+  without a cited Park record, refuses CONFIRMED when EXPERIMENT records
+  citing the hypothesis predate its registration (retrodiction is
+  discarded, mechanically), and refuses any second closure — revival is a
+  NEW hypothesis citing the dead one plus the new facts.
+- `hypothesis_list` is the Phase-4 entry check made cheap: the open set
+  must be empty before impact proofs run.
+- State lives at `engagements/<program>/hypotheses.jsonl` (append-only
+  rows, last row per id wins); every registration and closure also writes
+  its ledger record (`HYPOTHESIS` / `CLOSURE` tags) — the audit trail
+  precedes the state, never the other way around.
 
 ## 6. Experiment Contract
 
@@ -456,6 +479,8 @@ R6  calibrate the instrument before trusting it
 R7  budget per vector; exhausted → park
 
 pin the corpus state at start (v4.6.0) — no PIN, no requests past recon
+
+hypothesis_register before the first payload (v4.7.0) — retrodiction discarded
 
 quota unmet → exhaustion proof or pull the next queued item (34.8)
 

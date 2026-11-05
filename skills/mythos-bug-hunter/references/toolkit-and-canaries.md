@@ -1,6 +1,6 @@
 # Reference — Toolkit And Canaries
 
-> Part of **mythos-bug-hunter v4.6.0** (package architecture).
+> Part of **mythos-bug-hunter v4.7.0** (package architecture).
 > **Load when:** Phase 3-4: tool recipes, the differential trio, response fingerprinting, sweeps, timing/concurrency, canary payload library, minimal-code doctrine and standard micro-scripts.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

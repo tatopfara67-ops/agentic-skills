@@ -93,7 +93,7 @@
         "incident branch: Binary Brain adversary hunts",
         "report classification: CVSS 3.1 + Bugcrowd VRT/HackerOne sebelum audit"
       ],
-      "note": "27 tools; setiap tool yang menyentuh target selalu scope-gated R0 (tool klasifikasi murni tidak menyentuh target); A13: doctrine_forge jalan SEBELUM setiap instruksi operator; CLAUDE.md di root workspace = agent contract-nya; engagements/ adalah runtime state (sudah di-gitignore)"
+      "note": "30 tools; setiap tool yang menyentuh target selalu scope-gated R0 (tool klasifikasi murni tidak menyentuh target); A13: doctrine_forge jalan SEBELUM setiap instruksi operator; CLAUDE.md di root workspace = agent contract-nya; engagements/ adalah runtime state (sudah di-gitignore)"
     }
   },
   "hard_rules": [

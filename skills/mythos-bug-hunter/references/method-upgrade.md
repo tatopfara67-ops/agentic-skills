@@ -1,6 +1,6 @@
 # The executable method — the onboarding-preservation upgrade (W1–W6 → M1–M6)
 
-> Part of **mythos-bug-hunter v4.6.0** (package architecture).
+> Part of **mythos-bug-hunter v4.7.0** (package architecture).
 > **Load when:** onboarding a new operator or a fresh agent onto the
 > stack; pinning corpus state at engagement start; a version bump of any
 > bundle; drift suspected between doctrine rows and tool rows. The

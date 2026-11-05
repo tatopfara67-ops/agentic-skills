@@ -93,7 +93,8 @@ REPRO_LINE = re.compile(r"^(?:[-*]\s*)?reproduction:\s*\S", re.I)
 RECORD_LINE = re.compile(r"^(R-\d{3,})\s*\|")
 XREF = re.compile(r"\b[A-Za-z]+-\d{2,}\b")       # R-042, H-012, E-003, CVE-…
 TOKEN = re.compile(r"[a-z0-9][a-z0-9_./\-]{2,}")
-NON_EVIDENCE_TAGS = frozenset({"CONTROL", "REFUSED", "MISTAKE"})
+NON_EVIDENCE_TAGS = frozenset({"CONTROL", "REFUSED", "MISTAKE",
+                               "HYPOTHESIS", "CLOSURE"})
 _GENERIC = frozenset("""
 the and for with that this from was were are has have had not but its
 their they when then than into over under without http https www com net

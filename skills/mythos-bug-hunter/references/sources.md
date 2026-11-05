@@ -1,6 +1,6 @@
 # sources.md — the reading ledger for the Jason Haddix lineage layer
 
-> Part of **mythos-bug-hunter v4.6.0** (package architecture).
+> Part of **mythos-bug-hunter v4.7.0** (package architecture).
 > **Load when:** auditing the onboarding-preservation layer's provenance;
 > re-screening the candidate queue; verifying a census claim about the
 > Haddix corpus. This is the P2/P3 record: what was read, how fully, and

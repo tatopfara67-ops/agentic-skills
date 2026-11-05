@@ -1,6 +1,6 @@
 # Reference — Auth And Http Playbook
 
-> Part of **mythos-bug-hunter v4.6.0** (package architecture).
+> Part of **mythos-bug-hunter v4.7.0** (package architecture).
 > **Load when:** Phase 2-3: authorization testing matrix (actor-resource-action), HTTP status-code 12-step diagnosis, header-probe catalog, authentication/session flow and JWT attack catalog.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

@@ -12,6 +12,10 @@ Tool groups:
   governance scope_check, auth_status                      (R0/L1)
   evidence   ledger_append, ledger_summary, ledger_read,
              ledger_merge                                   (L5)
+  hypothesis hypothesis_register, hypothesis_close,
+             hypothesis_list                               (spine §5,
+             pre-registration as refusals: no facts, no hypothesis;
+             three-state closure; retrodiction discarded)
   passive    ct_subdomains, dns_resolve                    (L2, active=False)
   active     http_probe, content_discover, api_introspect,
              js_analyze                                     (L2, active=True)
@@ -47,6 +51,7 @@ except ModuleNotFoundError:  # mcp SDK 2.x reduced mcp.server.fastmcp to a
     from fastmcp import FastMCP  # noqa: E402
 
 from arsenal.scope_gate import check_target, load_scope  # noqa: E402
+from arsenal import hypotheses as _hyp  # noqa: E402
 from arsenal import ledger, paths, sbb as _sbb  # noqa: E402
 from arsenal.tools import arsenal_route as _route  # noqa: E402
 from arsenal.tools import dossier as _dossier  # noqa: E402
@@ -207,6 +212,50 @@ def ledger_read(program: str, rid: str) -> str:
 def ledger_merge(program: str) -> int:
     """Fold append.md into records.md. Call at phase boundaries."""
     return ledger.merge(_norm_program(program))
+
+
+# ------------------------------------------------------- hypothesis rail
+
+@mcp.tool()
+def hypothesis_register(program: str, surface: str, obs: str, claim: str,
+                        pred: str, falsifier: str, prior: float,
+                        prior_basis: str, facts: list[str],
+                        cue: str = "") -> dict:
+    """Pre-register one hypothesis — BEFORE the first crafted payload.
+
+    The five-slot contract (spine §5) as refusals: facts must cite
+    existing R-NNN ledger records (no evidence, no hypothesis — R4);
+    prior must sit in (0,1) with a stated base-rate justification;
+    cue, when the trigger was noticing, is a C-id (§32.10). Returns
+    {id, record, status: open}. Revival of a dead hypothesis is a NEW
+    registration citing the old id plus the new facts."""
+    return _hyp.register(_norm_program(program), surface, obs, claim, pred,
+                         falsifier, prior, prior_basis, facts, cue)
+
+
+@mcp.tool()
+def hypothesis_close(program: str, hid: str, state: str,
+                     evidence: list[str], note: str = "") -> dict:
+    """Close one hypothesis — three states only (CONFIRMED / FALSIFIED /
+    INCONCLUSIVE), each citing existing R-NNN evidence records.
+
+    Mechanical refusals: INCONCLUSIVE without a cited Park record;
+    CONFIRMED when EXPERIMENT records citing the hypothesis predate its
+    registration (retrodiction is discarded); any second closure —
+    statuses never move backwards. Returns the closure record id and a
+    calibration note (prior vs outcome — an overconfident falsification
+    is a mistake-ledger candidate)."""
+    return _hyp.close(_norm_program(program), hid, state, evidence, note)
+
+
+@mcp.tool()
+def hypothesis_list(program: str, status: str = "") -> dict:
+    """Folded hypothesis view: counts per state + compact rows.
+
+    The open set is the Phase-4 entry gate — it must be empty before
+    impact proofs run. status filters: open / confirmed / falsified /
+    inconclusive."""
+    return _hyp.summary(_norm_program(program), status)
 
 
 # --------------------------------------------------------------- passive

@@ -1,6 +1,6 @@
 # Reference — Changelog And Crosswalk
 
-> Part of **mythos-bug-hunter v4.6.0** (package architecture).
+> Part of **mythos-bug-hunter v4.7.0** (package architecture).
 > **Load when:** Provenance: methodology crosswalk and changelog.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the
@@ -34,6 +34,36 @@
 ## E. Changelog
 
 ```
+v4.7.0 (2026-11)
+  - The Hypothesis Contract (§5) is mechanized — the spine's most
+    distinctive mechanism moves from doctrine to executable
+    enforcement in the arsenal server. New module
+    arsenal/hypotheses.py + three MCP tools: hypothesis_register
+    (refuses motivating facts that are not existing R-NNN ledger
+    records, priors outside (0,1), a missing base-rate justification,
+    or a malformed cue id — registration without evidence is
+    structurally impossible), hypothesis_close (three closure states
+    only; evidence R-NNNs required; CONFIRMED refused when EXPERIMENT
+    records citing the hypothesis predate its registration —
+    retrodiction is discarded; INCONCLUSIVE requires a cited Park
+    record; closure is append-only, revival is a new H-NNN citing the
+    dead one), and hypothesis_list (the folded view; the open set is
+    the Phase-4 entry gate).
+  - The ledger gains two tags: HYPOTHESIS (the registration block)
+    and CLOSURE (the verdict record citing the hypothesis). The
+    report auditor treats both as non-evidence — a verdict record is
+    not vulnerability evidence; the chain must bottom out in
+    EXPERIMENT/FACT records.
+  - State lives at engagements/<program>/hypotheses.jsonl —
+    append-only rows, last row per id wins (the documented L8
+    format), canonical field set: surface / obs / claim / pred /
+    falsifier / prior / prior_basis / facts / cue.
+  - SKILL.md §5 gains the Mechanized block; §18 gains the register
+    line; the phase playbook's Phase-2 exit gate names the mechanical
+    form; the charter's bundle map row updates (charter 1.19.0 ->
+    1.19.1); the SKILL.md layout note fixes its stale module count
+    (19 -> 22). Version bump 4.6.0 -> 4.7.0 (minor: new mechanism +
+    non-breaking reference updates).
 v4.6.0 (2026-11)
   - The onboarding path carries the Jason Haddix lineage layer — the
     queue's seventh execution, the spine's first documented lineage

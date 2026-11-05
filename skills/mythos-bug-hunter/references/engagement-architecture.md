@@ -1,6 +1,6 @@
 # Reference — Engagement Architecture
 
-> Part of **mythos-bug-hunter v4.6.0** (package architecture).
+> Part of **mythos-bug-hunter v4.7.0** (package architecture).
 > **Load when:** Phase 1: attack-surface inventory v3 (21 classes), pinpoint TODO system and priority engine, operational workflow, stop conditions, state management, reportability gate.
 > Authoritative rules, Canon, and pipeline contracts live in
 > [`../SKILL.md`](../SKILL.md) — if anything in this module conflicts with the

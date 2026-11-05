@@ -451,7 +451,7 @@ class TestMythosLineages(unittest.TestCase):
         with open(os.path.join(spine, "SKILL.md"),
                   encoding="utf-8") as fh:
             text = fh.read()
-        self.assertIn("version: 4.6.0", text)
+        self.assertIn("version: 4.7.0", text)
         self.assertIn("Jason Haddix", text)
         for module in ("references/method-upgrade.md",
                        "references/operator-os.md",

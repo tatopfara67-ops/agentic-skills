@@ -1,6 +1,6 @@
 # Reference — The Phase Playbook (Recon to Report, Action by Action)
 
-> Part of **mythos-bug-hunter v4.6.0** (package architecture).
+> Part of **mythos-bug-hunter v4.7.0** (package architecture).
 > **Load when:** An engagement starts (Mode F), a phase transition lands, or
 > the agent needs the *execution sequence* for the phase it is standing in:
 > entry conditions, numbered actions, methods, decision rules, exit gate,
@@ -290,7 +290,10 @@ hypothesis requiring out-of-scope actions is refused and recorded as
 capability-limited (never silently dropped).
 
 **Exit gate:** no hypothesis-less surface; the H-queue is ordered; P0/P1
-TODOs (§15) exist for the top of the queue.
+TODOs (§15) exist for the top of the queue. Mechanical form (v4.7.0): every
+hypothesis was minted through `hypothesis_register` (facts must cite ledger
+records), and `hypothesis_list` shows the open set — that set emptying, via
+`hypothesis_close`, is what actually opens Phase 3's exit.
 
 **Failure modes:** *the narrative capture* (writing findings instead of
 hypotheses — the tell is H-records containing severity adjectives); *the

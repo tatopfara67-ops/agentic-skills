@@ -49,7 +49,8 @@ else:
     msvcrt = None
 
 TAGS = ("FACT", "SURFACE", "EXPERIMENT", "CONTROL", "CANARY",
-        "PARK", "AUTH", "REFUSED", "MISTAKE")
+        "PARK", "AUTH", "REFUSED", "MISTAKE",
+        "HYPOTHESIS", "CLOSURE")
 
 _RID_RE = re.compile(r"^(R-(\d{3,}))\s*\|")
 _LOCAL = threading.Lock()

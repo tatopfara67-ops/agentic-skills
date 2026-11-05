@@ -127,7 +127,7 @@ class TestMythosCharter(unittest.TestCase):
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 38)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 39)
         self.assertEqual(tiers["0-engine"], {"glm-self-model": True})
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
         self.assertEqual(sorted(tiers["7-forge"]),
@@ -144,7 +144,8 @@ class TestMythosCharter(unittest.TestCase):
         self.assertEqual(sorted(tiers["6-legend"]), [
             "chain-architect", "deep-teardown", "desync-hunter",
             "ghost-crawler", "mirror-hunter", "probe-smith",
-            "signal-smith", "trust-graph-hunter"])
+            "signal-smith", "threshold-hunter",
+            "trust-graph-hunter"])
         for tier, skills in tiers.items():
             for name, installed in skills.items():
                 self.assertTrue(installed, "%s missing in tier %s"
@@ -163,9 +164,9 @@ class TestMythosCharter(unittest.TestCase):
 
 
 class TestMythosLineages(unittest.TestCase):
-    def test_registry_lists_thirty_two_lineages_all_installed(self):
+    def test_registry_lists_thirty_three_lineages_all_installed(self):
         registry = _mythos.mythos_lineages()
-        self.assertEqual(registry["count"], 32)
+        self.assertEqual(registry["count"], 33)
         by_organ = {e["organ"]: e for e in registry["lineages"]}
         for organ in ("adversary-tracker", "scan-economist", "module-smith",
                       "pipeline-smith", "feedback-fuzzer",
@@ -181,7 +182,8 @@ class TestMythosLineages(unittest.TestCase):
                       "prototype-playbook", "interior-cartographer",
                       "lineage-smith",
                       "rival-playbook", "harness-smith", "probe-smith",
-                      "opsec-discipline", "mythos-bug-hunter"):
+                      "opsec-discipline", "mythos-bug-hunter",
+                      "threshold-hunter"):
             self.assertIn(organ, by_organ)
             self.assertTrue(by_organ[organ]["installed"], organ)
             for field in ("figure", "distillation", "sources"):
@@ -200,7 +202,8 @@ class TestMythosLineages(unittest.TestCase):
                      "Dalili", "de la Fuente", "Simon Willison",
                      "Dan Kaminsky", "James Forshaw", "Sun Tzu",
                      "Tavis Ormandy", "Travis Goodspeed",
-                     "Sean Metcalf", "the grugq", "Jason Haddix"):
+                     "Sean Metcalf", "the grugq", "Jason Haddix",
+                     "Deviant Ollam", "Howard Payne", "Matt Blaze"):
             self.assertIn(name, joined, name)
         # the unverified attributions from the operator brief stay out
         self.assertNotIn("Skappen", joined)
@@ -211,7 +214,7 @@ class TestMythosLineages(unittest.TestCase):
         that shipped a method-upgrade module still carries it, and the
         module keeps its three-part shape (critique, upgrades, and
         where they land, falsifiers). New organs are born with the
-        layer — the guard list covers all 35 modules on record."""
+        layer — the guard list covers all 36 modules on record."""
         organs = [
             "adversary-tracker", "auth-boundary-mapper",
             "business-logic-hunter", "cache-playbook", "chain-architect",
@@ -226,7 +229,7 @@ class TestMythosLineages(unittest.TestCase):
             "probe-smith", "protocol-forensics", "prototype-playbook",
             "rival-playbook", "scan-economist", "signal-smith",
             "ssrf-playbook", "subdomain-hunter", "template-scanner",
-            "trust-graph-hunter", "xss-playbook",
+            "threshold-hunter", "trust-graph-hunter", "xss-playbook",
         ]
         skills_root = os.path.join(_TREE_ROOT, "skills")
         shipped = {n for n in os.listdir(skills_root)
@@ -252,7 +255,7 @@ class TestMythosLineages(unittest.TestCase):
         behavioral protocol, scripting arsenal, rigid run-order) plus
         falsifiers. The forge-tier organs carry their named
         equivalents instead (psychology-catalog, campaign-protocol,
-        failure-geometry) — the guard covers the 30 person-lineage
+        failure-geometry) — the guard covers the 31 person-lineage
         organs on record."""
         organs = [
             "adversary-tracker", "auth-boundary-mapper",
@@ -266,7 +269,7 @@ class TestMythosLineages(unittest.TestCase):
             "probe-smith",
             "protocol-forensics", "prototype-playbook", "scan-economist",
             "signal-smith", "subdomain-hunter", "template-scanner",
-            "trust-graph-hunter", "xss-playbook",
+            "threshold-hunter", "trust-graph-hunter", "xss-playbook",
         ]
         skills_root = os.path.join(_TREE_ROOT, "skills")
         shipped = {n for n in os.listdir(skills_root)
@@ -456,6 +459,58 @@ class TestMythosLineages(unittest.TestCase):
             path = os.path.join(spine, module)
             self.assertTrue(os.path.isfile(path),
                              "spine layer missing: %s" % module)
+
+    def test_threshold_hunter_lineage_entry(self):
+        """Q8's retirement record: the eighth and final candidate-queue
+        execution is wired with the figure (the documented career —
+        TOOOL board 14 years, The CORE Group, Red Team Alliance, the
+        certifications, the talk index 2005-2024), the distillation
+        (the physical trust boundary translated to the information
+        layer: the cost-ordered entry ladder, the egress reversal,
+        OR-logic privilege leakage by component isolation, installation
+        over design, detection as the deliverable, the fix-pair), the
+        bounded census stated (the free chain read in full — the talk
+        index, the bio, the Darknet Diaries transcript, Blaze's essay,
+        the Wiegand and OSDP records — with the books and videos
+        BOUNDED), and the correction row carrying the engagement-fit
+        verdict: physical execution bounded as human-operator craft,
+        no pretexting, no life-safety actuation, and the fit gate
+        argued and closed BEFORE drafting."""
+        registry = _mythos.mythos_lineages()
+        by_organ = {e["organ"]: e for e in registry["lineages"]}
+        entry = by_organ["threshold-hunter"]
+        self.assertIn("Deviant Ollam", entry["figure"])
+        self.assertIn("TOOOL", entry["figure"])
+        self.assertIn("DEF CON 22", entry["figure"])
+        self.assertIn("I'll Let Myself In", entry["figure"])
+        for token in ("cost-ordered", "egress", "OR-logic",
+                      "component isolation", "installation beats design",
+                      "detection is the deliverable", "fix-pair",
+                      "OSDP"):
+            self.assertIn(token, entry["distillation"])
+        self.assertIn("read in full", entry["sources"])
+        self.assertIn("BOUNDED", entry["sources"])
+        self.assertIn("skills/threshold-hunter/references/sources.md",
+                      entry["sources"])
+        self.assertIn("human-operator", entry["correction"])
+        self.assertIn("no human pretexting", entry["correction"])
+        self.assertIn("life-safety", entry["correction"])
+        self.assertIn("Matt Blaze", entry["correction"])
+        self.assertIn("BEFORE drafting", entry["correction"])
+        # the organ carries both layers, born in
+        skills_root = os.path.join(_TREE_ROOT, "skills")
+        organ = os.path.join(skills_root, "threshold-hunter")
+        with open(os.path.join(organ, "SKILL.md"),
+                  encoding="utf-8") as fh:
+            text = fh.read()
+        self.assertIn("version: 1.0.0", text)
+        self.assertIn("Deviant Ollam", text)
+        for module in ("references/method-upgrade.md",
+                       "references/operator-os.md",
+                       "references/sources.md"):
+            path = os.path.join(organ, module)
+            self.assertTrue(os.path.isfile(path),
+                            "organ layer missing: %s" % module)
 
     def test_second_wave_lineage_organs_are_v2(self):
         """The six v2 organs carry the lineage in frontmatter, not

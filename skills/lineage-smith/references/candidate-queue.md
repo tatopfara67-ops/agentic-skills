@@ -8,7 +8,7 @@ lineage registry is the only record of assimilation, and a queue
 entry is a nomination with homework attached, not a distillation.
 Scores are the M1 gate's five axes (0–2 each); they are re-scored at
 every screening, and entries retire with their reasons kept. The
-queue's first seven end-to-end executions retired Q1 into the shipped
+queue's first eight end-to-end executions retired Q1 into the shipped
 organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage), Q2 into
 the shipped organ interior-cartographer (v1.0.0, the James Forshaw
 lineage), Q5 into the shipped organ harness-smith (v1.0.0, the
@@ -22,14 +22,21 @@ retirement, the talk-heavy gate answered by reading), and Q6 into
 the shipped UPGRADE of the mythos-bug-hunter SPINE itself (v4.6.0,
 the Jason Haddix lineage — the methodology-preservation layer on
 the onboarding path, the queue's second recorded score RISE and
-the spine's first lineage layer) — the retirement records below
-are the template every future retirement follows.
+the spine's first lineage layer), and Q8 into the shipped organ
+threshold-hunter (v1.0.0, the Deviant Ollam lineage — the physical
+trust boundary translated to the information layer an agent
+executes, the engagement-fit gate argued and closed BEFORE
+drafting, the queue's third recorded score RISE, and the
+retirement that EMPTIED the queue: all eight standing candidates
+are now assimilated, and the expansion territory opens only to
+fresh nominations) — the retirement records below are the template
+every future retirement follows.
 
 ## The running table
 
 | # | Candidate | Score | Forge target | The honest gate |
 | - | --------- | ----- | ------------ | --------------- |
-| Q8 | Deviant Ollam | 7 | physical-access organ (tier 6) | engagement fit argued before drafting |
+| — | (empty — all eight candidates retired; the queue awaits fresh nominations) | | | |
 
 ## Q1 — Dan Kaminsky — RETIRED, assimilated as protocol-forensics
 
@@ -366,19 +373,79 @@ were read") became the shipped protocol's first law (M1: pin the
 corpus state — the house now practices on itself what the corpus
 never did for itself).
 
-## Q8 — Deviant Ollam (score 7/10)
+## Q8 — Deviant Ollam — RETIRED, assimilated as threshold-hunter
 
-* **Public corpus (documented)**: Practical Lock Picking (book);
-  public talks on physical penetration testing and entry through the
-  built environment.
-* **The pattern worth extracting**: physical access as the outermost
-  trust edge — the lock and the door are the first boundary every
-  network inherits; a documented open-teaching demonstration culture.
-* **Forge target**: a physical-access organ — the boundary the web
-  stack stops at.
-* **The gate**: the physical domain sits at the edge of the house's
-  engagement scope; the forge must argue the fit before the organ is
-  drafted.
+**Score at retirement: 9/10 (RISE from 7, the third consecutive).**
+Reason per axis: volume 2 (300-400+ talks on his own dated index
+2005-2024 with per-talk abstracts, two best-selling books, a
+20-year arc); explicitness 2 (the method ships as procedure — the
+door checklist narrated rung by rung in the Darknet Diaries
+record, talk descriptions promising "direct, specific, actionable
+advice" and "solutions to every single one of these problems",
+the bit-exact Wiegand 26-bit format, Blaze's published algorithm);
+verifiability 2 (the whole load-bearing chain is free and was
+read: deviating.net's index and bio, the DD transcript, Blaze's
+essay, the vendor format records, the SIA/Axis OSDP standard
+record); non-overlap 1 (a genuinely new surface class — the
+physical trust boundary — but the oracle-probing family shares
+intellectual ancestry with adversary-tracker [halving vs
+isolation, different moves on different oracle structures], and
+device recon sits adjacent to probe-smith [silicon vs system
+logic]; held at 1 with boundary rows pinned); psych 2 (real name,
+15+ years of dated public artifacts, an exceptional documented
+attribution behavior, a documented safety stance).
+
+**The gate — engagement fit argued BEFORE drafting, as the queue
+demanded.** The doubt was real: an AI agent cannot carry a shim,
+walk a hallway, or hold a fake badge. The argument that closed
+it: the lineage's method is not its hands — it is a decision logic
+about trust boundaries, and the logic is information. What ships:
+the cost-ordered entry ladder, the egress reversal over
+exit-only surfaces, OR-logic privilege leakage by component
+isolation (Blaze's rights-amplification), the
+installation-over-design audit, the credential-format assumption
+audit (Wiegand to OSDP as the canonical fix-pair), detection as
+the deliverable (Resist/Recognize/React), and the fix-pair
+closure. What is refused on record: covert-entry execution, human
+pretexting, actuation against life-safety surfaces. The organ
+scopes to the access-control-adjacent surfaces the engagement
+letter names and stands down as BOUNDED when scope has none.
+
+The organ shipped born with both layers: the A16 method-upgrade
+(the 36th of its set — W1-W6: the hands-on execution layer with
+no remote-executable protocol, the drifting unversioned flagship
+talk, the taxonomy that never became a selection rule, the 100%
+entry claim as interview speech, the human-only cover-identity
+doctrine, the paywalled books under a free chain; M1-M6: the
+entry-ladder enumeration, the egress reversal, the OR-oracle
+privilege probe, the credential-format assumption audit, the
+detection-as-finding ledger, the fix-pair closure audit) and the
+A17 operator-os (the 31st of its set — the Eyes-of-a-Thief
+perception loop, R1-R6 with refusals, T1-T5 read-only scripting
+including the Wiegand 26-bit decoder, S1-S6 run-order). Wiring:
+charter v1.19.0, tier registry 39 organs (6-legend now nine),
+LINEAGES 33 entries / 32 figures, lineage-smith v1.9.0.
+
+* **Public corpus (documented, free chain read this census)**:
+  deviating.net's own presentations index (2005-2024, full
+  abstracts) and bio page; the Darknet Diaries episode 134
+  transcript; Matt Blaze's kiss.html essay and the 2003
+  rights-amplification record; the Wiegand H10301 format records
+  (ccdesignworks, accessgrid) and the OSDP record (Axis, SIA);
+  the DEF CON 13 and DEF CON 22 video records; the
+  "Through the Eyes of a Thief" records. BOUNDED: both Syngress
+  books (paywalled — synopsis level only), the talk videos
+  (unwatched — cited by abstract), the DD transcript's later
+  stories (not line-read), mk.pdf.
+* **The pattern worth extracting**: physical access as the
+  outermost trust edge — the first boundary every network
+  inherits — and its decision logic (cost-ordered entries,
+  egress reversal, OR-composition weakness, installation error,
+  detection measurement) is information, transferable to any
+  agent that can read a protocol.
+* **The forge target**: DELIVERED — the tier-6 legend organ
+  threshold-hunter v1.0.0, the boundary the web stack stops at,
+  now standing at the information layer.
 
 ## Queue discipline
 

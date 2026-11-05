@@ -53,15 +53,16 @@ TIERS = [
     ("Tier 6 — Legend Tier", [
         "chain-architect", "desync-hunter", "deep-teardown",
         "ghost-crawler", "mirror-hunter", "probe-smith",
-        "signal-smith", "trust-graph-hunter"]),
+        "signal-smith", "threshold-hunter", "trust-graph-hunter"]),
     ("Tier 7 — Forge & Competition", [
         "lineage-smith", "rival-playbook"]),
 ]
-NEW_ORGANS = {"harness-smith", "probe-smith", "opsec-discipline"}
-N_ORGANS = sum(len(o) for _, o in TIERS)          # 36 organs (34 hunting + 2 forge)
-N_BUNDLES = 42
+NEW_ORGANS = {"harness-smith", "probe-smith", "opsec-discipline",
+              "threshold-hunter"}
+N_ORGANS = sum(len(o) for _, o in TIERS)          # 37 organs (35 hunting + 2 forge)
+N_BUNDLES = 43
 N_TOOLS = 27
-N_TESTS = 144
+N_TESTS = 145
 
 BOXES = []  # (x0, y0, x1, y1) registry per panel for the overlap check
 
@@ -145,8 +146,8 @@ def main():
 
     # tier rows: organ chips (computed top-down, no overlap possible)
     chip_h = 0.030
-    step = 0.040
-    tier_gap = 0.026
+    step = 0.038
+    tier_gap = 0.021
     y = 0.645                      # bottom of each tier's first chip row
     for tier_name, organs in TIERS:
         ax1.text(0.035, y + chip_h / 2, tier_name, ha="left", va="center",

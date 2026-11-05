@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.18.0
+version: 1.19.0
 type: ai-skill
 architecture: package
 description: >-
@@ -94,7 +94,26 @@ description: >-
   before live scope — and the drift audit before every version
   bump; the spine's first lineage layer, born with both the A16
   method-upgrade and A17 operator-os modules — the seventh
-  candidate-queue execution, the second recorded score RISE), the
+  candidate-queue execution, the second recorded score RISE), and
+  the tier-6 legend organ threshold-hunter since v1.19.0 (the
+  Deviant Ollam lineage: the physical trust boundary as a hunting
+  method, translated to the information layer an agent executes —
+  the cost-ordered entry ladder where cheap skillless entry
+  outranks wizard technique and the cheap exploit is the report's
+  headline, the egress reversal that censuses the opens-from-inside
+  surfaces and their trust models, OR-logic privilege leakage
+  recovered by component isolation (Matt Blaze's
+  rights-amplification attack, taught publicly by the lineage),
+  installation over design because trust boundaries fail at the
+  integrator's error, detection as the deliverable with the
+  Resist/Recognize/React measurement frame, and the fix-pair on
+  every finding with Wiegand's plaintext 26-bit credential to
+  OSDP Secure Channel AES-128 as the canonical upgrade row; the
+  engagement-fit gate argued and closed before drafting, the
+  hands-on craft bounded as human-operator knowledge, no human
+  pretexting, no life-safety actuation — the eighth and final
+  candidate-queue execution, the third recorded score RISE, the
+  queue's last standing candidate retired), the
   tier-3
   attack organs (injection-lab, ssrf-playbook, xss-playbook,
   cloud-config-auditor, mobile-hunter with the Charlie Miller lineage,
@@ -122,7 +141,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.18.0 — The Master Charter
+# skill-mythos v1.19.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -306,6 +325,7 @@ metadata:
 | 6 | signal-smith | the John Draper lineage (Tier B): input grammar and precision signal craft — one forged variation, never a spray, never an alarm |
 | 6 | trust-graph-hunter | the Kevin Mitnick lineage (Tier B, systems edition) upgraded at v1.16.0 with the Sean Metcalf lineage layer: the trust graph — forgeable context and inherited privilege, operator-owned ends only; the directory interior — the eight-source rights census, the priced inheritance-path matrix, the tier-boundary validation gate with the KRBTGT double-reset law, detection rows paired at birth |
 | 6 | probe-smith | the Travis Goodspeed lineage: hardware-first teardown — the probeable interface as ground truth the datasheet cannot spin, cheap rigs with a stated budget and the missing instrument built, the lock-bypass ladder priced rung by rung, buses exposed to userland Python |
+| 6 | threshold-hunter | the Deviant Ollam lineage: the physical trust boundary as a hunting method at the information layer — the cost-ordered entry ladder (cheap skillless entry is the headline), the egress reversal over exit-only surfaces, OR-logic privilege leakage by component isolation (Blaze's rights-amplification, taught by the lineage), installation over design, detection as the deliverable (Resist/Recognize/React), the fix-pair on every finding; physical execution bounded, no pretexting, no life-safety actuation |
 | 7 forge | lineage-smith | the operator's doctrine as an organ: the legend-assimilation factory — scored selection, complete-corpus census, the five-lens psych-read on documented behavior, forge under the authoring contract, wiring through charter + registry + gates |
 | 7 | rival-playbook | corpus-vs-corpus competition under the strategist tradition (Sun Tzu + the stratagem register): date-pinned rival census, the hollow map, pressure-principle concentration, benchmark-duel claims with capped wording |
 

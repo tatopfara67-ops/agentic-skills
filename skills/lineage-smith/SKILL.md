@@ -1,6 +1,6 @@
 ---
 name: lineage-smith
-version: 1.8.0
+version: 1.9.0
 type: ai-skill
 architecture: package
 description: >-
@@ -31,11 +31,11 @@ category: security/craft-forge
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 30 organs and 31 figures on the registry under this doctrine (trust-graph-hunter carries both its founding lineage and its upgrade lineage, and the spine carries its first lineage as the v4.6.0 upgrade), the first seven candidate-queue executions landed protocol-forensics (the Dan Kaminsky lineage), interior-cartographer (the James Forshaw lineage), harness-smith (the Tavis Ormandy lineage), probe-smith (the Travis Goodspeed lineage), the Q7 upgrade of trust-graph-hunter with the Sean Metcalf lineage — the standing demonstration that a documented upgrade of an existing organ counts as an assimilation too — opsec-discipline (the grugq lineage, the queue's first score RISE at retirement — the talk-heavy gate answered by reading), and the Q6 upgrade of the mythos-bug-hunter spine with the Jason Haddix lineage — the methodology-preservation layer on the onboarding path, the queue's second recorded score RISE and the spine's first lineage layer
+  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 31 organs and 32 figures on the registry under this doctrine (trust-graph-hunter carries both its founding lineage and its upgrade lineage, and the spine carries its first lineage as the v4.6.0 upgrade), the first eight candidate-queue executions landed protocol-forensics (the Dan Kaminsky lineage), interior-cartographer (the James Forshaw lineage), harness-smith (the Tavis Ormandy lineage), probe-smith (the Travis Goodspeed lineage), the Q7 upgrade of trust-graph-hunter with the Sean Metcalf lineage — the standing demonstration that a documented upgrade of an existing organ counts as an assimilation too — opsec-discipline (the grugq lineage, the queue's first score RISE at retirement — the talk-heavy gate answered by reading), the Q6 upgrade of the mythos-bug-hunter spine with the Jason Haddix lineage — the methodology-preservation layer on the onboarding path, the queue's second recorded score RISE and the spine's first lineage layer — and threshold-hunter (the Deviant Ollam lineage — the physical trust boundary translated to the information layer an agent executes, the queue's third recorded score RISE, and the retirement that emptied the queue — all eight standing candidates assimilated)
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# lineage-smith v1.8.0 — Read Everything, Ship the Method
+# lineage-smith v1.9.0 — Read Everything, Ship the Method
 
 ## 0. What This Skill Is — and Is Not
 

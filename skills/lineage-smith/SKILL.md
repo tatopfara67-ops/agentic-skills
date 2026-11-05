@@ -1,6 +1,6 @@
 ---
 name: lineage-smith
-version: 1.5.0
+version: 1.6.0
 type: ai-skill
 architecture: package
 description: >-
@@ -31,11 +31,11 @@ category: security/craft-forge
 license: MIT
 metadata:
   author: tatopfara67-ops
-  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 28 lineages on the registry under this doctrine, the first four candidate-queue executions landed protocol-forensics (the Dan Kaminsky lineage), interior-cartographer (the James Forshaw lineage), harness-smith (the Tavis Ormandy lineage), and probe-smith (the Travis Goodspeed lineage)
+  lineage: v1 — the operator's assimilation doctrine, the standing brief behind the three method waves — find the figures, read everything public, model the thinking, ship the method; 28 organs and 29 figures on the registry under this doctrine (trust-graph-hunter carries both its founding lineage and its upgrade lineage), the first five candidate-queue executions landed protocol-forensics (the Dan Kaminsky lineage), interior-cartographer (the James Forshaw lineage), harness-smith (the Tavis Ormandy lineage), probe-smith (the Travis Goodspeed lineage), and the Q7 upgrade of trust-graph-hunter with the Sean Metcalf lineage — the standing demonstration that a documented upgrade of an existing organ counts as an assimilation too
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# lineage-smith v1.5.0 — Read Everything, Ship the Method
+# lineage-smith v1.6.0 — Read Everything, Ship the Method
 
 ## 0. What This Skill Is — and Is Not
 
@@ -206,5 +206,5 @@ behavior, and behavior leaves artifacts.
 | Load when… | Module |
 | --- | --- |
 | Critiquing the folk way of studying famous figures; running the executable M1–M6 | references/method-upgrade.md |
-| Screening the next legends; the scored queue with four standing candidates (Q1, Q2, Q5, and Q3 executed — retired into protocol-forensics, interior-cartographer, harness-smith, and probe-smith) | references/candidate-queue.md |
+| Screening the next legends; the scored queue with three standing candidates (Q1, Q2, Q5, Q3, and Q7 executed — retired into protocol-forensics, interior-cartographer, harness-smith, probe-smith, and the trust-graph-hunter upgrade carrying the Sean Metcalf lineage layer) | references/candidate-queue.md |
 | Evidence classes per lens dimension; the OPINION quarantine; the assembly crosswalk | references/psychology-catalog.md |

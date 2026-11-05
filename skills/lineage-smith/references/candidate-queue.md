@@ -8,13 +8,16 @@ lineage registry is the only record of assimilation, and a queue
 entry is a nomination with homework attached, not a distillation.
 Scores are the M1 gate's five axes (0–2 each); they are re-scored at
 every screening, and entries retire with their reasons kept. The
-queue's first four end-to-end executions retired Q1 into the shipped
+queue's first five end-to-end executions retired Q1 into the shipped
 organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage), Q2 into
 the shipped organ interior-cartographer (v1.0.0, the James Forshaw
 lineage), Q5 into the shipped organ harness-smith (v1.0.0, the
-Tavis Ormandy lineage), and Q3 into the shipped organ probe-smith
-(v1.0.0, the Travis Goodspeed lineage) — the retirement records
-below are the template every future retirement follows.
+Tavis Ormandy lineage), Q3 into the shipped organ probe-smith
+(v1.0.0, the Travis Goodspeed lineage), and Q7 into the shipped
+UPGRADE of trust-graph-hunter (v1.3.0, the Sean Metcalf lineage
+layer — the queue's standing demonstration that an upgrade is an
+assimilation too) — the retirement records below are the template
+every future retirement follows.
 
 ## The running table
 
@@ -22,7 +25,6 @@ below are the template every future retirement follows.
 | - | --------- | ----- | ------------ | --------------- |
 | Q4 | the grugq | 7 | opsec-discipline organ (tier 5) | talk-heavy corpus; explicitness must survive the reading |
 | Q6 | Jason Haddix | 7 | spine onboarding upgrade (tier 5) | deck versions pinned; curation separated from method |
-| Q7 | Sean Metcalf | 8 | trust-graph-hunter upgrade (tier 6) | overlap resolved as upgrade; blog corpus read end to end |
 | Q8 | Deviant Ollam | 7 | physical-access organ (tier 6) | engagement fit argued before drafting |
 
 ## Q1 — Dan Kaminsky — RETIRED, assimilated as protocol-forensics
@@ -155,6 +157,63 @@ corrections. Retirement keeps this record: a fourth queue slot
 converted to a shipped organ is the queue doing its job four
 times.
 
+## Q7 — Sean Metcalf — RETIRED, assimilated as the trust-graph-hunter UPGRADE (v1.3.0)
+
+**Score at retirement: 8/10. Reason: executed end-to-end — the
+upgrade route the queue's own rule names ("a documented upgrade
+of an existing organ counts as an assimilation too").** The
+candidate passed P1 at 8/10 as the only candidate at the nomination
+threshold, and the queue's own gate — the blog corpus read end to
+end BEFORE drafting — was honored: the method-bearing core of
+ADSecurity.org read in full, text-extracted, dates and URLs pinned
+(the attack-methods post 2016; the KRBTGT post 2014; the
+golden-ticket post 2015 including his own SIDHistory research with
+the Delpy outreach; the silver-ticket post 2015 with the
+service→ticket table; the DCSync post 2015; the forged-ticket
+detection post 2015 with the honest 2016 indicator-rot update; the
+Kerberoast detection post 2017 with the 0x17 filter heuristic and the
+10–20 TGS/user/day baseline; the privilege-scanning post 2016 with
+the eight-source combined-rights model and the RID catalog; the
+SYSVOL, workstation-baseline, and DC-security mitigation posts),
+plus the Black Hat USA 2016 whitepaper (Beyond the MCSE, 50 pp),
+the Troopers 2024 decade deck (115 pp, the attack-timeline eras
+with first-use credits), the Trimarc research ledger, the About
+bio (MCM Directory Services, ~100 worldwide; 55 talks at 27
+conferences), and the Presentations record — with the remaining
+~30 posts, the talk videos, and the tool source trees stated as
+BOUNDED, not line-read. The psych-read landed on documented
+behavior, with the "Godfather of Active Directory security"
+framing admitted as press-reception only and the podcast persona
+quarantined. The overlap was resolved FIRST as upgrade rather than
+sibling, per the gate: the organ's graph model gains the
+directory-interior edges rather than spawning a sibling organ. The
+upgrade shipped **born with both layers** — the A16 method-layer
+extension (the W6-W9 critique of the corpus's per-post form:
+techniques never assembled into one priced path graph, the
+attacker's starting position never a formal census step, mitigations
+as prose never a mechanical checklist, detection shipped apart from
+the attack row — and the M6-M9 executable protocol: the eight-source
+directory-edge census, the inheritance-path pricing
+matrix, the tier-boundary validation gate with the KRBTGT
+double-reset arithmetic, the paired detection row with its rot
+caveat) and the A17 operator runtime extension (the Metcalf rules
+R7-R12, the directory behavioral rows with refusals, the read-only
+scripting arsenal T5-T8, the directory run-order S8-S12). The
+boundary was argued in the census: trust-graph-hunter already owns
+the trust-graph unit of work — the Metcalf layer extends it INTO
+the identity directory where auth-boundary-mapper (one system's
+role×resource) and cloud-config-auditor (the cloud-identity tier)
+do not. The attribution ledger is the retirement's correction
+record: golden tickets (Duckwall & Delpy), DCSync (Delpy & Le
+Toux), Kerberoast (Medin), PowerView (Schroeder), BloodHound's ACL
+paths (Schroeder & Robbins) — with the SIDHistory expansion and
+the detection methods as Metcalf's own documented firsts, and the
+priced-matrix ASSEMBLY stated as this organ's upgrade, not his
+artifact. Retirement keeps this record: a fifth queue slot
+converted to a shipped UPGRADE is the queue doing its job five
+times — and the upgrade route is now demonstrated, not just
+promised.
+
 ## Q4 — the grugq (score 7/10)
 
 * **Public corpus (documented)**: public talks and articles on
@@ -183,21 +242,6 @@ times.
   versions were read; the psych-read must separate the figure's own
   method from his documented curation of others' tools (attribution
   discipline, A3).
-
-## Q7 — Sean Metcalf (score 8/10)
-
-* **Public corpus (documented)**: the ADSecurity.org writing corpus;
-  public talks on Active Directory attack paths and tiered
-  administration; Trimarc's public research.
-* **The pattern worth extracting**: the directory as a trust graph —
-  AD attacks read as privilege-inheritance paths; defense articulated
-  as tier boundaries (documented in the public tiering writing).
-* **Forge target**: a trust-graph-hunter UPGRADE — the
-  directory-interior trust edges the organ's graph model does not yet
-  carry. (The queue's standing demonstration that an upgrade is an
-  assimilation too.)
-* **The gate**: overlap with trust-graph-hunter resolved FIRST, as
-  upgrade rather than sibling; the blog corpus read end to end.
 
 ## Q8 — Deviant Ollam (score 7/10)
 

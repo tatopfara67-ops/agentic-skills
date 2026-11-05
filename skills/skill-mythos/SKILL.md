@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.15.0
+version: 1.16.0
 type: ai-skill
 architecture: package
 description: >-
@@ -57,7 +57,18 @@ description: >-
   glitch to decap as the floor, the radio channel opened by
   promiscuity before any injection, every bus exposed to userland
   Python, and the report that reproduces from a priced parts list —
-  the fourth candidate-queue execution), the tier-3
+  the fourth candidate-queue execution), the tier-6 legend organ
+  trust-graph-hunter upgraded since v1.16.0 with the Sean Metcalf
+  lineage layer (the queue's standing demonstration that an upgrade
+  is an assimilation too: the directory-interior trust edges — the
+  eight-source combined-rights census where membership is one source
+  of eight, the priced inheritance-path matrix where every technique
+  from the SYSVOL read through Kerberoast to golden tickets with
+  SIDHistory and DCSync carries its position, contact, and emitted
+  signal, the tier-boundary validation gate with the KRBTGT
+  double-reset arithmetic, and every attack row paired with its
+  detection row and the indicator's rot caveat — the fifth
+  candidate-queue execution), the tier-3
   attack organs (injection-lab, ssrf-playbook, xss-playbook,
   cloud-config-auditor, mobile-hunter with the Charlie Miller lineage,
   cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook
@@ -84,7 +95,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.15.0 — The Master Charter
+# skill-mythos v1.16.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -265,7 +276,7 @@ metadata:
 | 6 | ghost-crawler | the Adrian Lamo lineage (Tier A): enter without knocking — passive-index misconfig hunting, one probe per candidate, main app untouched |
 | 6 | mirror-hunter | the Simon Willison lineage (Tier S, the Class Namer): hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter; the program's eligibility table gates before the first payload, stochastic evidence runs as rates, CONFIRMED lands on the deterministic wrapper the model feeds |
 | 6 | signal-smith | the John Draper lineage (Tier B): input grammar and precision signal craft — one forged variation, never a spray, never an alarm |
-| 6 | trust-graph-hunter | the Kevin Mitnick lineage (Tier B, systems edition): the trust graph — forgeable context and inherited privilege, operator-owned ends only |
+| 6 | trust-graph-hunter | the Kevin Mitnick lineage (Tier B, systems edition) upgraded at v1.16.0 with the Sean Metcalf lineage layer: the trust graph — forgeable context and inherited privilege, operator-owned ends only; the directory interior — the eight-source rights census, the priced inheritance-path matrix, the tier-boundary validation gate with the KRBTGT double-reset law, detection rows paired at birth |
 | 6 | probe-smith | the Travis Goodspeed lineage: hardware-first teardown — the probeable interface as ground truth the datasheet cannot spin, cheap rigs with a stated budget and the missing instrument built, the lock-bypass ladder priced rung by rung, buses exposed to userland Python |
 | 7 forge | lineage-smith | the operator's doctrine as an organ: the legend-assimilation factory — scored selection, complete-corpus census, the five-lens psych-read on documented behavior, forge under the authoring contract, wiring through charter + registry + gates |
 | 7 | rival-playbook | corpus-vs-corpus competition under the strategist tradition (Sun Tzu + the stratagem register): date-pinned rival census, the hollow map, pressure-principle concentration, benchmark-duel claims with capped wording |

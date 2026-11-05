@@ -293,21 +293,48 @@ LINEAGES = [
     {
         "organ": "trust-graph-hunter",
         "figure": "Kevin Mitnick (1963-2023, author of The Art of "
-                  "Deception) — Tier B, translated to systems",
-        "distillation": "context deception, systems edition: enumerate the "
-                        "trust edges (what each boundary trusts — IPs, "
-                        "Referer, internal headers, webhook signatures, "
-                        "server-to-server tokens), draw the trust graph, "
-                        "then pre-register deception hypotheses and prove "
-                        "inherited privilege with differentials on "
-                        "operator-owned ends; no human-target deception",
+                  "Deception) — Tier B, translated to systems — "
+                  "upgraded at v1.3.0 with the Sean Metcalf "
+                  "directory-interior layer (ADSecurity.org author; "
+                  "Trimarc founder/CTO; Microsoft Certified Master in "
+                  "Directory Services)",
+        "distillation": "context deception, systems edition PLUS the "
+                        "directory interior: enumerate the trust edges "
+                        "(what each boundary trusts) and the eight-source "
+                        "directory rights census (membership is one source "
+                        "of eight), price every inheritance path by "
+                        "position, contact, and emitted signal (the "
+                        "priced attack-path matrix), validate tier "
+                        "boundaries as mechanical pass/fail rows with the "
+                        "KRBTGT double-reset law, and pair every attack "
+                        "row with its detection row and rot caveat — the "
+                        "directory census is read-only, techniques priced "
+                        "never executed, and no human-target deception "
+                        "anywhere",
         "sources": "The Art of Deception (2002); The Art of Intrusion "
-                   "(2005); obituary coverage (2023); "
+                   "(2005); obituary coverage (2023); the ADSecurity.org "
+                   "method-bearing core read in full (the attack-methods, "
+                   "KRBTGT, golden-ticket, silver-ticket, DCSync, "
+                   "forged-ticket-detection, kerberoast-detection, and "
+                   "privilege-scanning posts), the Black Hat USA 2016 "
+                   "whitepaper Beyond the MCSE, the Troopers 2024 decade "
+                   "deck, the Trimarc research ledger, the About and "
+                   "Presentations pages — with the remaining ~30 posts, "
+                   "the talk videos, and the tool source trees stated as "
+                   "BOUNDED, not line-read; "
                    "skills/trust-graph-hunter/references/sources.md",
         "correction": "the systems translation is labeled as this "
                       "bundle's own contribution, not Mitnick's practice — "
                       "no human-target social engineering is contained or "
-                      "used anywhere in the organ",
+                      "used anywhere in the organ; the technique "
+                      "attribution ledger stays on record (golden "
+                      "tickets: Duckwall and Delpy; DCSync: Delpy and Le "
+                      "Toux; Kerberoast: Medin; PowerView: Schroeder; "
+                      "BloodHound's ACL paths: Schroeder and Robbins), "
+                      "the priced-path matrix assembly is this organ's "
+                      "upgrade of the corpus's per-post form, and the "
+                      "'Godfather of Active Directory security' framing "
+                      "is quarantined as press-reception only",
     },
     {
         "organ": "subdomain-hunter",

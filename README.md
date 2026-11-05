@@ -4,7 +4,7 @@
 
 Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
-![bundles](https://img.shields.io/badge/skill_bundles-41-informational) ![tools](https://img.shields.io/badge/MCP_tools-27-informational) ![tests](https://img.shields.io/badge/tests-141_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
+![bundles](https://img.shields.io/badge/skill_bundles-41-informational) ![tools](https://img.shields.io/badge/MCP_tools-27-informational) ![tests](https://img.shields.io/badge/tests-142_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
 
 ---
 
@@ -35,7 +35,7 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.15.0 | The seventeen articles (A16 method over mythology, A17 behavior over biography), the tiered bundle map (tiers 0-7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.16.0 | The seventeen articles (A16 method over mythology, A17 behavior over biography), the tiered bundle map (tiers 0-7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.0.0 | The engine's own manual — model-class failure geometry and four compensation gates, written to the engine, not the operator. |
 | Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.5.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 19 reference modules + a PASS/FAIL report auditor. |
 | Organs | 35 organ skills (tiers 1–7 below: 33 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
@@ -89,7 +89,7 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 
 | Skill | Version | What it does |
 |---|---|---|
-| [skill-mythos](skills/skill-mythos/) | 1.13.0 | Master charter — seventeen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography), bundle map, autonomy + execution + war doctrines, quality gates. |
+| [skill-mythos](skills/skill-mythos/) | 1.16.0 | Master charter — seventeen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography), bundle map, autonomy + execution + war doctrines, quality gates. |
 | [glm-self-model](skills/glm-self-model/) | 1.1.0 | The engine layer — five truths, failure geometry E1–E8, compensation gates G1–G4; the engine grades its own manual (M1–M5). |
 | [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.5.0 | The spine — R0–R7 canon, ledger, hypothesis grammar, closure gates, mission horizon. |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit — static analysis proposes, the runtime disposes. Calibrated by rediscovering CVE-2024-33663/33664. |
@@ -157,13 +157,13 @@ Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` 
 | [mirror-hunter](skills/mirror-hunter/) | 1.2.0 | Hunt the mirror — LLM/agent surfaces where the target runs the same engine class as the hunter (Simon Willison lineage); the craft differential and guard evaluation.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
 | [probe-smith](skills/probe-smith/) | 1.0.0 | Hardware-first teardown — the probeable-interface census (access × yield × rig economy), the rig decision with the junk-class option and the missing-instrument budget, pinout discovery with the datasheet as hypothesis, the priced lock-bypass ladder (default password → timing → glitch → erasure → decap), the radio promiscuity method, and the rig-reproducible report with its priced parts list (Travis Goodspeed lineage); born with the operator runtime layer (A17) — thinking rules, behavior, scripting as craft. |
 | [signal-smith](skills/signal-smith/) | 1.2.0 | Input grammar and precision signals — one minimal variation per seam, never trip the alarm (John Draper lineage); the calibration table and blind in-band differential.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
-| [trust-graph-hunter](skills/trust-graph-hunter/) | 1.2.0 | The trust graph between components — inherited privilege proven on operator-owned ends (Kevin Mitnick lineage); the edge protocol and context differential.; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft |
+| [trust-graph-hunter](skills/trust-graph-hunter/) | 1.3.0 | The trust graph between components — inherited privilege proven on operator-owned ends (Kevin Mitnick lineage); the edge protocol and context differential; upgraded with the directory-interior layer (Sean Metcalf lineage): the eight-source rights census, the priced inheritance-path matrix (position → technique → contact → signal), the tier-boundary validation gate with the KRBTGT double-reset law, detection rows paired with their rot caveats; the operator runtime layer (A17) — thinking rules, behavior, scripting as craft, both runtimes |
 
 ### Tier 7 — Forge & Competition (2)
 
 | Skill | Version | What it does |
 |---|---|---|
-| [lineage-smith](skills/lineage-smith/) | 1.5.0 | The legend-assimilation factory — the operator's doctrine as an organ: scored selection, complete-corpus census, the five-lens psych-read on documented behavior (with evidence classes and the OPINION quarantine), forge under the authoring contract, method layer born in; the candidate queue's first four executions landed the Dan Kaminsky lineage (protocol-forensics), the James Forshaw lineage (interior-cartographer), the Tavis Ormandy lineage (harness-smith), and the Travis Goodspeed lineage (probe-smith), four standing candidates remain. |
+| [lineage-smith](skills/lineage-smith/) | 1.6.0 | The legend-assimilation factory — the operator's doctrine as an organ: scored selection, complete-corpus census, the five-lens psych-read on documented behavior (with evidence classes and the OPINION quarantine), forge under the authoring contract, method layer born in; the candidate queue's first five executions landed the Dan Kaminsky lineage (protocol-forensics), the James Forshaw lineage (interior-cartographer), the Tavis Ormandy lineage (harness-smith), the Travis Goodspeed lineage (probe-smith), and the Sean Metcalf lineage as the trust-graph-hunter upgrade — the standing demonstration that an upgrade is an assimilation too; three standing candidates remain. |
 | [rival-playbook](skills/rival-playbook/) | 1.1.0 | Corpus-vs-corpus competition — the date-pinned rival census (知彼知己), the hollow map (避实击虚), pressure-principle concentration (压强), proving-ground duel with capped wording (不战而屈人之兵); the season layer ships the Tian Ji allocation table (田忌赛马) and the protracted/quick-decisive tempo doctrine (持久战 vs 速决战); the deception stratagem family is banned, the translated middle class is on record. |
 
 ### Prompts
@@ -178,7 +178,7 @@ The repo refuses to ship on vibes. Run all three before trusting a checkout:
 
 ```bash
 python3 scripts/validate_skill.py --all         # 41 bundles PASS
-python3 -m unittest discover -s arsenal/tests   # 141 tests OK
+python3 -m unittest discover -s arsenal/tests   # 142 tests OK
 python3 arsenal/server.py --selftest            # 27 tools, import OK
 ```
 

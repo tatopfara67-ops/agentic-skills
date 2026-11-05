@@ -197,7 +197,8 @@ class TestMythosLineages(unittest.TestCase):
                      "EdOverflow", "Heiderich", "Parecki", "Miessler",
                      "Dalili", "de la Fuente", "Simon Willison",
                      "Dan Kaminsky", "James Forshaw", "Sun Tzu",
-                     "Tavis Ormandy", "Travis Goodspeed"):
+                     "Tavis Ormandy", "Travis Goodspeed",
+                     "Sean Metcalf"):
             self.assertIn(name, joined, name)
         # the unverified attributions from the operator brief stay out
         self.assertNotIn("Skappen", joined)
@@ -343,6 +344,36 @@ class TestMythosLineages(unittest.TestCase):
         self.assertIn("sources.md", entry["sources"])
         self.assertIn("quarantined", entry["correction"])
         self.assertIn("aesthetic only", entry["correction"])
+
+    def test_metcalf_upgrade_entry(self):
+        """Q7's retirement record: the fifth candidate-queue execution
+        is the queue's standing demonstration that an UPGRADE is an
+        assimilation too — the Sean Metcalf directory-interior layer
+        folded into trust-graph-hunter with the eight-source census,
+        the priced path matrix, the tier gate carrying the
+        double-reset law, the paired detection rows with rot
+        caveats, the bounded census stated, and the attribution
+        ledger (Delpy, Le Toux, Medin) kept in the correction field
+        alongside the Mitnick translation note."""
+        registry = _mythos.mythos_lineages()
+        by_organ = {e["organ"]: e for e in registry["lineages"]}
+        entry = by_organ["trust-graph-hunter"]
+        self.assertIn("Kevin Mitnick", entry["figure"])
+        self.assertIn("Sean Metcalf", entry["figure"])
+        self.assertIn("ADSecurity.org", entry["figure"])
+        for token in ("eight-source", "priced attack-path matrix",
+                      "tier", "double-reset", "detection row",
+                      "rot caveat"):
+            self.assertIn(token, entry["distillation"])
+        self.assertIn("read in full", entry["sources"])
+        self.assertIn("BOUNDED", entry["sources"])
+        self.assertIn("skills/trust-graph-hunter/references/sources.md",
+                      entry["sources"])
+        self.assertIn("translation", entry["correction"])
+        self.assertIn("Delpy", entry["correction"])
+        self.assertIn("Le Toux", entry["correction"])
+        self.assertIn("Medin", entry["correction"])
+        self.assertIn("quarantined", entry["correction"])
 
     def test_second_wave_lineage_organs_are_v2(self):
         """The six v2 organs carry the lineage in frontmatter, not

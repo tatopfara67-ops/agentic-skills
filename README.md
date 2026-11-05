@@ -8,19 +8,58 @@ Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
 ---
 
-## The architecture in one picture
+## The architecture in one diagram
 
-![Mythos Arsenal architecture](docs/mythos-arsenal-arsitektur.png)
+```mermaid
+flowchart TD
+    subgraph LOAD["WHAT LOADS — the organ stack"]
+        C["skill-mythos v1.19.0 · the charter<br/>seventeen articles · tiered bundle map<br/>autonomy · war doctrines · quality gates"]
+        E["glm-self-model v1.1.1 · the engine manual<br/>failure geometry E1–E8 · compensation gates G1–G4<br/>written to the engine, not the operator"]
+        S["mythos-bug-hunter v4.6.0 · the spine<br/>R0–R7 canon · append-only R-NNN ledger<br/>hypothesis grammar · closure gates · mission horizon"]
+        O["37 organs · tiers 1–7 · 35 hunting + 2 forge<br/>recon · access logic · deep technical · incident<br/>craft lineages · legends · the forge"]
+        H["arsenal/ · the execution hand<br/>27 scope-gated MCP tools · deny-by-default<br/>PASS/FAIL report auditor · two self-owned labs"]
+        C --> E
+        E --> S
+        S --> O
+        O --> H
+    end
 
-Three panels, one system:
+    subgraph RUN["WHAT RUNS — one engagement"]
+        A["operator order — one line, any language"]
+        B["doctrine_forge · A13 escalation<br/>intent · phase plan · war logic W1–W7 · gates"]
+        G{"R0 · scope gate<br/>scope.csv · deny-by-default"}
+        X["refusal logged as a ledger record<br/>no byte leaves"]
+        L["the hunt loop · F0–F4<br/>map → pre-registered hypotheses<br/>→ differential tests → canary impact proofs<br/>→ closure: CONFIRMED / FALSIFIED / INCONCLUSIVE"]
+        I["incident branch · event-triggered<br/>freeze → halve by bits → two-channel fix<br/>→ audited handoff, then the loop resumes"]
+        R["report gates<br/>ledger records only · CVSS 3.1 recomputed<br/>VRT + H1 crosswalk · auditor exit 0 or no ship"]
+        K["instinct calibration<br/>trained-eye cue catalog scored per engagement"]
+        A --> B
+        B --> G
+        G -->|refused| X
+        G -->|authorized| L
+        L --> I
+        I --> L
+        L --> R
+        R --> K
+    end
 
-| Panel | What it shows |
+    H --> A
+```
+
+The always-on rails — the constraints that ride along every step of every engagement:
+
+| Rail | What it holds |
 |---|---|
-| **Stack anatomy** | charter → engine → spine → 37 organs (35 hunting + 2 forge) → the execution hand |
-| **Session flow** | A13 doctrine escalation → R0 scope gate → the hunt loop F0–F4 → incident branch → report gates → instinct calibration |
-| **Always-on rails** | evidence, calibration, impact, economy, engine gates, mission horizon — plus the A14 three registers and the A15 war logic (Sun Tzu crosswalk, W1–W7) |
+| **Evidence** | Append-only R-NNN ledger — no claim without a record |
+| **Calibration** | Differential triad on every claim — baseline / treatment / control |
+| **Impact** | Canary proofs on self-owned objects, one demonstration, then stop |
+| **Economy** | Priced budgets per campaign — "done" without numbers is a forbidden state |
+| **Engine gates** | G1 fresh-eyes re-derivation before CONFIRMED · G2 edges for critical state · G3 first-written priors · G4 queue over decibels |
+| **Mission horizon** | A quota is a continuation mandate — it ends only by exhaustion proof or operator release |
+| **Three registers (A14)** | WHAT the bug class is · WHY it lives where it lives · HOW it is hunted |
+| **War logic (A15)** | W1 spies before armies · W2 win without fighting · W3 strike weakness · W4 cheng + ch'i · W5 shih · W6 sovereign sets intent · W7 no prolonged war |
 
-Regenerate after any organ change: `python3 scripts/render_architecture.py`
+The one thesis under all of it, from [agent/ARCHITECTURE.md](agent/ARCHITECTURE.md): **the LLM is the least trusted component — every layer above exists to catch it when it hallucinates.**
 
 ## What this is
 

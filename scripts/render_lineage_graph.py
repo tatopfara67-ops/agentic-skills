@@ -10,8 +10,8 @@ Re-run after any lineage change:
     python3 scripts/render_lineage_graph.py
 
 Rows are laid out by normal document flow (no absolute positioning),
-so chips cannot overlap by construction. Palette matches
-render_architecture.py (paper / ink / burnt-orange accent).
+so chips cannot overlap by construction. Palette: paper / ink /
+burnt-orange accent — the repo's print-grade palette.
 """
 import os
 import sys

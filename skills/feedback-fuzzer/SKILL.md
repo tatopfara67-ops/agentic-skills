@@ -1,6 +1,6 @@
 ---
 name: feedback-fuzzer
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# feedback-fuzzer v1.2.0 — The lcamtuf Lineage
+# feedback-fuzzer v1.3.0 — The lcamtuf Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -121,7 +121,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Michal Zalewski (lcamtuf).
+executing, characteristic of Michal Zalewski (lcamtuf). Since v1.3.0
+it also ships **The opening ladder** (A18): where lcamtuf's candidates
+come from — the perception layer that PRODUCES ranked next-seed and
+next-region candidates from the untouched map and the seed garden
+before any mutation runs (rungs write census rows, never mutations;
+ranking rationale stated; generation falsifier on record; the
+seed-garden kit is the pinned pre-campaign row set).
 
 ## 3. Procedure — Numbered Actions
 
@@ -177,4 +183,4 @@ executing, characteristic of Michal Zalewski (lcamtuf).
 | Running a feedback loop end to end | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
 | Grading the published method, declaring buckets, holding the novelty gate | references/method-upgrade.md |
-| Running the hunt — the Michal Zalewski (lcamtuf) runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Michal Zalewski (lcamtuf) runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

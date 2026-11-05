@@ -1,6 +1,6 @@
 ---
 name: cache-playbook
-version: 1.3.0
+version: 1.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -37,7 +37,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); desync-hunter (parser-seam discipline, adjacent surface); packet-orchestrator (raw-request precision when discrepancies need it)
 ---
 
-# cache-playbook v1.3.0 — The Second Silent Parser
+# cache-playbook v1.4.0 — The Second Silent Parser
 
 ## 0. What This Skill Is — and Is Not
 
@@ -181,7 +181,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Omer Gil + James Kettle.
+executing, characteristic of Omer Gil + James Kettle. Since v1.4.0 it
+also ships **The opening ladder** (A18): where Gil's and Kettle's
+candidates come from — the perception layer that PRODUCES ranked
+candidates on an unseen cache tier before any demonstration is due
+(rungs write census rows, never markers; ranking rationale stated;
+generation falsifier on record; the confusion-class kit names corpus
+entries CACHE-001..009).
 
 ## 4. Procedure — Numbered Actions
 
@@ -275,7 +281,7 @@ executing, characteristic of Omer Gil + James Kettle.
 | Exact technique set (cache buster discipline, unkeyed inputs, fat GET, Gil's deception suffix, delimiter confusion set, boundary mapping), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Gil/Kettle/USENIX lineage and its sources | `references/sources.md` |
 | Grading the published method, baselining the cache key, measuring decay | `references/method-upgrade.md` |
-| Running the hunt — the Omer Gil + James Kettle runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Omer Gil + James Kettle runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

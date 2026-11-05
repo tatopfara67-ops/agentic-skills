@@ -1,6 +1,6 @@
 ---
 name: signal-smith
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -36,7 +36,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an in-scope target with a validation/WAF layer under study
 ---
 
-# signal-smith v1.2.0 — One Precise Tone
+# signal-smith v1.3.0 — One Precise Tone
 
 ## 0. What This Skill Is — and Is Not
 
@@ -136,7 +136,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of John Draper.
+executing, characteristic of John Draper. Since v1.3.0 it also
+ships **The opening ladder** (A18): where Draper's candidates come
+from — the perception layer that PRODUCES ranked seam candidates by
+listening to the target's own grammar before any forged byte is due
+(rungs write census rows, never tokens; ranking rationale stated;
+generation falsifier on record; the grammar-capture kit is the pinned
+listening row set).
 
 ## 4. Procedure — Numbered Actions
 
@@ -207,4 +213,4 @@ executing, characteristic of John Draper.
 | Building the input ladder / choosing the minimal variation | `references/encoding-grammar.md` |
 | Verifying the Draper lineage and sources | `references/sources.md` |
 | Grading the published form, calibrating grammar, testing indistinguishability blind | `references/method-upgrade.md` |
-| Running the hunt — the John Draper runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the John Draper runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

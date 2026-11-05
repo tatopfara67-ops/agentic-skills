@@ -1,9 +1,9 @@
-# operator-os.md — the lcamtuf runtime: think, behave, script
+# operator-os.md — the lcamtuf runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > feedback-guided laws; the M-protocol (references/method-upgrade.md)
-> states the state-map and novelty protocol; THIS module is the
-> runtime — how the agent thinks, behaves, and scripts while executing
+> states the state-map and novelty protocol; THIS module is the runtime
+> — how the agent notices, thinks, behaves, and scripts while executing
 > them, characteristic of Michal Zalewski's documented craft: the
 > program tells you where it hurts (coverage feedback), novelty is
 > bucketed not celebrated, the corpus is curated like a garden, and
@@ -37,6 +37,65 @@ stated window) or the budget is spent — never "when it feels done."
 R6 **Read the map before changing anything.** When progress stalls,
 the state map's holes (unreached branches, cold buckets) name the next
 seed — speculation without the map is guessing with extra steps.
+
+### The opening ladder — where lcamtuf's candidates come from
+
+The rules above govern the search once mutations run; the ladder
+produces the candidates FIRST — the AFL-era perception (the design's
+whole argument is guided-vs-blind: before the first mutation, the
+instrumented map and the seed garden already say where the search
+should look) made runnable as questions. Every rung is a census
+question that writes rows — no rung mutates an input, spends compute
+on a campaign, or runs a crash candidate; mutation stays gated behind
+R1/R6 and consumes the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Does the instrumentation confess at all, and what does the untouched map look like? | the plumbing record: coverage signal visible, the map's bucket count on the garden's smoke-run — the fact row every later rung is priced against | R1's instrument-first law — the guided-vs-blind comparison opens the design document (sources.md, AFL technical_details.txt) |
+| G2 | Which seeds reach which buckets, and where is the garden structurally thin? | the seed-census: each seed's bucket reach, the garden's structural spread (request classes, message types, lengths) | R3's garden law — corpus culling by latency+size, seeds chosen for structural diversity (sources.md, the design doc's culling passages) |
+| G3 | Which bucket regions are cold — reached by nothing in the garden? | the map-hole census: unvisited bucket regions — each cold region names the next seed to design | R6's map-holes rule — speculation without the map is guessing with extra steps (the organ's own operationalization, labeled) |
+| G4 | Which regions are novelty-bearing but tar pits? | the cost census: regions where reaching the next bucket costs 100x — priced against the budget before any seed is designed | the recorded tarpit rejection: "improve coverage by 1% while being 100x slower" (sources.md, the design doc's calibrated-timeout passages) |
+| G5 | What grammar must a seed satisfy to be seen by the target at all? | the grammar census: protocol prefixes, magic bytes, framing — the parse boundary the garden must cross before coverage can follow | the deterministic-then-random stage order + the trimming/alphabet-normalization passages (sources.md, the design doc) |
+
+Ranking rationale: candidate (next-seed / next-region) priority =
+cold-bucket mass × structural distance from the garden ×
+cost-not-tarpit. A seed family that opens an instrumented region no
+current seed touches ranks first; a grammar boundary the garden cannot
+cross ranks next (structure work before volume); a slow-but-novel
+region ranks by the tarpit arithmetic (priced, not skipped silently);
+hot regions rank last — they are already fed. Rows out; not one
+mutation spent.
+
+Generation falsifier: a target where the garden + map sweep yields
+zero candidate rows means the harness is not seeing the target's
+states (coverage plumbing broken — the recorded failure reaction — or
+the observable is not edge-tuples: a service whose states show as
+latency/output classes needs the bucket schema's service-tier
+adaptation, M-protocol M1) — the census is re-read, the missing rung
+written with its grounding row. The target is never excused as
+"exhausted" at generation time: a zero-yield verdict belongs to the
+saturation measurement (T5), never to the ladder.
+
+#### The ladder's payload kit — the seed-garden rows (customize before use)
+
+Generation writes rows; these are the seed classes the rows name, every
+one a census read of the garden's spread (no mutation runs; the
+campaign mechanics live in the M-protocol and T1–T5):
+
+| Seed row | The read payload class | Writes which row |
+| --- | --- | --- |
+| grammar row | the target's parse boundary: protocol prefix (`GET / HTTP/1.1\r\nHost: x\r\n\r\n`), magic bytes, framing — one family per seed | reach row (does the target see the class at all) |
+| spread row | the garden's structural families: different request classes / message types / body shapes, one family per seed | diversity row (structural distance between seeds) |
+| cold-bucket row | the map's unvisited bucket list, grouped by region | next-seed candidate row (the map's holes, named) |
+| cost row | per-seed latency + size with the cull arithmetic (the "usually 5-10x smaller" tradition) | budget row (what the garden costs to keep) |
+| trim-candidate row | seeds worth alphabet normalization: repeated tokens, constant runs, recyclable structure | minimized-seed row (R4's minimization, applied at seed time) |
+
+Customization knobs, stated in the plan note: the feedback oracle
+(edge tuples vs response-class/latency buckets for service targets —
+which map schema loads), the seed grammar family (protocol prefix
+set per target class: HTTP, binary magic, structured JSON, RPC
+framing), and the budget policy (cull thresholds, tarpit rejection
+ratio, saturation window — the priced knob).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

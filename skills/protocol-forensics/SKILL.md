@@ -1,6 +1,6 @@
 ---
 name: protocol-forensics
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -43,7 +43,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; skill-mythos charter v1.11+
 ---
 
-# protocol-forensics v1.1.0 — The Kaminsky Lineage
+# protocol-forensics v1.2.0 — The Kaminsky Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -154,7 +154,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Dan Kaminsky.
+executing, characteristic of Dan Kaminsky. Since v1.2.0 it also
+ships **The opening ladder** (A18): where Kaminsky's candidates come
+from — the perception layer that PRODUCES ranked ambiguity, invariant,
+and population candidates from the spec's own text before any probe is
+due (rungs write census rows, never packets; ranking rationale stated;
+generation falsifier on record; the spec-reading kit is the pinned
+desk row set).
 
 ## 3. Procedure — Numbered Actions
 
@@ -225,5 +231,5 @@ executing, characteristic of Dan Kaminsky.
 | --- | --- |
 | Running the full hunt end to end (invariant classes, birthday tables, matrix schema) | references/protocol-method.md |
 | Grading the lineage, running M1–M6, holding the thresholds | references/method-upgrade.md |
-| Running the hunt — the Dan Kaminsky runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Dan Kaminsky runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Checking what was actually consulted; the census, read ledger, psych-read evidence | references/sources.md |

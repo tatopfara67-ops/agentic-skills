@@ -1,6 +1,6 @@
 ---
 name: prototype-playbook
-version: 1.3.0
+version: 1.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -41,7 +41,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); xss-playbook (the sink grammar once a gadget feeds a DOM sink); js-recon (the bundle-reading discipline that locates merge code and listeners)
 ---
 
-# prototype-playbook v1.3.0 — The Object World Is Trust-Bearing State
+# prototype-playbook v1.4.0 — The Object World Is Trust-Bearing State
 
 ## 0. What This Skill Is — and Is Not
 
@@ -189,7 +189,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Gareth Heyes.
+executing, characteristic of Gareth Heyes. Since v1.4.0 it also ships
+**The opening ladder** (A18): where Heyes's candidates come from — the
+perception layer that PRODUCES ranked merge-surface, gadget, clobber,
+and listener candidates on an unseen estate before any write probe is
+due (rungs write census rows, never properties; ranking rationale
+stated; generation falsifier on record; the merge-surface kit names
+corpus entries PP-001..010).
 
 ## 4. Procedure — Numbered Actions
 
@@ -283,7 +289,7 @@ executing, characteristic of Gareth Heyes.
 | Exact probe set (query/JSON sources, constructor.prototype bypass, Heyes' safe detection oracles — JSON reflection, status-code override, CORS header reflection — and the gadget classes incl. CVE-2022-29078), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Heyes lineage and the research-wave sources | `references/sources.md` |
 | Grading the published method, mapping the merge surface, running the differential | `references/method-upgrade.md` |
-| Running the hunt — the Gareth Heyes runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Gareth Heyes runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

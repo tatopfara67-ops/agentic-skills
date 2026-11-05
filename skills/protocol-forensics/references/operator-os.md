@@ -1,10 +1,10 @@
-# operator-os.md — the Kaminsky runtime: think, behave, script
+# operator-os.md — the Kaminsky runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md §2) states
 > the laws; the M-protocol (references/method-upgrade.md) states
-> M1–M6; THIS module is the runtime — how the agent thinks, behaves,
-> and scripts while executing them, characteristic of Dan Kaminsky's
-> documented craft: the class before the product, entropy as
+> M1–M6; THIS module is the runtime — how the agent notices, thinks,
+> behaves, and scripts while executing them, characteristic of Dan
+> Kaminsky's documented craft: the class before the product, entropy as
 > arithmetic, the population as the denominator, and the fix
 > engineered as an event.
 
@@ -46,6 +46,66 @@ R7 **Humor compresses; the protocol must not.** The lineage's talks
 entertain at the cost of executable steps — the operator OS
 re-expands every step the talk compressed. When in doubt between a
 clever sentence and a runnable table, ship the table.
+
+### The opening ladder — where Kaminsky's candidates come from
+
+The rules above govern the hunt once a class is in scope; the ladder
+produces the candidates FIRST — the design-level-fault perception
+(the corpus's one repeated move, three times six years apart: read
+the SPEC's own ambiguity surface at the population level — DNS 2008,
+PKI 2009, Sony 2005) made runnable as questions. Every rung is a desk
+question that writes rows — no rung sends a packet to the population,
+spends a probe budget, or drafts a vendor matrix; probing stays gated
+behind R2/R4 and consumes the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Which RFC class does this behavior belong to, and what else implements it? | the census header: class, suspected load-bearing ambiguity, population — the first written sentence of any engagement | R1's class-first law — the 2008 record: never "a BIND bug" but one invariant failing across nearly every resolver (VU#800113, sources.md, full text) |
+| G2 | Where does the spec's own text leave room for two legitimate readings? | the ambiguity census: under-specified fields, optional behaviors, silent defaults — the treaty's gray zones, named per RFC section | the treaty premise on record (a specification is a treaty between strangers; each implementation resolves the ambiguities independently — SKILL §0; the PKI-era X.509 structure hunt, sources.md P3) |
+| G3 | Which implicit invariants hold the class together, and what is each one's entropy? | the invariant census: entropy × ordering × trust composed — bits, attempts, birthday factors computed per invariant before any claim | L1 heuristic 3 on record (compose the invariant classes — sources.md P3) + R2's arithmetic (the VU#800113 constants) |
+| G4 | What is the population, pinned by name and version? | the implementation census: the denominator — every row pinned or marked declined (declines are census bits too) | L1 heuristic 1 on record — the same population-level move three times, six years apart (sources.md P3); R3's 568,000+ Sony count shape |
+| G5 | What instrument would SEE this class — and does it exist yet? | the instrument census: the measurement tool per class (a scan, a signature probe, an arithmetic harness) — the corpus ships instruments WITH its findings | L1 heuristic 2 on record (build instruments to see the population — Paketto 2002, worldwide DNS scans 2005, the Conficker scanner 2009; sources.md P3) |
+
+Ranking rationale: candidate priority = ambiguity sharpness ×
+invariant weakness × population size. An ambiguity whose backing
+invariant computes to weak entropy across a large population ranks
+first (the disagreement is priced before it is probed); an
+un-instrumented population ranks next (the instrument is built first
+— the corpus's own move); a population under 3 parks as a product
+review and routes out of this organ; already-patched classes rank by
+residual deployment (the saturation gate), not by novelty. Rows out;
+not one packet sent.
+
+Generation falsifier: a protocol class where the desk sweep yields
+zero rows across every row class means the spec's ambiguity surface
+was not observable from the desk (the spec text is not public, or the
+class is single-implementation — the boundary rows against
+desync-hunter and scan-economist are the recorded routing) — the
+census is re-read, the missing rung written with its grounding row.
+The class is never excused as "tight spec" at generation time: a
+zero-yield verdict belongs to verification's coverage row, never to
+the ladder.
+
+#### The ladder's payload kit — the spec-reading rows (customize before use)
+
+Generation writes rows; these are the desk classes the rows name,
+every one a reading of the spec's own text and the public
+implementation record (no packet exists yet; the probe mechanics live
+in T1–T5):
+
+| Desk row | The read payload class | Writes which row |
+| --- | --- | --- |
+| class-header row | the RFC number, the suspected ambiguity sentence, the population sketch — the census header drafted | census-header row (the engagement's first sentence) |
+| ambiguity row | the spec's gray zones per section: optional behaviors, silent defaults, under-specified fields — one reading pair per row | ambiguity row (where two implementations can both be legitimate) |
+| invariant row | the composed classes — entropy × ordering × trust — with the computed bits, attempts, and birthday factors | threshold-table row (R2's arithmetic, pre-registered) |
+| census row | the implementation pins: name+version per reachable vendor, declines recorded as bits | population row (the denominator, R3) |
+| instrument row | the measurement plan: existing tool vs to-be-built harness, with its read-out class | instrument row (the corpus's instruments-with-findings move) |
+
+Customization knobs, stated in the plan note: the protocol class (DNS
+vs TLS/PKI vs HTTP framing — which ambiguity families load), the
+census depth (internet-scale sample vs named-vendor matrix vs both,
+priced per engagement), and the arithmetic policy (which invariant
+classes compose — the entropy × ordering × trust subset carried).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

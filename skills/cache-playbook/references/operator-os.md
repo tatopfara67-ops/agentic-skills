@@ -1,13 +1,14 @@
-# operator-os.md — the Gil + Kettle-cache runtime: think, behave, script
+# operator-os.md — the Gil + Kettle-cache runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > origin/cache disagreement laws; the M-protocol
 > (references/method-upgrade.md) states the key-audit and nonce
-> protocol; THIS module is the runtime — how the agent thinks, behaves,
-> and scripts while executing them, characteristic of the Omer Gil
-> cache-deception craft and Kettle's cache-poisoning corpus: the cache
-> is a second silent parser, the cache key is its grammar, and the
-> proof runs on nonce paths with the operator as the only victim.
+> protocol; THIS module is the runtime — how the agent notices,
+> thinks, behaves, and scripts while executing them, characteristic of
+> the Omer Gil cache-deception craft and Kettle's cache-poisoning
+> corpus: the cache is a second silent parser, the cache key is its
+> grammar, and the proof runs on nonce paths with the operator as the
+> only victim.
 
 ## 1. The thinking framework — decision rules
 
@@ -40,6 +41,70 @@ cached personal data stops at existence + one marker row.
 R6 **Cache state is evidence.** HIT/MISS/X-Cache headers, TTLs, and
 age at each step are recorded as artifacts — a cache claim without
 cache-state rows is prose.
+
+### The opening ladder — where Gil's and Kettle's candidates come from
+
+The rules above govern the run once a candidate is in hand; the
+ladder produces the candidates FIRST — the deception-era and
+poisoning-era perception (Gil's class was found by asking which path
+shapes the cache would classify as static while the origin still
+rendered the authenticated page beneath them; Kettle's corpus began
+by asking which inputs the cache key ignores) made runnable as
+questions. Every rung is a census question that writes rows — no rung
+sends a marker, poisons an entry, or spends the nonce budget;
+demonstrations stay gated behind R3/R5 and consume the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Does a cache layer exist here at all, and does it announce itself? | the presence record: Age/X-Cache/Via headers, HIT/MISS differential on double-fetch, TTL directives — the fact row every later rung is priced against | R2's audit-first tradition — the corpus opens by working out how the cache caches before any exploit craft (CACHE-001, corpus v1.0.0; sources.md, Practical Web Cache Poisoning BH'18) |
+| G2 | Which path shapes does the cache classify as static while the origin still renders the authenticated page? | suffix classes — the deception candidates as path-confusion families, personal body under a static-looking key | Gil's class on record: a path the cache classifies as static while the origin serves the authenticated page beneath it (sources.md, BH USA 2017 whitepaper) |
+| G3 | Which delimiter families does this cache tier honor as static markers? | the delimiter census: `;`, `%0a`, `%23`, `?`, nonexistent-file shapes — families measured in the wild, tier by tier | the delimiter-based path-confusion variations measured at scale (Mirheidari et al., USENIX Security 2020 — sources.md, the recorded measurement) |
+| G4 | Which inputs does the cache key ignore while the origin varies on them? | unkeyed inputs — headers, cookies, query values whose variation still HITs — the poisoning candidates | Kettle's unkeyed-input methodology (sources.md, BH'18; the reflected-then-cached family, CACHE-002/003/005) |
+| G5 | Where do cache key and display key disagree? | the discrepancy row: content stored under one key but displayed under another — the entangled candidates | Kettle's cache-key/display-key discrepancy craft (sources.md, Web Cache Entanglements, 2020; the fat-GET family, CACHE-004) |
+| G6 | Which stored entries would a poison or deception actually reach? | the exposure ceiling: shared-across-principals entries, TTL/age magnitudes, cache-control/Vary posture — what a stored row would serve, to whom, for how long | the organ's own exposure-pricing, labeled (R4's family separation + R6's state-as-evidence; the posture oracle, CACHE-009) |
+
+Ranking rationale: candidate priority = exposure ceiling × family
+sharpness. A delimiter family that renders personalized content under
+a cacheable class ranks first (deception: the PII ceiling, family
+separated per R4); an unkeyed input whose value surfaces in the
+stored body ranks next (poisoning: the marker row's reach priced by
+the entry's sharing); a key/display discrepancy row ranks by the
+entangled route's cross-principal reach; TTL-only rows rank last —
+they price reach, they do not generate. Rows out; no entry poisoned,
+no victim fetched.
+
+Generation falsifier: an in-scope host with a live cache layer where
+the sweep yields zero candidate rows across every row class means
+the ladder is missing a rung for that cache tier (a service-worker
+cache, a layered CDN-on-CDN, an authenticated-only origin with no
+shared tier) — the census is re-read (Doyhenard's DEF CON 32
+delimiter expansion is the recorded next ring, sources.md), the
+missing rung written with its grounding row. The host is never
+excused as "clean" at generation time: a zero-yield verdict belongs
+to verification's coverage row, never to the ladder.
+
+#### The ladder's payload kit — the confusion-class sweep rows (customize before use)
+
+Generation writes rows; these are the sweep classes the rows name,
+every one a one-variable census probe on the operator's own session
+(recorded; single-shot where the path is shared; byte-exact probes
+live in corpus.json v1.0.0 — the kit names the entries, it does not
+re-quote them):
+
+| Sweep row | The read payload class | Writes which row |
+| --- | --- | --- |
+| extension row | the authenticated path × one suffix each (`.css` `.png` `.jpg` `.txt` `.js`), double-fetched, one variable per probe (CACHE-006) | deception-class row (personal body under a static-looking key) |
+| delimiter row | the tier's delimiter families (`;`, `%0a`, `%23`, `?`, the nonexistent-file shape), one family per probe (CACHE-007, the USENIX'20 set) | delimiter-family row (which markers this tier honors) |
+| unkeyed row | the header/query vary list (User-Agent, Accept, Cookie, X-Forwarded-*), one input per probe, second-fetch comparison (CACHE-002/003/005) | keyed/unkeyed table row |
+| display-key row | the fat-GET comparison: same key, different display route (CACHE-004) | key-vs-display discrepancy row |
+| cache-state row | the evidence sweep: Age, X-Cache, TTL directives, Vary posture, ETag (CACHE-009) | exposure-ceiling row (sharing × lifetime) |
+
+Customization knobs, stated in the plan note: the cache tier (CDN
+edge vs origin reverse proxy vs service worker — which delimiter
+families and extension classes load), the corpus vintage (which
+delimiter ring: Gil's originals, the USENIX'20 measured set, the
+Doyhenard expansion), and the exposure policy (deception proofs stop
+at the marker row vs full operator-victim demonstration, per R5).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

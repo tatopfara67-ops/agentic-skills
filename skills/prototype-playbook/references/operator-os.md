@@ -1,12 +1,13 @@
-# operator-os.md — the Heyes runtime: think, behave, script
+# operator-os.md — the Heyes runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > object-world laws; the M-protocol (references/method-upgrade.md)
 > states the pollution-detection protocol; THIS module is the runtime
-> — how the agent thinks, behaves, and scripts while executing them,
-> characteristic of Gareth Heyes's documented craft: the object world
-> is trust-bearing state, pollution is hunted source → gadget → sink
-> in that order, and server-side detection is done WITHOUT the DoS.
+> — how the agent notices, thinks, behaves, and scripts while executing
+> them, characteristic of Gareth Heyes's documented craft: the object
+> world is trust-bearing state, pollution is hunted source → gadget →
+> sink in that order, and server-side detection is done WITHOUT the
+> DoS.
 
 ## 1. The thinking framework — decision rules
 
@@ -40,6 +41,66 @@ its own control (same payload, one property off).
 R6 **postMessage confusion is an entry, not an afterthought.** Every
 addEventListener('message') is a source row; its origin check (or its
 absence) is graded before any gadget walk.
+
+### The opening ladder — where Heyes's candidates come from
+
+The rules above govern the hunt once a write site is in hand; the
+ladder produces the candidates FIRST — the DOM-Invader-era perception
+(the object world is SYSTEMATICALLY SCANNABLE: before any write probe,
+the merge surfaces, library pins, clobberable globals, and listeners
+can all be enumerated as rows) made runnable as questions. Every rung
+is a census question that writes rows — no rung pollutes a property,
+clobbers a global, or sends a message; probes stay gated behind R5's
+one-property law and consume the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Where does user input become object state — which merges, recursions, defaults-deepenings? | the merge-surface inventory: JSON bodies into options, query/hash into client config — every site where a key name crosses into an object | R1's write-first law — the class exists because frameworks merge user JSON into option objects (sources.md, the server-side research premise) |
+| G2 | Which libraries are pinned, and what gadgets do their exact versions carry? | the library census: jQuery/lodash/axios/ejs pins cross-referenced with the gadget catalog — gadget availability is version-written | the gadget discipline codified (Widespread prototype pollution gadgets — sources.md; PP-007/008, corpus v1.0.0) |
+| G3 | Which client globals are clobberable — which named elements would shadow what scripts trust? | the clobber census: id/name attributes, `location`-adjacent shapes — property writes by other means | the modern clobbering revival on record (DOM Clobbering strikes back, PortSwigger Research Feb 2020 — sources.md; PP-009) |
+| G4 | Which message listeners exist, and what do their origin checks actually check? | the listener census: every `addEventListener('message')` graded for origin and shape — the entry rows | R6's entry-not-afterthought law + DOM Invader's postMessage record (sources.md, the scannable-object-world thesis) |
+| G5 | Which safe-detection oracle fits this estate — what observable side effect carries a write verdict without a crash? | the oracle census: status-code override, JSON spaces, header reflection, OPTIONS, OAST — the detection plan row | Heyes's recorded safe-detection corpus (sources.md, the no-DoS repertoire; PP-004/005/006) |
+
+Ranking rationale: candidate priority = write-reach × gadget
+availability × oracle fit. A merge point whose objects are read by a
+pinned-version gadget ranks first (the chain is three-thirds
+assembled before any probe); a clobberable global whose shadow is
+read by page script ranks next; a listener without an origin check
+ranks by message reach; oracle rows rank last — they are enablers
+that carry verdicts, not candidates that carry impact. Rows out; not
+one property written.
+
+Generation falsifier: an estate where the sweep yields zero rows
+across every row class means the ladder is missing a rung for that
+estate class (a web-worker structured-clone surface, a server-rendered
+template merge, a serialized-state hydrator) — the census is re-read
+(sources.md's research wave is the recorded next ring), the missing
+rung written with its grounding row. The estate is never excused as
+"no object world" at generation time: a zero-yield verdict belongs to
+verification's coverage row, never to the ladder.
+
+#### The ladder's payload kit — the merge-surface sweep rows (customize before use)
+
+Generation writes rows; these are the sweep classes the rows name,
+every one a static census read of the estate (byte-exact probes live
+in corpus.json v1.0.0 — the kit names the entries, it does not
+re-quote them):
+
+| Sweep row | The read payload class | Writes which row |
+| --- | --- | --- |
+| merge-point row | the input families that become objects: JSON body merge, query-string parse, hash/config hydration (PP-001/002) | merge-surface row (where a key name crosses) |
+| library row | the pinned versions with their gadget availability cross-reference (PP-007/008 classes) | gadget-availability row (version-written) |
+| clobber row | the named-element census at page load: ids, names, `location`-adjacent shapes (PP-009) | clobber-surface row (globals that can be shadowed) |
+| listener row | the message-listener list with origin/shape grades | entry row (ungraded listeners are open surface) |
+| oracle row | the safe-detection repertoire that fits this estate: status override, JSON spaces, header reflection, OPTIONS, OAST (PP-004/005/006) | detection-plan row (the no-DoS verdict carrier) |
+| bypass row | the filter-evasion inventory: `constructor.prototype` where `__proto__` is filtered (PP-003) | write-variant row (for the estates that filter) |
+
+Customization knobs, stated in the plan note: the estate tier
+(client-only SPA vs server-side Node merge vs isomorphic — which
+source families load), the gadget vintage (which library gadget
+catalog the cross-reference runs against), and the oracle policy
+(which safe-detection repertoires are permitted under R3's no-DoS
+law for this engagement).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

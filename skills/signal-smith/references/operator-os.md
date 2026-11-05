@@ -1,9 +1,9 @@
-# operator-os.md — the Draper runtime: think, behave, script
+# operator-os.md — the Draper runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > signal laws; the M-protocol (references/method-upgrade.md) states the
 > calibration and seam protocol; THIS module is the runtime — how the
-> agent thinks, behaves, and scripts while executing them,
+> agent notices, thinks, behaves, and scripts while executing them,
 > characteristic of John Draper's documented craft: one precisely
 > forged in-band signal, indistinguishable from the legitimate one —
 > never a spray, never an alarm.
@@ -38,6 +38,64 @@ treating the forgery as genuine. One restoring byte = the control.
 R6 **Never trip the alarm you can avoid.** Rate, volume, and
 distinctiveness are tuned so the periphery's logs show a normal
 conversation. If the only way forward is noise, park the seam.
+
+### The opening ladder — where Draper's candidates come from
+
+The rules above govern the craft once a seam is suspected; the ladder
+produces the candidates FIRST — the phreaking-era perception (the
+whistle worked because its tone matched the network's OWN supervisory
+frequency: the network's genuine grammar was learned by listening
+before any box was built) made runnable as questions. Every rung is a
+listening question that writes rows — no rung forges a token, sends a
+variation, or spends a probe; forgery stays gated behind R1/R3 and
+consumes the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What does the system already accept as genuine — which form classes does the validator take? | the acceptance census: plain, plus-encoded, percent, double-encoded, overlong-UTF8 form families — the rows every later craft reads | R1's calibration-first law — the 1971–72 record: the discovery was a tone matching the network's own supervisory frequency (sources.md, the blue-box era's public record) |
+| G2 | Where does one input cross two readers with different grammars? | the seam census: frontend normalization vs backend interpretation — the divergence points where a byte can be two things | the in-band anatomy on record: the control channel riding the data channel (Rosenbaum, Esquire Oct 1971 — sources.md); the operator's brief's frequency/type/format triad |
+| G3 | What does a NORMAL conversation look like to the periphery? | the envelope census: request rates, volume, distinctiveness — the baseline the alarm discipline is priced against | the operator's brief on record: tuning request frequency to stay under rate filters (sources.md, the matched doctrine) |
+| G4 | Which deviation classes does the observed grammar admit? | the tolerance census: byte/position/class deviations that remain within acceptance — the precision envelope, computed not felt | R4's precision budget — the encoding-grammar module's tables (the organ's own operationalization, labeled) |
+| G5 | What restores each candidate seam — what is the control condition? | the control census: the restoring byte per seam — the differential's control arm, pre-named | R5's differential law (the organ's own operationalization, labeled) |
+
+Ranking rationale: candidate priority = seam sharpness × envelope
+room × unexplored class mass. A seam where the frontend normalizes a
+byte the backend reads raw ranks first (the disagreement is already
+on record); an accepted-but-untested grammar class ranks next; a
+seam whose envelope room is thin ranks by its alarm price (parked or
+priced, never sprayed); classes with a ledgered rejection rank last —
+the map grows from failures, it does not retry them. Rows out; not
+one forged byte sent.
+
+Generation falsifier: an input surface where the listening sweep
+yields zero rows means the grammar is not yet observable from the
+channel (auth-gated, binary-framed, or a validator that answers
+nothing until authenticated) — the census is re-read (the
+encoding-grammar module's class families are the recorded next
+ring), the missing rung written with its grounding row. The surface
+is never excused as "no grammar" at generation time — every input
+channel has one; a zero-yield verdict belongs to verification's
+coverage row, never to the ladder.
+
+#### The ladder's payload kit — the grammar-capture rows (customize before use)
+
+Generation writes rows; these are the listening classes the rows name,
+every one an observation of the target's own traffic-shape (no forged
+token exists yet; the craft mechanics live in T1–T4):
+
+| Listen row | The read payload class | Writes which row |
+| --- | --- | --- |
+| form-class row | the accepted form families: plain `alice`, plus `a%20lice`, percent `%61lice`, double `%2561lice`, overlong `%c0%aflice` — one class per read | acceptance row (form class → response class) |
+| seam row | the two-reader divergence points: header name case, path encoding, parameter case — where the grammars disagree | seam-candidate row (the divergence, named) |
+| envelope row | the periphery's normal: observed request rate, volume, token distinctiveness over a stated window | baseline row (what "normal" costs) |
+| tolerance row | the deviation classes within acceptance: which byte, which position, which class — the envelope computed | precision-budget row (R4's arithmetic) |
+| control row | the restoring form per seam candidate (the byte that reverts the forgery) | control-condition row (the differential's control arm) |
+
+Customization knobs, stated in the plan note: the channel class
+(query-string vs header vs body vs path — which grammar families
+load), the deviation budget (how many classes the engagement carries
+under R3's one-variation law), and the envelope policy (the rate and
+distinctiveness ceiling the periphery is priced against).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

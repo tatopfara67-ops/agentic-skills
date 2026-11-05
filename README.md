@@ -208,8 +208,8 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | [xss-playbook](skills/xss-playbook/) | 2.5.0 | Sink-context analysis, marker proofs, the mXSS layer; the context-first opening ladder (Mario Heiderich lineage). |
 | [cloud-config-auditor](skills/cloud-config-auditor/) | 2.4.0 | CORS matrix, anonymous storage, takeover checks as code; where-drift-is-born ladder (Prowler / de la Fuente lineage). |
 | [mobile-hunter](skills/mobile-hunter/) | 1.3.0 | Mobile teardown — the shipped APK/IPA read before the device is touched; the confession opening ladder (Charlie Miller lineage). |
-| [cache-playbook](skills/cache-playbook/) | 1.3.0 | Cache deception & poisoning — the cache-key baseline matrix (Omer Gil + James Kettle corpus). |
-| [prototype-playbook](skills/prototype-playbook/) | 1.3.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage). |
+| [cache-playbook](skills/cache-playbook/) | 1.4.0 | Cache deception & poisoning — the cache-key baseline matrix; the disagreement-first opening ladder (Omer Gil + James Kettle corpus). |
+| [prototype-playbook](skills/prototype-playbook/) | 1.4.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink; the merge-surface-first opening ladder (Gareth Heyes lineage). |
 
 ### Tier 4 — Incident Branch (1)
 
@@ -224,10 +224,10 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | [scan-economist](skills/scan-economist/) | 1.3.0 | Scan economy — liveness before depth, priors over exhaustive sweeps; the map-confesses ladder (Fyodor lineage). |
 | [module-smith](skills/module-smith/) | 1.3.0 | Hypotheses as rankable reusable modules; access and impact proofs separate; the hypothesis-as-module opening ladder (HD Moore lineage). |
 | [pipeline-smith](skills/pipeline-smith/) | 1.3.0 | Unix recon pipelines — passive first, dedupe before paying; pattern-as-hypothesis ladder (Tomnomnom lineage). |
-| [feedback-fuzzer](skills/feedback-fuzzer/) | 1.2.0 | Feedback-guided search — bucketed novelty, minimization before diagnosis (lcamtuf lineage). |
+| [feedback-fuzzer](skills/feedback-fuzzer/) | 1.3.0 | Feedback-guided search — bucketed novelty, minimization before diagnosis; the map-first opening ladder (lcamtuf lineage). |
 | [template-scanner](skills/template-scanner/) | 1.3.0 | Detection as declarative templates, matchers pre-registered; fingerprint-to-template ladder (ProjectDiscovery lineage). |
 | [packet-orchestrator](skills/packet-orchestrator/) | 1.3.0 | Manual first, then state-backed automation; packet differentials show their bytes; the capture-first opening ladder (Searle + Mantis + Scapy lineages). |
-| [protocol-forensics](skills/protocol-forensics/) | 1.1.0 | Spec ambiguity hunted across the implementation population; entropy-priced invariants (Dan Kaminsky lineage). |
+| [protocol-forensics](skills/protocol-forensics/) | 1.2.0 | Spec ambiguity hunted across the implementation population; entropy-priced invariants; the class-first opening ladder (Dan Kaminsky lineage). |
 | [interior-cartographer](skills/interior-cartographer/) | 1.2.0 | OS internal-surface census, seam tables, ACCESS_MASK budget; the unpriced-seam opening ladder (James Forshaw lineage). |
 | [harness-smith](skills/harness-smith/) | 1.0.0 | Fuzz-first triage and oracle engineering; the mandatory missed-why postmortem (Tavis Ormandy lineage). |
 | [opsec-discipline](skills/opsec-discipline/) | 1.0.0 | Campaign hygiene as an economic discipline — exposure census, compartmentation, closure audit (the grugq lineage). |
@@ -242,7 +242,7 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | [ghost-crawler](skills/ghost-crawler/) | 1.3.0 | Passive-index misconfig hunting — one bounded probe per candidate; the neglect ladder (Adrian Lamo lineage). |
 | [mirror-hunter](skills/mirror-hunter/) | 1.3.0 | LLM/agent surfaces where the target runs the hunter's engine class; the surface-census opening ladder (Simon Willison lineage). |
 | [probe-smith](skills/probe-smith/) | 1.0.0 | Hardware teardown — pinout discovery, priced bypass ladder, radio promiscuity (Travis Goodspeed lineage). |
-| [signal-smith](skills/signal-smith/) | 1.2.0 | Input grammar and precision signals — never trip the alarm (John Draper lineage). |
+| [signal-smith](skills/signal-smith/) | 1.3.0 | Input grammar and precision signals — never trip the alarm; the listen-first opening ladder (John Draper lineage). |
 | [threshold-hunter](skills/threshold-hunter/) | 1.0.0 | Physical trust boundaries at the information layer; detection as the deliverable (Deviant Ollam lineage). |
 | [trust-graph-hunter](skills/trust-graph-hunter/) | 1.3.0 | Inherited privilege across the trust graph; the AD directory interior (Mitnick + Metcalf lineages). |
 

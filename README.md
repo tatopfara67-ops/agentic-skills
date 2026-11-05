@@ -250,8 +250,8 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 
 | Skill | Version | What it does |
 |---|---|---|
-| [lineage-smith](skills/lineage-smith/) | 1.9.0 | The assimilation factory — scored selection, complete-corpus census, the five-lens psych-read, forge under the authoring contract. The candidate queue is retired: 8 of 8 executed. |
-| [rival-playbook](skills/rival-playbook/) | 1.1.1 | Corpus-vs-corpus competition — date-pinned rival census, hollow map, proving-ground duel with capped wording (Sun Tzu lineage). |
+| [lineage-smith](skills/lineage-smith/) | 1.10.0 | The assimilation factory — scored selection, complete-corpus census, the five-lens psych-read, forge under the authoring contract. The candidate queue is retired: 8 of 8 executed. The forge tier's runtime (forge-os.md) carries the nomination-reading opening ladder (A18). |
+| [rival-playbook](skills/rival-playbook/) | 1.2.0 | Corpus-vs-corpus competition — date-pinned rival census, hollow map, proving-ground duel with capped wording (Sun Tzu lineage). The forge tier's runtime (forge-os.md) carries the census-reading opening ladder (A18). |
 
 ### Prompts
 

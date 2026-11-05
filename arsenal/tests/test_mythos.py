@@ -261,8 +261,9 @@ class TestMythosLineages(unittest.TestCase):
         behavioral protocol, scripting arsenal, rigid run-order) plus
         falsifiers. The forge-tier organs carry their named
         equivalents instead (psychology-catalog, campaign-protocol,
-        failure-geometry) — the guard covers the 31 person-lineage
-        organs on record."""
+        failure-geometry — plus, since the forge tier's own runtime
+        wave, references/forge-os.md) — the guard covers the 31
+        person-lineage organs on record."""
         organs = [
             "adversary-tracker", "auth-boundary-mapper",
             "business-logic-hunter", "cache-playbook", "chain-architect",
@@ -334,6 +335,37 @@ class TestMythosLineages(unittest.TestCase):
                 self.assertIn(token, body,
                               "%s: A18 layer incomplete (%s)" % (organ,
                                                                  token))
+
+    def test_forge_os_runtime(self):
+        """The forge tier's runtime wave: the two forge-tier organs
+        carry their A17-equivalent runtime as references/forge-os.md
+        (the universality guard reserves operator-os.md for the
+        person-lineage organs; the forge tier's named equivalent is
+        this module) — the four-part runtime shape plus The opening
+        ladder (A18): the nomination-reading / artifact-reading
+        questions that write census rows before the score gate or the
+        hollow map runs (rungs write census rows, never verdicts;
+        ranking rationale stated; generation falsifier on record)."""
+        organs = ["lineage-smith", "rival-playbook"]
+        skills_root = os.path.join(_TREE_ROOT, "skills")
+        for organ in organs:
+            path = os.path.join(skills_root, organ, "references",
+                                "forge-os.md")
+            self.assertTrue(os.path.isfile(path),
+                            "%s: forge-os.md missing" % organ)
+            with open(path, encoding="utf-8") as fh:
+                body = fh.read()
+            for token in ("The thinking framework",
+                          "The behavioral protocol",
+                          "The scripting arsenal",
+                          "The rigid run-order",
+                          "Falsifiers",
+                          "The opening ladder",
+                          "Ranking rationale",
+                          "Generation falsifier"):
+                self.assertIn(token, body,
+                              "%s: forge runtime incomplete (%s)"
+                              % (organ, token))
 
     def test_attribution_corrections_are_on_record(self):
         registry = _mythos.mythos_lineages()

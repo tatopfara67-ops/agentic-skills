@@ -1,6 +1,6 @@
 ---
 name: rival-playbook
-version: 1.1.1
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -26,7 +26,17 @@ description: >-
   速决战 — protracted campaigns compound, quick-decisive windows rotate, stop
   rules stated), and the season review that feeds the next allocation; the
   stratagem map gains the translated middle class (围魏救赵, 李代桃僵, 顺手牵羊, 以逸待劳 —
-  shape kept, harm removed, each bound to a census artifact). Use when the
+  shape kept, harm removed, each bound to a census artifact). Since
+  v1.2.0 it also ships the forge tier's runtime layer
+  (references/forge-os.md, the 33rd runtime module on record — the forge
+  tier's second): the strategist's decision rules, situation-to-move
+  behavior with refusals, the scripting arsenal T1–T3 (the staleness
+  stamper, the hollow-verdict validator, the wording-cap checker), and
+  the rigid run-order S1–S6, plus **The opening ladder** (A18): where the
+  campaign's hollows come from — the artifact-reading questions that
+  write census rows before any hollow verdict is drafted (rungs write
+  census rows, never claims; ranking rationale stated; generation
+  falsifier on record). Use when the
   operator names a competitor, orders the corpus to win the market, or any
   claim about rival corpora is about to ship ("kalahkan kompetitor", "kalahkan
   korpus rival", "beat the competitor", "rival corpus", "benchmark rival",
@@ -40,7 +50,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# rival-playbook v1.1.1 — Win the Market Without a Hype War
+# rival-playbook v1.2.0 — Win the Market Without a Hype War
 
 ## 0. What This Skill Is — and Is Not
 
@@ -193,3 +203,4 @@ is the proof the map stays honest.
 | Critiquing the folk competitor war; running the executable M1–M5 | references/method-upgrade.md |
 | The full Sun Tzu + stratagem crosswalk, banned family included, plus the translated middle class | references/stratagem-map.md |
 | Planning the SEASON: ledgers, segment map, the Tian Ji allocation table, tempo declarations, the review | references/campaign-protocol.md |
+| Running the census reading end to end — the Sun Tzu runtime: the opening ladder (A18), decision rules, situation-to-move behavior with refusals, scripting, rigid run-order | references/forge-os.md |

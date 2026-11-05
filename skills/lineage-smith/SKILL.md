@@ -1,6 +1,6 @@
 ---
 name: lineage-smith
-version: 1.9.0
+version: 1.10.0
 type: ai-skill
 architecture: package
 description: >-
@@ -21,7 +21,16 @@ description: >-
   exclusions on record), the OPINION quarantine gate that keeps unartifacted
   readings out of distillation, and the assembly crosswalk that pairs lens
   lines into organ design traits (confirmation rigor, unit of work, pacing,
-  record shapes). Use when the operator nominates a figure for assimilation,
+  record shapes). Since v1.10.0 it also ships the forge tier's runtime
+  layer (references/forge-os.md, the 32nd runtime module on record — the
+  forge tier's first): the doctrine's decision rules, situation-to-move
+  behavior with refusals, the scripting arsenal T1–T3 (the score-ledger
+  validator, the census read-ledger gate, the quarantine scanner), and
+  the rigid run-order S1–S6, plus **The opening ladder** (A18): where the
+  doctrine's candidates come from — the nomination-reading questions that
+  write census rows before the M1 score runs (rungs write census rows,
+  never distillations; ranking rationale stated; generation falsifier on
+  record). Use when the operator nominates a figure for assimilation,
   orders corpus growth, or asks for the next organ ("rakit skill dari tokoh",
   "pelajari tokoh hacker", "analisis psikologi tokoh", "asimilasi lineage",
   "assimilate a lineage", "forge a new organ", "skill baru dari metodologi",
@@ -35,7 +44,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); skill-mythos charter v1.10+
 ---
 
-# lineage-smith v1.9.0 — Read Everything, Ship the Method
+# lineage-smith v1.10.0 — Read Everything, Ship the Method
 
 ## 0. What This Skill Is — and Is Not
 
@@ -208,3 +217,4 @@ behavior, and behavior leaves artifacts.
 | Critiquing the folk way of studying famous figures; running the executable M1–M6 | references/method-upgrade.md |
 | Screening the next legends; the scored queue with one standing candidate (Q1, Q2, Q5, Q3, Q7, Q4, and Q6 executed — retired into protocol-forensics, interior-cartographer, harness-smith, probe-smith, the trust-graph-hunter upgrade carrying the Sean Metcalf lineage layer, opsec-discipline carrying the grugq lineage with the queue's first recorded score rise, and the mythos-bug-hunter spine upgrade carrying the Jason Haddix lineage — the queue's second recorded rise and the spine's first lineage layer) | references/candidate-queue.md |
 | Evidence classes per lens dimension; the OPINION quarantine; the assembly crosswalk | references/psychology-catalog.md |
+| Running the forge end to end — the operator-doctrine runtime: the opening ladder (A18), decision rules, situation-to-move behavior with refusals, scripting, rigid run-order | references/forge-os.md |

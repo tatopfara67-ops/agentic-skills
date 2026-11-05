@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.21.0
+version: 1.21.1
 type: ai-skill
 architecture: package
 description: >-
@@ -24,13 +24,16 @@ description: >-
   candidates before verification is due; rungs write census rows not
   packets, grounding labeled per the sources ledger, ranking stated,
   falsifier on record; output enters the Hypothesis Rail), A19 the
-  payload corpus depth law — the six payload organs' kits resolve to
+  payload corpus depth law — the payload organs' kits resolve to
   byte-exact versioned corpus entries: a kit row naming fixed probe
   bytes cites the corpus, not a prose reference (hand-crafting is the
   defect the corpus discipline forbids); target-derived shapes stay
   labeled derivation rows; the corpus grows only by transcribed,
   attributed entries and every growth bumps corpus_version with the
-  entries-delta note,
+  entries-delta note; since v1.21.1 the covered organ set grows only
+  by execution — the seam organ's variation catalog (signal-smith,
+  corpus SIG) joined in the second wave, the spine's coordinator kit
+  rows resolving to the organ corpora they name,
   the forge tier since
   v1.10.0 — lineage-smith (the operator's doctrine as an organ: find the
   popular figures, read everything public, model the psychology and the
@@ -153,7 +156,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.21.0 — The Master Charter
+# skill-mythos v1.21.1 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -324,7 +327,13 @@ metadata:
     applied to the weapon itself), and every growth bumps
     `corpus_version` with the entries delta on record. The carried
     set is locked by test_payload_kit_depth and its
-    citation-resolution gate.
+    citation-resolution gate, and the covered organ set grows only
+    by execution: the seam organ's variation catalog (signal-smith,
+    corpus SIG) joined in the second wave, and the spine's
+    coordinator kit rows (mythos-bug-hunter toolkit-and-canaries)
+    resolve to the organ corpora they name — rows without a
+    transcribed carrier are labeled derivation or module-cited,
+    never silently equated with corpus bytes.
 
 ## 2. The Bundle at a Glance
 

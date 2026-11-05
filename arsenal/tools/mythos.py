@@ -1159,7 +1159,13 @@ ARTICLES = [
     "scheme matrices) are the naming surface — the class they name "
     "and the corpus entry that carries it are joined on record, "
     "locked by test_payload_kit_depth and its citation-resolution "
-    "gate.",
+    "gate, the covered organ set growing only by execution — the "
+    "seam organ's variation catalog (signal-smith, corpus SIG) "
+    "joined in the second wave, and the spine's coordinator kit "
+    "rows (mythos-bug-hunter toolkit-and-canaries) resolve to the "
+    "organ corpora they name, rows without a transcribed carrier "
+    "labeled derivation or module-cited, never silently equated "
+    "with corpus bytes.",
 ]
 
 QUALITY_GATES = [

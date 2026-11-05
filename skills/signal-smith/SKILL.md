@@ -1,6 +1,6 @@
 ---
 name: signal-smith
-version: 1.3.0
+version: 1.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -10,8 +10,15 @@ description: >-
   grammar (type, length, charset, encoding, frequency/rate), maps every
   double-parse seam where frontend normalization and backend interpretation
   can diverge, then crafts ONE or TWO minimally-modified byte/encoding
-  variations that the filter accepts while the deeper parser reads diffeSince
-  v1.1.0 the organ carries the executable method layer (A16) — a mechanical
+  variations that the filter accepts while the deeper parser reads
+  differently. Since v1.4.0 the variation corpus ships (A19): every class
+  the variation catalog names - single and double percent-encoding, the
+  fullwidth NFKC fold, overlong UTF-8, the NUL terminator, the CRLF
+  smuggle, the UTF-7 charset switch, the JSON escape layer, header-name
+  case folding, the duplicate-parameter pair - resolves to a byte-exact,
+  attributed entry in references/corpus.json instead of circulating as
+  prose the agent must hand-craft. Since v1.1.0 the organ
+  carries the executable method layer (A16) — a mechanical
   critique of the Draper-era form's floors (the craft transmitted as legend
   with the method inseparable from dead trunks, grammar calibration by ear,
   indistinguishability asserted never tested, precision without a tolerance
@@ -36,7 +43,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an in-scope target with a validation/WAF layer under study
 ---
 
-# signal-smith v1.3.0 — One Precise Tone
+# signal-smith v1.4.0 — One Precise Tone
 
 ## 0. What This Skill Is — and Is Not
 
@@ -161,9 +168,11 @@ listening row set).
    hypothesis.
 4. Craft ONE minimal variation for the strongest seam: the smallest
    byte edit that the validator accepts but the backend reads
-   differently. Case flip, single %-encode, one homoglyph, one
-   null byte, one terminator, one charset parameter — the catalog
-   with selection rules is `references/encoding-grammar.md`.
+   differently - the class comes from `references/corpus.json` by
+   corpus ID (SIG-001..SIG-010), the exact bytes of the engagement's
+   own variation derive from the CAPTURED grammar (A19 derivation
+   rule: corpus enumerates the classes, the grammar picks the bytes);
+   selection rules live in `references/encoding-grammar.md`.
 5. Send it: one `http_probe`, exact bytes recorded as artifact;
    validator verdict and backend differential recorded as the
    EXPERIMENT. Rate discipline: calibration and variation requests
@@ -211,6 +220,7 @@ listening row set).
 | Load when… | Module |
 | --- | --- |
 | Building the input ladder / choosing the minimal variation | `references/encoding-grammar.md` |
+| The named variation classes, byte-exact and attributed (SIG-001..SIG-010) | `references/corpus.json` (versioned variation corpus) |
 | Verifying the Draper lineage and sources | `references/sources.md` |
 | Grading the published form, calibrating grammar, testing indistinguishability blind | `references/method-upgrade.md` |
 | Running the hunt — the John Draper runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

@@ -97,6 +97,14 @@ load), the deviation budget (how many classes the engagement carries
 under R3's one-variation law), and the envelope policy (the rate and
 distinctiveness ceiling the periphery is priced against).
 
+The forge classes these rows listen FOR are carried byte-exact and
+attributed in `references/corpus.json` (SIG-001..SIG-010, the versioned
+variation corpus, A19): the listening exemplars above (`%2561`,
+`%c0%af`, …) are target-observation forms — derivation rows of those
+corpus classes, never corpus bytes re-sent verbatim — and when T2
+forges the variation it picks the class by corpus ID and derives the
+bytes from the captured grammar (the A19 derivation rule).
+
 ## 2. The behavioral protocol — situation, move, refusal
 
 | Situation | The move | Agent action | Refusal |

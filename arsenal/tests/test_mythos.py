@@ -379,14 +379,18 @@ class TestMythosLineages(unittest.TestCase):
                               % (organ, token))
 
     def test_payload_kit_depth(self):
-        """A19's lock: the six payload organs' corpora carry the
+        """A19's lock: the payload organs' corpora carry the
         deepened classes — corpus_version 1.1.0 on record, the new
         entry ids present, every entry schema-complete (probe, oracle,
         failure modes, attributed source), and every FAMILY-id
         citation in the organ's markdown resolves to a real corpus
         entry: a kit row that names probe bytes must cite the
         versioned corpus, never a prose reference — hand-crafting is
-        the defect the corpus discipline forbids."""
+        the defect the corpus discipline forbids. The covered organ
+        set grows only by execution: the second wave joins the seam
+        organ (signal-smith, corpus SIG 1.0.0) and walks the spine's
+        coordinator kit (toolkit-and-canaries.md), whose FAMILY-id
+        tokens must resolve against the organ corpora they name."""
         organs = {
             "xss-playbook": ("XSS", ["XSS-012", "XSS-013", "XSS-014",
                                      "XSS-015"]),
@@ -396,14 +400,21 @@ class TestMythosLineages(unittest.TestCase):
             "desync-hunter": ("DS", ["DS-010", "DS-011", "DS-012"]),
             "cache-playbook": ("CACHE", ["CACHE-010"]),
             "prototype-playbook": ("PP", ["PP-011", "PP-012"]),
+            "signal-smith": ("SIG", ["SIG-001", "SIG-002", "SIG-003",
+                                     "SIG-004", "SIG-005", "SIG-006",
+                                     "SIG-007", "SIG-008", "SIG-009",
+                                     "SIG-010"]),
         }
         skills_root = os.path.join(_TREE_ROOT, "skills")
+        corpora = {}
         for organ, (family, new_ids) in organs.items():
             corpus_path = os.path.join(skills_root, organ, "references",
                                       "corpus.json")
             with open(corpus_path, encoding="utf-8") as fh:
                 corpus = json.load(fh)
-            self.assertEqual(corpus["corpus_version"], "1.1.0",
+            expected_version = ("1.0.0" if organ == "signal-smith"
+                                else "1.1.0")
+            self.assertEqual(corpus["corpus_version"], expected_version,
                              "%s: corpus_version not bumped" % organ)
             ids = {e["id"] for e in corpus["entries"]}
             for new_id in new_ids:
@@ -418,6 +429,7 @@ class TestMythosLineages(unittest.TestCase):
                                   % (organ, entry.get("id", "?"), field))
                 self.assertIn("url", entry["source"])
                 self.assertTrue(entry["failure_modes"])
+            corpora[organ] = ids
             pattern = re.compile(r"\b%s-[0-9]{3}\b" % family)
             for dirpath, _dirnames, filenames in os.walk(
                     os.path.join(skills_root, organ)):
@@ -431,6 +443,23 @@ class TestMythosLineages(unittest.TestCase):
                         self.assertIn(token, ids,
                                       "%s: %s cites unknown %s"
                                       % (organ, fname, token))
+        spine_kit = os.path.join(skills_root, "mythos-bug-hunter",
+                                 "references", "toolkit-and-canaries.md")
+        with open(spine_kit, encoding="utf-8") as fh:
+            spine_body = fh.read()
+        spine_pattern = re.compile(
+            r"\b((?:XSS|INJ|SSRF|DS|CACHE|PP|SIG)-[0-9]{3})\b")
+        organ_by_family = {
+            "XSS": "xss-playbook", "INJ": "injection-lab",
+            "SSRF": "ssrf-playbook", "DS": "desync-hunter",
+            "CACHE": "cache-playbook", "PP": "prototype-playbook",
+            "SIG": "signal-smith",
+        }
+        for token in sorted(set(spine_pattern.findall(spine_body))):
+            family = token.partition("-")[0]
+            self.assertIn(
+                token, corpora[organ_by_family[family]],
+                "spine toolkit-and-canaries cites unknown %s" % token)
 
     def test_attribution_corrections_are_on_record(self):
         registry = _mythos.mythos_lineages()

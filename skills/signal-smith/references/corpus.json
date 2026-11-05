@@ -1,0 +1,205 @@
+{
+ "corpus": "SIG",
+ "organ": "signal-smith",
+ "vuln_class": "encoding_evasion",
+ "corpus_version": "1.0.0",
+ "house_rules": [
+  "Variations below are transcribed from the public record and attributed per entry - this corpus never invents variations.",
+  "Every entry is a byte-exact class exemplar; the engagement's actual variation is the minimal edit derived from the CAPTURED grammar of the target (A19 derivation rows), never the corpus bytes re-sent verbatim.",
+  "Two variations per seam per session (hard rule 1) - the corpus enumerates the classes, the organ's craft picks at most two.",
+  "The calibration ladder never carries these bytes - the ladder measures (CONTROL records), the corpus serves the forge; contaminating the ladder with probe bytes poisons the grammar map.",
+  "failure_modes are mandatory reading BEFORE closing a seam as negative: a variation that failed for a listed reason leaves the seam untested, not safe."
+ ],
+ "entries": [
+  {
+   "id": "SIG-001",
+   "technique": "single percent-encode of a filter-listed byte",
+   "prerequisites": [
+    "a double-parse seam where the edge decodes once and the origin decodes again (or re-encodes on forward)",
+    "the captured grammar accepts the %-encoded form of a byte the validator rejects raw"
+   ],
+   "probe": "%3C (the percent-encoded form of <) - one class exemplar; the engagement's byte is chosen from the captured grammar, not from this corpus row",
+   "oracle": "the validator accepts the encoded form while the deeper parser reads the raw byte - the split between the two parsers IS the seam proof; the differential runs control (raw byte alone), treatment (encoded form), restored-control",
+   "failure_modes": [
+    "the edge decodes once and the origin never re-decodes - both parsers see the same bytes, no split; record the seam as closed, do not stack encodings on it",
+    "the validator itself decodes before checking - the encoded form is rejected like the raw one; the rejection class is grammar data, not a retry trigger (hard rule 3)"
+   ],
+   "source": {
+    "credit": "RFC 3986, section 2.1 (verbatim: a percent-encoded octet is encoded as a character triplet, consisting of the percent character % followed by the two hexadecimal digits representing that octet's numeric value)",
+    "title": "RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax, section 2.1",
+    "url": "https://www.rfc-editor.org/rfc/rfc3986#section-2.1"
+   }
+  },
+  {
+   "id": "SIG-002",
+   "technique": "double percent-encode (re-encode the encoded triplet)",
+   "prerequisites": [
+    "a proxy/filter that decodes exactly once and forwards the decoded bytes onward",
+    "an origin that decodes the forwarded remainder a second time"
+   ],
+   "probe": "%253C (the triplet %3C with its % re-encoded to %25) - byte form composes the RFC 3986 triplets twice; the class is the OWASP-documented decode-once bypass",
+   "oracle": "the first decoder unwraps %253C to %3C and the filter's rule set evaluates THAT string; the origin's second decode unwraps %3C to < - validator verdict accept + backend behavior class differ from the raw-byte baseline",
+   "failure_modes": [
+    "the edge re-encodes on forward instead of decoding - the double form survives to the origin as literal bytes and both parsers agree; the seam belongs to the re-encode family, not the decode family",
+    "the origin decodes exactly once like the edge - both parsers converge; record the seam closed with the decode-depth finding as grammar data"
+   ],
+   "source": {
+    "credit": "OWASP community page, Double Encoding (the class: bypass security filters that only decode user input once; the second decoding process is executed by the backend platform or modules)",
+    "title": "OWASP Foundation - Double Encoding",
+    "url": "https://community.owasp.org/Double_Encoding"
+   }
+  },
+  {
+   "id": "SIG-003",
+   "technique": "fullwidth homoglyph fold (NFKC compatibility normalization)",
+   "prerequisites": [
+    "a sink that normalizes to a compatibility form (NFKC/NFKD) or applies best-fit mapping AFTER the filter stage",
+    "the captured grammar accepts fullwidth Unicode where it rejects the ASCII byte"
+   ],
+   "probe": "\uff1c (U+FF1C FULLWIDTH LESS-THAN SIGN - the fullwidth twin of <) - the canonical member of the documented NFKC fullwidth fold class",
+   "oracle": "the filter passes the fullwidth form (it is not the byte it blocks); the normalizing sink folds it to the ASCII byte it blocks - the split between filter and sink is the seam",
+   "failure_modes": [
+    "the sink does not normalize - the fullwidth byte stays fullwidth and nothing downstream parses it as ASCII; the seam is closed, the grammar row records fullwidth acceptance as a FACT",
+    "the filter normalizes BEFORE checking - the fullwidth form is rejected like the ASCII one; record the rejection class, never spray homoglyph variants looking for a pass"
+   ],
+   "source": {
+    "credit": "Paul Johnston (paj28) - Unicode XSS via combining characters (the NFKC form is for compatibility composition and replaces some characters with near-enough alternatives, including replacing fullwidth forms)",
+    "title": "Unicode XSS via Combining Characters (gist)",
+    "url": "https://gist.github.com/paj28/86c7b8f37371d89c9a36ed0280fcf450"
+   }
+  },
+  {
+   "id": "SIG-004",
+   "technique": "overlong UTF-8 sequence (forbidden form of an ASCII codepoint)",
+   "prerequisites": [
+    "a charset disagreement between two parsers on the path (edge assumes ASCII/strict, origin decodes permissively)",
+    "a decoding implementation that does not reject overlong sequences"
+   ],
+   "probe": "%C0%80 (the overlong two-byte encoding of U+0000 - the RFC's own example class: a naive implementation may decode the overlong UTF-8 sequence C0 80 into the character U+0000)",
+   "oracle": "the strict parser rejects or passes through the overlong bytes untouched; the permissive parser decodes them to the codepoint - the disagreement between the two decoders is the seam; control is the shortest-form encoding of the same codepoint",
+   "failure_modes": [
+    "both parsers reject overlong forms (RFC 3629 conformance requires it) - the seam is closed; record the rejection class verbatim",
+    "the overlong family used for the engagement's own probe (the IIS-era overlong slash) is a derivation row, not this corpus entry's bytes - transcribe it separately with its own attribution before it is ever sent"
+   ],
+   "source": {
+    "credit": "RFC 3629, section 10, Security Considerations (verbatim: a naive implementation may decode the overlong UTF-8 sequence C0 80 into the character U+0000; decoding invalid sequences may have security consequences)",
+    "title": "RFC 3629 - UTF-8, a transformation format of ISO 10646, section 10",
+    "url": "https://www.rfc-editor.org/rfc/rfc3629"
+   }
+  },
+  {
+   "id": "SIG-005",
+   "technique": "NUL byte terminator behind the filter",
+   "prerequisites": [
+    "a C-string-backed boundary behind the validation layer (filesystem calls, legacy parsers, logging sinks)",
+    "the captured grammar accepts the encoded NUL form the validator sees"
+   ],
+   "probe": "%00 (the percent-encoded NUL byte)",
+   "oracle": "the validator evaluates the bytes before the NUL; the C-string boundary terminates at the NUL - the suffix after %00 reaches the validator but not the sink, the split is the seam",
+   "failure_modes": [
+    "the backend language is NUL-safe end-to-end (modern runtimes) - no truncation occurs; the seam is closed and the grammar row records NUL acceptance as data",
+    "the validator strips the NUL before the sink sees it - both parsers then agree on the truncated string; record the sanitize class, one more encoding of the same byte is not the next move"
+   ],
+   "source": {
+    "credit": "PHP manual, Null byte related problems (verbatim: as null bytes denote the end of a string in C, strings containing them won't be considered entirely but rather only until a null byte occurs)",
+    "title": "PHP Manual - Security: Null byte related problems",
+    "url": "https://www.php.net/manual/en/security.filesystem.nullbytes.php"
+   }
+  },
+  {
+   "id": "SIG-006",
+   "technique": "CRLF terminator smuggle (header/log line injection behind the filter)",
+   "prerequisites": [
+    "an input that reaches a header, log line, or other CR/LF-delimited record after the filter stage",
+    "the validator accepts the encoded CR/LF bytes"
+   ],
+   "probe": "%0d%0a (the percent-encoded CR LF pair - CR given by %0d, LF given by %0a)",
+   "oracle": "the validator treats the pair as body/parameter bytes; the downstream record parser treats it as a line terminator and splits the record at it - the forged line boundary is the seam proof; control is the same input with %0d or %0a alone",
+   "failure_modes": [
+    "the framework strips CR and/or LF at the boundary (the standard mitigation) - both parsers agree; the seam closes with the sanitize class recorded",
+    "only one of the pair survives - a bare CR or bare LF terminates nothing on strict parsers; record the partial-acceptance class rather than resending the pair in another encoding"
+   ],
+   "source": {
+    "credit": "OWASP Foundation, HTTP Response Splitting (verbatim: the application must allow input that contains CR (carriage return, also given by %0d or \\r) and LF (line feed, also given by %0a or \\n) into the header)",
+    "title": "OWASP Foundation - HTTP Response Splitting",
+    "url": "https://community.owasp.org/attacks/HTTP_Response_Splitting"
+   }
+  },
+  {
+   "id": "SIG-007",
+   "technique": "UTF-7 charset switch (legacy decoder at the renderer)",
+   "prerequisites": [
+    "an output page whose charset the attacker can influence (meta tag injection, missing server charset header)",
+    "a legacy rendering path that auto-detects or honors UTF-7"
+   ],
+   "probe": "<meta charset=\"UTF-7\" /> +ADw-script+AD4-alert(1)+ADw-/script+AD4- (the charset declaration plus the UTF-7 encoding of <script>... - the class is documented verbatim on the PortSwigger cheat sheet)",
+   "oracle": "the bytes pass the filter as inert text (no <script> in them); the UTF-7 decoder folds +ADw- to < and +AD4- to > at render time - the encoding-layer disagreement is the seam; control is the same page with the meta tag removed",
+   "failure_modes": [
+    "the modern browser ignores the injected charset declaration (the IE-era auto-detection is gone) - the seam is closed; record the renderer version as the FACT that closed it",
+    "the server charset header overrides the meta tag - the declaration never reaches the decoder; the seam closes at the header layer and the grammar row records the override order"
+   ],
+   "source": {
+    "credit": "PortSwigger Cross-Site Scripting (XSS) Cheat Sheet, 2026 edition - the Meta charset attribute UTF-7 vector (verified transcribed)",
+    "title": "PortSwigger - Cross-Site Scripting (XSS) Cheat Sheet (UTF-7 vectors)",
+    "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+   }
+  },
+  {
+   "id": "SIG-008",
+   "technique": "JSON escape layer (escaped code unit over a deeper parser)",
+   "prerequisites": [
+    "a JSON parser on the path that re-emits or forwards the decoded string into a second parser (SQL, template, command line)",
+    "the filter inspects the JSON string bytes instead of the decoded value"
+   ],
+   "probe": "\\u0022 (the six-character JSON escape for the double quote - a reverse solidus, the lowercase letter u, four hexadecimal digits, per the JSON grammar)",
+   "oracle": "the filter passes the escape sequence as inert text; the JSON layer decodes it to the raw quote before the deeper parser reads the value - the two-layer disagreement is the seam; control is the same field with the literal quote",
+   "failure_modes": [
+    "the filter decodes JSON before inspecting - the escaped form is evaluated like the raw byte and rejected; the seam closes with the decode-depth fact recorded",
+    "the deeper parser receives the escape sequence literally (double-serialized transport) - both layers agree; record the serialization-depth class instead of stacking more escapes"
+   ],
+   "source": {
+    "credit": "RFC 8259, section 7 (verbatim: a reverse solidus, followed by the lowercase letter u, followed by four hexadecimal digits that encode the character's code point)",
+    "title": "RFC 8259 - The JavaScript Object Notation (JSON) Data Interchange Format, section 7",
+    "url": "https://www.rfc-editor.org/rfc/rfc8259#section-7"
+   }
+  },
+  {
+   "id": "SIG-009",
+   "technique": "header-name case fold (case-insensitive field names, case-sensitive rules)",
+   "prerequisites": [
+    "a proxy/WAF whose header rules match case-sensitively or normalize incompletely",
+    "an origin that folds field names per the HTTP grammar (names are case-insensitive)"
+   ],
+   "probe": "x-forwarded-for (the lowercase fold of X-Forwarded-For) - field names are case-insensitive; a recipient interprets Content-Type, content-type, and CONTENT-TYPE as the same field name",
+   "oracle": "the edge's case-anchored rule misses the folded name; the origin honors it as the same field - the rule-layer disagreement is the seam; control is the canonical-case name on the same request",
+   "failure_modes": [
+    "the edge normalizes case before rule evaluation - the folded form is enforced exactly like the canonical one; the seam closes and the normalization FACT is recorded",
+    "HTTP/2 transport lowercases field names on the wire anyway - the fold carries no disagreement on that channel; record the protocol as the closing fact, never retry the fold over HTTP/2 expecting a split"
+   ],
+   "source": {
+    "credit": "RFC 9110, section 5.1 (the rule: HTTP field names are case-insensitive; a recipient interprets Content-Type, content-type, and CONTENT-TYPE as the same field name)",
+    "title": "RFC 9110 - HTTP Semantics, section 5.1 (Field Names)",
+    "url": "https://www.rfc-editor.org/rfc/rfc9110#section-5.1"
+   }
+  },
+  {
+   "id": "SIG-010",
+   "technique": "duplicate-parameter pair-probe (HPP - parser disagreement on parameter precedence)",
+   "prerequisites": [
+    "a request path where the same parameter can appear twice and two parsers disagree on which occurrence wins (first vs last vs concatenation vs array)",
+    "a parameter the engagement controls on both occurrences"
+   ],
+   "probe": "par1=val1&par1=val2 (the duplicate-parameter pair - documented example class: par1=val1 becomes par1=val1&par1=val2; depending on the backend API this could be treated as par1=val1, val2 or par1=val2, ignoring val1)",
+   "oracle": "send the pair as treatment and each single form as control; the backend observable (which value the application uses) differs between the two parsers on the path - the precedence disagreement is the seam; the encoded-delimiter form 1000%26action=withdraw is the in-band twin of the same class",
+   "failure_modes": [
+    "both parsers take the same occurrence (same precedence rule) - no disagreement exists; the seam closes and the precedence FACT is recorded as grammar data",
+    "one parser concatenates and the other replaces - the disagreement is real but the split favors neither form; record which parser is the validator's and hand the seam to the payload organ with both precedence readings on record"
+   ],
+   "source": {
+    "credit": "MITRE CAPEC-460, HTTP Parameter Pollution (the documented example: par1=val1 becomes par1=val1&par1=val2; references Carettoni and Di Paola, HTTP Parameter Pollution, OWASP AppSec EU 2009)",
+    "title": "CAPEC-460: HTTP Parameter Pollution (HPP)",
+    "url": "https://capec.mitre.org/data/definitions/460.html"
+   }
+  }
+ ]
+}

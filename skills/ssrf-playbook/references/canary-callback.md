@@ -37,10 +37,15 @@ FACTs and investigated as infrastructure noise, not findings.
 
 ## Scheme matrix (one request per row)
 
-`http`, `https`, `localhost`(name), `127.0.0.1`, `[::1]`, scheme-less
-`//HOST`, userinfo `http://canary@HOST`, decimal/obfuscated loopback only
+`http`, `https`, `localhost`(name — SSRF-012), `127.0.0.1`, `[::1]` (the
+IPv6 family — SSRF-011), scheme-less
+`//HOST` (a labeled derivation row — no corpus entry until a sourced one
+exists), userinfo `http://canary@HOST` (SSRF-009), decimal/obfuscated
+loopback (SSRF-003) only
 when internal probing is IN named scope. Each row: treatment + callback
-check + verdict cell in the engagement table.
+check + verdict cell in the engagement table. Probe bytes come
+byte-exact from `references/corpus.json` — the matrix row names the
+class, the corpus carries the entry.
 
 ## Redirect-chain probe
 

@@ -1,6 +1,6 @@
 """skill-mythos tests — charter, doctrine forge, CVSS engine, VRT classifier.
 
-Covers: the thirteen-article activation payload, the doctrine_forge
+Covers: the nineteen-article activation payload, the doctrine_forge
 prompt-escalation engine (intent grammar, severity/quota extraction,
 persona mixes, determinism), spec-exact CVSS 3.1 base scoring (including
 the FIRST published example scores), VRT classification against the
@@ -9,6 +9,7 @@ template shaping), and the hardened auditor gates (cvss recomputation,
 vrt validation, reproduction reference, incident-handoff exemption).
 """
 import importlib.util
+import json
 import os
 import re
 import sys
@@ -103,12 +104,12 @@ class TestMythosCharter(unittest.TestCase):
     def setUp(self):
         self.charter = _mythos.mythos_charter()
 
-    def test_eighteen_articles(self):
-        self.assertEqual(len(self.charter["articles"]), 18)
+    def test_nineteen_articles(self):
+        self.assertEqual(len(self.charter["articles"]), 19)
         for article in self.charter["articles"]:
             self.assertRegex(article, r"^A\d+ ")
         self.assertIn("CVSS 3.1", "".join(self.charter["articles"]))
-        self.assertTrue(self.charter["articles"][-1].startswith("A18"))
+        self.assertTrue(self.charter["articles"][-1].startswith("A19"))
         self.assertIn("three registers", self.charter["articles"][13])
         self.assertIn("war logic", self.charter["articles"][14])
         self.assertIn("method over mythology",
@@ -125,6 +126,12 @@ class TestMythosCharter(unittest.TestCase):
                       self.charter["articles"][17])
         self.assertIn("test_opening_ladder_rollout",
                       self.charter["articles"][17])
+        self.assertIn("payload corpus depth",
+                      self.charter["articles"][18])
+        self.assertIn("corpus_version",
+                      self.charter["articles"][18])
+        self.assertIn("test_payload_kit_depth",
+                      self.charter["articles"][18])
 
     def test_charter_carries_prompt_escalation(self):
         escalation = self.charter["prompt_escalation"]
@@ -370,6 +377,60 @@ class TestMythosLineages(unittest.TestCase):
                 self.assertIn(token, body,
                               "%s: forge runtime incomplete (%s)"
                               % (organ, token))
+
+    def test_payload_kit_depth(self):
+        """A19's lock: the six payload organs' corpora carry the
+        deepened classes — corpus_version 1.1.0 on record, the new
+        entry ids present, every entry schema-complete (probe, oracle,
+        failure modes, attributed source), and every FAMILY-id
+        citation in the organ's markdown resolves to a real corpus
+        entry: a kit row that names probe bytes must cite the
+        versioned corpus, never a prose reference — hand-crafting is
+        the defect the corpus discipline forbids."""
+        organs = {
+            "xss-playbook": ("XSS", ["XSS-012", "XSS-013", "XSS-014",
+                                     "XSS-015"]),
+            "injection-lab": ("INJ", ["INJ-011", "INJ-012", "INJ-013",
+                                      "INJ-014", "INJ-015"]),
+            "ssrf-playbook": ("SSRF", ["SSRF-011", "SSRF-012"]),
+            "desync-hunter": ("DS", ["DS-010", "DS-011", "DS-012"]),
+            "cache-playbook": ("CACHE", ["CACHE-010"]),
+            "prototype-playbook": ("PP", ["PP-011", "PP-012"]),
+        }
+        skills_root = os.path.join(_TREE_ROOT, "skills")
+        for organ, (family, new_ids) in organs.items():
+            corpus_path = os.path.join(skills_root, organ, "references",
+                                      "corpus.json")
+            with open(corpus_path, encoding="utf-8") as fh:
+                corpus = json.load(fh)
+            self.assertEqual(corpus["corpus_version"], "1.1.0",
+                             "%s: corpus_version not bumped" % organ)
+            ids = {e["id"] for e in corpus["entries"]}
+            for new_id in new_ids:
+                self.assertIn(new_id, ids,
+                              "%s: %s missing" % (organ, new_id))
+            for entry in corpus["entries"]:
+                for field in ("id", "technique", "prerequisites",
+                              "probe", "oracle", "failure_modes",
+                              "source"):
+                    self.assertIn(field, entry,
+                                  "%s: %s lacks %s"
+                                  % (organ, entry.get("id", "?"), field))
+                self.assertIn("url", entry["source"])
+                self.assertTrue(entry["failure_modes"])
+            pattern = re.compile(r"\b%s-[0-9]{3}\b" % family)
+            for dirpath, _dirnames, filenames in os.walk(
+                    os.path.join(skills_root, organ)):
+                for fname in filenames:
+                    if not fname.endswith(".md"):
+                        continue
+                    with open(os.path.join(dirpath, fname),
+                              encoding="utf-8") as fh:
+                        body = fh.read()
+                    for token in set(pattern.findall(body)):
+                        self.assertIn(token, ids,
+                                      "%s: %s cites unknown %s"
+                                      % (organ, fname, token))
 
     def test_attribution_corrections_are_on_record(self):
         registry = _mythos.mythos_lineages()

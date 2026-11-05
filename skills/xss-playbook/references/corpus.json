@@ -2,7 +2,7 @@
   "corpus": "XSS",
   "organ": "xss-playbook",
   "vuln_class": "cross_site_scripting",
-  "corpus_version": "1.0.0",
+  "corpus_version": "1.1.0",
   "house_rules": [
     "Payloads below are transcribed from the public record and attributed per entry - this corpus never invents payloads.",
     "alert(1) in a probe stands for the operator's canary marker (MYTHOS-CANARY-<uuid>) at execution time - never ship alert() theater (organ doctrine).",
@@ -189,6 +189,73 @@
         "credit": "legacy mXSS research (IE-era attribute parsing)",
         "title": "PentesterLab glossary - Mutation XSS (backtick example)",
         "url": "https://pentesterlab.com/glossary/mutation-xss"
+      }
+    },
+    {
+      "id": "XSS-012",
+      "technique": "single-quoted attribute context breakout",
+      "prerequisites": ["insertion inside a single-quoted attribute value"],
+      "probe": "'><img src=x onerror=alert(1)>",
+      "oracle": "the quote closes the attribute, a new element parses, the marker executes on image error - the same differential shape as XSS-002 with the quoting byte verified first",
+      "failure_modes": [
+        "output encoding escapes the single quote (&#39; / &apos;) - the context is correctly closed; do not spray quote variants, record the quoting byte as a FACT",
+        "the attribute is actually unquoted or double-quoted - the corpus's own named gap (XSS-002's failure row): verify the actual quoting byte before concluding"
+      ],
+      "source": {
+        "credit": "canonical, cross-verified (quote-variant of the XSS-002 family)",
+        "title": "PortSwigger XSS cheat sheet (attribute breakout, quote variants)",
+        "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-013",
+      "technique": "event-attribute handler-body assignment (marker into an existing handler)",
+      "prerequisites": ["reflection lands inside the value of an existing event-handler attribute (onload=, onerror=, onmouseover=)"],
+      "probe": "this.id='MYTHOS-XSS-<hex>'",
+      "oracle": "the host element's id mutates to the marker string when the handler fires - the marker pair (payload-marker <-> observed-marker) closes the CANARY record; the handler context needs no breakout, only valid handler-body JS",
+      "failure_modes": [
+        "output encoding quotes or strips the assignment punctuation - the handler body stays inert; re-verify the quoting before retrying",
+        "the host handler never fires in this page's lifetime (dead trigger) - the trigger path is a prerequisite row, not an assumption",
+        "the injection point is the attribute NAME or a non-event attribute - re-type the context (T1) before payload retry"
+      ],
+      "source": {
+        "credit": "the organ's own sink-context grammar, labeled (contexts.md event-attribute row); cross-verified against the Academy XSS modules",
+        "title": "xss-playbook references/contexts.md (event-attribute grammar row)",
+        "url": "https://portswigger.net/web-security/cross-site-scripting"
+      }
+    },
+    {
+      "id": "XSS-014",
+      "technique": "JavaScript code position (unquoted statement context)",
+      "prerequisites": ["reflection lands unquoted in executable script position (not inside a string literal)"],
+      "probe": "alert(1)//",
+      "oracle": "the statement executes when the block runs; the trailing // comments out whatever template text follows - execution proof rides the marker substitution rule (house rule 2)",
+      "failure_modes": [
+        "parens/semicolons stripped by the app's JS-context filter - the neutralized-control row from contexts.md; variant grammar only as a NEW corpus entry with sources, never hand-invented",
+        "the block is dead code (conditional route never taken) - the execution context must be verified, not assumed (same law as XSS-004)",
+        "the reflection is actually string-quoted - re-classify to XSS-004 before concluding"
+      ],
+      "source": {
+        "credit": "the organ's own sink-context grammar, labeled (contexts.md JS-code-position row); PortSwigger cheat sheet JS context vectors",
+        "title": "PortSwigger XSS cheat sheet (JavaScript context vectors)",
+        "url": "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-015",
+      "technique": "HTML comment context breakout",
+      "prerequisites": ["reflection lands inside an HTML comment"],
+      "probe": "--><svg onload=alert(1)>",
+      "oracle": "the comment closes at the injected -->, the following element parses as markup, the marker executes on load",
+      "failure_modes": [
+        "output encoding escapes the closing sequence (--&gt;) - the comment never closes; the reflection stays inert by construction",
+        "the encoder strips only the leading -- - partial escapes leave the breakout dead; record the exact surviving bytes before retrying",
+        "nested/bogus comment structures (browser comment-parsing quirks) - engine-specific; record which engine verified"
+      ],
+      "source": {
+        "credit": "canonical comment-breakout class, organ grammar cross-labeled (contexts.md HTML-comment row)",
+        "title": "OWASP XSS Filter Evasion Cheat Sheet (comment-context vectors)",
+        "url": "https://owasp.org/www-community/xss-filter-evasion-cheat-sheet"
       }
     }
   ]

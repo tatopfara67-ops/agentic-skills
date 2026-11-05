@@ -1,8 +1,8 @@
 {
   "corpus": "INJ",
   "organ": "injection-lab",
-  "vuln_class": "sql_injection_detection",
-  "corpus_version": "1.0.0",
+  "vuln_class": "injection_detection",
+  "corpus_version": "1.1.0",
   "house_rules": [
     "Entries are DETECTION ORACLES first: each one exists to produce a measurable differential (response class, content, or timing), not to dump data.",
     "Payloads are canonical forms from the public record, attributed per entry; backend grammar details come from the cheat-sheet source, not memory.",
@@ -171,6 +171,91 @@
         "credit": "canonical",
         "title": "PortSwigger SQL injection cheat sheet (comment syntax table)",
         "url": "https://portswigger.net/web-security/sql-injection/cheat-sheet"
+      }
+    },
+    {
+      "id": "INJ-011",
+      "technique": "NoSQL operator-injection boolean oracle (MongoDB $ne)",
+      "prerequisites": ["JSON-shaped or query-string-parseable parameter reaching a document query", "MongoDB-class backend (operator grammar is per-database)"],
+      "probe": "{\"username\":{\"$ne\":\"invalid\"}} (treatment) / {\"username\":{\"$eq\":\"invalid\"}} (control)",
+      "oracle": "the $ne tautology returns a document where the $eq control returns none - the PAIR is the oracle, the same discipline as INJ-001 with operator grammar instead of SQL boolean",
+      "failure_modes": [
+        "the parameter is string-typed, not object-parsed (try the application/json content-type or the query-string form username[$ne]=invalid) - record which parse path answers before closing",
+        "operators sanitized or flattened by an ORM/driver layer - the grammar is dead at that parameter, a FACT not a negative",
+        "response normalization hides the match/no-match delta - fall back to the error-signature rung or INJ-013 timing"
+      ],
+      "source": {
+        "credit": "canonical",
+        "title": "PortSwigger Web Security Academy - NoSQL injection (operator injection, $ne)",
+        "url": "https://portswigger.net/web-security/nosql-injection"
+      }
+    },
+    {
+      "id": "INJ-012",
+      "technique": "NoSQL $regex truth-probing oracle",
+      "prerequisites": ["a document field whose $regex match flips an observable (row present, response class)"],
+      "probe": "{\"password\":{\"$regex\":\"^a\"}} (treatment) / anchored non-matching class as control",
+      "oracle": "per-position match/no-match deltas recover data one character at a time - the organ's bounded-extraction law applies (Phase 4 only, budget table shown)",
+      "failure_modes": [
+        "regex flags (case-insensitivity, multiline) differ per build - pin the DB version before reading deltas",
+        "the response normalizes match and no-match identically - re-classify the oracle (INJ-011 pair or INJ-013 timing)",
+        "catastrophic-backtracking shapes are a TIMING oracle, not a truth probe - repetition floors apply before any delta is read"
+      ],
+      "source": {
+        "credit": "canonical",
+        "title": "PortSwigger Web Security Academy - NoSQL injection ($regex operator)",
+        "url": "https://portswigger.net/web-security/nosql-injection"
+      }
+    },
+    {
+      "id": "INJ-013",
+      "technique": "NoSQL $where JavaScript timing oracle",
+      "prerequisites": ["MongoDB-class backend with server-side JavaScript enabled in the query context ($where)"],
+      "probe": "{\"$where\":\"sleep(5000)\"} (treatment) / {\"$where\":\"1==1\"} (control)",
+      "oracle": "response time inflates by the sleep window on the treatment branch only; conditional variants gate the delay on data (if(<condition>){sleep(...)}) over the same channel - timing floors apply (5 timed pairs, interleaved controls, delta > 2x control spread)",
+      "failure_modes": [
+        "server-side JavaScript disabled (modern default hardening) - $where is rejected; the rejection itself is a hardening FACT",
+        "sleep() availability is build/version-specific - verify the JS function set (the documented keys()/match() probing) before reading a non-delay as a negative",
+        "production impact: bounded windows, operator-approved, the same R7 economy as INJ-004"
+      ],
+      "source": {
+        "credit": "canonical (conditional time delay via JavaScript injection)",
+        "title": "PortSwigger Web Security Academy - NoSQL injection ($where, timing-based)",
+        "url": "https://portswigger.net/web-security/nosql-injection"
+      }
+    },
+    {
+      "id": "INJ-014",
+      "technique": "command-injection separator grammar (canary echo)",
+      "prerequisites": ["user input reaching an OS command line by concatenation or interpolation"],
+      "probe": "; echo MYTHOS-CANARY-<uuid> (treatment, one separator per probe: ; | && newline %0a) / echo MYTHOS-CANARY-<uuid> as inert trailing text (control)",
+      "oracle": "the marker arrives through the execution channel only (response echo, written artifact, or operator collector callback) - the control's identical inert text proves the channel is execution, not reflection",
+      "failure_modes": [
+        "one separator filtered does not close the class - each separator is its own FACT row (the grammar is the corpus, not one shape)",
+        "output not echoed and no collector reachable - the channel is blind; park rather than escalate volume",
+        "shell-metacharacter WAF - record the WAF fact; nested-encoding evasion only with the organ's encoding craft and a new sourced entry"
+      ],
+      "source": {
+        "credit": "canonical separator grammar; pair discipline per the organ's oracle catalog",
+        "title": "OWASP - Command Injection (operator and separator grammar)",
+        "url": "https://owasp.org/www-community/attacks/Command_Injection"
+      }
+    },
+    {
+      "id": "INJ-015",
+      "technique": "template-injection detection family (per-engine evaluation probes)",
+      "prerequisites": ["user input rendered through a template engine (server-side or client-side)"],
+      "probe": "${7*7} / {{7*7}} / <%= 7*7 %> / #{7*7} (one per probe, engine family unknown)",
+      "oracle": "the evaluated artifact (49) appears in the response - evaluation, not reflection; control: the same expression wrapped so the engine treats it as literal (comment or string context)",
+      "failure_modes": [
+        "the engine auto-escapes or sandboxes expressions - the expression echoes verbatim; record the engine family by its error grammar before variant work",
+        "mixed contexts (markup vs code block) answer differently - re-classify the context before retrying",
+        "reflection-only rendering (a client-side template that never evaluates) - 49's absence closes EVALUATION, not reflection; route to xss-playbook's sink grammar"
+      ],
+      "source": {
+        "credit": "canonical detection payloads (per-engine evaluation probes); pair discipline per the organ's oracle catalog",
+        "title": "PortSwigger Research - Server-Side Template Injection (detection payloads)",
+        "url": "https://portswigger.net/research/server-side-template-injection"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "corpus": "CACHE",
   "organ": "cache-playbook",
   "vuln_class": "web_cache_poisoning_and_deception",
-  "corpus_version": "1.0.0",
+  "corpus_version": "1.1.0",
   "house_rules": [
     "Cache buster ALWAYS: every probe carries a unique query parameter (?cb={{rand}}) so a poisoned entry never collides with real users - collateral poisoning of a shared entry is an incident, not a finding.",
     "Payloads/techniques are canonical forms from the public record, attributed per entry.",
@@ -160,6 +160,23 @@
         "credit": "Cloudflare engineering analysis + Kettle methodology",
         "title": "Understanding Our Cache and the Web Cache Deception Attack",
         "url": "https://blog.cloudflare.com/understanding-our-cache-and-the-web-cache-deception-attack"
+      }
+    },
+    {
+      "id": "CACHE-010",
+      "technique": "cache deception - delimiter set, second edition (encoded and traversal shapes)",
+      "prerequisites": ["same as CACHE-006", "the first-edition delimiters (CACHE-007) all agreed between cache and origin"],
+      "probe": "one delimiter per probe: /profile%2Etest.css (encoded dot) | /profile%3Ftest.css (encoded question) | /profile..;/test.css (dot-dot-segment)",
+      "oracle": "the cache's path parser decodes or segments differently than the origin's router - private response stored under the confused key, the same MISS->HIT pair as CACHE-006",
+      "failure_modes": [
+        "both sides decode %2E/%3F identically - agreement is a FACT row per delimiter, never 'the set failed'",
+        "..;/ is normalized away by both parsers - the traversal shape only lives where a hop keeps raw segments; ledger which hop normalized it",
+        "WAF rejects encoded delimiters - refusal posture, recorded, next delimiter"
+      ],
+      "source": {
+        "credit": "the organ's method-layer delimiter set (cache-method.md §4), labeled; family per the USENIX'20 delimiter study",
+        "title": "cache-method.md §4 (the named set); Mirheidari et al. - Cached and Confused (delimiter family)",
+        "url": "https://arxiv.org/pdf/1912.10190"
       }
     }
   ]

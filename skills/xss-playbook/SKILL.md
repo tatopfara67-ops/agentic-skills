@@ -1,6 +1,6 @@
 ---
 name: xss-playbook
-version: 2.5.0
+version: 2.6.0
 type: ai-skill
 architecture: package
 description: >-
@@ -19,7 +19,13 @@ description: >-
   table, the interleaved mutation differential with one-byte controls, the
   sanitizer version-oracle ladder over corpus failure modes, the
   operator-owned marker proof with CSP factored first, and the
-  render-environment FACT block. Use when the operator asks to test reflected
+  render-environment FACT block. Since v2.6.0 the payload corpus
+  deepens (A19): the single-quoted attribute, event-handler body,
+  JS code-position, and HTML comment classes enter the versioned
+  corpus (corpus.json 1.1.0) — every context class the grammar table
+  names now resolves to a byte-exact corpus entry instead of forcing
+  the hand-crafting the corpus discipline forbids. Use when the operator
+  asks to test reflected
   or stored XSS, analyze a sink context, draft context-safe payloads, check
   CSP impact, or trace DOM source-to-sink flows ("tes XSS", "reflected",
   "stored", "DOM XSS", "sink context", "CSP bypass check", "payload untuk
@@ -32,7 +38,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# xss-playbook v2.5.0 — Context First, Marker Always, Mutation Counts
+# xss-playbook v2.6.0 — Context First, Marker Always, Mutation Counts
 
 ## 0. What This Skill Is — and Is Not
 
@@ -213,7 +219,7 @@ stay versioned in corpus.json).
 | --- | --- |
 | Classifying a sink / choosing the grammar | `references/contexts.md` |
 | Mutation-capable sink, sanitizer output executing, framework "safe" API | `references/mxss-and-clobber.md` |
-| Context-exact payloads (HTML body/attribute/JS string/raw-text/URL) plus the versioned mXSS corpus (noscript, svg, MathML mutation classes — each with the sanitizer version it bypassed and its credit), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Context-exact payloads (HTML body/attribute — double, single, unquoted/JS string/JS code position/event-handler body/raw-text/comment/URL) plus the versioned mXSS corpus (noscript, svg, MathML mutation classes — each with the sanitizer version it bypassed and its credit), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
 | Grading the published method, running the mutation differential, dating the sanitizer | `references/method-upgrade.md` |
 | Running the hunt — the Mario Heiderich runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

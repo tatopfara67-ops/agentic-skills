@@ -2,7 +2,7 @@
   "corpus": "SSRF",
   "organ": "ssrf-playbook",
   "vuln_class": "server_side_request_forgery",
-  "corpus_version": "1.0.0",
+  "corpus_version": "1.1.0",
   "house_rules": [
     "Every proof routes through the operator's declared canary collector (scope.csv class canary, http_probe with canary=True) - a DNS log or HTTP hit on a third-party service is gossip, not channel proof (organ doctrine).",
     "Payloads below are canonical forms from the public record, attributed per entry.",
@@ -172,6 +172,40 @@
       "source": {
         "credit": "house doctrine (ssrf-playbook + arsenal scope gate v1.7.0)",
         "title": "ssrf-playbook references/canary-callback.md; arsenal scope_gate.py check_canary",
+        "url": "https://portswigger.net/web-security/ssrf"
+      }
+    },
+    {
+      "id": "SSRF-011",
+      "technique": "IPv6 loopback family (bracket notations and IPv6 names)",
+      "prerequisites": ["filter matches IPv4 literal forms only", "the sink's URL stack resolves IPv6"],
+      "probe": "http://[::]:80/ (unspecified) / http://[0000::1]:80/ (long loopback) / http://[::ffff:127.0.0.1]/ (IPv4-mapped) / http://ip6-localhost/ (host form of ::1)",
+      "oracle": "the request lands on the loopback the filter missed - canary callback (SSRF-010) or response differential proves resolution; each bracket form is its own FACT row, never one class",
+      "failure_modes": [
+        "the sink's resolver rejects bracket forms (RFC 3986 host parsing varies per library) - ledger the library pair, the same law as SSRF-009",
+        "IPv6 entirely absent on the internal network - the family closes as a FACT, not a negative for the whole organ",
+        "ip6-localhost naming absent from the sink's resolver hosts file - the name form fails while bracket forms may still answer"
+      ],
+      "source": {
+        "credit": "public-record SSRF bypass set (IPv6 loopback forms)",
+        "title": "PayloadsAllTheThings - SSRF bypass table (IPv6 section)",
+        "url": "https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Request%20Forgery/README.md"
+      }
+    },
+    {
+      "id": "SSRF-012",
+      "technique": "loopback name family (literal localhost, zero-forms, in-127/8)",
+      "prerequisites": ["filter blocks IP literals but resolves names, or misses non-canonical loopback forms"],
+      "probe": "http://localhost:80 / http://0.0.0.0:80 / http://127.127.127.127/ (in-127/8) / http://0/ (zero short form) / an operator-registered name resolving to 127.0.0.1",
+      "oracle": "resolution lands on loopback despite the filter - the canary callback proves the landing; the registered-name row is the documented domain-resolution form (own domain resolving to the loopback)",
+      "failure_modes": [
+        "localhost explicitly blocklisted by name - the zero and in-127/8 forms are separate FACT rows, not covered by that block",
+        "http://0/ rejected by URL validators that demand dotted quads - library-dependent; ledger the parser pair",
+        "the operator-registered name needs DNS control - scope.csv canary row for the DNS host, never an unlisted third-party wildcard"
+      ],
+      "source": {
+        "credit": "public-record SSRF bypass set + the PortSwigger-documented own-domain-resolves-to-loopback row",
+        "title": "PayloadsAllTheThings - SSRF bypass table; PortSwigger Web Security Academy - SSRF",
         "url": "https://portswigger.net/web-security/ssrf"
       }
     }

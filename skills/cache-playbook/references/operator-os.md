@@ -94,7 +94,7 @@ re-quote them):
 | Sweep row | The read payload class | Writes which row |
 | --- | --- | --- |
 | extension row | the authenticated path × one suffix each (`.css` `.png` `.jpg` `.txt` `.js`), double-fetched, one variable per probe (CACHE-006) | deception-class row (personal body under a static-looking key) |
-| delimiter row | the tier's delimiter families (`;`, `%0a`, `%23`, `?`, the nonexistent-file shape), one family per probe (CACHE-007, the USENIX'20 set) | delimiter-family row (which markers this tier honors) |
+| delimiter row | the tier's delimiter families (`;`, `%0a`, `%23`, `?`, the nonexistent-file shape, then the encoded/traversal second edition `%2e`, `%3f`, `..;/`), one family per probe (CACHE-007 + CACHE-010, the USENIX'20 set) | delimiter-family row (which markers this tier honors) |
 | unkeyed row | the header/query vary list (User-Agent, Accept, Cookie, X-Forwarded-*), one input per probe, second-fetch comparison (CACHE-002/003/005) | keyed/unkeyed table row |
 | display-key row | the fat-GET comparison: same key, different display route (CACHE-004) | key-vs-display discrepancy row |
 | cache-state row | the evidence sweep: Age, X-Cache, TTL directives, Vary posture, ETag (CACHE-009) | exposure-ceiling row (sharing × lifetime) |

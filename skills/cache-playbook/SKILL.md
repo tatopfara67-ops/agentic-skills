@@ -1,6 +1,6 @@
 ---
 name: cache-playbook
-version: 1.4.0
+version: 1.5.0
 type: ai-skill
 architecture: package
 description: >-
@@ -23,7 +23,11 @@ description: >-
   shipped as protocol M1–M5: the pairwise cache-key baseline matrix, the
   suffix decision table, the poisoning differential with operator-owned
   victims, the served-check decay curve, and the family-separated ceiling
-  statement. Use when a CDN or caching proxy sits in front of the target, when
+  statement. Since v1.5.0 the payload corpus deepens (A19): the
+  delimiter set's second edition — the encoded dot, the encoded
+  question, and the `..;/` traversal segment — enters the versioned
+  corpus (corpus.json 1.1.0), so every delimiter family the method
+  names resolves to a byte-exact entry. Use when a CDN or caching proxy sits in front of the target, when
   X-Cache/Age/cache-control headers appear, when the operator suspects cache
   attacks ("cek cache poisoning", "ada CDN cloudflare/akamai", "web cache
   deception di target ini", "cache misconfiguration", "kenapa halaman ini
@@ -37,7 +41,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); desync-hunter (parser-seam discipline, adjacent surface); packet-orchestrator (raw-request precision when discrepancies need it)
 ---
 
-# cache-playbook v1.4.0 — The Second Silent Parser
+# cache-playbook v1.5.0 — The Second Silent Parser
 
 ## 0. What This Skill Is — and Is Not
 
@@ -278,7 +282,7 @@ entries CACHE-001..009).
 | Load when… | Module |
 | --- | --- |
 | Expanding any step of §3/§4 into exact probes, oracles, falsifiers | `references/cache-method.md` |
-| Exact technique set (cache buster discipline, unkeyed inputs, fat GET, Gil's deception suffix, delimiter confusion set, boundary mapping), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact technique set (cache buster discipline, unkeyed inputs, fat GET, Gil's deception suffix, delimiter confusion set first and second editions, boundary mapping), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Gil/Kettle/USENIX lineage and its sources | `references/sources.md` |
 | Grading the published method, baselining the cache key, measuring decay | `references/method-upgrade.md` |
 | Running the hunt — the Omer Gil + James Kettle runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

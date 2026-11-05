@@ -2,7 +2,7 @@
   "corpus": "DS",
   "organ": "desync-hunter",
   "vuln_class": "http_request_smuggling",
-  "corpus_version": "1.0.0",
+  "corpus_version": "1.1.0",
   "house_rules": [
     "Probe bytes below are transcribed from the public record and attributed per entry - this corpus never invents bytes.",
     "Line breaks inside probe bodies are CRLF. If you alter a single byte, recompute the chunk sizes and Content-Length values yourself.",
@@ -173,6 +173,57 @@
         "credit": "James Kettle / PortSwigger Research",
         "title": "HTTP Desync Attacks (response queue poisoning)",
         "url": "https://portswigger.net/research/http-desync-attacks"
+      }
+    },
+    {
+      "id": "DS-010",
+      "technique": "header-name oddity set (name-borne disagreement)",
+      "prerequisites": ["two parsers in the chain treat unusual header-NAME bytes differently"],
+      "probe": "Transfer-Encoding : chunked (space before colon) / [space]Transfer-Encoding: chunked (leading space in the name) / underscore and dot name variants (X_Custom_Header, X.Custom.Header) as the general class rows",
+      "oracle": "one parser drops or renames the odd-name header while the other forwards it - the disagreement converts an agreed framing into a seam; confirm with the DS-001/DS-003 differential afterward",
+      "failure_modes": [
+        "both parsers normalize the name identically (underscore-to-dash rewrite on both sides) - agreement is a FACT row for that pair",
+        "strict stacks reject malformed names outright - refusal, not a negative",
+        "the name variants ride a custom header, not TE - the general class needs its own response-class differential; the TE instances are the documented anchors"
+      ],
+      "source": {
+        "credit": "PortSwigger Web Security Academy (the documented obfuscation list's name-borne forms) + the organ's catalog class row, labeled",
+        "title": "HTTP request smuggling - TE.TE obfuscation (name forms); asymmetry-catalog.md §2 (header-name oddity)",
+        "url": "https://portswigger.net/web-security/request-smuggling"
+      }
+    },
+    {
+      "id": "DS-011",
+      "technique": "obs-fold (folded header value) class",
+      "prerequisites": ["one parser continues folded values, the other treats the folded line as a new header or rejects it"],
+      "probe": "Header: value\r\n\tcontinued-value (obs-fold: the continuation line begins with space or tab) - control: the same header unfolded to one line",
+      "oracle": "the folded line re-parses differently across the seam (continued value on one side, new header or framing bytes on the other) - response-class differential on a follow-up request, the same confirmation as DS-001",
+      "failure_modes": [
+        "RFC-strict stacks reject obs-fold outright (7230 deprecates it) - the refusal posture is itself a FACT",
+        "both sides unfold identically - no seam; record and move to the name-borne forms (DS-010)",
+        "the TE instance of obs-fold already rides DS-005's folded variant - this entry is the general class, not a TE re-test"
+      ],
+      "source": {
+        "credit": "RFC 7230 §3.2.4 (obs-fold form, public record) + the organ's catalog class row, labeled",
+        "title": "RFC 7230 - HTTP/1.1 Message Syntax and Routing (§3.2.4 field parsing, obs-fold); asymmetry-catalog.md §2",
+        "url": "https://www.rfc-editor.org/rfc/rfc7230"
+      }
+    },
+    {
+      "id": "DS-012",
+      "technique": "absolute-form request line (request-target parsing disagreement)",
+      "prerequisites": ["the front-end routes by the absolute URI's authority while a hop behind it parses the line differently"],
+      "probe": "GET http://{{host}}/path HTTP/1.1 (absolute-form) - control: the origin-form GET /path HTTP/1.1 on the same chain",
+      "oracle": "authority and path resolve differently across the seam (routing divergence or re-parse) - detectable as a response-class or routing differential between the two forms on the same connection chain",
+      "failure_modes": [
+        "the chain normalizes absolute-form to origin-form on both hops - agreement FACT, no seam",
+        "proxies refuse absolute-form as a security posture - refusal, not a negative",
+        "origin requires Host consistency - absolute-form with a mismatched Host is a malformed-input differential, not this class; keep the Host identical to the control"
+      ],
+      "source": {
+        "credit": "RFC 7230 §5.3.2 (absolute-form, public record) + the organ's catalog class row, labeled",
+        "title": "RFC 7230 - HTTP/1.1 Message Syntax and Routing (§5.3.2 request-target forms); asymmetry-catalog.md §2 (absolute-form)",
+        "url": "https://www.rfc-editor.org/rfc/rfc7230"
       }
     }
   ]

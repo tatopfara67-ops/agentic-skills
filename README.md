@@ -4,7 +4,7 @@
 
 Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
-![bundles](https://img.shields.io/badge/skill_bundles-43-informational) ![tools](https://img.shields.io/badge/MCP_tools-30-informational) ![tests](https://img.shields.io/badge/tests-162_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
+![bundles](https://img.shields.io/badge/skill_bundles-43-informational) ![tools](https://img.shields.io/badge/MCP_tools-30-informational) ![tests](https://img.shields.io/badge/tests-164_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
 
 ---
 
@@ -68,7 +68,7 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.20.0 | The eighteen articles (A16 method over mythology, A17 behavior over biography, A18 the opening ladder — perception as a candidate-generation drill before verification), the tiered bundle map (tiers 0–7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.21.0 | The nineteen articles (A16 method over mythology, A17 behavior over biography, A18 the opening ladder — perception as a candidate-generation drill before verification, A19 the payload corpus depth law — every payload kit row resolves to a byte-exact versioned corpus entry), the tiered bundle map (tiers 0–7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.1.1 | The engine's own manual — model-class failure geometry E1–E8 and four compensation gates, written to the engine, not the operator. |
 | Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.8.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 22 reference modules + a PASS/FAIL report auditor; carries the Jason Haddix lineage layer (methodology-preservation protocol), and since v4.7.0 the Hypothesis Contract is executable — hypothesis_register / _close / _list refuse unevidenced registration, non-three-state closure, and retrodiction; since v4.8.0 the onboarding runtime ships The opening ladder (A18) — the corpus-reading questions (pin / split / rot / gate / basis / proof) that write preservation rows before any engagement state exists. |
 | Organs | 37 organ skills (tiers 1–7 below: 35 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
@@ -102,6 +102,7 @@ The engine layer documents how language models fail in this domain (failure geom
 | Out-of-scope targets probed | Deny-by-default scope gate refuses before the first request; the refusal itself is logged as a ledger record | `arsenal/scope_gate.py` · `scope.csv` · `arsenal/tests/test_scope_gate.py` |
 | Tests run first, rationale invented after | Hypotheses pre-registered with falsifiers; closure forced to CONFIRMED / FALSIFIED / INCONCLUSIVE — mechanically: registration whose motivating facts are not ledger records is refused, CONFIRMED on retrodiction (experiments pre-dating registration) is refused, INCONCLUSIVE without a Park record is refused | `arsenal/hypotheses.py` · `arsenal/tests/test_hypotheses.py` · spine canon R0–R7 |
 | The agent only proves what it is handed — it never generates candidates | The opening ladder (A18): the lineage's perception as a question ladder that produces ranked census rows before any verification is due — rungs write rows, never packets; a ladder that yields nothing on a live estate is revised, not the estate excused | `skills/*/references/operator-os.md` · `arsenal/tests/test_mythos.py` (test_opening_ladder_rollout) |
+| The agent hand-crafts probe bytes a prose reference described | The payload corpus depth law (A19): every payload kit row resolves to a byte-exact versioned corpus entry — the corpus grows only by transcribed, attributed entries, and every growth bumps `corpus_version`; target-derived shapes stay labeled derivation rows | `skills/*/references/corpus.json` · `arsenal/tests/test_mythos.py` (test_payload_kit_depth) |
 | Budget burned on dead surfaces | Liveness before depth, priors over exhaustive sweeps, a priced budget table per campaign | [scan-economist](skills/scan-economist/) · [module-smith](skills/module-smith/) |
 | Report rejected for missing reproduction | The gate requires reproduction steps, a recomputed CVSS vector, and a VRT rating on every finding | report templates · [auditor/](auditor/) |
 | Hallucination rate unknown | Instrumented labs score coverage, precision, hallucination and harm per run | [mythos-proving-ground](skills/mythos-proving-ground/) · [lab/](lab/) |
@@ -112,8 +113,8 @@ Reproduce the numbers from a fresh checkout:
 
 | Claim | Check | Expected |
 |---|---|---|
-| 43 skill bundles pass structural validation | `python3 scripts/validate_skill.py --all` | `GATE: PASS (43 bundle(s), 0 warning(s))` |
-| 162 unit tests pass | `python3 -m unittest discover -s arsenal/tests` | `Ran 162 tests ... OK` |
+| 43 skill bundles pass structural validation | `python3 scripts/validate_skill.py --all` | `GATE: PASS (43 bundle(s), 1 warning(s))` — the warning is the advisory size cap on the master charter's SKILL.md (article 19 grew the routing layer past 32 KB; the gate passes, the cap is advisory by design) |
+| 164 unit tests pass | `python3 -m unittest discover -s arsenal/tests` | `Ran 164 tests ... OK` |
 | 30 MCP tools register and import | `python3 arsenal/server.py --selftest` | `registered MCP tools (30)` |
 | Pre-registration is mechanical | `python3 -m unittest arsenal.tests.test_hypotheses` | `OK` — registration without ledger facts, retrodiction, and Park-less INCONCLUSIVE are all refused |
 | The scope gate refuses out-of-scope targets | `python3 -m unittest arsenal.tests.test_scope_gate` | `OK` |
@@ -174,7 +175,7 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 
 | Skill | Version | What it does |
 |---|---|---|
-| [skill-mythos](skills/skill-mythos/) | 1.20.0 | Master charter — eighteen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography, A18 the opening ladder), bundle map, autonomy + execution + war doctrines, quality gates. |
+| [skill-mythos](skills/skill-mythos/) | 1.21.0 | Master charter — nineteen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography, A18 the opening ladder, A19 the payload corpus depth law), bundle map, autonomy + execution + war doctrines, quality gates. |
 | [glm-self-model](skills/glm-self-model/) | 1.1.1 | The engine layer — five truths, failure geometry E1–E8, compensation gates G1–G4; the engine grades its own manual (M1–M5). |
 | [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.8.0 | The spine — R0–R7 canon, ledger, hypothesis grammar, closure gates, mission horizon; carries the Jason Haddix lineage layer (methodology preservation: pin, split, gate, classify, prove, drift-audit), the mechanized Hypothesis Contract (register / close / list — retrodiction refused), and the A18 opening ladder (the onboarding question set that writes preservation rows first). |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit — static analysis proposes, the runtime disposes. Calibrated by rediscovering CVE-2024-33663/33664. |
@@ -203,13 +204,13 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 
 | Skill | Version | What it does |
 |---|---|---|
-| [injection-lab](skills/injection-lab/) | 1.3.1 | Injection differential oracles — sqlmap runs as oracle only, census before any battery. |
-| [ssrf-playbook](skills/ssrf-playbook/) | 1.3.1 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder. |
-| [xss-playbook](skills/xss-playbook/) | 2.5.0 | Sink-context analysis, marker proofs, the mXSS layer; the context-first opening ladder (Mario Heiderich lineage). |
+| [injection-lab](skills/injection-lab/) | 1.4.0 | Injection differential oracles — sqlmap runs as oracle only, census before any battery; the corpus now carries the NoSQL, command, and SSTI detection families (A19). |
+| [ssrf-playbook](skills/ssrf-playbook/) | 1.4.0 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder; loopback-name and IPv6 families in the corpus (A19). |
+| [xss-playbook](skills/xss-playbook/) | 2.6.0 | Sink-context analysis, marker proofs, the mXSS layer; the context-first opening ladder (Mario Heiderich lineage); every grammar-table context class now corpus-backed (A19). |
 | [cloud-config-auditor](skills/cloud-config-auditor/) | 2.4.0 | CORS matrix, anonymous storage, takeover checks as code; where-drift-is-born ladder (Prowler / de la Fuente lineage). |
 | [mobile-hunter](skills/mobile-hunter/) | 1.3.0 | Mobile teardown — the shipped APK/IPA read before the device is touched; the confession opening ladder (Charlie Miller lineage). |
-| [cache-playbook](skills/cache-playbook/) | 1.4.0 | Cache deception & poisoning — the cache-key baseline matrix; the disagreement-first opening ladder (Omer Gil + James Kettle corpus). |
-| [prototype-playbook](skills/prototype-playbook/) | 1.4.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink; the merge-surface-first opening ladder (Gareth Heyes lineage). |
+| [cache-playbook](skills/cache-playbook/) | 1.5.0 | Cache deception & poisoning — the cache-key baseline matrix; the disagreement-first opening ladder (Omer Gil + James Kettle corpus); the delimiter second edition in the corpus (A19). |
+| [prototype-playbook](skills/prototype-playbook/) | 1.5.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink; the merge-surface-first opening ladder (Gareth Heyes lineage); clobber probe families and the postMessage shell in the corpus (A19). |
 
 ### Tier 4 — Incident Branch (1)
 
@@ -237,7 +238,7 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | Skill | Version | What it does |
 |---|---|---|
 | [chain-architect](skills/chain-architect/) | 1.3.0 | Compound kill chains — low findings composed into one critical impact; the architecture-first opening ladder (Orange Tsai lineage). |
-| [desync-hunter](skills/desync-hunter/) | 1.5.0 | Protocol asymmetry — one ambiguity per request, byte-exact artifacts; the parsing-chain-first opening ladder (James Kettle lineage). |
+| [desync-hunter](skills/desync-hunter/) | 1.6.0 | Protocol asymmetry — one ambiguity per request, byte-exact artifacts; the parsing-chain-first opening ladder (James Kettle lineage); header-name, obs-fold, absolute-form classes in the corpus (A19). |
 | [deep-teardown](skills/deep-teardown/) | 1.3.0 | Client artifacts dismantled to primitives, local before any network flow; the read-it-first opening ladder (George Hotz lineage). |
 | [ghost-crawler](skills/ghost-crawler/) | 1.3.0 | Passive-index misconfig hunting — one bounded probe per candidate; the neglect ladder (Adrian Lamo lineage). |
 | [mirror-hunter](skills/mirror-hunter/) | 1.3.0 | LLM/agent surfaces where the target runs the hunter's engine class; the surface-census opening ladder (Simon Willison lineage). |

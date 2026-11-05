@@ -1,6 +1,6 @@
 ---
 name: ssrf-playbook
-version: 1.3.1
+version: 1.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -14,7 +14,12 @@ description: >-
   memory, impact claimed without read-back) shipped as protocol M1–M5: the
   channel hypothesis table, the four-rung channel-proof ladder, the
   parser-differential map, the cloud-metadata decision table with mandatory
-  headers, and the impact ceiling that refuses gossip. Use when the operator
+  headers, and the impact ceiling that refuses gossip. Since v1.4.0 the
+  payload corpus deepens (A19): the loopback name family (literal
+  localhost, zero-forms, in-127/8, the own-domain-resolves row) and the
+  IPv6 bracket family enter the versioned corpus (corpus.json 1.1.0) —
+  the scheme matrix's named rows now resolve to byte-exact entries
+  instead of prose descriptions. Use when the operator
   asks to test SSRF, check a URL-fetch parameter, map egress from a target,
   trace redirect-based SSRF, or probe cloud metadata reachability ("tes SSRF",
   "url fetch", "internal request", "egress mapping", "metadata endpoint",
@@ -26,7 +31,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned interaction/callback host
 ---
 
-# ssrf-playbook v1.3.1 — Prove The Channel, Not The Gossip
+# ssrf-playbook v1.4.0 — Prove The Channel, Not The Gossip
 
 ## 0. What This Skill Is — and Is Not
 
@@ -102,7 +107,11 @@ credentials/RCE handed to chain-architect as candidates, not asserted).
 3. **Scheme matrix** (egress): the canary URL re-issued per scheme and
    shape — `http`, `https`, scheme-less, userinfo tricks (`http://user@host`),
    and redirect-chain variants (canary URL that 30x's to a second canary
-   path). One request each; every callback is a CANARY record.
+   path). Probe bytes come from `references/corpus.json`: the loopback
+   name family (SSRF-012), the IPv6 bracket family (SSRF-011), odd IP
+   notations (SSRF-003), userinfo/parser confusion (SSRF-009) — scheme-less
+   stays a labeled derivation row until a sourced entry exists. One
+   request each; every callback is a CANARY record.
 4. **Redirect tracing:** whether the fetch follows redirects determines
    whether an attacker-controlled redirector reaches internal space; the
    probe is the operator's redirector, never a third party's.
@@ -143,7 +152,7 @@ credentials/RCE handed to chain-architect as candidates, not asserted).
 | Load when… | Module |
 | --- | --- |
 | Setting up the callback host / interpreting callbacks | `references/canary-callback.md` |
-| Exact bypass payloads (scheme handlers, IP notations, redirect/rebinding, cloud metadata endpoints, parser confusion), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact bypass payloads (scheme handlers, IP notations, IPv6 and loopback name families, redirect/rebinding, cloud metadata endpoints, parser confusion), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Grading the callback habit, running the ladder and map, capping impact | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its

@@ -1,6 +1,6 @@
 ---
 name: prototype-playbook
-version: 1.4.0
+version: 1.5.0
 type: ai-skill
 architecture: package
 description: >-
@@ -23,7 +23,11 @@ description: >-
   pollution claims) shipped as protocol M1–M4: the merge-surface inventory,
   the calibrated oracle ladder (read-back → signature → refused crash), the
   __proto__ differential with same-shape controls, and the version-pinned
-  gadget matrix. Use when the target is a JavaScript-heavy SPA, when
+  gadget matrix. Since v1.5.0 the payload corpus deepens (A19): the
+  DOM-clobbering probe families and the self-owned-both-ends postMessage
+  probe enter the versioned corpus (corpus.json 1.1.0) — the
+  object-model catalog's probe tables now resolve to byte-exact
+  entries instead of prose shapes. Use when the target is a JavaScript-heavy SPA, when
   third-party JS libraries load, when JSON merges user input server-side, when
   postMessage listeners or DOM clobbering sinks are suspected ("cari prototype
   pollution", "audit JS libraries-nya", "apakah node app-nya merge JSON user",
@@ -41,7 +45,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); xss-playbook (the sink grammar once a gadget feeds a DOM sink); js-recon (the bundle-reading discipline that locates merge code and listeners)
 ---
 
-# prototype-playbook v1.4.0 — The Object World Is Trust-Bearing State
+# prototype-playbook v1.5.0 — The Object World Is Trust-Bearing State
 
 ## 0. What This Skill Is — and Is Not
 
@@ -286,7 +290,7 @@ corpus entries PP-001..010).
 | Load when… | Module |
 | --- | --- |
 | Expanding any family into exact probes, oracles, falsifiers; the safe-probe repertoire; the gadget library | `references/object-model-attacks.md` |
-| Exact probe set (query/JSON sources, constructor.prototype bypass, Heyes' safe detection oracles — JSON reflection, status-code override, CORS header reflection — and the gadget classes incl. CVE-2022-29078), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact probe set (query/JSON sources, constructor.prototype bypass, Heyes' safe detection oracles — JSON reflection, status-code override, CORS header reflection — the gadget classes incl. CVE-2022-29078, the DOM-clobber probe families, and the postMessage origin-confusion probe shell), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Heyes lineage and the research-wave sources | `references/sources.md` |
 | Grading the published method, mapping the merge surface, running the differential | `references/method-upgrade.md` |
 | Running the hunt — the Gareth Heyes runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

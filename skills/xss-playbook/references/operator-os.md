@@ -85,12 +85,14 @@ modes, and source per entry):
 | Kit row | The grammar it names | Corpus entry |
 | --- | --- | --- |
 | element-text row | `<` + marker element (e.g. `<b id=MARKER>`), then the context's execution primitive | XSS-001 |
-| attribute-breakout row | breakout quote + new marker attribute (double-quoted / unquoted shapes) | XSS-002 / XSS-003 |
+| attribute-breakout row | breakout quote + new marker attribute (double / single / unquoted shapes) | XSS-002 / XSS-012 / XSS-003 |
 | JS-string breakout row | breakout quote + `;` + marker assignment + `//` | XSS-004 |
-| raw-text/comment row | script raw-text breakout; HTML comment `-->` breakout | XSS-005 + contexts.md comment row |
+| JS-code position row | unquoted statement in script position + trailing comment | XSS-014 |
+| event-attribute row | handler-body marker assignment into an existing event handler | XSS-013 |
+| raw-text/comment row | script raw-text breakout; HTML comment `-->` breakout | XSS-005 / XSS-015 |
 | navigational row | permitted scheme + marker fragment; `javascript:` only as the recorded hypothesis | XSS-006 |
 | mutation row | context-switch + re-serialization probes: noscript, foreignObject re-serialization, MathML namespace confusion, comment nesting | XSS-007..010 (mXSS) |
-| clobber row | named-element collision with a trusted global | mxss-and-clobber.md class rows |
+| clobber row | named-element collision with a trusted global (target-derived ids — a derivation row) | mxss-and-clobber.md class rows |
 | marker harness row | the MYTHOS-XSS-<hex> marker pair (payload-marker ↔ observed-marker) | contexts.md marker discipline (R4) |
 
 Customization knobs, stated in the plan note: the context-class set
@@ -189,8 +191,8 @@ the ledger. Gate: findings cite marker + sink class + observation
 python3 - <<'PY'
 import json
 corpus = json.load(open("references/corpus.json"))
-entry = corpus["entries"]["XSS-MXSS-003"]   # byte-exact, with failure modes
-print("id:", entry["id"]); print("bytes:", entry["bytes"][:80])
+entry = next(e for e in corpus["entries"] if e["id"] == "XSS-008")
+print("id:", entry["id"]); print("bytes:", entry["probe"][:80])
 print("failure_modes:", entry.get("failure_modes"))
 PY
 ```

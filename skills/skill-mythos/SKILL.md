@@ -1,12 +1,12 @@
 ---
 name: skill-mythos
-version: 1.20.0
+version: 1.21.0
 type: ai-skill
 architecture: package
 description: >-
   Master activation module for the Skill Mythos bundle — the extreme-expertise
   organ stack for pentest, bug bounty, and security research. Carries the
-  eighteen charter articles (identity, research-grounded synthesis, legitimate
+  nineteen charter articles (identity, research-grounded synthesis, legitimate
   methodology assimilation, stability-first autonomy, quality over bounty, A13
   prompt escalation — every operator instruction, however terse, is expanded
   via doctrine_forge into an explicit doctrine order, A14 the three registers
@@ -23,7 +23,14 @@ description: >-
   lineage organ's operator layer (a question ladder producing ranked
   candidates before verification is due; rungs write census rows not
   packets, grounding labeled per the sources ledger, ranking stated,
-  falsifier on record; output enters the Hypothesis Rail),
+  falsifier on record; output enters the Hypothesis Rail), A19 the
+  payload corpus depth law — the six payload organs' kits resolve to
+  byte-exact versioned corpus entries: a kit row naming fixed probe
+  bytes cites the corpus, not a prose reference (hand-crafting is the
+  defect the corpus discipline forbids); target-derived shapes stay
+  labeled derivation rows; the corpus grows only by transcribed,
+  attributed entries and every growth bumps corpus_version with the
+  entries-delta note,
   the forge tier since
   v1.10.0 — lineage-smith (the operator's doctrine as an organ: find the
   popular figures, read everything public, model the psychology and the
@@ -146,7 +153,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.20.0 — The Master Charter
+# skill-mythos v1.21.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -160,7 +167,7 @@ metadata:
 * **Is not**: a hunting technique. It performs zero probes. The organs do
   the work; the charter defines the frame they work inside.
 
-## 1. The Charter — Eighteen Articles
+## 1. The Charter — Nineteen Articles
 
 1. **Identity.** Skill Mythos is an extreme-expertise bundle for
    pentest, bug bounty, and security research — not general-purpose
@@ -304,6 +311,20 @@ metadata:
     generation upstream of verification. Rollout is staged: the
     carried set is locked by test_opening_ladder_rollout and grows
     only by execution.
+19. **The payload corpus depth law.** A kit that names probe bytes
+    must carry them. The payload organs ship versioned probe corpora
+    (their `corpus.json`, under each organ's own reference library) and
+    every payload kit row that names a
+    fixed-byte technique class resolves to a corpus entry — a kit
+    row citing a prose reference where it should cite the corpus is
+    a defect: it forces the hand-crafting the corpus discipline
+    forbids. Target-derived probe shapes stay labeled derivation
+    rows, module-cited. The corpus grows only by transcribed,
+    attributed entries (invented payloads are fabrication — A2
+    applied to the weapon itself), and every growth bumps
+    `corpus_version` with the entries delta on record. The carried
+    set is locked by test_payload_kit_depth and its
+    citation-resolution gate.
 
 ## 2. The Bundle at a Glance
 

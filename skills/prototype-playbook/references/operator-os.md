@@ -90,8 +90,8 @@ re-quote them):
 | --- | --- | --- |
 | merge-point row | the input families that become objects: JSON body merge, query-string parse, hash/config hydration (PP-001/002) | merge-surface row (where a key name crosses) |
 | library row | the pinned versions with their gadget availability cross-reference (PP-007/008 classes) | gadget-availability row (version-written) |
-| clobber row | the named-element census at page load: ids, names, `location`-adjacent shapes (PP-009) | clobber-surface row (globals that can be shadowed) |
-| listener row | the message-listener list with origin/shape grades | entry row (ungraded listeners are open surface) |
+| clobber row | the named-element census at page load: ids, names, `location`-adjacent shapes (PP-009 hand-off; the probe shells PP-011) | clobber-surface row (globals that can be shadowed) |
+| listener row | the message-listener list with origin/shape grades (the probe shell PP-012, command shape harvested from the map — a derivation row) | entry row (ungraded listeners are open surface) |
 | oracle row | the safe-detection repertoire that fits this estate: status override, JSON spaces, header reflection, OPTIONS, OAST (PP-004/005/006) | detection-plan row (the no-DoS verdict carrier) |
 | bypass row | the filter-evasion inventory: `constructor.prototype` where `__proto__` is filtered (PP-003) | write-variant row (for the estates that filter) |
 

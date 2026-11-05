@@ -101,6 +101,9 @@ every corpus entry carries probe, oracle, failure modes, and source):
 | duplicate-CL row | two Content-Length values where intermediaries differ in precedence | DS-006 |
 | CL.0 row | browser-powered desync — the request that ends where the parser thinks it doesn't | DS-007 |
 | H2 downgrade row | H2.CL / H2.TE — the framing seam the downgrade creates | DS-008 |
+| header-name row | name-borne disagreement — odd header-NAME bytes one parser drops, the other forwards | DS-010 |
+| obs-fold row | folded header values re-parsed as new headers across the seam | DS-011 |
+| request-line row | absolute-form request-target the hops route differently | DS-012 |
 | poisoning proof row | response-queue poisoning, canary-marked, operator-owned — impact only | DS-009 (R6 ceiling) |
 | differential harness row | treatment vs control (same bytes minus ONE restoring byte), interleaved A,B,A,B ×5 — the three-part confirm rule | T4 + M3 |
 

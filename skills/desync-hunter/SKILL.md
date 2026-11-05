@@ -1,6 +1,6 @@
 ---
 name: desync-hunter
-version: 1.5.0
+version: 1.6.0
 type: ai-skill
 architecture: package
 description: >-
@@ -19,7 +19,11 @@ description: >-
   matrix, the interleaved differential confirmation rule (n ≥ 5,
   response-class buckets, control with one restoring byte), and the escalation
   ladder with canary-marked operator-owned victims and a mandatory ceiling
-  statement. Use when testing without a scanner against proxy chains, when
+  statement. Since v1.6.0 the payload corpus deepens (A19): the
+  header-name oddity set, the obs-fold class, and the absolute-form
+  request line enter the versioned corpus (corpus.json 1.1.0) — the
+  catalog's name-borne, fold-borne, and line-borne classes now resolve
+  to byte-exact entries instead of shapes-only rows. Use when testing without a scanner against proxy chains, when
   hunting request smuggling or desync, when documentation says the system
   works one way and you need to force input the other way, or when classifying
   parser asymmetries ("request smuggling", "CL.TE", "desync", "protocol
@@ -33,7 +37,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; targets whose scope explicitly covers the infrastructure/proxy layer
 ---
 
-# desync-hunter v1.5.0 — The Spec Is A Hypothesis
+# desync-hunter v1.6.0 — The Spec Is A Hypothesis
 
 ## 0. What This Skill Is — and Is Not
 
@@ -251,7 +255,7 @@ versioned in corpus.json).
 | Choosing/designing an ambiguity | `references/asymmetry-catalog.md` |
 | Grading the published method, building the CHAINMAP, running the selection matrix and differential protocol | `references/method-upgrade.md` |
 | Running the hunt — the James Kettle runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
-| Exact probe bytes (CL.TE/TE.CL differential + timeout probes, TE.TE obfuscations, H2.CL), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact probe bytes (CL.TE/TE.CL differential + timeout probes, TE.TE obfuscations, H2.CL, header-name oddity set, obs-fold class, absolute-form request line), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Kettle lineage and sources | `references/sources.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its

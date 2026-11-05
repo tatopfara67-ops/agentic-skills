@@ -8,7 +8,7 @@ Bugcrowd VRT category with P-rating, HackerOne severity crosswalk) — and an
 operator instruction, however terse, becomes an explicit doctrine order
 before any organ acts.
 
-  mythos_charter()      the activation payload: eighteen articles, the
+  mythos_charter()      the activation payload: nineteen articles, the
                         bundle map with install status, the quality gates
   doctrine_forge(...)   prompt escalation (A13): any operator request,
                         in any language, expanded deterministically into
@@ -1140,6 +1140,26 @@ ARTICLES = [
     "handed; rollout is staged — the organ set carrying the ladder "
     "is locked by test_opening_ladder_rollout and grows only by "
     "execution.",
+    "A19 the payload corpus depth law — a kit that names probe bytes "
+    "must carry them: the payload organs ship versioned probe "
+    "corpora (references/corpus.json, byte-exact, attributed per "
+    "entry) and every payload kit row that names a fixed-byte "
+    "technique class resolves to a corpus entry — (a) a kit row "
+    "citing a prose reference where it should cite the corpus is a "
+    "defect: it forces the hand-crafting the corpus discipline "
+    "forbids; (b) target-derived probe shapes (harvested ids, "
+    "listener command shapes, the scheme-less remainder) stay "
+    "labeled derivation rows, module-cited, never silently equated "
+    "with corpus bytes; (c) the corpus grows only by transcribed, "
+    "attributed entries — invented payloads are fabrication (A2 "
+    "applied to the weapon itself), and every growth bumps "
+    "corpus_version with the entries delta on record (drift "
+    "discipline applied to the payload layer); and (d) the organ's "
+    "own method-layer class tables (grammar rows, probe families, "
+    "scheme matrices) are the naming surface — the class they name "
+    "and the corpus entry that carries it are joined on record, "
+    "locked by test_payload_kit_depth and its citation-resolution "
+    "gate.",
 ]
 
 QUALITY_GATES = [
@@ -1231,7 +1251,7 @@ def _installed_skills() -> list[str]:
 def mythos_charter() -> dict:
     """The Skill Mythos activation payload, in one call.
 
-    Returns the eighteen charter articles, the bundle map with per-skill
+    Returns the nineteen charter articles, the bundle map with per-skill
     install status, the quality gates every report must pass, and the
     reporting-stage tool routing. Call this at session start (or whenever
     the operator says 'activate Skill Mythos') before list_skills."""

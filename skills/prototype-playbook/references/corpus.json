@@ -2,7 +2,7 @@
   "corpus": "PP",
   "organ": "prototype-playbook",
   "vuln_class": "prototype_pollution",
-  "corpus_version": "1.0.0",
+  "corpus_version": "1.1.0",
   "house_rules": [
     "No-DoS law (organ doctrine, from Heyes' black-box detection research): every server-side probe below is a HARMLESS property write whose only footprint is an observable response difference - crash-style probes (polluting toString/valueOf on hot paths) are forbidden.",
     "The hunting order is source -> gadget -> sink: a source alone is an informational FACT; the finding is the chain.",
@@ -171,6 +171,40 @@
         "credit": "house doctrine (prototype-playbook + Heyes' safe-probe repertoire)",
         "title": "prototype-playbook references/object-model-attacks.md (safe-probe repertoire)",
         "url": "https://portswigger.net/research/server-side-prototype-pollution-black-box-detection-without-the-dos"
+      }
+    },
+    {
+      "id": "PP-011",
+      "technique": "DOM clobbering probe families (named-element globals)",
+      "prerequisites": ["an HTML injection point with attribute control (id, name, href, src)", "page scripts that dereference window/document globals the markup can shadow"],
+      "probe": "<a id=x> (single global) / <a id=x><a id=x name=y> (stepped clobber for x.y references) / <form id=f><input name=z> (form-control named properties)",
+      "oracle": "the page script's behavior changes as its reference resolves to the crafted element (observable: a value used in text, a fetch URL, a redirect) - the clobbered branch observed in a self-owned marker run, never a static guess",
+      "failure_modes": [
+        "explicit var/let declarations shadow the clobber - the reference resolves to the genuine object; record which, the organ's same-lesson rule",
+        "the page's dereference target never runs on this route - clobber surface exists but the gadget read is dead code; park the row",
+        "HTML sanitization strips id/name attributes - the injection point lacks attribute control; the family is closed at this sink"
+      ],
+      "source": {
+        "credit": "PortSwigger Research (the modern clobbering revival) + the organ's probe-family table, labeled",
+        "title": "DOM Clobbering strikes back; object-model-attacks.md §3 (probe families)",
+        "url": "https://portswigger.net/research/dom-clobbering-strikes-back"
+      }
+    },
+    {
+      "id": "PP-012",
+      "technique": "postMessage origin-confusion probe (self-owned both ends)",
+      "prerequisites": ["an in-scope frame with a message listener", "an operator-owned sender page (self-owned origin)"],
+      "probe": "window.frames[0].postMessage({command: \"<the listener's own command shape>\"}, \"*\") - the command shape harvested from the listener map, never sprayed",
+      "oracle": "the handler executes the command for a foreign origin (observable: the DOM/fetch action fires) - graded per the organ's oracle families: no-check, substring origin check, source-reply leak",
+      "failure_modes": [
+        "the handler rejects foreign origins cleanly - the recorded falsifier; the next listener is the march",
+        "the command shape is wrong for this listener - the shape is evidence-derived (the listener map); a sprayed shape is noise, not a probe",
+        "frame-boundary permissions (X-Frame-Options / sandbox) block the operator sender - the probe needs a reachable frame topology; ledger it"
+      ],
+      "source": {
+        "credit": "the organ's probe table, labeled (object-model-attacks.md §4); the postMessage bug class per the DOM Invader record (Heyes)",
+        "title": "object-model-attacks.md §4 (the self-owned-both-ends probe); DOM Invader documentation",
+        "url": "https://portswigger.net/burp/documentation/desktop/tools/dom-invader"
       }
     }
   ]

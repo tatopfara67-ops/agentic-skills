@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.16.0
+version: 1.17.0
 type: ai-skill
 architecture: package
 description: >-
@@ -68,7 +68,20 @@ description: >-
   signal, the tier-boundary validation gate with the KRBTGT
   double-reset arithmetic, and every attack row paired with its
   detection row and the indicator's rot caveat — the fifth
-  candidate-queue execution), the tier-3
+  candidate-queue execution), the tier-5 craft organ
+  opsec-discipline since v1.17.0 (the grugq lineage: campaign
+  hygiene as an economic discipline — the operator's own footprint
+  priced before the first request with the exposure census's
+  detection/attribution/removal arithmetic, the plumbing-first law
+  because paranoia doesn't work retroactively, compartmentation
+  securing identity/activity/association with separation by
+  construction, cover over concealment with the ROE as the
+  authorized engagement's cover document, the suspect pool kept
+  wide so attribution never narrows to the operator alone, comms
+  treated as events whose timing and correlation leak before
+  content, and the closure audit running the
+  destruction/contraception triad on the operator's own artifacts —
+  the sixth candidate-queue execution), the tier-3
   attack organs (injection-lab, ssrf-playbook, xss-playbook,
   cloud-config-auditor, mobile-hunter with the Charlie Miller lineage,
   cache-playbook with the Omer Gil and Kettle cache corpus, prototype-playbook
@@ -95,7 +108,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.16.0 — The Master Charter
+# skill-mythos v1.17.0 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -270,6 +283,7 @@ metadata:
 | 5 | protocol-forensics | the Dan Kaminsky lineage: protocol forensics at internet scale — the spec's ambiguity hunted across the implementation population, invariants priced with computed arithmetic, the fix engineered as a coordinated event |
 | 5 | interior-cartographer | the James Forshaw lineage: OS internal-surface cartography — the interior census with boundary rows, the access-model audit with a computed seam table, primitives composed across uncovered seams, findings mapped to the vendor's own boundary taxonomy with declined seams on record |
 | 5 | harness-smith | the Tavis Ormandy lineage: fuzz-first attack-surface triage and oracle engineering — the privileged-parser census, the harness with corpus distillation, the declared oracle, the minimized repro, the no-terms report, and the missed-why postmortem |
+| 5 | opsec-discipline | the grugq lineage: campaign hygiene as an economic discipline — the operator's own footprint priced before the first request, the plumbing-first law, compartmentation securing identity/activity/association, cover over concealment with the ROE as the cover document, the suspect pool kept wide, comms as events, and the priced closure |
 | 6 legend | chain-architect | the Orange Tsai lineage (Tier S): the compound kill chain — low-severity primitives composed into critical impact, every link proven by its own differential |
 | 6 | desync-hunter | the James Kettle lineage (Tier S): protocol & specification asymmetry — parser-seam ambiguities, one per request, bytes as evidence; carries the M1–M4 method layer (CHAINMAP, selection matrix, differential protocol, escalation ladder) |
 | 6 | deep-teardown | the George Hotz lineage (Tier S): dismantle client artifacts to primitives — local data flow before network flow |

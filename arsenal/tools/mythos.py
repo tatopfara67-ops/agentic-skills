@@ -54,7 +54,8 @@ TIERS = {
     "5-craft": ["scan-economist", "module-smith", "pipeline-smith",
                 "feedback-fuzzer", "template-scanner",
                 "packet-orchestrator", "protocol-forensics",
-                "interior-cartographer", "harness-smith"],
+                "interior-cartographer", "harness-smith",
+                "opsec-discipline"],
     "6-legend": ["chain-architect", "desync-hunter", "deep-teardown",
                  "ghost-crawler", "mirror-hunter", "probe-smith",
                  "signal-smith", "trust-graph-hunter"],
@@ -749,6 +750,78 @@ LINEAGES = [
                       "artifact — the documented teaching evidence is "
                       "the trainer profile; the book's techniques enter "
                       "the organ at synopsis level only, bounded",
+    },
+    {
+        "organ": "opsec-discipline",
+        "figure": "the grugq (pseudonymous counterintelligence "
+                  "researcher; South African, Bangkok-based per press "
+                  "record; @stake — forced out over the Phrack 59 "
+                  "anti-forensics article, independent since) — Phrack "
+                  "59 'Defeating Forensic Analysis on Unix' (2002); "
+                  "'The Art of Defiling' (Black Hat Asia 2003, Black "
+                  "Hat Europe 2005); the OPSEC corpus ('OPSEC for "
+                  "Hackers: Because Jail is for wuftpd', Ekoparty "
+                  "2012, re-serveed as the 'OPSEC for Russians' "
+                  "keynote); the 2013 blog cycle at grugq.github.io; "
+                  "'COMSEC: Beyond Encryption' (Kiwicon 2014, with "
+                  "Ben Nagy); 'How Very APT' (TROOPERS 2017); 'A "
+                  "Short Course on Cyber War' (Black Hat Asia 2018 "
+                  "keynote); the PORTAL hardware project",
+        "distillation": "campaign hygiene as an economic discipline: "
+                        "data is evidence, so the operator's own trail "
+                        "is priced like any attack surface (detection "
+                        "risk x attribution risk x removal cost, "
+                        "identity/activity/association as the three "
+                        "secrets); the plumbing goes in first because "
+                        "paranoia doesn't work retroactively — "
+                        "per-engagement credentials, declared egress, "
+                        "separated storage, fail-closed separation by "
+                        "construction before the first request; "
+                        "compartmentation limits the blast radius when "
+                        "a compartment fails; cover beats concealment "
+                        "(the ROE as the authorized engagement's cover "
+                        "document, apparent cover next, concealment "
+                        "the fragile last resort); the suspect pool "
+                        "stays wide — never be the only anomaly that "
+                        "narrows attribution, and the client hears a "
+                        "convergence first; communications are events "
+                        "whose timing and correlation leak before "
+                        "content does, latency bought deliberately "
+                        "with a stated budget; and the closure audit "
+                        "runs the destruction/contraception triad on "
+                        "the operator's own artifacts while the "
+                        "dossier's method records stay compartmented, "
+                        "never destroyed",
+        "sources": "decks read in full, text-extracted, dates pinned "
+                   "(the Art of Defiling BH EU 2005; OPSEC for "
+                   "Hackers 2012 with the Ten Commandments and the "
+                   "ops architecture; COMSEC 2014 with full presenter "
+                   "notes; How Very APT 2017; A Short Course on Cyber "
+                   "War 2018); the 2013 blog cycle read in full "
+                   "(Ignorance Is Strength; Anonymity Is Hard; "
+                   "Observations on OPSEC; OPSEC Isn't Security "
+                   "Through Obscurity; It Was DPR; In Search of "
+                   "OPSEC Magic Sauce); the John W. Little interview "
+                   "2013 read in full; the presentations index "
+                   "2003-2018; the Phrack 59 author record; the "
+                   "PORTAL repo record; the blog archives index; the "
+                   "podcast and newsletter records — with the talk "
+                   "videos, Phrack 59 full text, the pre-2012 decks, "
+                   "the tumblr archive, and the tool source trees "
+                   "BOUNDED, not line-read; "
+                   "skills/opsec-discipline/references/sources.md",
+        "correction": "the corpus's clandestine framing (evade law "
+                      "enforcement) is translated on record to the "
+                      "authorized-engagement frame — the client is "
+                      "disclosed, the ROE is the cover document, "
+                      "concealment beyond declared scope is out of "
+                      "scope; the COMSEC co-authorship with Ben Nagy "
+                      "is kept on record; the press profiles' "
+                      "childhood narrative and the 'most quoted man "
+                      "in infosec' framing stay quarantined as "
+                      "mythology-class, and the brokerage economics "
+                      "stay press record of his business role, never "
+                      "method evidence",
     },
 ]
 

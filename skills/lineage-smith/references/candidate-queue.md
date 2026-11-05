@@ -8,7 +8,7 @@ lineage registry is the only record of assimilation, and a queue
 entry is a nomination with homework attached, not a distillation.
 Scores are the M1 gate's five axes (0–2 each); they are re-scored at
 every screening, and entries retire with their reasons kept. The
-queue's first five end-to-end executions retired Q1 into the shipped
+queue's first six end-to-end executions retired Q1 into the shipped
 organ protocol-forensics (v1.0.0, the Dan Kaminsky lineage), Q2 into
 the shipped organ interior-cartographer (v1.0.0, the James Forshaw
 lineage), Q5 into the shipped organ harness-smith (v1.0.0, the
@@ -16,14 +16,16 @@ Tavis Ormandy lineage), Q3 into the shipped organ probe-smith
 (v1.0.0, the Travis Goodspeed lineage), and Q7 into the shipped
 UPGRADE of trust-graph-hunter (v1.3.0, the Sean Metcalf lineage
 layer — the queue's standing demonstration that an upgrade is an
-assimilation too) — the retirement records below are the template
-every future retirement follows.
+assimilation too), and Q4 into the shipped organ opsec-discipline
+(v1.0.0, the grugq lineage — the queue's first score RISE at
+retirement, the talk-heavy gate answered by reading) — the
+retirement records below are the template every future retirement
+follows.
 
 ## The running table
 
 | # | Candidate | Score | Forge target | The honest gate |
 | - | --------- | ----- | ------------ | --------------- |
-| Q4 | the grugq | 7 | opsec-discipline organ (tier 5) | talk-heavy corpus; explicitness must survive the reading |
 | Q6 | Jason Haddix | 7 | spine onboarding upgrade (tier 5) | deck versions pinned; curation separated from method |
 | Q8 | Deviant Ollam | 7 | physical-access organ (tier 6) | engagement fit argued before drafting |
 
@@ -214,19 +216,76 @@ converted to a shipped UPGRADE is the queue doing its job five
 times — and the upgrade route is now demonstrated, not just
 promised.
 
-## Q4 — the grugq (score 7/10)
+## Q4 — the grugq — RETIRED, assimilated as opsec-discipline
 
-* **Public corpus (documented)**: public talks and articles on
-  operational security and tradecraft for offensive operators.
-* **The pattern worth extracting**: OPSEC as an economic discipline —
-  the operator's own footprint priced in cost and attention, survival
-  rules stated for long campaigns.
-* **Forge target**: an opsec-discipline craft organ — the campaign
-  hygiene layer the corpus currently states only inside conduct
-  rules.
-* **The gate**: the corpus is talk-heavy; method explicitness must
-  survive the reading stage — the score may drop, and a drop is
-  recorded, not hidden.
+**Score at retirement: 9/10. Reason: executed end-to-end — and the
+queue's first RECORDED RISE (7 → 9), because the honest gate
+("talk-heavy corpus; method explicitness must survive the reading;
+the score may drop, and a drop is recorded, not hidden") cuts both
+ways: what survives the reading is recorded too.** The reading
+honored the gate before drafting: the method-bearing decks read in
+full, text-extracted, dates pinned ("The Art of Defiling", Black
+Hat Europe 2005 — the anti-forensic principle "data is evidence"
+and the destruction/hiding/contraception triad; "OPSEC for Hackers:
+Because Jail is for wuftpd", Ekoparty 2012, later re-serveed as the
+"OPSEC for Russians" keynote — the Ten Hack Commandments, the
+plumbing/cover/legend methodology, the LulzSec
+violation-by-violation post-mortem, the ops-platform/staging/
+launch-pad architecture, the fail-closed PORTAL doctrine; "COMSEC:
+Beyond Encryption", Kiwicon 2014 with Ben Nagy and full presenter
+notes — cover/concealment/compartmentation, the communications
+event, the cell-size-five research, the plan-for-failure doctrine;
+"How Very APT", TROOPERS 2017; "A Short Course on Cyber War", Black
+Hat Asia 2018), and the 2013 blog cycle read in full ("Ignorance Is
+Strength" — the individual compartmentation SOP; "Anonymity Is
+Hard" — the Hezbollah-vs-CIA rollback; "Observations on OPSEC" —
+the economics in his own words; "OPSEC Isn't Security Through
+Obscurity" — the system view; "It Was DPR" — the Ulbricht
+contamination chain; "In Search of OPSEC Magic Sauce" — the Eldo
+Kim five-phase post-mortem and the suspect-pool doctrine), plus the
+John W. Little interview 2013, the presentations index 2003–2018,
+the Phrack 59 author record, the PORTAL repo record, and the
+podcast/newsletter records — with the talk videos, the Phrack full
+text, the pre-2012 decks, the tumblr archive, and the tool source
+trees stated as BOUNDED, not line-read. Explicitness SURVIVED: the
+corpus ships numbered commandments, a named methodology, a
+three-tier infrastructure architecture, and case post-mortems —
+the HOW is documented. The re-score: volume 2 (24 years, five
+carriers), explicitness 2 (was the doubt; now read-verified),
+verifiability 2 (primary artifacts public), non-overlap 2 (the
+campaign-hygiene layer is unclaimed ground: scan-economist prices
+the target side, ghost-crawler the target touches, the conduct
+rules the attention — nothing priced the operator's own footprint),
+psych-read yield 1 (patterns repeat across 15+ artifacts, but the
+figure's own operational behavior sits behind a maintained
+pseudonym — the read is of the teaching corpus, capped at
+documented method behavior). The organ shipped **born with both
+layers** — the A16 method layer (the W1–W6 critique: the economics
+never tabled, prohibitions without a recovery path, post-mortems
+ad hoc never a taxonomy, the architecture clandestine-only, the
+anti-forensics and OPSEC eras never unified, era-bound tools with
+no porting rule — and the M1–M6 executable protocol: the operator
+exposure census with priced rows and boundary rows, the
+adversary-and-secrets gate with the latency budget, the hygiene
+architecture and the plumbing gate, the communications-event
+discipline, the suspect-pool audit, the closure audit with
+retention rows) and the A17 operator runtime (the grugq rules
+R1–R7, the behavioral protocol with the refusals doing the heavy
+lifting, the read-only operator-side arsenal T1–T6, the rigid
+run-order S1–S8). The translation is the retirement's correction
+record: the corpus was written for clandestine operators against
+state adversaries; the house keeps the information-discipline
+machinery and re-targets it to authorized engagements where the
+client is disclosed, the ROE is the cover document, and concealment
+beyond declared scope is out of scope — the COMSEC co-authorship
+with Ben Nagy kept on record, the press childhood narrative and the
+"most quoted man in infosec" framing quarantined as mythology-class,
+the brokerage economics kept as press record of his business role,
+never method evidence. Retirement keeps this record: a sixth queue
+slot converted to a shipped organ, the hygiene debt the queue entry
+named ("stated only inside conduct rules") now paid with a
+dedicated organ — and the gate's warning answered in the direction
+the corpus earned.
 
 ## Q6 — Jason Haddix (score 7/10)
 

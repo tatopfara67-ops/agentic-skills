@@ -4,7 +4,7 @@
 
 Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
-![bundles](https://img.shields.io/badge/skill_bundles-43-informational) ![tools](https://img.shields.io/badge/MCP_tools-30-informational) ![tests](https://img.shields.io/badge/tests-164_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
+![bundles](https://img.shields.io/badge/skill_bundles-43-informational) ![tools](https://img.shields.io/badge/MCP_tools-30-informational) ![tests](https://img.shields.io/badge/tests-165_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
 
 ---
 
@@ -68,7 +68,7 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.21.1 | The nineteen articles (A16 method over mythology, A17 behavior over biography, A18 the opening ladder — perception as a candidate-generation drill before verification, A19 the payload corpus depth law — every payload kit row resolves to a byte-exact versioned corpus entry; the covered organ set grows only by execution), the tiered bundle map (tiers 0–7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.21.2 | The nineteen articles (A16 method over mythology, A17 behavior over biography, A18 the opening ladder — perception as a candidate-generation drill before verification, A19 the payload corpus depth law — every payload kit row resolves to a byte-exact versioned corpus entry; the covered organ set grows only by execution), the tiered bundle map (tiers 0–7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). The full binding text of the articles lives in references/charter.md — the routing layer stays lean (locked by test_charter_full_text_lives_in_references). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.1.1 | The engine's own manual — model-class failure geometry E1–E8 and four compensation gates, written to the engine, not the operator. |
 | Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.8.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 22 reference modules + a PASS/FAIL report auditor; carries the Jason Haddix lineage layer (methodology-preservation protocol), and since v4.7.0 the Hypothesis Contract is executable — hypothesis_register / _close / _list refuse unevidenced registration, non-three-state closure, and retrodiction; since v4.8.0 the onboarding runtime ships The opening ladder (A18) — the corpus-reading questions (pin / split / rot / gate / basis / proof) that write preservation rows before any engagement state exists. |
 | Organs | 37 organ skills (tiers 1–7 below: 35 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
@@ -113,8 +113,8 @@ Reproduce the numbers from a fresh checkout:
 
 | Claim | Check | Expected |
 |---|---|---|
-| 43 skill bundles pass structural validation | `python3 scripts/validate_skill.py --all` | `GATE: PASS (43 bundle(s), 1 warning(s))` — the warning is the advisory size cap on the master charter's SKILL.md (article 19 grew the routing layer past 32 KB; the gate passes, the cap is advisory by design) |
-| 164 unit tests pass | `python3 -m unittest discover -s arsenal/tests` | `Ran 164 tests ... OK` |
+| 43 skill bundles pass structural validation, zero warnings | `python3 scripts/validate_skill.py --all` | `GATE: PASS (43 bundle(s), 0 warning(s))` — the master charter's SKILL.md was refactored past the advisory size cap (v1.21.2): the full article text moved verbatim to references/charter.md, and the lean routing layer is locked by test_charter_full_text_lives_in_references |
+| 165 unit tests pass | `python3 -m unittest discover -s arsenal/tests` | `Ran 165 tests ... OK` |
 | 30 MCP tools register and import | `python3 arsenal/server.py --selftest` | `registered MCP tools (30)` |
 | Pre-registration is mechanical | `python3 -m unittest arsenal.tests.test_hypotheses` | `OK` — registration without ledger facts, retrodiction, and Park-less INCONCLUSIVE are all refused |
 | The scope gate refuses out-of-scope targets | `python3 -m unittest arsenal.tests.test_scope_gate` | `OK` |
@@ -175,7 +175,7 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 
 | Skill | Version | What it does |
 |---|---|---|
-| [skill-mythos](skills/skill-mythos/) | 1.21.0 | Master charter — nineteen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography, A18 the opening ladder, A19 the payload corpus depth law), bundle map, autonomy + execution + war doctrines, quality gates. |
+| [skill-mythos](skills/skill-mythos/) | 1.21.2 | Master charter — nineteen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography, A18 the opening ladder, A19 the payload corpus depth law; full binding text in references/charter.md), bundle map, autonomy + execution + war doctrines, quality gates. |
 | [glm-self-model](skills/glm-self-model/) | 1.1.1 | The engine layer — five truths, failure geometry E1–E8, compensation gates G1–G4; the engine grades its own manual (M1–M5). |
 | [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.8.0 | The spine — R0–R7 canon, ledger, hypothesis grammar, closure gates, mission horizon; carries the Jason Haddix lineage layer (methodology preservation: pin, split, gate, classify, prove, drift-audit), the mechanized Hypothesis Contract (register / close / list — retrodiction refused), and the A18 opening ladder (the onboarding question set that writes preservation rows first). |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit — static analysis proposes, the runtime disposes. Calibrated by rediscovering CVE-2024-33663/33664. |

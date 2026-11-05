@@ -133,6 +133,48 @@ class TestMythosCharter(unittest.TestCase):
         self.assertIn("test_payload_kit_depth",
                       self.charter["articles"][18])
 
+    def test_charter_full_text_lives_in_references(self):
+        """The routing layer stays lean (v1.21.2): the full binding
+        text of the nineteen articles lives in references/charter.md
+        (moved verbatim — SKILL.md back under the validator's WARN
+        threshold), and the two forms never drift: the full text
+        counts exactly nineteen articles, carries every distilled
+        article's keyword and lock-test, and the routing layer points
+        at it. Regrowing the routing layer past the threshold is the
+        defect this test refuses.
+        """
+        bundle = os.path.join(_TREE_ROOT, "skills", "skill-mythos")
+        core_path = os.path.join(bundle, "SKILL.md")
+        full_path = os.path.join(bundle, "references", "charter.md")
+        with open(core_path, encoding="utf-8") as fh:
+            core = fh.read()
+        with open(full_path, encoding="utf-8") as fh:
+            full = fh.read()
+
+        self.assertIn("references/charter.md", core)
+        self.assertLessEqual(os.path.getsize(core_path), 32768,
+                             "SKILL.md regrew past the WARN threshold — "
+                             "depth belongs in references/charter.md")
+
+        # the full text counts exactly the nineteen articles
+        numbered = [line for line in full.splitlines()
+                    if re.match(r"^\d+\. \*\*", line)]
+        self.assertEqual(len(numbered), 19)
+
+        # and the two forms never drift: each distilled article's
+        # keyword and lock-test survive in the full binding text
+        # (casefold: the full text headlines "War logic.", the
+        # distilled form says "war logic" mid-sentence)
+        full_cf = full.casefold()
+        for keyword in ("prompt escalation", "three registers",
+                        "war logic", "method over mythology",
+                        "behavior over biography", "the opening ladder",
+                        "payload corpus depth"):
+            self.assertIn(keyword, full_cf)
+        self.assertIn("test_opening_ladder_rollout", full)
+        self.assertIn("test_payload_kit_depth", full)
+        self.assertIn("test_operator_os_is_universal", full)
+
     def test_charter_carries_prompt_escalation(self):
         escalation = self.charter["prompt_escalation"]
         self.assertEqual(escalation["tool"], "doctrine_forge")

@@ -1,6 +1,6 @@
 ---
 name: auth-boundary-mapper
-version: 2.3.0
+version: 2.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -35,7 +35,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; two operator-owned test accounts
 ---
 
-# auth-boundary-mapper v2.3.0 — The Matrix Before The Hunt
+# auth-boundary-mapper v2.4.0 — The Matrix Before The Hunt
 
 ## 0. What This Skill Is — and Is Not
 
@@ -156,7 +156,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Frans Rosen.
+executing, characteristic of Frans Rosen. Since v2.4.0 it also ships
+**The opening ladder** (A18): where Rosen's candidates come from — the
+perception layer that PRODUCES ranked grammar, position, and
+second-order candidates from the estate's own identifier construction
+before any swap is due (rungs write census rows, never swaps; ranking
+rationale stated; generation falsifier on record; the
+identifier-census kit is the pinned desk row set).
 
 ## 4. Procedure — Numbered Actions
 
@@ -230,4 +236,4 @@ executing, characteristic of Frans Rosen.
 | Building the matrix / verdict grammar | `references/matrix.md` |
 | Identifier classes / swap positions / 2nd-order flows / tenant slices (the Rosen field guide) | `references/idor-field-guide.md` |
 | Grading the published form, censusing identifiers, running the boundary differential | `references/method-upgrade.md` |
-| Running the hunt — the Frans Rosen runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Frans Rosen runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

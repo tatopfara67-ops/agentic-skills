@@ -1,13 +1,13 @@
-# operator-os.md — the Ormandy runtime: think, behave, script
+# operator-os.md — the Ormandy runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md §2) states
 > the laws; the M-protocol (references/method-upgrade.md) states
-> M1–M6; THIS module is the runtime — how the agent thinks, behaves,
-> and scripts while executing them, characteristic of Tavis Ormandy's
-> documented craft: fuzz-first but oracle-designed, the privileged
-> parser as the target, the discrepancy as the entrance, the missing
-> instrument built rather than mourned, and the simplest repro with
-> its missed-why as the report.
+> M1–M6; THIS module is the runtime — how the agent notices, thinks,
+> behaves, and scripts while executing them, characteristic of Tavis
+> Ormandy's documented craft: fuzz-first but oracle-designed, the
+> privileged parser as the target, the discrepancy as the entrance,
+> the missing instrument built rather than mourned, and the simplest
+> repro with its missed-why as the report.
 
 ## 1. The thinking framework — decision rules
 
@@ -60,6 +60,69 @@ fuzzing, static analysis, review, sandboxing), and the MECHANICAL
 reason each did not. A bug without its missed-why is half-shipped.
 *From:* the BigSig postmortem's own title — "This shouldn't have
 happened."
+
+### The opening ladder — where Ormandy's candidates come from
+
+The rules above govern the hunt once a target is chosen; the ladder
+produces the candidates FIRST — the 2016-era perception (the Symantec
+record's ranking logic: "as bad as it gets" was not a bug
+description, it was a CENSUS verdict — no interaction, default
+config, kernel memory corruption, decided BEFORE any harness
+existed) made runnable as questions. Every rung is a desk question
+that writes rows — no rung mutates an input, runs a campaign, or
+builds an instrument; the fuzzing stays gated behind the oracle
+declaration and consumes the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Which components in scope parse hostile input at privilege? | the parser census: every in-scope component graded privilege × deployment × input hostility — the row set the hunt reads | R1's first-thought law — the product decides whether it is worth a harness (sources.md, the 2016 Symantec record) |
+| G2 | What is each parser's deployment shape — default-on, no-interaction, on every endpoint? | the blast row: the no-interaction and default-config classes that made the record's "as bad as it gets" verdict | the 2016 record's own ranking terms (no interaction, default config, kernel — sources.md) |
+| G3 | What oracle would SEE each class of failure — and where is each oracle blind? | the oracle census: crash oracles (memory bugs), state-comparison oracles (logic bugs), serialized oracles (nondeterministic execution) — the declared class per candidate, blind spots stated | R2's oracle-design law (Zenbleed 2023's serialized oracle; BigSig 2021's call-stack monitoring — sources.md) |
+| G4 | What simple confirmation test would establish "it works the way I believe" — where could a discrepancy refuse to explain itself? | the discrepancy row: the pre-written confirmation test whose unexplained failure IS the entrance — the campaign's opening move, drafted before the campaign | R3's chase-the-discrepancy law (the MSCTF campaign began with one unexplained message-range result in a test written to confirm belief — sources.md, "Down the Rabbit-Hole" 2019) |
+| G5 | Which defenses should have caught each candidate — and why did the ecosystem miss it? | the missed-why census: the project's own fuzzing, static analysis, review, sandboxing — each priced for the mechanical reason it did not catch the class | R7's missed-why law (the BigSig postmortem's "This shouldn't have happened" — sources.md) |
+
+Ranking rationale: candidate priority = privilege × deployment ×
+input hostility (T1's own arithmetic). A kernel unpacker on by
+default with hostile input ranks first (the record's own "as bad as
+it gets" class); a sandboxed fancy parser ranks by its isolation
+(the census's whole point is that trivial-vs-critical is decided by
+the deployment, not the bug); an oracle-blind candidate ranks by its
+failure class (a logic bug under a crash oracle is invisible until
+the oracle row exists); the missed-why rows rank last — they are the
+report's half, not the hunt's entrance. Rows out; not one input
+mutated.
+
+Generation falsifier: a software scope where the desk sweep yields
+zero parser rows means the census classes did not load for that
+estate (a pure-service scope with no local parsing surfaces routes
+to the app organs; a scope whose parsers are all quarantined by
+sandbox rows prices those rows too — the sandbox is a census input,
+not an exemption) — the census is re-read, the missing rung written
+with its grounding row. The scope is never excused as "no targets
+worth a harness" at generation time: that verdict, when it is true,
+is itself the census's measured output, and a zero-yield verdict
+belongs to verification's coverage row, never to the ladder.
+
+#### The ladder's payload kit — the parser-census rows (customize before use)
+
+Generation writes rows; these are the census classes the rows name,
+every one a desk read of the estate's own component inventory (no
+harness exists yet; the hunt mechanics live in T1–T6):
+
+| Census row | The read payload class | Writes which row |
+| --- | --- | --- |
+| component row | every in-scope parser: unpacker, renderer, thumbnailer, extractor — with privilege/deployment/hostility grades | parser-census row (the ranked target list) |
+| deployment row | the blast shape: default-on, no-interaction, every-endpoint classes per component | blast row (the trivial-vs-critical multiplier) |
+| oracle row | the failure classes the estate admits: crash, logic (state comparison), nondeterministic (serialized) — with each oracle's blind spots | oracle-plan row (R2's declared class) |
+| confirmation-test row | the simple test per candidate that would confirm belief — the discrepancy's pre-drafted landing spot | discrepancy row (R3's entrance, pre-named) |
+| missed-why row | the defenses that should have caught each class: the project's fuzzing, static analysis, review, sandboxing | missed-why candidate row (R7's pre-mortem) |
+| corpus row | the sample corpus available per parser and its distillation arithmetic (the set-cover classes) | corpus-plan row (T3's feed) |
+
+Customization knobs, stated in the plan note: the oracle class (crash
+vs state-comparison vs serialized — which the harness carries per
+candidate), the corpus policy (distilled set-cover vs fat corpus —
+what T3 prices), and the deadline frame (the default clock vs the
+shortened wormable/default-on/kernel clock of R6).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

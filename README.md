@@ -195,7 +195,7 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 
 | Skill | Version | What it does |
 |---|---|---|
-| [auth-boundary-mapper](skills/auth-boundary-mapper/) | 2.3.0 | Role×resource matrix, IDOR/BOLA differentials (Frans Rosen lineage). |
+| [auth-boundary-mapper](skills/auth-boundary-mapper/) | 2.4.0 | Role×resource matrix, IDOR/BOLA differentials; the identifier-construction opening ladder (Frans Rosen lineage). |
 | [oauth-flow-auditor](skills/oauth-flow-auditor/) | 2.4.0 | OAuth/OIDC checks with falsifiers; the client-inventory opening ladder (Aaron Parecki lineage, RFC 9700 vocabulary). |
 | [business-logic-hunter](skills/business-logic-hunter/) | 2.4.0 | Workflow abuse, rate-floored races, parameter tampering; the enforcement-census opening ladder (Soroush Dalili lineage). |
 
@@ -229,8 +229,8 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | [packet-orchestrator](skills/packet-orchestrator/) | 1.3.0 | Manual first, then state-backed automation; packet differentials show their bytes; the capture-first opening ladder (Searle + Mantis + Scapy lineages). |
 | [protocol-forensics](skills/protocol-forensics/) | 1.2.0 | Spec ambiguity hunted across the implementation population; entropy-priced invariants; the class-first opening ladder (Dan Kaminsky lineage). |
 | [interior-cartographer](skills/interior-cartographer/) | 1.2.0 | OS internal-surface census, seam tables, ACCESS_MASK budget; the unpriced-seam opening ladder (James Forshaw lineage). |
-| [harness-smith](skills/harness-smith/) | 1.0.0 | Fuzz-first triage and oracle engineering; the mandatory missed-why postmortem (Tavis Ormandy lineage). |
-| [opsec-discipline](skills/opsec-discipline/) | 1.0.0 | Campaign hygiene as an economic discipline — exposure census, compartmentation, closure audit (the grugq lineage). |
+| [harness-smith](skills/harness-smith/) | 1.1.0 | Fuzz-first triage and oracle engineering; the mandatory missed-why postmortem; the parser-census opening ladder (Tavis Ormandy lineage). |
+| [opsec-discipline](skills/opsec-discipline/) | 1.1.0 | Campaign hygiene as an economic discipline — exposure census, compartmentation, closure audit; the exposure-pricing opening ladder (the grugq lineage). |
 
 ### Tier 6 — Legend Tier (9)
 
@@ -241,10 +241,10 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | [deep-teardown](skills/deep-teardown/) | 1.3.0 | Client artifacts dismantled to primitives, local before any network flow; the read-it-first opening ladder (George Hotz lineage). |
 | [ghost-crawler](skills/ghost-crawler/) | 1.3.0 | Passive-index misconfig hunting — one bounded probe per candidate; the neglect ladder (Adrian Lamo lineage). |
 | [mirror-hunter](skills/mirror-hunter/) | 1.3.0 | LLM/agent surfaces where the target runs the hunter's engine class; the surface-census opening ladder (Simon Willison lineage). |
-| [probe-smith](skills/probe-smith/) | 1.0.0 | Hardware teardown — pinout discovery, priced bypass ladder, radio promiscuity (Travis Goodspeed lineage). |
+| [probe-smith](skills/probe-smith/) | 1.1.0 | Hardware teardown — pinout discovery, priced bypass ladder, radio promiscuity; the interface-census opening ladder (Travis Goodspeed lineage). |
 | [signal-smith](skills/signal-smith/) | 1.3.0 | Input grammar and precision signals — never trip the alarm; the listen-first opening ladder (John Draper lineage). |
-| [threshold-hunter](skills/threshold-hunter/) | 1.0.0 | Physical trust boundaries at the information layer; detection as the deliverable (Deviant Ollam lineage). |
-| [trust-graph-hunter](skills/trust-graph-hunter/) | 1.3.0 | Inherited privilege across the trust graph; the AD directory interior (Mitnick + Metcalf lineages). |
+| [threshold-hunter](skills/threshold-hunter/) | 1.1.0 | Physical trust boundaries at the information layer; detection as the deliverable; the second-reading opening ladder (Deviant Ollam lineage). |
+| [trust-graph-hunter](skills/trust-graph-hunter/) | 1.4.0 | Inherited privilege across the trust graph; the AD directory interior; the trust-edge-census opening ladder (Mitnick + Metcalf lineages). |
 
 ### Tier 7 — Forge & Competition (2)
 

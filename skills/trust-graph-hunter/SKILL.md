@@ -1,6 +1,6 @@
 ---
 name: trust-graph-hunter
-version: 1.3.0
+version: 1.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -58,7 +58,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; both endpoints of every deception proof must be in scope and operator-owned
 ---
 
-# trust-graph-hunter v1.3.0 — The System Trusts; Make It Trust You
+# trust-graph-hunter v1.4.0 — The System Trusts; Make It Trust You
 
 ## 0. What This Skill Is — and Is Not
 
@@ -238,6 +238,13 @@ the directory tier). Load it when the hunt runs: the doctrine states
 the posture, the M-protocol states the procedure — the operator OS is
 how the agent BEHAVES while executing, characteristic of Kevin
 Mitnick's context-craft and Sean Metcalf's census-and-price discipline.
+Since v1.4.0 it also ships **The opening ladder** (A18): where
+Mitnick's and Metcalf's candidates come from — the perception layer
+that PRODUCES ranked trust-edge, public-fact, and directory-rights
+candidates from the estate's own published surface before any approach
+is due (rungs write census rows, never pretexts; ranking rationale
+stated; generation falsifier on record; the trust-edge census kit is
+the pinned desk row set).
 
 ## 4. Procedure — Numbered Actions
 
@@ -347,4 +354,4 @@ Mitnick's context-craft and Sean Metcalf's census-and-price discipline.
 | Verifying the Mitnick lineage and translation | `references/sources.md` |
 | Verifying the Metcalf census and the attribution ledger | `references/sources.md` (the Metcalf layer section) |
 | Grading the source translation, enumerating edges, running the context differential | `references/method-upgrade.md` |
-| Running the hunt — the Mitnick + Metcalf runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Mitnick + Metcalf runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

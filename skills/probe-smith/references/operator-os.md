@@ -1,9 +1,9 @@
-# operator-os.md — the Goodspeed runtime: think, behave, script
+# operator-os.md — the Goodspeed runtime: notice, think, behave, script
 
 > A17's layer. Load when the hardware hunt RUNS. Doctrine (SKILL.md §2)
 > states the laws; the M-protocol (references/method-upgrade.md)
-> states M1–M6; THIS module is the runtime — how the agent thinks,
-> behaves, and scripts while executing them, characteristic of
+> states M1–M6; THIS module is the runtime — how the agent notices,
+> thinks, behaves, and scripts while executing them, characteristic of
 > Travis Goodspeed's documented craft: the silicon as ground truth
 > and the datasheet as hypothesis, cheap rigs and patient method over
 > expensive labs, every bus exposed to userland Python, the missing
@@ -75,6 +75,69 @@ next operator, and the tool is handed to whoever maintains it best.
 results, dumping a chip in your own lab"; the IM-ME flashing guide
 (the documented guide-so-the-next-person-follows cadence); the
 GoodFET README pointing users to the maintained fork.
+
+### The opening ladder — where Goodspeed's candidates come from
+
+The rules above govern the hunt once a device is in hand; the ladder
+produces the candidates FIRST — the 25C3-era perception (the first
+public finding in the record began by asking what the silicon does
+despite what the datasheet claims — the bootloader verified its
+password and leaked it through comparison timing; the hunt's unit was
+never "find the bug" but "price the claim against the silicon") made
+runnable as questions. Every rung is a desk question that writes rows
+— no rung solders, buys, builds, or transmits; the rig stays gated
+behind the census gates and consumes the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- |
+| G1 | What can be physically reached on this device — pads, ports, buses, radio, power, silicon? | the interface census: every probeable surface inventoried with its access, yield, and rig-economy grades — the row set the whole hunt reads | R1's ground-truth law — the physically probeable interface is the first thought about ANY embedded target (sources.md, the 25C3 2008 record) |
+| G2 | What does the datasheet claim about each claim's strength — and what has the silicon historically done to such claims? | the discrepancy register: readout "impossible" claims priced against the record's leak classes (timing, per-reset words, hour-long exception leaks) | the 25C3 record (password verified, leaked by timing) + the 2024 book's records (STM32F0 one word per reset; STM32F1 image over an hour) — sources.md, R1's own citations |
+| G3 | What is the cheapest rig that reaches each surface — adapt, junk, or build? | the rig census: the ten-dollar path graded per interface — the budget that survives repetition | R2's cheap-rigs law (the IM-ME ten-dollar clearance toy; the one-radio conference badge — sources.md, the 2010/2011 records) |
+| G4 | Which buses can be exposed to userland Python — what is the instrument's architecture before it exists? | the instrument census: thin firmware on the rig, thick Python on the host — which buses are scriptable, hence recordable | R3's userland law (the GoodFET doctrine; the Facedancer record — sources.md) |
+| G5 | Which radios can go promiscuous — what framing can be learned by listening below the datasheet-legal floor? | the promiscuity census: the RF surfaces where register settings, checksums, and preamble slack admit a listening posture | R5's radio law (the nRF24L01+ record — the SYNC word recovered without prior knowledge or brute force — sources.md, the 2011 record) |
+
+Ranking rationale: candidate priority = access × yield × economy
+(T1's own arithmetic — the census grades). An exposed SPI flash
+with a three-dollar rig ranks first (high access, high yield, junk
+economy); a locked debug port with a known default-password class
+ranks next (the ladder's cheapest rung is visible from the desk); an
+RF surface whose framing is learnable passively ranks by its
+promiscuity admission; decap ranks last — lab economy, and it is the
+ladder's final rung, never its opening. Rows out; no solder wick
+heated, no rig bought.
+
+Generation falsifier: a device where the desk sweep yields zero
+interface rows means the census classes did not load for that
+package (a potted module, a chip-on-board with no exposed pads, a
+fully-encapsulated client device) — the census is re-read with the
+package class expanded (the record's own junk-hardware tradition
+prices the teardown path too), the missing rung written with its
+grounding row. The device is never excused as "black box" at
+generation time: a zero-yield verdict belongs to verification's
+coverage row, never to the ladder.
+
+#### The ladder's payload kit — the interface-census rows (customize before use)
+
+Generation writes rows; these are the census classes the rows name,
+every one a desk read of the device's own package, board, and
+published documentation (no rig exists yet; the hunt mechanics live
+in T1–T6):
+
+| Census row | The read payload class | Writes which row |
+| --- | --- | --- |
+| interface row | every physically reachable surface: SPI flash, UART pads, SWD, sub-GHz radio, power, silicon — with access/yield/economy grades | interface-census row (the ranked surface list) |
+| claim row | the datasheet's protection statements: readout impossible, debug locked, checksum enforced — each priced against the record's leak classes | discrepancy-register row (the hypothesis to test) |
+| rig row | the cheapest path per surface: ADAPT (existing adapter) / JUNK (clearance-rack toy) / BUILD (the missing instrument) with budget | rig-decision row (R2/R3's gate) |
+| bus-exposure row | the scriptable buses: which surfaces a thin-firmware rig can expose to host Python — the recordable set | instrument-architecture row (GoodFET-class) |
+| promiscuity row | the RF surfaces with listening admission: illegal register settings, checksum-off, preamble-slack classes per radio module | promiscuity-plan row (R5's posture) |
+| pinout row | the unpopulated pads, test points, and silkscreen labels read off the board itself | pinout-evidence row (the ground-truth feed) |
+
+Customization knobs, stated in the plan note: the rig budget (junk
+vs adapt vs build — which economy classes the engagement prices),
+the authorization frame (passive promiscuity only vs active probing
+per the R5 refusal — the RF rows that may load), and the target class
+(MCU family and radio module — which register maps and leak-class
+priors the discrepancy register loads).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

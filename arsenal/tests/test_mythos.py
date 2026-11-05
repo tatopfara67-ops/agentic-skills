@@ -309,14 +309,16 @@ class TestMythosLineages(unittest.TestCase):
         lock replaces this list when all 31 person-lineage organs
         carry the ladder."""
         rollout = [
-            "business-logic-hunter", "cache-playbook", "chain-architect",
-            "cloud-config-auditor", "content-discovery", "deep-teardown",
-            "desync-hunter", "feedback-fuzzer", "ghost-crawler",
+            "auth-boundary-mapper", "business-logic-hunter",
+            "cache-playbook", "chain-architect", "cloud-config-auditor",
+            "content-discovery", "deep-teardown", "desync-hunter",
+            "feedback-fuzzer", "ghost-crawler", "harness-smith",
             "interior-cartographer", "mirror-hunter", "mobile-hunter",
-            "module-smith", "oauth-flow-auditor", "packet-orchestrator",
-            "pipeline-smith", "protocol-forensics", "prototype-playbook",
-            "scan-economist", "signal-smith", "subdomain-hunter",
-            "template-scanner", "xss-playbook",
+            "module-smith", "oauth-flow-auditor", "opsec-discipline",
+            "packet-orchestrator", "pipeline-smith", "probe-smith",
+            "protocol-forensics", "prototype-playbook", "scan-economist",
+            "signal-smith", "subdomain-hunter", "template-scanner",
+            "threshold-hunter", "trust-graph-hunter", "xss-playbook",
         ]
         skills_root = os.path.join(_TREE_ROOT, "skills")
         for organ in rollout:
@@ -544,7 +546,7 @@ class TestMythosLineages(unittest.TestCase):
         with open(os.path.join(organ, "SKILL.md"),
                   encoding="utf-8") as fh:
             text = fh.read()
-        self.assertIn("version: 1.0.0", text)
+        self.assertIn("version: 1.1.0", text)
         self.assertIn("Deviant Ollam", text)
         for module in ("references/method-upgrade.md",
                        "references/operator-os.md",

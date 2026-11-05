@@ -1,10 +1,10 @@
-# operator-os.md — the Mitnick + Metcalf trust runtime: think, behave, script
+# operator-os.md — the Mitnick + Metcalf trust runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > trust-graph laws; the M-protocol (references/method-upgrade.md)
 > states the edge protocol (M1–M5) and the directory extension
-> (M6–M9); THIS module is the runtime — how the agent thinks,
-> behaves, and scripts while executing them, characteristic of
+> (M6–M9); THIS module is the runtime — how the agent notices,
+> thinks, behaves, and scripts while executing them, characteristic of
 > Kevin Mitnick's documented craft (trust beats firewalls, context
 > is forgeable from public facts, every approach is rehearsed, the
 > demonstration ends on operator-owned ground) and of Sean
@@ -95,6 +95,70 @@ METHOD (the protocol behavior), never the tool artifact. *From:* the
 corpus's own reference sections and its documented rule — "it's
 better to focus on detecting the method instead of specific
 artifacts".
+
+### The opening ladder — where Mitnick's and Metcalf's candidates come from
+
+The rules above govern the approach once an edge is chosen; the
+ladder produces the candidates FIRST — the case-record perception
+(the lineage's own corpus is one trust-edge census after another:
+the edges, the public facts that assemble into context, and the
+directory rights that inherit — all readable at the desk BEFORE any
+boundary is touched) made runnable as questions. Every rung is a
+desk question that writes rows — no rung assembles a pretext,
+rehearses an approach, or queries the directory; approaches stay
+gated behind R3/R6 and consume the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | WHO trusts WHAT — which edges already carry trust? | the trust-edge census: support queues, vendor portals, SSO handoffs, "verified" senders — every edge someone already trusts, mapped before any port | R1's trust-beats-firewalls law ("The Art of Deception" — the case record is one trust-edge census after another — sources.md, the lineage record) |
+| G2 | What does the estate publish about itself — which public facts assemble into context? | the fact census: job listings, org charts, out-of-office replies, conference programs, public repos — the TRUE components the assembly could forge from | R2's public-facts law (the forgery is in the ASSEMBLY, never in the facts — sources.md, the same record) |
+| G3 | Which directory relationships carry rights — where does inheritance grant what? | the rights census: the union of the lineage's eight sources — group memberships, delegation paths, ACL inheritance, constrained slots — each row a right the directory already believes | R7–R12's rights-union law (the Metcalf extension — the directory-interior record, sources.md) |
+| G4 | Which edges are operator-reachable — and which are third-party-human? | the ethics census: every candidate edge graded live-human vs operator-owned vs mechanical — the gate rows that decide what may EVER be approached | R6's lab-technique law (the organ's mechanical ethics gate — no live third-party humans as targets) |
+| G5 | Where would each candidate's acceptance proof land — what is the operator-owned ground? | the proof census: the operator-stated boundaries and accounts where a demonstration would end — the landing rows named before any approach exists | R5's operator-owned-ground law (the proof is the ACCEPTANCE, not what the acceptance could fetch) |
+
+Ranking rationale: candidate priority = edge trust value × assembly
+completeness × operator-reachability. A trusted edge whose context
+components are all published and whose proof lands on operator ground
+ranks first (the approach is one rehearsal away); a directory right
+inherited through a populated path ranks next (the mechanism is
+already granted — the Metcalf unit); a live-human edge ranks by its
+ethics row FIRST — if it is third-party-human, it parks regardless of
+value (the gate outranks the yield); published facts with no edge to
+carry them rank last — they are assembly inventory, not candidates.
+Rows out; no pretext assembled, no directory queried.
+
+Generation falsifier: an estate where the desk sweep yields zero
+candidate rows means the census classes did not load for that
+surface (an estate with no external trust edges AND no directory
+interior routes to the app organs per the boundary rows; a
+directory present but unenumerable is a scope row, not an excuse) —
+the census is re-read, the missing rung written with its grounding
+row. The estate is never excused as "no trust surface" at generation
+time: every system that admits collaboration has trust edges; a
+zero-yield verdict belongs to verification's coverage row, never to
+the ladder.
+
+#### The ladder's payload kit — the trust-edge census rows (customize before use)
+
+Generation writes rows; these are the census classes the rows name,
+every one a desk read of the estate's own published surface and
+directory record (no approach runs; the craft mechanics live in
+T1–T8):
+
+| Census row | The read payload class | Writes which row |
+| --- | --- | --- |
+| trust-edge row | every WHO-trusts-WHAT edge: support queues, vendor portals, SSO handoffs, verified-sender classes (T1's worksheet feed) | edge-census row (the candidate list) |
+| public-fact row | the estate's own publications: job listings, org charts, OOO replies, conference programs, repos (T2's assembly feed) | assembly-inventory row (the TRUE components) |
+| directory-rights row | the eight-source union: memberships, delegation paths, ACL inheritance, constrained slots (T5–T8's feed) | rights-census row (the granted-but-unexamined set) |
+| ethics row | each candidate edge's grade: live-human / operator-owned / mechanical (the R6 gate's own rows) | gate row (what may EVER be approached) |
+| proof-ground row | the operator-owned boundaries and accounts where acceptance proofs land (T4's differential frame) | landing row (R5's end-state, pre-named) |
+
+Customization knobs, stated in the plan note: the estate class
+(web-trust edges vs AD directory interior vs both — which extension
+loads), the authorization frame (the ethics gate's reach: purely
+mechanical edges only vs operator-owned-account proofs — what R6
+admits this engagement), and the directory depth (which of the eight
+rights sources the census carries, priced per engagement).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

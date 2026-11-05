@@ -1,6 +1,6 @@
 ---
 name: probe-smith
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: >-
@@ -55,7 +55,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; skill-mythos charter v1.14+; hardware targets within program scope only (operator-owned devices, or explicit IoT/embedded scope in the engagement letter)
 ---
 
-# probe-smith v1.0.0 — The Goodspeed Lineage
+# probe-smith v1.1.0 — The Goodspeed Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -212,7 +212,13 @@ read-outs and gates), and the rigid run-order binding all of it onto
 M1–M6. Load it when the hardware hunt runs: the doctrine states the
 posture, the M-protocol states the procedure — the operator OS is
 how the agent BEHAVES while executing, characteristic of Travis
-Goodspeed.
+Goodspeed. Since v1.1.0 it also ships **The opening ladder** (A18):
+where Goodspeed's candidates come from — the perception layer that
+PRODUCES ranked interface candidates by pricing the datasheet's
+claims against the silicon's record before any rig is bought (rungs
+write census rows, never solder joints; ranking rationale stated;
+generation falsifier on record; the interface-census kit is the pinned
+desk row set).
 
 ## 5. Procedure — Numbered Actions
 
@@ -303,5 +309,5 @@ Goodspeed.
 | Load when… | Module |
 | --- | --- |
 | Running the full hardware hunt end to end (census schema, rig gates, pinout protocol, ladder pricing, promiscuity method, verification gates) | references/method-upgrade.md |
-| Running the hunt — the Goodspeed runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Goodspeed runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Checking what was actually read; the census, read ledger, psych-read evidence | references/sources.md |

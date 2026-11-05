@@ -1,6 +1,6 @@
 ---
 name: harness-smith
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: >-
@@ -47,7 +47,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; skill-mythos charter v1.13+
 ---
 
-# harness-smith v1.0.0 — The Ormandy Lineage
+# harness-smith v1.1.0 — The Ormandy Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -169,7 +169,13 @@ minimization loop, the repro builder — exact commands with read-outs
 and gates), and the rigid run-order binding all of it onto M1–M6.
 Load it when the hunt runs: the doctrine states the posture, the
 M-protocol states the procedure — the operator OS is how the agent
-BEHAVES while executing, characteristic of Tavis Ormandy.
+BEHAVES while executing, characteristic of Tavis Ormandy. Since
+v1.1.0 it also ships **The opening ladder** (A18): where Ormandy's
+candidates come from — the perception layer that PRODUCES ranked
+parser candidates by the privilege × deployment × hostility census
+before any harness is built (rungs write census rows, never inputs;
+ranking rationale stated; generation falsifier on record; the
+parser-census kit is the pinned desk row set).
 
 ## 5. Procedure — Numbered Actions
 
@@ -246,5 +252,5 @@ BEHAVES while executing, characteristic of Tavis Ormandy.
 | Load when… | Module |
 | --- | --- |
 | Running the full hunt end to end (census schema, harness gates, oracle classification, minimization, postmortem) | references/method-upgrade.md |
-| Running the hunt — the Ormandy runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Ormandy runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Checking what was actually read; the census, read ledger, psych-read evidence | references/sources.md |

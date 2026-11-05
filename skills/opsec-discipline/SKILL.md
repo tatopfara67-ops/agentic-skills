@@ -1,6 +1,6 @@
 ---
 name: opsec-discipline
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: >-
@@ -59,7 +59,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+ (researcher-conduct §34 rides along, not replaced); skill-mythos charter v1.17+; an authorized engagement context (the corpus's clandestine framing is translated, on record, to the client-disclosed frame — concealment from the client is out of scope)
 ---
 
-# opsec-discipline v1.0.0 — The grugq Lineage
+# opsec-discipline v1.1.0 — The grugq Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -265,7 +265,13 @@ run-order binding all of it onto M1–M6. Load it when the campaign
 hygiene runs: the doctrine states the laws, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
 executing, characteristic of the grugq: priced, aphoristic,
-case-citing, allergic to tool worship.
+case-citing, allergic to tool worship. Since v1.1.0 it also ships
+**The opening ladder** (A18): where the grugq's candidates come from
+— the perception layer that PRODUCES ranked exposure candidates from
+the yet-to-exist trail before the first request flows (rungs write
+pricing rows, never requests; ranking rationale stated; generation
+falsifier on record; the exposure-pricing kit is the pinned census
+row set).
 
 ## 5. Procedure — Numbered Actions
 
@@ -377,5 +383,5 @@ case-citing, allergic to tool worship.
 | Load when… | Module |
 | --- | --- |
 | Running the hygiene lifecycle end to end (census schema, matrix gates, plumbing checklist, comms rules, suspect-pool audit, closure formats) | references/method-upgrade.md |
-| Running the hygiene — the grugq runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hygiene — the grugq runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Checking what was actually read; the census, read ledger, psych-read evidence | references/sources.md |

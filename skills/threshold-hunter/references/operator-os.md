@@ -1,4 +1,4 @@
-# operator-os.md — the Ollam runtime: think, behave, script
+# operator-os.md — the Ollam runtime: notice, think, behave, script
 
 The A17 layer of threshold-hunter (the 31st operator-os module on
 record): the runtime that executes the organ's method (the M1-M6
@@ -62,6 +62,70 @@ executes it).
   never the trophy. This is the same doctrine the house's report
   templates enforce; here it arrives from the physical domain,
   on record, in the lineage's own words.
+
+### The opening ladder — where Ollam's candidates come from
+
+The rules above govern the climb once a boundary is in hand; the
+ladder produces the candidates FIRST — the training-talk perception
+(the lineage's own drill is "here's what you see; now here's what I
+see": the same surface, re-read with exploit-annotated attention,
+BEFORE any pick is lifted) made runnable as questions. Every rung is
+a second-reading question that writes rows — no rung sends a probe,
+trips a rung of the entry ladder, or spends the anomaly budget; the
+climb stays gated behind the observation phase and consumes the
+ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What does the surface say on the second reading — what does each element assume, cost, and leak? | the annotated inventory: every boundary element tagged with its assumption, its defeat cost, its leakage — the row set the climb reads | the Eyes-of-a-Thief drill on record ("here's what you see; now here's what I see" — sources.md, the training-talk record) |
+| G2 | Where did the investment concentrate — and which adjacent, less-loved component actually holds the line? | the Antwerp row: the named interface vs the wall beside it (the guarded login vs the unguarded reset flow) — the adjacent-component candidates | the Antwerp vault parable on record (the door had every sensor, the wall had none — sources.md, the Darknet Diaries episode record) |
+| G3 | What does the target's normal look like — traffic, cadence, response shapes — before anything is touched? | the baseline row: the measured normal the anomaly budget is priced against (never a guessed one) | the parking-lot observation phase on record (inference from behavior, not assumption — sources.md, the episode's opening) |
+| G4 | Which surfaces open from the inside — the exit-only class the perimeter ignores? | the egress census rows: health/status, pre-auth, unsubscribe, webhook receivers — the reversal candidates | the organ's own egress-surface enumeration (M2's class, T3 — labeled operationalization) |
+| G5 | Where do composite decisions vote — and what does each OR-composed component assume about its source? | the oracle rows: every OR-composed decision point with its component trust model — the rights-amplification candidates | Matt Blaze's rights-amplification class, taught publicly by the lineage (HOPE 9 — sources.md; attribution row mandatory) |
+
+Ranking rationale: candidate priority = adjacency × unguarded-ness ×
+composite reach. An adjacent component that holds the boundary with
+no investment behind it ranks first (the wall, not the door — the
+perception the whole lineage is named for); an exit-only surface
+triggerable from outside ranks next (the reversal); an OR-composed
+decision whose components assume each other's validation ranks by
+its component count; the named, invested interface ranks LAST — it
+is the climb's control, not its candidate. Rows out; no rung
+climbed, no probe sent.
+
+Generation falsifier: a scope whose second reading yields zero
+candidate rows across every row class means the surface was read
+once, not twice (the first reading maps, the second reading hunts —
+zero rows after one reading is expected; zero after both means the
+reading itself was shallow or the surface class is outside this
+organ's tier — a pure-network boundary routes to the app organs) —
+the census is re-read, the missing rung written with its grounding
+row. The scope is never excused as "hard" at generation time: a
+zero-yield verdict belongs to verification's coverage row, never to
+the ladder.
+
+#### The ladder's payload kit — the second-reading rows (customize before use)
+
+Generation writes rows; these are the annotation classes the rows
+name, every one a read of surfaces already in scope (no probe runs;
+the climb mechanics live in the M-protocol and T1–T5):
+
+| Read row | The read payload class | Writes which row |
+| --- | --- | --- |
+| assumption row | each element's stated trust: what it believes about its source (per boundary element) | annotated-inventory row (what it assumes) |
+| cost row | each element's defeat economics: which rung of the entry ladder would price it (R0-R5 mapping) | annotated-inventory row (what it costs) |
+| leak row | each element's disclosure surface: what it emits to the unauthenticated observer (error shapes, headers, timing) | annotated-inventory row (what it leaks) |
+| adjacency row | the named interface vs its neighbors: login vs reset, authenticated API vs pre-auth status, front door vs webhook receiver | Antwerp-candidate row (the less-loved component) |
+| egress row | the exit-only class: health/status, unsubscribe, webhook/callback, error/recovery paths | reversal-candidate row (opens from the inside) |
+| OR-composition row | the composite decision points: which verdicts are vote-ORs over components assuming each other | rights-amplification candidate row (M3 matrix feed) |
+| credential-format row | observed credential shapes (26-bit Wiegand-class structures decoded offline, T1) | structure-table row (formatted-not-authenticated class) |
+
+Customization knobs, stated in the plan note: the surface tier
+(web-boundary translation vs physical-adjacent documentation — which
+runways load), the annotation depth (which element classes the
+second reading tags: assumption/cost/leak all three or the subset
+the engagement prices), and the observation window (the baseline's
+measurement period before the first probe is planned).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

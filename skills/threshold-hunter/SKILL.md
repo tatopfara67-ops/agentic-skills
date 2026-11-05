@@ -1,6 +1,6 @@
 ---
 name: threshold-hunter
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: >-
@@ -121,7 +121,7 @@ metadata:
     hands-on physical craft stays bounded in the lineage record)
 ---
 
-# threshold-hunter v1.0.0 — The Deviant Ollam Lineage
+# threshold-hunter v1.1.0 — The Deviant Ollam Lineage
 
 ## 0. What This Skill Is — and Is Not
 
@@ -398,6 +398,13 @@ negatives included), the scripting arsenal T1-T5 (the Wiegand
 enumerator, the OR-probe matrix planner, the detection-ledger
 formatter — all read-only operator-side tooling), and the rigid
 run-order S1-S6 — all shipped in `references/operator-os.md`.
+Since v1.1.0 it also ships **The opening ladder** (A18): where
+Ollam's candidates come from — the perception layer that PRODUCES
+ranked Antwerp-wall, egress-reversal, and OR-composition candidates
+from the second reading before any rung is climbed (rungs write
+annotation rows, never probes; ranking rationale stated; generation
+falsifier on record; the second-reading kit is the pinned annotation
+row set).
 
 ## 5. Procedure — Numbered Actions
 
@@ -504,9 +511,9 @@ run-order S1-S6 — all shipped in `references/operator-os.md`.
   critique of the published Ollam art and the M1-M6 replacement
   protocol with validation gates. Load when the operator needs
   the method's full statement or a gate's exact criteria.
-* references/operator-os.md — the A17 layer: the thinking
-  framework, behavioral protocol R1-R6 with refusals, scripting
-  arsenal T1-T5, run-order S1-S6, falsifiers. Load at engagement
+* references/operator-os.md — the A17 layer + the opening ladder
+  (A18): the thinking framework, behavioral protocol R1-R6 with
+  refusals, scripting arsenal T1-T5, run-order S1-S6, falsifiers. Load at engagement
   start and whenever a boundary decision feels ambiguous.
 * references/sources.md — the census, read ledger, psych-read,
   quarantine, and the engagement-fit verdict that retired the

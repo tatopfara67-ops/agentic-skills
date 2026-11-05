@@ -1,10 +1,10 @@
-# operator-os.md — the Rosén runtime: think, behave, script
+# operator-os.md — the Rosén runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > boundary laws; the M-protocol (references/method-upgrade.md) states
 > the identifier census and access matrix; THIS module is the runtime
-> — how the agent thinks, behaves, and scripts while executing them,
-> characteristic of Frans Rosén's documented craft: identifiers are a
+> — how the agent notices, thinks, behaves, and scripts while executing
+> them, characteristic of Frans Rosén's documented craft: identifiers are a
 > construction space, every parameter position is a candidate, and the
 > response diff — full, not skimmed — is the only verdict that counts.
 
@@ -37,6 +37,71 @@ invented ids — the proof needs the server to actually resolve both.
 R6 **The matrix closes or the hunt is open.** Exit means every
 role×resource row has a verdict; anything less is a resume note, not a
 finding set.
+
+### The opening ladder — where Rosén's candidates come from
+
+The rules above govern the hunt once accounts are in hand; the ladder
+produces the candidates FIRST — the methodology-era perception (the
+lineage's own premise: attack by studying how object references are
+CONSTRUCTED and CONSUMED, not by spraying values — the grammar, the
+positions, and the write-read pairs are all readable BEFORE the first
+swap) made runnable as questions. Every rung is a census question
+that writes rows — no rung swaps an identifier, registers an
+EXPERIMENT, or reads another account's object; swaps stay gated
+behind R5 (real second-account identifiers) and consume the
+ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | How is each identifier constructed — what is its grammar? | the grammar census: type (int/uuid/slug/base64), source (sequential = enumerable), scope (tenant or global), transformation (base64/JSON wrappers) — the row set every swap strategy reads | R1's construction-space law — identifier construction is step one (SKILL §2 field rule 1; the "Attacking Modern Web Technologies" premise) |
+| G2 | Where does an identifier travel — which parameter positions carry it? | the position census: body, path, query, header, JSON-nested, array-indexed — each position a row; unvisited positions are untested surface | R2's every-position law (SKILL §2 field rule 2 — access checks are frequently per-position, decorative in some) |
+| G3 | Which write-read pairs exist — where is an object created in one place and consumed in another? | the second-order census: invites, exports, email-linked actions, delayed consumptions — the leak-across-tenant candidates the direct swap never sees | R4's second-order law (SKILL §2 field rule 3 — the 2nd-order IDOR keynote material) |
+| G4 | What does a full response diff even read — which channels carry the verdict? | the diff census: status + headers + body (normalized) + timing class — the four channels pre-named so no verdict eyeballs its way in | R3's full-diff law (SKILL §2 field rule 4 — status codes lie, bodies do not) |
+| G5 | Where are the tenant boundaries — which contexts slice the matrix? | the tenant census: org_id, region, sub — the dimensions the matrix carries so tenancy is never ambient | R5's tenancy law (SKILL §2 field rule 5 — cloud tenant = object boundary; the matrix, not background) |
+
+Ranking rationale: candidate priority = enumerable grammar ×
+decorative-position likelihood × second-order distance. A
+sequential identifier traveling in an unchecked position ranks first
+(the swap is one EXPERIMENT away and the blast argument is already
+written); a write-read pair crossing a tenant boundary ranks next
+(the direct swap is clean — that is exactly why the pair leaks); an
+opaque-but-decodable identifier (base64/JSON wrapper) ranks by its
+decoded grammar; tenant-context rows rank last — they are the
+matrix's dimensions, not candidates themselves. Rows out; not one
+identifier swapped.
+
+Generation falsifier: an estate where the census yields zero
+identifier rows means the surface class did not load (an
+API-key-only estate with no object references, an
+identifier-less proxy surface — routes to the app organs per the
+boundary rows) — the census is re-read with the position families
+expanded (JSON-nested depths, array-index shapes, header classes),
+the missing rung written with its grounding row. The estate is never
+excused as "no references" at generation time: an application with
+objects has references; a zero-yield verdict belongs to
+verification's coverage row, never to the ladder.
+
+#### The ladder's payload kit — the identifier-census rows (customize before use)
+
+Generation writes rows; these are the census classes the rows name,
+every one a desk read of the estate's own request grammar and object
+flows (no swap runs; the hunt mechanics live in T1–T4 and the
+matrix):
+
+| Census row | The read payload class | Writes which row |
+| --- | --- | --- |
+| grammar row | each identifier's construction: type, source, scope, transformation — decoded, never eyeballed (T2's classes) | identifier-census row (the swap strategy feed) |
+| position row | each endpoint's parameter positions: path, query, body, header, JSON-nested, array-index — one row per position | position-census row (untested surface, named) |
+| second-order row | the write→read pairs: creates/validates-here, consumes-there — invites, exports, email-linked actions | second-order candidate row (the delayed-consumption feed) |
+| diff-channel row | the verdict's four channels pre-named: status, headers, normalized body, timing class | diff-plan row (R3's machinery, declared before any swap) |
+| tenant row | the context dimensions: org_id, region, sub — where the matrix slices | matrix-dimension row (the tenancy feed) |
+
+Customization knobs, stated in the plan note: the swap account frame
+(one operator second account vs the program's canonical victim
+handle — what R5's real-identifier law loads), the census depth (which
+position families run: JSON-nesting depth, array shapes, header
+classes), and the matrix granularity (tenant dimensions carried —
+org/region/sub subsets priced per engagement).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

@@ -1,10 +1,10 @@
-# operator-os.md — the grugq runtime: think, behave, script
+# operator-os.md — the grugq runtime: notice, think, behave, script
 
 > A17's layer. Load when the campaign hygiene RUNS. Doctrine
 > (SKILL.md §2) states the laws; the M-protocol
 > (references/method-upgrade.md) states M1–M6; THIS module is
-> the runtime — how the agent thinks, behaves, and scripts while
-> executing them, characteristic of the grugq's documented
+> the runtime — how the agent notices, thinks, behaves, and scripts
+> while executing them, characteristic of the grugq's documented
 > craft: the trail priced before it exists, the plumbing in
 > place before the operation, compartmentation as the
 > architecture that survives the operator's one inevitable
@@ -83,6 +83,66 @@ operations to limit who will go to jail and for how long...
 Once you accept the inevitability of failure then the only
 possible way to look at security is probabilities and damage
 control."
+
+### The opening ladder — where the grugq's candidates come from
+
+The rules above govern the campaign once it runs; the ladder
+produces the candidates FIRST — the anti-forensic perception (the
+trail priced BEFORE it exists: the 2005 principle makes every
+artifact a row waiting to be priced, and the 2012 record puts the
+plumbing in before the operation, so the pricing itself must precede
+the first request) made runnable as questions. Every rung is a desk
+question that writes rows — no rung emits a request, mints a
+credential, or sends a comms event; traffic stays gated behind the
+plumbing gate (T3) and consumes the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What artifacts will this engagement create — and who can see each one, what does it link to, what does it cost to remove? | the exposure census: credentials, egress, tool fingerprints, data-at-rest, report drafts — every row priced before any of it exists | the Anti-Forensic Principle on record ("Data is evidence", Black Hat Europe 2005 — R1's tradition; the 2013 interview's reduce-quantity-and-quality line) |
+| G2 | What does the cover say — what presence is already explained? | the cover extraction: the ROE's expected traffic, scope, windows, declared sources, required attribution markers — the presence that ends scrutiny | R4's cover-beats-concealment law (the Blackphone-at-the-border row and the Eldo Kim post-mortem, 2013 — on record in the framework) |
+| G3 | Which secrets cross compartments — where are the fuses? | the fuse census: identity, activity, association — every artifact shared across compartments is a fuse between them | the 2014 COMSEC record's triad and "you only got to fuck up once" — R3's tradition (compartment or burn) |
+| G4 | Who are the adversaries, and what does each one want × cost? | the adversary matrix: target SOC/IR, third parties, the future breach of operator storage, comms interception — intent × capability per actor | the matrix tradition (the 2013 record's adversary classes; the future-breach row the census already prices) |
+| G5 | What does slow cost here — and what is the latency budget's number? | the latency row: comms batching, cadence, correlation offsets — the budget stated before pressure arrives, not after | the 2013–2014 records ("OPSEC is slow"; "latency is directly correlated to security") — R6's tradition |
+
+Ranking rationale: candidate priority = detection-weight ×
+attribution-weight (the census arithmetic, T1's own ranking). An
+egress row the target-SOC can attribute to operator-identity ranks
+first (the trail that both detects and names); a data-at-rest row the
+future breach can attribute engagement-only ranks next (it names the
+engagement, not the operator); a tool fingerprint that detects but
+attributes to none ranks by its removal cost; rows already covered
+by the ROE's declared presence rank last — the cover explains them.
+Rows out; no request emitted, no plumbing claimed.
+
+Generation falsifier: an engagement whose desk sweep yields zero
+exposure rows means the pricing was skipped, not the trail — there
+is no artifact-free engagement (even a report draft exists), so
+zero rows indicts the census, never the engagement — the census is
+re-read with the artifact classes expanded (the 2005 principle's
+own generalization: anything the engagement touches is evidence). A
+zero-yield verdict belongs to the plumbing gate's failure, never to
+the ladder.
+
+#### The ladder's payload kit — the exposure-pricing rows (customize before use)
+
+Generation writes rows; these are the census classes the rows name,
+every one a desk pricing of an artifact the engagement WILL create
+(no request runs; the campaign mechanics live in T1–T6):
+
+| Census row | The read payload class | Writes which row |
+| --- | --- | --- |
+| credential row | every credential the engagement will mint or use: program accounts, API keys, session tokens | exposure row (who-can-see × links-to × removal-cost) |
+| egress row | the declared chain's fingerprint: IP class, toolchain UA, timing shape — as the target-SOC will see it | exposure row (detection actor: target-SOC) |
+| tool-fingerprint row | the declared scanners' signatures: UA strings, request cadence, probe orders | exposure row (detection with no attribution) |
+| data-at-rest row | raw evidence folders, staging stores, working copies — the future-breach surface | exposure row (the future-breach actor) |
+| report-artifact row | drafts, notes, comms threads — retained per ROE terms | exposure row (retention-priced) |
+| fuse row | the cross-compartment shares: one credential, one browser profile, one store crossing identity/activity/association | fuse row (R3's containment candidate) |
+
+Customization knobs, stated in the plan note: the adversary frame
+(which matrix rows load: target-SOC-weighted vs future-breach-weighted
+vs comms-interception-weighted), the retention policy (ROE destruction
+terms vs retention terms — what closure prices), and the latency
+budget (the stated comms-batch number the campaign pays per week).
 
 ## 2. The behavioral protocol — situation, move, refusal
 

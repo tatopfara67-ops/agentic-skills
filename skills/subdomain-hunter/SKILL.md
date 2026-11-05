@@ -1,6 +1,6 @@
 ---
 name: subdomain-hunter
-version: 2.2.0
+version: 2.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -137,7 +137,12 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of EdOverflow.
+executing, characteristic of EdOverflow. Since v2.3.0 it also ships
+**The opening ladder** (A18): where EdOverflow's candidates come
+from — the perception layer that PRODUCES typed candidates before
+any verification is due (rungs write census rows, never claims;
+ranking rationale stated; generation falsifier on record; the
+signature kit is the date-pinned registry sync).
 
 ## 5. Procedure — Numbered Actions
 
@@ -186,6 +191,6 @@ executing, characteristic of EdOverflow.
 | --- | --- |
 | Building the candidate ladder or permutation set | `references/sources.md` |
 | Grading the published method, dating fingerprints, running the dangling differential | `references/method-upgrade.md` |
-| Running the hunt — the EdOverflow runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the EdOverflow runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Any CNAME leaves the parent domain | `references/takeover-signatures.md` |
 | Verifying any takeover candidate (class, TTL, claim path) | `references/takeover-field-guide.md` |

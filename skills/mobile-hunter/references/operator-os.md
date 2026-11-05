@@ -1,10 +1,10 @@
-# operator-os.md — the Miller runtime: think, behave, script
+# operator-os.md — the Miller runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > mobile teardown laws; the M-protocol (references/method-upgrade.md)
 > states the teardown and boundary protocol; THIS module is the
-> runtime — how the agent thinks, behaves, and scripts while executing
-> them, characteristic of Charlie Miller's documented craft (with
+> runtime — how the agent notices, thinks, behaves, and scripts while
+> executing them, characteristic of Charlie Miller's documented craft (with
 > Collin Mulliner's SMS line): the shipped binary is a confession,
 > store review is a hypothesis — not a guarantee, and the findings
 > land at the API boundary where the app's assumptions meet the
@@ -41,6 +41,64 @@ cert?), never assumed from strings alone.
 R6 **The demo ends at the operator's devices and accounts.**
 Demonstrations run on owned hardware with operator accounts; other
 users' devices, messages, and sessions are never in scope.
+
+### The opening ladder — where Miller's candidates come from
+
+The rules above govern posture once a candidate exists. The ladder
+produces the candidates — the documented perception (the shipped
+binary read as a confession before the device is ever touched; the
+entry points the platform feeds the app unasked) made runnable as
+questions. Every rung reads artifacts already in hand — the pinned
+binary, the platform's own documentation, the server's live
+behavior; NO rung spends fuzz budget. Bounded mutation is T4's job,
+and T4 fires on lab devices only (R4, R6). Rows out; anomaly budget
+untouched.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What does the shipped binary confess before anyone runs it? | manifest and Info.plist rows — exported components, URL schemes, ATS exceptions, entitlements, bundled keys: the review assumption vs. the binary fact | the Instastock lesson — the shipped binary's behavior contradicted every review assumption; reading it first is the documented posture |
+| G2 | Which entry points does the platform feed the app unasked? | push payloads, SMS/MMS delivery, deep links, shared-file open requests — surfaces the app receives without initiating anything | the 2009 SMS line (with Mulliner): the surface that was compromised was the one nobody asked for |
+| G3 | Where will the app's checks and the server's rules disagree? | the client-check inventory (root detection, pinning, input validation) read as hypotheses about SERVER enforcement — divergence candidates | the organ's own operationalization of the API-boundary doctrine, labeled on the sources ledger |
+| G4 | What did the platform change since this binary was built? | new-OS attack surface against the pinned build — the fresh-surface question for a stale binary | the Pwn2Own pattern (2008, 2009): each new platform release is new surface, read as a candidate class |
+| G5 | Which ghost endpoints does the binary still trust? | endpoints in strings and configs absent from the live server surface — stale trust speaking old protocols | the teardown ladder's ghost-endpoint diff (mobile-method.md, rung 4) — the organ's own, labeled |
+
+Ranking rationale: candidate value = unasked delivery × check
+divergence × trust staleness. The parser the platform feeds the app
+without asking outranks any UI path (it fires without a user's
+choice); a client check the server does not mirror outranks both
+(the boundary is where Miller's findings land); a stale trusted
+endpoint outranks a fresh one only when its protocol predates the
+server's hardening era. Reading is free and fuzzing is budgeted —
+the ladder orders candidates so the cheapest confession is read
+first and the mutation budget is spent last.
+
+Generation falsifier: a pinned shipped binary plus its live server
+where the ladder yields zero candidates means the ladder is missing
+a rung — the census is re-read for the surface class it cannot see,
+and the new rung is written with its grounding row. The app is never
+excused as clean; that verdict belongs to verification, not
+generation.
+
+#### The ladder's payload kit — entry-point seeds (customize before use)
+
+Generation writes rows; these seeds are the craft the rows name,
+fired ONLY inside T4's bounded runs on lab hardware. Kit rows are
+the organ's own craft on generic platform knowledge — the sources
+ledger's boundary for mobile-method.md applies here too:
+
+| Seed class | Shape (mutate one axis per round) | Writes which row |
+| --- | --- | --- |
+| Deep-link depth | `scheme://host/` + path segments grown one per round, then a unicode-confusable segment | deep-link parser candidate + crash row |
+| Push payload nesting | one extra object level per round; type-confused values (string where a number is declared) | deserialization candidate |
+| Local-file truncation | magic bytes kept, declared length field overrun by 1, 2, 4 | file-parser candidate |
+| Parameter repetition | the same query key repeated with ascending values until the guard's shape changes | input-validation candidate |
+
+Customization knobs, stated in the plan note before any run: the
+platform profile (iOS build pin / Android API level, from the T1
+pin), the entry-point class focus (chosen from the T2 census, never
+from preference), and the round budget (T4's pre-registered number).
+A seed outside the census's classes is not run — it is recorded as
+a kit-extension candidate with its grounding row.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

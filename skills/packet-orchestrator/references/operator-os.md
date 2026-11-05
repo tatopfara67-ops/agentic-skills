@@ -1,10 +1,10 @@
-# operator-os.md — the Searle + Scapy runtime: think, behave, script
+# operator-os.md — the Searle + Scapy runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > orchestration laws; the M-protocol (references/method-upgrade.md)
 > states the translation and state-gate protocol; THIS module is the
-> runtime — how the agent thinks, behaves, and scripts while executing
-> them, characteristic of Justin Searle's documented craft (manual
+> runtime — how the agent notices, thinks, behaves, and scripts while
+> executing them, characteristic of Justin Searle's documented craft (manual
 > first, then layer-by-layer automation, ICS discipline) on the Scapy
 > packet-crafting lineage (Philippe Biondi): one packet, read the
 > answer, then the next — bursts are the enemy of attribution.
@@ -36,6 +36,69 @@ target (the M-protocol's burst ban).
 R6 **Fragile targets get read-only grammar.** On ICS/SCADA surfaces,
 the legal read set is enumerated and everything else is out of bounds
 by default — writing to a PLC is a different engagement class entirely.
+
+### The opening ladder — where Searle's candidates come from
+
+The rules above govern posture once a candidate exists. The ladder
+produces the candidates — the documented perception (the NESCOR
+sequence begins at the capture, not at the send: manual dissection,
+entropy analysis, reverse-engineering, and only then fuzzing) made
+runnable as questions. Every rung reads what already exists —
+captures, banners, vendor protocol documents, the resolver's answer
+— NO rung sends a packet. Crafting is T1's job, and T1 fires one
+packet at a time with its expectation row (R1, R2). Rows out; one
+conversation per target, untouched.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What does the wire already say about this protocol? | existing captures and banners — operator-grown lab captures, vendor PCAP samples, protocol documents — dissected before any conversation is proposed | the NESCOR sequence (the lineage's documented training basis): the capture precedes everything; manual dissection is step one |
+| G2 | Where does the medium differ from the protocol? | the same protocol spoken over a different medium — serial, RF, TCP, UDP — where framing, timing, or checksums change behavior | the documented "network mediums vs network protocols" distinction (BlackHat training page) |
+| G3 | Which bytes carry entropy the protocol does not explain? | fields with encrypted-looking content in a plaintext conversation; constant fields that suddenly vary run-to-run | the entropy-analysis step of the documented sequence, read as a generative question |
+| G4 | Where will the implementation disagree with its own spec? | spec-vs-observed divergences: lengths that lie, state transitions the spec forbids but the wire shows, silently ignored fields | the organ's own operationalization of the expectation-table discipline (R2), labeled on the sources ledger |
+| G5 | What did the parser never get taught to refuse? | error paths: unknown opcodes, malformed length fields, truncated trailers — the conversation candidates fuzzing will later prove | the RE-before-fuzzing step (documented sequence), expressed as a census question |
+
+Ranking rationale: candidates rank by observability distance ×
+fragility class. What a passive capture already demonstrates
+outranks what must be probed to be seen; a medium-boundary
+divergence outranks a spec typo (it survives implementation review
+because nobody tests the other medium); on ICS-class targets the
+read-only grammar (R6) gates the whole order — a candidate that can
+only be proven with a write-class opcode parks at the bottom with
+its refusal row. The sequence's order is the ranking: capture, then
+medium, then entropy, then spec, then parser — each rung is cheaper
+than the probes the next one justifies.
+
+Generation falsifier: a protocol target with captures in hand where
+the ladder yields zero conversation candidates means the ladder is
+missing a rung — the capture is re-read for the layer it cannot see
+(a trailer, a keepalive cadence, a retransmission shape), and the
+new rung is written with its grounding row. The protocol is never
+excused as boring; that verdict belongs to verification, not
+generation.
+
+#### The ladder's payload kit — one-packet craft templates (customize before use)
+
+Generation writes rows; these templates are the craft the rows name,
+pre-registered for T1's single-send verification — the ladder itself
+never sends them. Kit rows are the organ's own operationalization of
+the exact-bytes law (R4) on the credited Scapy lineage; no Scapy
+feature is claimed as consulted evidence (the sources ledger's
+boundary):
+
+| Template | Craft shape | Writes which row |
+| --- | --- | --- |
+| The banner invitation | SYN to the service port, expectation row stating reply class + timeout + silence-means-X | conversation candidate + expectation row |
+| The lying length | a captured request replayed with the declared length field +1 / −1 | parser-boundary candidate |
+| The unknown opcode | a well-formed frame carrying a function code absent from the dissected grammar | error-path candidate |
+| The entropy mutant | a captured constant field mutated once, all else byte-identical | implementation-divergence candidate |
+
+Customization knobs, stated in the plan note before any send: the
+protocol profile (dissected grammar + opcode namespace, from the
+capture), the medium profile (the transport the capture actually
+shows), and the expectation table (reply class, timeout,
+silence semantics per R2). On ICS-class surfaces the read-only
+grammar gate (R6) is a fourth knob that cannot be turned off — a
+write-class template is recorded as refused, never staged.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

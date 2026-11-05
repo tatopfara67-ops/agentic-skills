@@ -186,8 +186,8 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | Skill | Version | What it does |
 |---|---|---|
 | [surface-cartographer](skills/surface-cartographer/) | 1.0.0 | The attack-surface dossier — asset graph, 21-class taxonomy, priority queue. |
-| [subdomain-hunter](skills/subdomain-hunter/) | 2.2.0 | Passive-first enumeration, wildcard verdicts, takeover signatures (EdOverflow lineage). |
-| [content-discovery](skills/content-discovery/) | 2.2.0 | Calibrated content walks, 404-baseline controls, backup/config triage (Miessler lineage). |
+| [subdomain-hunter](skills/subdomain-hunter/) | 2.3.0 | Passive-first enumeration, wildcard verdicts, takeover signatures; the taxonomy-first opening ladder (EdOverflow lineage). |
+| [content-discovery](skills/content-discovery/) | 2.3.0 | Calibrated content walks, 404-baseline controls, backup/config triage; the family-is-the-hypothesis opening ladder (Miessler lineage). |
 | [js-recon](skills/js-recon/) | 1.0.0 | JS bundle analysis — endpoints, commented routes, sourcemaps, masked secrets. |
 | [api-surface-mapper](skills/api-surface-mapper/) | 1.0.0 | API spec discovery, version diffs, undocumented endpoints, GraphQL. |
 
@@ -207,7 +207,7 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | [ssrf-playbook](skills/ssrf-playbook/) | 1.3.1 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder. |
 | [xss-playbook](skills/xss-playbook/) | 2.4.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage). |
 | [cloud-config-auditor](skills/cloud-config-auditor/) | 2.4.0 | CORS matrix, anonymous storage, takeover checks as code; where-drift-is-born ladder (Prowler / de la Fuente lineage). |
-| [mobile-hunter](skills/mobile-hunter/) | 1.2.0 | Mobile teardown — the shipped APK/IPA read before the device is touched (Charlie Miller lineage). |
+| [mobile-hunter](skills/mobile-hunter/) | 1.3.0 | Mobile teardown — the shipped APK/IPA read before the device is touched; the confession opening ladder (Charlie Miller lineage). |
 | [cache-playbook](skills/cache-playbook/) | 1.3.0 | Cache deception & poisoning — the cache-key baseline matrix (Omer Gil + James Kettle corpus). |
 | [prototype-playbook](skills/prototype-playbook/) | 1.3.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink (Gareth Heyes lineage). |
 
@@ -222,13 +222,13 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | Skill | Version | What it does |
 |---|---|---|
 | [scan-economist](skills/scan-economist/) | 1.3.0 | Scan economy — liveness before depth, priors over exhaustive sweeps; the map-confesses ladder (Fyodor lineage). |
-| [module-smith](skills/module-smith/) | 1.2.0 | Hypotheses as rankable reusable modules; access and impact proofs separate (HD Moore lineage). |
+| [module-smith](skills/module-smith/) | 1.3.0 | Hypotheses as rankable reusable modules; access and impact proofs separate; the hypothesis-as-module opening ladder (HD Moore lineage). |
 | [pipeline-smith](skills/pipeline-smith/) | 1.3.0 | Unix recon pipelines — passive first, dedupe before paying; pattern-as-hypothesis ladder (Tomnomnom lineage). |
 | [feedback-fuzzer](skills/feedback-fuzzer/) | 1.2.0 | Feedback-guided search — bucketed novelty, minimization before diagnosis (lcamtuf lineage). |
 | [template-scanner](skills/template-scanner/) | 1.3.0 | Detection as declarative templates, matchers pre-registered; fingerprint-to-template ladder (ProjectDiscovery lineage). |
-| [packet-orchestrator](skills/packet-orchestrator/) | 1.2.0 | Manual first, then state-backed automation; packet differentials show their bytes (Searle + Mantis lineage). |
+| [packet-orchestrator](skills/packet-orchestrator/) | 1.3.0 | Manual first, then state-backed automation; packet differentials show their bytes; the capture-first opening ladder (Searle + Mantis + Scapy lineages). |
 | [protocol-forensics](skills/protocol-forensics/) | 1.1.0 | Spec ambiguity hunted across the implementation population; entropy-priced invariants (Dan Kaminsky lineage). |
-| [interior-cartographer](skills/interior-cartographer/) | 1.1.0 | OS internal-surface census, seam tables, ACCESS_MASK budget (James Forshaw lineage). |
+| [interior-cartographer](skills/interior-cartographer/) | 1.2.0 | OS internal-surface census, seam tables, ACCESS_MASK budget; the unpriced-seam opening ladder (James Forshaw lineage). |
 | [harness-smith](skills/harness-smith/) | 1.0.0 | Fuzz-first triage and oracle engineering; the mandatory missed-why postmortem (Tavis Ormandy lineage). |
 | [opsec-discipline](skills/opsec-discipline/) | 1.0.0 | Campaign hygiene as an economic discipline — exposure census, compartmentation, closure audit (the grugq lineage). |
 

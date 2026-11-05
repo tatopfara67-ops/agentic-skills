@@ -1,10 +1,10 @@
-# operator-os.md — the HD Moore runtime: think, behave, script
+# operator-os.md — the HD Moore runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > module laws; the M-protocol (references/method-upgrade.md) states the
 > measured-module and composition protocol; THIS module is the runtime
-> — how the agent thinks, behaves, and scripts while executing them,
-> characteristic of HD Moore's documented craft: hypotheses as rankable
+> — how the agent notices, thinks, behaves, and scripts while executing
+> them, characteristic of HD Moore's documented craft: hypotheses as rankable
 > reusable modules, access proofs separated from impact proofs, and
 > exposure measured at internet scale — as open data.
 
@@ -36,6 +36,65 @@ compatibility matrix is cited, not assumed.
 R6 **Measurement ethics ride along.** Internet-scale measurement is
 bounded, announced, and benign-by-construction; the harm gates in the
 M-protocol are part of the method, not paperwork after it.
+
+### The opening ladder — where Moore's candidates come from
+
+The rules above govern the queue once modules exist. The ladder
+produces the modules' subjects — the framework-builder's perception
+(a module is a recorded hypothesis, and a framework's value is that
+yesterday's hypotheses are today's reusable craft) made runnable as
+questions. Every rung reads records — version banners, the public
+module corpus, the exposure census, the compatibility matrix — NO
+rung runs a probe. Running is the queue's job, and the queue fires
+ranked, one top module at a time (R4). Rows out; governed-probe
+budget untouched.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What has this target shape already confessed to other hunters? | the public module/exploit census for the pinned versions — prior hypotheses recorded by the community, read as a corpus | the framework's own design: exploits as a corpus of ranked, reusable, recorded hypotheses (the verified module architecture) |
+| G2 | What does the banner admit before any module runs? | version and service rows — exposure named and counted, never guessed | the Sonar tradition (internet-scale weekly scans; "most should never be exposed" — exposure is a measurement, R3's lineage) |
+| G3 | Which observable would prove access, and what does it cost? | the module CARD skeleton: preconditions, observables, cost, proof_type=access — candidates written as unborn modules | the organ's own operationalization of R2 (access proofs separated), labeled on the sources ledger |
+| G4 | Where do two known modules compose into what neither proves alone? | compatibility joints queried generatively — observable→precondition matches across the registry | the composition law (R5) — the organ's own, labeled |
+| G5 | What does the exposure census say the blast radius would be? | the denominator question asked BEFORE running, so reach enters the rank arithmetic | the Sonar measurement tradition (R3): counted, published, methodology stated |
+
+Ranking rationale: the queue's own arithmetic, applied at generation
+time — reliability × reach / cost, with reach informed by the
+exposure census (G5) and cost stated in the card (G3). A candidate
+whose access observable is cheap and whose exposure is counted
+outranks an exotic one with an anecdotal blast radius; a composition
+candidate (G4) outranks both its parents only when every joint
+verifies — otherwise it is not a candidate, it is a wish. Access
+candidates precede impact candidates by law (R2): the ladder never
+generates an impact row before its access row exists.
+
+Generation falsifier: a scoped target where the ladder yields zero
+module candidates means the ladder is missing a rung — the census is
+re-read for the hypothesis class it cannot see (an unpriced banner
+field, an uncatalogued service shape), and the new rung is written
+with its grounding row. The target is never excused as hardened;
+that verdict belongs to verification, not generation.
+
+#### The ladder's payload kit — the card skeleton (customize before use)
+
+Generation writes rows; this is the skeleton the rows grow into,
+its field names carrying the framework's own metadata tradition
+(Name, Author, Platform, Arch, References — verified in the shipped
+source tree; no Metasploit code is vendored, the sources ledger's
+boundary):
+
+| Kit row | Payload shape | Writes which row |
+| --- | --- | --- |
+| The card skeleton | `name / class / preconditions / observables / cost / proof_type / rank_inputs` — one YAML block per candidate | the unborn module row |
+| The joint query | for each registry pair: gives ⊇ needs? | the composition candidate row |
+| The census frame | sample size, exposed count, rate, methodology line | the reach row (feeds rank_inputs.reach) |
+| The harm-gate bit | harm_class field, empty by default; any value flips the card to operator sign-off | the refusal row |
+
+Customization knobs, stated in the plan note: the module class
+(exploit / auxiliary / scanner — the framework's own taxonomy), the
+rank weights (reliability × reach / cost, weights stated), and the
+harm gate (any harm_class value parks the card until operator
+sign-off — R6's law, mechanical). A card without its rank_inputs
+filled is a note, not a module; the queue refuses it.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

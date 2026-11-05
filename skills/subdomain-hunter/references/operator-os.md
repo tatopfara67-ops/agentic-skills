@@ -1,10 +1,10 @@
-# operator-os.md — the EdOverflow runtime: think, behave, script
+# operator-os.md — the EdOverflow runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > passive-first laws; the M-protocol (references/method-upgrade.md)
 > states the takeover and freshness protocol; THIS module is the
-> runtime — how the agent thinks, behaves, and scripts while executing
-> them, characteristic of EdOverflow's documented craft: the takeover
+> runtime — how the agent notices, thinks, behaves, and scripts while
+> executing them, characteristic of EdOverflow's documented craft: the takeover
 > question is a TAXONOMY (which service, which dangling shape, which
 > fingerprint), dead records are a differential, and fingerprints
 > expire.
@@ -41,6 +41,66 @@ R6 **Proof is operator-side registration, gated by scope.** Actually
 claiming an orphan is a scope decision (usually a REPORT
 recommendation, not an action); the default proof stops at the
 observed fingerprint + the registry row.
+
+### The opening ladder — where EdOverflow's candidates come from
+
+The rules above govern verification once a candidate exists. The
+ladder produces the candidates — the registry-founder's perception
+(the takeover question began as a TAXONOMY: which service, which
+dangling shape, which fingerprint — before it was ever a scanner)
+made runnable as questions. Every rung reads public records — CT
+logs, passive aggregators, archives, the zone's own delegation —
+NO rung claims anything. Claiming is a scope decision and defaults
+to REPORT (R6); the ladder only types rows. Rows out; the zone
+untouched.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Which names does the public record know that the zone never admitted? | CT logs, passive DNS aggregators, archives — the census of names the estate forgot it ever minted | the passive-first law: the census precedes any query against the zone (R1's tradition; the registry project itself began as a taxonomy, not a scanner) |
+| G2 | Which chains leave the parent toward a third-party service? | CNAME rows pointing outside the estate — the shape the registry exists to type | the registry's own structure (fingerprints.json: service, CNAME targets, fingerprint, NXDOMAIN flag per entry) |
+| G3 | Which leaving chains point at services the registry marks claimable? | chains typed against the signature table — service + dangling shape + today's fingerprint | the registry's verdict-table tradition, with its correction discipline (entries argued, demoted, retired as providers add verification — Unbounce #11, Google Sites #277) |
+| G4 | What combinations did the ops team never mint? | the permutation round: dev/staging/uat/… × known labels — bounded, DNS-side | the permutation generator (sources.md's passive ladder, rung 5) — the organ's own, labeled |
+| G5 | Which delegations would multiply the blast? | NS chains: a dangling record inside a delegated zone multiplies impact | the chain-walk law (R5) |
+
+Ranking rationale: candidate priority = claimability × chain depth ×
+staleness. A dangling CNAME to a registry-claimable service inside a
+delegated zone is the top of the order (claimable now, impact
+multiplied); a merely dead name is a negative-observation row, not a
+candidate; a chain whose service the registry retired (the provider
+added ownership verification) ranks below one still live — retirement
+is exactly the correction the registry tracks. Freshness is checked
+at claim time, not at rank time (R4): the ranking orders WHERE to
+look, today's fingerprint decides WHAT is true.
+
+Generation falsifier: an in-scope domain where the ladder yields zero
+typed candidates means the ladder is missing a rung — the census is
+re-read for the name class it cannot see (a vendor subdomain, a
+TLD-widening row the scope gate permits), and the new rung is written
+with its grounding row. The zone is never excused as owned; that
+verdict belongs to verification, not generation.
+
+#### The ladder's payload kit — the signature rows (customize before use)
+
+Generation writes rows; these are the signatures the rows name, a
+local sync of the community registry (date-pinned in
+takeover-signatures.md — upstream wins on any disagreement):
+
+| Signature row | The marker payload | Writes which row |
+| --- | --- | --- |
+| Heroku | CNAME `*.herokuapp.com` + body "No such app" | claimable-candidate row |
+| GitHub Pages | CNAME `*.github.io` + 404 with GitHub chrome | claimable-candidate row |
+| Shopify | CNAME `*.myshopify.com` + "Sorry, this shop is currently unavailable" | claimable-candidate row |
+| Azure | CNAME `*.cloudapp.azure.com` / `*.azurewebsites.net` + 404 with Azure error code | claimable-candidate row |
+| AWS CloudFront | CNAME `*.cloudfront.net` + "Bad request" viewer-error page with x-amz-cf-id present — claim requires SNI mismatch evidence; low prior | low-prior candidate row |
+| The wildcard control | a random hex label resolved before anything counts | the zone-verdict row |
+
+Customization knobs, stated in the plan note: the provider set
+(restrict the signature table to the clouds the scope actually
+names), the registry sync date (the local table's pin — re-sync when
+older than the engagement), and the permutation cap (a few hundred
+per engagement, recorded). The full table with its procedure lives in
+takeover-signatures.md; the CloudFront row carries its own warning —
+the most misreported class in public reports.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

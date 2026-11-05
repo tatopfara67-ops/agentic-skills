@@ -1,6 +1,6 @@
 ---
 name: interior-cartographer
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -155,7 +155,12 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of James Forshaw.
+executing, characteristic of James Forshaw. Since v1.2.0 it also
+ships **The opening ladder** (A18): where Forshaw's candidates come
+from — the perception layer that PRODUCES seam candidates before any
+composition is due (rungs write census rows, never chains; ranking
+rationale stated; generation falsifier on record; the probe kit
+recomputes the documented constants per engagement).
 
 ## 3. Procedure — Numbered Actions
 
@@ -238,5 +243,5 @@ executing, characteristic of James Forshaw.
 | --- | --- |
 | Running the full hunt end to end (census schema, computed tables, boundary crosswalk, composition rules) | references/interior-method.md |
 | Grading the lineage, running M1–M6, holding the thresholds | references/method-upgrade.md |
-| Running the hunt — the James Forshaw runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the James Forshaw runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Checking what was actually consulted; the census, read ledger, psych-read evidence | references/sources.md |

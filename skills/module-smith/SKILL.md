@@ -1,6 +1,6 @@
 ---
 name: module-smith
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -107,7 +107,12 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of HD Moore.
+executing, characteristic of HD Moore. Since v1.3.0 it also ships
+**The opening ladder** (A18): where Moore's candidates come from —
+the perception layer that PRODUCES module candidates before any
+queue run is due (rungs write census rows, never probes; ranking
+rationale stated; generation falsifier on record; the card-skeleton
+kit carries the framework's metadata tradition).
 
 ## 3. Procedure — Numbered Actions
 
@@ -158,4 +163,4 @@ executing, characteristic of HD Moore.
 | Running module proofs and exposure counts | references/playbook.md |
 | Checking lineage claims and reading list | references/sources.md |
 | Grading the published method, measuring module reliability, computing rank | references/method-upgrade.md |
-| Running the hunt — the HD Moore runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the HD Moore runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

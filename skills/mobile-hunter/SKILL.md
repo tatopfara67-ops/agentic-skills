@@ -1,6 +1,6 @@
 ---
 name: mobile-hunter
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -187,7 +187,12 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Charlie Miller.
+executing, characteristic of Charlie Miller. Since v1.3.0 it also
+ships **The opening ladder** (A18): where Miller's candidates come
+from — the perception layer that PRODUCES candidates before any
+verification is due (rungs write census rows, never packets; ranking
+rationale stated; generation falsifier on record; the entry-point
+seed kit fires only inside T4's bounded lab runs).
 
 ## 4. Procedure — Numbered Actions
 
@@ -270,4 +275,4 @@ executing, characteristic of Charlie Miller.
 | Expanding any rung of §3/§4 into exact steps, oracles, falsifiers | `references/mobile-method.md` |
 | Verifying the Miller/Mulliner lineage and its sources | `references/sources.md` |
 | Grading the published method, running harness budgets, triaging crashes, claiming reliability | `references/method-upgrade.md` |
-| Running the hunt — the Charlie Miller runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Charlie Miller runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

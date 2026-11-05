@@ -1,6 +1,6 @@
 ---
 name: packet-orchestrator
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -128,7 +128,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Justin Searle + the Scapy lineage.
+executing, characteristic of Justin Searle + the Scapy lineage. Since
+v1.3.0 it also ships **The opening ladder** (A18): where Searle's
+candidates come from — the perception layer that PRODUCES candidates
+before any verification is due (rungs write census rows, never
+packets; ranking rationale stated; generation falsifier on record;
+the one-packet craft templates fire only as T1's pre-registered
+verification).
 
 ## 3. Procedure — Numbered Actions
 
@@ -183,4 +189,4 @@ executing, characteristic of Justin Searle + the Scapy lineage.
 | Orchestrating workflows with state | references/playbook.md |
 | Lineage verification, incl. the Mantis attribution correction | references/sources.md |
 | Grading the source lineages, translating intent, holding the gates | references/method-upgrade.md |
-| Running the hunt — the Justin Searle + the Scapy lineage runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Justin Searle + the Scapy lineage runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

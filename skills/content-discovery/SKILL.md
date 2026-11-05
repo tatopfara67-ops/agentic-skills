@@ -1,6 +1,6 @@
 ---
 name: content-discovery
-version: 2.2.0
+version: 2.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -113,7 +113,12 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Daniel Miessler.
+executing, characteristic of Daniel Miessler. Since v2.3.0 it also
+ships **The opening ladder** (A18): where the corpus's candidates
+come from — the perception layer that PRODUCES family choices before
+any sweep is due (rungs write census rows, never requests; ranking
+rationale stated; generation falsifier on record; the corpus kit
+cites the wordlist ladder's tiers and cap law).
 
 ## 4. Procedure — Numbered Actions
 
@@ -169,4 +174,4 @@ executing, characteristic of Daniel Miessler.
 | Composing a list beyond rung 0 / family & scope questions | `references/corpus-science.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
 | Grading the published practice, binding questions to classes, holding the marginal gate | `references/method-upgrade.md` |
-| Running the hunt — the Daniel Miessler runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Daniel Miessler runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

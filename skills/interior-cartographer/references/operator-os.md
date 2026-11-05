@@ -1,9 +1,10 @@
-# operator-os.md — the Forshaw runtime: think, behave, script
+# operator-os.md — the Forshaw runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md §2) states
 > the laws; the M-protocol (references/method-upgrade.md) states
-> M1–M6; THIS module is the runtime — how the agent thinks, behaves,
-> and scripts while executing them, characteristic of James Forshaw's
+> M1–M6; THIS module is the runtime — how the agent notices, thinks,
+> behaves, and scripts while executing them, characteristic of James
+> Forshaw's
 > documented craft: the interior is the perimeter, the census IS the
 > research, primitives compose across seams, and the vendor's own
 > boundary taxonomy is the argument's terrain.
@@ -42,6 +43,65 @@ resort, not its opening move.
 R6 **One primitive per composition step.** A step that changes two
 things is two steps; each composition cell earns its own differential
 (n_runs ≥ 2).
+
+### The opening ladder — where Forshaw's candidates come from
+
+The rules above govern composition once candidates exist. The ladder
+produces the candidates — the documented perception (the corpus ships
+the census before the exploit, three times, years apart; the hunting
+ground is the trust decision, never the memory) made runnable as
+questions. Every rung reads the running system through enumeration —
+what the foothold principal can already see — NO rung composes a
+chain. Composition is S5's job, one primitive per step (R6). Rows
+out; the foothold quiet.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What can this principal REACH that the boundary list never priced? | the interior census as a question — every interface class (RPC endpoints, services, object namespace, registry ACLs) into rows before any attack | L1's documented pattern: enumerate before attack — the cmdlet family, the sandbox-attack-surface suite, the RPC tooling talk; three artifacts, years apart |
+| G2 | Which guards are trust decisions rather than memory walls? | security descriptors and token requirements audited as ACCESS_MASK arithmetic — the unpriced rights bit is the seam | the documented trust-decision interest (two independent conference bios; the corpus's own shape) + M2's computed arithmetic |
+| G3 | Which primitives can this principal already create? | the link-availability matrix recomputed per engagement — symlink, junction, mount point, object-directory squatting candidates | the 2015 post's four link types and their availability, in the lineage's own words: primitives, not vulnerabilities |
+| G4 | Where does the census disagree with the vendor's own taxonomy? | seams with no boundary row — chains that land where the taxonomy has nothing to say | the vendor-taxonomy law (R4) + the documented WontFix disposition (2021): a declined seam is data, not defeat |
+| G5 | What did the last fix leave unchanged? | the census regression diff as a generator — a fix that changes no row while the chain still runs is a stopgap, and the stopgap's residue is candidate space | the documented counter-move record (2015: the mitigation backport noted by the lineage itself) + M6's regression schedule |
+
+Ranking rationale: candidate priority = privilege distance × guard
+absence × composability. A reachable privileged operation behind an
+unpriced access bit outranks a guarded one (the unpriced bit IS the
+finding's arithmetic); a primitive the principal can already create
+outranks one that needs another step first (G3 feeds composition
+cheaply); a seam with no taxonomy row outranks a known-boundary
+candidate (nobody has priced it — R4's naming move exists for exactly
+this). Memory-shaped candidates rank last by law (R5): logical before
+memory is the lineage's own ordering.
+
+Generation falsifier: a foothold where the census yields zero seam
+candidates means the ladder is missing a rung — the census is re-read
+for the interface class it cannot see (an ALPC port, a DCOM
+activation right, a delegated registry key), and the new rung is
+written with its grounding row. The interior is never excused as
+hardened; that verdict belongs to verification, not generation.
+
+#### The ladder's payload kit — the probe rows (customize before use)
+
+Generation writes rows; these are the probes the rows name, each
+recomputing a documented constant or enumerating a documented
+surface (the lineage's own instrument tradition — the tooling ships
+with the finding). Arithmetic constants are computed in-house and
+labeled as computed (the sources ledger's law):
+
+| Probe row | Payload shape | Writes which row |
+| --- | --- | --- |
+| The availability probe | one link-type creation attempt + removal, n_runs ≥ 2, per type | the primitive-availability matrix row |
+| The RPC census | endpoint enumeration (uuid, protocol sequence, annotation) via the named instrument | the interior-census row |
+| The access arithmetic | ACCESS_MASK space recomputed for the object type under audit (2^32 total, 2^16 specific, named bits counted) | the unpriced-seam row |
+| The regression frame | pre/post census CSVs + row-diff (added, removed, guard-changed) | the stopgap row |
+
+Customization knobs, stated in the plan note: the principal profile
+(the foothold token's actual groups and integrity level — the census
+principal is a variable, not a constant), the OS build pin (the
+matrix and the boundary list are build-dependent), and the census
+schedule (M6's stated regression cadence). Instruments are named in
+every row they generate (R2): a row without its instrument is an
+anecdote, and the ladder refuses it.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

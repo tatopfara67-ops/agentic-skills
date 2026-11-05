@@ -1,6 +1,6 @@
 ---
 name: chain-architect
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -31,7 +31,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; an engagement with at least a Phase-1 dossier
 ---
 
-# chain-architect v1.2.0 — The Compound Kill Chain
+# chain-architect v1.3.0 — The Compound Kill Chain
 
 ## 0. What This Skill Is — and Is Not
 
@@ -125,7 +125,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Orange Tsai.
+executing, characteristic of Orange Tsai. Since v1.3.0 it also ships
+**The opening ladder** (A18): where Orange Tsai's candidates come
+from — the perception layer that PRODUCES the primitive census on an
+unseen estate before any collision differential is due (rungs write
+census rows, never differentials; ranking rationale stated; generation
+falsifier on record; the collision-form kit names the parser/module
+seam classes and the primitive vocabulary of chaining-catalog.md).
 
 ## 4. Procedure — Numbered Actions
 
@@ -191,4 +197,4 @@ executing, characteristic of Orange Tsai.
 | Choosing primitives / chain archetypes | `references/chaining-catalog.md` |
 | Verifying the Orange Tsai lineage and sources | `references/sources.md` |
 | Grading the published method, registering candidates, running link gates | `references/method-upgrade.md` |
-| Running the hunt — the Orange Tsai runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Orange Tsai runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

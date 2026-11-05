@@ -1,6 +1,6 @@
 ---
 name: business-logic-hunter
-version: 2.3.0
+version: 2.4.0
 type: ai-skill
 architecture: package
 description: >-
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned test accounts and self-owned orders
 ---
 
-# business-logic-hunter v2.3.0 — The App's Rules, Tested As Rules
+# business-logic-hunter v2.4.0 — The App's Rules, Tested As Rules
 
 ## 0. What This Skill Is — and Is Not
 
@@ -136,7 +136,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Soroush Dalili.
+executing, characteristic of Soroush Dalili. Since v2.4.0 it also
+ships **The opening ladder** (A18): where Dalili's candidates come
+from — the perception layer that PRODUCES the restriction census on an
+unseen estate before any reshape or placebo is due (rungs write census
+rows, never reshaped requests; ranking rationale stated; generation
+falsifier on record; the reshape-lever kit names the bypass-craft
+lever table, one lever per hypothesis).
 
 ## 3. Procedure — Numbered Actions
 
@@ -194,4 +200,4 @@ executing, characteristic of Soroush Dalili.
 | A guard blocked a treatment / seam or comparison questions | `references/bypass-craft.md` |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
 | Grading the published form, running the reshaping differential, citing the defeated hop | `references/method-upgrade.md` |
-| Running the hunt — the Soroush Dalili runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Soroush Dalili runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

@@ -1,6 +1,6 @@
 ---
 name: xss-playbook
-version: 2.4.0
+version: 2.5.0
 type: ai-skill
 architecture: package
 description: >-
@@ -32,7 +32,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# xss-playbook v2.4.0 — Context First, Marker Always, Mutation Counts
+# xss-playbook v2.5.0 — Context First, Marker Always, Mutation Counts
 
 ## 0. What This Skill Is — and Is Not
 
@@ -134,7 +134,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of Mario Heiderich.
+executing, characteristic of Mario Heiderich. Since v2.5.0 it also
+ships **The opening ladder** (A18): where Heiderich's candidates come
+from — the perception layer that PRODUCES ranked sink candidates on
+an unseen estate before any payload is due (rungs write census rows,
+never payloads; ranking rationale stated; generation falsifier on
+record; the probe-class kit names the corpus entry classes, bytes
+stay versioned in corpus.json).
 
 ## 3. Procedure — Numbered Actions
 
@@ -210,7 +216,7 @@ executing, characteristic of Mario Heiderich.
 | Context-exact payloads (HTML body/attribute/JS string/raw-text/URL) plus the versioned mXSS corpus (noscript, svg, MathML mutation classes — each with the sanitizer version it bypassed and its credit), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Citing the lineage artifacts behind the v2 layer | `references/sources.md` |
 | Grading the published method, running the mutation differential, dating the sanitizer | `references/method-upgrade.md` |
-| Running the hunt — the Mario Heiderich runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the Mario Heiderich runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 
 The corpus is versioned (`corpus_version`) and every entry carries its
 primary source and its **failure modes** — read them before closing any

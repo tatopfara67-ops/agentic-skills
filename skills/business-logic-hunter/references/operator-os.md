@@ -1,10 +1,10 @@
-# operator-os.md — the Dalili runtime: think, behave, script
+# operator-os.md — the Dalili runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > logic laws; the M-protocol (references/method-upgrade.md) states the
 > bypass matrix and reshaping protocol; THIS module is the runtime —
-> how the agent thinks, behaves, and scripts while executing them,
-> characteristic of Soroush Dalili's documented craft: the request is
+> how the agent notices, thinks, behaves, and scripts while executing
+> them, characteristic of Soroush Dalili's documented craft: the request is
 > a shape, reshaping it walks the parser's blind spots, and the
 > placebo control keeps the bypass honest.
 
@@ -36,6 +36,69 @@ cites which cell opened the door.
 R6 **Repeatability is the floor.** A bypass that fires once in five
 attempts is a rate, not a capability — attempts + success_rate on
 every claim.
+
+### The opening ladder — where Dalili's candidates come from
+
+The rules above govern once a restriction is identified; the ladder
+produces the restrictions themselves — the reshaper's perception (a
+decade of published bypasses all began the same way: find where the
+estate says no, then ask which parser sits behind the no — the shape
+grammar only matters where a rule and a parser disagree) made runnable
+as questions. Every rung is a census read of the spine's Phase-1/2
+records and the estate's own flows — restriction candidate rows out,
+zero reshaped requests sent; T2's variants stay gated behind the
+placebo control (S2) and consume the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Where does the estate say "no" at all? | the enforcement census: every observed block, refusal, gate, filter, and rate limit — each a rule-class row waiting for T1 | T1/R1's classification tradition — the organ's own operationalization of the reshaping corpus (bypass-craft.md §1) |
+| G2 | Which rules guard privilege, money, or state transitions? | the load-bearing subset: admin gates, payment/refund flows, quota and role changes — rules whose crossing unlocks a chain | R5's chain-value law (a bypass's value is the chain it unlocks) + abuse-catalog's flow classes (the organ's own v1 doctrine) |
+| G3 | Which parser sits BEHIND each rule? | the parser census: router, WAF, framework, executor — who re-parses what the rule matched; the disagreement rows | "WAF Bypass Techniques Using HTTP Standard and Web Servers' Behavior" (the Dalili talk line; bypass-craft.md §2's seam check) |
+| G4 | Which upload and file protections decide by extension, type, or path? | the upload-filter census: content-type/MAGIC/extension checks, path guards — each typed by what the stored file reaches | the Dalili upload-bypass line (NCC Group Flash upload advisory; soroush.me "File in the hole!") |
+| G5 | Which flows assume ordered, single, replay-free requests? | the sequence census: sequence/replay/reorder/races/arithmetic assumptions on the load-bearing flows | the organ's own v1 doctrine (abuse-catalog.md + races.md) — labeled |
+
+Ranking rationale: candidate priority = unlock value × rule rigidity ×
+parser multiplicity. A rule whose crossing unlocks a privileged
+surface tops the order (R5); a rule enforced by a DIFFERENT component
+than the parser behind it outranks a co-located one — the disagreement
+is already structural (bypass-craft §2); upload protections rank by
+what the stored file reaches (execution > render > storage);
+sequence assumptions rank by the side effect they guard (money >
+state > view). Rows out; no reshaped request sent.
+
+Generation falsifier: an in-scope estate where the ladder yields zero
+restriction candidates means the census is missing a rung — a rule
+family it does not type (cookieless sessions, header-routed tiers,
+GraphQL depth guards); the census is re-read, the rung is written
+with its grounding row. "No rules to bypass" at generation time is
+refused — every estate says no somewhere; finding the no's is
+reading, not luck.
+
+#### The ladder's payload kit — the reshape-lever rows (customize before use)
+
+Generation writes rows; these are the lever classes the single-
+dimension experiments later load — one lever per hypothesis, each with
+its placebo control (the full lever table with per-lever "why servers
+differ" lives in bypass-craft.md §1):
+
+| Kit row | The lever it names | Anchor |
+| --- | --- | --- |
+| case row | `/ADMIN/main` — guard matches case-sensitively, router doesn't | bypass-craft §1 lever table + T2 |
+| path-params row | `/admin/;/main` — the router treats `;params` differently than the guard | bypass-craft §1 + T2's semicolon variant |
+| padding row | `/admin//main`, `/./admin/main` — normalization order differs per component | bypass-craft §1 + T2's dot-seg variant |
+| encoding row | `%61dmin`, double-encoded forms — decode happens at different layers | bypass-craft §1 + T2's percent/double-pct variants |
+| header/verb row | `X-Original-URL`, method swap — routing headers honored by the executor, unread by the guard | bypass-craft §1 |
+| cookieless row | session-in-URL forms where the guard reads cookies and the framework reads the path | the @irsdl ASP.NET cookieless class (sources.md) |
+| placebo row | the harmless variant that proves the reshape mechanism before any bypass claim | T3 (R3) |
+| rate row | attempts + success_rate per claimed cell — the repeatability floor | T5 (R6) |
+
+Customization knobs, stated in the plan note: the rule slice (which
+rule classes the census types — edge WAF only vs every guard the
+flows show), the lever set (which reshape dimensions run — narrowed
+to the stack behind each rule per the parser census), and the rate
+budget (experiments per cell, the 0.8 capability threshold — fixed
+before S3 starts). The parser-differential seam check and the
+intended-behavior inversions live in bypass-craft.md §2/§3.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

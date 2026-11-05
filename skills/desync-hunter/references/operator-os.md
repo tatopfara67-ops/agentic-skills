@@ -1,10 +1,11 @@
-# operator-os.md — the Kettle runtime: think, behave, script
+# operator-os.md — the Kettle runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS, not when it is planned. The
 > doctrine (SKILL.md §3) states the posture; the M-protocol
 > (references/method-upgrade.md) states the procedure; THIS module is
-> the runtime — how the agent thinks, behaves, and scripts while
-> executing them, characteristic of James Kettle's documented craft:
+> the runtime — how the agent notices, thinks, behaves, and scripts
+> while executing them, characteristic of James Kettle's documented
+> craft:
 > re-read the spec as a hypothesis, map the parsers before the
 > payloads, one ambiguity per request, and never mistake a slow
 > response for a finding.
@@ -47,6 +48,69 @@ R7 **A negative with a documented failure mode is UNTESTED, not
 disproven.** Check the corpus entry's failure modes before closing any
 hypothesis — per-request connections and intermediary re-framing leave
 the seam untested.
+
+### The opening ladder — where Kettle's candidates come from
+
+The rules above govern the differential once a seam is suspected;
+the ladder produces the seam candidates themselves — the parsing-chain
+first perception (the 2019 research posture: map the chain and its
+verdicts BEFORE any ambiguity craft; the class renews every protocol
+generation because interpretive labor never disappears) made runnable
+as questions. Rungs one to three are quiet reads and malformed-input
+verdicts — no CL/TE ambiguity bytes; rungs four and five select and
+gate. Rows out; the anomaly budget unspent until S4's matrix selection.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Which hops stand between client and origin — and what does each ADMIT it is? | the chain census: ordered headers, Server/Via/X-Cache, per-hop versions — every hop pinned or framing=unknown | T1's hop-fingerprint discipline; the parsing-chain-first posture (BH USA 2019, sources.md) |
+| G2 | Where does the chain change protocol or framing? | framing seams: h2-negotiated edges over H1 origins, H2-only paths, protocol translations — where the interpretive labor splits | "HTTP/2: The Sequel Is Always Worse" (BH USA 2021 — H2.CL/H2.TE/name-case; sources.md) + T2's ALPN check |
+| G3 | Which parser pairs already DISAGREE on malformed input? | verdict divergence: error-page ownership per hop — two different answers to the same malformed request = the seam exists before any CL/TE craft | T3's error-page ownership + R1's spec-disagreement rule |
+| G4 | Which ambiguity classes does the pinned pair make admissible? | matrix selection: CL.TE / TE.CL / TE.TE / H2.CL / H2.TE / name-case × the pair of pinned versions — admissibility read from the census, not from habit | R2 + the M2 selection matrix (method-upgrade.md) |
+| G5 | Whose edge is it — and who else stands on it? | scope-boundary rows: shared CDN/edge ownership, other-tenant exposure — the seam priced by blast and gated by ownership | the scope-law row (R0 on the SEAM's owner — behavioral protocol row 1) |
+
+Ranking rationale: candidate priority = observed disagreement ×
+admissibility × blast. A pair already disagreeing on malformed input
+outranks a merely-versioned pair — an observed verdict divergence beats
+an inferred matrix row; an h2-downgrade seam outranks an H1-only chain
+for class breadth (H2.CL + name-case ride the same seam); duplicate-CL
+and CL.0 rows rank by intermediary prevalence; a shared edge ranks by
+other-tenant exposure but is gated FIRST by ownership — an unowned seam
+parks, it never probes (R0). Rows out; no ambiguity bytes sent.
+
+Generation falsifier: an in-scope chain where the ladder yields zero
+admissible seam classes means the chain census is missing a rung for
+that framing — a QUIC/H3 fronting, a non-HTTP intermediary, a
+translation the CHAINMAP cannot type; the census is re-read, the rung
+is written with its grounding row. The chain is never excused as
+"desync-proof" at generation time: that verdict belongs to the S5
+three-part differential, never to the ladder.
+
+#### The ladder's payload kit — the ambiguity-class probe rows (customize before use)
+
+Generation writes rows; these are the probe classes the differential
+later loads — byte-exact bytes stay versioned in corpus.json (R5;
+every corpus entry carries probe, oracle, failure modes, and source):
+
+| Kit row | The ambiguity it names | Corpus entry |
+| --- | --- | --- |
+| CL.TE differential row | Content-Length read by the front, Transfer-Encoding by the back — non-blind verdict pair | DS-001 |
+| CL.TE timeout row | the blind lead: CL kept, TE body held open — wall-clock oracle only | DS-002 |
+| TE.CL differential row | the inverted disagreement — non-blind | DS-003 |
+| TE.CL timeout row | the inverted blind lead | DS-004 |
+| TE.TE obfuscation row | disagreement induction — obfuscated framing both must still agree on | DS-005 |
+| duplicate-CL row | two Content-Length values where intermediaries differ in precedence | DS-006 |
+| CL.0 row | browser-powered desync — the request that ends where the parser thinks it doesn't | DS-007 |
+| H2 downgrade row | H2.CL / H2.TE — the framing seam the downgrade creates | DS-008 |
+| poisoning proof row | response-queue poisoning, canary-marked, operator-owned — impact only | DS-009 (R6 ceiling) |
+| differential harness row | treatment vs control (same bytes minus ONE restoring byte), interleaved A,B,A,B ×5 — the three-part confirm rule | T4 + M3 |
+
+Customization knobs, stated in the plan note: the chain slice (which
+hops the census pins — front/origin only vs every intermediary), the
+framing profile (H1-only / h2-downgrade / H2-only — which kit rows are
+admissible per the M2 matrix), and the pacing budget (one request per
+10 s on WAF-hostile targets, the interleave count per hypothesis —
+fixed before S5). The matrix mechanics and per-class preconditions
+live in method-upgrade.md; the byte-exact probes live in corpus.json.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

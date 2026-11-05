@@ -197,7 +197,7 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 |---|---|---|
 | [auth-boundary-mapper](skills/auth-boundary-mapper/) | 2.3.0 | Role×resource matrix, IDOR/BOLA differentials (Frans Rosen lineage). |
 | [oauth-flow-auditor](skills/oauth-flow-auditor/) | 2.4.0 | OAuth/OIDC checks with falsifiers; the client-inventory opening ladder (Aaron Parecki lineage, RFC 9700 vocabulary). |
-| [business-logic-hunter](skills/business-logic-hunter/) | 2.3.0 | Workflow abuse, rate-floored races, parameter tampering (Soroush Dalili lineage). |
+| [business-logic-hunter](skills/business-logic-hunter/) | 2.4.0 | Workflow abuse, rate-floored races, parameter tampering; the enforcement-census opening ladder (Soroush Dalili lineage). |
 
 ### Tier 3 — Deep Technical (7)
 
@@ -205,7 +205,7 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 |---|---|---|
 | [injection-lab](skills/injection-lab/) | 1.3.1 | Injection differential oracles — sqlmap runs as oracle only, census before any battery. |
 | [ssrf-playbook](skills/ssrf-playbook/) | 1.3.1 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder. |
-| [xss-playbook](skills/xss-playbook/) | 2.4.0 | Sink-context analysis, marker proofs, the mXSS layer (Mario Heiderich lineage). |
+| [xss-playbook](skills/xss-playbook/) | 2.5.0 | Sink-context analysis, marker proofs, the mXSS layer; the context-first opening ladder (Mario Heiderich lineage). |
 | [cloud-config-auditor](skills/cloud-config-auditor/) | 2.4.0 | CORS matrix, anonymous storage, takeover checks as code; where-drift-is-born ladder (Prowler / de la Fuente lineage). |
 | [mobile-hunter](skills/mobile-hunter/) | 1.3.0 | Mobile teardown — the shipped APK/IPA read before the device is touched; the confession opening ladder (Charlie Miller lineage). |
 | [cache-playbook](skills/cache-playbook/) | 1.3.0 | Cache deception & poisoning — the cache-key baseline matrix (Omer Gil + James Kettle corpus). |
@@ -236,11 +236,11 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 
 | Skill | Version | What it does |
 |---|---|---|
-| [chain-architect](skills/chain-architect/) | 1.2.0 | Compound kill chains — low findings composed into one critical impact (Orange Tsai lineage). |
-| [desync-hunter](skills/desync-hunter/) | 1.4.0 | Protocol asymmetry — one ambiguity per request, byte-exact artifacts (James Kettle lineage). |
-| [deep-teardown](skills/deep-teardown/) | 1.2.0 | Client artifacts dismantled to primitives, local before any network flow (George Hotz lineage). |
+| [chain-architect](skills/chain-architect/) | 1.3.0 | Compound kill chains — low findings composed into one critical impact; the architecture-first opening ladder (Orange Tsai lineage). |
+| [desync-hunter](skills/desync-hunter/) | 1.5.0 | Protocol asymmetry — one ambiguity per request, byte-exact artifacts; the parsing-chain-first opening ladder (James Kettle lineage). |
+| [deep-teardown](skills/deep-teardown/) | 1.3.0 | Client artifacts dismantled to primitives, local before any network flow; the read-it-first opening ladder (George Hotz lineage). |
 | [ghost-crawler](skills/ghost-crawler/) | 1.3.0 | Passive-index misconfig hunting — one bounded probe per candidate; the neglect ladder (Adrian Lamo lineage). |
-| [mirror-hunter](skills/mirror-hunter/) | 1.2.0 | LLM/agent surfaces where the target runs the hunter's engine class (Simon Willison lineage). |
+| [mirror-hunter](skills/mirror-hunter/) | 1.3.0 | LLM/agent surfaces where the target runs the hunter's engine class; the surface-census opening ladder (Simon Willison lineage). |
 | [probe-smith](skills/probe-smith/) | 1.0.0 | Hardware teardown — pinout discovery, priced bypass ladder, radio promiscuity (Travis Goodspeed lineage). |
 | [signal-smith](skills/signal-smith/) | 1.2.0 | Input grammar and precision signals — never trip the alarm (John Draper lineage). |
 | [threshold-hunter](skills/threshold-hunter/) | 1.0.0 | Physical trust boundaries at the information layer; detection as the deliverable (Deviant Ollam lineage). |

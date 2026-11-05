@@ -1,9 +1,9 @@
-# operator-os.md — the Willison runtime: think, behave, script
+# operator-os.md — the Willison runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > mirror laws; the M-protocol (references/method-upgrade.md) states the
 > eligibility and craft protocols; THIS module is the runtime — how the
-> agent thinks, behaves, and scripts while executing them,
+> agent notices, thinks, behaves, and scripts while executing them,
 > characteristic of Simon Willison's documented craft: name the class
 > precisely, treat model output as stochastic, and look for the
 > deterministic wrapper the model feeds.
@@ -41,6 +41,74 @@ failures ledgered.
 R6 **The exfil ceiling is pre-declared.** What the demonstration is
 allowed to move (one canary marker, one operator-owned sink) is
 written before the first probe; the proof is the REACH, not the haul.
+
+### The opening ladder — where Willison's candidates come from
+
+The rules above govern once an AI surface is in hand; the ladder
+produces the surfaces themselves — the coinage-era perception (the
+class was named in reaction to instruction-following models being
+WIRED to retrieval and external tools — the surfaces came first in
+the noticing, the payloads never existed yet) made runnable as
+questions. Every rung is a census read of the estate's pages,
+bundles, and program rules — rows out, zero generations spent;
+probes stay gated behind the eligibility pin (R3) and consume the
+ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Where does the estate wire model output to deterministic code? | the surface census: agent endpoints, copilot features, chat-with-doc, summarizers, tool-calling paths — each with the wrapper contract (what code consumes the model's call) | R2's law riding the coining essay's trigger — models "wired to retrieval and external tools" (sources.md §1) |
+| G2 | Which untrusted text does the model retrieve or ingest? | the channel census: RAG corpora, scraped pages, tickets/mail, uploaded docs, agent context files — every channel feeding text the model did not author | the indirect-injection record (Greshake et al., arXiv:2302.12173 — instructions embedded in retrieved content) |
+| G3 | Where does model output get RENDERED rather than used? | the render census: markdown rendering of model output, HTML previews, chat UIs — the exfil-channel shapes (image/link payloads) | the Rehberger exfiltration-chain record (model output rendered as markdown images/links carrying data out) |
+| G4 | Which tools can the model call — and who wrote their descriptions? | the tool census: tool list per surface, each tool's privilege and its description's provenance (MCP servers, plugins, skill/context files) | the Invariant Labs record (tool poisoning, rug pulls, cross-server shadowing) + the CSA context-poisoning note |
+| G5 | What does the program's eligibility table actually say? | the pin rows: qualifying/ineligible classes, exfil authorization, rate-proof acceptability — negative scope read as data | R3's law + eligibility-and-evidence.md §1.2 (the rules page read directly as primary source) |
+
+Ranking rationale: candidate priority = wrapper determinism ×
+channel reach × tool privilege. A surface whose model output feeds a
+privileged tool call (mail sender, file writer, SQL runner) tops the
+order — the finding lives where output crosses into deterministic
+code (R2); a retrieved-content channel ranks by who can write to it
+(public web > authenticated collaborator > internal-only); a
+render-only surface ranks by whether rendered markdown can carry data
+out (the image/link exfil shapes); ineligible surfaces rank zero —
+they get no payloads, not quieter ones (R3). Rows out; no generation
+spent.
+
+Generation falsifier: an in-scope estate where the ladder yields
+zero AI surfaces means the census is missing a rung for that surface
+class — a copilot integration, a feature-flagged LLM path the bundle
+strings show but the census table does not; the census is re-read
+(bundle strings, JS endpoints, docs), the rung is written with its
+grounding row. "No AI surface here" at generation time is refused
+unless the rows that would show one are themselves on record with
+coverage.
+
+#### The ladder's payload kit — the injection-craft row classes (customize before use)
+
+Generation writes rows; these are the craft classes the differential
+later loads — every row is marker-carrying and twin-controlled (same
+content, one dimension varied), per the craft law (attention is the
+interpreter; the catalog lives in injection-craft.md §2):
+
+| Kit row | The craft it names | Catalog entry |
+| --- | --- | --- |
+| edge-load row | directive placed at the retrieval artifact's edge vs its middle | 2.1 (positional decay) |
+| salience row | urgent/loud directive vs quiet twin | 2.2 |
+| authority row | developer-voice framing vs user-voice twin | 2.3 |
+| commitment row | multi-turn ladder vs cold-open twin | 2.4 (documented class) |
+| burial row | directive diluted inside a large benign document | 2.5 |
+| smuggling row | token-level / invisible-unicode carriers | 2.7 (CSA-documented) |
+| exfil-channel row | markdown image/link payload carrying the marker toward the operator sink | 2.8 (Rehberger class) |
+| tool-hijack row | the confused-deputy chain through a privileged tool | 2.10 |
+| marker harness row | MYTHOS-<hex> canary + n ≥ 30 rate differential (T2/T3) | R4/R5 + the M-protocol |
+
+Customization knobs, stated in the plan note: the surface set (which
+AI surfaces the census types — narrowed to what the eligibility table
+actually qualifies), the channel set (which ingestion channels are in
+scope and writable by whom — the RAG/collaborator mix), and the rate
+budget (generations per differential, guard-on/guard-off rows —
+priced before S3 runs). The craft detail and per-entry impact gates
+live in injection-craft.md; the eligibility quotes live in
+eligibility-and-evidence.md.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

@@ -1,10 +1,10 @@
-# operator-os.md — the Hotz runtime: think, behave, script
+# operator-os.md — the Hotz runtime: notice, think, behave, script
 
 > A17's layer. Load when the teardown RUNS. Doctrine (SKILL.md) states
 > the dismantle laws; the M-protocol (references/method-upgrade.md)
 > states the gated ladder and symbol-trust protocol; THIS module is
-> the runtime — how the agent thinks, behaves, and scripts while
-> executing them, characteristic of George Hotz's documented craft:
+> the runtime — how the agent notices, thinks, behaves, and scripts
+> while executing them, characteristic of George Hotz's documented craft:
 > the shipped artifact is a confession — read it before you debug it,
 > primitives before exploits, and local data flow before network flow.
 
@@ -39,6 +39,68 @@ exists to kill.
 R6 **Debuggers are for questions, not tours.** Attach with a specific
 question ("what validates this blob?"), answer it, detach; wandering
 sessions generate noise and burn the engagement's rhythm.
+
+### The opening ladder — where Hotz's candidates come from
+
+The rules above govern the descent once the artifact is in hand; the
+ladder produces what the descent hunts FIRST — the unlock-era
+perception (the first unlock came from READING what the baseband
+checked, not from spraying it; the artifact confesses to a reader
+before it performs for an executor) made runnable as questions. Every
+rung is a static question that writes inventory rows — no rung
+attaches a debugger, sends a packet, or spends the anomaly budget;
+dynamic work stays gated behind R5/R6 and consumes the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What does the artifact confess before anyone runs it? | strings, symbols, class dumps, entitlements, manifest — the surface inventory every later rung reads | R1's tradition: the 2007 unlock began in static reading of what the baseband checked (sources.md, primary record) |
+| G2 | Where does the artifact store, cache, and trust local state? | prefs, keychain, sqlite, logs, plaintext caches — the local-data trust map with its read/write actors | R3's law; the operator-brief lineage ("understand how it manages sensitive data locally client-side before it is sent to the server" — sources.md) |
+| G3 | Which symbols claim authority the bytes never earned? | load-bearing names ("verify", "harden", "secure") graded against disassembly — a CONTRADICTING grade is a candidate | R4's symbol-trust table — the organ's own operationalization, labeled |
+| G4 | What did the newer build silently stop doing? | the version delta: removed checks, retired strings, changed constants — the vendor's unannounced edit | T5's diff economy — the organ's own operationalization, labeled |
+| G5 | Which client-side gates does the client itself trust? | admin gates, feature flags, debug stubs, hidden routes — each a differential hypothesis about what the server re-checks | SKILL §3 law 5 (client logic is a hypothesis about server logic) + the four-inventory contract (teardown-ladder §4B) |
+
+Ranking rationale: candidate priority = contradiction × local-trust
+reach × delta freshness. A CONTRADICTING symbol grade tops the order —
+the name claimed security and the bytes disagree, which is exactly
+where the unlock-era reading lived; plaintext local state holding
+tokens/PII ranks next (report-grade, priced by reach); a silent
+version-delta candidate ranks by what the removed check used to gate;
+UNKNOWN-graded symbols rank last — they are questions, not candidates.
+Rows out; the artifact untouched by executors.
+
+Generation falsifier: an in-scope artifact where the sweep yields
+zero candidate rows across every row class means the ladder is
+missing a rung for that artifact class (a container image, a WASM
+bundle, a signed desktop daemon) — the census is re-read, the missing
+rung is written with its grounding row. The artifact is never excused
+as "clean" at generation time: a zero-yield verdict belongs to
+verification's coverage row (M5), never to the ladder.
+
+#### The ladder's payload kit — the confession sweep rows (customize before use)
+
+Generation writes rows; these are the static sweep classes the rows
+name, every one a local read of the pinned artifact (the sourcemap row
+is the single fetch exception and runs under the acquisition record —
+one fetch, same host, recorded):
+
+| Sweep row | The read payload | Writes which row |
+| --- | --- | --- |
+| host/endpoint row | `strings -n 8 Art.bin > s.txt; rg -io "https?://[a-z0-9._-]+" s.txt \| sort -u` | endpoint inventory row (incl. internal/debug hosts) |
+| secret-hint row | `rg -i "api.?key\|token\|secret\|passwd\|bearer" s.txt` | masked secrets-hint row (policy: report-only) |
+| gate row | `rg -i "debug\|staging\|verbose\|test.?mode\|isAdmin" s.txt` + the manifest's flag list | client-gate candidate row |
+| storage-profile row | the platform paths (iOS keychain/NSHomeDirectory; Android SharedPreferences/data/data; desktop %APPDATA% equivalents) | local-state trust row |
+| entitlement row | the permission/entitlement list as claimed by the manifest | privilege-claim row (graded, never trusted — R4) |
+| sourcemap row | `rg -o "sourceMappingURL=[^ ]+" bundle.js` then the one recorded fetch | original-source row |
+| delta row | `diff <(sort -u s1.txt) <(sort -u s2.txt)` across pinned builds | silent-change candidate row |
+
+Customization knobs, stated in the plan note: the artifact class
+(JS / APK / IPA / binary — which descent ladder and which
+storage-profile rows load), the sweep depth (strings min-length and
+which row classes run — narrowed to the hypothesis class that
+justifies the descent, per R7's budget), and the entitlement/storage
+profile (iOS vs Android vs desktop path sets). The descent mechanics
+per class live in teardown-ladder.md; this kit is the opening sweep
+that decides which rung of it is worth climbing.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

@@ -1,9 +1,9 @@
-# operator-os.md — the Orange Tsai runtime: think, behave, script
+# operator-os.md — the Orange Tsai runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > compound kill-chain laws; the M-protocol (references/method-upgrade.md)
 > states the chain protocol; THIS module is the runtime — how the
-> agent thinks, behaves, and scripts while executing them,
+> agent notices, thinks, behaves, and scripts while executing them,
 > characteristic of Orange Tsai's documented craft: name collisions
 > are attack surface, low-severity primitives compose into critical
 > chains, and every link is proven by its own differential before the
@@ -42,6 +42,68 @@ R6 **Respect the escalation ladder.** Chain impact demonstrations run
 one rung at a time (reach → read → write → execute) and stop at the
 engagement's stated ceiling — the report's ceiling statement names the
 rung actually proven.
+
+### The opening ladder — where Orange Tsai's candidates come from
+
+The rules above govern once a primitive is in hand; the ladder
+produces the primitives themselves — the architecture-first
+perception (the 3-year Pwn2Own campaign read the target's architecture
+DEEP before touching it; ProxyLogon began by noticing a path prefix
+that meant two things to two components) made runnable as questions.
+Every rung is a reading of the estate's architecture, configs, and
+bundles — collision candidate rows out, no differentials sent; the
+T2 collision probe stays gated behind S2 and consumes the ladder's
+rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | What does the estate's own architecture admit about its component boundaries? | the architecture read: deployment diagrams, proxy configs, module lists, published docs — every place the vendor names a seam | the 3-year architecture-first campaign posture (HEXACON 2023, sources.md) |
+| G2 | Where do two components parse the SAME name form? | the parser-seam census: scheme/host/path/port forms each component resolves — edge vs origin, router vs backend, language vs language | "A New Era of SSRF — Exploiting URL Parser in Trending Programming Languages" (DEF CON 28 — the canonical hunt-the-seams source) |
+| G3 | Which module seams validate the same request twice? | module-ambiguity census: path handling, auth, rewrite modules that both claim a request class with different semantics | "Confusion Attacks: Exploiting Hidden Semantic Ambiguity in Apache HTTP Server" (OrangeCon 2023) |
+| G4 | Which name forms collide across consumers? | the collision census: path prefixes, hostnames, headers, filenames — each a candidate row naming the two consumers and the form | R1's class riding ProxyLogon's namespace collision (DEVCORE, sources.md) |
+| G5 | Which "harmless" capabilities would compose — and toward what rung? | the composition census: redirects, fetches, file writes, auth skips, debug endpoints read as CHAIN MATERIAL with their position potential | R2 + the DEVCORE kill chains (each link modest, the composition critical) + the operator brief ("find 3-4 small harmless-seeming gaps, chain them into a critical") |
+
+Ranking rationale: candidate priority = composition depth × seam
+multiplicity × pre-auth position. A collision on a pre-auth path tops
+the order — ProxyLogon's pre-auth SSRF was the door the chain opened
+through; a seam family with several consumer pairs outranks a single
+pair (each pair is a separate disagreement to prove); a primitive
+whose composition question answers toward write/execute outranks
+read-only material; architecture-named seams outrank inferred ones —
+the vendor's own boundary statement is the map the 3-year campaign
+trusted. Rows out; no differential spent.
+
+Generation falsifier: an in-scope estate where the ladder yields zero
+primitive candidates means the census is missing a rung — a name-form
+class it does not type (a cookie name, a header form, a port
+convention), a parser family absent from the collision table; the
+architecture census is re-read, the rung is written with its grounding
+row. The estate is never excused as "un-chainable" at generation
+time: low primitives are found by reading, not by luck.
+
+#### The ladder's payload kit — the collision-form and primitive rows (customize before use)
+
+Generation writes rows; these are the form and primitive classes the
+probes and composition questions later load (the vocabulary and the
+chain archetypes live in chaining-catalog.md §1/§3):
+
+| Kit row | The form it names | Catalog anchor |
+| --- | --- | --- |
+| parser-form row | scheme/host/path oddities each consumer may resolve differently (backslash, encoded separator, fragment, port suffix) | chaining-catalog §1 "Parser confusion" + T2's name-form classes |
+| collision-form row | path prefixes and hostnames that mean two things to two components | R1's ProxyLogon namespace collision (sources.md) |
+| module-seam row | the double-validation request class two modules both claim | chaining-catalog §1 + OrangeCon's Apache module ambiguity |
+| primitive rows | info disclosure / endpoint leak / SSRF / auth-bypass / file write / file read / redirect / takeover / race / debug exposure — each rated by position, not standalone severity | chaining-catalog §1 vocabulary table |
+| composition row | "what does this give me a position FOR?" — the per-primitive composition question | chaining-catalog §2 |
+| chain archetype row | the pre-registration template: links + mechanisms + ceiling, every link pre-registered before impact | chaining-catalog §3/§4 + T3 |
+| ceiling row | reach → read → write → execute, stopped at the authorized rung | T5 (R6) |
+
+Customization knobs, stated in the plan note: the seam slice (which
+component pairs the census types — edge/origin only vs every
+intermediary and module pair), the form set (which name-form classes
+run — narrowed to the stack the architecture read actually shows),
+and the ceiling profile (the rung the engagement authorizes — decides
+which archetype rows are even sketched). The primitive vocabulary,
+composition questions, and archetypes live in chaining-catalog.md.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

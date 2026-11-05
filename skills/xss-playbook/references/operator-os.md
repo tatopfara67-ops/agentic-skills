@@ -1,9 +1,9 @@
-# operator-os.md — the Heiderich runtime: think, behave, script
+# operator-os.md — the Heiderich runtime: notice, think, behave, script
 
 > A17's layer. Load when the hunt RUNS. Doctrine (SKILL.md) states the
 > context laws; the M-protocol (references/method-upgrade.md) states
 > the sink-context protocol; THIS module is the runtime — how the
-> agent thinks, behaves, and scripts while executing them,
+> agent notices, thinks, behaves, and scripts while executing them,
 > characteristic of Mario Heiderich's documented craft: the context
 > decides the payload, mutation between sanitization and re-parse is
 > the vulnerability, and CSP is read as a fact — never assumed as a
@@ -38,6 +38,69 @@ the versioned corpus with failure modes; never hand-typed from memory.
 R6 **Impact is bounded to the marker.** One marker execution in the
 operator's session is the ceiling; harvesting sessions or cookies of
 others is a different (forbidden) activity.
+
+### The opening ladder — where Heiderich's candidates come from
+
+The rules above govern once a reflection is in hand; the ladder
+produces the reflections themselves — the mXSS researcher's
+perception (the class was found by asking WHERE sanitized trees get
+re-parsed, not by spraying payloads at known reflections) made
+runnable as questions. Every rung is a static read of the estate's
+own pages and bundles — rows out, zero payloads sent; probes stay
+gated behind S1–S6 and consume the ladder's rows.
+
+| # | The question | What it hunts | Grounding |
+| --- | --- | --- | --- |
+| G1 | Where does untrusted text cross into a parse context — and into WHICH one? | the reflection census: every interpolation/echo position typed by context class (element text, attribute, JS string, URL, comment), source line + sink line cited from the artifact | R1's law + the organ's own contexts.md table (PortSwigger Academy as the public training corpus) |
+| G2 | Which DOM sinks re-parse what they render? | innerHTML/outerHTML/document.write/insertAdjacentHTML/jQuery(html) rows, each paired with its source (location.* / postMessage / referrer / storage) | contexts.md's DOM sink/source lists (the organ's own) riding the mXSS research line (WPES 2013) |
+| G3 | Where does sanitizer output meet a DIFFERENT parser than its input? | sanitize→serialize→re-parse seams: WYSIWYG editors, markdown pipelines, stored-HTML render paths — the mutation window | the lineage's mXSS papers — "attacking well-secured web-applications by using innerHTML mutations" (WPES 2013; the 2024 revival talks) |
+| G4 | Which named elements collide with globals the app trusts? | DOM clobbering census: id/name attributes whose names shadow window/document properties the app's logic reads | DOM clobbering as a documented technique class (public PortSwigger research coverage; class-level, no single-artifact attribution) |
+| G5 | What does the estate's CSP NOT forbid? | every policy parsed into directive facts — the gap rows that re-rate every other rung's candidates | R3's fact-not-assumption law |
+
+Ranking rationale: candidate priority = context malleability ×
+round-trip presence × CSP gap. A sanitizer→innerHTML seam tops the
+order — the mutation window is the lineage's own class, found exactly
+by asking where re-parsing happens; a clobber candidate ranks by what
+the clobbered global gates (the privilege of the code path that reads
+it); a nonce/strict-dynamic or trusted-types policy CAPS the
+inline-grammar classes as a fact row — it never zeroes a candidate by
+assumption (R3); navigational contexts rank last, by the page's
+scheme handling. Rows out; no payload spent.
+
+Generation falsifier: an in-scope surface where the ladder yields
+zero sink candidates means the census is missing a rung for that
+stack — a framework's escaping grammar or a sink family absent from
+contexts.md; the bundle census is re-read, the rung is written with
+its grounding row. "No XSS surface" at generation time is refused:
+that verdict belongs to verification with coverage rows, never to
+the ladder.
+
+#### The ladder's payload kit — the context-first probe classes (customize before use)
+
+Generation writes rows; these are the probe classes the rows name —
+the kit names class + break grammar, the byte-exact bytes stay in the
+versioned corpus (R5; corpus.json holds probe, oracle, failure
+modes, and source per entry):
+
+| Kit row | The grammar it names | Corpus entry |
+| --- | --- | --- |
+| element-text row | `<` + marker element (e.g. `<b id=MARKER>`), then the context's execution primitive | XSS-001 |
+| attribute-breakout row | breakout quote + new marker attribute (double-quoted / unquoted shapes) | XSS-002 / XSS-003 |
+| JS-string breakout row | breakout quote + `;` + marker assignment + `//` | XSS-004 |
+| raw-text/comment row | script raw-text breakout; HTML comment `-->` breakout | XSS-005 + contexts.md comment row |
+| navigational row | permitted scheme + marker fragment; `javascript:` only as the recorded hypothesis | XSS-006 |
+| mutation row | context-switch + re-serialization probes: noscript, foreignObject re-serialization, MathML namespace confusion, comment nesting | XSS-007..010 (mXSS) |
+| clobber row | named-element collision with a trusted global | mxss-and-clobber.md class rows |
+| marker harness row | the MYTHOS-XSS-<hex> marker pair (payload-marker ↔ observed-marker) | contexts.md marker discipline (R4) |
+
+Customization knobs, stated in the plan note: the context-class set
+(which of contexts.md's classes the census types for this stack),
+the corpus slice (which entry classes load — framework-dependent;
+the legacy backtick row XSS-011 only under an explicit legacy-IE
+profile), and the CSP posture knob (absent / unsafe-inline /
+nonce+strict-dynamic / trusted-types — parsed from headers, deciding
+which grammar rows stay live). The class table and CSP verdict shapes
+live in contexts.md; the mutation detail lives in mxss-and-clobber.md.
 
 ## 2. The behavioral protocol — situation, move, refusal
 

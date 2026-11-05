@@ -1,6 +1,6 @@
 ---
 name: desync-hunter
-version: 1.4.0
+version: 1.5.0
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; targets whose scope explicitly covers the infrastructure/proxy layer
 ---
 
-# desync-hunter v1.4.0 — The Spec Is A Hypothesis
+# desync-hunter v1.5.0 — The Spec Is A Hypothesis
 
 ## 0. What This Skill Is — and Is Not
 
@@ -170,7 +170,13 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of James Kettle.
+executing, characteristic of James Kettle. Since v1.5.0 it also ships
+**The opening ladder** (A18): where Kettle's candidates come from —
+the perception layer that PRODUCES the seam census on an unseen chain
+before any ambiguity probe is due (rungs write census rows, never
+ambiguity bytes; ranking rationale stated; generation falsifier on
+record; the ambiguity-class kit names the corpus rows, bytes stay
+versioned in corpus.json).
 
 ## 4. Procedure — Numbered Actions
 
@@ -244,7 +250,7 @@ executing, characteristic of James Kettle.
 | --- | --- |
 | Choosing/designing an ambiguity | `references/asymmetry-catalog.md` |
 | Grading the published method, building the CHAINMAP, running the selection matrix and differential protocol | `references/method-upgrade.md` |
-| Running the hunt — the James Kettle runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the James Kettle runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
 | Exact probe bytes (CL.TE/TE.CL differential + timeout probes, TE.TE obfuscations, H2.CL), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
 | Verifying the Kettle lineage and sources | `references/sources.md` |
 

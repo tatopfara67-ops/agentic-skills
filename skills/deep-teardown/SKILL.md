@@ -1,6 +1,6 @@
 ---
 name: deep-teardown
-version: 1.2.0
+version: 1.3.0
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; artifacts acquired within program scope (store-published app, public bundle, in-scope download)
 ---
 
-# deep-teardown v1.2.0 — Dismantle To Primitives
+# deep-teardown v1.3.0 — Dismantle To Primitives
 
 ## 0. What This Skill Is — and Is Not
 
@@ -127,7 +127,12 @@ with its read-out and decision gate), and the rigid run-order binding
 rules, behavior, and scripts onto the M-protocol above. Load it when
 the hunt runs: the doctrine states the posture, the M-protocol states
 the procedure — the operator OS is how the agent BEHAVES while
-executing, characteristic of George Hotz.
+executing, characteristic of George Hotz. Since v1.3.0 it also ships
+**The opening ladder** (A18): where Hotz's candidates come from — the
+perception layer that PRODUCES ranked candidates on an unseen artifact
+before any verification is due (rungs write inventory rows, never
+packets; ranking rationale stated; generation falsifier on record; the
+confession-sweep kit is the pinned static-read row set).
 
 ## 4. Procedure — Numbered Actions
 
@@ -198,4 +203,4 @@ executing, characteristic of George Hotz.
 | Choosing the teardown path per artifact type | `references/teardown-ladder.md` |
 | Verifying the Hotz lineage and sources | `references/sources.md` |
 | Grading the published form, pinning artifacts, grading symbols, bounding coverage | `references/method-upgrade.md` |
-| Running the hunt — the George Hotz runtime: thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
+| Running the hunt — the George Hotz runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

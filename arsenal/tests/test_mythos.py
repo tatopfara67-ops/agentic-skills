@@ -309,10 +309,13 @@ class TestMythosLineages(unittest.TestCase):
         lock replaces this list when all 31 person-lineage organs
         carry the ladder."""
         rollout = [
-            "cloud-config-auditor", "content-discovery", "ghost-crawler",
-            "interior-cartographer", "mobile-hunter", "module-smith",
+            "business-logic-hunter", "chain-architect",
+            "cloud-config-auditor", "content-discovery", "deep-teardown",
+            "desync-hunter", "ghost-crawler", "interior-cartographer",
+            "mirror-hunter", "mobile-hunter", "module-smith",
             "oauth-flow-auditor", "packet-orchestrator", "pipeline-smith",
             "scan-economist", "subdomain-hunter", "template-scanner",
+            "xss-playbook",
         ]
         skills_root = os.path.join(_TREE_ROOT, "skills")
         for organ in rollout:

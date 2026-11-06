@@ -2,7 +2,7 @@
   "corpus": "DS",
   "organ": "desync-hunter",
   "vuln_class": "http_request_smuggling",
-  "corpus_version": "1.1.0",
+  "corpus_version": "1.2.0",
   "house_rules": [
     "Probe bytes below are transcribed from the public record and attributed per entry - this corpus never invents bytes.",
     "Line breaks inside probe bodies are CRLF. If you alter a single byte, recompute the chunk sizes and Content-Length values yourself.",
@@ -224,6 +224,50 @@
         "credit": "RFC 7230 §5.3.2 (absolute-form, public record) + the organ's catalog class row, labeled",
         "title": "RFC 7230 - HTTP/1.1 Message Syntax and Routing (§5.3.2 request-target forms); asymmetry-catalog.md §2 (absolute-form)",
         "url": "https://www.rfc-editor.org/rfc/rfc7230"
+      }
+    },
+    {
+      "id": "DS-013",
+      "technique": "H2.TE request smuggling (downgrade-injected Transfer-Encoding)",
+      "prerequisites": [
+        "HTTP/2 front-end that downgrades to HTTP/1.1 toward the back-end",
+        "back-end that supports chunked transfer encoding",
+        "a front-end that fails to strip an injected 'transfer-encoding' request header (the spec recommends stripping or blocking it)"
+      ],
+      "probe": ":method POST\r\n:path /example\r\n:authority {{host}}\r\ncontent-type: application/x-www-form-urlencoded\r\ntransfer-encoding: chunked\r\n\r\n0\r\n\r\nGET /admin HTTP/1.1\r\nHost: {{host}}\r\nFoo: bar",
+      "oracle": "on the wire toward the back-end the downgrade renders byte-exact as: POST /example HTTP/1.1, Host, Content-Type, Transfer-Encoding: chunked, the 0-chunk terminator, then GET /admin HTTP/1.1 as the next request on the connection - the TE half of DS-008's seam, now carrying its own byte-exact row; confirm with the DS-001 response-class differential on a follow-up request",
+      "failure_modes": [
+        "the front-end honors the spec's recommendation and strips or blocks the injected transfer-encoding header - refusal posture, the seam is absent (not disproven)",
+        "back-end is HTTP/2-native (no downgrade hop) - the class does not exist on this chain; map first (M1)",
+        "the front-end re-frames the body during translation - nothing is smuggled, the classic intermediary caveat",
+        "/admin answers identically to the follow-up path for unauthenticated probes - swap the smuggled path for a nonce-marked engagement-owned path so the response classes separate"
+      ],
+      "source": {
+        "credit": "PortSwigger Web Security Academy",
+        "title": "Advanced request smuggling - H2.TE vulnerabilities",
+        "url": "https://portswigger.net/web-security/request-smuggling/advanced"
+      }
+    },
+    {
+      "id": "DS-014",
+      "technique": "0.CL desync via folded Content-Length and the early-response gadget (the deadlock break)",
+      "prerequisites": [
+        "an H-V discrepancy vehicle that hides the Content-Length header from the front-end while the back-end still parses it (the obs-fold class, DS-011)",
+        "an early-response gadget on the back-end: a path it answers without waiting for the promised body (nginx static files; IIS reserved device names like /con; server-level redirects)"
+      ],
+      "probe": "GET /con HTTP/1.1\r\nHost: {{host}}\r\nContent-Length:\r\n 7\r\n\r\nGET /404 HTTP/1.1\r\nX: Y",
+      "oracle": "the treatment is the gadget path: the back-end answers the first request (200 OK) without waiting for the 7 promised body bytes, then consumes the first 7 bytes of the follow-up request as that body - the follow-up returns 400 Bad Request, the visible desync from the whitepaper's own rendering; the control is any non-gadget path, which deadlocks into a 504 Gateway Timeout - the deadlock itself is the documented signal that the seam exists while staying unexploited. The whitepaper then converts the 0.CL into a CL.0 with a double-desync; this organ's entry stops at the seam proof and DS-009's bounded ceiling governs any impact step",
+      "failure_modes": [
+        "no reachable early-response gadget (Apache-class servers close the connection on error) - the 0.CL stays a documented deadlock; park the seam with the 504 record",
+        "the folded Content-Length is visible to the front-end after all - the discrepancy vehicle failed; re-verify with the DS-010/DS-011 rows before reading anything into the response",
+        "the front-end times the connection out before the back-end's early response arrives - the observation window closes; lengthen it or park",
+        "front-end header injection (X-Forwarded-For and friends) shifts the byte counts - recompute the slice length per target, the whitepaper ships 0cl-find-offset for exactly this",
+        "the reserved-name gadget only fires inside folders mapped to the filesystem - /con on a routed path 404s like any other unknown path"
+      ],
+      "source": {
+        "credit": "James Kettle / PortSwigger Research",
+        "title": "HTTP/1.1 must die: the desync endgame (0.CL desync attacks - the deadlock, the early-response gadget, the double-desync)",
+        "url": "https://portswigger.net/research/http1-must-die"
       }
     }
   ]

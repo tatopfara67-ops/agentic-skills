@@ -155,4 +155,4 @@ this at their precision.
 | U3 | Poisoning as a differential with operator-owned victims | **M3** — the poisoning differential |
 | U4 | Decay and purge windows measured, not assumed | **M4** — the served-check decay curve |
 | U5 | Family separation and impact ceiling on record | **M5** — the ceiling statement |
-| U6 | Byte-exact suffix/delimiter probes with sources | `references/corpus.json` (CACHE-001…009, shipped v1.1.0) — consumed here, never re-typed |
+| U6 | Byte-exact suffix/delimiter probes with sources | `references/corpus.json` (CACHE-001…012; the smuggled chain classes CACHE-011/012 release through the weapons vault) — consumed here, never re-typed |

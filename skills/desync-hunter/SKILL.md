@@ -1,6 +1,6 @@
 ---
 name: desync-hunter
-version: 1.6.0
+version: 1.7.0
 type: ai-skill
 architecture: package
 description: >-
@@ -23,7 +23,13 @@ description: >-
   header-name oddity set, the obs-fold class, and the absolute-form
   request line enter the versioned corpus (corpus.json 1.1.0) — the
   catalog's name-borne, fold-borne, and line-borne classes now resolve
-  to byte-exact entries instead of shapes-only rows. Use when testing without a scanner against proxy chains, when
+  to byte-exact entries instead of shapes-only rows. Since v1.7.0 the
+  extreme tier rides the weapons vault (A19e): the H2.TE downgrade
+  form (DS-013) and the 0.CL desync opened by the early-response
+  gadget (DS-014) join corpus 1.2.0 — extreme-tier bytes release only
+  through the arsenal's `payload_release` gate: instruction-override
+  attempts refused and ledgered, weaponized classes banned from the
+  corpus outright, one scope-authorized target per call. Use when testing without a scanner against proxy chains, when
   hunting request smuggling or desync, when documentation says the system
   works one way and you need to force input the other way, or when classifying
   parser asymmetries ("request smuggling", "CL.TE", "desync", "protocol
@@ -37,7 +43,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; targets whose scope explicitly covers the infrastructure/proxy layer
 ---
 
-# desync-hunter v1.6.0 — The Spec Is A Hypothesis
+# desync-hunter v1.7.0 — The Spec Is A Hypothesis
 
 ## 0. What This Skill Is — and Is Not
 
@@ -195,7 +201,13 @@ versioned in corpus.json).
    predicted frontend interpretation vs predicted backend
    interpretation, and the observable that would distinguish them.
    The ambiguity catalog and grammar is
-   `references/asymmetry-catalog.md`.
+   `references/asymmetry-catalog.md`. Extreme-tier corpus classes (the
+   H2.TE downgrade form DS-013, the 0.CL gadget seam DS-014) release
+   through the weapons vault — `payload_release(program, "DS-013",
+   target, note)` — the gate scans every caller string for
+   instruction-override attempts, resolves the entry in the versioned
+   corpus, and refuses unscoped targets; the released bytes are the
+   corpus's bytes, never hand-crafted.
 4. Send the ambiguous request via `http_probe` with exact raw
    headers; capture response class, timing, and body hash as
    artifacts. Rate floor: one ambiguity per 10 seconds — WAF-hostile
@@ -246,6 +258,7 @@ versioned in corpus.json).
 | Raw sockets / HTTP/2 specific framing | spine micro-script doctrine + packet-orchestrator (manual trace first) |
 | Encoding-level header craft | signal-smith organ (its encoding-grammar module) |
 | Records | `ledger_append` (EXPERIMENT/CONTROL/CANARY) |
+| Extreme-tier corpus release (DS-013/014) | `payload_release` (the weapons vault — jailbreak scan, corpus resolution, banned-class ban, scope check) |
 | Classification at report time | `cvss3_score` + `vrt_classify` |
 
 ## 7. Reference Library (load on demand)
@@ -255,7 +268,7 @@ versioned in corpus.json).
 | Choosing/designing an ambiguity | `references/asymmetry-catalog.md` |
 | Grading the published method, building the CHAINMAP, running the selection matrix and differential protocol | `references/method-upgrade.md` |
 | Running the hunt — the James Kettle runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |
-| Exact probe bytes (CL.TE/TE.CL differential + timeout probes, TE.TE obfuscations, H2.CL, header-name oddity set, obs-fold class, absolute-form request line), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact probe bytes (CL.TE/TE.CL differential + timeout probes, TE.TE obfuscations, H2.CL, header-name oddity set, obs-fold class, absolute-form request line, the H2.TE downgrade form, the 0.CL early-response gadget seam), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus, 1.2.0; extreme-tier entries release through `payload_release`) |
 | Verifying the Kettle lineage and sources | `references/sources.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its

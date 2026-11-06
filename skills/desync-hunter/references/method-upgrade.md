@@ -48,10 +48,10 @@ Read the CHAINMAP pair for the seam under test, then select:
 
 | Front / Back pair | Classes the pair ADMITS | First probes | Preconditions |
 | ----------------- | ----------------------- | ------------ | ------------- |
-| H1 / H1 | duplicate-CL · CL.TE · TE.CL · TE.TE · obs-fold · header-name oddities · absolute-form | corpus DS-001 (CL.TE differential), then per class | both hops announce H1; edge does not re-frame (test with probe #4 of M1) |
-| H2 / H1 | H2.CL (CL header survives translation) · H2.TE smuggling a TE header · CRLF injection into translated fields | corpus H2.CL entry | edge negotiates H2 (ALPN evidence), origin H1 — the downgrade seam |
+| H1 / H1 | duplicate-CL · CL.TE · TE.CL · TE.TE · obs-fold · header-name oddities · absolute-form · 0.CL (folded CL the front can't see, gadget-broken) | corpus DS-001 (CL.TE differential), then per class — the 0.CL seam is DS-014 | both hops announce H1; edge does not re-frame (test with probe #4 of M1) |
+| H2 / H1 | H2.CL (CL header survives translation) · H2.TE smuggling a TE header · CRLF injection into translated fields | corpus DS-008 (H2.CL), DS-013 (H2.TE) | edge negotiates H2 (ALPN evidence), origin H1 — the downgrade seam |
 | H1 / H2 | connection-specific header smuggling (Upgrade/Keep-Alive reaching H2 origin) | corpus H1→H2 entry if shipped, else park with resume note | origin announces H2 directly |
-| cache in chain | cache-key vs body divergence · delimiter disagreement | cache-playbook organ corpus (CACHE-*) | a cache hop exists in CHAINMAP and its key behavior is baselined |
+| cache in chain | cache-key vs body divergence · delimiter disagreement · smuggled-response poison/deception chains | cache-playbook organ corpus (CACHE-*; the chain classes CACHE-011/012 release through the weapons vault) | a cache hop exists in CHAINMAP and its key behavior is baselined |
 
 Rules of the matrix:
 

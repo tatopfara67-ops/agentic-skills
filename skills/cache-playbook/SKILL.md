@@ -1,6 +1,6 @@
 ---
 name: cache-playbook
-version: 1.5.0
+version: 1.6.0
 type: ai-skill
 architecture: package
 description: >-
@@ -27,7 +27,13 @@ description: >-
   delimiter set's second edition — the encoded dot, the encoded
   question, and the `..;/` traversal segment — enters the versioned
   corpus (corpus.json 1.1.0), so every delimiter family the method
-  names resolves to a byte-exact entry. Use when a CDN or caching proxy sits in front of the target, when
+  names resolves to a byte-exact entry. Since v1.6.0 the extreme tier
+  rides the weapons vault (A19e): the smuggled-response poison
+  (CACHE-011) and the smuggled-session deception (CACHE-012) chains
+  join corpus 1.2.0 — extreme-tier bytes release only through the
+  arsenal's `payload_release` gate: instruction-override attempts
+  refused and ledgered, weaponized classes banned from the corpus
+  outright, one scope-authorized target per call. Use when a CDN or caching proxy sits in front of the target, when
   X-Cache/Age/cache-control headers appear, when the operator suspects cache
   attacks ("cek cache poisoning", "ada CDN cloudflare/akamai", "web cache
   deception di target ini", "cache misconfiguration", "kenapa halaman ini
@@ -41,7 +47,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); desync-hunter (parser-seam discipline, adjacent surface); packet-orchestrator (raw-request precision when discrepancies need it)
 ---
 
-# cache-playbook v1.5.0 — The Second Silent Parser
+# cache-playbook v1.6.0 — The Second Silent Parser
 
 ## 0. What This Skill Is — and Is Not
 
@@ -191,7 +197,7 @@ candidates come from — the perception layer that PRODUCES ranked
 candidates on an unseen cache tier before any demonstration is due
 (rungs write census rows, never markers; ranking rationale stated;
 generation falsifier on record; the confusion-class kit names corpus
-entries CACHE-001..009).
+entries CACHE-001..012).
 
 ## 4. Procedure — Numbered Actions
 
@@ -226,7 +232,15 @@ entries CACHE-001..009).
    marked body served under the victimless key. That proves the class
    without ever serving attacker bytes to another human. A poisoning
    demonstrated any other way on a shared path is a program-policy
-   violation, not a finding.
+   violation, not a finding. The extreme-tier chain classes (the
+   smuggled-response poison CACHE-011, the smuggled-session deception
+   CACHE-012) release through the weapons vault —
+   `payload_release(program, "CACHE-011", target, note)` — the gate
+   scans every caller string for instruction-override attempts,
+   resolves the entry in the versioned corpus, and refuses unscoped
+   targets; the released bytes are the corpus's bytes, never
+   hand-crafted, and the proof still runs on operator-owned sessions
+   and nonce-bearing keys.
 8. **Impact chain where the program asks for it.** Reflection →
    stored-script escalation (xss-playbook's sink law on the reflected
    context) → nonce-path proof again; the chain states per-link
@@ -275,6 +289,7 @@ entries CACHE-001..009).
 | Unkeyed-input reflection probes | `http_probe` + `ledger_append` (EXPERIMENT: one variable, marker value) |
 | Raw-byte discrepancies where needed | packet-orchestrator discipline via `arsenal_route` |
 | Classification | `cvss3_score` + `vrt_classify` |
+| Extreme-tier corpus release (CACHE-011/012) | `payload_release` (the weapons vault — jailbreak scan, corpus resolution, banned-class ban, scope check) |
 | Report gate | `auditor/audit_report.py` — exit 0 or it does not ship |
 
 ## 7. Reference Library (load on demand)
@@ -282,7 +297,7 @@ entries CACHE-001..009).
 | Load when… | Module |
 | --- | --- |
 | Expanding any step of §3/§4 into exact probes, oracles, falsifiers | `references/cache-method.md` |
-| Exact technique set (cache buster discipline, unkeyed inputs, fat GET, Gil's deception suffix, delimiter confusion set first and second editions, boundary mapping), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact technique set (cache buster discipline, unkeyed inputs, fat GET, Gil's deception suffix, delimiter confusion set first and second editions, boundary mapping, the smuggled-response poison and smuggled-session deception chains), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus, 1.2.0; extreme-tier entries release through `payload_release`) |
 | Verifying the Gil/Kettle/USENIX lineage and its sources | `references/sources.md` |
 | Grading the published method, baselining the cache key, measuring decay | `references/method-upgrade.md` |
 | Running the hunt — the Omer Gil + James Kettle runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

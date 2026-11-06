@@ -61,6 +61,24 @@ JAILBREAK_PATTERNS = tuple(re.compile(p, re.IGNORECASE) for p in (
     r"off\s+the\s+(books|record)",
     r"(i\s+am|we're|we\s+are)\s+(already\s+)?(authorized|scoped)\b"
     r"(?!\s*(by|under|via|per)\s)",
+    # --- second hardening wave: forget-verbs, pretended-authorization
+    # verbs, mode-escalation verbs, prompt-exfiltration attempts ------
+    r"forget\s+(all\s+|any\s+|everything\s+|the\s+)?"
+    r"(previous|prior|above|earlier|initial)\s+"
+    r"(instructions|rules|directives|constraints|prompts|context)",
+    r"forget\s+(everything|all|anything)\s+"
+    r"(you('ve| have)\s+been\s+told|above|before\s+now)",
+    r"treat\s+(this|it|that|me|us)\s+as\s+"
+    r"(authorized|approved|scoped|allowed|in\s+scope)",
+    r"assume\s+(i\s+am|we\s+are|you\s+are|you're)\s+"
+    r"(authorized|scoped|allowed|approved|permitted)"
+    r"(?!\s*(by|under|via|per)\s)",
+    r"(switch|enter|enable|activate|toggle)\s+(to\s+|into\s+)?"
+    r"(developer|god|dan|admin|root|privileged|unrestricted|"
+    r"unfiltered|uncensored)\s+mode",
+    r"(reveal|show|print|dump|expose|repeat|output)\s+(me\s+)?"
+    r"(your|the)\s+(system\s+prompt|hidden\s+instructions|"
+    r"initial\s+instructions|full\s+instructions)",
 ))
 
 # --- weaponized / destructive-only classes: banned outright --------------

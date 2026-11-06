@@ -2,7 +2,7 @@
   "corpus": "CACHE",
   "organ": "cache-playbook",
   "vuln_class": "web_cache_poisoning_and_deception",
-  "corpus_version": "1.1.0",
+  "corpus_version": "1.2.0",
   "house_rules": [
     "Cache buster ALWAYS: every probe carries a unique query parameter (?cb={{rand}}) so a poisoned entry never collides with real users - collateral poisoning of a shared entry is an incident, not a finding.",
     "Payloads/techniques are canonical forms from the public record, attributed per entry.",
@@ -177,6 +177,52 @@
         "credit": "the organ's method-layer delimiter set (cache-method.md §4), labeled; family per the USENIX'20 delimiter study",
         "title": "cache-method.md §4 (the named set); Mirheidari et al. - Cached and Confused (delimiter family)",
         "url": "https://arxiv.org/pdf/1912.10190"
+      }
+    },
+    {
+      "id": "CACHE-011",
+      "technique": "cache poisoning via request smuggling (the stored off-site redirect)",
+      "prerequisites": [
+        "a confirmed CL.TE-style seam on a chain whose front-end caches responses",
+        "a back-end that generates an off-site redirect when the smuggled request carries an attacker-controlled Host",
+        "an operator-owned fetch path whose key the engagement controls (the proof's victim fetch)"
+      ],
+      "probe": "POST / HTTP/1.1\r\nHost: {{host}}\r\nContent-Length: 59\r\nTransfer-Encoding: chunked\r\n\r\n0\r\n\r\nGET /home HTTP/1.1\r\nHost: {{attacker-host}}\r\nFoo: XGET /static/include.js HTTP/1.1\r\nHost: {{host}}",
+      "oracle": "the smuggled GET /home carries the attacker Host; the back-end's off-site redirect response lands on the follow-up request, and the front-end caches it under the FOLLOW-UP's URL (/static/include.js) - the proof pair is an operator-owned fetch of that key receiving the stored redirect (the MISS->HIT instrument, CACHE-001 discipline), followed by the documented purge (organ rule 6)",
+      "failure_modes": [
+        "no cache on the chain, or the resource class is never stored (no-cache honored) - nothing persists; the seam itself is still desync-hunter's finding, park the chain row",
+        "the follow-up fetch lands on a different cache node or region than the smuggled request - the poison never reaches the key you fetch",
+        "the back-end does not build redirects from a declared Host - reflection absent; enumerate redirect gadgets first",
+        "the front-end normalizes the smuggled Host on the downgrade hop - the redirect never points off-site",
+        "storing the poison under a shared production key without a nonce is collateral damage, not evidence - the proof fetch is operator-owned and the entry is purged or expiry-bounded before the report ships (organ rules 1/6)"
+      ],
+      "source": {
+        "credit": "PortSwigger Web Security Academy",
+        "title": "HTTP request smuggling - Exploiting: Web cache poisoning",
+        "url": "https://portswigger.net/web-security/request-smuggling/exploiting"
+      }
+    },
+    {
+      "id": "CACHE-012",
+      "technique": "web cache deception via request smuggling (the captured session stored)",
+      "prerequisites": [
+        "a confirmed CL.TE-style seam whose front-end caches responses",
+        "an authenticated endpoint that returns session-scoped content (/private/messages class)",
+        "the proof's victim session is operator-owned (organ rule 1) - the capture pair runs on the operator's own two sessions"
+      ],
+      "probe": "POST / HTTP/1.1\r\nHost: {{host}}\r\nContent-Length: 43\r\nTransfer-Encoding: chunked\r\n\r\n0\r\n\r\nGET /private/messages HTTP/1.1\r\nFoo: X",
+      "oracle": "the smuggled GET /private/messages elicits the authenticated response; the NEXT request on the connection - the operator-owned victim session's fetch, cookies and all - is appended to the smuggled request, the back-end answers in the victim session's context, and the front-end caches that private response under the victim-requested URL: the proof is an UNAUTHENTICATED operator fetch of that key returning the operator victim's own session content, then the purge",
+      "failure_modes": [
+        "the victim fetch routes to a different back-end pool than the smuggled request - the session context never attaches to the stored response",
+        "the cache refuses to store the response (Cache-Control: private honored, or Vary: Cookie segments the key) - record which layer held; the class is refused, not disproven",
+        "the victim is any session other than the operator's second session - organ rule 1 violation, not a proof",
+        "the smuggled request is itself authenticated and needs no victim session - that is CACHE-011's shape, not the deception pair",
+        "the stored key is guessable and shared - the proof runs on a nonce-bearing victim path only, or the stored entry is an incident"
+      ],
+      "source": {
+        "credit": "PortSwigger Web Security Academy",
+        "title": "HTTP request smuggling - Exploiting: Web cache deception",
+        "url": "https://portswigger.net/web-security/request-smuggling/exploiting"
       }
     }
   ]

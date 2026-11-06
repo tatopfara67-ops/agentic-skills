@@ -98,6 +98,7 @@ re-quote them):
 | unkeyed row | the header/query vary list (User-Agent, Accept, Cookie, X-Forwarded-*), one input per probe, second-fetch comparison (CACHE-002/003/005) | keyed/unkeyed table row |
 | display-key row | the fat-GET comparison: same key, different display route (CACHE-004) | key-vs-display discrepancy row |
 | cache-state row | the evidence sweep: Age, X-Cache, TTL directives, Vary posture, ETag (CACHE-009) | exposure-ceiling row (sharing × lifetime) |
+| extreme chain row | the smuggled-response poison (CACHE-011) and the smuggled-session deception (CACHE-012) — desync primitives landing as stored cache rows; releases through the weapons vault, proofs operator-owned and nonce-keyed | chain-class row (impact candidates bounded by organ rules 1/6) |
 
 Customization knobs, stated in the plan note: the cache tier (CDN
 edge vs origin reverse proxy vs service worker — which delimiter

@@ -101,6 +101,8 @@ every corpus entry carries probe, oracle, failure modes, and source):
 | duplicate-CL row | two Content-Length values where intermediaries differ in precedence | DS-006 |
 | CL.0 row | browser-powered desync — the request that ends where the parser thinks it doesn't | DS-007 |
 | H2 downgrade row | H2.CL / H2.TE — the framing seam the downgrade creates | DS-008 |
+| H2.TE row | the TE half of the downgrade seam, byte-exact — transfer-encoding injected as a regular H2 header survives the translation (releases through the weapons vault) | DS-013 |
+| 0.CL gadget row | the folded-CL seam the early-response gadget breaks open — deadlock as control, 400-shift as treatment (releases through the weapons vault) | DS-014 |
 | header-name row | name-borne disagreement — odd header-NAME bytes one parser drops, the other forwards | DS-010 |
 | obs-fold row | folded header values re-parsed as new headers across the seam | DS-011 |
 | request-line row | absolute-form request-target the hops route differently | DS-012 |

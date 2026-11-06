@@ -447,14 +447,18 @@ class TestMythosLineages(unittest.TestCase):
         PP-013/014 — the browser fetch-body default and the GTM
         sequence gadget) and the live-event php2shell forensics organ
         joins the covered set (P2S-001..008, corpus 1.0.0 — the
-        CVE-2026-109618/109619 assessment arc)."""
+        CVE-2026-109618/109619 assessment arc); the sixth wave lands
+        the GCP default service-account token (SSRF-015, corpus 1.3.0
+        — the entry the fifth wave discarded for want of a fetchable
+        carrier, shipped once two public records were verified live)."""
         organs = {
             "xss-playbook": ("XSS", ["XSS-012", "XSS-013", "XSS-014",
                                      "XSS-015", "XSS-016"]),
             "injection-lab": ("INJ", ["INJ-011", "INJ-012", "INJ-013",
                                       "INJ-014", "INJ-015", "INJ-016"]),
             "ssrf-playbook": ("SSRF", ["SSRF-011", "SSRF-012",
-                                      "SSRF-013", "SSRF-014"]),
+                                      "SSRF-013", "SSRF-014",
+                                      "SSRF-015"]),
             "desync-hunter": ("DS", ["DS-010", "DS-011", "DS-012",
                                      "DS-013", "DS-014"]),
             "cache-playbook": ("CACHE", ["CACHE-010", "CACHE-011",
@@ -482,7 +486,7 @@ class TestMythosLineages(unittest.TestCase):
                                 "injection-lab": "1.2.0",
                                 "desync-hunter": "1.2.0",
                                 "cache-playbook": "1.2.0",
-                                "ssrf-playbook": "1.2.0",
+                                "ssrf-playbook": "1.3.0",
                                 "prototype-playbook": "1.2.0",
                                 "php2shell-forensics": "1.0.0"}.get(
                                     organ, "1.1.0")

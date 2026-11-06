@@ -232,12 +232,15 @@ def payload_bench(program: str) -> dict:
     and target, unknown ids, the scope-triad refusals, and clean
     basis-noted releases spanning every vault organ — runs through the
     release gate against a synthetic embedded scope fixture (.test
-    hosts, never resolvable). Reports the confusion matrix, precision /
-    recall / accuracy on the refuse class, and the banned-scan
-    dimension; the zero-miss doctrine holds (a labeled refusal that
-    releases fails the bench outright). Inspect-only: no host is
-    contacted, no environment read, no corpus bytes disclosed beyond
-    per-case verdicts."""
+    hosts, never resolvable). Since the second bench revision the
+    case set is multilingual: the same structural override phrased in
+    ten languages must refuse and clean basis-noted notes in every
+    covered language must release. Reports the confusion matrix,
+    precision / recall / accuracy on the refuse class, and the
+    banned-scan dimension; the zero-miss doctrine holds (a labeled
+    refusal that releases fails the bench outright). Inspect-only:
+    no host is contacted, no environment read, no corpus bytes
+    disclosed beyond per-case verdicts."""
     result = _bench.run_bench()
     ledger.append(_norm_program(program), "payload_bench",
                   "vault accuracy bench (%d cases)" % result["metrics"][

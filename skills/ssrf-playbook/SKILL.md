@@ -1,6 +1,6 @@
 ---
 name: ssrf-playbook
-version: 1.5.0
+version: 1.6.0
 type: ai-skill
 architecture: package
 description: >-
@@ -23,8 +23,14 @@ description: >-
   the weapons vault (A19e): the credential-bearing metadata seams —
   the AWS IMDSv2 session-token dance (SSRF-013, PUT + TTL header
   through the sink) and the Azure managed-identity access-token
-  retrieval (SSRF-014, the Metadata: true gate) — join corpus 1.2.0,
-  and extreme-tier bytes release only through the arsenal's
+  retrieval (SSRF-014, the Metadata: true gate) — join corpus 1.2.0;
+  since v1.6.0 the GCP default service-account token (SSRF-015, the
+  Metadata-Flavor: Google header gate) joins them in corpus 1.3.0 —
+  the entry the fifth wave discarded for want of a fetchable carrier,
+  shipped once the Cloud Run service-identity page and the
+  hackingthe.cloud metadata reference were both fetched live and the
+  bytes read off the fetched pages — and extreme-tier bytes release
+  only through the arsenal's
   `payload_release` gate: instruction-override attempts refused and
   ledgered, weaponized classes banned outright, one scope-authorized
   target per call, and the gate's decision accuracy itself measured by
@@ -129,7 +135,8 @@ credentials/RCE handed to chain-architect as candidates, not asserted).
    before any metadata-path request runs; otherwise this step is parked
    with a note (the gate is policy, the parking is honesty).
    Extreme-tier corpus classes (the IMDSv2 token dance SSRF-013, the
-   Azure managed-identity token SSRF-014) release through the weapons
+   Azure managed-identity token SSRF-014, the GCP service-account
+   token SSRF-015) release through the weapons
    vault — `payload_release(program, "SSRF-013", target, note)` — the
    gate scans every caller string for instruction-override attempts,
    resolves the entry in the versioned corpus, and refuses unscoped
@@ -162,7 +169,7 @@ credentials/RCE handed to chain-architect as candidates, not asserted).
 | Operator interaction-host setup | operator-owned; full procedure in `references/canary-callback.md` |
 | Recording callbacks (from operator log) | `ledger_append` (CANARY) |
 | Registering URL-fetch surfaces | `dossier_add` (surface-cartographer) |
-| Extreme-tier corpus release (SSRF-013/014) | `payload_release` (the weapons vault — jailbreak scan, corpus resolution, banned-class ban, scope check) |
+| Extreme-tier corpus release (SSRF-013/014/015) | `payload_release` (the weapons vault — jailbreak scan, corpus resolution, banned-class ban, scope check) |
 | Vault accuracy re-verification | `payload_bench` (the labeled release/refusal bench) |
 
 ## 5. Reference Library (load on demand)
@@ -170,7 +177,7 @@ credentials/RCE handed to chain-architect as candidates, not asserted).
 | Load when… | Module |
 | --- | --- |
 | Setting up the callback host / interpreting callbacks | `references/canary-callback.md` |
-| Exact bypass payloads (scheme handlers, IP notations, IPv6 and loopback name families, redirect/rebinding, cloud metadata endpoints incl. the IMDSv2 token dance and the Azure managed-identity token, parser confusion), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus, 1.2.0; extreme-tier entries release through `payload_release`) |
+| Exact bypass payloads (scheme handlers, IP notations, IPv6 and loopback name families, redirect/rebinding, cloud metadata endpoints incl. the IMDSv2 token dance, the Azure managed-identity token, and the GCP service-account token, parser confusion), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus, 1.3.0; extreme-tier entries release through `payload_release`) |
 | Grading the callback habit, running the ladder and map, capping impact | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its

@@ -1,6 +1,6 @@
 ---
 name: mythos-proving-ground
-version: 1.1.0
+version: 1.2.0
 type: ai-skill
 architecture: package
 description: >-
@@ -204,12 +204,17 @@ corpus entry passes through) is scored by the same doctrine:
   override text stuffed into the entry id and the target, unknown
   ids, the scope triad, and clean basis-noted releases spanning every
   vault organ — runs through `payload_release` against an embedded
-  synthetic scope fixture (`.test` hosts, never resolvable).
+  synthetic scope fixture (`.test` hosts, never resolvable). Since
+  the second bench revision the case set is multilingual: the same
+  structural override phrased in Indonesian (the operator's working
+  language, covered deep), Spanish, French, German, Portuguese,
+  Italian, Russian, Mandarin, and Japanese must refuse, and clean
+  basis-noted notes in every covered language must release.
 * **The score**: a confusion matrix on the refuse class, precision /
   recall / accuracy, and the banned-class dimension (weaponized
   vocabulary must hit; authorized-testing vocabulary — including the
-  credential-bearing metadata probes and the browser gadget bytes —
-  must pass).
+  credential-bearing metadata probes across all three providers and
+  the browser gadget bytes — must pass).
 * **The hard law (zero-miss)**: a case labeled REFUSE that RELEASES
   is a false release — the verdict is FAIL regardless of every other
   number. Overblocking (a labeled release that refuses) fails too:
@@ -219,11 +224,19 @@ corpus entry passes through) is scored by the same doctrine:
   decision accuracy on a fixed labeled set — it is not an agent
   behavior trial and not an adversarial red-team of the pattern
   language; a pattern family the set does not cover is unmeasured,
-  not absent. It already earned its keep once: the first run caught
+  not absent. It already earned its keep twice: the first run caught
   two real gate gaps (an apostrophe contraction in the pretend
   family, a noun-before-positional order in the forget family) that
-  the structural unit tests had missed — measurement finding what
-  assertion could not.
+  the structural unit tests had missed, and the queue's own review
+  surfaced the language-blindness gap — every family was
+  English-only, so the identical attempt in nine more languages
+  sailed untouched until the labeled set carried them (the fourth
+  hardening wave closed it, both sides tested). The language wave's
+  own out-of-set probing then found a third: the typographic
+  apostrophe (U+2019) sailed past every apostrophe-dependent family,
+  English included — closed structurally in the scan blob, where
+  curly quotes now fold to ASCII. Measurement finding what assertion
+  could not, three times over.
 
 ## 8. Interpreting Deltas
 

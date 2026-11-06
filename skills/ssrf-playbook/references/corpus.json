@@ -2,7 +2,7 @@
   "corpus": "SSRF",
   "organ": "ssrf-playbook",
   "vuln_class": "server_side_request_forgery",
-  "corpus_version": "1.2.0",
+  "corpus_version": "1.3.0",
   "house_rules": [
     "Every proof routes through the operator's declared canary collector (scope.csv class canary, http_probe with canary=True) - a DNS log or HTTP hit on a third-party service is gossip, not channel proof (organ doctrine).",
     "Payloads below are canonical forms from the public record, attributed per entry.",
@@ -249,6 +249,26 @@
         "credit": "Microsoft Learn (managed identities token retrieval)",
         "title": "Azure - How to use managed identities for Azure resources on an Azure VM to get an access token",
         "url": "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token"
+      }
+    },
+    {
+      "id": "SSRF-015",
+      "technique": "GCP default service-account token retrieval (credential-bearing metadata, header-gated)",
+      "prerequisites": [
+        "egress to metadata.google.internal (or 169.254.169.254 / the bare `metadata` short name) from a GCP workload with a service account attached",
+        "the sink can send the Metadata-Flavor: Google header — plain GETs without the flavor header are refused, so header control is the class gate (the same class as Azure's Metadata: true, the mirror of SSRF-008's fingerprint)"
+      ],
+      "probe": "curl \"http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token\" -H \"Metadata-Flavor: Google\"",
+      "oracle": "200 with a JSON access_token (ya29.…), expires_in, token_type — credential-bearing response: mask at first 8 chars in the ledger, full value only in the engagements/ artifact; the 169.254.169.254/computeMetadata/v1/ host form and the bare `metadata` name are equivalent carriers on the same record",
+      "failure_modes": [
+        "no service account attached — the token path answers with an empty or absent block; bounded to information disclosure, say so",
+        "the sink cannot set arbitrary headers — without Metadata-Flavor: Google the metadata server refuses the request; header injection via the URL is a separate hypothesis (SSRF-009's parser seam), never an assumption",
+        "the token is scope-capped to the instance's creation-time scopes — a downscoped or restricted token is the documented shape; scopes beyond creation-time are refused by the server, not by the probe"
+      ],
+      "source": {
+        "credit": "Google Cloud official documentation (Cloud Run service identity) + hackingthe.cloud (GCP metadata endpoints reference)",
+        "title": "Cloud Run docs - Introduction to service identity (metadata-server token curl); hackingthe.cloud - Metadata in Google Cloud Instances",
+        "url": "https://docs.cloud.google.com/run/docs/securing/service-identity"
       }
     }
   ]

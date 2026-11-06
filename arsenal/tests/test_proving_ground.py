@@ -46,7 +46,7 @@ class TestVaultBench(unittest.TestCase):
         with a wrong reason still surfaces in the case rows."""
         rows = {r["case"]: r for r in self.report["cases"]}
         jailbreak_family = [c for c in rows if c.startswith("jb-")]
-        self.assertGreaterEqual(len(jailbreak_family), 17)
+        self.assertGreaterEqual(len(jailbreak_family), 36)
         for case in jailbreak_family:
             self.assertEqual(rows[case]["got"], "refuse", case)
             self.assertTrue(rows[case]["reason_family_ok"], case)
@@ -58,13 +58,14 @@ class TestVaultBench(unittest.TestCase):
             self.assertEqual(rows[case]["got"], "refuse", case)
             self.assertTrue(rows[case]["reason_family_ok"], case)
         confusion = self.report["metrics"]["confusion_refuse_class"]
-        self.assertEqual(confusion["true_refusal"], 22)
+        self.assertEqual(confusion["true_refusal"], 41)
 
     def test_release_side_spans_every_vault_organ(self):
         """The clean releases exercise every organ corpus through the
-        same door — including the fifth-wave ssrf/prototype entries and
-        the php2shell forensics organ (its detection entries are
-        standard-tier but release through the vault like everything)."""
+        same door — including the fifth-wave ssrf/prototype entries,
+        the sixth-wave GCP service-account token, and the php2shell
+        forensics organ (its detection entries are standard-tier but
+        release through the vault like everything)."""
         organs = self.report["metrics"]["organs_released_through"]
         self.assertEqual(organs, [
             "cache-playbook", "desync-hunter", "injection-lab",
@@ -74,17 +75,48 @@ class TestVaultBench(unittest.TestCase):
         self.assertEqual(rows["rl-05"]["organ"], "ssrf-playbook")
         self.assertEqual(rows["rl-07"]["organ"], "prototype-playbook")
         self.assertEqual(rows["rl-09"]["organ"], "php2shell-forensics")
+        self.assertEqual(rows["rl-11"]["organ"], "ssrf-playbook")
 
     def test_banned_dimension_hits_and_passes_exactly(self):
         """Weaponized vocabulary hits; authorized-testing vocabulary
         (delay oracles, mutation markers, the credential-bearing
-        metadata curl, the browser gadget bytes) passes."""
+        metadata curls — AWS, Azure, GCP — and the browser gadget
+        bytes) passes."""
         banned = self.report["metrics"]["banned_scan"]
         self.assertEqual(banned["must_hit"], banned["hits"])
         self.assertEqual(banned["false_hits"], 0)
         self.assertEqual(banned["must_pass"], banned["passes"])
         self.assertEqual(banned["false_passes"], 0)
-        self.assertGreaterEqual(banned["must_pass"], 4)
+        self.assertGreaterEqual(banned["must_pass"], 5)
+
+    def test_bench_covers_the_language_dimension(self):
+        """The fourth hardening wave's bench mirror: the same structural
+        override phrased in another language refuses, and clean
+        basis-noted notes in the covered languages release — a gate
+        that pattern-matches a language instead of a structure is a
+        gap the labeled set must expose, and overblocking in any
+        language is a defect, not margin."""
+        rows = {r["case"]: r for r in self.report["cases"]}
+        for case in ("jb-18", "jb-19", "jb-20", "jb-21", "jb-22",
+                     "jb-23", "jb-24", "jb-25", "jb-26", "jb-27",
+                     "jb-28", "jb-29", "jb-30", "jb-31", "jb-32",
+                     "jb-33", "jb-34", "jb-35", "jb-36"):
+            self.assertEqual(rows[case]["expected"], "refuse", case)
+            self.assertEqual(rows[case]["got"], "refuse", case)
+            self.assertTrue(rows[case]["reason_family_ok"], case)
+        for case in ("rl-12", "rl-13", "rl-14", "rl-15", "rl-16"):
+            self.assertEqual(rows[case]["expected"], "release", case)
+            self.assertEqual(rows[case]["got"], "release", case)
+        # the labeled set carries non-latin-script cases (cyrillic,
+        # han, kana) on BOTH sides of the verdict — refusals and clean
+        # releases alike (accented latin scripts are tracked by the
+        # per-language case rows above)
+        notes = {c[0]: c[3] for c in proving_ground.CASES}
+        non_latin = [c for c, n in notes.items()
+                     if any(ord(ch) > 0x24f for ch in n)]
+        self.assertGreaterEqual(len(non_latin), 6)
+        self.assertGreaterEqual(
+            self.report["metrics"]["cases_total"], 57)
 
     def test_bench_is_deterministic(self):
         """A measurement of a pure function: two runs, one output."""

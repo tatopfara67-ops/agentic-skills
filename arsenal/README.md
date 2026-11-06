@@ -131,10 +131,10 @@ handoff pack — lives in `examples/adversary-hunt/`.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s arsenal/tests    # 190 tests
+python3 -m unittest discover -s arsenal/tests    # 193 tests
 ```
 
-Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/canary/expired/missing-artifact, canary exfil-channel refusal), ledger append-only discipline + O(1) id minting (tail-scan with full-scan fallback, portable cross-platform lock), the v4.7.0 hypothesis rail (pre-registration refusals, three-state closure, the retrodiction guard), tool behavior against a live lab, `arsenal_route` governance + civility rate defaults, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, the hardened report gates — including citation grounding (fabricated / misdirected / non-evidence citations fail the audit) — and the weapons vault: the release gate's structure (instruction-override refusals, banned classes, scope triad, byte-faithful corpus release across all five waves) plus the vault accuracy bench (labeled release/refusal cases, the zero-false-release verdict, the banned-scan dimension).
+Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/canary/expired/missing-artifact, canary exfil-channel refusal), ledger append-only discipline + O(1) id minting (tail-scan with full-scan fallback, portable cross-platform lock), the v4.7.0 hypothesis rail (pre-registration refusals, three-state closure, the retrodiction guard), tool behavior against a live lab, `arsenal_route` governance + civility rate defaults, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, the hardened report gates — including citation grounding (fabricated / misdirected / non-evidence citations fail the audit) — and the weapons vault: the release gate's structure (instruction-override refusals across the English deep families and the nine further languages of the fourth hardening wave, banned classes, scope triad, byte-faithful corpus release across all six waves) plus the vault accuracy bench (labeled multilingual release/refusal cases, the zero-false-release verdict, the banned-scan dimension).
 
 ## Layout
 

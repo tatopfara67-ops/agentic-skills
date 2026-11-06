@@ -34,9 +34,12 @@ from .scope_gate import check_target
 TIERS = ("T1", "T2", "T3")
 
 # --- instruction-override attempts (the jailbreak surface) --------------
-# English phrasings, structural: verb-of-dismissal against the rule
-# artifacts (instructions/scope/authorization/gate), pretended
-# authorization, mode-escalation roleplay, bypass verbs.
+# Structural: verb-of-dismissal against the rule artifacts (instructions/
+# scope/authorization/gate), pretended authorization, mode-escalation
+# roleplay, bypass verbs. English carries the deep families; the fourth
+# hardening wave extends the same structures across nine more languages
+# (Indonesian deep, es/fr/de/pt/it/ru/zh/ja representative) — the gate
+# does not negotiate with its own instructions in any covered language.
 JAILBREAK_PATTERNS = tuple(re.compile(p, re.IGNORECASE) for p in (
     r"ignore\s+(all\s+|any\s+)?(previous|prior|above|earlier|earlier)\s+"
     r"(instructions|rules|directives|constraints|prompts)",
@@ -85,6 +88,133 @@ JAILBREAK_PATTERNS = tuple(re.compile(p, re.IGNORECASE) for p in (
     r"(reveal|show|print|dump|expose|repeat|output)\s+(me\s+)?"
     r"(your|the)\s+(system\s+prompt|hidden\s+instructions|"
     r"initial\s+instructions|full\s+instructions)",
+    # --- fourth hardening wave: the language-blindness gap --------------
+    # The bench queue's own honest admission: every family above is
+    # English-only, so the same structural attempt phrased in another
+    # language sailed the scan untouched. The wave closes the gap the
+    # structural way -- verb-of-dismissal against the rule artifacts,
+    # pretended authorization, bypass verbs, mode escalation, one
+    # representative form per family per language. The operator's
+    # working language (Indonesian) is covered deep; the major
+    # Romance/Germanic languages carry one structural form each;
+    # Cyrillic and CJK ride \uXXXX escapes so the source stays pure
+    # ASCII (the re engine reads \uXXXX as the character; real parens
+    # remain the group syntax, and \s* between CJK tokens survives the
+    # + / %20 folding the scan blob applies). The release side is
+    # tested per language: clean basis-noted notes in every covered
+    # language still release -- overblocking is a defect, not margin.
+    # indonesian
+    r"(meng)?abaikan\s+(semua\s+|segala\s+)?"
+    r"(instruksi|perintah|aturan|konteks|prompt|skop|scope)"
+    r"(\s+(di\s+atas|sebelumnya|sebelum\s+ini|tersebut))?",
+    r"pura[\s-]?pura(\s+bahwa)?\s+(kamu\s+|anda\s+|kita\s+|saya\s+)?"
+    r"(sudah\s+|telah\s+)?"
+    r"(diizinkan|diberi\s+izin|berwenang|berotorisasi|disetujui)",
+    r"anggap\s+saja\s+(kamu\s+|kita\s+|semuanya\s+)?(sudah\s+|telah\s+)?"
+    r"(diizinkan|berwenang|disetujui|di\s+dalam\s+scope|aman)",
+    r"tidak\s+(perlu|ada|butuh)\s+"
+    r"(otorisasi|autorisasi|izin|persetujuan|validasi)",
+    r"((me)?lewati|bypass)\s+(pemeriksaan\s+|validasi\s+)?"
+    r"(otorisasi|autorisasi|gerbang|scope|lingkup)",
+    r"lupakan\s+(semua\s+|segala\s+)?(yang\s+)?"
+    r"(di\s+atas|sebelumnya|semua|konteks|instruksi|aturan)",
+    r"mode\s+(dewa|pengembang|admin|root|tanpa\s+batas)|"
+    r"(scope|lingkup|aturan)\s+(tidak|tak)\s+berlaku",
+    # spanish
+    r"ignora(r|ndo)?\s+(todas\s+las\s+|todos\s+los\s+|las\s+|los\s+|"
+    r"la\s+|el\s+)?(instrucciones|reglas|indicaciones|contexto|todo)"
+    r"(\s+(anteriores|previas|previos|de\s+arriba))?",
+    r"(finge|simula)\s+que\s+.{0,24}(autorizado|aprobado|permitido)",
+    r"no\s+(se\s+)?(necesita|requiere)\s+(ninguna\s+|ning\u00fan\s+)?"
+    r"(autorizaci(o|\u00f3)n|permiso|aprobaci(o|\u00f3)n|"
+    r"verificaci(o|\u00f3)n)",
+    r"(salta|omite|evita)\s+(la\s+|el\s+|las\s+|los\s+|una?\s+)?"
+    r"(verificaci(o|\u00f3)n|autorizaci(o|\u00f3)n|comprobaci(o|\u00f3)n|"
+    r"puerta|filtros?)|olvida\s+(todo(\s+lo\s+anterior)?|"
+    r"(todas\s+las\s+|las\s+|los\s+)?(instrucciones|reglas|"
+    r"indicaciones)|el\s+contexto|lo\s+de\s+arriba)|modo\s+"
+    r"(dios|desarrollador|administrador|sin\s+restricciones)",
+    # french
+    r"ignor(e|er|ez)\s+(les\s+|toutes\s+les\s+|tout\s+)?"
+    r"(instructions|consignes|r(e|\u00e8)gles)"
+    r"(\s+(pr(e|\u00e9)c(e|\u00e9)dentes|ci-dessus))?",
+    r"(fais\s+comme\s+si|pr(e|\u00e9)tends\s+que)\s+.{0,40}"
+    r"(autoris|approuv)",
+    r"aucune\s+autoris(ation|(e|\u00e9)e)\s+n'?est\s+"
+    r"(n(e|\u00e9)cessaire|requise)|(contourne|saute)\s+"
+    r"(la\s+|le\s+|les\s+|une?\s+)?(v(e|\u00e9)rifications?|"
+    r"autorisation|porte|contr(\u00f4|o)le|filtre)|mode\s+"
+    r"(dieu|d(e|\u00e9)veloppeur|admin|sans\s+restrictions)",
+    # german
+    r"ignoriere\s+(die\s+|alle\s+|s(a|\u00e4)mlichen\s+)?"
+    r"(vorherigen\s+|bisherigen\s+|obigen\s+)?"
+    r"(anweisungen|regeln|instruktionen)",
+    r"(stell\s+dir\s+vor|gib\s+vor).{0,32}"
+    r"(autorisiert|befugt|genehmigt)",
+    r"keine\s+(autorisierung|genehmigung|berechtigung)\s+"
+    r"(n(o|\u00f6)tig|erforderlich|notwendig)|(umgehe|umgehen\s+sie)\s+"
+    r"(die\s+|den\s+)?(autorisierung|pr(u|\u00fc)fung|kontrolle|sperre)|"
+    r"vergiss\s+(alles\s+)?(dar(\u00fc|u)ber|oben|die\s+anweisungen|"
+    r"den\s+kontext)",
+    # portuguese + italian
+    r"ignor(e|a)\s+(as\s+|todas\s+as\s+|os\s+|todos\s+os\s+)?"
+    r"(instru(c|\u00e7)(o|\u00f5)es|regras|contexto)"
+    r"(\s+(anteriores|acima))?|(finja|simule)\s+que\s+.{0,24}"
+    r"(autorizado|aprovado|permitido)",
+    r"ignora\s+(le\s+|tutte\s+le\s+|lo\s+|tutto\s+)?"
+    r"(istruzioni|regole|contesto)"
+    r"(\s+(precedenti|sopra|di\s+prima))?|fingi\s+di\s+(essere\s+)?"
+    r"(autorizzato|approvato|abilitato)",
+    # russian (cyrillic via escapes; source stays ascii)
+    r"\u0438\u0433\u043d\u043e\u0440\u0438\u0440\u0443\u0439"
+    r"(\u0442\u0435)?\s+(\u0432\u0441\u0435\s+)?"
+    r"(\u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u0435\s+|"
+    r"\u043f\u0440\u043e\u0448\u043b\u044b\u0435\s+)?"
+    r"(\u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438|"
+    r"\u043f\u0440\u0430\u0432\u0438\u043b\u0430|"
+    r"\u0443\u043a\u0430\u0437\u0430\u043d\u0438\u044f|"
+    r"\u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442)",
+    r"\u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u044c,?\s*"
+    r"\u0447\u0442\u043e\s+(\u0442\u044b\s+)?(\u0443\u0436\u0435\s+)?"
+    r"(\u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d|"
+    r"\u0443\u043f\u043e\u043b\u043d\u043e\u043c\u043e\u0447\u0435\u043d)",
+    r"\u0440\u0435\u0436\u0438\u043c\s+(\u0431\u043e\u0433\u0430|"
+    r"\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a\u0430|"
+    r"\u0430\u0434\u043c\u0438\u043d\u0430|"
+    r"\u0431\u0435\u0437\s+\u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435"
+    r"\u043d\u0438\u0439)|\u0437\u0430\u0431\u0443\u0434\u044c\s+"
+    r"(\u0432\u0441\u0435,\s*\u0447\u0442\u043e\s+\u0432\u044b\u0448\u0435|"
+    r"\u0432\u0441\u0435\s+\u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449"
+    r"\u0435\u0435|\u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438"
+    r"\u0435\s+\u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438)|"
+    r"(\u043e\u0431\u043e\u0439\u0434\u0438|\u043f\u0440\u043e\u043f\u0443"
+    r"\u0441\u0442\u0438)\s+(\u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0443|"
+    r"\u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044e|"
+    r"\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)",
+    # mandarin (han via escapes; \s* between tokens survives folding)
+    r"(\u5ffd\u7565|\u65e0\u89c6)\s*(\u4e4b\u524d|\u4ee5\u4e0a|"
+    r"\u4e0a\u9762|\u5148\u524d|\u4e0a\u8ff0)?\s*\u7684?\s*"
+    r"\u6240\u6709?\s*(\u6307\u4ee4|\u6307\u793a|\u89c4\u5219|"
+    r"\u89c4\u5b9a)",
+    r"\u5047\u88c5\s*\u4f60?\s*\u5df2\s*(\u83b7\u5f97|\u88ab)?\s*"
+    r"(\u6388\u6743|\u8bb8\u53ef|\u6279\u51c6)|\u89c6\u4e3a\s*\u5df2\s*"
+    r"(\u6388\u6743|\u8bb8\u53ef|\u6279\u51c6)|\u5f53\u4f5c\s*\u5df2\s*"
+    r"(\u6388\u6743|\u8bb8\u53ef)",
+    r"(\u65e0\u9700|\u4e0d\u9700\u8981)\s*(\u4efb\u4f55\s*)?"
+    r"(\u6388\u6743|\u8bb8\u53ef|\u6279\u51c6|\u9a8c\u8bc1)|"
+    r"\u7ed5\u8fc7\s*(\u6388\u6743|\u9a8c\u8bc1|\u68c0\u67e5|"
+    r"\u7f51\u5173|\u8303\u56f4|\u68c0\u6d4b)",
+    r"\u5fd8\u8bb0\s*(\u4ee5\u4e0a|\u4e4b\u524d|\u4e0a\u8ff0)?\s*"
+    r"\u7684?\s*\u6240\u6709?\s*(\u5185\u5bb9|\u6307\u4ee4|"
+    r"\u4e0a\u4e0b\u6587)|(\u4e0a\u5e1d|\u5f00\u53d1\u8005|"
+    r"\u7ba1\u7406\u5458|\u65e0\u9650\u5236)\s*\u6a21\u5f0f",
+    # japanese
+    r"(\u4ee5\u524d\u306e|\u4e0a\u306e|\u524d\u306e)\s*"
+    r"(\u6307\u793a|\u547d\u4ee4|\u30eb\u30fc\u30eb|\u8aac\u660e)\s*"
+    r"\u3092?\s*\u7121\u8996(\u3057\u3066|\u305b\u3088)?",
+    r"\u627f\u8a8d(\u6e08\u307f|\u3055\u308c\u3066\u3044\u308b)\s*"
+    r"\u3068\s*(\u507d\u88c5|\u4eee\u5b9a)|"
+    r"(\u958b\u767a\u8005|\u795e)\s*\u30e2\u30fc\u30c9",
 ))
 
 # --- weaponized / destructive-only classes: banned outright --------------
@@ -156,9 +286,15 @@ class ReleaseResult:
 
 def _scan_blob(*texts: str) -> str:
     """Fold every caller-supplied string into one lowercase scan blob,
-    decoding the trivial obfuscations first (+ and %20 as space)."""
+    decoding the trivial obfuscations first (+ and %20 as space, the
+    typographic apostrophes U+2019/U+2018 folded to ASCII ' — an
+    override phrased with a curly quote is the same override; the
+    fold was the third in-session catch: out-of-set probing showed
+    'pretend you're approved' sailing past the pretend family when
+    the apostrophe went typographic)."""
     blob = " \n ".join(t or "" for t in texts).lower()
-    return blob.replace("+", " ").replace("%20", " ")
+    blob = blob.replace("+", " ").replace("%20", " ")
+    return blob.replace("\u2019", "'").replace("\u2018", "'")
 
 
 def jailbreak_hit(*texts: str) -> re.Pattern | None:

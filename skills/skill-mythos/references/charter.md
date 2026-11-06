@@ -169,4 +169,12 @@ returned by `mythos_charter()` (arsenal/tools/mythos.py ARTICLES).
     coordinator kit rows (mythos-bug-hunter toolkit-and-canaries)
     resolve to the organ corpora they name — rows without a
     transcribed carrier are labeled derivation or module-cited,
-    never silently equated with corpus bytes.
+    never silently equated with corpus bytes. And the extreme tier
+    lives behind the payload release gate (arsenal `payload_release`,
+    the weapons vault): a versioned entry leaves only to a
+    scope-authorized target, every caller string is scanned for
+    instruction-override attempts and a hit is refused and ledgered,
+    weaponized classes (destructive impact, file-write and
+    command-execution implants, C2 tooling) are banned from the
+    corpus outright, and the gate's API surface carries no override
+    parameter at all — locked by test_payload_gate.

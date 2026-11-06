@@ -422,7 +422,8 @@ class TestMythosLineages(unittest.TestCase):
 
     def test_payload_kit_depth(self):
         """A19's lock: the payload organs' corpora carry the
-        deepened classes — corpus_version 1.1.0 on record, the new
+        deepened classes — corpus_version 1.1.0 on record (1.2.0 on the
+        two vault-wave organs), the new
         entry ids present, every entry schema-complete (probe, oracle,
         failure modes, attributed source), and every FAMILY-id
         citation in the organ's markdown resolves to a real corpus
@@ -432,12 +433,14 @@ class TestMythosLineages(unittest.TestCase):
         set grows only by execution: the second wave joins the seam
         organ (signal-smith, corpus SIG 1.0.0) and walks the spine's
         coordinator kit (toolkit-and-canaries.md), whose FAMILY-id
-        tokens must resolve against the organ corpora they name."""
+        tokens must resolve against the organ corpora they name; the
+        third wave deepens the extreme tier behind the weapons vault
+        (INJ-016, XSS-016 — released only through payload_release)."""
         organs = {
             "xss-playbook": ("XSS", ["XSS-012", "XSS-013", "XSS-014",
-                                     "XSS-015"]),
+                                     "XSS-015", "XSS-016"]),
             "injection-lab": ("INJ", ["INJ-011", "INJ-012", "INJ-013",
-                                      "INJ-014", "INJ-015"]),
+                                      "INJ-014", "INJ-015", "INJ-016"]),
             "ssrf-playbook": ("SSRF", ["SSRF-011", "SSRF-012"]),
             "desync-hunter": ("DS", ["DS-010", "DS-011", "DS-012"]),
             "cache-playbook": ("CACHE", ["CACHE-010"]),
@@ -454,8 +457,10 @@ class TestMythosLineages(unittest.TestCase):
                                       "corpus.json")
             with open(corpus_path, encoding="utf-8") as fh:
                 corpus = json.load(fh)
-            expected_version = ("1.0.0" if organ == "signal-smith"
-                                else "1.1.0")
+            expected_version = {"signal-smith": "1.0.0",
+                                "xss-playbook": "1.2.0",
+                                "injection-lab": "1.2.0"}.get(organ,
+                                                               "1.1.0")
             self.assertEqual(corpus["corpus_version"], expected_version,
                              "%s: corpus_version not bumped" % organ)
             ids = {e["id"] for e in corpus["entries"]}

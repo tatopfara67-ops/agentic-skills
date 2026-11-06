@@ -1,6 +1,6 @@
 ---
 name: injection-lab
-version: 1.4.0
+version: 1.5.0
 type: ai-skill
 architecture: package
 description: >-
@@ -19,7 +19,13 @@ description: >-
   command-injection separator, and per-engine SSTI detection families
   enter the versioned corpus (corpus.json 1.1.0) — the oracle catalog's
   named classes now resolve to byte-exact entries instead of leaving four
-  injection families unversioned. Use when the operator asks to test SQLi or
+  injection families unversioned. Since v1.5.0 the extreme tier rides the
+  weapons vault (A19): the MSSQL stacked-WAITFOR time-based differential
+  (INJ-016) joins corpus 1.2.0, and extreme-tier bytes release only
+  through the arsenal's `payload_release` gate — scope-authorized target,
+  instruction-override attempts refused and ledgered, weaponized classes
+  banned from the corpus outright, no override parameter in the gate's
+  surface. Use when the operator asks to test SQLi or
   NoSQLi, command or template injection, build a
   boolean/error/timing/out-of-band oracle, or run sqlmap within discipline
   ("tes SQLi", "injection", "blind boolean", "time-based", "template
@@ -31,7 +37,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# injection-lab v1.4.0 — Oracles, Not Payload Sprays
+# injection-lab v1.5.0 — Oracles, Not Payload Sprays
 
 ## 0. What This Skill Is — and Is Not
 
@@ -117,7 +123,13 @@ EXPERIMENT — a callback proves the CHANNEL, never the impact).
    boolean before timing before out-of-band — weakest channel first
    keeps request counts low and evidence strong).
 4. Craft treatment + control per `references/oracles.md`; record the
-   falsifier in the hypothesis BEFORE sending.
+   falsifier in the hypothesis BEFORE sending. Extreme-tier corpus
+   classes (the stacked-WAITFOR pair, INJ-016) release through the
+   weapons vault — `payload_release(program, "INJ-016", target, note)` —
+   the gate scans every caller string for instruction-override
+   attempts, resolves the entry in the versioned corpus, and refuses
+   unscoped targets; the released bytes are the corpus's bytes, never
+   hand-crafted.
 5. Run the differential; measure the delta; repeat to the floor.
 6. Timing oracles: interleave a clock-skew control (identical request,
    no injected delay) and subtract observed baseline latency; report the
@@ -154,13 +166,14 @@ EXPERIMENT — a callback proves the CHANNEL, never the impact).
 | Governed sqlmap oracle | `arsenal_route` |
 | Out-of-band canary host | operator-provided interaction host; callbacks observed by the operator, recorded as CANARY records |
 | Recording hypotheses/closures | `ledger_append` |
+| Extreme-tier corpus release (INJ-016) | `payload_release` (the weapons vault — jailbreak scan, corpus resolution, banned-class ban, scope check) |
 
 ## 6. Reference Library (load on demand)
 
 | Load when… | Module |
 | --- | --- |
 | Choosing/crafting an oracle for a class | `references/oracles.md` |
-| Exact oracle payloads per family and backend (SQL boolean/UNION/time/error, comment grammar; NoSQL operator injection, $regex truth-probing, $where timing; command-injection separator grammar; per-engine SSTI detection), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact oracle payloads per family and backend (SQL boolean/UNION/time/error, comment grammar; the MSSQL stacked-WAITFOR time-based differential INJ-016; NoSQL operator injection, $regex truth-probing, $where timing; command-injection separator grammar; per-engine SSTI detection), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus, 1.2.0; extreme-tier entries release through `payload_release`) |
 | Grading the scan-first tradition, running the census and parity gate, budgeting extraction | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its

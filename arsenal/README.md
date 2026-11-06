@@ -1,6 +1,6 @@
 # mythos-arsenal
 
-The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **30 scope-gated tools** that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts (append-only ledger, the v4.7.0 hypothesis rail, closure gates), the glm-self-model engine manual, and the organ skills — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
+The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **32 scope-gated tools** — including the weapons vault (`payload_release`: extreme-tier corpus bytes leave only to scope-authorized targets, instruction-override attempts refused and ledgered, weaponized classes banned outright) that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts (append-only ledger, the v4.7.0 hypothesis rail, closure gates), the glm-self-model engine manual, and the organ skills — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
 
 The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md](../skills/skill-mythos/SKILL.md); the assimilated lineage registry (33 entries, corrections on record) is served by the `mythos_lineages` tool. Designed as **spine + organs**: `mythos-bug-hunter` stays the single discipline layer (ledger, hypothesis grammar, closure gates — mechanized since v4.7.0); every other skill is an organ that plugs into one of its phases and inherits its contracts instead of duplicating them.
 
@@ -57,7 +57,7 @@ All 43 bundles in `skills/` pass `scripts/validate_skill.py --all`.
 
 ```bash
 pip install "mcp>=1.2.0"        # FastMCP SDK
-python3 arsenal/server.py --selftest   # should list 30 tools
+python3 arsenal/server.py --selftest   # should list 32 tools
 ```
 
 `.mcp.json` (Claude Code / Cursor), adjusting the path:

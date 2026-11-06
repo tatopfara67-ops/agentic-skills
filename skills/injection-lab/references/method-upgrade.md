@@ -153,6 +153,6 @@ launched sqlmap must run this at a better precision than sqlmap.
 | U1 | Oracle channel classified FIRST, quietly, before any payload battery | **M1** — the oracle census |
 | U2 | Boolean claims as alternation statistics | **M2** — the parity differential |
 | U3 | Time claims above a measured jitter floor | **M3** — the jitter-gated timing oracle |
-| U4 | Signatures as versioned data with sources | `references/corpus.json` (INJ-001…010) + `references/oracles.md` — consumed, never re-typed |
+| U4 | Signatures as versioned data with sources | `references/corpus.json` (INJ-001…016; INJ-016 releases through the weapons vault) + `references/oracles.md` — consumed, never re-typed |
 | U5 | Extraction as a budgeted, resumable job | **M4** — the extraction budget table |
 | U6 | Out-of-band callbacks under canary doctrine | **M5** — the operator-owned collector rule |

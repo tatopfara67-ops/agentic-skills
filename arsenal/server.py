@@ -10,6 +10,11 @@ Tool groups:
   loader     list_skills, get_skill, get_skill_reference   (progressive
              disclosure — name+description first, bodies on demand)
   governance scope_check, auth_status                      (R0/L1)
+  vault      payload_release, payload_vault_status        (the weapons
+             vault — A19e: one versioned corpus entry to one
+             scope-authorized target; instruction-override attempts
+             refused and ledgered; weaponized classes banned outright;
+             no override parameter exists)
   evidence   ledger_append, ledger_summary, ledger_read,
              ledger_merge                                   (L5)
   hypothesis hypothesis_register, hypothesis_close,
@@ -53,6 +58,7 @@ except ModuleNotFoundError:  # mcp SDK 2.x reduced mcp.server.fastmcp to a
 from arsenal.scope_gate import check_target, load_scope  # noqa: E402
 from arsenal import hypotheses as _hyp  # noqa: E402
 from arsenal import ledger, paths, sbb as _sbb  # noqa: E402
+from arsenal import payload_gate as _vault  # noqa: E402
 from arsenal.tools import arsenal_route as _route  # noqa: E402
 from arsenal.tools import dossier as _dossier  # noqa: E402
 from arsenal.tools import jsrecon as _jsrecon  # noqa: E402
@@ -181,6 +187,36 @@ def auth_status() -> dict:
         "policy": "deny-by-default; active tools require in_scope; "
                   "every row must cite an auth artifact",
     }
+
+
+# ------------------------------------------------------------ vault
+
+@mcp.tool()
+def payload_release(program: str, entry_id: str, target: str,
+                    operator_note: str = "") -> dict:
+    """Release ONE versioned corpus entry to a scope-authorized target.
+
+    The weapons vault (A19e). Refusal order, all ledgered: jailbreak
+    scan of every caller string -> corpus resolution (unknown ids
+    never release) -> banned-class ban (weaponized classes have no
+    door) -> deny-by-default scope check. One entry per call; the
+    released bytes are the corpus's bytes, never hand-crafted."""
+    result = _vault.release_payload(entry_id, target,
+                                     operator_note=operator_note)
+    ledger.append(_norm_program(program), "payload_release",
+                  "release %s -> %s" % (entry_id, target),
+                  result.reason, "", result.ledger_tag,
+                  "tier %s, corpus %s %s" % (result.tier, result.organ,
+                                             result.corpus_version))
+    return result.as_dict()
+
+
+@mcp.tool()
+def payload_vault_status() -> dict:
+    """Inspect-only vault posture: tier counts per organ, banned and
+    jailbreak pattern counts, the release policy. No probe bytes
+    leave through this tool."""
+    return _vault.vault_status()
 
 
 # -------------------------------------------------------------- evidence

@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.21.2
+version: 1.21.3
 type: ai-skill
 architecture: package
 description: >-
@@ -156,7 +156,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.21.2 — The Master Charter
+# skill-mythos v1.21.3 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -258,7 +258,11 @@ machine-readable form is returned by `mythos_charter()`. Routing form:
     shapes stay labeled derivation rows, and the corpus grows only by
     transcribed, attributed entries with `corpus_version` bumped — the
     carried set is locked by test_payload_kit_depth and the covered
-    organ set grows only by execution.
+    organ set grows only by execution; the extreme tier releases
+    only through the payload gate (`payload_release`, the weapons
+    vault) — scope-authorized target, instruction-override attempts
+    refused and ledgered, weaponized classes banned outright, no
+    override parameter in the gate's surface.
 
 ## 2. The Bundle at a Glance
 

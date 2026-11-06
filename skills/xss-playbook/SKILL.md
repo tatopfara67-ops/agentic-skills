@@ -1,6 +1,6 @@
 ---
 name: xss-playbook
-version: 2.6.0
+version: 2.7.0
 type: ai-skill
 architecture: package
 description: >-
@@ -24,7 +24,14 @@ description: >-
   JS code-position, and HTML comment classes enter the versioned
   corpus (corpus.json 1.1.0) — every context class the grammar table
   names now resolves to a byte-exact corpus entry instead of forcing
-  the hand-crafting the corpus discipline forbids. Use when the operator
+  the hand-crafting the corpus discipline forbids. Since v2.7.0 the
+  extreme mutation class rides the weapons vault (A19): the
+  namespace-confusion mXSS vector (XSS-016, the form-pointer reset +
+  MathML mtext/mglyph/style reparse, transcribed from the discoverer's
+  own writeup) joins corpus 1.2.0, and extreme-tier bytes release only
+  through the arsenal's `payload_release` gate — scope-authorized
+  target, instruction-override attempts refused and ledgered,
+  weaponized classes banned from the corpus outright. Use when the operator
   asks to test reflected
   or stored XSS, analyze a sink context, draft context-safe payloads, check
   CSP impact, or trace DOM source-to-sink flows ("tes XSS", "reflected",
@@ -38,7 +45,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# xss-playbook v2.6.0 — Context First, Marker Always, Mutation Counts
+# xss-playbook v2.7.0 — Context First, Marker Always, Mutation Counts
 
 ## 0. What This Skill Is — and Is Not
 
@@ -212,6 +219,7 @@ stay versioned in corpus.json).
 | Bundle source-to-sink tracing | `js_analyze` artifacts (js-recon organ) |
 | Recording marker observations | `ledger_append` (CANARY, citing operator-captured artifact) |
 | Registering sink surfaces | `dossier_add` (surface-cartographer) |
+| Extreme-tier corpus release (XSS-016) | `payload_release` (the weapons vault — jailbreak scan, corpus resolution, banned-class ban, scope check) |
 
 ## 6. Reference Library (load on demand)
 

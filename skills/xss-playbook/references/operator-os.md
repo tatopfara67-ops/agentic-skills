@@ -92,6 +92,7 @@ modes, and source per entry):
 | raw-text/comment row | script raw-text breakout; HTML comment `-->` breakout | XSS-005 / XSS-015 |
 | navigational row | permitted scheme + marker fragment; `javascript:` only as the recorded hypothesis | XSS-006 |
 | mutation row | context-switch + re-serialization probes: noscript, foreignObject re-serialization, MathML namespace confusion, comment nesting | XSS-007..010 (mXSS) |
+| extreme mutation row | the namespace-confusion vector itself — form-pointer reset + MathML mtext/mglyph/style reparse (DOMPurify 2.0.17 bypass, transcribed verbatim); releases through the weapons vault (`payload_release`) | XSS-016 |
 | clobber row | named-element collision with a trusted global (target-derived ids — a derivation row) | mxss-and-clobber.md class rows |
 | marker harness row | the MYTHOS-XSS-<hex> marker pair (payload-marker ↔ observed-marker) | contexts.md marker discipline (R4) |
 

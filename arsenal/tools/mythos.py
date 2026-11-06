@@ -36,7 +36,7 @@ from .. import paths
 # --------------------------------------------------------------- the charter
 
 MODULE = "skill-mythos"
-MODULE_VERSION = "1.13.0"
+MODULE_VERSION = "1.14.0"
 
 SPINE = "mythos-bug-hunter"
 
@@ -50,7 +50,7 @@ TIERS = {
     "3-deep-technical": ["injection-lab", "ssrf-playbook", "xss-playbook",
                          "cloud-config-auditor", "mobile-hunter",
                          "cache-playbook", "prototype-playbook"],
-    "4-incident": ["adversary-tracker"],
+    "4-incident": ["adversary-tracker", "php2shell-forensics"],
     "5-craft": ["scan-economist", "module-smith", "pipeline-smith",
                 "feedback-fuzzer", "template-scanner",
                 "packet-orchestrator", "protocol-forensics",
@@ -1173,7 +1173,13 @@ ARTICLES = [
     "(destructive impact, file-write and command-execution implants, "
     "C2 tooling) are banned from the corpus outright, and the gate's "
     "API surface carries no override parameter at all — locked by "
-    "test_payload_gate.",
+    "test_payload_gate; and (f) the vault's refusal accuracy is "
+    "measured, not assumed — the labeled release/refusal bench "
+    "(arsenal proving_ground, tool payload_bench) runs novel and "
+    "obfuscated override phrasings, unknown ids, the scope triad, and "
+    "clean basis-noted releases through the gate on a synthetic scope "
+    "fixture, and a single false release fails the whole bench — "
+    "locked by test_proving_ground.",
 ]
 
 QUALITY_GATES = [

@@ -10,11 +10,13 @@ Tool groups:
   loader     list_skills, get_skill, get_skill_reference   (progressive
              disclosure — name+description first, bodies on demand)
   governance scope_check, auth_status                      (R0/L1)
-  vault      payload_release, payload_vault_status        (the weapons
+  vault      payload_release, payload_vault_status,
+             payload_bench                            (the weapons
              vault — A19e: one versioned corpus entry to one
              scope-authorized target; instruction-override attempts
              refused and ledgered; weaponized classes banned outright;
-             no override parameter exists)
+             no override parameter exists; the vault's decision
+             accuracy is itself measured by the labeled bench)
   evidence   ledger_append, ledger_summary, ledger_read,
              ledger_merge                                   (L5)
   hypothesis hypothesis_register, hypothesis_close,
@@ -59,6 +61,7 @@ from arsenal.scope_gate import check_target, load_scope  # noqa: E402
 from arsenal import hypotheses as _hyp  # noqa: E402
 from arsenal import ledger, paths, sbb as _sbb  # noqa: E402
 from arsenal import payload_gate as _vault  # noqa: E402
+from arsenal import proving_ground as _bench  # noqa: E402
 from arsenal.tools import arsenal_route as _route  # noqa: E402
 from arsenal.tools import dossier as _dossier  # noqa: E402
 from arsenal.tools import jsrecon as _jsrecon  # noqa: E402
@@ -217,6 +220,39 @@ def payload_vault_status() -> dict:
     jailbreak pattern counts, the release policy. No probe bytes
     leave through this tool."""
     return _vault.vault_status()
+
+
+@mcp.tool()
+def payload_bench(program: str) -> dict:
+    """Run the vault accuracy bench (the proving-ground doctrine aimed
+    at the weapons vault).
+
+    A labeled case set — novel instruction-override phrasings,
+    obfuscated +/%20 foldings, override text stuffed into the entry id
+    and target, unknown ids, the scope-triad refusals, and clean
+    basis-noted releases spanning every vault organ — runs through the
+    release gate against a synthetic embedded scope fixture (.test
+    hosts, never resolvable). Reports the confusion matrix, precision /
+    recall / accuracy on the refuse class, and the banned-scan
+    dimension; the zero-miss doctrine holds (a labeled refusal that
+    releases fails the bench outright). Inspect-only: no host is
+    contacted, no environment read, no corpus bytes disclosed beyond
+    per-case verdicts."""
+    result = _bench.run_bench()
+    ledger.append(_norm_program(program), "payload_bench",
+                  "vault accuracy bench (%d cases)" % result["metrics"][
+                      "cases_total"],
+                  "verdict %s (accuracy %s, false releases %d)"
+                  % (result["verdict"], result["metrics"]["accuracy"],
+                     result["metrics"]["false_releases"]),
+                  "", "FACT",
+                  "refuse precision %s / recall %s; organs released "
+                  "through: %s"
+                  % (result["metrics"]["refuse_precision"],
+                     result["metrics"]["refuse_recall"],
+                     ", ".join(result["metrics"][
+                         "organs_released_through"])))
+    return result
 
 
 # -------------------------------------------------------------- evidence

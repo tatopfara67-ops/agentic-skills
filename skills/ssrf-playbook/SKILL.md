@@ -1,6 +1,6 @@
 ---
 name: ssrf-playbook
-version: 1.4.0
+version: 1.5.0
 type: ai-skill
 architecture: package
 description: >-
@@ -19,7 +19,16 @@ description: >-
   localhost, zero-forms, in-127/8, the own-domain-resolves row) and the
   IPv6 bracket family enter the versioned corpus (corpus.json 1.1.0) —
   the scheme matrix's named rows now resolve to byte-exact entries
-  instead of prose descriptions. Use when the operator
+  instead of prose descriptions. Since v1.5.0 the extreme tier rides
+  the weapons vault (A19e): the credential-bearing metadata seams —
+  the AWS IMDSv2 session-token dance (SSRF-013, PUT + TTL header
+  through the sink) and the Azure managed-identity access-token
+  retrieval (SSRF-014, the Metadata: true gate) — join corpus 1.2.0,
+  and extreme-tier bytes release only through the arsenal's
+  `payload_release` gate: instruction-override attempts refused and
+  ledgered, weaponized classes banned outright, one scope-authorized
+  target per call, and the gate's decision accuracy itself measured by
+  the labeled bench (`payload_bench`). Use when the operator
   asks to test SSRF, check a URL-fetch parameter, map egress from a target,
   trace redirect-based SSRF, or probe cloud metadata reachability ("tes SSRF",
   "url fetch", "internal request", "egress mapping", "metadata endpoint",
@@ -31,7 +40,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+; operator-owned interaction/callback host
 ---
 
-# ssrf-playbook v1.4.0 — Prove The Channel, Not The Gossip
+# ssrf-playbook v1.5.0 — Prove The Channel, Not The Gossip
 
 ## 0. What This Skill Is — and Is Not
 
@@ -119,6 +128,13 @@ credentials/RCE handed to chain-architect as candidates, not asserted).
    scope row must name the platform AND permit internal-address probing
    before any metadata-path request runs; otherwise this step is parked
    with a note (the gate is policy, the parking is honesty).
+   Extreme-tier corpus classes (the IMDSv2 token dance SSRF-013, the
+   Azure managed-identity token SSRF-014) release through the weapons
+   vault — `payload_release(program, "SSRF-013", target, note)` — the
+   gate scans every caller string for instruction-override attempts,
+   resolves the entry in the versioned corpus, and refuses unscoped
+   targets; the released bytes are the corpus's bytes, never
+   hand-crafted.
 6. **Bounded internal reach:** at most a small set of named, hypothesized
    internal services (from evidence: error messages, config artifacts,
    response headers) — one request each, markers where possible. No sweeps.
@@ -146,13 +162,15 @@ credentials/RCE handed to chain-architect as candidates, not asserted).
 | Operator interaction-host setup | operator-owned; full procedure in `references/canary-callback.md` |
 | Recording callbacks (from operator log) | `ledger_append` (CANARY) |
 | Registering URL-fetch surfaces | `dossier_add` (surface-cartographer) |
+| Extreme-tier corpus release (SSRF-013/014) | `payload_release` (the weapons vault — jailbreak scan, corpus resolution, banned-class ban, scope check) |
+| Vault accuracy re-verification | `payload_bench` (the labeled release/refusal bench) |
 
 ## 5. Reference Library (load on demand)
 
 | Load when… | Module |
 | --- | --- |
 | Setting up the callback host / interpreting callbacks | `references/canary-callback.md` |
-| Exact bypass payloads (scheme handlers, IP notations, IPv6 and loopback name families, redirect/rebinding, cloud metadata endpoints, parser confusion), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact bypass payloads (scheme handlers, IP notations, IPv6 and loopback name families, redirect/rebinding, cloud metadata endpoints incl. the IMDSv2 token dance and the Azure managed-identity token, parser confusion), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus, 1.2.0; extreme-tier entries release through `payload_release`) |
 | Grading the callback habit, running the ladder and map, capping impact | `references/method-upgrade.md` |
 
 The corpus is versioned (`corpus_version`) and every entry carries its

@@ -1,12 +1,12 @@
 # mythos-arsenal
 
-The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **32 scope-gated tools** — including the weapons vault (`payload_release`: extreme-tier corpus bytes leave only to scope-authorized targets, instruction-override attempts refused and ledgered, weaponized classes banned outright) that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts (append-only ledger, the v4.7.0 hypothesis rail, closure gates), the glm-self-model engine manual, and the organ skills — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
+The MCP execution layer for this repo's skill stack: `arsenal/server.py` (FastMCP) serves **33 scope-gated tools** — including the weapons vault (`payload_release`: extreme-tier corpus bytes leave only to scope-authorized targets, instruction-override attempts refused and ledgered, weaponized classes banned outright) and its accuracy bench (`payload_bench`: the labeled release/refusal case set scored against the gate, zero-false-release verdict) — that execute the skill-mythos charter, the mythos-bug-hunter spine's contracts (append-only ledger, the v4.7.0 hypothesis rail, closure gates), the glm-self-model engine manual, and the organ skills — under one authorization registry ([`scope.csv`](../scope.csv), deny-by-default) and one append-only evidence ledger. `doctrine_forge` (A13) expands any operator instruction, however terse, into an explicit doctrine order before any organ acts.
 
 The bundle's identity and quality standard live in [skills/skill-mythos/SKILL.md](../skills/skill-mythos/SKILL.md); the assimilated lineage registry (33 entries, corrections on record) is served by the `mythos_lineages` tool. Designed as **spine + organs**: `mythos-bug-hunter` stays the single discipline layer (ledger, hypothesis grammar, closure gates — mechanized since v4.7.0); every other skill is an organ that plugs into one of its phases and inherits its contracts instead of duplicating them.
 
 ## Skill index
 
-The phase-routing view; the full 43-bundle catalog with versions is the
+The phase-routing view; the full 44-bundle catalog with versions is the
 root `README.md`'s skill catalog.
 
 | Tier | Skill | Plugs into |
@@ -29,6 +29,7 @@ root `README.md`'s skill catalog.
 | 3 | cache-playbook | Phase 3 — cache-key baseline matrix for deception/poisoning (Omer Gil + James Kettle corpus) |
 | 3 | prototype-playbook | Phase 3 — prototype pollution, DOM clobbering, postMessage: source → gadget → sink (Gareth Heyes lineage) |
 | 4 Incident branch | adversary-tracker | event-triggered, any phase — the Shimomura Binary Brain: freeze, halve, two-channel fix, handoff |
+| 4 | php2shell-forensics | event-triggered — the php2shell assessment arc (CVE-2026-109618/109619): hidden-PHP inventory, SAPI triage, the four passive disclosure signals, the convergent behavioral hunt, patch verification |
 | 5 Craft lineage | scan-economist | Fyodor — scan economy: cost hierarchy, priors, adaptive timing |
 | 5 | module-smith | HD Moore — hypotheses as rankable modules; access/impact proofs separate |
 | 5 | pipeline-smith | Tomnomnom — Unix recon pipelines: passive first, dedupe, pattern packs |
@@ -51,13 +52,13 @@ root `README.md`'s skill catalog.
 | 7 Forge | lineage-smith | the assimilation factory — scored selection, complete-corpus census, the five-lens psych-read |
 | 7 | rival-playbook | corpus-vs-corpus competition — date-pinned rival census, proving-ground duel with capped wording |
 
-All 43 bundles in `skills/` pass `scripts/validate_skill.py --all`.
+All 44 bundles in `skills/` pass `scripts/validate_skill.py --all`.
 
 ## Install & wiring
 
 ```bash
 pip install "mcp>=1.2.0"        # FastMCP SDK
-python3 arsenal/server.py --selftest   # should list 32 tools
+python3 arsenal/server.py --selftest   # should list 33 tools
 ```
 
 `.mcp.json` (Claude Code / Cursor), adjusting the path:
@@ -130,10 +131,10 @@ handoff pack — lives in `examples/adversary-hunt/`.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s arsenal/tests    # 181 tests
+python3 -m unittest discover -s arsenal/tests    # 190 tests
 ```
 
-Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/canary/expired/missing-artifact, canary exfil-channel refusal), ledger append-only discipline + O(1) id minting (tail-scan with full-scan fallback, portable cross-platform lock), the v4.7.0 hypothesis rail (pre-registration refusals, three-state closure, the retrodiction guard), tool behavior against a live lab, `arsenal_route` governance + civility rate defaults, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, and the hardened report gates — including citation grounding (fabricated / misdirected / non-evidence citations fail the audit).
+Scope-gate matching (suffix/CIDR/host:port/URL-prefix/recon_only/denied/canary/expired/missing-artifact, canary exfil-channel refusal), ledger append-only discipline + O(1) id minting (tail-scan with full-scan fallback, portable cross-platform lock), the v4.7.0 hypothesis rail (pre-registration refusals, three-state closure, the retrodiction guard), tool behavior against a live lab, `arsenal_route` governance + civility rate defaults, the Binary Brain engine, the CVSS 3.1 engine, `vrt_classify` + HackerOne crosswalk, the charter payload, the lineage registry, `doctrine_forge`, the hardened report gates — including citation grounding (fabricated / misdirected / non-evidence citations fail the audit) — and the weapons vault: the release gate's structure (instruction-override refusals, banned classes, scope triad, byte-faithful corpus release across all five waves) plus the vault accuracy bench (labeled release/refusal cases, the zero-false-release verdict, the banned-scan dimension).
 
 ## Layout
 

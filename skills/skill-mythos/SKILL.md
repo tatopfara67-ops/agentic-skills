@@ -1,6 +1,6 @@
 ---
 name: skill-mythos
-version: 1.21.3
+version: 1.21.4
 type: ai-skill
 architecture: package
 description: >-
@@ -33,7 +33,10 @@ description: >-
   entries-delta note; since v1.21.1 the covered organ set grows only
   by execution — the seam organ's variation catalog (signal-smith,
   corpus SIG) joined in the second wave, the spine's coordinator kit
-  rows resolving to the organ corpora they name,
+  rows resolving to the organ corpora they name, and since v1.21.4
+  the vault's refusal accuracy is measured, not assumed — the labeled
+  release/refusal bench (arsenal proving_ground, payload_bench)
+  requires zero false releases,
   the forge tier since
   v1.10.0 — lineage-smith (the operator's doctrine as an organ: find the
   popular figures, read everything public, model the psychology and the
@@ -156,7 +159,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.3+
 ---
 
-# skill-mythos v1.21.3 — The Master Charter
+# skill-mythos v1.21.4 — The Master Charter
 
 ## 0. What This Skill Is — and Is Not
 
@@ -262,7 +265,13 @@ machine-readable form is returned by `mythos_charter()`. Routing form:
     only through the payload gate (`payload_release`, the weapons
     vault) — scope-authorized target, instruction-override attempts
     refused and ledgered, weaponized classes banned outright, no
-    override parameter in the gate's surface.
+    override parameter in the gate's surface; and the vault's refusal
+    accuracy is itself measured — the labeled release/refusal bench
+    (`arsenal/proving_ground.py`, the `payload_bench` tool) runs novel
+    and obfuscated override phrasings, unknown ids, the scope triad,
+    and clean basis-noted releases through the gate on a synthetic
+    scope fixture, and a single false release fails the whole bench
+    (locked by test_proving_ground).
 
 ## 2. The Bundle at a Glance
 

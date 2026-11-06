@@ -1,10 +1,10 @@
 <p align="center"><img src="docs/logo-lockup.png" alt="Mythos Arsenal — Agentic Security Skills"></p>
 
-**43 self-contained skill bundles that turn any AI agent into a disciplined bug-bounty specialist** — an append-only evidence ledger, pre-registered hypotheses, differential oracles, and a report auditor that refuses to ship a report with fabricated citations. For Claude Code, Z.ai, Cursor, and any MCP-driven operator.
+**44 self-contained skill bundles that turn any AI agent into a disciplined bug-bounty specialist** — an append-only evidence ledger, pre-registered hypotheses, differential oracles, and a report auditor that refuses to ship a report with fabricated citations. For Claude Code, Z.ai, Cursor, and any MCP-driven operator.
 
 Author: [tatopfara67-ops](https://github.com/tatopfara67-ops)
 
-![bundles](https://img.shields.io/badge/skill_bundles-43-informational) ![tools](https://img.shields.io/badge/MCP_tools-32-informational) ![tests](https://img.shields.io/badge/tests-181_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
+![bundles](https://img.shields.io/badge/skill_bundles-44-informational) ![tools](https://img.shields.io/badge/MCP_tools-33-informational) ![tests](https://img.shields.io/badge/tests-190_passing-2ea44f) ![doctrine](https://img.shields.io/badge/doctrine-evidence--first-8a8f98) ![license](https://img.shields.io/badge/license-MIT-8a8f98)
 
 ---
 
@@ -16,7 +16,7 @@ flowchart TD
         C["the charter"]
         E["engine manual"]
         S["the spine"]
-        O["37 organs"]
+        O["38 organs"]
         H["execution hand"]
         C --> E --> S --> O --> H
     end
@@ -68,11 +68,11 @@ An **organ stack** for authorized pentest, bug bounty, and security research. In
 
 | Layer | Bundle | What it contributes |
 |---|---|---|
-| Charter | [skill-mythos](skills/skill-mythos/) v1.21.3 | The nineteen articles (A16 method over mythology, A17 behavior over biography, A18 the opening ladder — perception as a candidate-generation drill before verification, A19 the payload corpus depth law — every payload kit row resolves to a byte-exact versioned corpus entry, and the extreme tier releases only through the weapons vault: instruction-override attempts refused and ledgered, weaponized classes banned outright, no override parameter in the gate's surface), the tiered bundle map (tiers 0–7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). The full binding text of the articles lives in references/charter.md — the routing layer stays lean (locked by test_charter_full_text_lives_in_references). Loads first, hunts nothing. |
+| Charter | [skill-mythos](skills/skill-mythos/) v1.21.4 | The nineteen articles (A16 method over mythology, A17 behavior over biography, A18 the opening ladder — perception as a candidate-generation drill before verification, A19 the payload corpus depth law — every payload kit row resolves to a byte-exact versioned corpus entry, and the extreme tier releases only through the weapons vault: instruction-override attempts refused and ledgered, weaponized classes banned outright, no override parameter in the gate's surface — and the vault's refusal accuracy is itself measured by the labeled bench), the tiered bundle map (tiers 0–7), the autonomy + execution + war doctrines, triage-grade quality gates (CVSS 3.1 + VRT/HackerOne). The full binding text of the articles lives in references/charter.md — the routing layer stays lean (locked by test_charter_full_text_lives_in_references). Loads first, hunts nothing. |
 | Engine | [glm-self-model](skills/glm-self-model/) v1.1.1 | The engine's own manual — model-class failure geometry E1–E8 and four compensation gates, written to the engine, not the operator. |
 | Spine | [mythos-bug-hunter](skills/mythos-bug-hunter/) v4.8.0 | Discipline layer: R0–R7 canon, append-only ledger, hypothesis grammar, closure gates, mission horizon. 22 reference modules + a PASS/FAIL report auditor; carries the Jason Haddix lineage layer (methodology-preservation protocol), and since v4.7.0 the Hypothesis Contract is executable — hypothesis_register / _close / _list refuse unevidenced registration, non-three-state closure, and retrodiction; since v4.8.0 the onboarding runtime ships The opening ladder (A18) — the corpus-reading questions (pin / split / rot / gate / basis / proof) that write preservation rows before any engagement state exists. |
-| Organs | 37 organ skills (tiers 1–7 below: 35 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
-| Execution hand | [arsenal/](arsenal/) | The FastMCP server: 32 scope-gated tools that execute everything above — including the weapons vault (`payload_release`: extreme-tier corpus bytes leave only to scope-authorized targets, jailbreak attempts refused and ledgered) — plus the report auditor and two self-owned labs. |
+| Organs | 38 organ skills (tiers 1–7 below: 36 hunting + 2 forge) | The expertise: recon, access logic, deep technical attacks, incident response, craft lineages, legend-tier overlays, and the forge tier that grows and positions the corpus itself. |
+| Execution hand | [arsenal/](arsenal/) | The FastMCP server: 33 scope-gated tools that execute everything above — including the weapons vault (`payload_release`: extreme-tier corpus bytes leave only to scope-authorized targets, jailbreak attempts refused and ledgered) and its accuracy bench (`payload_bench`: the labeled release/refusal case set, zero-false-release verdict) — plus the report auditor and two self-owned labs. |
 
 ## The lineage corpus
 
@@ -102,8 +102,8 @@ The engine layer documents how language models fail in this domain (failure geom
 | Out-of-scope targets probed | Deny-by-default scope gate refuses before the first request; the refusal itself is logged as a ledger record | `arsenal/scope_gate.py` · `scope.csv` · `arsenal/tests/test_scope_gate.py` |
 | Tests run first, rationale invented after | Hypotheses pre-registered with falsifiers; closure forced to CONFIRMED / FALSIFIED / INCONCLUSIVE — mechanically: registration whose motivating facts are not ledger records is refused, CONFIRMED on retrodiction (experiments pre-dating registration) is refused, INCONCLUSIVE without a Park record is refused | `arsenal/hypotheses.py` · `arsenal/tests/test_hypotheses.py` · spine canon R0–R7 |
 | The agent only proves what it is handed — it never generates candidates | The opening ladder (A18): the lineage's perception as a question ladder that produces ranked census rows before any verification is due — rungs write rows, never packets; a ladder that yields nothing on a live estate is revised, not the estate excused | `skills/*/references/operator-os.md` · `arsenal/tests/test_mythos.py` (test_opening_ladder_rollout) |
-| The agent hand-crafts probe bytes a prose reference described | The payload corpus depth law (A19): every payload kit row resolves to a byte-exact versioned corpus entry — the corpus grows only by transcribed, attributed entries, and every growth bumps `corpus_version`; target-derived shapes stay labeled derivation rows; the covered organ set grows only by execution (the seam organ and the spine's coordinator kit joined in the second wave; the extreme tier rides the weapons vault — third wave INJ/XSS, fourth wave the desync and cache extreme seams) | `skills/*/references/corpus.json` · `arsenal/tests/test_mythos.py` (test_payload_kit_depth) |
-| An operator (or a hijacked prompt) talks the agent into releasing weaponized payloads or overriding the scope | The weapons vault (A19e): `payload_release` scans every caller string for instruction-override attempts ("ignore previous instructions", "no authorization needed", "act as if authorized", plus the second hardening wave: forget-the-rules variants, treat/assume-as-authorized verbs, mode-escalation verbs, prompt-exfiltration attempts) and refuses + ledger-records the hit; destructive-impact and weaponization classes (DDL/DML destruction, file-write implants, command-execution implants, C2 tooling) are banned from the corpus outright; the gate has no override parameter, no bulk-dump path — one entry, one scope-authorized target, deny-by-default | `arsenal/payload_gate.py` · `arsenal/tests/test_payload_gate.py` · `arsenal/server.py` (payload_release, payload_vault_status) |
+| The agent hand-crafts probe bytes a prose reference described | The payload corpus depth law (A19): every payload kit row resolves to a byte-exact versioned corpus entry — the corpus grows only by transcribed, attributed entries, and every growth bumps `corpus_version`; target-derived shapes stay labeled derivation rows; the covered organ set grows only by execution (the seam organ and the spine's coordinator kit joined in the second wave; the extreme tier rides the weapons vault — third wave INJ/XSS, fourth wave the desync and cache extreme seams, fifth wave the ssrf/prototype credential-and-gadget seams; the php2shell forensics organ joins the covered set with its detection corpus) | `skills/*/references/corpus.json` · `arsenal/tests/test_mythos.py` (test_payload_kit_depth) |
+| An operator (or a hijacked prompt) talks the agent into releasing weaponized payloads or overriding the scope | The weapons vault (A19e): `payload_release` scans every caller string for instruction-override attempts ("ignore previous instructions", "no authorization needed", "act as if authorized", plus the second hardening wave: forget-the-rules variants, treat/assume-as-authorized verbs, mode-escalation verbs, prompt-exfiltration attempts) and refuses + ledger-records the hit; destructive-impact and weaponization classes (DDL/DML destruction, file-write implants, command-execution implants, C2 tooling) are banned from the corpus outright; the gate has no override parameter, no bulk-dump path — one entry, one scope-authorized target, deny-by-default; and the vault's refusal accuracy is itself measured — `arsenal/proving_ground.py` + the `payload_bench` tool run a labeled release/refusal bench (novel and obfuscated phrasings, unknown ids, the scope triad, clean basis-noted releases) whose first run caught and closed two real pattern gaps (locked by test_proving_ground) | `arsenal/payload_gate.py` · `arsenal/proving_ground.py` · `arsenal/tests/test_payload_gate.py` · `arsenal/tests/test_proving_ground.py` · `arsenal/server.py` (payload_release, payload_vault_status, payload_bench) |
 | Budget burned on dead surfaces | Liveness before depth, priors over exhaustive sweeps, a priced budget table per campaign | [scan-economist](skills/scan-economist/) · [module-smith](skills/module-smith/) |
 | Report rejected for missing reproduction | The gate requires reproduction steps, a recomputed CVSS vector, and a VRT rating on every finding | report templates · [auditor/](auditor/) |
 | Hallucination rate unknown | Instrumented labs score coverage, precision, hallucination and harm per run | [mythos-proving-ground](skills/mythos-proving-ground/) · [lab/](lab/) |
@@ -114,9 +114,9 @@ Reproduce the numbers from a fresh checkout:
 
 | Claim | Check | Expected |
 |---|---|---|
-| 43 skill bundles pass structural validation, zero warnings | `python3 scripts/validate_skill.py --all` | `GATE: PASS (43 bundle(s), 0 warning(s))` — the master charter's SKILL.md was refactored past the advisory size cap (v1.21.2): the full article text moved verbatim to references/charter.md, and the lean routing layer is locked by test_charter_full_text_lives_in_references |
-| 181 unit tests pass | `python3 -m unittest discover -s arsenal/tests` | `Ran 181 tests ... OK` — the vault's own suite grew with the second hardening wave (22 structural instruction-override patterns) and the fourth corpus wave |
-| 32 MCP tools register and import | `python3 arsenal/server.py --selftest` | `registered MCP tools (32)` |
+| 44 skill bundles pass structural validation, zero warnings | `python3 scripts/validate_skill.py --all` | `GATE: PASS (44 bundle(s), 0 warning(s))` — the master charter's SKILL.md was refactored past the advisory size cap (v1.21.2): the full article text moved verbatim to references/charter.md, and the lean routing layer is locked by test_charter_full_text_lives_in_references |
+| 190 unit tests pass | `python3 -m unittest discover -s arsenal/tests` | `Ran 190 tests ... OK` — the vault's own suite grew with the second hardening wave (22 structural instruction-override patterns), the fourth corpus wave, the fifth corpus wave (ssrf/prototype extreme + the php2shell forensics organ), and the vault accuracy bench (test_proving_ground) |
+| 33 MCP tools register and import | `python3 arsenal/server.py --selftest` | `registered MCP tools (33)` |
 | Pre-registration is mechanical | `python3 -m unittest arsenal.tests.test_hypotheses` | `OK` — registration without ledger facts, retrodiction, and Park-less INCONCLUSIVE are all refused |
 | The scope gate refuses out-of-scope targets | `python3 -m unittest arsenal.tests.test_scope_gate` | `OK` |
 | The report gate fails fabricated citations | `python3 -m unittest arsenal.tests.test_audit_report` | `OK` |
@@ -166,7 +166,7 @@ Wire it into your MCP client with [agent/mcp/wiring.json](agent/mcp/wiring.json)
 
 **4 — Read the output.** Findings come out of the ledger, not memory: every report cites R-NNN records, carries a recomputed CVSS 3.1 vector, a Bugcrowd VRT P-rating with the HackerOne crosswalk, and reproduction steps. The auditor ([auditor/](auditor/)) exits 0 or the report does not ship.
 
-Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` (order expansion) · `scope_check` (authorization) · `payload_release` (the weapons vault — extreme-tier corpus bytes to scope-authorized targets only, jailbreak attempts refused and ledgered) · `ledger_read` / `ledger_append` (evidence) · `hypothesis_register` / `hypothesis_close` (pre-registration and three-state closure, refused when unevidenced) · `cvss3_score` / `vrt_classify` (triage) · `arsenal_route` (CLI allowlist).
+Representative tools: `mythos_charter` (activation payload) · `doctrine_forge` (order expansion) · `scope_check` (authorization) · `payload_release` (the weapons vault — extreme-tier corpus bytes to scope-authorized targets only, jailbreak attempts refused and ledgered) · `payload_bench` (the vault accuracy bench — labeled release/refusal cases, zero-false-release verdict) · `ledger_read` / `ledger_append` (evidence) · `hypothesis_register` / `hypothesis_close` (pre-registration and three-state closure, refused when unevidenced) · `cvss3_score` / `vrt_classify` (triage) · `arsenal_route` (CLI allowlist).
 
 ## Skill catalog
 
@@ -176,11 +176,11 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 
 | Skill | Version | What it does |
 |---|---|---|
-| [skill-mythos](skills/skill-mythos/) | 1.21.3 | Master charter — nineteen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography, A18 the opening ladder, A19 the payload corpus depth law + the weapons-vault release gate; full binding text in references/charter.md), bundle map, autonomy + execution + war doctrines, quality gates. |
+| [skill-mythos](skills/skill-mythos/) | 1.21.4 | Master charter — nineteen articles (A13 escalation, A14 WWH registers, A15 war logic, A16 method over mythology, A17 behavior over biography, A18 the opening ladder, A19 the payload corpus depth law + the weapons-vault release gate + the vault accuracy bench; full binding text in references/charter.md), bundle map, autonomy + execution + war doctrines, quality gates. |
 | [glm-self-model](skills/glm-self-model/) | 1.1.1 | The engine layer — five truths, failure geometry E1–E8, compensation gates G1–G4; the engine grades its own manual (M1–M5). |
 | [mythos-bug-hunter](skills/mythos-bug-hunter/) | 4.8.0 | The spine — R0–R7 canon, ledger, hypothesis grammar, closure gates, mission horizon; carries the Jason Haddix lineage layer (methodology preservation: pin, split, gate, classify, prove, drift-audit), the mechanized Hypothesis Contract (register / close / list — retrodiction refused), and the A18 opening ladder (the onboarding question set that writes preservation rows first). |
 | [mythos-code-audit](skills/mythos-code-audit/) | 1.0.0 | White-box source audit — static analysis proposes, the runtime disposes. Calibrated by rediscovering CVE-2024-33663/33664. |
-| [mythos-proving-ground](skills/mythos-proving-ground/) | 1.0.0 | Ground-truth benchmark — instrumented lab, server-side triggers, scores coverage/precision/hallucination/harm. |
+| [mythos-proving-ground](skills/mythos-proving-ground/) | 1.1.0 | Ground-truth benchmark — instrumented lab, server-side triggers, scores coverage/precision/hallucination/harm; since v1.1.0 the same doctrine scores the weapons vault itself (the labeled release/refusal bench, `payload_bench`). |
 | [aas-catalog](skills/aas-catalog/) | 1.0.1 | Search & install from the Agentic Awesome Skills catalog — one reviewed skill per install, risk-gated. |
 
 ### Tier 1 — Recon & Mapping (5)
@@ -206,18 +206,19 @@ Every person-lineage organ (30 hunting organs + the spine) ships two layers: the
 | Skill | Version | What it does |
 |---|---|---|
 | [injection-lab](skills/injection-lab/) | 1.5.0 | Injection differential oracles — sqlmap runs as oracle only, census before any battery; the corpus carries the NoSQL, command, and SSTI detection families, and the extreme tier (MSSQL stacked-WAITFOR time-based differential, INJ-016) rides the weapons vault (A19). |
-| [ssrf-playbook](skills/ssrf-playbook/) | 1.4.0 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder; loopback-name and IPv6 families in the corpus (A19). |
+| [ssrf-playbook](skills/ssrf-playbook/) | 1.5.0 | SSRF channel proofs via canary callbacks, bounded egress checks; the four-rung channel ladder; loopback-name and IPv6 families in the corpus (A19); the credential-bearing metadata seams (IMDSv2 token dance, Azure managed-identity token) behind the weapons vault (A19e). |
 | [xss-playbook](skills/xss-playbook/) | 2.7.0 | Sink-context analysis, marker proofs, the mXSS layer; the context-first opening ladder (Mario Heiderich lineage); every grammar-table context class corpus-backed, and the extreme mutation class (namespace-confusion mXSS, XSS-016) rides the weapons vault (A19). |
 | [cloud-config-auditor](skills/cloud-config-auditor/) | 2.4.0 | CORS matrix, anonymous storage, takeover checks as code; where-drift-is-born ladder (Prowler / de la Fuente lineage). |
 | [mobile-hunter](skills/mobile-hunter/) | 1.3.0 | Mobile teardown — the shipped APK/IPA read before the device is touched; the confession opening ladder (Charlie Miller lineage). |
 | [cache-playbook](skills/cache-playbook/) | 1.6.0 | Cache deception & poisoning — the cache-key baseline matrix; the disagreement-first opening ladder (Omer Gil + James Kettle corpus); the delimiter second edition in the corpus (A19); the smuggled poison and deception chains behind the weapons vault (A19e). |
-| [prototype-playbook](skills/prototype-playbook/) | 1.5.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink; the merge-surface-first opening ladder (Gareth Heyes lineage); clobber probe families and the postMessage shell in the corpus (A19). |
+| [prototype-playbook](skills/prototype-playbook/) | 1.6.0 | Prototype pollution, DOM clobbering, postMessage confusion — source → gadget → sink; the merge-surface-first opening ladder (Gareth Heyes lineage); clobber probe families and the postMessage shell in the corpus (A19); the browser gadget seams (fetch body default, GTM sequence eval) behind the weapons vault (A19e). |
 
-### Tier 4 — Incident Branch (1)
+### Tier 4 — Incident Branch (2)
 
 | Skill | Version | What it does |
 |---|---|---|
 | [adversary-tracker](skills/adversary-tracker/) | 1.3.0 | Event-triggered hunts — the Shimomura Binary Brain: halving loop, two-channel confirmation, audited handoff; the A18 opening ladder writes sensor / baseline / null / correlation / freeze / quarantine rows before any traffic is generated. |
+| [php2shell-forensics](skills/php2shell-forensics/) | 1.0.0 | Live-event incident forensics — the php2shell assessment arc (CVE-2026-109618/109619, PHP core memory safety, disclosed 2026-10-21): hidden-PHP inventory, version/SAPI triage (mod_php highest risk), the four passive disclosure signals (PHPSESSID cookie oracle), the convergent behavioral hunt, planted-script forensics, patch verification — detection corpus byte-exact from Wiz/Elastic/Huntress/the php-src advisories. |
 
 ### Tier 5 — Craft Lineages (10)
 

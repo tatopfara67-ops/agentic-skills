@@ -177,4 +177,10 @@ returned by `mythos_charter()` (arsenal/tools/mythos.py ARTICLES).
     weaponized classes (destructive impact, file-write and
     command-execution implants, C2 tooling) are banned from the
     corpus outright, and the gate's API surface carries no override
-    parameter at all — locked by test_payload_gate.
+    parameter at all — locked by test_payload_gate. And the vault's
+    refusal accuracy is itself measured, not assumed (f): the labeled
+    release/refusal bench (arsenal proving_ground, the payload_bench
+    tool) runs novel and obfuscated override phrasings, unknown ids,
+    the scope triad, and clean basis-noted releases through the gate
+    on a synthetic scope fixture, and a single false release fails the
+    whole bench — locked by test_proving_ground.

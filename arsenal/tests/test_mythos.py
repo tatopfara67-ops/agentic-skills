@@ -182,11 +182,13 @@ class TestMythosCharter(unittest.TestCase):
 
     def test_tier_registry_lists_all_organs(self):
         tiers = self.charter["tiers"]
-        self.assertEqual(sum(len(v) for v in tiers.values()), 39)
+        self.assertEqual(sum(len(v) for v in tiers.values()), 40)
         self.assertEqual(tiers["0-engine"], {"glm-self-model": True})
         self.assertEqual(tiers["0-master"], {"skill-mythos": True})
         self.assertEqual(sorted(tiers["7-forge"]),
                          ["lineage-smith", "rival-playbook"])
+        self.assertEqual(sorted(tiers["4-incident"]),
+                         ["adversary-tracker", "php2shell-forensics"])
         self.assertEqual(sorted(tiers["3-deep-technical"]), [
             "cache-playbook", "cloud-config-auditor", "injection-lab",
             "mobile-hunter", "prototype-playbook", "ssrf-playbook",
@@ -423,7 +425,7 @@ class TestMythosLineages(unittest.TestCase):
     def test_payload_kit_depth(self):
         """A19's lock: the payload organs' corpora carry the
         deepened classes — corpus_version 1.1.0 on record (1.2.0 on the
-        two vault-wave organs), the new
+        vault-wave organs), the new
         entry ids present, every entry schema-complete (probe, oracle,
         failure modes, attributed source), and every FAMILY-id
         citation in the organ's markdown resolves to a real corpus
@@ -439,18 +441,30 @@ class TestMythosLineages(unittest.TestCase):
         fourth wave extends the vault to the desync and cache organs
         (DS-013/014, CACHE-011/012 — the H2.TE downgrade, the 0.CL
         early-response gadget seam, the smuggled poison and deception
-        chains, same gate, same discipline)."""
+        chains, same gate, same discipline); the fifth wave carries the
+        ssrf/prototype credential-and-gadget seams (SSRF-013/014 — the
+        IMDSv2 token dance and the Azure managed-identity token;
+        PP-013/014 — the browser fetch-body default and the GTM
+        sequence gadget) and the live-event php2shell forensics organ
+        joins the covered set (P2S-001..008, corpus 1.0.0 — the
+        CVE-2026-109618/109619 assessment arc)."""
         organs = {
             "xss-playbook": ("XSS", ["XSS-012", "XSS-013", "XSS-014",
                                      "XSS-015", "XSS-016"]),
             "injection-lab": ("INJ", ["INJ-011", "INJ-012", "INJ-013",
                                       "INJ-014", "INJ-015", "INJ-016"]),
-            "ssrf-playbook": ("SSRF", ["SSRF-011", "SSRF-012"]),
+            "ssrf-playbook": ("SSRF", ["SSRF-011", "SSRF-012",
+                                      "SSRF-013", "SSRF-014"]),
             "desync-hunter": ("DS", ["DS-010", "DS-011", "DS-012",
                                      "DS-013", "DS-014"]),
             "cache-playbook": ("CACHE", ["CACHE-010", "CACHE-011",
                                        "CACHE-012"]),
-            "prototype-playbook": ("PP", ["PP-011", "PP-012"]),
+            "prototype-playbook": ("PP", ["PP-011", "PP-012",
+                                        "PP-013", "PP-014"]),
+            "php2shell-forensics": ("P2S", ["P2S-001", "P2S-002",
+                                          "P2S-003", "P2S-004",
+                                          "P2S-005", "P2S-006",
+                                          "P2S-007", "P2S-008"]),
             "signal-smith": ("SIG", ["SIG-001", "SIG-002", "SIG-003",
                                      "SIG-004", "SIG-005", "SIG-006",
                                      "SIG-007", "SIG-008", "SIG-009",
@@ -467,8 +481,11 @@ class TestMythosLineages(unittest.TestCase):
                                 "xss-playbook": "1.2.0",
                                 "injection-lab": "1.2.0",
                                 "desync-hunter": "1.2.0",
-                                "cache-playbook": "1.2.0"}.get(organ,
-                                                               "1.1.0")
+                                "cache-playbook": "1.2.0",
+                                "ssrf-playbook": "1.2.0",
+                                "prototype-playbook": "1.2.0",
+                                "php2shell-forensics": "1.0.0"}.get(
+                                    organ, "1.1.0")
             self.assertEqual(corpus["corpus_version"], expected_version,
                              "%s: corpus_version not bumped" % organ)
             ids = {e["id"] for e in corpus["entries"]}

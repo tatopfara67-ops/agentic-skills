@@ -46,7 +46,8 @@ JAILBREAK_PATTERNS = tuple(re.compile(p, re.IGNORECASE) for p in (
     r"override\s+(the\s+)?(scope|authorization|gate|rules|safety|guard)",
     r"no\s+(authorization|scope|permission)\s+(is\s+)?"
     r"(needed|required|necessary)",
-    r"pretend\s+(that\s+)?(you\s+(are|'re)\s+)?(authorized|approved|"
+    r"pretend\s+(that\s+)?(you\s+(are|'re)\s+|you're\s+|youre\s+)?"
+    r"(authorized|approved|"
     r"scoped|allowed)",
     r"act\s+as\s+if\s+(you('re| are)\s+)?(authorized|scoped|allowed)",
     r"you\s+are\s+now\s+(in\s+)?(developer|god|dan|unrestricted|admin|"
@@ -63,9 +64,14 @@ JAILBREAK_PATTERNS = tuple(re.compile(p, re.IGNORECASE) for p in (
     r"(?!\s*(by|under|via|per)\s)",
     # --- second hardening wave: forget-verbs, pretended-authorization
     # verbs, mode-escalation verbs, prompt-exfiltration attempts ------
+    # (third hardening pass, found by the vault accuracy bench: the
+    # forget family also matches noun-before-positional order, e.g.
+    # "forget the context above")
     r"forget\s+(all\s+|any\s+|everything\s+|the\s+)?"
-    r"(previous|prior|above|earlier|initial)\s+"
-    r"(instructions|rules|directives|constraints|prompts|context)",
+    r"((previous|prior|above|earlier|initial)\s+"
+    r"(instructions|rules|directives|constraints|prompts|context)|"
+    r"(instructions|rules|directives|constraints|prompts|context)\s+"
+    r"(above|earlier|before))",
     r"forget\s+(everything|all|anything)\s+"
     r"(you('ve| have)\s+been\s+told|above|before\s+now)",
     r"treat\s+(this|it|that|me|us)\s+as\s+"

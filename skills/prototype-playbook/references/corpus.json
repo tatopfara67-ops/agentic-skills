@@ -2,7 +2,7 @@
   "corpus": "PP",
   "organ": "prototype-playbook",
   "vuln_class": "prototype_pollution",
-  "corpus_version": "1.1.0",
+  "corpus_version": "1.2.0",
   "house_rules": [
     "No-DoS law (organ doctrine, from Heyes' black-box detection research): every server-side probe below is a HARMLESS property write whose only footprint is an observable response difference - crash-style probes (polluting toString/valueOf on hot paths) are forbidden.",
     "The hunting order is source -> gadget -> sink: a source alone is an informational FACT; the finding is the chain.",
@@ -205,6 +205,46 @@
         "credit": "the organ's probe table, labeled (object-model-attacks.md §4); the postMessage bug class per the DOM Invader record (Heyes)",
         "title": "object-model-attacks.md §4 (the self-owned-both-ends probe); DOM Invader documentation",
         "url": "https://portswigger.net/burp/documentation/desktop/tools/dom-invader"
+      }
+    },
+    {
+      "id": "PP-013",
+      "technique": "browser fetch-API gadget (Object.prototype.body default)",
+      "prerequisites": [
+        "client-side pollution source confirmed on the page (PP-001 family)",
+        "page code calls fetch() with an options object whose body is not an own property — the inherited default travels with the request"
+      ],
+      "probe": "Object.prototype.body = \"foo=bar\"; fetch('/', {method:\"POST\"})",
+      "oracle": "the fetch lands as a POST carrying the inherited body default — observed on an operator-owned collector route: the gadget read resolved through the prototype chain and reached the network call; the engagement form writes a benign operator marker as the body, never the record's demonstration string alone",
+      "failure_modes": [
+        "the page sets body explicitly on every fetch — own-property shadow kills the gadget read; the gadget is dead at that call site",
+        "the options are rebuilt by a wrapper that copies into a fresh object — the inherited default never travels; version-pin the wrapper",
+        "boundary law: once the gadget feeds a DOM sink instead of fetch, the sink grammar belongs to xss-playbook (PP-009's hand-off)"
+      ],
+      "source": {
+        "credit": "Gareth Heyes / PortSwigger Research",
+        "title": "Widespread prototype pollution gadgets (browser API gadgets)",
+        "url": "https://portswigger.net/research/widespread-prototype-pollution-gadgets"
+      }
+    },
+    {
+      "id": "PP-014",
+      "technique": "GTM sequence gadget (eval-family sink, query-string source)",
+      "prerequisites": [
+        "client-side pollution source in the URL query (PP-001 family)",
+        "the page runs Google Tag Manager with a sequence-configured container — the sequence value reaches an eval-family sink"
+      ],
+      "probe": "https://es.wordpress.org/patterns/?__proto__%5Bsequence%5D=alert%28document.domain%29-",
+      "oracle": "the sequence value executes through the eval-family sink — the published record demonstrates alert(document.domain)- on the WordPress patterns site; the engagement probe substitutes a benign operator-owned marker for the alert form before sending (the canary law applies to the demonstration string too)",
+      "failure_modes": [
+        "GTM absent or the container never reads sequence — the gadget read is dead code on this page; park the row with the version-pinned tag inventory",
+        "URL encoding is part of the byte record: %5B/%5D brackets and %28/%29 parens — the decoded form is a different probe through parsers that normalize; test the encoded form first, it is the record",
+        "the source is a query-string source — hash-fragment routing pages need the # form of PP-001, not this row"
+      ],
+      "source": {
+        "credit": "Gareth Heyes / PortSwigger Research",
+        "title": "Widespread prototype pollution gadgets (GTM sequence gadget)",
+        "url": "https://portswigger.net/research/widespread-prototype-pollution-gadgets"
       }
     }
   ]

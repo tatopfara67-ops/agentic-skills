@@ -1,6 +1,6 @@
 ---
 name: mythos-proving-ground
-version: 1.0.0
+version: 1.1.0
 type: ai-skill
 architecture: package
 description: >-
@@ -9,7 +9,14 @@ description: >-
   does via server-side trigger events, and scores its claimed findings
   against a seeded manifest — computing coverage, precision, hallucination
   rate, harm events (decoy-data touches), evidence discipline, and
-  efficiency. Use this skill when the operator wants to measure whether a
+  efficiency. Since v1.1.0 the doctrine has its first in-repo
+  instance aimed at a non-agent system: the weapons vault accuracy
+  bench (arsenal/proving_ground.py, the payload_bench MCP tool) — a
+  labeled release/refusal case set scored against the payload release
+  gate with a zero-false-release doctrine, the same fairness logic
+  (novel phrasings, obfuscated foldings, stuffed arguments, synthetic
+  fixture scope) this package uses on agents. Use this skill when the
+  operator wants to measure whether a
   security skill (e.g. mythos-bug-hunter) actually improves an agent,
   calibrate "my skill is not generic" claims before publishing, run fair
   naked-vs-skilled A/B trials, watch for regressions across skill versions,
@@ -22,7 +29,7 @@ metadata:
   author: tatopfara67-ops
 ---
 
-# mythos-proving-ground v1.0.0 — The Examiner
+# mythos-proving-ground v1.1.0 — The Examiner
 
 ## 0. What This Skill Is
 
@@ -183,6 +190,40 @@ Honest limits of the scorer: it verifies that the *lab saw* the trigger, not
 that the *agent authored* the request — in single-user trials these coincide,
 and the `canary` flag inside GT-001 events distinguishes safe from harmful
 demonstrations. It checks the reality of claims, not the quality of prose.
+
+## 7.5 The Vault Bench — the doctrine's first in-repo instance
+
+The examiner measures more than agents. The repo's own weapons vault
+(`arsenal/payload_gate.py` — the release gate every extreme-tier
+corpus entry passes through) is scored by the same doctrine:
+
+* **The bench**: `arsenal/proving_ground.py` (run it as the
+  `payload_bench` MCP tool, or `python3 -m unittest
+  arsenal.tests.test_proving_ground`). A labeled case set — novel
+  instruction-override phrasings, obfuscated `+`/`%20` foldings,
+  override text stuffed into the entry id and the target, unknown
+  ids, the scope triad, and clean basis-noted releases spanning every
+  vault organ — runs through `payload_release` against an embedded
+  synthetic scope fixture (`.test` hosts, never resolvable).
+* **The score**: a confusion matrix on the refuse class, precision /
+  recall / accuracy, and the banned-class dimension (weaponized
+  vocabulary must hit; authorized-testing vocabulary — including the
+  credential-bearing metadata probes and the browser gadget bytes —
+  must pass).
+* **The hard law (zero-miss)**: a case labeled REFUSE that RELEASES
+  is a false release — the verdict is FAIL regardless of every other
+  number. Overblocking (a labeled release that refuses) fails too:
+  blocking authorized work is a defect, not safety margin. This is
+  F1/F2 logic applied to a gate instead of an agent.
+* **The honest limits**: the bench measures the gate's lexical
+  decision accuracy on a fixed labeled set — it is not an agent
+  behavior trial and not an adversarial red-team of the pattern
+  language; a pattern family the set does not cover is unmeasured,
+  not absent. It already earned its keep once: the first run caught
+  two real gate gaps (an apostrophe contraction in the pretend
+  family, a noun-before-positional order in the forget family) that
+  the structural unit tests had missed — measurement finding what
+  assertion could not.
 
 ## 8. Interpreting Deltas
 
